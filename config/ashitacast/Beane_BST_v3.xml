@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ashitacast>
+	<settings>
+		<buffupdate>true</buffupdate>
+		<statusupdate>true</statusupdate>
+		<hpupdate>true</hpupdate>
+		<autoupdate>true</autoupdate>
+	</settings>
+
+
+
+	<init>
+        <command>/macro book 3</command>
+		<if p_subjob="DNC"><command delay="500">/macro set 1</command></if>
+		<else><command delay="500">/macro set 1</command></else>
+   	</init>
+
+
+
+	<sets>
+		<!-- This is your idle set. The set you're in when not engaged-->
+		<!-- It's best to put in your +movespeed gear and defensives-->
+		<!-- Or whatever makes you look most like the dashing rogue you are-->
+		<set name="Resting">
+		</set>
+		
+		<set name="Idle">
+			<ammo>Voluspa Tathlum</ammo>
+			<neck>Empath Necklace</neck>
+			<head>Emicho Coronet</head>
+			<body>Tali'ah Manteel +1</body>
+			<hands>Ankusa Gloves</hands>
+			<legs>Tali'ah Sera. +2</legs>
+			<feet>Tali'ah Crackows +1</feet>
+			<waist>Hurch'lan Sash</waist>
+			<ring1>Tali'ah Ring</ring1>
+			<ring2>Meghanada Ring</ring2>
+			<back augment="S3903618542">Artio's Mantle</back>
+		</set>	
+
+		<set name="Evasion">
+			<ammo>Yamarang</ammo>
+			<head>Pill. Bonnet +2</head>
+			<body>Emet Harness +1</body>
+			<hands>Meg. Gloves +2</hands>
+			<legs>Pill. Culottes +2</legs>
+			<feet>Meg. Jam. +1</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Hurch'lan Sash</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Moonbeam Ring</ring1>
+			<ring2>Moonbeam Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+		
+		<set name="MDT" baseset="PDT">
+			<neck>Twilight Torque</neck>
+		</set>
+
+		<set name="PDT"  baseset="Idle">
+			<head>Meghanada visor +1</head>
+			<body>Tartarus Platemail</body>
+			<hands>Meg. Gloves +2</hands>
+			<legs>Meg. Chausses +2</legs>
+			<feet>Meg. Jam. +1</feet>
+			<neck>Diemer Gorget</neck>
+			<back>Impassive Mantle</back>
+			<ring1>Defending Ring</ring1>
+		</set>
+
+		<set name="TP-TP" baseset="Idle">
+			<ammo>Voluspa Tathlum</ammo>
+			<neck>Lissome Necklace</neck>
+			<head>Tali'ah Turban +2</head>
+			<body>Tali'ah Manteel +1</body>
+			<hands>Tali'ah Gages +1</hands>
+			<feet>Tali'ah Crackows +1</feet>
+			<waist>Hurch'lan Sash</waist>
+			<ear1>Steelflash earring</ear1>
+			<ear2>Bladeborn earring</ear2>
+			<ring1>Tali'ah Ring</ring1>
+			<ring2>Meghanada Ring</ring2>
+			<back augment="S4439533660416118574">Artio's Mantle</back>
+		</set>
+		
+		<!-- PDT gear with pet while engaged, use with /set -->
+		<set name="TP-PDT" baseset="TP-TP">
+			<neck>Empath Necklace</neck>
+			<legs>Tali'ah Sera. +2</legs>
+			<back augment="S3903618542">Artio's Mantle</back>
+		</set>
+
+		<set name="Haste">
+			<head>Skulker's Bonnet +1</head>
+			<body augment="D15444866107840">Adhemar Jacket</body>
+			<hands augment="D15444866107840">Adhemar Wristbands</hands>
+			<legs>Enif Cosciales</legs>
+			<feet augment="M1361">Plun. Poulaines +1</feet>
+			<neck>Magoraga Beads</neck>
+			<waist>Hurch'lan Sash</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Moonbeam Ring</ring2>
+			<back>Canny Cape</back>
+		</set>
+		
+		<set name="Ready" baseset="TP">
+			<ammo>Voluspa Tathlum</ammo>
+			<head>Emicho Coronet</head>
+			<body>Valorous Mail</body>
+			<legs>Despair Cuisses</legs>
+			<neck>Empath Necklace</neck>
+			<waist>Incarnation Sash</waist>
+			<back augment="S3903618542">Artio's Mantle</back>
+		</set>
+		
+		<set name="WS">
+			<head>Valorous Mask</head>
+			<body>Meg. Cuirie +1</body>
+			<hands>Meg. Gloves +2</hands>
+			<legs>Meg. Chausses +2</legs>
+			<feet>Meg. Jam. +1</feet>
+			<neck>Lissome Necklace</neck>
+			<ear1>Thrud Earring</ear1>
+			<ring1>Rajas Ring</ring1>
+			<ring2>Flame Ring</ring2>
+			<back augment="S4439533660416118574">Artio's Mantle</back>
+		</set>
+		
+		<set name="Ruinator" baseset="WS">
+		</set>
+		
+		<set name="Mistral" baseset="WS">
+		</set>
+
+		<set name="Reward">
+			<ammo>Pet Food Theta</ammo>
+			<body>Monster Jackcoat</body>
+			<feet>Monster Gaiters</feet>
+			<ear1>Ferine Earring</ear1>
+		</set>
+		
+		<set name="Call Beast">
+			<hands>Ankusa Gloves</hands>
+		</set>
+		
+		<set name="Waltz">
+			<ammo>Yamarang</ammo>
+			<head>Mummu Bonnet +1</head>
+			<body>Herculean Vest</body>
+			<hands>Macabre Gaunt.</hands>
+			<legs>Pill. Culottes +2</legs>
+			<feet augment="M1361">Plun. Poulaines +1</feet>
+			<neck>Unmoving Collar +1</neck>
+			<waist>Chaac Belt</waist>
+			<ear1>Oneiros Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Asklepian Ring</ring1>
+			<ring2>Moonbeam Ring</ring2>
+			<back>Laic Mantle</back>
+		</set>
+
+		<set name="Movement">
+		</set>
+	</sets>
+	
+	<!-- Don't fiddle with these unless you know how it works -->
+	<!-- This is how I've set up the option to have various gear sets via input commands such as /th or /eva. They all work, however they may not be coded 'optimally' so if you can clean it up, feel free -->
+	<variables>
+		<var name="Set">TP</var>
+		<var name="EvasionSetActive">0</var>
+		<var name="MDTSetActive">0</var>
+		<var name="PDTSetActive">0</var>
+		<var name="WS">0</var>
+		<var name="TP">1000</var>
+		<var name="WSname">Decimation</var>
+		<var name="Auto">0</var>
+		<var name="Samba">0</var>
+		<var name="Step">0</var>
+	</variables>
+
+	<inputcommands>
+		<cmd input="/killall">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="EvasionSetActive" value="0" />
+			<addtochat color="4">KILLED IT ALL, son!</addtochat>
+		</cmd>
+		<cmd input="/set">
+			<if advanced="$Set=TP">
+				<setvar name="Set" value="PDT" />
+				<addtochat color="4">PDT TP Set</addtochat>
+			</if>
+			<elseif advanced="$Set=PDT">
+				<setvar name="Set" value="TP" />
+				<addtochat color="4">Normal TP Set</addtochat>
+			</elseif>
+		</cmd>
+		<cmd input="/auto">
+			<if advanced="$Auto=0">
+				<setvar name="Auto" value="1" />
+				<addtochat color="4">Auto Mode Engaged</addtochat>
+			</if>
+			<elseif advanced="$Auto=1">
+				<setvar name="Auto" value="0" />
+				<addtochat color="4">Auto Mode Disengaged</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/tp">
+			<if advanced="$TP!=1000">
+				<setvar name="TP" value="1000" />
+				<addtochat color="4">AUTO TP SET TO 1000</addtochat>
+			</if>
+			<elseif advanced="$TP=1000">
+				<setvar name="TP" value="1650" />
+				<addtochat color="4">AUTO TP SET TO 1650</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/samba">
+			<if advanced="$Samba=0">
+				<setvar name="Samba" value="1" />
+				<addtochat color="4">Haste Samba</addtochat>
+			</if>
+			<elseif advanced="$Samba=1">
+				<setvar name="Samba" value="2" />
+				<addtochat color="4">Drain Samba</addtochat>				
+			</elseif>
+			<elseif advanced="$Samba=2">
+				<setvar name="Samba" value="0" />
+				<addtochat color="4">NO SAMBA</addtochat>				
+			</elseif>				
+		</cmd>
+		<cmd input="/step">
+			<if advanced="$Step=0">
+				<setvar name="Step" value="1" />
+				<command>/ja "Quickstep"</command>
+				<addtochat color="4">QUICK STEP</addtochat>
+			</if>
+			<elseif advanced="$Step=1">
+				<setvar name="Step" value="0" />
+				<command>/ja "Box Step"</command>
+				<addtochat color="4">BOX STEP</addtochat>				
+			</elseif>	
+		</cmd>
+		<cmd input="/wskill">
+			<if advanced="$WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="Decimation" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</if>
+			<elseif advanced="$WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="Ruinator" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</elseif>
+			<elseif advanced="$WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="None" />
+				<addtochat color="4">Auto WS Disabled!</addtochat>
+			</elseif>
+		</cmd>
+		<cmd input="/Dsamba">
+			<if p_joblevel="<70">
+				<command>/ja "Drain Samba"</command>
+			</if>
+			<else>
+				<command>/ja "Drain Samba II"</command>
+			</else>
+		</cmd>
+
+		<!-- Evasion set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/eva">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$EvasionSetActive=0">
+				<setvar name="EvasionSetActive" value="1" />
+				<addtochat color="4">Evasion set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="EvasionSetActive" value="0" />
+				<addtochat color="4">Evasion set disabled.</addtochat>
+			</else>
+		</cmd>
+		<!-- MDT set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/mdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+
+			<if advanced="$MDTSetActive=0">
+				<setvar name="MDTSetActive" value="1" />
+				<addtochat color="4">MDT set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="MDTSetActive" value="0" />
+				<addtochat color="4">MDT set disabled.</addtochat>
+			</else>
+		</cmd>
+		<!-- PDT set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/pdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="MDTSetActive" value="0" />
+
+			<if advanced="$PDTSetActive=0">
+				<setvar name="PDTSetActive" value="1" />
+				<addtochat color="4">PDT set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="PDTSetActive" value="0" />
+				<addtochat color="4">PDT set disabled.</addtochat>
+			</else>
+		</cmd>
+
+	</inputcommands>
+
+	
+		
+	
+	<!-- These are the rules to make all your gearsets work. -->
+	<idlegear>
+
+		<if eq_rring="Trizek Ring">
+			<equip lock="true">
+				<rring>Trizek Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Echad Ring">
+			<equip lock="true">
+				<rring>Echad Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Capacity Ring">
+			<equip lock="true">
+				<rring>Capacity Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Caliber Ring">
+			<equip lock="true">
+				<rring>Caliber Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Facility Ring">
+			<equip lock="true">
+				<rring>Facility Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Endorsement Ring">
+			<equip lock="true">
+				<rring>Endorsement Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<rring>Dim. Ring (Dem)</rring>                
+			</equip>
+		</if>
+		<if eq_lring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<lring>Dim. Ring (Dem)</lring>                
+			</equip>
+		</if>
+		<if eq_back="Mecisto. Mantle">
+			<equip lock="true">
+				<back>Mecisto. Mantle</back>                
+			</equip>
+		</if>	
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<rring>Warp Ring</rring>				
+			</equip>
+		</if>
+		<elseif eq_lring="Warp Ring">
+			<equip lock="true">
+				<lring>Warp Ring</lring>				
+			</equip>
+		</elseif>
+		<elseif p_status="resting">
+			<equip set="Resting" />
+		</elseif>
+		<elseif advanced="$EvasionSetActive=1">
+			<equip set="Evasion" />
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</elseif>
+		<elseif advanced="$MDTSetActive=1">
+			<equip set="MDT" />
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+		</elseif>
+		<elseif advanced="$PDTSetActive=1">
+			<equip set="PDT" />
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+		</elseif>
+		<else>
+			<if p_status="engaged">
+				<equip set="TP-$Set" />
+			</if>
+			<else>
+				<equip set="Idle" />
+				
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+			</else>
+		</else>
+		
+		<!--Trial AUTO MODE -->
+		<if advanced="$Auto=1">
+			<if p_status="engaged">
+				
+				<!-- AUTO SAMBAS FOR SUB DNC -->
+				<if p_subjob="DNC">
+					<if advanced="$Samba=2">
+						<!--Attempting auto Drain Samba -->
+						<if buffactive="368" /><!-- Place holder for now -->
+						<else>
+							<if p_tp=">250">
+								<command>/Dsamba</command>
+							</if>
+						</else>
+					</if>
+					<elseif advanced="$Samba=1">
+						<!--Attempting auto Haste Samba -->
+						<if buffactive="370" /><!-- Place holder for now -->
+						<else>
+							<if p_tp=">450">
+								<command>//Hastesamba</command>
+							</if>
+						</else>
+					</elseif>
+				</if>
+				
+				<!-- Auto WS, Aedge at 1000TP, all else at 1750 for now -->
+				
+				<if advanced="$WS!=0">
+					<if p_tp=">$TP">
+						<command>/ws "$WSname"</command>
+					</if>
+				</if>
+			</if>
+		</if>
+	</idlegear>
+
+	<preranged>
+		<equip set="Ranged" />
+	</preranged>
+
+	<premagic>
+		<!-- Evasion gear is equipped during Utsusemi, with Haste gear also for Ni. -->
+		<if ad_name="Utsusemi*">
+			<equip set="Evasion" />
+			<if ad_name="*Ni">
+				<equip set="Haste" />
+			</if>
+		</if>
+		<if ad_name="Monomi*|Tonko*">
+			<equip set="Haste" />
+		</if>
+		<else>
+			<equip set="Haste" />
+		</else>
+	</premagic>
+
+	<midmagic>
+		<if ad_name="Monomi*">
+			<command>/cancel 71</command>
+		</if>
+		<elseif ad_name="Utsusemi: Ichi">
+			<!-- Cancels shadows if... -->
+			<if buffactive="66"> <!-- One is shadow left -->
+				<command>/cancel 66</command>
+			</if>
+			<elseif buffactive="444"> <!-- Two shadows are left -->
+				<command>/cancel 444</command>
+			</elseif>
+			<else> <!-- Three are shadows left -->
+				<command>/cancel 445</command>
+			</else>
+		</elseif>
+		<if buffactive="71">
+			<command>/cancel 71</command>
+			<cancel />
+			<command delay="2000">/ja "%ad_name" %at_id</command>
+		</if>
+	</midmagic>
+	
+	<petskill>
+        <!--<if ad_name="Tegmina Buffet">-->
+			<equip set="Ready" />
+		<!--</if>-->
+	</petskill>
+
+	<jobability>
+		<if ad_name="Curing*">
+			<equip set="Waltz" />
+		</if>
+		<elseif ad_name="Reward">
+			<equip set="Reward" />
+		</elseif>
+		<elseif ad_name="Call Beast|Bestial Loyalty">
+			<equip set="Call Beast" />
+			<setvar name="Pet" value="1" />
+			<addtochat color="4">PET Mode Engaged</addtochat>
+		</elseif>
+		<elseif ad_name="Leave">
+			<setvar name="Pet" value="0" />
+			<addtochat color="4">PET Mode Disengaged</addtochat>
+		</elseif>
+		<if ad_name="Spectral Jig">
+			<if buffactive="71">
+				<command>/cancel 71</command>
+				<cancel />
+				<command delay="2000">/ja "%ad_name" %at_id</command>
+			</if>
+		</if>
+	</jobability>
+
+	<weaponskill>
+		<if ad_name="Ruinator">
+			<equip set="Ruinator" />
+		</if>
+		<elseif ad_name="Mistral Axe">
+			<equip set="Mistral" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+		</else>
+        <!--<if p_tp="<3000"><equip><ear1>Moonshade Earring</ear1></equip></if>-->
+	</weaponskill>
+</ashitacast>

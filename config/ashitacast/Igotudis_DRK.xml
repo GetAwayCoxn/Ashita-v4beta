@@ -1,0 +1,254 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Idle">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Nyame Helm</head>
+			<neck>Bathy Choker +1</neck>
+			<ear1>Odnowa Earring +1</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<body>Sulevia's Plate. +2</body>
+			<hands>Volte Moufles</hands>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back>Solemnity Cape</back>
+			<waist>Flume Belt +1</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Sulev. Leggings +2</feet>
+		</set>
+		<set name="Town" baseset="Idle">
+			<ammo>Coiste Bodhar</ammo>
+			<legs>Carmine Cuisses +1</legs>
+		</set>
+		<set name="TP">
+			<ammo>Coiste Bodhar</ammo>
+			<head>Flam. Zucchetto +2</head>
+			<neck>Sanctity Necklace</neck>
+			<ear1>Mache Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Heath. Cuirass +1</body>
+			<hands>Flam. Manopolas +2</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Flamma Ring</ring2>
+			<back>Ankou's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Flam. Gambieras +2</feet>
+		</set>
+		<set name="DT">
+			<head>Nyame Helm</head>
+			<feet>Nyame Sollerets</feet>
+		</set>
+		<set name="Precast">
+			<neck>Baetyl Pendant</neck>
+			<ear1>Malignance Earring</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Kishar Ring</ring2>
+			<legs>Enif Cosciales</legs>
+			<feet>Odyssean Greaves</feet>
+		</set>
+		<set name="Cure">
+		</set>
+		<set name="Enfeebling">
+		</set>
+		<set name="Enhancing">
+		</set>
+		<set name="Nuke">
+		</set>
+		<set name="Macc" baseset="Enfeebling">
+		</set>
+		<set name="Absorb" baseset="Macc">
+			<neck>Erra Pendant</neck>
+			<ring2>Kishar Ring</ring2>
+		</set>
+		<set name="Spikes">
+			<ear1>Odnowa Earring +1</ear1>
+			<body>Heath. Cuirass +1</body>
+		</set>
+		<set name="WS">
+			<ammo>Knobkierrie</ammo>
+			<head>Valorous Mask</head>
+			<neck>Fotia Gorget</neck>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Thrud Earring</ear2>
+			<!-- ATTN: body node had an invalid piece of equipment().  Node was not imported. -->
+			<hands>Valorous Mitts</hands>
+			<ring1>Rufescent Ring</ring1>
+			<ring2>Karieyh Ring</ring2>
+			<!-- ATTN: back node had an invalid piece of equipment().  Node was not imported. -->
+			<waist>Fotia Belt</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Valorous Greaves</feet>
+		</set>
+		<set name="Catastrophe" baseset="WS">
+		</set>
+		<set name="Movement">
+			<legs>Carmine Cuisses +1</legs>
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/status">
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/dt">
+			<if advanced="$u_DT=Off">
+				<setvar name="DT" value="On" />
+			</if>
+			<else>
+				<setvar name="DT" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/stance">
+			<if advanced="$u_Stance=Off">
+				<setvar name="Stance" value="Hasso" />
+			</if>
+			<elseif advanced="$u_Stance=Hasso">
+				<setvar name="Stance" value="Seigan" />
+			</elseif>
+			<else>
+				<setvar name="Stance" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/auto">
+			<if advanced="$u_Auto=Off">
+				<setvar name="Auto" value="On" />
+			</if>
+			<else>
+				<setvar name="Auto" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/tp">
+			<if advanced="$u_TP!=1000">
+				<setvar name="TP" value="1000" />
+				<echo mode="4">AUTO TP SET TO 1000</echo>
+			</if>
+			<elseif advanced="$u_TP=1000">
+				<setvar name="TP" value="1750" />
+				<echo mode="4">AUTO TP SET TO 1750</echo>
+			</elseif>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="Status" value="0" />
+		<setvar name="DT" value="Off" />
+		<setvar name="Ring" value="None" />
+		<setvar name="Stance" value="Off" />
+		<setvar name="Auto" value="Off" />
+		<setvar name="TP" value="1000" />
+		<command>/macro book 7</command>
+		<command delay="500">/macro set 10</command>
+	</load>
+
+	<default>
+		<if advanced="$u_Status=0">
+			<setvar name="Status" value="1" />
+			<echo mode="4">$p_mainjob/$p_subjob STATUS:   DT [$u_DT]   STANCE [$u_Stance]   AUTO[$u_Auto]</echo>
+		</if>
+		<if advanced="$u_DT=On">
+			<equip set="DT" />
+		</if>
+		<elseif p_status="engaged">
+			<equip set="TP" />
+		</elseif>
+		<else>
+			<equip set="Idle" />
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</else>
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip>
+				<ring2>$u_Ring</ring2>
+			</equip>
+		</if>
+		<if p_status="Engaged">
+			<if advanced="$u_Stance=Off">
+			</if>
+			<elseif advanced="$u_Stance=Hasso">
+				<if b_354=">=1">
+					<setvar name="Stance" value="Off" />
+					<echo mode="4">OVERIDE STANCE TO OFF</echo>
+				</if>
+				<elseif b_353=">=1">
+				</elseif>
+				<else>
+					<command>//Hasso</command>
+				</else>
+			</elseif>
+			<elseif advanced="$u_Stance=Seigan">
+				<if b_353=">=1">
+					<setvar name="Stance" value="Off" />
+					<echo mode="4">OVERIDE STANCE TO OFF</echo>
+				</if>
+				<elseif b_354=">=1">
+				</elseif>
+				<else>
+					<command>//Seigan</command>
+				</else>
+			</elseif>
+			<if advanced="$u_Auto=On">
+				<if p_tp=">=$u_TP">
+					<command>/ws "Catastrophe"</command>
+				</if>
+			</if>
+		</if>
+	</default>
+
+	<preranged>
+	</preranged>
+
+	<midranged>
+	</midranged>
+
+	<precast>
+		<equip set="Precast" />
+	</precast>
+
+	<midcast>
+		<if ad_type="whitemagic">
+			<if ad_type="curing">
+				<equip set="Cure" />
+			</if>
+			<elseif ad_type="enhancing">
+				<equip set="Enhancing" />
+			</elseif>
+			<elseif ad_type="enfeebling">
+				<equip set="Enfeebling" />
+			</elseif>
+		</if>
+		<elseif ad_type="blackmagic">
+			<if ad_skill="elementalmagic">
+				<equip set="Nuke" />
+			</if>
+			<elseif ad_name="*Spikes">
+				<equip set="Spikes" />
+			</elseif>
+		</elseif>
+	</midcast>
+
+	<ability>
+	</ability>
+
+	<weaponskill>
+		<if ad_name="Catastrophe">
+			<equip set="Catastrophe" />
+		</if>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+
+</ashitacast>

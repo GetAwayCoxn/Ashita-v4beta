@@ -1,0 +1,139 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Idle">
+			<main>Shining One</main>
+			<sub>Utu Grip</sub>
+			<ammo>Coiste Bodhar</ammo>
+			<head>Flam. Zucchetto +2</head>
+			<neck>Anu Torque</neck>
+			<ear1>Mache Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Gleti's Cuirass</body>
+			<hands>Flam. Manopolas +2</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Flamma Ring</ring2>
+			<back>Brigantia's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+		</set>
+		<set name="Town" baseset="Idle">
+			<head>Flam. Zucchetto +2</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Flam. Manopolas +2</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+		</set>
+		<set name="TP">
+			<sub>Utu Grip</sub>
+			<ammo>Coiste Bodhar</ammo>
+			<head>Flam. Zucchetto +2</head>
+			<neck>Anu Torque</neck>
+			<ear1>Mache Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Gleti's Cuirass</body>
+			<hands>Flam. Manopolas +2</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Flamma Ring</ring2>
+			<back>Brigantia's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+		</set>
+		<set name="DT">
+		</set>
+		<set name="WS">
+		</set>
+		<set name="Drakes" baseset="WS">
+		</set>
+		<set name="Torment" baseset="WS">
+		</set>
+		<set name="Star" baseset="WS">
+		</set>
+		<set name="Jump">
+		</set>
+		<set name="High Jump">
+		</set>
+		<set name="Spirit Jump">
+		</set>
+		<set name="Soul Jump">
+		</set>
+		<set name="Movement">
+			<legs>Carmine Cuisses +1</legs>
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/status">
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/dt">
+			<if advanced="$u_DT=Off">
+				<setvar name="DT" value="On" />
+			</if>
+			<else>
+				<setvar name="DT" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="Status" value="0" />
+		<setvar name="DT" value="Off" />
+		<setvar name="Ring" value="None" />
+		<command>/macro book 7</command>
+		<command delay="500">/macro set 1</command>
+	</load>
+
+	<default>
+		<if advanced="$u_Status=0">
+			<setvar name="Status" value="1" />
+			<echo mode="4">$p_mainjob/$p_subjob STATUS:   DT [$u_DT]</echo>
+		</if>
+		<if advanced="$u_DT=On">
+			<equip set="DT" />
+		</if>
+		<if p_status="engaged">
+			<equip set="TP" />
+		</if>
+		<else>
+			<equip set="Idle" />
+		</else>
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip>
+				<ring2>$u_Ring</ring2>
+			</equip>
+		</if>
+	</default>
+
+	<ability>
+		<if ad_name="Jump">
+			<equip set="Jump" />
+		</if>
+	</ability>
+
+	<weaponskill>
+		<if ad_name="Drakes*">
+			<equip set="Drakes" />
+		</if>
+		<elseif ad_name="Camlann*|Sonic*|Impulse*">
+			<equip set="Torment" />
+		</elseif>
+		<elseif ad_name="Star*">
+			<equip set="Star" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+
+</ashitacast>

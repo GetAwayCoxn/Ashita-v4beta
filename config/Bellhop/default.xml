@@ -9,6 +9,12 @@
 
 	<!-- Any entries contained here will automatically have trades accepted. -->
 	<whitelist>
+		<entry>Shadowkatze</entry>
+		<entry>Rekishi</entry>
+		<entry>Kiltnodi</entry>
+		<entry>Sulpicia</entry>
+		<entry>Phennel</entry>
+		<entry>Notaguy</entry>
 	</whitelist>
 
 	<!-- Any bag indices listed here will be treated as if you have access to them.  This is primarily for DSP. -->
@@ -27,16 +33,40 @@
 	<enforcetradewindow>Disabled</enforcetradewindow>
 
 	<!--If enabled, commands used for Ashita3's version of bellhop will work.  This is disabled by default as some of them overlap with ingame commands or are generic enough to compete with other plugins. -->
-	<legacycommands>Enabled</legacycommands>
+	<legacycommands>Disabled</legacycommands>
 
 	<!-- If enabled, complex commands will be summarized in one line of output instead of using multiple. -->
-	<shortoutput>Disabled</shortoutput>
+	<shortoutput>Enabled</shortoutput>
 
 	<!-- The time, in milliseconds, before an autotrade-related packet will be resent if the server does not respond to it. -->
 	<retrydelay>3000</retrydelay>
 
 	<!--This is used to specify item types, which allows you to batch commands on a whole type of item.  See documentation for more information.-->
 	<itemtypes>
+		 <type name="Trash">
+			<entry name="Shadow Geode" />
+			<entry name="Fenrite" />
+			<entry name="Snow Geode" />
+			<entry name="Shivite" />
+			<entry name="Flame Geode" />
+			<entry name="Ifritite" />
+			<entry name="Breeze Geode" />
+			<entry name="Garudite" />
+			<entry name="Soil Geode" />
+			<entry name="Titanite" />
+			<entry name="Aqua Geode" />
+			<entry name="Leviatite" />
+			<entry name="Light Geode" />
+			<entry name="Carbite" />
+			<entry name="Thunder Geode" />
+			<entry name="Ramuite" />
+			<entry name="Eschalixir" />
+			<entry name="Eschalixir +1" />
+			<entry name="Mercury" />
+			<entry name="Doll Shard" />
+			<entry name="Eft Skin" />
+			<entry name="Fiend Blood" />
+		</type>
 	</itemtypes>
 
 </bellhop>

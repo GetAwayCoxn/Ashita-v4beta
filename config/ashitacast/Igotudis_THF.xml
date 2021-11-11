@@ -1,0 +1,765 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Resting">
+		</set>
+		<set name="Idle">
+			<head>Malignance Chapeau</head>
+			<neck>Bathy Choker +1</neck>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<ear1>Etiolation Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+			<waist>Flume Belt +1</waist>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+		</set>
+		<set name="Evasion">
+			<ammo>Yamarang</ammo>
+			<head>Pill. Bonnet +2</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Loricate Torque +1</neck>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Moonbeam Ring</ring1>
+			<ring2>Moonbeam Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+		<!-- ATTN: The node used to construct the following set node had an invalid attribute(base).  The attribute was discarded. -->
+		<set name="Evasion-TH">
+			<hands>Plun. Armlets +3</hands>
+			<feet>Skulk. Poulaines +1</feet>
+		</set>
+		<set name="MDT" baseset="Evasion">
+			<ammo>Demonry Stone</ammo>
+			<head>Skulker's Bonnet +1</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Etiolation Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="PDT" baseset="Evasion">
+			<head>Malignance Chapeau</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Etiolation Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="TP" baseset="Idle">
+			<head>Adhemar Bonnet +1</head>
+			<neck>Sanctity Necklace</neck>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Plunderer's Vest +3</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<waist>Sailfi Belt +1</waist>
+			<legs>Samnuha Tights</legs>
+			<feet augment="Accuracy+20,'Triple Atk.'+3,AGI+1,Attack+6">Herculean Boots</feet>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="ACC" baseset="TP">
+			<head>Pill. Bonnet +2</head>
+			<ear1>Odr Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<ring1>Mummu Ring</ring1>
+			<ring2>Cacoethic Ring</ring2>
+			<legs>Gleti's Breeches</legs>
+			<feet>Pill. Poulaines +2</feet>
+		</set>
+		<set name="HYBRID" baseset="TP">
+			<head>Malignance Chapeau</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+		</set>
+		<set name="THProc">
+			<head>Malignance Chapeau</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Plun. Armlets +3</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="FC" baseset="Evasion">
+			<legs>Enif Cosciales</legs>
+			<neck>Baetyl Pendant</neck>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Prolix Ring</ring1>
+		</set>
+		<set name="Ranged">
+			<head>Malignance Chapeau</head>
+			<body>Mummu Jacket +2</body>
+			<hands>Plun. Armlets +3</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Marked Gorget</neck>
+			<waist>Patentia Sash</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Scorpion Ring</ring1>
+			<ring2>Dingir Ring</ring2>
+			<back>Kayapa Cape</back>
+		</set>
+		<set name="WS">
+			<head>Adhemar Bonnet +1</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Meg. Gloves +2</hands>
+			<legs>Samnuha Tights</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Sailfi Belt +1</waist>
+			<ear2>Sherida Earring</ear2>
+			<!-- ATTN: The node used to construct the following ear1 node had augments that could not be resolved. -->
+			<ear1 augment="unknown">Moonshade Earring</ear1>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="DEX+20,Accuracy+20,Attack+20,Weapon skill damage +10%">Toutatis's Cape</back>
+		</set>
+		<set name="Mercy" baseset="WS">
+			<ammo>Seeth. Bomblet +1</ammo>
+			<head>Pill. Bonnet +2</head>
+			<hands>Meg. Gloves +2</hands>
+			<!-- ATTN: The node used to construct the following feet node had augments that could not be resolved. -->
+			<feet augment="unknown">Herculean Boots</feet>
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear2>Sherida Earring</ear2>
+			<ear1>Cessance Earring</ear1>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Regal Ring</ring2>
+		</set>
+		<set name="Rudra" baseset="WS">
+			<head>Pill. Bonnet +2</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Meg. Gloves +2</hands>
+			<legs>Samnuha Tights</legs>
+			<neck>Fotia Gorget</neck>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Mummu Ring</ring2>
+		</set>
+		<set name="Aeolian">
+			<ammo>Seeth. Bomblet +1</ammo>
+			<head>Pill. Bonnet +2</head>
+			<neck>Breeze Gorget</neck>
+			<waist>Eschan Stone</waist>
+			<ear1>Hecate's Earring</ear1>
+			<ring1>Metamor. Ring +1</ring1>
+			<ring2>Dingir Ring</ring2>
+		</set>
+		<set name="Evis" baseset="WS">
+			<head>Adhemar Bonnet +1</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Mummu Gamash. +2</feet>
+			<neck>Fotia Gorget</neck>
+			<ring2>Mummu Ring</ring2>
+			<waist>Shadow Belt</waist>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Odr Earring</ear2>
+		</set>
+		<set name="Flee">
+			<feet>Pill. Poulaines +2</feet>
+		</set>
+		<set name="Hide">
+			<body>Pillager's Vest +2</body>
+		</set>
+		<set name="Accomp">
+			<head>Skulker's Bonnet +1</head>
+		</set>
+		<set name="Sneak Attack" baseset="TP">
+			<ammo>Qirmiz Tathlum</ammo>
+			<head>Skulker's Bonnet +1</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Plun. Armlets +3</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Asperity Necklace</neck>
+			<waist>Chiner's Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Sherida Earring</ear2>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Regal Ring</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="Trick Attack">
+			<head>Pill. Bonnet +2</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Plun. Armlets +3</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Asperity Necklace</neck>
+			<waist>Chaac Belt</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Sherida Earring</ear2>
+			<ring2>Dingir Ring</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="Steal">
+			<hands>Pill. Armlets +2</hands>
+			<feet>Pill. Poulaines +2</feet>
+		</set>
+		<set name="SATA" baseset="TP">
+			<head>Skulker's Bonnet +1</head>
+			<body>Plunderer's Vest +3</body>
+			<hands>Pill. Armlets +2</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Asperity Necklace</neck>
+			<waist>Chiner's Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Sherida Earring</ear2>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Regal Ring</ring2>
+			<back augment="DEX+20,Accuracy+30,Attack+20,'Store TP'+10,Damage taken-5%">Toutatis's Cape</back>
+		</set>
+		<set name="Movement">
+			<feet>Pill. Poulaines +2</feet>
+		</set>
+		<set name="Waltz">
+			<ammo>Yamarang</ammo>
+			<body>Herculean Vest</body>
+			<hands>Meg. Gloves +2</hands>
+			<feet>Plun. Poulaines +1</feet>
+			<neck>Unmoving Collar +1</neck>
+			<waist>Chaac Belt</waist>
+			<ear1>Oneiros Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<ring1>Asklepian Ring</ring1>
+			<ring2>Moonbeam Ring</ring2>
+			<back>Laic Mantle</back>
+		</set>
+		<set name="Shit">
+			<main>Jugo Kukri +1</main>
+			<ammo>Ginsen</ammo>
+			<!-- ATTN: The node used to construct the following head node had augments that could not be resolved. -->
+			<head augment="unknown">Pursuer's Beret</head>
+			<body>Enforcer's Harness</body>
+			<!-- ATTN: The node used to construct the following hands node had augments that could not be resolved. -->
+			<hands augment="unknown">Plun. Armlets +1</hands>
+			<!-- ATTN: legs node had an invalid piece of equipment(Mummu Kecks +2 +1).  Node was not imported. -->
+			<feet>Skulk. Poulaines +1</feet>
+			<neck>Lissome Necklace</neck>
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Sherida Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Hetairoi Ring</ring2>
+			<back>Toutatis's Cape</back>
+		</set>
+		<packer>
+		</packer>
+	</sets>
+
+	<commands>
+		<command input="/init">
+			<setvar name="init" value="0" />
+		</command>
+		<command input="/killall">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<echo mode="4">KILLED IT ALL, son!</echo>
+		</command>
+		<command input="/skillup">
+			<if advanced="$u_Skillup=0">
+				<setvar name="Auto" value="1" />
+				<command>/exec skillup1.txt</command>
+				<echo mode="4">SKILL UP SET EQUIPED</echo>
+			</if>
+			<elseif advanced="$u_Skillup=1">
+				<setvar name="Skillup" value="0" />
+				<command>/exec skillup2.txt</command>
+				<echo mode="4">SKILL UP SET UNEQUIPED</echo>
+			</elseif>
+		</command>
+		<command input="/auto">
+			<if advanced="$u_Auto=0">
+				<setvar name="Auto" value="1" />
+				<echo mode="4">Auto Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Auto=1">
+				<setvar name="Auto" value="0" />
+				<echo mode="4">Auto Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/tp">
+			<if advanced="$u_TP!=1000">
+				<setvar name="TP" value="1000" />
+				<echo mode="4">AUTO TP SET TO 1000</echo>
+			</if>
+			<elseif advanced="$u_TP=1000">
+				<setvar name="TP" value="1750" />
+				<echo mode="4">AUTO TP SET TO 1750</echo>
+			</elseif>
+		</command>
+		<command input="/samba">
+			<if advanced="$u_Samba=0">
+				<setvar name="Samba" value="1" />
+				<echo mode="4">Haste Samba</echo>
+			</if>
+			<elseif advanced="$u_Samba=1">
+				<setvar name="Samba" value="2" />
+				<echo mode="4">Drain Samba</echo>
+			</elseif>
+			<elseif advanced="$u_Samba=2">
+				<setvar name="Samba" value="0" />
+				<echo mode="4">NO SAMBA</echo>
+			</elseif>
+		</command>
+		<command input="/step">
+			<if advanced="$u_Step=0">
+				<setvar name="Step" value="1" />
+				<command>/ja "Quickstep"</command>
+				<echo mode="4">QUICK STEP</echo>
+			</if>
+			<elseif advanced="$u_Step=1">
+				<setvar name="Step" value="0" />
+				<command>/ja "Box Step"</command>
+				<echo mode="4">BOX STEP</echo>
+			</elseif>
+		</command>
+		<command input="/stance">
+			<if advanced="$u_Stance=0">
+				<setvar name="Stance" value="1" />
+				<echo mode="4">SATA mode is set to SA</echo>
+			</if>
+			<elseif advanced="$u_Stance=1">
+				<setvar name="Stance" value="2" />
+				<echo mode="4">SATA mode is set to TA</echo>
+			</elseif>
+			<elseif advanced="$u_Stance=2">
+				<setvar name="Stance" value="3" />
+				<echo mode="4">SATA mode is set to SATA</echo>
+			</elseif>
+			<elseif advanced="$u_Stance=3">
+				<setvar name="Stance" value="0" />
+				<echo mode="4">SATA mode is set to OFF</echo>
+			</elseif>
+		</command>
+		<command input="/wskill">
+			<if advanced="$u_WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="Evisceration" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</if>
+			<elseif advanced="$u_WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="Rudra's Storm" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</elseif>
+			<elseif advanced="$u_WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="TP" value="1750" />
+				<setvar name="WSname" value="None" />
+				<echo mode="4">Auto WS Disabled!</echo>
+			</elseif>
+		</command>
+		<command input="/proc">
+			<if advanced="$u_Proc=0">
+				<setvar name="Proc" value="1" />
+				<command>/macro set 4</command>
+				<command>/exec thfproc1.txt</command>
+				<echo mode="4">PROC Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Proc=1">
+				<setvar name="Proc" value="0" />
+				<command>/macro set 3</command>
+				<command>/exec thfproc2.txt</command>
+				<echo mode="4">PROC Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/dyna">
+			<if advanced="$u_Dyna=0">
+				<setvar name="Dyna" value="1" />
+				<command>/macro set 1</command>
+				<echo mode="4">DYNA Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Dyna=1">
+				<setvar name="Dyna" value="0" />
+				<echo mode="4">DYNA Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/acc">
+			<if advanced="$u_Set=TP">
+				<setvar name="Set" value="ACC" />
+				<echo mode="4">Accuacy Set Equiped</echo>
+			</if>
+			<elseif advanced="$u_Set=ACC">
+				<setvar name="Set" value="HYBRID" />
+				<echo mode="4">HYBRID Set Equiped</echo>
+			</elseif>
+			<elseif advanced="$u_Set=HYBRID">
+				<setvar name="Set" value="TP" />
+				<echo mode="4">TP Set Equiped</echo>
+			</elseif>
+		</command>
+		<command input="/th">
+			<if advanced="$u_TH=0">
+				<setvar name="TH" value="1" />
+				<echo mode="4">Treasure Hunter TP set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="TH" value="0" />
+				<echo mode="4">Treasure Hunter set TP disabled!</echo>
+			</else>
+		</command>
+		<command input="/eva">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$u_EvasionSetActive=0">
+				<setvar name="EvasionSetActive" value="1" />
+				<echo mode="4">Evasion set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="EvasionSetActive" value="0" />
+				<echo mode="4">Evasion set disabled.</echo>
+			</else>
+		</command>
+		<command input="/mdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$u_MDTSetActive=0">
+				<setvar name="MDTSetActive" value="1" />
+				<echo mode="4">MDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="MDTSetActive" value="0" />
+				<echo mode="4">MDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/pdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="MDTSetActive" value="0" />
+			<if advanced="$u_PDTSetActive=0">
+				<setvar name="PDTSetActive" value="1" />
+				<echo mode="4">PDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="PDTSetActive" value="0" />
+				<echo mode="4">PDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/Dsamba">
+			<if p_joblevel="<70">
+				<command>/ja "Drain Samba"</command>
+			</if>
+			<else>
+				<command>/ja "Drain Samba II"</command>
+			</else>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="init" value="1" />
+		<setvar name="Set" value="TP" />
+		<setvar name="EvasionSetActive" value="0" />
+		<setvar name="MDTSetActive" value="0" />
+		<setvar name="PDTSetActive" value="0" />
+		<setvar name="TH" value="1" />
+		<setvar name="WS" value="0" />
+		<setvar name="TP" value="1750" />
+		<setvar name="WSname" value="None" />
+		<setvar name="Auto" value="0" />
+		<setvar name="Stance" value="0" />
+		<setvar name="Samba" value="0" />
+		<setvar name="Step" value="0" />
+		<setvar name="Skillup" value="0" />
+		<setvar name="Proc" value="0" />
+		<setvar name="Dyna" value="0" />
+		<command>/macro book 2</command>
+		<if p_subjob="DNC">
+			<command delay="500">/macro set 1</command>
+		</if>
+		<if p_subjob="NIN">
+			<command delay="500">/macro set 2</command>
+		</if>
+		<if p_subjob="WAR">
+			<command delay="500">/macro set 3</command>
+		</if>
+	</load>
+
+	<default>
+		<if advanced="$u_init=0">
+			<setvar name="init" value="1" />
+			<command>/exec nin.txt</command>
+		</if>
+		<if eq_rring="Trizek Ring">
+			<equip lock="true">
+				<ring2>Trizek Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Capacity Ring">
+			<equip lock="true">
+				<ring2>Capacity Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Endorsement Ring">
+			<equip lock="true">
+				<ring2>Endorsement Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Facility Ring">
+			<equip lock="true">
+				<ring2>Facility Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<ring2>Dim. Ring (Dem)</ring2>
+			</equip>
+		</if>
+		<if eq_lring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<ring1>Dim. Ring (Dem)</ring1>
+			</equip>
+		</if>
+		<if eq_back="Mecisto. Mantle">
+			<equip lock="true">
+				<back>Mecisto. Mantle</back>
+			</equip>
+		</if>
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<ring2>Warp Ring</ring2>
+			</equip>
+		</if>
+		<elseif eq_lring="Warp Ring">
+			<equip lock="true">
+				<ring1>Warp Ring</ring1>
+			</equip>
+		</elseif>
+		<elseif p_status="resting">
+			<equip set="Resting" />
+		</elseif>
+		<elseif advanced="$u_EvasionSetActive=1">
+			<equip set="Evasion" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +3</hands>
+					<feet>Skulk. Poulaines +1</feet>
+				</equip>
+			</if>
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</elseif>
+		<elseif advanced="$u_MDTSetActive=1">
+			<equip set="MDT" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +3</hands>
+					<feet>Skulk. Poulaines +1</feet>
+				</equip>
+			</if>
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</elseif>
+		<elseif advanced="$u_PDTSetActive=1">
+			<equip set="PDT" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +3</hands>
+					<feet>Skulk. Poulaines +1</feet>
+				</equip>
+			</if>
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</elseif>
+		<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
+		<elseif advanced="($b_Sneak Attack>=1)|($b_Trick Attack>=1)">
+			<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
+			<if advanced="($b_Sneak Attack>=1)&($b_Trick Attack>=1)">
+				<equip set="SATA" />
+			</if>
+			<!-- ATTN: The buffactive attribute used to construct the following node used a buff name with a space in it.  Please convert it to buff ID. -->
+			<elseif b_Trick Attack=">=1">
+				<equip set="Trick Attack" />
+			</elseif>
+			<else>
+				<equip set="Sneak Attack" />
+			</else>
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +3</hands>
+					<feet>Skulk. Poulaines +1</feet>
+				</equip>
+			</if>
+		</elseif>
+		<else>
+			<if p_status="engaged">
+				<if advanced="$u_Dyna=1">
+					<equip set="THProc" />
+				</if>
+				<else>
+					<equip set="$u_Set" />
+				</else>
+				<if advanced="$u_TH=1">
+					<equip>
+						<hands>Plun. Armlets +3</hands>
+						<feet>Skulk. Poulaines +1</feet>
+					</equip>
+				</if>
+			</if>
+			<else>
+				<if advanced="$u_Dyna=1">
+					<equip set="PDT" />
+				</if>
+				<else>
+					<equip set="Idle" />
+				</else>
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+			</else>
+		</else>
+		<if advanced="$u_Auto=1">
+			<if p_status="engaged">
+				<if p_subjob="DNC">
+					<if advanced="$u_Samba=2">
+						<if b_368=">=1">
+						</if>
+						<else>
+							<if p_tp=">250">
+								<command>/Dsamba</command>
+							</if>
+						</else>
+					</if>
+					<elseif advanced="$u_Samba=1">
+						<if b_370=">=1">
+						</if>
+						<else>
+							<if p_tp=">450">
+								<command>//Hastesamba</command>
+							</if>
+						</else>
+					</elseif>
+				</if>
+				<if advanced="$u_WS!=0">
+					<if p_tp=">$u_TP">
+						<command>/ws "$u_WSname"</command>
+					</if>
+				</if>
+			</if>
+		</if>
+	</default>
+
+	<preranged>
+		<equip set="Ranged" />
+	</preranged>
+
+	<midranged>
+		<equip set="Ranged" />
+	</midranged>
+
+	<precast>
+		<equip set="FC" />
+		<if ad_name="Utsusemi*">
+			<equip>
+				<neck>Magoraga Beads</neck>
+			</equip>
+		</if>
+	</precast>
+
+	<midcast>
+		<if ad_name="Monomi*">
+			<command>/cancel 71</command>
+		</if>
+		<elseif ad_name="Utsusemi: Ichi">
+			<if b_66=">=1">
+				<command>/cancel 66</command>
+			</if>
+			<elseif b_444=">=1">
+				<command>/cancel 444</command>
+			</elseif>
+			<else>
+				<command>/cancel 445</command>
+			</else>
+		</elseif>
+	</midcast>
+
+	<ability>
+		<if ad_name="Flee|Hide|Steal|Mug">
+			<equip set="$ad_name" />
+		</if>
+		<if ad_name="Curing*">
+			<equip set="Waltz" />
+		</if>
+		<elseif ad_name="Accomplice|Collaborator">
+			<equip set="Accomp" />
+		</elseif>
+		<if ad_name="Spectral Jig">
+			<if b_71=">=1">
+				<command>/cancel 71</command>
+				<cancel />
+				<command delay="2000">/ja "$ad_name" $at_id</command>
+			</if>
+		</if>
+	</ability>
+
+	<weaponskill>
+		<if p_tp=">999">
+			<if ad_name="Mercy Stroke">
+				<equip set="Mercy" />
+			</if>
+			<elseif ad_name="Rudra*|Mandalic*">
+				<equip set="Rudra" />
+			</elseif>
+			<elseif ad_name="Aeolian Edge">
+				<equip set="Aeolian" />
+			</elseif>
+			<elseif ad_name="Evis*">
+				<equip set="Evis" />
+			</elseif>
+			<else>
+				<equip set="WS" />
+			</else>
+			<if p_tp="<3000">
+				<equip>
+					<ear1>Moonshade Earring</ear1>
+				</equip>
+			</if>
+		</if>
+	</weaponskill>
+
+</ashitacast>

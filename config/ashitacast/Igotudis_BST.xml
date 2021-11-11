@@ -1,0 +1,238 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Idle">
+			<head>Malignance Chapeau</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<waist>Flume Belt +1</waist>
+			<neck>Loricate Torque +1</neck>
+			<ear1>Odnowa Earring +1</ear1>
+			<ear2>Handler's Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Pet: 'Regen'+10">Artio's Mantle</back>
+		</set>
+		<set name="Town">
+			<head>Straw Hat</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<waist>Flume Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="PetTP">
+			<ammo>Voluspa Tathlum</ammo>
+			<head>Anwig Salade</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Taeon Tights</legs>
+			<feet>Gleti's Boots</feet>
+			<waist>Incarnation Sash</waist>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="Hybrid" baseset="PetTP">
+			<head>Adhemar Bonnet +1</head>
+			<!-- ATTN: hands node had an invalid piece of equipment(Adhmar Wrist. +1).  Node was not imported. -->
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+		</set>
+		<set name="TP" baseset="Hybrid">
+		</set>
+		<set name="PetDT" baseset="PetTP">
+			<head>Anwig Salade</head>
+			<legs>Tali'ah Sera. +2</legs>
+			<ear2>Handler's Earring +1</ear2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Pet: 'Regen'+10">Artio's Mantle</back>
+		</set>
+		<set name="PetDTregen" baseset="PetDT">
+			<head>Taeon Chapeau</head>
+			<body>Taeon Tabard</body>
+			<hands>Taeon Gloves</hands>
+			<legs>Taeon Tights</legs>
+		</set>
+		<set name="ReadyPhysical" baseset="PetTP">
+			<!-- ATTN: hands node had an invalid piece of equipment(Nukumi Manopolas +1).  Node was not imported. -->
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<waist>Incarnation Sash</waist>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Pet: 'Regen'+10">Artio's Mantle</back>
+		</set>
+		<set name="ReadyMagic" baseset="ReadyPhysical">
+		</set>
+		<set name="ReadyMacc" baseset="ReadyPhysical">
+		</set>
+		<set name="WS">
+			<ammo>Voluspa Tathlum</ammo>
+			<head>Valorous Mask</head>
+			<body>Gleti's Cuirass</body>
+			<hands>Valorous Mitts</hands>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Mache Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="Decimation">
+			<ammo>Coiste Bodhar</ammo>
+			<head>Blistering Sallet +1</head>
+			<body>Gleti's Cuirass</body>
+			<legs>Gleti's Breeches</legs>
+			<feet>Gleti's Boots</feet>
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Lugra Earring +1</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="Mistral" baseset="WS">
+			<head>Valorous Mask</head>
+			<hands>Valorous Mitts</hands>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Thrud Earring</ear2>
+		</set>
+		<set name="Call">
+			<hands>Ankusa Gloves +1</hands>
+		</set>
+		<set name="Reward">
+		</set>
+		<set name="Waltz">
+		</set>
+		<set name="Movement">
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/status">
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/dt">
+			<if advanced="$u_DT=Off">
+				<setvar name="DT" value="On" />
+			</if>
+			<else>
+				<setvar name="DT" value="Off" />
+			</else>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="Status" value="0" />
+		<setvar name="DT" value="Off" />
+		<setvar name="Ring" value="None" />
+		<setvar name="Magical" value="Venom|Fireball|Dust Cloud|Acid Spray|Molting Plumage|Cursed Sphere|Purulent Ooze|Stink Bomb|Nectarous Deluge|Charged Whisker|Dark Spore|Silence Gas|Nepenthic Plunge|Corrosive Ooze|Bubble Shower|Venom Shower|Gloom Spray|Foul Waters|Pestilent Plume" />
+		<setvar name="Macc" value="Toxic Spit|Acid Spray|Leaf Dagger|Venom Spray|Queasyshroom|Venom Shower|Nectarous Deluge|Venom|Dark Spore|Sandblast|Dust Cloud|Pestilent Plume|Stink Bomb|Chomp Rush|Intimidate|Gloeosuccus|Spider Web|Filamented Hold|Choke Breath|Blaster|Snow Cloud|Roar|Numbshroom|Palsy Pollen|Spore|Brain Crush|Choke Breath|Silence Gas|Chaotic Eye|Sheep Song|Soporific|Tail Blow|Scythe Tail|Predatory Glare|Wing Slap|Sudden Lunge|Suction|Numbing Noise|Tickling Tendrils|Extirpating Salvo|Jettatura|Pentapeck|Bubble Shower|Spoil|Wild Oats|Scream|Noisome Powder|Corrosive Ooze|Acid Mist|Sweeping Gouge|Tortoise Stomp|Rhinowrecker|Swooping Frenzy|Venom Shower|Corrosive Ooze|Spiral Spin|Disembowel|Infrasonics|Hi-Freq Field|Pestilent Plume|Swooping Frenzy|Purulent Ooze|Foul Waters|Nepenthic Plunge|Tegmina Buffet|Foul Waters|Nepenthic Plunge|Sandpit|Shakeshroom|Infected Leech|Pestilent Plume" />
+		<command>/macro book 9</command>
+		<command delay="500">/macro set 10</command>
+	</load>
+
+	<default>
+		<if advanced="$u_Status=0">
+			<setvar name="Status" value="1" />
+			<echo mode="4">$p_mainjob/$p_subjob STATUS:  PET HP [$pet_hpp $]   PET TP [$pet_tp $]   PET DT [$u_DT]</echo>
+		</if>
+		<if advanced="$u_DT=On">
+			<equip set="PetDT" />
+		</if>
+		<elseif pet_status="idle">
+			<if p_status="idle">
+				<equip set="Idle" />
+				<if advanced="$pet_hpp<95">
+					<equip set="PetDTregen" />
+				</if>
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+			</if>
+			<else>
+				<equip set="TP" />
+			</else>
+		</elseif>
+		<elseif pet_status="engaged">
+			<if p_status="engaged">
+				<equip set="Hybrid" />
+			</if>
+			<else>
+				<equip set="PetTP" />
+			</else>
+			<if advanced="$pet_hpp<82">
+				<equip set="PetDTregen" />
+			</if>
+			<elseif advanced="$pet_hpp<50">
+				<equip set="PetDT" />
+			</elseif>
+		</elseif>
+		<else>
+			<if p_status="engaged">
+				<equip set="TP" />
+			</if>
+		</else>
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip>
+				<ring2>$u_Ring</ring2>
+			</equip>
+		</if>
+	</default>
+
+	<ability>
+		<if ad_name="Call*|Bestial*">
+			<equip set="Call" />
+			<setvar name="Status" value="0" />
+		</if>
+		<elseif ad_name="Curing*">
+			<equip set="Waltz" />
+		</elseif>
+		<elseif ad_name="Reward">
+			<equip set="Reward" />
+		</elseif>
+		<elseif ad_name="Fight|Heel|Stay">
+			<setvar name="Status" value="0" />
+		</elseif>
+	</ability>
+
+	<weaponskill>
+		<if ad_name="Decimation|Ruinator">
+			<equip set="Decimation" />
+		</if>
+		<elseif ad_name="Mistral*|Calamity">
+			<equip set="Mistral" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+
+	<petskill>
+		<if ad_name="$u_Magical">
+			<equip set="ReadyMagical" />
+		</if>
+		<elseif ad_name="$u_Macc">
+			<equip set="ReadyMacc" />
+		</elseif>
+		<else>
+			<equip set="ReadyPhysical" />
+		</else>
+	</petskill>
+
+</ashitacast>

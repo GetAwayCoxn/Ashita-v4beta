@@ -1,0 +1,399 @@
+<ashitacast>
+	<settings>
+		<buffupdate>true</buffupdate> <!--Determines if your idlegear will be parsed when you gain/lose a buff. Default: TRUE -->
+		<statusupdate>true</statusupdate> <!--Determines if your idlegear will be parsed when you change status(stand/rest/engage/etc).  Default: TRUE -->
+		<hpupdate>true</hpupdate> <!--Determines if your idlegear will be parsed when your HP % changes.  Default: FALSE -->
+		<autoupdate>true</autoupdate> <!--Determines if your idlegear will be parsed on outgoing status updates(roughly every 350ms).  Default: FALSE -->
+	</settings>
+
+
+
+	<init>
+		<command>/macro book 9</command>
+		<command delay="500">/macro set 1</command>
+	</init>
+	
+	
+	
+	<sets>
+		<set name="Idle">
+			<ammo>Automat. Oil +3</ammo>
+			<head>Malignance Chapeau</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Mpaca's Boots</feet>
+			<waist>Moonbow Belt</waist>
+			<neck>Loricate Torque +1</neck>
+			<lear>Odnowa Earring +1</lear>
+			<rear>Burana Earring</rear>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="S2554632316618612847">Visucius's Mantle</back>
+		</set>
+		<set name="Town">
+			<range>Neo Animator</range>
+			<ammo>Automat. Oil +3</ammo>
+			<head>Karagoz Capello +1</head>
+			<body>Pitre Tobe +3</body>
+			<hands>Mpaca's Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Hermes' Sandals</feet>
+			<waist>Moonbow Belt</waist>
+			<lear>Rimeice Earring</lear>
+			<rear>Burana Earring</rear>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="S2554632316618612847">Visucius's Mantle</back>
+		</set>
+
+
+
+		<set name="PetTP-Melee"> <!-- Sets for when only the pet is engaged -->
+			<ammo>Automat. Oil +3</ammo>
+			<head>Mpaca's Cap</head>
+			<body>Foire Tobe +2</body>
+			<hands>Foire Dastanas</hands>
+			<legs>Taeon Tights</legs>
+			<feet>Mpaca's Boots</feet>
+			<neck>Empath Necklace</neck>
+			<waist>Incarnation Sash</waist>
+			<lear>Rimeice Earring</lear>
+			<rear>Domes. Earring</rear>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="S2554632316618612847">Visucius's Mantle</back>
+		</set>
+		<set name="PetTP-Ranged" baseset="PetTP-Melee">
+			<body>Pitre Tobe +3</body>
+		</set>
+		<set name="PetTP-Tank" baseset="PetTP-Melee">
+			<hands>Rao Kote</hands>
+			<lear>Rimeice Earring</lear>
+			<rear>Domes. Earring</rear>
+		</set>
+		<set name="PetTP-Mage" baseset="PetTP-Melee">
+		</set>
+		<set name="Hybrid" baseset="PetTP-$Mode"> <!-- Hybrid sets for when pet and master are both engaged -->
+			<head>Malignance Chapeau</head>
+			<neck>Empath Necklace</neck>
+			<body>Pitre Tobe +3</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Mpaca's Boots</feet>
+			<waist>Moonbow Belt</waist>
+			<rear>Cessance Earring</rear>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="OD" baseset="PetTP-$Mode"> <!-- Set for when Overdrive is active -->
+			<head>Karagoz Capello +1</head>
+			<feet>Mpaca's Boots</feet>
+			<lear>Rimeice Earring</lear>
+			<rear>Domes. Earring</rear>
+		</set>
+		<set name="TP" baseset="Hybrid"> <!-- If master only is engaged for some reason -->
+		</set>
+
+
+
+		<set name="PetDT" baseset="PetTP-$Mode"> <!-- Set for Pet DT gear -->
+			<ammo>Automat. Oil +3</ammo>
+			<head>Anwig Salade</head>
+			<neck>Empath Necklace</neck>
+			<body>Taeon Tabard</body>
+			<hands>Rao Kote</hands>
+			<legs>Tali'ah Sera. +2</legs>
+			<lear>Rimeice Earring</lear>
+			<rear>Handler's Earring +1</rear>
+			<back augment="S2554632316618612847">Visucius's Mantle</back>
+		</set>
+		<set name="PetDTHaste" baseset="PetDT"> <!-- Set for Pet DT gear with a little more pet haste or offense -->
+			<head>Taeon Chapeau</head>
+			<hands>Taeon Gloves</hands>
+			<rear>Burana Earring</rear>
+		</set>
+		
+		
+		
+		<set name="Precast">
+			<ear2>Loquac. Earring</ear2>
+			<ear1>Etiolation Earring</ear1>
+			<ring1>Prolix Ring</ring1>
+			<back>Swith Cape +1</back>
+			<neck>Baetyl Pendant</neck>
+		</set>
+		
+		
+		
+		<set name="WS-Melee"> <!-- Sets for Pet WSs -->
+			<head>Karagoz Capello +1</head>
+			<hands>Mpaca's Gloves</hands>
+			<lear>Burana Earring</lear>
+		</set>
+		<set name="WS-Tank" baseset="WS-Melee">
+			<lear>Burana Earring</lear>
+		</set>
+		<set name="WS-Ranged" baseset="WS-Melee">
+			<lear>Burana Earring</lear>
+		</set>
+		<set name="WS-Mage" baseset="WS-Melee">
+		</set>
+
+
+
+		<set name="WS"> <!-- Sets for your own WS -->
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Mache Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="Victory" baseset="WS">
+			<head>Blistering Sallet +1</head>
+			<body>Herculean Vest</body>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet augment="S6297724201986310308">Herculean Boots</feet>
+		</set>
+		<set name="Pummel" baseset="Victory">
+			<legs>Hiza. Hizayoroi +2</legs>
+		</set>
+
+
+
+		<set name="Maneuver">
+			<hands>Foire Dastanas</hands>
+			<rear>Burana Earring</rear>
+			<back augment="S2554632316618612847">Visucius's Mantle</back>
+		</set>
+		<set name="Movement">
+			<feet>Hermes' Sandals</feet>
+		</set>
+	</sets>
+
+
+
+	<variables>
+		<var name="Status">0</var>
+		<var name="Mode">Tank</var>
+		<var name="DT">Off</var>
+		<var name="Ring">None</var>
+		<var name="Auto">Off</var>
+		<var name="WS">1</var>
+		<var name="WSname">Victory Smite</var>
+		<var name="TP">1000</var>
+	</variables>
+
+
+
+	<inputcommands>
+		<cmd input="/status">
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/mode">
+            <if advanced="$Mode=Melee">
+                <setvar name="Mode" value="Ranged"/>
+            </if>
+            <elseif advanced="$Mode=Ranged">
+                <setvar name="Mode" value="Tank"/>
+            </elseif>
+			<elseif advanced="$Mode=Tank">
+                <setvar name="Mode" value="Mage"/>
+            </elseif>
+            <elseif>
+                <setvar name="Mode" value="Melee"/>
+            </elseif>
+			<setvar name="Status" value="0" />
+        </cmd>
+		<cmd input="/dt"> <!-- used to force PetDT set to stay on, useful for hard mobs -->
+			<if advanced="$DT=Off">
+                <setvar name="DT" value="On"/>
+            </if>
+			<else>
+				<setvar name="DT" value="Off"/>
+			</else>
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/auto"> <!-- activates certain automatic functions -->
+			<if advanced="$Auto=Off">
+                <setvar name="Auto" value="On"/>
+            </if>
+			<else>
+				<setvar name="Auto" value="Off"/>
+			</else>
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/tp">
+			<if advanced="$TP!=1000">
+				<setvar name="TP" value="1000" />
+				<addtochat color="4">AUTO TP SET TO 1000</addtochat>
+			</if>
+			<elseif advanced="$TP=1000">
+				<setvar name="TP" value="1850" />
+				<addtochat color="4">AUTO TP SET TO 1850</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/wskill">
+			<if advanced="$WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="WSname" value="Victory Smite" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</if>
+			<elseif advanced="$WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="WSname" value="Stringing Pummel" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</elseif>
+			<elseif advanced="$WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="WSname" value="None" />
+				<addtochat color="4">Auto WS Disabled!</addtochat>
+			</elseif>
+		</cmd>
+		
+		<!-- deact/act/deploy command;
+		deploy delayed because of initial pupper maneuver, can drop from 5000 to 2000 if not using pupper addon;
+		if you dont want pet deployed then dont have target selected, or be out of range, etc -->
+		<cmd input="/dad">
+			<if pet_active="false">
+				<addtochat color="4">DAD aborted no pet found</addtochat>
+			</if>
+			<elseif pet_hpp=">80">
+				<command>/ja "deactivate" me</command>
+				<command delay="2000">/ja "activate" me</command>
+				<command delay="5000">/ja "deploy" t</command>
+			</elseif>
+			<else>
+				<addtochat color="4">DAD aborted pet HP too low</addtochat>
+			</else>
+		</cmd>
+		
+		<!-- for my debugging only, we'll see if i remember to delete this before sharing -->
+		<cmd input="/id">
+			<addtochat color="4">%t_id</addtochat>
+			<addtochat color="4">%t_index</addtochat>
+		</cmd>
+	</inputcommands>
+
+
+
+	<idlegear>
+		<if advanced="$Status=0">
+			<setvar name="Status" value="1" />
+			<addtochat color="4">%p_mainjob/%p_subjob STATUS:  Mode [$Mode]   DT [$DT]   AUTO [$Auto]   PET TP [%pet_tp %]</addtochat>
+		</if>  
+
+
+
+		<if advanced="$DT=On"> <!-- Force DT set if manually engaged with /dt command -->
+			<equip set="PetDT" />
+		</if>
+		<elseif pet_status="engaged">
+			
+			<if p_status="engaged">
+				<equip set="Hybrid" />
+			</if>
+			<else>
+				<equip set="PetTP-$Mode" />
+			</else>
+			
+			<if pet_tp=">950"> <!-- Will equip pet WS set based on current mode at 950 Pet TP and above -->
+				<equip set="WS-$Mode" />
+			</if>
+			
+			<if BuffActive="166"> <!-- Overdrive check -->
+				<equip set="OD" />
+			</if>
+		</elseif>
+		<elseif p_status="engaged">
+			<equip set="TP" />
+		</elseif>
+		<elseif pet_status="idle">
+			<if p_status="idle">
+				<equip set="Idle" />
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+			</if>
+			<else>
+				<equip set="TP" />
+			</else>
+		</elseif>
+		<else>
+			<equip set="Idle" />
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</else>
+
+
+
+		<if pet_active="true">
+			<if advanced="%pet_hpp<62">
+				<equip set="PetDT" />
+			</if>
+			<elseif advanced="%pet_hpp<82">
+				<equip set="PetDTHaste" />
+			</elseif>
+		</if>
+
+
+
+		<!-- Town gear and Ring locks, I only use my right ring for these, will unequip   -->
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip><rring>$Ring</rring></equip>
+		</if>
+		
+		
+		
+		<!-- AUTO MODE STUFF IS HERE -->
+		<if advanced="$Auto=On">
+			<if p_status="engaged">
+				<if pet_status="idle">
+					<command>//Deploy</command> <!-- Will auto deploy if Auto is engaged with /auto -->
+				</if>
+				<elseif advanced="$WS!=0">
+					<if p_tp=">$TP">
+						<command>/ws "$WSname"</command>
+					</if>
+				</elseif>
+			</if>
+		</if>
+	</idlegear>
+	
+	
+	
+	<premagic>
+		<equip set="Precast" />
+	</premagic>
+
+
+
+	<jobability>
+		<if ad_name="Overdrive">
+			<equip><body>Pitre Tobe +3</body></equip>
+		</if>	
+		<elseif ad_name="*Maneuver">		
+			<equip set="Maneuver" />
+		</elseif>		
+	</jobability>
+
+
+
+	<weaponskill>
+		<if ad_name="Victory Smite">
+			<equip set="Victory" />
+		</if>
+		<elseif ad_name="Stringing Pummel">
+			<equip set="Pummel" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+</ashitacast>

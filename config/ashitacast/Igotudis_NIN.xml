@@ -1,0 +1,789 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Resting">
+		</set>
+		<set name="Idle">
+			<ammo>Date Shuriken</ammo>
+			<head>Mpaca's Cap</head>
+			<ear1>Eabani Earring</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Hachi. Kyahan +1</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Flume Belt +1</waist>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+		</set>
+		<set name="Evasion" baseset="TP-High">
+			<head>Mpaca's Cap</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Mpaca's Boots</feet>
+			<ring1>Defending Ring</ring1>
+			<ear1>Eabani Earring</ear1>
+		</set>
+		<set name="MDT" baseset="Evasion">
+			<ammo>Staunch Tathlum</ammo>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<!-- ATTN: The node used to construct the following feet node had augments that could not be resolved. -->
+			<feet augment="unknown">Herculean Boots</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Purity Ring</ring2>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+		</set>
+		<set name="PDT" baseset="Evasion">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Mpaca's Cap</head>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet augment="Accuracy+20,'Triple Atk.'+3,AGI+1,Attack+6">Herculean Boots</feet>
+			<neck>Loricate Torque +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+		</set>
+		<set name="TP-Low">
+			<ammo>Date Shuriken</ammo>
+			<head>Adhemar Bonnet +1</head>
+			<neck>Ninja Nodowa +1</neck>
+			<ear1>Eabani Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<legs>Tatena. Haidate +1</legs>
+			<feet augment="Accuracy+20,'Triple Atk.'+3,AGI+1,Attack+6">Herculean Boots</feet>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+		</set>
+		<set name="TP-High">
+			<ammo>Date Shuriken</ammo>
+			<head>Adhemar Bonnet +1</head>
+			<body>Herculean Vest</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<legs>Tatena. Haidate +1</legs>
+			<feet augment="Accuracy+20,'Triple Atk.'+3,AGI+1,Attack+6">Herculean Boots</feet>
+			<neck>Ninja Nodowa +1</neck>
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+		</set>
+		<set name="TP-Acc" baseset="TP-Low">
+			<ammo>Date Shuriken</ammo>
+			<head>Mummu Bonnet +2</head>
+			<body>Mummu Jacket +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Tatena. Haidate +1</legs>
+			<feet>Mummu Gamash. +2</feet>
+			<neck>Ninja Nodowa +1</neck>
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Odr Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Mummu Ring</ring1>
+			<ring2>Cacoethic Ring</ring2>
+		</set>
+		<set name="FastCast">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Herculean Helm</head>
+			<body>Rawhide Vest</body>
+			<hands>Leyline Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Hattori Kyahan +1</feet>
+			<neck>Baetyl Pendant</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Kishar Ring</ring2>
+			<back augment="INT+20,Mag. Acc+20,/Mag. Dmg.+20,'Fast Cast'+10">Andartia's Mantle</back>
+		</set>
+		<set name="Haste">
+			<head>Adhemar Bonnet +1</head>
+			<body>Rawhide Vest</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Mpaca's Boots</feet>
+			<neck>Moonbeam Necklace</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10,Damage taken-5%">Andartia's Mantle</back>
+		</set>
+		<set name="Utsusemi" baseset="Haste">
+			<ammo>Staunch Tathlum</ammo>
+			<neck>Magoraga Beads</neck>
+			<feet>Hattori Kyahan +1</feet>
+		</set>
+		<set name="Nuke">
+			<ammo>Ghastly Tathlum +1</ammo>
+			<head>Mummu Bonnet +2</head>
+			<body>Rawhide Vest</body>
+			<hands>Hattori Tekko +1</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Hachi. Kyahan +1</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Salire Belt</waist>
+			<ear1>Hecate's Earring</ear1>
+			<ear2>Lugra Earring +1</ear2>
+			<ring1>Metamor. Ring +1</ring1>
+			<ring2>Dingir Ring</ring2>
+			<back augment="INT+20,Mag. Acc+20,/Mag. Dmg.+20,'Fast Cast'+10">Andartia's Mantle</back>
+		</set>
+		<set name="Macc">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Mummu Bonnet +2</head>
+			<body>Mummu Jacket +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Mummu Gamash. +2</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Salire Belt</waist>
+			<ear2>Gwati Earring</ear2>
+			<ring1>Mummu Ring</ring1>
+			<ring2>Kishar Ring</ring2>
+			<back augment="INT+20,Mag. Acc+20,/Mag. Dmg.+20,'Fast Cast'+10">Andartia's Mantle</back>
+		</set>
+		<set name="Ranged">
+			<neck>Marked Gorget</neck>
+			<ammo>Koga Shuriken</ammo>
+			<hands>Ninja Tekko</hands>
+			<legs>Ninja Hakama</legs>
+			<ring2>Dingir Ring</ring2>
+		</set>
+		<set name="BladeHi">
+			<ammo>Yetshila</ammo>
+			<head>Mummu Bonnet +2</head>
+			<body>Mummu Jacket +2</body>
+			<hands>Mummu Wrists +2</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Mummu Gamash. +2</feet>
+			<neck>Ninja Nodowa +1</neck>
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Odr Earring</ear2>
+			<ring1>Mummu Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="AGI+20,Accuracy+20,Attack+20,Weapon skill damage +10%">Andartia's Mantle</back>
+		</set>
+		<set name="BladeShun" baseset="WS">
+			<body>Mummu Jacket +2</body>
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Odr Earring</ear1>
+			<ear2>Lugra Earring +1</ear2>
+		</set>
+		<set name="BladeTen" baseset="WS">
+			<ear2>Moonshade Earring</ear2>
+		</set>
+		<set name="BladeMetsu" baseset="WS">
+			<ammo>Voluspa Tathlum</ammo>
+			<neck>Ninja Nodowa +1</neck>
+			<ear2>Odr Earring</ear2>
+			<waist>Sailfi Belt +1</waist>
+		</set>
+		<set name="WS">
+			<head>Adhemar Bonnet +1</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet augment="Accuracy+30,Mag. Acc.+2,Weapon skill damage +8%,Attack+6">Herculean Boots</feet>
+			<neck>Ninja Nodowa +1</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Moonshade Earring</ear2>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="AGI+20,Accuracy+20,Attack+20,Weapon skill damage +10%">Andartia's Mantle</back>
+		</set>
+		<set name="ENMITY">
+			<hands>Macabre Gaunt. +1</hands>
+			<neck>Unmoving Collar +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Odnowa Earring +1</ear1>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Vengeful Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/init">
+			<setvar name="init" value="0" />
+		</command>
+		<command input="/killall">
+			<setvar name="Nuke" value="DMG" />
+			<setvar name="Macc" value="Low" />
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<setvar name="Kite" value="0" />
+			<echo mode="4">KILLED IT ALL, son!</echo>
+		</command>
+		<command input="/report">
+			<echo mode="4">[TPset:] $u_Set [Nukes:] $u_Nuke [Magic Accuracy:] $u_Macc</echo>
+		</command>
+		<command input="/proc">
+			<if advanced="$u_Proc=0">
+				<setvar name="Proc" value="1" />
+				<command>/macro set 2</command>
+				<command>/exec proc1.txt</command>
+				<echo mode="4">PROC Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Proc=1">
+				<setvar name="Proc" value="0" />
+				<command>/macro set 3</command>
+				<command>/exec proc2.txt</command>
+				<echo mode="4">PROC Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/auto">
+			<if advanced="$u_Auto=0">
+				<setvar name="Auto" value="1" />
+				<echo mode="4">Auto Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Auto=1">
+				<setvar name="Auto" value="0" />
+				<echo mode="4">Auto Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/tp">
+			<if advanced="$u_TP!=1000">
+				<setvar name="TP" value="1000" />
+				<echo mode="4">AUTO TP SET TO 1000</echo>
+			</if>
+			<elseif advanced="$u_TP=1000">
+				<setvar name="TP" value="1750" />
+				<echo mode="4">AUTO TP SET TO 1750</echo>
+			</elseif>
+		</command>
+		<command input="/wskill">
+			<if advanced="$u_WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="WSname" value="Blade: Metsu" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</if>
+			<elseif advanced="$u_WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="WSname" value="Blade: Hi" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</elseif>
+			<elseif advanced="$u_WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="WSname" value="None" />
+				<echo mode="4">Auto WS Disabled!</echo>
+			</elseif>
+		</command>
+		<command input="/samba">
+			<if advanced="$u_Samba=0">
+				<setvar name="Samba" value="1" />
+				<echo mode="4">Haste Samba</echo>
+			</if>
+			<elseif advanced="$u_Samba=1">
+				<setvar name="Samba" value="2" />
+				<echo mode="4">Drain Samba</echo>
+			</elseif>
+			<elseif advanced="$u_Samba=2">
+				<setvar name="Samba" value="0" />
+				<echo mode="4">NO SAMBA</echo>
+			</elseif>
+		</command>
+		<command input="/stance">
+			<if advanced="$u_Stance=0">
+				<setvar name="Stance" value="1" />
+				<echo mode="4">Stance is set to YONIN</echo>
+			</if>
+			<elseif advanced="$u_Stance=1">
+				<setvar name="Stance" value="2" />
+				<echo mode="4">Stance is set to INNIN</echo>
+			</elseif>
+			<elseif advanced="$u_Stance=2">
+				<setvar name="Stance" value="0" />
+				<echo mode="4">Stance is set to OFF</echo>
+			</elseif>
+		</command>
+		<command input="/set">
+			<if advanced="$u_Set=Low">
+				<setvar name="Set" value="High" />
+				<echo mode="4">HIGHER HASTE TP SET ACTIVATED</echo>
+			</if>
+			<elseif advanced="$u_Set=High">
+				<setvar name="Set" value="Low" />
+				<echo mode="4">LOWER HASTE TP SET ACTIVATED</echo>
+			</elseif>
+			<else>
+				<setvar name="Set" value="Low" />
+				<echo mode="4">SOMETHING WENT WRONG, LOWER HASTE TP SET ACTIVATED</echo>
+			</else>
+		</command>
+		<command input="/acc">
+			<if advanced="$u_Acc=1">
+				<setvar name="Acc" value="0" />
+				<echo mode="4">ACCURACY SET OFF</echo>
+			</if>
+			<else>
+				<setvar name="Acc" value="1" />
+				<echo mode="4">ACCURACY SET ACTIVATED</echo>
+			</else>
+		</command>
+		<command input="/kite">
+			<if advanced="$u_Kite=0">
+				<setvar name="Kite" value="1" />
+				<echo mode="4">Kiting mode, son!</echo>
+			</if>
+			<else>
+				<setvar name="Kite" value="0" />
+				<echo mode="4">Kiting mode OFF, son!</echo>
+			</else>
+		</command>
+		<command input="/th">
+			<if advanced="$u_TH=0">
+				<setvar name="TH" value="1" />
+				<echo mode="4">Treasure Hunter TP set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="TH" value="0" />
+				<echo mode="4">Treasure Hunter set TP disabled!</echo>
+			</else>
+		</command>
+		<command input="/eva">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$u_EvasionSetActive=0">
+				<setvar name="EvasionSetActive" value="1" />
+				<echo mode="4">Evasion set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="EvasionSetActive" value="0" />
+				<echo mode="4">Evasion set disabled.</echo>
+			</else>
+		</command>
+		<command input="/mdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$u_MDTSetActive=0">
+				<setvar name="MDTSetActive" value="1" />
+				<echo mode="4">MDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="MDTSetActive" value="0" />
+				<echo mode="4">MDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/pdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$u_PDTSetActive=0">
+				<setvar name="PDTSetActive" value="1" />
+				<echo mode="4">PDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="PDTSetActive" value="0" />
+				<echo mode="4">PDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/Dsamba">
+			<if p_joblevel=">=70">
+				<command>/ja "Drain Samba II"</command>
+			</if>
+			<else>
+				<command>/ja "Drain Samba"</command>
+			</else>
+		</command>
+		<command input="/test">
+			<echo mode="4">TESTING SOMETHING OUT RIGHT NOW</echo>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="init" value="1" />
+		<setvar name="Set" value="High" />
+		<setvar name="Acc" value="0" />
+		<setvar name="EvasionSetActive" value="0" />
+		<setvar name="MDTSetActive" value="0" />
+		<setvar name="PDTSetActive" value="0" />
+		<setvar name="TH" value="0" />
+		<setvar name="TP" value="1750" />
+		<setvar name="Kite" value="1" />
+		<setvar name="Auto" value="0" />
+		<setvar name="WS" value="0" />
+		<setvar name="Stance" value="0" />
+		<setvar name="Proc" value="0" />
+		<setvar name="Samba" value="0" />
+		<command>/macro book 4</command>
+		<if p_subjob="DNC">
+			<command delay="500">/macro set 1</command>
+		</if>
+		<if p_subjob="WAR">
+			<command delay="500">/macro set 3</command>
+		</if>
+		<else>
+			<command delay="500">/macro set 3</command>
+		</else>
+	</load>
+
+	<default>
+		<if advanced="$u_init=0">
+			<setvar name="init" value="1" />
+			<command>/exec nin.txt</command>
+		</if>
+		<if eq_rring="Trizek Ring">
+			<equip lock="true">
+				<ring2>Trizek Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Endorsement Ring">
+			<equip lock="true">
+				<ring2>Endorsement Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Facility Ring">
+			<equip lock="true">
+				<ring2>Facility Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<ring2>Dim. Ring (Dem)</ring2>
+			</equip>
+		</if>
+		<if eq_back="Mecisto. Mantle">
+			<equip lock="true">
+				<back>Mecisto. Mantle</back>
+			</equip>
+		</if>
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<ring2>Warp Ring</ring2>
+			</equip>
+		</if>
+		<elseif p_status="resting">
+			<equip set="Resting" />
+		</elseif>
+		<elseif advanced="$u_EvasionSetActive=1">
+			<equip set="Evasion" />
+		</elseif>
+		<elseif advanced="$u_MagicEva=1">
+			<equip set="MagicEva" />
+			<if advanced="$u_Kite=1">
+				<if e_time="<17.01|>6.59">
+					<equip>
+						<feet>Danzo Sune-Ate</feet>
+					</equip>
+				</if>
+				<if e_time=">17.01|<6.59">
+					<equip>
+						<feet>Hachi. Kyahan +1</feet>
+					</equip>
+				</if>
+			</if>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<elseif advanced="$u_MDTSetActive=1">
+			<equip set="MDT" />
+			<if advanced="$u_Kite=1">
+				<if e_time="<17.01|>6.59">
+					<equip>
+						<feet>Danzo Sune-Ate</feet>
+					</equip>
+				</if>
+				<if e_time=">17.01|<6.59">
+					<equip>
+						<feet>Hachi. Kyahan +1</feet>
+					</equip>
+				</if>
+			</if>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<elseif advanced="$u_TH=1">
+			<equip>
+				<waist>Chaac Belt</waist>
+			</equip>
+		</elseif>
+		<elseif advanced="$u_PDTSetActive=1">
+			<equip set="PDT" />
+			<elseif advanced="$u_Kite=1">
+				<if e_time="<17.01|>6.59">
+					<equip>
+						<feet>Danzo Sune-Ate</feet>
+					</equip>
+				</if>
+				<if e_time=">17.01|<6.59">
+					<equip>
+						<feet>Hachi. Kyahan +1</feet>
+					</equip>
+				</if>
+			</elseif>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<else>
+			<if p_status="engaged">
+				<if advanced="$u_Acc=1">
+					<equip set="TP-Acc" />
+				</if>
+				<else>
+					<equip set="TP-$u_Set" />
+				</else>
+				<elseif advanced="$u_TH=1">
+					<equip>
+						<waist>Chaac Belt</waist>
+					</equip>
+				</elseif>
+				<if b_2=">=1">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if b_15=">=1">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<ring1>Saida Ring</ring1>
+						<ring2>Purity Ring</ring2>
+					</equip>
+				</if>
+			</if>
+			<else>
+				<equip set="Idle" />
+				<if advanced="$u_Kite=1">
+					<if e_time="<17.01|>6.59">
+						<equip>
+							<feet>Danzo Sune-Ate</feet>
+						</equip>
+					</if>
+					<if e_time=">17.01|<6.59">
+						<equip>
+							<feet>Hachi. Kyahan +1</feet>
+						</equip>
+					</if>
+				</if>
+				<if b_2=">=1">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if b_15=">=1">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<ring1>Saida Ring</ring1>
+						<ring2>Purity Ring</ring2>
+					</equip>
+				</if>
+			</else>
+		</else>
+		<if advanced="$u_Auto=1">
+			<if p_status="engaged">
+				<if advanced="$u_Samba=2">
+					<if b_368=">=1">
+					</if>
+					<else>
+						<if p_tp=">250">
+							<command>/Dsamba</command>
+						</if>
+					</else>
+				</if>
+				<elseif advanced="$u_Samba=1">
+					<if b_370=">=1">
+					</if>
+					<else>
+						<if p_tp=">450">
+							<command>//Hastesamba</command>
+						</if>
+					</else>
+				</elseif>
+				<if advanced="$u_WS!=0">
+					<if p_tp=">$u_TP">
+						<command>/ws "$u_WSname"</command>
+					</if>
+				</if>
+				<if advanced="$u_Stance=0">
+				</if>
+				<elseif advanced="$u_Stance=1">
+					<if b_420=">=1">
+					</if>
+					<else>
+						<command>//Yonin</command>
+					</else>
+				</elseif>
+				<elseif advanced="$u_Stance=2">
+					<if b_421=">=1">
+					</if>
+					<else>
+						<command>//Innin</command>
+					</else>
+				</elseif>
+			</if>
+		</if>
+	</default>
+
+	<preranged>
+		<equip set="Ranged" />
+	</preranged>
+
+	<precast>
+		<equip set="FastCast" />
+		<if ad_name="Utsusemi*">
+			<equip set="Utsusemi" />
+		</if>
+	</precast>
+
+	<midcast>
+		<if ad_name="Monomi*">
+			<command>/cancel 71</command>
+		</if>
+		<elseif ad_name="Katon*|Hyoton*|Huton*|Doton*|Raiton*|Suiton*">
+			<!-- ATTN: The node used to construct the following equip node had an invalid attribute(when).  The attribute was discarded. -->
+			<equip set="Nuke" />
+			<if advanced="$ad_element=$e_dayelement">
+				<if ad_element="Light|Fire|Dark|Water|Thunder|Earth|Wind|Ice">
+					<equip>
+						<waist>Hachirin-no-Obi</waist>
+					</equip>
+				</if>
+			</if>
+			<elseif advanced="$ad_element=$e_weatherelement">
+				<if ad_element="Light|Fire|Dark|Water|Thunder|Earth|Wind|Ice">
+					<!-- ATTN: The node used to construct the following equip node had an invalid attribute(when).  The attribute was discarded. -->
+					<equip>
+						<waist>Hachirin-no-Obi</waist>
+					</equip>
+				</if>
+			</elseif>
+		</elseif>
+		<elseif ad_name="Yurin*|Aisha*|Jubaku*|Hojo*|Kurayami*|Dokumori*">
+			<equip set="Macc" />
+		</elseif>
+		<elseif ad_name="Utsusemi: Ichi">
+			<equip set="Utsusemi" />
+			<if b_66=">=1">
+				<command>/cancel 66</command>
+			</if>
+			<elseif b_444=">=1">
+				<command>/cancel 444</command>
+			</elseif>
+			<else>
+				<command>/cancel 445</command>
+			</else>
+		</elseif>
+		<elseif ad_name="Utsusemi: Ni">
+			<equip set="Utsusemi" />
+		</elseif>
+		<else>
+			<equip set="Haste" />
+		</else>
+	</midcast>
+
+	<ability>
+		<if ad_name="Provoke">
+			<equip set="ENMITY" />
+		</if>
+		<elseif ad_name="Spectral Jig">
+			<if b_71=">=1">
+				<command>/cancel 71</command>
+				<cancel />
+				<command delay="2000">/ja "$ad_name" $at_id</command>
+			</if>
+		</elseif>
+		<elseif ad_name="Innin">
+			<equip>
+				<head>Iga Zukin +2</head>
+			</equip>
+		</elseif>
+		<elseif ad_name="Futae">
+			<equip>
+				<hands>Iga Tekko +2</hands>
+			</equip>
+		</elseif>
+		<elseif ad_name="Yonin">
+			<equip>
+				<legs>Iga Hakama +2</legs>
+			</equip>
+		</elseif>
+	</ability>
+
+	<weaponskill>
+		<if p_tp=">999">
+			<if ad_name="Blade: Ten|Blade: Ku">
+				<equip set="BladeTen" />
+			</if>
+			<elseif ad_name="Blade: Metsu">
+				<equip set="BladeMetsu" />
+			</elseif>
+			<elseif ad_name="Blade: Hi">
+				<equip set="BladeHi" />
+			</elseif>
+			<elseif ad_name="Blade: Shun">
+				<equip set="BladeShun" />
+			</elseif>
+			<elseif ad_name="Aeolian Edge">
+				<equip set="Nuke" />
+			</elseif>
+			<else>
+				<equip set="WS" />
+				<if e_time=">17.01|<6.59">
+					<equip>
+						<ear1>Lugra Earring +1</ear1>
+					</equip>
+				</if>
+			</else>
+		</if>
+	</weaponskill>
+
+</ashitacast>

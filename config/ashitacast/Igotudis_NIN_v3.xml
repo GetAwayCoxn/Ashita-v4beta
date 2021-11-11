@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ashitacast>
+	<settings>
+		<buffupdate>true</buffupdate>
+		<statusupdate>true</statusupdate>
+		<hpupdate>false</hpupdate>
+		<autoupdate>true</autoupdate>
+	</settings>
+
+	<sets>
+		<!-- This is your idle set. The set you're in when not engaged-->
+		<!-- It's best to put in your +movespeed gear and defensives-->
+		<!-- Or whatever makes you look most like the dashing rogue you are-->
+		<set name="Resting">
+		
+		</set>
+		<set name="Idle">
+			<ammo>Date Shuriken</ammo>
+			<head>Mpaca's Cap</head>
+			<ear1>Eabani Earring</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet>Hachi. Kyahan +1</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Flume Belt +1</waist>
+			<back augment="S2554632705541542543">Andartia's Mantle</back>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+		</set>
+
+		<!-- You can turn on your evasion set to be 'default TP set' by typing /eva -->
+		<set name="Evasion" baseset="TP-High"> <!-- replace with purple set -->
+			<head>Mpaca's Cap</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Mpaca's Boots</feet>
+			<ring1>Defending Ring</ring1>
+			<ear1>Eabani Earring</ear1>
+		</set>
+		
+		<!-- You can turn an an MDT set here by typing /mdt -->
+		<set name="MDT" baseset="Evasion">
+			<ammo>Staunch Tathlum</ammo>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet augment="S54988744212505">Herculean Boots</feet>
+			<neck>Loricate torque +1</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Purity Ring</ring2>
+			<back augment="S2554632705541542543">Andartia's Mantle</back>
+		</set>
+
+		<!-- Same as above, you can type /pdt to turn on this set, if you have one -->
+		<set name="PDT"  baseset="Evasion">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Mpaca's Cap</head>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet augment="S221218606901510265">Herculean Boots</feet> <!-- TA +3 -->
+			<neck>Loricate torque +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="S2554632705541542543">Andartia's Mantle</back>
+		</set>
+
+		<!-- TP SETS BUILT AROUND HASTE, LOW FOR NORMAL ISH, HIGH FOR 30%+ -->
+		<set name="TP-Low"> <!-- AIM FOR 25% DUAL WEILD, 39% to cap with zero haste -->
+			<ammo>Date Shuriken</ammo>
+			<head>Adhemar Bonnet +1</head>
+			<neck>Ninja Nodowa +1</neck> 
+			<ear1>Eabani Earring</ear1> 
+			<ear2>Cessance Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<lring>Petrov Ring</lring>
+			<rring>Epona's Ring</rring>
+			<legs>Tatena. Haidate +1</legs>
+			<feet augment="S221218606901510265">Herculean Boots</feet>
+			<back augment="S2554632705541542543">Andartia's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+		</set>
+
+		<set name="TP-High"> <!-- AIM FOR 12% DUAL WEILD, 1% IF CAPPED HASTE -->
+			<ammo>Date Shuriken</ammo> <!-- Date shur. == Happo +1  -->
+			<head>Adhemar Bonnet +1</head> <!-- SU3 +1 better for tanking == adhemar +1 >   -->
+			<body>Herculean Vest</body> <!-- SU3 +1 >  SU3 nq   -->
+			<hands>Adhemar Wrist. +1</hands>  <!-- SU3 +1 for tank >  adhemar +1 for TP   -->
+			<legs>Tatena. Haidate +1</legs> <!-- SU3 +1 for tank > samnuha tights str10/dex10/dblattk3/triple3 for TP  -->
+			<feet augment="S221218606901510265">Herculean Boots</feet> <!-- TA +3 --> <!-- SU3 +1 for tank > herc boots must have TA4 w/dex/acc/attk for TP   -->
+			<neck>Ninja Nodowa +1</neck>  <!-- JSE +2 > JSE +1 > JSE nq > portus collar > Moonbeam Nodowa -->
+			<waist>Sailfi Belt +1</waist> <!-- windbuffet +1 is barely better and for all jobs -->
+			<ear1>Brutal Earring</ear1> <!-- DONE -->
+			<ear2>Cessance Earring</ear2> <!-- DONE -->
+			<ring1>Defending Ring</ring1> <!-- Gere ring > Hetairoi ring   -->
+			<ring2>Epona's Ring</ring2> <!-- done -->
+			<back augment="S2554632705541542543">Andartia's Mantle</back> <!-- finish upgrading with more acc and dmg- -->
+		</set>
+
+		<set name="TP-Acc" baseset="TP-Low">
+			<ammo>Date Shuriken</ammo>
+			<head>Mummu Bonnet +2</head> <!-- replace with SU3 +1 eventually -->
+			<body>Mummu Jacket +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Tatena. Haidate +1</legs>
+			<feet>Mummu Gamash. +2</feet>
+			<neck>Ninja Nodowa +1</neck> 
+			<waist>Sailfi Belt +1</waist>
+			<ear1>Odr Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Mummu Ring</ring1>
+			<ring2>Cacoethic Ring</ring2>
+		</set>
+
+     	<!-- This will make sure you use all your haste gear on Ichi: Ni and others -->
+		<set name="FastCast">
+			<ammo>Staunch Tathlum</ammo> <!-- sapience orb -->
+			<head>Herculean Helm</head> <!-- herc is 7 +6ish -->
+			<body>Rawhide Vest</body> <!-- Taeon tabard aug 5%FC -->
+			<hands>Leyline Gloves</hands> <!-- aug 3%FC -->
+			<legs>Hiza. Hizayoroi +2</legs> <!-- herc trousers FC6 -->
+			<feet>Hattori Kyahan +1</feet> 
+			<neck>Baetyl Pendant</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Etiolation Earring</ear2>
+			<ring1>Prolix Ring</ring1> <!-- rahab ring -->
+			<ring2>Kishar Ring</ring2> <!-- kishar ring -->
+			<back augment="S255541914018572">Andartia's Mantle</back> <!-- add dmg down and macc -->
+		</set>
+		
+		<set name="Haste">
+			<head>Adhemar Bonnet +1</head>
+			<body>Rawhide Vest</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Mpaca's Boots</feet>
+			<neck>Moonbeam Necklace</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="S2554632705541542543">Andartia's Mantle</back>
+		</set>
+		
+		<set name="Utsusemi" baseset="Haste">
+			<ammo>Staunch Tathlum</ammo>	
+			<neck>Magoraga Beads</neck>
+			<feet>Hattori Kyahan +1</feet>
+		</set>
+
+		<set name="Nuke">
+			<ammo>Ghastly Tathlum +1</ammo>
+			<head>Mummu Bonnet +2</head> <!--Replace ASAP, relic reforged gear probably -->
+			<body>Rawhide Vest</body> <!-- can slowly finish augmenting -->
+			<hands>Hattori Tekko +1</hands> <!-- DONE -->
+			<legs>Mummu Kecks +2</legs> <!-- Gyve trousers from Dawn II HTMB -->
+			<feet>Hachi. Kyahan +1</feet> <!--Upgrade to +2, else relic feet +3 -->
+			<neck>Sanctity Necklace</neck>
+			<waist>Salire Belt</waist> <!-- escha stone -->
+			<ear1>Hecate's Earring</ear1>
+			<ear2>Lugra Earring +1</ear2>
+			<ring1>Metamor. Ring +1</ring1><!-- need augment this, then BIS -->
+			<ring2>Dingir Ring</ring2> <!--shiva +1 ideal -->
+			<back augment="S255541914018572">Andartia's Mantle</back> <!-- add dmg down, make second cape with mattk instead of FC -->
+		</set>
+		
+		<set name="Macc"> <!--need earrings -->
+			<ammo>Staunch Tathlum</ammo> <!-- and yamarang in ammo slot -->
+			<head>Mummu Bonnet +2</head> <!--Replace ASAP, relic reforged gear probably, or +2 Mummu -->
+			<body>Mummu Jacket +2</body><!-- replace with malig gear -->
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs><!-- replace with malig gear -->
+			<feet>Mummu Gamash. +2</feet> 
+			<neck>Sanctity Necklace</neck>
+			<waist>Salire Belt</waist>
+			<ear2>Gwati Earring</ear2>
+			<ring1>Mummu Ring</ring1><!-- Stikini ring's -->
+			<ring2>Kishar Ring</ring2> <!-- Stikini ring's -->
+			<back augment="S255541914018572">Andartia's Mantle</back> <!-- add dmg down, make second cape with mattk instead of FC -->
+		</set>
+		
+		<set name="Ranged">
+			<neck>Marked Gorget</neck>
+			<ammo>Koga Shuriken</ammo>
+			<hands>Ninja Tekko</hands>
+			<legs>Ninja Hakama</legs>
+			<ring2>Dingir Ring</ring2>
+		</set>
+		
+		<set name="BladeHi">
+			<!--  Kannagi > offhand = fudo masamune > ambuscade >    -->
+			<ammo>Yetshila</ammo> <!-- need to get the +1 of this -->
+			<head>Mummu Bonnet +2</head> <!-- AF +3 > SU3 +1 > Imp. wing hairpin +1 aug'd > Mummu +2 > SU3 nq > AF +2 -->
+			<body>Mummu Jacket +2</body> <!-- SU3 HQ > Mummu +2 > SU3    -->
+			<hands>Mummu Wrists +2</hands> <!-- Done  -->
+			<legs>Mummu Kecks +2</legs> <!-- Relic +3 > Mummu +2 > SU3 +1   -->
+			<feet>Mummu Gamash. +2</feet> <!-- Done -->
+			<neck>Ninja Nodowa +1</neck>  <!-- JSE +2 > JSE +1 > JSE nq > rancor collar w/max hate > Fotia gorget > nefarious collar +1   -->
+			<waist>Sailfi Belt +1</waist> <!-- Done  -->
+			<ear1>Brutal Earring</ear1> <!-- Done  -->
+			<ear2>Odr Earring</ear2> <!-- Done  -->
+			<ring1>Mummu Ring</ring1> <!-- Regal ring (only w/AF head+3) > Mummu > Epaminondas's ring (mars orb or AH) >   -->
+			<ring2>Epona's Ring</ring2>
+			<back augment="S255463270718759">Andartia's Mantle</back>
+		</set>
+		
+		<set name="BladeShun" baseset="WS">
+			<body>Mummu Jacket +2</body>
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Odr Earring</ear1>
+			<ear2>Lugra Earring +1</ear2>
+		</set>
+		
+		<set name="BladeTen" baseset="WS">
+			<ear2>Moonshade Earring</ear2>
+		</set>
+		
+		<set name="BladeMetsu" baseset="WS">
+			<ammo>Voluspa Tathlum</ammo><!-- V tathlum 1000 dom points for ammo -->
+			<!-- Adhemar body +1 path B for body -->
+			<!-- Gere ring for lring -->
+			<!-- Relic +3 for legs  -->
+			<!-- Adhemar feet +1 path B for feet > SU3 +1  -->
+			<neck>Ninja Nodowa +1</neck> 
+			<ear2>Odr Earring</ear2>
+			<waist>Sailfi Belt +1</waist> <!-- Done -->
+		</set>
+		
+		<!-- This is Base WS set -->
+		<set name="WS">
+			<head>Adhemar Bonnet +1</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet augment="S6297724201986310308">Herculean Boots</feet> <!-- WSD 8% -->
+			<neck>Ninja Nodowa +1</neck> 
+			<waist>Fotia Belt</waist>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Moonshade Earring</ear2>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="S255463270718759">Andartia's Mantle</back>
+		</set>
+		
+		<set name="ENMITY">
+			<hands>Macabre Gaunt. +1</hands>
+			<neck>Unmoving Collar +1</neck>
+			<waist>Flume Belt +1</waist>
+			<ear1>Odnowa Earring +1</ear1>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Vengeful Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+	</sets>
+	
+	
+	<!-- Don't fiddle with these unless you know how it works -->
+	<!-- This is how I've set up the option to have various gear sets via input commands such as /th or /eva. They all work, however they may not be coded 'optimally' so if you can clean it up, feel free -->
+	<variables>
+		<var name="init">1</var>
+		<var name="Set">High</var>
+		<var name="Acc">0</var>
+		<var name="EvasionSetActive">0</var>
+		<var name="MDTSetActive">0</var>
+		<var name="PDTSetActive">0</var>
+		<var name="TH">0</var>
+		<var name="TP">1750</var>
+		<var name="Kite">1</var>
+		<var name="Auto">0</var>
+		<var name="WS">0</var>
+		<var name="Stance">0</var>
+		<var name="Proc">0</var>
+		<var name="Samba">0</var>
+	</variables>
+
+	<inputcommands>
+		<cmd input="/init">
+			<setvar name="init" value="0" />
+		</cmd>
+		<cmd input="/killall">
+			<setvar name="Nuke" value="DMG" />
+			<setvar name="Macc" value="Low" />
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<setvar name="Kite" value="0" />
+			<addtochat color="4">KILLED IT ALL, son!</addtochat>
+		</cmd>
+		<cmd input="/report">
+			<addtochat color="4">[TPset:] $Set [Nukes:] $Nuke [Magic Accuracy:] $Macc</addtochat>
+		</cmd>
+		<cmd input="/proc">
+			<if advanced="$Proc=0">
+				<setvar name="Proc" value="1" />
+				<command>/macro set 2</command>
+				<command>/exec proc1.txt</command>
+				<addtochat color="4">PROC Mode Engaged</addtochat>
+			</if>
+			<elseif advanced="$Proc=1">
+				<setvar name="Proc" value="0" />
+				<command>/macro set 3</command>
+				<command>/exec proc2.txt</command>
+				<addtochat color="4">PROC Mode Disengaged</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/auto">
+			<if advanced="$Auto=0">
+				<setvar name="Auto" value="1" />
+				<addtochat color="4">Auto Mode Engaged</addtochat>
+			</if>
+			<elseif advanced="$Auto=1">
+				<setvar name="Auto" value="0" />
+				<addtochat color="4">Auto Mode Disengaged</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/tp">
+			<if advanced="$TP!=1000">
+				<setvar name="TP" value="1000" />
+				<addtochat color="4">AUTO TP SET TO 1000</addtochat>
+			</if>
+			<elseif advanced="$TP=1000">
+				<setvar name="TP" value="1750" />
+				<addtochat color="4">AUTO TP SET TO 1750</addtochat>				
+			</elseif>		
+		</cmd>
+		<cmd input="/wskill">
+			<if advanced="$WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="WSname" value="Blade: Metsu" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</if>
+			<elseif advanced="$WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="WSname" value="Blade: Hi" />
+				<addtochat color="4">Auto $WSname Enabled!</addtochat>
+			</elseif>
+			<elseif advanced="$WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="WSname" value="None" />
+				<addtochat color="4">Auto WS Disabled!</addtochat>
+			</elseif>
+		</cmd>
+		<cmd input="/samba">
+			<if advanced="$Samba=0">
+				<setvar name="Samba" value="1" />
+				<addtochat color="4">Haste Samba</addtochat>
+			</if>
+			<elseif advanced="$Samba=1">
+				<setvar name="Samba" value="2" />
+				<addtochat color="4">Drain Samba</addtochat>				
+			</elseif>
+			<elseif advanced="$Samba=2">
+				<setvar name="Samba" value="0" />
+				<addtochat color="4">NO SAMBA</addtochat>				
+			</elseif>				
+		</cmd>
+		<cmd input="/stance">
+			<if advanced="$Stance=0">
+				<setvar name="Stance" value="1" />
+				<addtochat color="4">Stance is set to YONIN</addtochat>
+			</if>
+			<elseif advanced="$Stance=1">
+				<setvar name="Stance" value="2" />
+				<addtochat color="4">Stance is set to INNIN</addtochat>				
+			</elseif>
+			<elseif advanced="$Stance=2">
+				<setvar name="Stance" value="0" />
+				<addtochat color="4">Stance is set to OFF</addtochat>				
+			</elseif>			
+		</cmd>
+		<cmd input="/set">
+			<if advanced="$Set=Low">
+				<setvar name="Set" value="High" />
+				<addtochat color="4">HIGHER HASTE TP SET ACTIVATED</addtochat>
+			</if>
+			<elseif advanced="$Set=High">
+				<setvar name="Set" value="Low" />
+				<addtochat color="4">LOWER HASTE TP SET ACTIVATED</addtochat>				
+			</elseif>
+			<else>
+				<setvar name="Set" value="Low" />
+				<addtochat color="4">SOMETHING WENT WRONG, LOWER HASTE TP SET ACTIVATED</addtochat>
+			</else>
+		</cmd>
+		<cmd input="/acc">
+			<if advanced="$Acc=1">
+				<setvar name="Acc" value="0" />
+				<addtochat color="4">ACCURACY SET OFF</addtochat>
+			</if>
+			<else>
+				<setvar name="Acc" value="1" />
+				<addtochat color="4">ACCURACY SET ACTIVATED</addtochat>
+			</else>
+		</cmd>
+		<cmd input="/kite">
+			<if advanced="$Kite=0">
+				<setvar name="Kite" value="1" />
+				<addtochat color="4">Kiting mode, son!</addtochat>
+			</if>
+			<else>
+				<setvar name="Kite" value="0" />
+				<addtochat color="4">Kiting mode OFF, son!</addtochat>
+			</else>
+		</cmd>
+		
+		<!-- Treasure Hunter Toggle (If you want to replace the /th into something more user friendly, you can alter it just below -->
+		<cmd input="/th">
+			<if advanced="$TH=0">
+				<setvar name="TH" value="1" />
+				<addtochat color="4">Treasure Hunter TP set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="TH" value="0" />
+				<addtochat color="4">Treasure Hunter set TP disabled!</addtochat>
+			</else>
+		</cmd>
+
+		<!-- Evasion set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/eva">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$EvasionSetActive=0">
+				<setvar name="EvasionSetActive" value="1" />
+				<addtochat color="4">Evasion set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="EvasionSetActive" value="0" />
+				<addtochat color="4">Evasion set disabled.</addtochat>
+			</else>
+		</cmd>
+		<!-- MDT set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/mdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$MDTSetActive=0">
+				<setvar name="MDTSetActive" value="1" />
+				<addtochat color="4">MDT set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="MDTSetActive" value="0" />
+				<addtochat color="4">MDT set disabled.</addtochat>
+			</else>
+		</cmd>
+		<!-- PDT set toggle -->
+		<!-- As stated, you can alter the command input below if you wish -->
+		<cmd input="/pdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$PDTSetActive=0">
+				<setvar name="PDTSetActive" value="1" />
+				<addtochat color="4">PDT set enabled!</addtochat>
+			</if>
+			<else>
+				<setvar name="PDTSetActive" value="0" />
+				<addtochat color="4">PDT set disabled.</addtochat>
+			</else>
+		</cmd>
+		
+		<!-- Use /Dsamba to auto choose highest drain samba as /DNC -->
+		<cmd input="/Dsamba">
+			<if p_joblevel=">=70">
+				<command>/ja "Drain Samba II"</command>
+			</if>
+			<else>
+				<command>/ja "Drain Samba"</command>
+			</else>
+		</cmd>
+		<cmd input="/test">
+			<addtochat color="4">TESTING SOMETHING OUT RIGHT NOW</addtochat>
+		</cmd>
+
+	</inputcommands>
+	
+	
+	<init>
+        <command>/macro book 4</command>
+		<if p_subjob="DNC"><command delay="500">/macro set 1</command></if>
+		<if p_subjob="WAR"><command delay="500">/macro set 3</command></if>
+		<else><command delay="500">/macro set 3</command></else>
+   	</init>
+
+		<!-- These are the rules to make all your gearsets work.
+			Again, the code could be optimised, but do not touch them if you do not know what you're doing. This can break the entire XML -->
+	<idlegear>
+		<if advanced="$init=0">
+			<setvar name="init" value="1" />
+			<command>/exec nin.txt</command>
+		</if> 
+		<if eq_rring="Trizek Ring">
+			<equip lock="true">
+				<rring>Trizek Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Endorsement Ring">
+			<equip lock="true">
+				<rring>Endorsement Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Facility Ring">
+			<equip lock="true">
+				<rring>Facility Ring</rring>                
+			</equip>
+		</if>
+		<if eq_rring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<rring>Dim. Ring (Dem)</rring>                
+			</equip>
+		</if>
+		<if eq_back="Mecisto. Mantle">
+			<equip lock="true">
+				<back>Mecisto. Mantle</back>                
+			</equip>
+		</if>	
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<rring>Warp Ring</rring>				
+			</equip>
+		</if>
+		
+		<!-- RESTING -->	
+		<elseif p_status="resting">
+			<equip set="Resting" />
+		</elseif>
+			
+		<elseif advanced="$EvasionSetActive=1">
+			<equip set="Evasion" />
+		</elseif>
+			
+		<elseif advanced="$MagicEva=1">
+				<equip set="MagicEva" />
+			<if advanced="$Kite=1">
+				<if e_time="<17.01|>6.59"><equip><feet>Danzo Sune-Ate</feet></equip></if>
+				<if e_time=">17.01|<6.59"><equip><feet>Hachi. Kyahan +1</feet></equip></if>
+			</if>
+			<if BuffActive="2">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if BuffActive="15">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<lring>Saida Ring</lring>
+					<rring>Purity Ring</rring>
+				</equip> 
+			</if>	
+		</elseif>	
+			
+		<elseif advanced="$MDTSetActive=1">
+			<equip set="MDT" />
+			<if advanced="$Kite=1">
+				<if e_time="<17.01|>6.59"><equip><feet>Danzo Sune-Ate</feet></equip></if>
+				<if e_time=">17.01|<6.59"><equip><feet>Hachi. Kyahan +1</feet></equip></if>
+			</if>
+			<if BuffActive="2">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if BuffActive="15">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<lring>Saida Ring</lring>
+					<rring>Purity Ring</rring>
+				</equip> 
+			</if>	
+		</elseif>
+
+		
+		
+		<elseif advanced="$TH=1">
+			<equip>			
+				<waist>Chaac Belt</waist>
+			</equip>
+		</elseif>
+
+		<elseif advanced="$PDTSetActive=1">
+			<equip set="PDT" />
+			<elseif advanced="$Kite=1">
+
+				<if e_time="<17.01|>6.59"><equip><feet>Danzo Sune-Ate</feet></equip></if>
+				<if e_time=">17.01|<6.59"><equip><feet>Hachi. Kyahan +1</feet></equip></if>
+			</elseif>
+				<if BuffActive="2">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if BuffActive="15">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<lring>Saida Ring</lring>
+						<rring>Purity Ring</rring>
+					</equip> 
+				</if>	
+		</elseif>
+
+		<!-- ENGAGED -->
+		<else>
+			<if p_status="engaged">
+				<if advanced="$Acc=1">
+					<equip set="TP-Acc" />
+				</if>
+				
+				<!-- experimenting
+				<elseif buffactive="Haste|214X2">
+					<setvar name="Set" value="High" />
+					<equip set="TP-$Set" />
+				</elseif>
+				<else>
+					<setvar name="Set" value="Low" />
+					<equip set="TP-$Set" />
+				</else> -->
+				
+				<else>
+					<equip set="TP-$Set" />
+				</else>
+				<elseif advanced="$TH=1">
+					<equip>
+						<waist>Chaac Belt</waist>
+					</equip>
+				</elseif>
+				<if BuffActive="2">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if BuffActive="15">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<lring>Saida Ring</lring>
+						<rring>Purity Ring</rring>
+					</equip> 
+				</if>	
+			</if>
+			<else>
+				<equip set="Idle" />
+				
+				<if advanced="$Kite=1">
+					<if e_time="<17.01|>6.59"><equip><feet>Danzo Sune-Ate</feet></equip></if>
+					<if e_time=">17.01|<6.59"><equip><feet>Hachi. Kyahan +1</feet></equip></if>
+				</if>
+
+
+				<if BuffActive="2"><!-- SLEEP -->
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if BuffActive="15"><!-- DOOM -->
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<lring>Saida Ring</lring>
+						<rring>Purity Ring</rring>
+					</equip> 
+				</if>	
+			</else>
+		</else>
+		
+		
+		<!--Trial AUTO MODE -->
+		<if advanced="$Auto=1">
+			<if p_status="engaged">
+				
+				<if advanced="$Samba=2">
+					<!--Attempting auto Drain Samba -->
+					<if buffactive="368">
+						<!-- Place holder for now -->
+					</if>
+					<else>
+						<if p_tp=">250">
+							<command>/Dsamba</command>
+						</if>
+					</else>
+				</if>
+				<elseif advanced="$Samba=1">
+					<!--Attempting auto Haste Samba -->
+					<if buffactive="370">
+						<!-- Place holder for now -->
+					</if>
+					<else>
+						<if p_tp=">450">
+							<command>//Hastesamba</command>
+						</if>
+					</else>
+				</elseif>
+				
+				
+				<!-- Auto WS, Aedge at 1000TP, all else at 1750 for now -->
+				
+				<if advanced="$WS!=0">
+					<if p_tp=">$TP">
+						<command>/ws "$WSname"</command>
+					</if>
+				</if>
+				
+				
+				<!-- Auto Stance based on cmd /stance -->
+				<if advanced="$Stance=0">
+				</if>
+				<elseif advanced="$Stance=1">
+					<if buffactive="420">
+					</if>
+					<else>
+						<command>//Yonin</command>
+					</else>
+				</elseif>
+				<elseif advanced="$Stance=2">
+					<if buffactive="421">
+					</if>
+					<else>
+						<command>//Innin</command>
+					</else>
+				</elseif>
+				
+			</if>
+		</if>	
+		
+	</idlegear>
+
+
+
+	<preranged>
+		<equip set="Ranged" />
+	</preranged>
+
+
+
+	<premagic>
+		<equip set="FastCast" />
+		
+		<if ad_name="Utsusemi*">
+			<equip set="Utsusemi" />
+		</if>
+	</premagic>
+
+
+
+	<midmagic>
+		<if ad_name="Monomi*">
+			<command>/cancel 71</command>
+		</if>
+
+		<elseif ad_name="Katon*|Hyoton*|Huton*|Doton*|Raiton*|Suiton*">
+			<equip when="$GearTime" set="Nuke" />
+			<if advanced="%ad_element=%e_dayelement">
+				<if ad_element="Light|Fire|Dark|Water|Thunder|Earth|Wind|Ice">
+					<equip>
+					<waist>Hachirin-no-Obi</waist>
+					</equip>
+				</if>
+			</if>
+			<elseif advanced="%ad_element=%e_weatherelement">
+				<if ad_element="Light|Fire|Dark|Water|Thunder|Earth|Wind|Ice">
+					<equip when="midcast">
+					<waist>Hachirin-no-Obi</waist>
+					</equip>
+				</if>
+			</elseif>
+		</elseif>
+		
+		<elseif ad_name="Yurin*|Aisha*|Jubaku*|Hojo*|Kurayami*|Dokumori*">
+			<equip set="Macc" />
+		</elseif>
+			
+		<elseif ad_name="Utsusemi: Ichi">
+				<equip set="Utsusemi" />
+				<!-- Cancels shadows if... -->
+				<if buffactive="66"> <!-- One is shadow left -->
+					<command>/cancel 66</command>
+				</if>
+				<elseif buffactive="444"> <!-- Two shadows are left -->
+					<command>/cancel 444</command>
+				</elseif>
+				<else> <!-- Three are shadows left -->
+					<command>/cancel 445</command>
+				</else>
+		</elseif>	
+		<elseif ad_name="Utsusemi: Ni">
+			<equip set="Utsusemi" />
+		</elseif>
+		<else>
+			<equip set="Haste" />				
+		</else>
+	</midmagic>
+
+
+
+	<jobability>                           
+
+		<if ad_name="Provoke">
+			<equip set="ENMITY" />
+		</if>
+		<elseif ad_name="Spectral Jig">
+			<if buffactive="71">
+				<command>/cancel 71</command>
+				<cancel />
+				<command delay="2000">/ja "%ad_name" %at_id</command>
+			</if>
+		</elseif>
+		<elseif ad_name="Innin">
+			<equip><head>Iga Zukin +2</head></equip>
+		</elseif>
+		<elseif ad_name="Futae">
+			<equip><hands>Iga Tekko +2</hands></equip>
+		</elseif>				
+		<elseif ad_name="Yonin">
+			<equip><legs>Iga Hakama +2</legs></equip>
+		</elseif>				
+	</jobability>
+
+
+
+
+	<weaponskill>
+	<if p_tp=">999">
+		<if ad_name="Blade: Ten|Blade: Ku">
+			<equip set="BladeTen" />
+		</if>
+		<elseif ad_name="Blade: Metsu">
+			<equip set="BladeMetsu" />
+		</elseif>
+		<elseif ad_name="Blade: Hi">
+			<equip set="BladeHi" />
+		</elseif>
+		<elseif ad_name="Blade: Shun">
+			<equip set="BladeShun" />
+		</elseif>
+		<elseif ad_name="Aeolian Edge">
+			<equip set="Nuke" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+			<if e_time=">17.01|<6.59"><equip><ear1>Lugra Earring +1</ear1></equip></if>
+		</else>
+	</if>
+	</weaponskill>
+
+		
+</ashitacast>

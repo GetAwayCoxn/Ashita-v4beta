@@ -1,0 +1,611 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Resting">
+		</set>
+		<set name="Idle">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Mpaca's Cap</head>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Eabani Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mummu Kecks +2</legs>
+			<feet augment="Accuracy+30,Mag. Acc.+2,Weapon skill damage +8%,Attack+6">Herculean Boots</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Moonbow Belt</waist>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back>Solemnity Cape</back>
+		</set>
+		<set name="Evasion" baseset="TP">
+		</set>
+		<set name="PDT" baseset="TP">
+			<ammo>Staunch Tathlum</ammo>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<neck>Loricate Torque +1</neck>
+			<legs>Mummu Kecks +2</legs>
+			<waist>Moonbow Belt</waist>
+			<ear1>Odnowa Earring +1</ear1>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back>Solemnity Cape</back>
+		</set>
+		<set name="MDT" baseset="PDT">
+			<ammo>Staunch Tathlum</ammo>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Herculean Trousers</legs>
+			<neck>Loricate Torque +1</neck>
+			<waist>Moonbow Belt</waist>
+			<ear1>Odnowa Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Purity Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+		<set name="TP">
+			<ammo>Ginsen</ammo>
+			<head>Adhemar Bonnet +1</head>
+			<neck>Sanctity Necklace</neck>
+			<ear1>Brutal Earring</ear1>
+			<ear2>Cessance Earring</ear2>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Adhemar Wrist. +1</hands>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<legs>Tatena. Haidate +1</legs>
+			<feet augment="Accuracy+20,'Triple Atk.'+3,AGI+1,Attack+6">Herculean Boots</feet>
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Dbl.Atk.'+10">Segomo's Mantle</back>
+			<waist>Moonbow Belt</waist>
+		</set>
+		<set name="FastCast">
+			<ammo>Impatiens</ammo>
+			<body>Rawhide Vest</body>
+			<!-- ATTN: The node used to construct the following hands node had augments that could not be resolved. -->
+			<hands augment="unknown">Leyline Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<!-- ATTN: The node used to construct the following feet node had augments that could not be resolved. -->
+			<feet augment="unknown">Herculean Boots</feet>
+			<!-- ATTN: The node used to construct the following neck node had augments that could not be resolved. -->
+			<neck augment="unknown">Jeweled Collar</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Kishar Ring</ring2>
+		</set>
+		<set name="Haste">
+			<head>Adhemar Bonnet +1</head>
+			<body>Rawhide Vest</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet>Mpaca's Boots</feet>
+			<neck>Moonbeam Necklace</neck>
+			<waist>Resolute Belt</waist>
+			<ear1>Loquac. Earring</ear1>
+			<ear2>Odnowa Earring +1</ear2>
+			<ring1>Prolix Ring</ring1>
+			<ring2>Defending Ring</ring2>
+			<back>Moonbeam Cape</back>
+		</set>
+		<set name="WS">
+			<ammo>Knobkierrie</ammo>
+			<head>Adhemar Bonnet +1</head>
+			<body>Mummu Jacket +2</body>
+			<hands>Mummu Wrists +2</hands>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet augment="Accuracy+30,Mag. Acc.+2,Weapon skill damage +8%,Attack+6">Herculean Boots</feet>
+			<neck>Sanctity Necklace</neck>
+			<waist>Moonbow Belt</waist>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Odr Earring</ear2>
+			<ring1>Petrov Ring</ring1>
+			<ring2>Epona's Ring</ring2>
+			<back augment="STR+20,Accuracy+20,Attack+20,Weapon skill damage +10%">Segomo's Mantle</back>
+		</set>
+		<set name="HowlingFist" baseset="WS">
+			<neck>Fotia Gorget</neck>
+			<hands>Anchor. Gloves +2</hands>
+		</set>
+		<set name="Shijin" baseset="WS">
+			<neck>Fotia Gorget</neck>
+			<hands>Adhemar Wrist. +1</hands>
+		</set>
+		<set name="Smite" baseset="WS">
+			<neck>Fotia Gorget</neck>
+		</set>
+		<set name="AsuranFist" baseset="WS">
+			<neck>Fotia Gorget</neck>
+		</set>
+		<set name="Fury" baseset="WS">
+			<neck>Fotia Gorget</neck>
+		</set>
+		<set name="Movement">
+			<feet>Hermes' Sandals</feet>
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/init">
+			<setvar name="init" value="0" />
+		</command>
+		<command input="/reset">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="Reraise" value="0" />
+			<setvar name="Auto" value="0" />
+			<setvar name="Stance" value="0" />
+			<setvar name="Zerk" value="0" />
+			<setvar name="Samba" value="0" />
+			<setvar name="WS" value="0" />
+			<echo mode="4">DEFAULT VARIABLES SET</echo>
+		</command>
+		<command input="/report">
+			<echo mode="4">[WS:] $u_WSname [TP:] $u_TP </echo>
+		</command>
+		<command input="/auto">
+			<if advanced="$u_Auto=0">
+				<setvar name="Auto" value="1" />
+				<echo mode="4">Auto Mode Engaged</echo>
+			</if>
+			<elseif advanced="$u_Auto=1">
+				<setvar name="Auto" value="0" />
+				<echo mode="4">Auto Mode Disengaged</echo>
+			</elseif>
+		</command>
+		<command input="/tp">
+			<if advanced="$u_TP!=1000">
+				<setvar name="TP" value="1000" />
+				<echo mode="4">AUTO TP SET TO 1000</echo>
+			</if>
+			<elseif advanced="$u_TP=1000">
+				<setvar name="TP" value="1750" />
+				<echo mode="4">AUTO TP SET TO 1750</echo>
+			</elseif>
+		</command>
+		<command input="/wskill">
+			<if advanced="$u_WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="WSname" value="Shijin Spiral" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</if>
+			<elseif advanced="$u_WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="WSname" value="Victory Smite" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</elseif>
+			<elseif advanced="$u_WS=2">
+				<setvar name="WS" value="3" />
+				<setvar name="WSname" value="Howling Fist" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</elseif>
+			<elseif advanced="$u_WS=3">
+				<setvar name="WS" value="0" />
+				<setvar name="WSname" value="None" />
+				<echo mode="4">Auto WS Disabled!</echo>
+			</elseif>
+		</command>
+		<command input="/samba">
+			<if advanced="$u_Samba=0">
+				<setvar name="Samba" value="1" />
+				<echo mode="4">Haste Samba</echo>
+			</if>
+			<elseif advanced="$u_Samba=1">
+				<setvar name="Samba" value="2" />
+				<echo mode="4">Drain Samba</echo>
+			</elseif>
+			<elseif advanced="$u_Samba=2">
+				<setvar name="Samba" value="0" />
+				<echo mode="4">NO SAMBA</echo>
+			</elseif>
+		</command>
+		<command input="/stance">
+			<if advanced="$u_Stance=0">
+				<setvar name="Stance" value="1" />
+				<echo mode="4">COUNTERSTANCE IS ON</echo>
+			</if>
+			<elseif advanced="$u_Stance=1">
+				<setvar name="Stance" value="0" />
+				<echo mode="4">COUNTERSTANCE IS OFF</echo>
+			</elseif>
+		</command>
+		<command input="/buff">
+			<if advanced="$u_Zerk=0">
+				<setvar name="Zerk" value="1" />
+				<echo mode="4">ZERK IS ON</echo>
+			</if>
+			<elseif advanced="$u_Zerk=1">
+				<setvar name="Zerk" value="0" />
+				<echo mode="4">ZERK IS OFF</echo>
+			</elseif>
+		</command>
+		<command input="/reraise">
+			<if advanced="$u_Reraise=0">
+				<setvar name="Reraise" value="1" />
+				<echo mode="4">Zombie mode, son!</echo>
+			</if>
+			<else>
+				<setvar name="Reraise" value="0" />
+				<echo mode="4">Zombie mode OFF, son!</echo>
+			</else>
+		</command>
+		<command input="/eva">
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<if advanced="$u_EvasionSetActive=0">
+				<setvar name="EvasionSetActive" value="1" />
+				<echo mode="4">Evasion set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="EvasionSetActive" value="0" />
+				<echo mode="4">Evasion set disabled.</echo>
+			</else>
+		</command>
+		<command input="/mdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="PDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$u_MDTSetActive=0">
+				<setvar name="MDTSetActive" value="1" />
+				<echo mode="4">MDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="MDTSetActive" value="0" />
+				<echo mode="4">MDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/pdt">
+			<setvar name="EvasionSetActive" value="0" />
+			<setvar name="MDTSetActive" value="0" />
+			<setvar name="TH" value="0" />
+			<if advanced="$u_PDTSetActive=0">
+				<setvar name="PDTSetActive" value="1" />
+				<echo mode="4">PDT set enabled!</echo>
+			</if>
+			<else>
+				<setvar name="PDTSetActive" value="0" />
+				<echo mode="4">PDT set disabled.</echo>
+			</else>
+		</command>
+		<command input="/Dsamba">
+			<if p_joblevel=">=70">
+				<command>/ja "Drain Samba II"</command>
+			</if>
+			<else>
+				<command>/ja "Drain Samba"</command>
+			</else>
+		</command>
+		<command input="/test">
+			<echo mode="4">TESTING SOMETHING OUT RIGHT NOW</echo>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="init" value="1" />
+		<setvar name="EvasionSetActive" value="0" />
+		<setvar name="MDTSetActive" value="0" />
+		<setvar name="PDTSetActive" value="0" />
+		<setvar name="TP" value="1750" />
+		<setvar name="Reraise" value="0" />
+		<setvar name="Auto" value="0" />
+		<setvar name="Zerk" value="0" />
+		<setvar name="Stance" value="0" />
+		<setvar name="Samba" value="0" />
+		<setvar name="WS" value="0" />
+		<setvar name="WSname" value="NONE" />
+		<command>/macro book 4</command>
+		<if p_subjob="DNC">
+			<command delay="500">/macro set 10</command>
+		</if>
+		<if p_subjob="WAR">
+			<command delay="500">/macro set 10</command>
+		</if>
+	</load>
+
+	<default>
+		<if advanced="$u_init=0">
+			<setvar name="init" value="1" />
+			<command>/exec nin.txt</command>
+		</if>
+		<if advanced="$u_Reraise=1">
+			<equip>
+				<head>Twilight Helm</head>
+				<body>Twilight Mail</body>
+			</equip>
+		</if>
+		<if eq_rring="Trizek Ring">
+			<equip lock="true">
+				<ring2>Trizek Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Capacity Ring">
+			<equip lock="true">
+				<ring2>Capacity Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Endorsement Ring">
+			<equip lock="true">
+				<ring2>Capacity Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Facility Ring">
+			<equip lock="true">
+				<ring2>Facility Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<ring2>Dim. Ring (Dem)</ring2>
+			</equip>
+		</if>
+		<if eq_lring="Dim. Ring (Dem)">
+			<equip lock="true">
+				<ring1>Dim. Ring (Dem)</ring1>
+			</equip>
+		</if>
+		<if eq_back="Mecisto. Mantle">
+			<equip lock="true">
+				<back>Mecisto. Mantle</back>
+			</equip>
+		</if>
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<ring2>Warp Ring</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Empress Band">
+			<equip lock="true">
+				<ring2>Empress Band</ring2>
+			</equip>
+		</if>
+		<if eq_rring="Echad Ring">
+			<equip lock="true">
+				<ring2>Echad Ring</ring2>
+			</equip>
+		</if>
+		<elseif p_status="resting">
+			<equip set="Resting" />
+		</elseif>
+		<elseif advanced="$u_EvasionSetActive=1">
+			<equip set="Evasion" />
+		</elseif>
+		<elseif advanced="$u_MagicEva=1">
+			<equip set="MagicEva" />
+			<if advanced="$u_Reraise=1">
+				<equip>
+					<head>Twilight Helm</head>
+					<body>Twilight Mail</body>
+				</equip>
+			</if>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<elseif advanced="$u_MDTSetActive=1">
+			<equip set="MDT" />
+			<if advanced="$u_Reraise=1">
+				<equip>
+					<head>Twilight Helm</head>
+					<body>Twilight Mail</body>
+				</equip>
+			</if>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<elseif advanced="$u_PDTSetActive=1">
+			<equip set="PDT" />
+			<if advanced="$u_Reraise=1">
+				<equip>
+					<head>Twilight Helm</head>
+					<body>Twilight Mail</body>
+				</equip>
+			</if>
+			<if b_2=">=1">
+				<equip>
+					<neck>Vim Torque</neck>
+				</equip>
+			</if>
+			<if b_15=">=1">
+				<equip>
+					<waist>Gishdubar Sash</waist>
+					<ring1>Saida Ring</ring1>
+					<ring2>Purity Ring</ring2>
+				</equip>
+			</if>
+		</elseif>
+		<else>
+			<if p_status="engaged">
+				<equip set="TP" />
+				<if advanced="$u_Reraise=1">
+					<equip>
+						<head>Twilight Helm</head>
+						<body>Twilight Mail</body>
+					</equip>
+				</if>
+				<if b_461=">=1">
+					<equip>
+						<body>Bhikku Cyclas +1</body>
+					</equip>
+				</if>
+				<if b_2=">=1">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if b_15=">=1">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<ring1>Saida Ring</ring1>
+						<ring2>Purity Ring</ring2>
+					</equip>
+				</if>
+			</if>
+			<else>
+				<equip set="Idle" />
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+				<if b_2=">=1">
+					<equip>
+						<neck>Vim Torque</neck>
+					</equip>
+				</if>
+				<if b_15=">=1">
+					<equip>
+						<waist>Gishdubar Sash</waist>
+						<ring1>Saida Ring</ring1>
+						<ring2>Purity Ring</ring2>
+					</equip>
+				</if>
+			</else>
+		</else>
+		<if advanced="$u_Auto=1">
+			<if p_status="engaged">
+				<if advanced="$u_Zerk=1">
+					<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
+					<if advanced="($b_461<1)&($b_56<1)">
+						<command>/ja "Impetus" me</command>
+					</if>
+					<elseif advanced="(buffactive!=461)&(buffactive=58)">
+						<command>/ja "Berserk" me</command>
+					</elseif>
+					<if advanced="(buffactive=461)&(buffactive!=58)">
+						<command>/ja "Aggressor" me</command>
+					</if>
+				</if>
+				<if advanced="$u_Samba=2">
+					<if b_368=">=1">
+					</if>
+					<else>
+						<if p_tp=">250">
+							<command>/Dsamba</command>
+						</if>
+					</else>
+				</if>
+				<elseif advanced="$u_Samba=1">
+					<if b_370=">=1">
+					</if>
+					<else>
+						<if p_tp=">450">
+							<command>//Hastesamba</command>
+						</if>
+					</else>
+				</elseif>
+				<if advanced="$u_WS!=0">
+					<if p_tp=">$u_TP">
+						<command>/ws "$u_WSname"</command>
+					</if>
+				</if>
+				<if advanced="$u_Stance=0">
+				</if>
+				<elseif advanced="$u_Stance=1">
+					<if b_61=">=1">
+					</if>
+					<else>
+						<command>//Counterstance</command>
+					</else>
+				</elseif>
+			</if>
+		</if>
+	</default>
+
+	<preranged>
+	</preranged>
+
+	<precast>
+		<equip set="FastCast" />
+	</precast>
+
+	<midcast>
+		<if ad_name="Monomi*">
+			<command>/cancel 71</command>
+		</if>
+		<elseif ad_name="Utsusemi: Ichi">
+			<equip set="Haste" />
+			<if b_66=">=1">
+				<command>/cancel 66</command>
+			</if>
+			<elseif b_444=">=1">
+				<command>/cancel 444</command>
+			</elseif>
+			<else>
+				<command>/cancel 445</command>
+			</else>
+		</elseif>
+		<elseif ad_name="Utsusemi: Ni">
+			<equip set="Haste" />
+		</elseif>
+		<else>
+			<equip set="Haste" />
+		</else>
+	</midcast>
+
+	<ability>
+		<if ad_name="Boost">
+			<equip>
+				<hands>Anchor. Gloves +2</hands>
+			</equip>
+		</if>
+		<elseif ad_name="Spectral Jig">
+			<if b_71=">=1">
+				<command>/cancel 71</command>
+				<cancel />
+				<command delay="2000">/ja "$ad_name" $at_id</command>
+			</if>
+		</elseif>
+	</ability>
+
+	<weaponskill>
+		<if p_tp=">999">
+			<if ad_name="Howling Fist">
+				<equip set="HowlingFist" />
+			</if>
+			<elseif ad_name="Asuran Fist">
+				<equip set="AsuranFist" />
+			</elseif>
+			<elseif ad_name="Shijin Spiral">
+				<equip set="Shijin" />
+			</elseif>
+			<elseif ad_name="Victory Smite">
+				<equip set="Smite" />
+			</elseif>
+			<elseif ad_name="Ascetic's Fury">
+				<equip set="Fury" />
+			</elseif>
+			<else>
+				<equip set="WS" />
+			</else>
+			<if e_time=">17.01|<6.59">
+				<equip>
+					<ear1>Lugra Earring +1</ear1>
+				</equip>
+			</if>
+		</if>
+	</weaponskill>
+
+</ashitacast>

@@ -1,0 +1,310 @@
+<ashitacast>
+	<settings>
+		<buffupdate>true</buffupdate> <!--Determines if your idlegear will be parsed when you gain/lose a buff. Default: TRUE -->
+		<statusupdate>true</statusupdate> <!--Determines if your idlegear will be parsed when you change status(stand/rest/engage/etc).  Default: TRUE -->
+		<hpupdate>true</hpupdate> <!--Determines if your idlegear will be parsed when your HP % changes.  Default: FALSE -->
+		<autoupdate>true</autoupdate> <!--Determines if your idlegear will be parsed on outgoing status updates(roughly every 350ms).  Default: FALSE -->
+	</settings>
+
+
+
+	<init>
+		<command>/macro book 7</command>
+		<command delay="500">/macro set 10</command>
+	</init>
+	
+	
+	
+	<sets>
+		<set name="Idle">
+			<ammo>Staunch Tathlum</ammo>
+			<head>Nyame Helm</head>
+			<neck>Bathy Choker +1</neck>
+			<lear>Odnowa Earring +1</lear>
+			<rear>Etiolation Earring</rear>
+			<body>Sulevia's Plate. +2</body>
+			<hands>Volte Moufles</hands>
+			<lring>Defending Ring</lring>
+			<rring>Gelatinous Ring +1</rring>
+			<back>Solemnity Cape</back>
+			<waist>Flume Belt +1</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Sulev. Leggings +2</feet>
+		</set>
+		<set name="Town" baseset="Idle">
+			<ammo>Coiste Bodhar</ammo>
+			<legs>Carmine Cuisses +1</legs>
+		</set>
+
+
+
+		<set name="TP">
+			<ammo>Coiste Bodhar</ammo>
+			<head>Flam. Zucchetto +2</head>
+			<neck>Sanctity Necklace</neck>
+			<lear>Mache Earring</lear>
+			<rear>Cessance Earring</rear>
+			<body>Heath. Cuirass +1</body>
+			<hands>Flam. Manopolas +2</hands>
+			<lring>Petrov Ring</lring>
+			<rring>Flamma Ring</rring>
+			<back>Ankou's Mantle</back>
+			<waist>Sailfi Belt +1</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Flam. Gambieras +2</feet>
+		</set>
+
+
+
+		<set name="DT">
+			<head>Nyame Helm</head>
+			<feet>Nyame Sollerets</feet>
+		</set>
+
+
+		
+		<set name="Precast">
+			<neck>Baetyl Pendant</neck>
+			<lear>Malignance Earring</lear>
+			<rear>Etiolation Earring</rear>
+			<lring>Prolix Ring</lring>
+			<rring>Kishar Ring</rring>
+			<legs>Enif Cosciales</legs>
+			<feet>Odyssean Greaves</feet>
+		</set>
+		
+		
+		
+		<set name="Cure">
+		</set>
+		<set name="Enfeebling">
+		</set>
+		<set name="Enhancing">
+		</set>
+		<set name="Nuke">
+		</set>
+		<set name="Macc" baseset="Enfeebling">
+		</set>
+		<set name="Absorb" baseset="Macc">
+			<neck>Erra Pendant</neck>
+			<rring>Kishar Ring</rring>
+		</set>
+		<set name="Spikes">
+			<lear>Odnowa Earring +1</lear>
+			<body>Heath. Cuirass +1</body>
+		</set>
+		
+		
+		
+		<set name="WS">
+			<ammo>Knobkierrie</ammo>
+			<head>Valorous Mask</head>
+			<neck>Fotia Gorget</neck>
+			<lear>Moonshade Earring</lear>
+			<rear>Thrud Earring</rear>
+			<body></body>
+			<hands>Valorous Mitts</hands>
+			<lring>Rufescent Ring</lring>
+			<rring>Karieyh Ring</rring>
+			<back></back>
+			<waist>Fotia Belt</waist>
+			<legs>Sakpata's Cuisses</legs>
+			<feet>Valorous Greaves</feet>
+		</set>
+		<set name="Catastrophe" baseset="WS">
+		</set>
+
+
+
+		<set name="Movement">
+			<legs>Carmine Cuisses +1</legs>
+		</set>
+	</sets>
+
+
+
+	<variables>
+		<var name="Status">0</var>
+		<var name="DT">Off</var>
+		<var name="Ring">None</var>
+		<var name="Stance">Off</var>
+		<var name="Auto">Off</var>
+		<var name="TP">1000</var>
+	</variables>
+
+
+
+	<inputcommands>
+		<cmd input="/status">
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/dt">
+			<if advanced="$DT=Off">
+                <setvar name="DT" value="On"/>
+            </if>
+			<else>
+				<setvar name="DT" value="Off"/>
+			</else>
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/stance">
+			<if advanced="$Stance=Off">
+				<setvar name="Stance" value="Hasso" />
+			</if>
+			<elseif advanced="$Stance=Hasso">
+				<setvar name="Stance" value="Seigan" />				
+			</elseif>
+			<else>
+				<setvar name="Stance" value="Off" />			
+			</else>
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/auto">
+			<if advanced="$Auto=Off">
+				<setvar name="Auto" value="On" />
+			</if>
+			<else>
+				<setvar name="Auto" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</cmd>
+		<cmd input="/tp">
+			<if advanced="$TP!=1000">
+				<setvar name="TP" value="1000" />
+				<addtochat color="4">AUTO TP SET TO 1000</addtochat>
+			</if>
+			<elseif advanced="$TP=1000">
+				<setvar name="TP" value="1750" />
+				<addtochat color="4">AUTO TP SET TO 1750</addtochat>				
+			</elseif>		
+		</cmd>
+	</inputcommands>
+
+
+
+	<idlegear>
+		<if advanced="$Status=0">
+			<setvar name="Status" value="1" />
+			<addtochat color="4">%p_mainjob/%p_subjob STATUS:   DT [$DT]   STANCE [$Stance]   AUTO[$Auto]</addtochat>
+		</if>  
+
+
+
+		<if advanced="$DT=On"> <!-- Force DT set if manually engaged with /dt command -->
+			<equip set="DT" />
+		</if>
+		<elseif p_status="engaged">
+			<equip set="TP" />
+		</elseif>
+		<else>
+			<equip set="Idle" />
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</else>
+
+
+
+		<!-- Town gear and Ring locks, I only use my right ring for these -->
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip><rring>$Ring</rring></equip>
+		</if>
+		
+		
+		
+		<!-- ALL THE AUTO STUFF GOES DOWN HERE -->
+		<if p_status="Engaged">
+			<!-- Auto Stance based on cmd /stance -->
+			<if advanced="$Stance=Off">
+			</if>
+			<elseif advanced="$Stance=Hasso">
+				<if buffactive="354">
+					<setvar name="Stance" value="Off" />
+					<addtochat color="4">OVERIDE STANCE TO OFF</addtochat>
+				</if>
+				<elseif buffactive="353">
+				</elseif>
+				<else>
+					<command>//Hasso</command>
+				</else>
+			</elseif>
+			<elseif advanced="$Stance=Seigan">
+				<if buffactive="353">
+					<setvar name="Stance" value="Off" />
+					<addtochat color="4">OVERIDE STANCE TO OFF</addtochat>
+				</if>
+				<elseif buffactive="354">
+				</elseif>
+				<else>
+					<command>//Seigan</command>
+				</else>
+			</elseif>
+			<if advanced="$Auto=On">
+				<if p_tp=">=$TP">
+					<command>/ws "Catastrophe"</command>
+				</if>
+			</if>
+		</if>
+	</idlegear>
+
+
+	
+	<premagic>
+		<equip set="Precast" />
+	</premagic>
+	
+	
+	<midmagic>
+		<if ad_type="whitemagic">
+			<if ad_type="curing">
+				<equip set="Cure" />
+			</if>
+			<elseif ad_type="enhancing">
+				<equip set="Enhancing" />
+			</elseif>
+			<elseif ad_type="enfeebling">
+				<equip set="Enfeebling" />
+			</elseif>
+		</if>
+		<elseif ad_type="blackmagic">
+			<if ad_skill="elementalmagic">
+				<equip set="Nuke" />
+			</if>
+			<elseif ad_name="*Spikes">
+				<equip set="Spikes" />
+			</elseif>
+		</elseif>
+	</midmagic>
+	
+	
+	
+	<preranged>
+	
+	</preranged>
+	
+	
+	
+	<midranged>
+	
+	</midranged>
+	
+	
+	
+	<jobability>
+	</jobability>
+
+
+
+	<weaponskill>
+		<if ad_name="Catastrophe">
+			<equip set="Catastrophe" />
+		</if>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+</ashitacast>
