@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
 
 <ashitacast>
-	<settings>
-		<buffupdate>true</buffupdate>
-		<statusupdate>true</statusupdate>
-		<hpupdate>true</hpupdate>
-		<autoupdate>true</autoupdate>
-	</settings>
 
 	<sets>
-		<!-- This is your idle set. The set you're in when not engaged-->
-		<!-- It's best to put in your +movespeed gear and defensives-->
-		<!-- Or whatever makes you look most like the dashing rogue you are-->
-
 		<set name="Resting">
-
 		</set>
 		<set name="Idle">
 			<range>Raider's Bmrng.</range>
@@ -25,28 +14,22 @@
 			<ear2>Bladeborn Earring</ear2>
 			<body>Mummu Jacket +1</body>
 			<hands>Meghanada Gloves</hands>
-			<lring>Sheltered Ring</lring>
-			<rring>Paguroidea Ring</rring>
+			<ring1>Sheltered Ring</ring1>
+			<ring2>Paguroidea Ring</ring2>
 			<back>Toutatis's Cape</back>
 			<waist>Flume Belt +1</waist>
-			<legs>Mummu kecks +1</legs>
+			<legs>Mummu Kecks +1</legs>
 			<feet>Pillager's Poulaines</feet>
 		</set>
-		
-
 		<set name="Town">
 			<main>Odium</main>
 			<sub>Sandung</sub>
-			<head></head>
-			<body>Onca Suit</body>
 			<waist>Flume Belt +1</waist>
 			<ring1>Sheltered Ring</ring1>
 			<ring2>Paguroidea Ring</ring2>
 			<back>Moonbeam Cape</back>
 			<feet>Pillager's Poulaines</feet>
-		</set>		
-		
-		
+		</set>
 		<set name="WWHQ" baseset="Idle">
 			<sub>Joiner's Shield</sub>
 			<body>Carpenter's Smock</body>
@@ -54,9 +37,7 @@
 			<neck>Wiglen Gorget</neck>
 			<ring1>Orvail Ring</ring1>
 			<ring2>Craftmaster's Ring</ring2>
-        </set>
-
-		<!-- You can turn on your evasion set to be 'default TP set' by typing /eva -->
+		</set>
 		<set name="Evasion">
 			<ammo>Yamarang</ammo>
 			<head>Pill. Bonnet +2</head>
@@ -72,19 +53,14 @@
 			<ring2>Moonbeam Ring</ring2>
 			<back>Moonbeam Cape</back>
 		</set>
-		
-		
-		<set name="Evasion-TH" base="Evasion">
+		<set name="Evasion-TH">
 			<hands>Plun. Armlets +1</hands>
 			<waist>Chaac Belt</waist>
 			<feet>Raid. Poulaines +2</feet>
 		</set>
-		<!-- You can turn an an MDT set here by typing /mdt -->
-		<!-- However mine is not included, as I don't have inventory room at the moment -->
 		<set name="MDT" baseset="Evasion">
 			<ammo>Demonry Stone</ammo>
 			<head>Skulker's Bonnet +1</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
 			<hands>Meg. Gloves +1</hands>
 			<legs>Pill. Culottes +2</legs>
 			<feet>Raid. Poulaines +2</feet>
@@ -96,13 +72,9 @@
 			<ring2>Moonbeam Ring</ring2>
 			<back>Moonbeam Cape</back>
 		</set>
-
-		<!-- Same as above, you can type /pdt to turn on this set, if you have one -->
-
-
-		<set name="PDT"  baseset="Evasion">
+		<set name="PDT" baseset="Evasion">
 			<ammo>Staunch Tathlum</ammo>
-			<head>meghanada visor +1</head>
+			<head>Meghanada Visor +1</head>
 			<body>Emet Harness +1</body>
 			<hands>Meg. Gloves +1</hands>
 			<legs>Meg. Chausses +1</legs>
@@ -115,14 +87,11 @@
 			<ring2>Moonbeam Ring</ring2>
 			<back>Moonbeam Cape</back>
 		</set>
-
-		<!-- This is your general TP set, it's included seperately to idle, so you dont walk in dusk -->
-		<!-- If you've made additional changes to idle, make sure this set has everything you wish to TP in -->
 		<set name="TP-LowAcc">
 			<head>Mummu Bonnet +1</head>
 			<body>Mummu Jacket +1</body>
 			<hands>Mummu Wrists +1</hands>
-			<legs>Mummu kecks +1</legs>
+			<legs>Mummu Kecks +1</legs>
 			<feet>Mummu Gamash. +1</feet>
 			<neck>Clotharius Torque</neck>
 			<waist>Cetl Belt</waist>
@@ -130,15 +99,11 @@
 			<ear2>Bladeborn Earring</ear2>
 			<ring1>Epona's Ring</ring1>
 			<ring2>Rajas Ring</ring2>
-			<back augment="S255463270518574">Toutatis's Cape</back> <!-- DEX/acc/attk/STP -->
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Store TP'+10">Toutatis's Cape</back>
 		</set>
-
-
 		<set name="TP-MidAcc">
 			<ammo>Yamarang</ammo>
 			<head>Skulker's Bonnet +1</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
-			<hands augment="D15444866107840">Adhemar Wristbands</hands>
 			<legs>Herculean Trousers</legs>
 			<feet>Herculean Boots</feet>
 			<neck>Anu Torque</neck>
@@ -147,35 +112,27 @@
 			<ear2>Sherida Earring</ear2>
 			<ring1>Epona's Ring</ring1>
 			<ring2>Hetairoi Ring</ring2>
-			<back augment="S255463270518574">Toutatis's Cape</back> <!-- DEX/acc/attk/STP -->
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Store TP'+10">Toutatis's Cape</back>
 		</set>
-
-
 		<set name="TP-HighAcc">
 			<ammo>Yamarang</ammo>
 			<head>Pill. Bonnet +2</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
-			<hands augment="D15444866107840">Adhemar Wristbands</hands>
 			<legs>Pill. Culottes +2</legs>
-			<feet augment="S54988744212505">Herculean Boots</feet>
+			<feet>Herculean Boots</feet>
 			<neck>Lissome Necklace</neck>
 			<waist>Hurch'lan Sash</waist>
 			<ear1>Digni. Earring</ear1>
 			<ear2>Cessance Earring</ear2>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518574">Toutatis's Cape</back> <!-- DEX/acc/attk/STP -->
+			<back augment="DEX+20,Accuracy+20,Attack+20,'Store TP'+10">Toutatis's Cape</back>
 		</set>
-
-		
-		<!-- This is an intentionally gimped TP set with PDT/Magic Eva for Proccing. Intention isn't too
-		kill the mob very fast, allowing you more chances to get TH procs. -->
 		<set name="THProc">
 			<main>Sandung</main>
 			<ammo>Staunch Tathlum</ammo>
 			<head>Mummu Bonnet +1</head>
 			<body>Emet Harness +1</body>
-			<hands augment="M3333">Plun. Armlets</hands>
+			<hands augment="unknown">Plun. Armlets</hands>
 			<legs>Limbo Trousers</legs>
 			<feet>Raid. Poulaines +2</feet>
 			<neck>Loricate Torque +1</neck>
@@ -185,17 +142,11 @@
 			<ring1>Defending Ring</ring1>
 			<ring2>Moonbeam Ring</ring2>
 			<back>Moonbeam Cape</back>
-		</set>		
-
-
-
-		<!-- This will make sure you use all your haste gear on Ichi: Ni and others -->
+		</set>
 		<set name="Haste">
 			<head>Skulker's Bonnet +1</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
-			<hands augment="D15444866107840">Adhemar Wristbands</hands>
 			<legs>Enif Cosciales</legs>
-			<feet augment="M1361">Plun. Poulaines +1</feet>
+			<feet augment="unknown">Plun. Poulaines +1</feet>
 			<neck>Magoraga Beads</neck>
 			<waist>Hurch'lan Sash</waist>
 			<ear1>Loquac. Earring</ear1>
@@ -204,11 +155,7 @@
 			<ring2>Moonbeam Ring</ring2>
 			<back>Canny Cape</back>
 		</set>
-		<!-- This set should proc on Ranged Weaponskills, the items are only placeholders atm -->
-		<!-- I do not have /RNG levelled yet, and thus haven't really tested it -->
-		<!-- If this doesn't work and you fix it, please update for others where you found this XML -->
 		<set name="Ranged">
-	
 			<head>Meghanada Visor +1</head>
 			<body>Meg. Cuirie +1</body>
 			<hands>Meg. Gloves +1</hands>
@@ -221,23 +168,22 @@
 			<ring1>Etana Ring</ring1>
 			<ring2>Moonbeam Ring</ring2>
 			<back>Kayapa Cape</back>
-
 		</set>
-		<!-- This will equip gear for 'Mercy Stroke' Relic WS -->
 		<set name="Mercy-LowAcc">
 			<ammo>Seeth. Bomblet +1</ammo>
 			<head>Pill. Bonnet +2</head>
 			<body>Meg. Cuirie +1</body>
 			<hands>Meg. Gloves +1</hands>
 			<legs>Meg. Chausses +1</legs>
-			<feet augment="S54988744212505">Herculean Boots</feet>
+			<feet augment="unknown">Herculean Boots</feet>
 			<neck>Fotia Gorget</neck>
 			<waist>Fotia Belt</waist>
 			<ear2>Sherida Earring</ear2>
 			<ear1>Cessance Earring</ear1>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
 		<set name="Mercy-MidAcc" baseset="Mercy-LowAcc">
 		</set>
@@ -254,12 +200,11 @@
 			<ear2>Sherida Earring</ear2>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-
 		<set name="Exe-LowAcc">
 			<ammo>Seeth. Bomblet +1</ammo>
-			<head augment="D15444866107840">Adhemar Bonnet</head>
 			<body>Meg. Cuirie +1</body>
 			<hands>Meg. Gloves +1</hands>
 			<legs>Meg. Chausses +1</legs>
@@ -270,18 +215,18 @@
 			<ear2>Sherida Earring</ear2>
 			<ring1>Epona's Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
 		<set name="Exe-MidAcc" baseset="Exe-LowAcc">
 		</set>
-
 		<set name="Exe-HighAcc" baseset="Exe-LowAcc">
 		</set>
 		<set name="Rudra-LowAcc">
 			<head>Mummu Bonnet +1</head>
 			<body>Mummu Jacket +1</body>
 			<hands>Mummu Wrists +1</hands>
-			<legs>Mummu kecks +1</legs>
+			<legs>Mummu Kecks +1</legs>
 			<feet>Mummu Gamash. +1</feet>
 			<neck>Shadow Gorget</neck>
 			<waist>Shadow Belt</waist>
@@ -302,19 +247,21 @@
 			<neck>Fotia Gorget</neck>
 			<waist>Caudata Belt</waist>
 			<ear2>Sherida Earring</ear2>
-			<ear1 augment="S560011289">Moonshade Earring</ear1>
+			<!-- ATTN: The node used to construct the following ear1 node had augments that could not be resolved. -->
+			<ear1 augment="unknown">Moonshade Earring</ear1>
 			<ring1>Epona's Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-
 		<set name="Aeolian-LowAcc">
 			<ammo>Seeth. Bomblet +1</ammo>
 			<head>Pill. Bonnet +2</head>
-			<body augment="D768861412098">Rawhide Vest</body>
-			<hands augment="S1237182801080552188">Leyline Gloves</hands>
+			<!-- ATTN: The node used to construct the following body node had augments that could not be resolved. -->
+			<body augment="unknown">Rawhide Vest</body>
 			<legs>Limbo Trousers</legs>
-			<feet augment="S54988744212505">Herculean Boots</feet>
+			<!-- ATTN: The node used to construct the following feet node had augments that could not be resolved. -->
+			<feet augment="unknown">Herculean Boots</feet>
 			<neck>Sanctity Necklace</neck>
 			<waist>Breeze Belt</waist>
 			<ear1>Hecate's Earring</ear1>
@@ -322,15 +269,11 @@
 			<ring1>Shiva Ring</ring1>
 			<ring2>Shiva Ring</ring2>
 			<back>Toro Cape</back>
-
 		</set>
 		<set name="Aeolian-MidAcc" baseset="Aeolian-LowAcc">
 		</set>
 		<set name="Aeolian-HighAcc" baseset="Aeolian-MidAcc">
 		</set>
-		
-		
-		
 		<set name="Multi-LowAcc">
 			<head>Pill. Bonnet +2</head>
 			<body>Meg. Cuirie +1</body>
@@ -340,12 +283,13 @@
 			<neck>Sanctity Necklace</neck>
 			<waist>Caudata Belt</waist>
 			<ear2>Sherida Earring</ear2>
-			<ear1 augment="S560011289">Moonshade Earring</ear1>
+			<!-- ATTN: The node used to construct the following ear1 node had augments that could not be resolved. -->
+			<ear1 augment="unknown">Moonshade Earring</ear1>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-
 		<set name="Multi-HighAcc">
 			<head>Pill. Bonnet +2</head>
 			<body>Meg. Cuirie +1</body>
@@ -355,31 +299,25 @@
 			<neck>Sanctity Necklace</neck>
 			<waist>Caudata Belt</waist>
 			<ear2>Sherida Earring</ear2>
-			<ear1 augment="S560011289">Moonshade Earring</ear1>
+			<!-- ATTN: The node used to construct the following ear1 node had augments that could not be resolved. -->
+			<ear1 augment="unknown">Moonshade Earring</ear1>
 			<ring1>Epona's Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-
-		<!-- Extend your flee duration! -->
 		<set name="Flee">
 			<feet>Pillager's Poulaines</feet>
 		</set>
-		<!-- Extend your Hide Duration! -->
 		<set name="Hide">
 			<body>Pillager's Vest +2</body>
 		</set>
 		<set name="Accomp">
 			<head>Skulker's Bonnet +1</head>
 		</set>
-		<!-- This will equip when you use Sneak attack. Fill it up with DEX -->
-		<!-- Be aware, when you SA THEN IMMEDIATELY WS, your SA set will be over-written by your WS set-->
-		<!-- Plan accordingly. It may be better to get +3DEX in your WS set,
-                                rather than 1STR, even if WS has no dex mod etc -->
 		<set name="Sneak Attack" baseset="TP">
 			<ammo>Qirmiz Tathlum</ammo>
 			<head>Skulker's Bonnet +1</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
 			<hands>Pill. Armlets +2</hands>
 			<legs>Pill. Culottes +2</legs>
 			<feet>Meg. Jam. +1</feet>
@@ -389,14 +327,9 @@
 			<ear2>Sherida Earring</ear2>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-		<!-- Same as above. This will equip on TA. Fill it up with AGI -->
-		<!-- This will also be over-written by WS sets -->
-		<!-- You could theoretically make this more advanced by making SA+WS, TA+WS + SATA+WS sets
-                                        and add additional rules. I have not, as stacking STR on MS is optimal as far as I know-->
-
-
 		<set name="Trick Attack">
 			<head>Pill. Bonnet +2</head>
 			<body>Meg. Cuirie +1</body>
@@ -411,19 +344,11 @@
 			<ring2>Garuda Ring</ring2>
 			<back>Canny Cape</back>
 		</set>
-
-
 		<set name="Steal">
 			<feet>Pillager's Poulaines</feet>
 		</set>
-		
-		
-		<!-- Again, this will equip when you have both SA and TA active at the same time -->
-		<!-- Look for your highest combined DEX & AGI to equipped here -->
-		<!-- Will be over-written by WS sets. Plan accordingly -->
 		<set name="SATA" baseset="TP">
 			<head>Skulker's Bonnet +1</head>
-			<body augment="D15444866107840">Adhemar Jacket</body>
 			<hands>Pill. Armlets +2</hands>
 			<legs>Pill. Culottes +2</legs>
 			<feet>Meg. Jam. +1</feet>
@@ -433,10 +358,9 @@
 			<ear2>Sherida Earring</ear2>
 			<ring1>Rajas Ring</ring1>
 			<ring2>Regal Ring</ring2>
-			<back augment="S255463270518759">Toutatis's Cape</back>
+			<!-- ATTN: The node used to construct the following back node had augments that could not be resolved. -->
+			<back augment="unknown">Toutatis's Cape</back>
 		</set>
-
-
 		<set name="Movement">
 			<feet>Pillager's Poulaines</feet>
 		</set>
@@ -446,7 +370,8 @@
 			<body>Herculean Vest</body>
 			<hands>Meg. Gloves +1</hands>
 			<legs>Pill. Culottes +2</legs>
-			<feet augment="M1361">Plun. Poulaines +1</feet>
+			<!-- ATTN: The node used to construct the following feet node had augments that could not be resolved. -->
+			<feet augment="unknown">Plun. Poulaines +1</feet>
 			<neck>Unmoving Collar +1</neck>
 			<waist>Chaac Belt</waist>
 			<ear1>Oneiros Earring</ear1>
@@ -456,256 +381,230 @@
 			<back>Laic Mantle</back>
 		</set>
 	</sets>
-	
-	
-	
-	<variables>
-		<var name="Set">LowAcc</var>
-		<var name="EvasionSetActive">0</var>
-		<var name="MDTSetActive">0</var>
-		<var name="PDTSetActive">0</var>
-		<var name="TH">1</var>
-		<var name="Craft">0</var>
-	</variables>
 
-	<inputcommands>
-		<cmd input="/killall">
-
-
+	<commands>
+		<command input="/killall">
 			<setvar name="MDTSetActive" value="0" />
 			<setvar name="PDTSetActive" value="0" />
 			<setvar name="EvasionSetActive" value="0" />
 			<setvar name="TH" value="0" />
-
-			<addtochat color="57">KILLED IT ALL, son!</addtochat>
-		</cmd>
-		<cmd input="/acc">
-
-			<if advanced="$Set=LowAcc">
+			<echo mode="57">KILLED IT ALL, son!</echo>
+		</command>
+		<command input="/acc">
+			<if advanced="$u_Set=LowAcc">
 				<setvar name="Set" value="MidAcc" />
-				<addtochat color="57">Mid Accuacy</addtochat>
+				<echo mode="57">Mid Accuacy</echo>
 			</if>
-			<elseif advanced="$Set=MidAcc">
+			<elseif advanced="$u_Set=MidAcc">
 				<setvar name="Set" value="HighAcc" />
-				<addtochat color="57">High accuracy</addtochat>
+				<echo mode="57">High accuracy</echo>
 			</elseif>
 			<elseif>
 				<setvar name="Set" value="LowAcc" />
-				<addtochat color="57">Low accuracy</addtochat>
+				<echo mode="57">Low accuracy</echo>
 			</elseif>
-		</cmd>
-		
-		
-		<cmd input="/craft"> 
-			<if advanced="$Craft=0">
+		</command>
+		<command input="/craft">
+			<if advanced="$u_Craft=0">
 				<setvar name="Craft" value="1" />
 				<command>/ac disable</command>
 				<equip set="WWHQ" />
-				<addtochat color="4">WOODWORKING SET EQUIPED</addtochat>
+				<echo mode="4">WOODWORKING SET EQUIPED</echo>
 			</if>
 			<else>
 				<setvar name="Craft" value="0" />
 				<command>/ac enable</command>
-				<addtochat color="4">WOODWORKING SET UNEQUIPED</addtochat>
-			</else>		
-		</cmd>
-
-		<!-- Treasure Hunter Toggle (If you want to replace the /th into
-                                                 something more user friendly, you can alter it just below -->
-		<cmd input="/th">
-			<if advanced="$TH=0">
+				<echo mode="4">WOODWORKING SET UNEQUIPED</echo>
+			</else>
+		</command>
+		<command input="/th">
+			<if advanced="$u_TH=0">
 				<setvar name="TH" value="1" />
-				<addtochat color="57">Treasure Hunter TP set enabled!</addtochat>
+				<echo mode="57">Treasure Hunter TP set enabled!</echo>
 			</if>
 			<else>
 				<setvar name="TH" value="0" />
-				<addtochat color="57">Treasure Hunter set TP disabled!</addtochat>
+				<echo mode="57">Treasure Hunter set TP disabled!</echo>
 			</else>
-		</cmd>
-
-		<!-- Evasion set toggle -->
-		<!-- As stated, you can alter the command input below if you wish -->
-		<cmd input="/eva">
+		</command>
+		<command input="/eva">
 			<setvar name="MDTSetActive" value="0" />
 			<setvar name="PDTSetActive" value="0" />
-			<if advanced="$EvasionSetActive=0">
+			<if advanced="$u_EvasionSetActive=0">
 				<setvar name="EvasionSetActive" value="1" />
-				<addtochat color="57">Evasion set enabled!</addtochat>
+				<echo mode="57">Evasion set enabled!</echo>
 			</if>
 			<else>
 				<setvar name="EvasionSetActive" value="0" />
-				<addtochat color="57">Evasion set disabled.</addtochat>
+				<echo mode="57">Evasion set disabled.</echo>
 			</else>
-		</cmd>
-		<!-- MDT set toggle -->
-		<!-- As stated, you can alter the command input below if you wish -->
-		<cmd input="/mdt">
+		</command>
+		<command input="/mdt">
 			<setvar name="EvasionSetActive" value="0" />
 			<setvar name="PDTSetActive" value="0" />
-
-			<if advanced="$MDTSetActive=0">
+			<if advanced="$u_MDTSetActive=0">
 				<setvar name="MDTSetActive" value="1" />
-				<addtochat color="57">MDT set enabled!</addtochat>
+				<echo mode="57">MDT set enabled!</echo>
 			</if>
 			<else>
 				<setvar name="MDTSetActive" value="0" />
-				<addtochat color="57">MDT set disabled.</addtochat>
+				<echo mode="57">MDT set disabled.</echo>
 			</else>
-		</cmd>
-		<!-- PDT set toggle -->
-		<!-- As stated, you can alter the command input below if you wish -->
-		<cmd input="/pdt">
+		</command>
+		<command input="/pdt">
 			<setvar name="EvasionSetActive" value="0" />
 			<setvar name="MDTSetActive" value="0" />
-
-			<if advanced="$PDTSetActive=0">
+			<if advanced="$u_PDTSetActive=0">
 				<setvar name="PDTSetActive" value="1" />
-				<addtochat color="57">PDT set enabled!</addtochat>
+				<echo mode="57">PDT set enabled!</echo>
 			</if>
 			<else>
 				<setvar name="PDTSetActive" value="0" />
-				<addtochat color="57">PDT set disabled.</addtochat>
+				<echo mode="57">PDT set disabled.</echo>
 			</else>
-		</cmd>
+		</command>
+		<command input="/debug">
+		</command>
+	</commands>
 
-		<!-- For personal testing. -->
-		<cmd input="/debug">
-		</cmd>
-	</inputcommands>
-
-	<init>
-        <command>/macro book 2</command>
+	<load>
+		<setvar name="Set" value="LowAcc" />
+		<setvar name="EvasionSetActive" value="0" />
+		<setvar name="MDTSetActive" value="0" />
+		<setvar name="PDTSetActive" value="0" />
+		<setvar name="TH" value="1" />
+		<setvar name="Craft" value="0" />
+		<command>/macro book 2</command>
 		<command delay="500">/macro set 1</command>
-<!-- 		<if p_subjob="DRK"><command delay="500">/macro set 3</command></if>
-		<if p_subjob="BLU"><command delay="500">/macro set 4</command></if>		
-		<if p_subjob="SAM"><command delay="500">/macro set 5</command></if>
-		<if p_subjob="NIN"><command delay="500">/macro set 2</command></if> -->
-   	</init>
-		
-	
-	<!-- These are the rules to make all your gearsets work.
-                                         Again, the code could be optimised, but do not touch them
-                   				   if you do not know what you're doing. This can break the entire XML -->
-	<idlegear>
+	</load>
 
-
+	<default>
 		<if eq_rring="Trizek Ring">
 			<equip lock="true">
-				<rring>Trizek Ring</rring>                
+				<ring2>Trizek Ring</ring2>
 			</equip>
 		</if>
 		<if eq_rring="Capacity Ring">
 			<equip lock="true">
-				<rring>Capacity Ring</rring>                
+				<ring2>Capacity Ring</ring2>
 			</equip>
 		</if>
 		<if eq_rring="Vocation Ring">
 			<equip lock="true">
-				<rring>Vocation Ring</rring>                
+				<ring2>Vocation Ring</ring2>
 			</equip>
 		</if>
 		<if eq_rring="Facility Ring">
 			<equip lock="true">
-				<rring>Facility Ring</rring>                
+				<ring2>Facility Ring</ring2>
 			</equip>
 		</if>
 		<if eq_rring="Dim. Ring (Dem)">
 			<equip lock="true">
-				<rring>Dim. Ring (Dem)</rring>                
+				<ring2>Dim. Ring (Dem)</ring2>
 			</equip>
 		</if>
 		<if eq_rring="Endorsement Ring">
 			<equip lock="true">
-				<rring>Endorsement Ring</rring>                
+				<ring2>Endorsement Ring</ring2>
 			</equip>
 		</if>
-		<if buffactive="Madrigal">
+		<if b_Madrigal=">=1">
 			<equip>
-				<lear>Kuwunga Earring</lear>
-			</equip></if>
+				<ear1>Kuwunga Earring</ear1>
+			</equip>
+		</if>
 		<if eq_back="Mecisto. Mantle">
 			<equip lock="true">
-				<back>Mecisto. Mantle</back>                
-			</equip>
-		</if>	
-		<if eq_rring="Warp Ring">
-			<equip lock="true">
-				<rring>Warp Ring</rring>				
+				<back>Mecisto. Mantle</back>
 			</equip>
 		</if>
-		
+		<if eq_rring="Warp Ring">
+			<equip lock="true">
+				<ring2>Warp Ring</ring2>
+			</equip>
+		</if>
 		<elseif p_status="resting">
 			<equip set="Resting" />
 		</elseif>
-		
-		<elseif advanced="$EvasionSetActive=1">
-		<equip set="Evasion" />
-
-     	<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+		<elseif advanced="$u_EvasionSetActive=1">
+			<equip set="Evasion" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
-				<if p_ismoving="True">
-					<equip set="Movement" />
-				</if>
-	
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
 		</elseif>
-		<elseif advanced="$MDTSetActive=1">
+		<elseif advanced="$u_MDTSetActive=1">
 			<equip set="MDT" />
-						<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
-				<if p_ismoving="True">
-					<equip set="Movement" />
-				</if>
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
 		</elseif>
-
-
-		<elseif advanced="$PDTSetActive=1">
+		<elseif advanced="$u_PDTSetActive=1">
 			<equip set="PDT" />
-						<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
-				<if p_ismoving="True">
-					<equip set="Movement" />
-				</if>
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
 		</elseif>
-		<elseif buffactive="Sneak Attack|Trick Attack">
-			<if buffactive="Sneak Attack&Trick Attack">
+		<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
+		<elseif advanced="($b_Sneak Attack>=1)|($b_Trick Attack>=1)">
+			<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
+			<if advanced="($b_Sneak Attack>=1)&($b_Trick Attack>=1)">
 				<equip set="SATA" />
-							<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+				<if advanced="$u_TH=1">
+					<equip>
+						<hands>Plun. Armlets +1</hands>
+						<feet>Raid. Poulaines +2</feet>
+					</equip>
+				</if>
 			</if>
-			</if>
-			<elseif buffactive="Trick Attack">
+			<!-- ATTN: The buffactive attribute used to construct the following node used a buff name with a space in it.  Please convert it to buff ID. -->
+			<elseif b_Trick Attack=">=1">
 				<equip set="Trick Attack" />
-							<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
-			</if>
+				<if advanced="$u_TH=1">
+					<equip>
+						<hands>Plun. Armlets +1</hands>
+						<feet>Raid. Poulaines +2</feet>
+					</equip>
+				</if>
 			</elseif>
 			<else>
 				<equip set="Sneak Attack" />
 			</else>
-						<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
-
 		</elseif>
 		<else>
-
-		<if p_status="engaged">
-			<equip set="TP-$Set" />
-			<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<if p_status="engaged">
+				<equip set="TP-$u_Set" />
+				<if advanced="$u_TH=1">
+					<equip>
+						<hands>Plun. Armlets +1</hands>
+						<feet>Raid. Poulaines +2</feet>
+					</equip>
+				</if>
 			</if>
-		</if>
-
 			<else>
 				<equip set="Idle" />
 				<if p_ismoving="True">
@@ -713,14 +612,13 @@
 				</if>
 			</else>
 		</else>
-	</idlegear>
+	</default>
 
 	<preranged>
 		<equip set="Ranged" />
 	</preranged>
 
-	<premagic>
-		<!-- Evasion gear is equipped during Utsusemi, with Haste gear also for Ni. -->
+	<precast>
 		<if ad_name="Utsusemi*">
 			<equip set="Evasion" />
 			<if ad_name="*Ni">
@@ -733,29 +631,28 @@
 		<else>
 			<equip set="Haste" />
 		</else>
-	</premagic>
+	</precast>
 
-	<midmagic>
+	<midcast>
 		<if ad_name="Monomi*">
 			<command>/cancel 71</command>
 		</if>
 		<elseif ad_name="Utsusemi: Ichi">
-			<!-- Cancels shadows if... -->
-			<if buffactive="66"> <!-- One is shadow left -->
+			<if b_66=">=1">
 				<command>/cancel 66</command>
 			</if>
-			<elseif buffactive="444"> <!-- Two shadows are left -->
+			<elseif b_444=">=1">
 				<command>/cancel 444</command>
 			</elseif>
-			<else> <!-- Three are shadows left -->
+			<else>
 				<command>/cancel 445</command>
 			</else>
 		</elseif>
-	</midmagic>
+	</midcast>
 
-	<jobability>                           
+	<ability>
 		<if ad_name="Flee|Hide|Steal|Mug">
-			<equip set="%ad_name" />
+			<equip set="$ad_name" />
 		</if>
 		<if ad_name="Curing*">
 			<equip set="Waltz" />
@@ -764,52 +661,65 @@
 			<equip set="Accomp" />
 		</if>
 		<elseif ad_name="Spectral Jig">
-			<!--<command>/cancel 71</command> -->
 		</elseif>
-	</jobability>
+	</ability>
 
 	<weaponskill>
 		<if ad_name="Mercy Stroke">
-			<equip set="Mercy-$Set" />
-			<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<waist>Chaac Belt</waist>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<equip set="Mercy-$u_Set" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<waist>Chaac Belt</waist>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
-			
 		</if>
 		<elseif ad_name="Exenterator">
-			<equip set="Exe-$Set" />
-				<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<waist>Chaac Belt</waist>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<equip set="Exe-$u_Set" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<waist>Chaac Belt</waist>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
 		</elseif>
 		<elseif ad_name="Rudra*|Dancing Edge|Evis*">
-			<equip set="Rudra-$Set" />
-				<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<waist>Chaac Belt</waist>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<equip set="Rudra-$u_Set" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<waist>Chaac Belt</waist>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
 		</elseif>
 		<elseif ad_name="Aeolian Edge">
-			<equip set="Aeolian-$Set" />
-			<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<waist>Chaac Belt</waist>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<equip set="Aeolian-$u_Set" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<waist>Chaac Belt</waist>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
 		</elseif>
 		<else>
-			<equip set="Multi-$Set" />
-			<if advanced="$TH=1">
-				<equip><hands>Plun. Armlets +1</hands>
-				<waist>Chaac Belt</waist>
-				<feet>Raid. Poulaines +2</feet></equip>
+			<equip set="Multi-$u_Set" />
+			<if advanced="$u_TH=1">
+				<equip>
+					<hands>Plun. Armlets +1</hands>
+					<waist>Chaac Belt</waist>
+					<feet>Raid. Poulaines +2</feet>
+				</equip>
 			</if>
 		</else>
-        <if p_tp="<3000"><equip><ear1>Moonshade Earring</ear1></equip></if>
+		<if p_tp="<3000">
+			<equip>
+				<ear1>Moonshade Earring</ear1>
+			</equip>
+		</if>
 	</weaponskill>
+
 </ashitacast>
