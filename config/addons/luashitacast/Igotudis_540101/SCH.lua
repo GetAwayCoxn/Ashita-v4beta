@@ -1,8 +1,10 @@
 local profile = {};
-local varhelper = gFunc.LoadFile('common/varhelper.lua');
-local gcinclude = gFunc.LoadFile('common/gcinclude.lua');
+varhelper = gFunc.LoadFile('common/varhelper.lua');
+local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+
+
 local sets = {
-    Idle = {
+	Idle = {
         Main = '',
         Sub = '',
         Ammo = '',
@@ -21,14 +23,14 @@ local sets = {
     },
     Reseting = {},
     Town = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Body = '',
-        Hands = '',
-        Legs = '',
-        Feet = '',
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Culminus',
+        Ammo = 'Gastly Tathlum +1',
+        Head = 'Peda. M.Board +2',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Peda. Bracers +2',
+        Legs = 'Agwu\'s Slops',
+        Feet = 'Volte Gaiters',
     },
 
     Dt = {
@@ -116,17 +118,21 @@ profile.OnLoad = function()
     gcinclude.Initialize();
 end
 
+profile.OnLoad = function()
+    gSettings.AllowAddSet = false;
+    gcinclude.Initialize();
+end
+
 profile.OnUnload = function()
     varhelper.Destroy();
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
 end
 
 profile.HandleDefault = function()
     local player = gData.GetPlayer();
-    local zone = gData.GetEnvironment();
+	local zone = gData.GetEnvironment();
 
     if (player.Status == 'engaged') then
         gFunc.EquipSet('gcinclude.sets.Tp_' .. varhelper.GetCycle('Set'));
@@ -148,10 +154,10 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 
-	if (gcinclude.Towns:contains(zone.Area)) then
+	if (gcinclude.Towns:contains(zone.area)) then
 		gFunc.EquipSet(sets.Town)
 	end
-    gcinclude.CheckCommonDebuffs();
+	gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 end
 

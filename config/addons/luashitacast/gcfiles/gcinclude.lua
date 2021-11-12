@@ -1,23 +1,58 @@
 local gcinclude = {};
 local player = gData.GetPlayer();
 
---Default sets that should be over written by any sets in your JOB lua
+--Default sets that should be over written by any sets in your JOB lua, im trying to avoid main/sub/range/ammo here
 gcinclude.sets = {
-	DT = {
+	Dt = {
 		Head = 'Nyame Helm',
         Feet = 'Nyame Sollerets',
 		Ring1 = 'Defending Ring',
     },
+
+	Tp_Default = {
+
+	};
+	Tp_Hybrid = Tp_Default;
 	Tp_Acc = {
 		Ring1 = 'Defending Ring',
     },
 	Precast = {
-		Ring1 = 'Kishar Ring',
-		Ring2 = 'Prolix Ring',
+		Head = 'Haruspex Hat', -- 8%
+		Neck = 'Baetyl Pendant', -- 4% all jobs
+		Ear1 = 'Etiolation Earring', -- 1% all jobs
+		Ear2 = 'Loquac. Earring', -- 2% all jobs
+		Body = 'Agwu\'s Robe', -- 8%
+		Hands = 'Gende. Gages +1', -- 7%
+		Ring1 = 'Kishar Ring', -- 4%
+		Ring2 = 'Prolix Ring', -- 2% all jobs
+		Back = 'Swith Cape +1', --4%
+		Waist = 'Embla Sash', -- 5%
+		Legs = 'Enif Cosciales', -- 8%
+		Feet = 'Volte Gaiters', -- 6%
+    },
+
+	Ws_Default = {
+		Ring1 = 'Defending Ring',
+    },
+	Ws_Hybrid = Ws_Default;
+	Ws_Acc = Ws_Hybrid;
+
+	Doomed = {
+		Waist = 'Gishdubar Sash',
+    },
+	Holy_Water = {
+		Ring2 = 'Blenmot\'s Ring',
+    },
+	Sleeping = {
+    },
+	Reraise = {
+		Head = 'Twilight Helm',
+		Body = 'Twilight Mail',
     },
 };
 
 --Tables for table type stuff
+Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library'};
 LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
 BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
 BstPetMagicAttack = T{'Gloom Spray','Fireball','Acid Spray','Molting Plumage','Cursed Sphere','Nectarous Deluge','Charged Whisker','Nepenthic Plunge'};
@@ -37,7 +72,7 @@ gcinclude.SetAlias = function()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd nuke');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /weapon /lac fwd weapon');
 	end
@@ -83,6 +118,28 @@ gcinclude.CheckLockingRings = function()
 		local tempRing2 = rings.Ring2.Name;
 		gFunc.Equip('Ring2', tempRing2);
 	end
+end
+
+gcinclude.CheckCommonDebuffs = function()
+	local weakened = gData.GetBuffCount(1);
+	local sleep = gData.GetBuffCount(2);
+	local doom = (gData.GetBuffCount(15))+(gData.GetBuffCount(30));
+
+	if (sleep ~= 0) then
+		gFunc.EquipSet(gcinclude.sets.Sleeping);
+	end
+	if (doom ~= 0) then
+		gFunc.EquipSet(gcinclude.sets.Doomed);
+	end
+	if (weakened ~= 0) then
+		gFunc.EquipSet(gcinclude.sets.Reraise);
+	end
+end
+
+gcinclude.Initialize = function()
+	varhelper.Initialize();
+	gcinclude.SetVariables();
+	gcinclude.SetAlias();
 end
 
 return gcinclude;

@@ -24,7 +24,7 @@ local sets = {
 	
 	Town = Idle;
 	
-	DT = {
+	Dt = {
 		Head = 'Meghanada Visor +1',
 		Body = 'Tartarus Platemail',
 		Hands = 'Meg. Gloves +2',
@@ -97,11 +97,8 @@ local function HandlePetAction(PetAction)
 end
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = true;
-	varhelper.Initialize();
-	
-	gcinclude.SetVariables();
-	gcinclude.SetAlias();
+    gSettings.AllowAddSet = false;
+	gcinclude.Initialize();
 	
 end
 
@@ -133,8 +130,8 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 	if (varhelper.GetToggle('DTset') == true) then
-		gFunc.EquipSet(gcinclude.sets.DT);
-		gFunc.EquipSet(sets.DT);
+		gFunc.EquipSet(gcinclude.sets.Dt);
+		gFunc.EquipSet(sets.Dt);
 	end
 	if (varhelper.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
