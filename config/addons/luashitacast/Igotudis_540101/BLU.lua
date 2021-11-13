@@ -3,82 +3,106 @@ varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 local sets = {
     Idle = {
-        Main = 'Arktoi',
-        Sub = 'Thuellaic Ecu +1',
-        Ammo = 'Voluspa Tathlum',
-        Head = { Name = 'Emicho Coronet', AugPath='C' },
-        Neck = 'Empath Necklace',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Bladeborn Earring',
-        Body = 'Tali\'ah Manteel +1',
-        Hands = 'Macabre Gaunt.',
-        Ring1 = 'Tali\'ah Ring',
-        Ring2 = 'Meghanada Ring',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Hurch\'lan Sash',
-        Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Tali\'ah Crackows +1',
+        Ammo = 'Staunch Tathlum',
+        Head = 'Rawhide Mask',
+        Neck = 'Bathy Choker +1',
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Gelatinous Ring +1',
+		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Waist = 'Flume Belt +1',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
-	
 	Resting = Idle;
-	
 	Town = Idle;
 	
 	Dt = {
-		Head = 'Meghanada Visor +1',
-		Body = 'Tartarus Platemail',
-		Hands = 'Meg. Gloves +2',
-		Legs = 'Meg. Chausses +2',
-		Feet = 'Meg. Jam. +1',
-		Neck = 'Diemer Gorget',
-		Ring1 = 'Defending Ring',
-		Back = 'Impassive Mantle',
+		Ammo = 'Staunch Tathlum',
+		Neck = 'Bathy Choker +1',
+		Ear1 = 'Eabani Earring',
+		Body = 'Gleti\'s Cuirass',
+		Hands = 'Malignance Gloves',
+		Waist = 'Flume Belt +1',
 	},
 	
 	Tp_Default = {
-        Main = 'Arktoi',
-        Sub = 'Thuellaic Ecu +1',
-        Ammo = 'Voluspa Tathlum',
-        Head = { Name = 'Emicho Coronet', AugPath='C' },
-        Neck = 'Empath Necklace',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Bladeborn Earring',
-        Body = 'Tali\'ah Manteel +1',
-        Hands = 'Macabre Gaunt.',
-        Ring1 = 'Tali\'ah Ring',
-        Ring2 = 'Meghanada Ring',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Hurch\'lan Sash',
-        Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Tali\'ah Crackows +1',
+        Ammo = 'Coiste Bodhar',
+        Head = 'Adhemar Bonnet +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Cessance Earring',
+        Body = 'Herculean Vest',
+        Hands = 'Adhemar Wrist. +1',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Epona\'s Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Samnuha Tights',
+        Feet = 'Herculean Boots',
     },
 	Tp_Hybrid = Tp_Default;
 	Tp_Acc = Tp_Hybrid;
 	
-	Call = {
-		Hands = 'Ankusa Gloves',
-	},
-	Reward = {
-		Ammo = 'Pet Food Theta',
-		Body = 'Monster Jackcoat',
-		Feet = 'Monster Gaiters',
-		Ear1 = 'Ferine Earring'
-	},
-	PetReadyDefault = {
-		Ammo = 'Voluspa Tathlum',
-		Head = 'Emicho Coronet',
-		Body = 'Valorous Mail',
-		Legs = 'Despair Cuisses',
-		Neck = 'Empath Necklace',
-		Waist = 'Incarnation Sash',
-		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-	},
-	PetAttack = PetReadyDefault,
-	PetMagicAttack = PetReadyDefault,
-	PetMagicAccuracy = PetReadyDefault,
+	Precast = {
+        Ammo = 'Staunch Tathlum',
+        Body = 'Luhlaza Jubbah +3',
+        Hands = '',
+        Waist = '',
+        Feet = '',
+    },
+
+    Ws = {
+        Ammo = 'Ginsen',
+        Head = 'Adhemar Bonnet +1',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Assim. Jubbah +2',
+        Hands = 'Adhemar Wrist. +1',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Begrudging Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Herculean Boots',
+    },
+    Ws_Hybrid = Ws_Default;
+    Ws_Acc = Ws_Hybrid;
+    Chant = {
+        Ammo = 'Ginsen',
+        Head = 'Adhemar Bonnet +1',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Assim. Jubbah +2',
+        Hands = 'Adhemar Wrist. +1',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Begrudging Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Herculean Boots',
+    },
+    Chant_Hybrid = Chant_Default;
+    Chant_Acc = Chant_Hybrid;
+    Savage = {
+        Ammo = 'Ginsen',
+        Head = 'Adhemar Bonnet +1',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Assim. Jubbah +2',
+        Hands = 'Adhemar Wrist. +1',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Begrudging Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Herculean Boots',
+    },
+    Savage_Hybrid = Savage_Default;
+    Savage_Acc = Savage_Hybrid;
 	
 	Movement = {
-		Feet = 'Meg. Jam. +1',
+		Legs = 'Carmine Cuisses +1',
 	}
 };
 

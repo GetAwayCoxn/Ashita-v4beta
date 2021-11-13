@@ -105,8 +105,11 @@ local sets = {
         Legs = '',
         Feet = '',
     },
-    Ws_Hybrid = Tp_Default;
-    Ws_Acc = Tp_Hybrid;
+    Ws_Hybrid = Ws_Default;
+    Ws_Acc = Ws_Hybrid;
+
+    Movement = {
+	},
 };
 
 profile.Sets = sets;
