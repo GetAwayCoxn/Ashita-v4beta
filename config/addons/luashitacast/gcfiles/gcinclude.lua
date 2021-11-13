@@ -4,9 +4,12 @@ local player = gData.GetPlayer();
 --Default sets that should be over written by any sets in your JOB lua, im trying to avoid main/sub/range/ammo here
 gcinclude.sets = {
 	Dt = {
-		Head = 'Nyame Helm',
-        Feet = 'Nyame Sollerets',
-		Ring1 = 'Defending Ring',
+		Head = 'Nyame Helm', -- DT7% all jobs
+		Neck = 'Loricate Torque +1', -- DT6% all jobs
+		Ear2 = 'Etiolation Earring', -- MT3% all jobs
+        Feet = 'Nyame Sollerets', -- DT7% all jobs
+		Ring1 = 'Defending Ring', -- DT10% all jobs
+		Ring2 = 'Gelatinous Ring +1', -- PT7% all jobs
     },
 
 	Tp_Default = {
@@ -32,15 +35,18 @@ gcinclude.sets = {
     },
 
 	Ws_Default = {
-		Ring1 = 'Defending Ring',
+		Neck = 'Fotia Gorget',
+		Waist = 'Fotia Belt',
     },
 	Ws_Hybrid = Ws_Default;
 	Ws_Acc = Ws_Hybrid;
 
 	Doomed = {
+		Ring1 = 'Purity Ring',
 		Waist = 'Gishdubar Sash',
     },
 	Holy_Water = {
+		Ring1 = 'Purity Ring',
 		Ring2 = 'Blenmot\'s Ring',
     },
 	Sleeping = {
@@ -65,7 +71,6 @@ BluMagSkill = T{'Metallic Body','Diamondhide','Magic Barrier','Occultation','Atr
 BluMagDiffus = T{'Erratic Flutter','Carcharian Verve','Harden Shell','Mighty Guard'};
 BluMagCure = T{'Pollen','Healing Breeze','Wild Carrot','Magic Fruit','Plenilune Embrace'};
 BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Temporal Shift'};
-
 
 gcinclude.SetAlias = function()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
@@ -108,18 +113,6 @@ gcinclude.SetCommands = function(args)
 	end
 end
 
-gcinclude.CheckLockingRings = function()
-	local rings = gData.GetEquipment();
-	if (rings.Ring1 ~= nil) and (LockingRings:contains(rings.Ring1.Name)) then
-		local tempRing1 = rings.Ring1.Name;
-		gFunc.Equip('Ring1', tempRing1);
-	end
-	if (rings.Ring2 ~= nil) and (LockingRings:contains(rings.Ring2.Name)) then
-		local tempRing2 = rings.Ring2.Name;
-		gFunc.Equip('Ring2', tempRing2);
-	end
-end
-
 gcinclude.CheckCommonDebuffs = function()
 	local weakened = gData.GetBuffCount(1);
 	local sleep = gData.GetBuffCount(2);
@@ -133,6 +126,18 @@ gcinclude.CheckCommonDebuffs = function()
 	end
 	if (weakened ~= 0) then
 		gFunc.EquipSet(gcinclude.sets.Reraise);
+	end
+end
+
+gcinclude.CheckLockingRings = function()
+	local rings = gData.GetEquipment();
+	if (rings.Ring1 ~= nil) and (LockingRings:contains(rings.Ring1.Name)) then
+		local tempRing1 = rings.Ring1.Name;
+		gFunc.Equip('Ring1', tempRing1);
+	end
+	if (rings.Ring2 ~= nil) and (LockingRings:contains(rings.Ring2.Name)) then
+		local tempRing2 = rings.Ring2.Name;
+		gFunc.Equip('Ring2', tempRing2);
 	end
 end
 
