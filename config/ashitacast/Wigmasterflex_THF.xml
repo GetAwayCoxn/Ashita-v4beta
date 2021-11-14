@@ -564,37 +564,37 @@
 			</if>
 		</elseif>
 		<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
-		<elseif advanced="($b_Sneak Attack>=1)|($b_Trick Attack>=1)">
-			<!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. -->
-			<if advanced="($b_Sneak Attack>=1)&($b_Trick Attack>=1)">
-				<equip set="SATA" />
-				<if advanced="$u_TH=1">
-					<equip>
-						<hands>Plun. Armlets +1</hands>
-						<feet>Raid. Poulaines +2</feet>
-					</equip>
-				</if>
-			</if>
-			<!-- ATTN: The buffactive attribute used to construct the following node used a buff name with a space in it.  Please convert it to buff ID. -->
-			<elseif b_Trick Attack=">=1">
-				<equip set="Trick Attack" />
-				<if advanced="$u_TH=1">
-					<equip>
-						<hands>Plun. Armlets +1</hands>
-						<feet>Raid. Poulaines +2</feet>
-					</equip>
-				</if>
-			</elseif>
-			<else>
-				<equip set="Sneak Attack" />
-			</else>
-			<if advanced="$u_TH=1">
-				<equip>
-					<hands>Plun. Armlets +1</hands>
-					<feet>Raid. Poulaines +2</feet>
-				</equip>
-			</if>
-		</elseif>
+		<!-- <elseif advanced="($b_Sneak Attack>=1)|($b_Trick Attack>=1)"> -->
+			<!-- <!-- ATTN: The buffactive attribute used to construct the following node was using '|' and &'.  These are ambiguous, please review the new node for accuracy. --> 
+			<!-- <!-- <if advanced="($b_Sneak Attack>=1)&($b_Trick Attack>=1)"> --> 
+				<!-- <!-- <equip set="SATA" /> --> 
+				<!-- <!-- <if advanced="$u_TH=1"> --> 
+					<!-- <!-- <equip> --> 
+						<!-- <!-- <hands>Plun. Armlets +1</hands> --> 
+						<!-- <!-- <feet>Raid. Poulaines +2</feet> --> 
+					<!-- <!-- </equip> --> 
+				<!-- <!-- </if> --> 
+			<!-- <!-- </if> --> 
+			<!-- <!-- ATTN: The buffactive attribute used to construct the following node used a buff name with a space in it.  Please convert it to buff ID. -->
+			<!-- <elseif b_Trick Attack=">=1"> -->
+				<!-- <equip set="Trick Attack" /> -->
+				<!-- <if advanced="$u_TH=1"> -->
+					<!-- <equip> -->
+						<!-- <hands>Plun. Armlets +1</hands> -->
+						<!-- <feet>Raid. Poulaines +2</feet> -->
+					<!-- </equip> -->
+				<!-- </if> -->
+			<!-- </elseif> -->
+			<!-- <else> -->
+				<!-- <equip set="Sneak Attack" /> -->
+			<!-- </else> -->
+			<!-- <if advanced="$u_TH=1"> -->
+				<!-- <equip> -->
+					<!-- <hands>Plun. Armlets +1</hands> -->
+					<!-- <feet>Raid. Poulaines +2</feet> -->
+				<!-- </equip> -->
+			<!-- </if> -->
+		<!-- </elseif> -->
 		<else>
 			<if p_status="engaged">
 				<equip set="TP-$u_Set" />

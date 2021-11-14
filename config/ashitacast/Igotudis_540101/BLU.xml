@@ -153,7 +153,7 @@
 			<ear1>Hecate's Earring</ear1>
 			<ear2>Regal Earring</ear2>
 			<ring1>Metamor. Ring +1</ring1>
-			<ring2>Jhakri Ring</ring2>
+			<ring2>Shiva Ring +1</ring2>
 			<back augment="INT+20,Mag. Acc+20,/Mag. Dmg.+20,'Mag.Atk.Bns.'+10,Phys. dmg. taken-10%">Rosmerta's Cape</back>
 		</set>
 		<set name="BluMacc">
@@ -163,7 +163,7 @@
 			<hands>Jhakri Cuffs +2</hands>
 			<legs>Jhakri Slops +2</legs>
 			<feet>Gleti's Boots</feet>
-			<neck>Mirage Stole +2</neck>
+			<neck>Erra Pendant</neck>
 			<waist>Acuity Belt +1</waist>
 			<ear1>Gwati Earring</ear1>
 			<ear2>Regal Earring</ear2>
@@ -572,7 +572,7 @@
 			</if>
 			<if b_165=">=1">
 				<equip>
-					<feet>Hashishin Basmak +1</feet>
+					<feet>Hashi. Basmak +1</feet>
 				</equip>
 			</if>
 		</else>
@@ -586,13 +586,6 @@
 			<equip>
 				<feet>Luhlaza Charuqs +1</feet>
 			</equip>
-		</if>
-		<if ad_name="Spectral Jig">
-			<if b_71=">=1">
-				<command>/cancel 71</command>
-				<cancel />
-				<command delay="2000">/ja "$ad_name" $at_id</command>
-			</if>
 		</if>
 	</ability>
 

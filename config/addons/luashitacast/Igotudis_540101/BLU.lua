@@ -18,10 +18,12 @@ sets = {
         Feet = 'Gleti\'s Boots',
     },
 	Resting = {
-        Head = 'Ipoca Beret' -- Test Item
-    };
+        Body = 'Jhakri Robe +2',
+        Waist = 'Fucho-no-Obi'
+    },
 	Town = {
-    };
+        Head = 'Cumulus Masque',
+    },
 	
 	Dt = {
 		Ammo = 'Staunch Tathlum',
@@ -67,12 +69,111 @@ sets = {
 	Precast = {
         Ammo = 'Staunch Tathlum',
         Body = 'Luhlaza Jubbah +3',
-        Hands = '',
-        Waist = '',
-        Feet = '',
     },
     Precast_Stoneskin = {
         Waist = 'Siegel Sash'   
+    },
+
+    Cure = {
+        Head = 'Ipoca Beret',
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Mendi. Earring',
+        Body = 'Ayanmo Corazza +2',
+        Hands = 'Weath. Cuffs +1',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Metamor. Ring +1',
+        Back = 'Solemnity Cape',
+    },
+    WhiteWind = {
+        Head = 'Pinga Crown',
+        Neck = 'Bathy Choker +1',
+        Ear1 = 'Tuisto Earring',
+        Ear2 = 'Odnowa Earring +1',
+        Body = 'Despair Mail',
+        Ring1 = 'Bomb Queen Ring',
+        Ring2 = 'Meridian Ring',
+        Back = 'Moonbeam Cape',
+        Legs = 'Pinga Pants +1',
+        Feet = 'Medium\'s Sabots',
+    },
+    BluSkill = {
+        Body = 'Assim. Jubbah +2',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+    },
+    BluMagical = {
+        Ammo = 'Ghastly Tathlum +1',
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Hecate\'s Earring',
+        Ear2 = 'Regal Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Metamor. Ring +1',
+        Ring2 = 'Shiva Ring +1',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Acuity Belt +1',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Hashi. Basmak +1',
+    },
+    BluDark = {
+        Ring2 = 'Archon Ring',
+    },
+    BluMagicAccuracy = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Erra Pendant',
+        Ear1 = 'Gwati Earring',
+        Ear2 = 'Regal Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Metamor. Ring +1',
+        Ring2 = 'Crepuscular Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Acuity Belt +1',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Gleti\'s Boots',
+    },
+    BluStun = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Gwati Earring',
+        Ear2 = 'Regal Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Metamor. Ring +1',
+        Ring2 = 'Crepuscular Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Acuity Belt +1',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Gleti\'s Boots',
+    },
+    BluPhysical = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Adhemar Bonnet +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Mache Earring',
+        Ear2 = 'Odr Earring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Begrudging Ring',
+        Ring2 = 'Petrov Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
+    },
+    CMP = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Ipoca Beret',
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Mendi. Earring',
+        Ear2 = 'Gifted Earring',
+        Ring1 = 'Metamor. Ring +1',
+        Ring2 = 'Kishar Ring',
+        Back = 'Solemnity Cape',
+        Waist = 'Hachirin-no-Obi',
+        Legs = 'Augury Cuisses +1',
     },
 
     Ws_Default = {
@@ -105,7 +206,7 @@ sets = {
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
         Feet = 'Herculean Boots',
     },
@@ -133,6 +234,10 @@ sets = {
 	
     Diffusion = {
         Feet = 'Luhlaza Charuqs +1'
+    },
+    Enmity = {
+        Neck = 'Unmoving Collar +1',
+        Ear1 = 'Cryptic Earring',
     },
 	Movement = {
 		Legs = 'Carmine Cuisses +1',
@@ -176,6 +281,9 @@ profile.HandleDefault = function()
 	if (varhelper.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
+
+    gcinclude.SetTownGear();
+    gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 end
 
@@ -196,10 +304,25 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
-    local buff = gData.GetBuffCount('Diffusion');
+    local diff = gData.GetBuffCount('Diffusion');
+    local ca = gData.GetBuffCount('Chain Affinity');
+    local ba = gData.GetBuffCount('Burst Affinity');
     local spell = gData.GetAction();
 
-    if (buff>=1) then gFunc.EquipSet(sets.Diffusion) end
+    gFunc.EquipSet(sets.BluMagical);
+    if (gcinclude.BluMagDebuff:contains(spell.Name)) then gFunc.EquipSet(sets.BluMagicAccuracy)
+    elseif (gcinclude.BluMagStun:contains(spell.Name)) then gFunc.EquipSet(sets.BluStun);
+    elseif (gcinclude.BluMagBuff:contains(spell.Name)) then gFunc.EquipSet(sets.CMP);
+    elseif (gcinclude.BluMagSkill:contains(spell.Name)) then gFunc.EquipSet(sets.BluSkill);
+    elseif (gcinclude.BluMagCure:contains(spell.Name)) then gFunc.EquipSet(sets.Cure);
+    elseif (gcinclude.BluMagEnmity:contains(spell.Name)) then gFunc.EquipSet(sets.Enmity);
+    elseif string.match(spell.Name, 'White Wind') then gFunc.EquipSet(sets.WhiteWind);
+    elseif string.match(spell.Name, 'Evryone. Grudge') or string.match(spell.Name, 'Tenebral Crush') then gFunc.EquipSet(sets.BluDark);
+    end
+
+    if (ca>=1) then gFunc.Equip('Feet','Assim. Charuqs +1') end
+    if (ba>=1) then gFunc.Equip('Feet','Hashi. Basmak +1') end
+    if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
 end
 
 profile.HandlePreshot = function()

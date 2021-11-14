@@ -153,6 +153,8 @@ profile.HandleDefault = function()
 	if (varhelper.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
+
+    gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 end
 
