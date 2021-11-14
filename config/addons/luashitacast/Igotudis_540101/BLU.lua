@@ -1,7 +1,7 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
-local sets = {
+sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Rawhide Mask',
@@ -17,8 +17,11 @@ local sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
-	Resting = Idle;
-	Town = Idle;
+	Resting = {
+        Head = 'Ipoca Beret' -- Test Item
+    };
+	Town = {
+    };
 	
 	Dt = {
 		Ammo = 'Staunch Tathlum',
@@ -44,8 +47,22 @@ local sets = {
         Legs = 'Samnuha Tights',
         Feet = 'Herculean Boots',
     },
-	Tp_Hybrid = Tp_Default;
-	Tp_Acc = Tp_Hybrid;
+	Tp_Hybrid = {
+        Head = 'Malignance Chapeau',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots'
+    },
+	Tp_Acc = {
+        Ammo = 'Ginsen',
+        Head = 'Blistering Sallet +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Mache Earring',
+        Body = 'Luhlaza Jubbah +3',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Cacoethic Ring'
+    },
 	
 	Precast = {
         Ammo = 'Staunch Tathlum',
@@ -54,8 +71,11 @@ local sets = {
         Waist = '',
         Feet = '',
     },
+    Precast_Stoneskin = {
+        Waist = 'Siegel Sash'   
+    },
 
-    Ws = {
+    Ws_Default = {
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Brutal Earring',
@@ -68,9 +88,15 @@ local sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Herculean Boots',
     },
-    Ws_Hybrid = Ws_Default;
-    Ws_Acc = Ws_Hybrid;
-    Chant = {
+    Ws_Hybrid = {
+        Head = 'Nyame Helm',
+        Body = 'Gleti\'s Cuirass',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots'
+    },
+    Ws_Acc = {
+    },
+    Chant_Default = {
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Brutal Earring',
@@ -83,8 +109,10 @@ local sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Herculean Boots',
     },
-    Chant_Hybrid = Chant_Default;
-    Chant_Acc = Chant_Hybrid;
+    Chant_Hybrid = {
+    },
+    Chant_Acc = {
+    },
     Savage = {
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
@@ -98,32 +126,24 @@ local sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Herculean Boots',
     },
-    Savage_Hybrid = Savage_Default;
-    Savage_Acc = Savage_Hybrid;
+    Savage_Hybrid = {
+    },
+    Savage_Acc = {
+    },
 	
+    Diffusion = {
+        Feet = 'Luhlaza Charuqs +1'
+    },
 	Movement = {
 		Legs = 'Carmine Cuisses +1',
-	}
+	},
 };
-
+gcinclude.MergeSets();
 profile.Sets = sets;
-
-local function HandlePetAction(PetAction)
-	if (PetAction.Name == BstPetAttack) then
-        gFunc.EquipSet(sets.PetAttack);
-	elseif (PetAction.Name == BstMagicAttack) then
-        gFunc.EquipSet(sets.PetMagicAttack);
-	elseif (PetAction.Name == BstMagicAccuracy) then
-        gFunc.EquipSet(sets.PetMagicAccuracy);
-    else
-        gFunc.EquipSet(sets.PetReadyDefault);
-    end
-end
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
 	gcinclude.Initialize();
-	
 end
 
 profile.OnUnload = function()
@@ -135,24 +155,20 @@ profile.HandleCommand = function(args)
 end
 
 profile.HandleDefault = function()
-	local petAction = gData.GetPetAction();
-    if (petAction ~= nil) and BstPetAttack:contains(petAction.Name) then
-        HandlePetAction(petAction);
-        return;
-    end
+	gFunc.EquipSet(sets.Idle);
 	
 	local player = gData.GetPlayer();
-    if (player.Status == 'engaged') then
-        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set'));
-    elseif (player.Status == 'resting') then
+    if (player.Status == 'Engaged') then
+        gFunc.EquipSet(sets.Tp_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set')); end
+    elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
-    else
-		gFunc.EquipSet(sets.Idle);
+    elseif (player.IsMoving == true) then
+		gFunc.EquipSet(sets.Movement);
     end
 	
-	if (player.IsMoving == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
+	
 	if (varhelper.GetToggle('DTset') == true) then
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
@@ -164,21 +180,26 @@ profile.HandleDefault = function()
 end
 
 profile.HandleAbility = function()
-	local action = gData.GetAction();
-	if string.match(action.Name, 'Call Beast') or string.match(action.Name, 'Bestial Loyalty') then
-		gFunc.EquipSet(sets.Call);
-	elseif string.match(action.Name, 'Reward') then
-		gFunc.EquipSet(sets.Reward);
-	end
+	local ability = gData.GetAction();
 end
 
 profile.HandleItem = function()
+    local item = gData.GetAction();
+
+	if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
 end
 
 profile.HandlePrecast = function()
+    local spell = gData.GetAction();
+    gFunc.EquipSet(sets.Precast)
+    if string.match(spell.Name, 'Stoneskin') then gFunc.EquipSet(sets.Precast_Stoneskin) end
 end
 
 profile.HandleMidcast = function()
+    local buff = gData.GetBuffCount('Diffusion');
+    local spell = gData.GetAction();
+
+    if (buff>=1) then gFunc.EquipSet(sets.Diffusion) end
 end
 
 profile.HandlePreshot = function()
@@ -188,6 +209,21 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
+    local ws = gData.GetAction();
+    
+    gFunc.EquipSet(sets.Ws_Default)
+    if (varhelper.GetCycle('Set') ~= 'Default') then
+    gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+   
+    if string.match(ws.Name, 'Chant du Cygne') then
+        gFunc.EquipSet(sets.Chant_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+	elseif string.match(ws.Name, 'Savage Blade') then
+        gFunc.EquipSet(sets.Savage_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+    end
 end
 
 return profile;

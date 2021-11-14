@@ -1,7 +1,7 @@
 local profile = {};
-local varhelper = gFunc.LoadFile('common/varhelper.lua');
-local gcinclude = gFunc.LoadFile('common/gcinclude.lua');
-local sets = {
+varhelper = gFunc.LoadFile('common/varhelper.lua');
+local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+sets = {
     Idle = {
         Main = '',
         Sub = '',
@@ -66,8 +66,10 @@ local sets = {
         Legs = '',
         Feet = '',
     },
-    Tp_Hybrid = Tp_Default;
-    Tp_Acc = Tp_Hybrid;
+    Tp_Hybrid = {
+    },
+    Tp_Acc = {
+    },
 
 
     Precast = {
@@ -88,7 +90,7 @@ local sets = {
         Feet = '',
     },
 
-    Ws = {
+    Ws_Default = {
         Main = '',
         Sub = '',
         Ammo = '',
@@ -105,13 +107,15 @@ local sets = {
         Legs = '',
         Feet = '',
     },
-    Ws_Hybrid = Ws_Default;
-    Ws_Acc = Ws_Hybrid;
+    Ws_Hybrid = {
+    },
+    Ws_Acc = {
+    },
 
     Movement = {
 	},
 };
-
+gcinclude.MergeSets();
 profile.Sets = sets;
 
 profile.OnLoad = function()
@@ -128,21 +132,20 @@ profile.HandleCommand = function(args)
 end
 
 profile.HandleDefault = function()
-    local player = gData.GetPlayer();
-    local zone = gData.GetEnvironment();
-
-    if (player.Status == 'engaged') then
-        gFunc.EquipSet('gcinclude.sets.Tp_' .. varhelper.GetCycle('Set'));
-        gFunc.EquipSet('sets.Tp_' .. varhelper.GetCycle('Set'));
-    elseif (player.Status == 'resting') then
+    gFunc.EquipSet(sets.Idle);
+	
+	local player = gData.GetPlayer();
+    if (player.Status == 'Engaged') then
+        gFunc.EquipSet(sets.Tp_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set')); end
+    elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
-    else
-		gFunc.EquipSet(sets.Idle);
+    elseif (player.IsMoving == true) then
+		gFunc.EquipSet(sets.Movement);
     end
 	
-	if (player.IsMoving == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
+	
 	if (varhelper.GetToggle('DTset') == true) then
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
@@ -150,28 +153,28 @@ profile.HandleDefault = function()
 	if (varhelper.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
-
-	if (gcinclude.Towns:contains(zone.Area)) then
-		gFunc.EquipSet(sets.Town)
-	end
-    gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 end
 
 profile.HandleAbility = function()
+    local ability = gData.GetAction();
+	if string.match(ability.Name, 'Call Beast') or string.match(ability.Name, 'Bestial Loyalty') then
+		gFunc.EquipSet(sets.Call);
+	elseif string.match(ability.Name, 'Reward') then
+		gFunc.EquipSet(sets.Reward);
+	end
 end
 
 profile.HandleItem = function()
-    local action = gData.GetAction();
+    local item = gData.GetAction();
 
-	if string.match(action.Name, 'Holy Water') then
+	if string.match(item.Name, 'Holy Water') then
 		gFunc.EquipSet(gcinclude.sets.Holy_Water);
 	end
 end
 
 profile.HandlePrecast = function()
-    gFunc.EquipSet(gcinclude.sets.Precast);
-	gFunc.EquipSet(sets.Precast);
+    gFunc.EquipSet(sets.Precast)
 end
 
 profile.HandleMidcast = function()
@@ -184,8 +187,21 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    gFunc.EquipSet('gcinclude.sets.Ws_' .. varhelper.GetCycle('Set'));
-    gFunc.EquipSet('sets.Ws_' .. varhelper.GetCycle('Set'));
+    local ws = gData.GetAction();
+    
+    gFunc.EquipSet(sets.Ws_Default)
+    if (varhelper.GetCycle('Set') ~= 'Default') then
+    gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+   
+    --[[if string.match(ws.Name, 'Chant du Cygne') then
+        gFunc.EquipSet(sets.Chant_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+	elseif string.match(ws.Name, 'Savage Blade') then
+        gFunc.EquipSet(sets.Savage_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+    end ]]
 end
 
 return profile;

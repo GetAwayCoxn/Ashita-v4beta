@@ -13,17 +13,17 @@ gcinclude.sets = {
     },
 
 	Tp_Default = {
-
 	};
-	Tp_Hybrid = Tp_Default;
+	Tp_Hybrid = {
+	};
 	Tp_Acc = {
 		Ring1 = 'Defending Ring',
     },
 	Precast = {
 		Head = 'Haruspex Hat', -- 8%
 		Neck = 'Baetyl Pendant', -- 4% all jobs
-		Ear1 = 'Etiolation Earring', -- 1% all jobs
-		Ear2 = 'Loquac. Earring', -- 2% all jobs
+		Ear1 = 'Loquac. Earring', -- 2% all jobs
+		Ear2 = 'Etiolation Earring', -- 1% all jobs
 		Body = 'Agwu\'s Robe', -- 8%
 		Hands = 'Gende. Gages +1', -- 7%
 		Ring1 = 'Kishar Ring', -- 4%
@@ -38,8 +38,11 @@ gcinclude.sets = {
 		Neck = 'Fotia Gorget',
 		Waist = 'Fotia Belt',
     },
-	Ws_Hybrid = Ws_Default;
-	Ws_Acc = Ws_Hybrid;
+	Ws_Hybrid = {
+	};
+	Ws_Acc = {
+		Ring1 = 'Rufescent Ring',
+	};
 
 	Doomed = {
 		Ring1 = 'Purity Ring',
@@ -57,7 +60,7 @@ gcinclude.sets = {
     },
 };
 
---Tables for table type stuff
+--Tables for table type stuffs
 Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library'};
 LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
 BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
@@ -72,7 +75,8 @@ BluMagDiffus = T{'Erratic Flutter','Carcharian Verve','Harden Shell','Mighty Gua
 BluMagCure = T{'Pollen','Healing Breeze','Wild Carrot','Magic Fruit','Plenilune Embrace'};
 BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Temporal Shift'};
 
-gcinclude.SetAlias = function()
+--functions for functiony stuffs
+function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
@@ -83,7 +87,7 @@ gcinclude.SetAlias = function()
 	end
 end
 
-gcinclude.SetVariables = function()
+function gcinclude.SetVariables()
 	varhelper.CreateToggle('DTset', false);
 	varhelper.CreateToggle('Kite', false);
 	varhelper.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
@@ -94,7 +98,7 @@ gcinclude.SetVariables = function()
 	end
 end
 
-gcinclude.SetCommands = function(args)
+function gcinclude.SetCommands(args)
 	if (args[1] == 'dt') then
 		varhelper.AdvanceToggle('DTset');
     elseif (args[1] == 'set') then
@@ -113,7 +117,7 @@ gcinclude.SetCommands = function(args)
 	end
 end
 
-gcinclude.CheckCommonDebuffs = function()
+function gcinclude.CheckCommonDebuffs()
 	local weakened = gData.GetBuffCount(1);
 	local sleep = gData.GetBuffCount(2);
 	local doom = (gData.GetBuffCount(15))+(gData.GetBuffCount(30));
@@ -129,7 +133,7 @@ gcinclude.CheckCommonDebuffs = function()
 	end
 end
 
-gcinclude.CheckLockingRings = function()
+function gcinclude.CheckLockingRings()
 	local rings = gData.GetEquipment();
 	if (rings.Ring1 ~= nil) and (LockingRings:contains(rings.Ring1.Name)) then
 		local tempRing1 = rings.Ring1.Name;
@@ -141,10 +145,64 @@ gcinclude.CheckLockingRings = function()
 	end
 end
 
-gcinclude.Initialize = function()
+function gcinclude.Initialize()
 	varhelper.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
 end
 
+--function gcinclude.MergeSets()
+	--local name;
+	--for i in pairs(gcinclude.sets) do
+		--name = i;
+
+		--for k,v in pairs(gcinclude.sets[name]) do 
+			--sets.name[k] = v;
+		--end
+	--end
+--end
+
+function gcinclude.MergeSets()
+	for k,v in pairs(gcinclude.sets.Dt) do sets.Dt[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Default) do sets.Tp_Default[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Hybrid) do sets.Tp_Hybrid[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Acc) do sets.Tp_Acc[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Default) do sets.Ws_Default[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Hybrid) do sets.Ws_Hybrid[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Acc) do sets.Ws_Acc[k] = v end
+	for k,v in pairs(gcinclude.sets.Precast) do sets.Precast[k] = v end
+end
+
+-----------------------------------------------------------------------------------
+----Name: set_merge(baseSet, ...)
+-- Merges any additional gear sets (...) into the provided base set.
+-- Ensures that only valid slot keys/elements are used in the combined set.
+----Args:
+-- respect_disable - boolean indicating whether the disable_table should be respected.
+-- baseSet - The set that all the other sets are combined into.  May be an empty set.
+-----------------------------------------------------------------------------------
+----Returns:
+-- Returns the modified base set, after all other sets have been merged into it.
+-----------------------------------------------------------------------------------
+function gcinclude.merge(baseSet, ...)
+    local combineSets = {...}
+
+    -- Take the list of tables we're given and cleans them up, so that they
+    -- only contain acceptable slot key entries.
+    local cleanSetsList = table.map(combineSets, unify_slots)
+
+    -- Combine the provided sets into combinedSet.  If anything is blocked by having
+    -- the slot disabled, assign the item to the not_sent_out_equip table.
+    for _,set in pairs(cleanSetsList) do
+        for slot,item in pairs(set) do
+            if respect_disable and disable_table[slot_map[slot]] then
+                not_sent_out_equip[slot] = item
+            else
+                baseSet[slot] = item
+            end
+        end
+    end
+    
+    return baseSet
+end
 return gcinclude;
