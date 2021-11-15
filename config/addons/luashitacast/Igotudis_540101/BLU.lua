@@ -243,8 +243,8 @@ sets = {
 		Legs = 'Carmine Cuisses +1',
 	},
 };
-gcinclude.MergeSets();
-profile.Sets = sets;
+
+profile.Sets = gcinclude.MergeSets();
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -332,20 +332,24 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local ws = gData.GetAction();
+    local canWS = gcinclude.WSbailout();
+    if not (canWS) then return;
+    else
+        local ws = gData.GetAction();
     
-    gFunc.EquipSet(sets.Ws_Default)
-    if (varhelper.GetCycle('Set') ~= 'Default') then
-    gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+        gFunc.EquipSet(sets.Ws_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
    
-    if string.match(ws.Name, 'Chant du Cygne') then
-        gFunc.EquipSet(sets.Chant_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
-	elseif string.match(ws.Name, 'Savage Blade') then
-        gFunc.EquipSet(sets.Savage_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+        if string.match(ws.Name, 'Chant du Cygne') then
+            gFunc.EquipSet(sets.Chant_Default)
+            if (varhelper.GetCycle('Set') ~= 'Default') then
+            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+	    elseif string.match(ws.Name, 'Savage Blade') then
+            gFunc.EquipSet(sets.Savage_Default)
+            if (varhelper.GetCycle('Set') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+        end
     end
 end
 

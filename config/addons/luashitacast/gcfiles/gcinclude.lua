@@ -1,4 +1,5 @@
 local gcinclude = {};
+--sugar = require('sugar');
 local player = gData.GetPlayer();
 
 --Default sets that should be over written by any sets in your JOB lua, im trying to avoid main/sub/range/ammo here
@@ -58,6 +59,9 @@ gcinclude.sets = {
 		Head = 'Twilight Helm',
 		Body = 'Twilight Mail',
     },
+	Head = {
+		Head = 'Cumulus Masque',
+	},
 };
 
 --Tables for table type stuffs
@@ -157,58 +161,22 @@ function gcinclude.Initialize()
 	gcinclude.SetAlias();
 end
 
---function gcinclude.MergeSets()
-	--local name;
-	--for i in pairs(gcinclude.sets) do
-		--name = i;
+function gcinclude.WSbailout(boolean)
+	local player = gData.GetPlayer();
+	local sleep = gData.GetBuffCount('sleep');
+	local stun = gData.GetBuffCount('stun');
+	local terror = gData.GetBuffCount('terror');
+	local amnesia = gData.GetBuffCount('amnesia');
 
-		--for k,v in pairs(gcinclude.sets[name]) do 
-			--sets.name[k] = v;
-		--end
-	--end
---end
-
-function gcinclude.MergeSets()
-	for k,v in pairs(gcinclude.sets.Dt) do sets.Dt[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Default) do sets.Tp_Default[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Hybrid) do sets.Tp_Hybrid[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Acc) do sets.Tp_Acc[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Default) do sets.Ws_Default[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Hybrid) do sets.Ws_Hybrid[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Acc) do sets.Ws_Acc[k] = v end
-	for k,v in pairs(gcinclude.sets.Precast) do sets.Precast[k] = v end
+	if (sleep+stun+terror+amnesia >= 1) or (player.TP <= 999) then
+		return false;
+	else
+		return true;
+	end
 end
 
------------------------------------------------------------------------------------
-----Name: set_merge(baseSet, ...)
--- Merges any additional gear sets (...) into the provided base set.
--- Ensures that only valid slot keys/elements are used in the combined set.
-----Args:
--- respect_disable - boolean indicating whether the disable_table should be respected.
--- baseSet - The set that all the other sets are combined into.  May be an empty set.
------------------------------------------------------------------------------------
-----Returns:
--- Returns the modified base set, after all other sets have been merged into it.
------------------------------------------------------------------------------------
-function gcinclude.merge(baseSet, ...)
-    local combineSets = {...}
-
-    -- Take the list of tables we're given and cleans them up, so that they
-    -- only contain acceptable slot key entries.
-    local cleanSetsList = table.map(combineSets, unify_slots)
-
-    -- Combine the provided sets into combinedSet.  If anything is blocked by having
-    -- the slot disabled, assign the item to the not_sent_out_equip table.
-    for _,set in pairs(cleanSetsList) do
-        for slot,item in pairs(set) do
-            if respect_disable and disable_table[slot_map[slot]] then
-                not_sent_out_equip[slot] = item
-            else
-                baseSet[slot] = item
-            end
-        end
-    end
-    
-    return baseSet
+function gcinclude.MergeSets(table)
+	mergedsets = sugar.table_mt.merge(gcinclude.sets, sets, true);
+	return mergedsets;
 end
 return gcinclude;

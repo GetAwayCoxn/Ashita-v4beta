@@ -35,7 +35,7 @@ sets = {
         Main = '',
         Sub = '',
         Ammo = '',
-        Head = '',
+        Head = 'Malignance Chapeau',
         Neck ='',
         Ear1 = '',
         Ear2 = '',
@@ -114,9 +114,13 @@ sets = {
 
     Movement = {
 	},
+
+    Test = {
+        Head = 'Ipoca Beret',
+    },
 };
-gcinclude.MergeSets();
-profile.Sets = sets;
+
+profile.Sets = gcinclude.MergeSets();
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -129,6 +133,7 @@ end
 
 profile.HandleCommand = function(args)
     gcinclude.SetCommands(args);
+    if (args[1] == 'test') then print(chat.header('Test') .. chat.message('This is a test')) end
 end
 
 profile.HandleDefault = function()
@@ -189,21 +194,25 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local ws = gData.GetAction();
+    local canWS = gcinclude.WSbailout();
+    if not (canWS) then return;
+    else
+        local ws = gData.GetAction();
     
-    gFunc.EquipSet(sets.Ws_Default)
-    if (varhelper.GetCycle('Set') ~= 'Default') then
-    gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+        gFunc.EquipSet(sets.Ws_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
    
-    --[[if string.match(ws.Name, 'Chant du Cygne') then
-        gFunc.EquipSet(sets.Chant_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
-	elseif string.match(ws.Name, 'Savage Blade') then
-        gFunc.EquipSet(sets.Savage_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
-    end ]]
+        --[[if string.match(ws.Name, 'Chant du Cygne') then
+            gFunc.EquipSet(sets.Chant_Default)
+            if (varhelper.GetCycle('Set') ~= 'Default') then
+            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+	    elseif string.match(ws.Name, 'Savage Blade') then
+            gFunc.EquipSet(sets.Savage_Default)
+            if (varhelper.GetCycle('Set') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+        end ]]
+    end
 end
 
 return profile;
