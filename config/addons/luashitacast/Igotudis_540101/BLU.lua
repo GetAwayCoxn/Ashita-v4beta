@@ -1,6 +1,8 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+
+
 sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
@@ -208,7 +210,7 @@ sets = {
         Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
-        Feet = 'Herculean Boots',
+        Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {
     },
@@ -249,6 +251,9 @@ profile.Sets = gcinclude.MergeSets();
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
 	gcinclude.Initialize();
+
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 end
 
 profile.OnUnload = function()
@@ -333,22 +338,22 @@ end
 
 profile.HandleWeaponskill = function()
     local canWS = gcinclude.WSbailout();
-    if not (canWS) then return;
+    if not (canWS) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
         if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
    
         if string.match(ws.Name, 'Chant du Cygne') then
             gFunc.EquipSet(sets.Chant_Default)
             if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')) end
 	    elseif string.match(ws.Name, 'Savage Blade') then
             gFunc.EquipSet(sets.Savage_Default)
             if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')) end
         end
     end
 end

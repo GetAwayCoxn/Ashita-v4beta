@@ -1,6 +1,8 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+
+
 sets = {
     Idle = {
         Main = '',
@@ -114,10 +116,6 @@ sets = {
 
     Movement = {
 	},
-
-    Test = {
-        Head = 'Ipoca Beret',
-    },
 };
 
 profile.Sets = gcinclude.MergeSets();
@@ -125,6 +123,10 @@ profile.Sets = gcinclude.MergeSets();
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
     gcinclude.Initialize();
+
+    --[[ Set you job macro defaults here]]
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 end
 
 profile.OnUnload = function()
@@ -175,9 +177,7 @@ end
 profile.HandleItem = function()
     local item = gData.GetAction();
 
-	if string.match(item.Name, 'Holy Water') then
-		gFunc.EquipSet(gcinclude.sets.Holy_Water);
-	end
+	if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
 end
 
 profile.HandlePrecast = function()
@@ -195,13 +195,13 @@ end
 
 profile.HandleWeaponskill = function()
     local canWS = gcinclude.WSbailout();
-    if not (canWS) then return;
+    if not (canWS) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
         if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')); end
+        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
    
         --[[if string.match(ws.Name, 'Chant du Cygne') then
             gFunc.EquipSet(sets.Chant_Default)

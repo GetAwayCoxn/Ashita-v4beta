@@ -1,7 +1,15 @@
 local gcinclude = {};
---sugar = require('sugar');
+sugar = require('sugar');
 local player = gData.GetPlayer();
 
+
+gcinclude.macros = {
+	BLU = {
+		BOOK = 5,
+		WAR = 1,
+		RDM = 3,
+	},
+};
 --Default sets that should be over written by any sets in your JOB lua, im trying to avoid main/sub/range/ammo here
 gcinclude.sets = {
 	Dt = {
@@ -36,8 +44,10 @@ gcinclude.sets = {
     },
 
 	Ws_Default = {
+		Head = 'Nyame Helm',
 		Neck = 'Fotia Gorget',
 		Waist = 'Fotia Belt',
+		Feet = 'Nyame Sollerets',
     },
 	Ws_Hybrid = {
 	};
@@ -64,7 +74,7 @@ gcinclude.sets = {
 	},
 };
 
---Tables for table type stuffs
+--Tables for table type stuffs, best to leave this alone
 Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library'};
 LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
 gcinclude.BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
@@ -79,7 +89,7 @@ gcinclude.BluMagDiffus = T{'Erratic Flutter','Carcharian Verve','Harden Shell','
 gcinclude.BluMagCure = T{'Pollen','Healing Breeze','Wild Carrot','Magic Fruit','Plenilune Embrace'};
 gcinclude.BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Temporal Shift'};
 
---functions for functiony stuffs
+--functions for functiony stuffs, definitely leave these stuff alone
 function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
@@ -100,6 +110,20 @@ function gcinclude.SetVariables()
 		varhelper.CreateToggle('Burst', false);
 		varhelper.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
 	end
+end
+
+function gcinclude.SetMacros() --Broken, need to fix this
+	local book = 1;
+	local set;
+	local m = player.MainJob;
+	local s = player.SubJob;
+
+	if (sugar.table_mt.containskey(gcinclude.macros, main)) then
+		book = sugar.table_mt.first(gcinclude.macros[m]);
+
+	end
+
+	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
 end
 
 function gcinclude.SetCommands(args)
@@ -159,6 +183,7 @@ function gcinclude.Initialize()
 	varhelper.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
+	gcinclude.SetMacros();
 end
 
 function gcinclude.WSbailout(boolean)
@@ -175,8 +200,29 @@ function gcinclude.WSbailout(boolean)
 	end
 end
 
-function gcinclude.MergeSets(table)
+--[[function gcinclude.MergeSetsTemp(table)
 	mergedsets = sugar.table_mt.merge(gcinclude.sets, sets, true);
 	return mergedsets;
+end]]
+
+function gcinclude.MergeSets()
+	local newset = {};
+	for i in pairs(gcinclude.sets) do
+		if (sugar.table_mt.containskey(sets, i)) then
+			sets[i] = sugar.table_mt.merge(gcinclude.sets[i], sets[i], true);
+		end
+	end
+	return newset;
 end
+
+--[[function gcinclude.MergeSets()
+	for k,v in pairs(gcinclude.sets.Dt) do sets.Dt[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Default) do sets.Tp_Default[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Hybrid) do sets.Tp_Hybrid[k] = v end
+	for k,v in pairs(gcinclude.sets.Tp_Acc) do sets.Tp_Acc[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Default) do sets.Ws_Default[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Hybrid) do sets.Ws_Hybrid[k] = v end
+	for k,v in pairs(gcinclude.sets.Ws_Acc) do sets.Ws_Acc[k] = v end
+	for k,v in pairs(gcinclude.sets.Precast) do sets.Precast[k] = v end
+end]]
 return gcinclude;

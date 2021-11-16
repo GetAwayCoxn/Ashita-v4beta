@@ -1,7 +1,9 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
-local sets = {
+
+
+sets = {
     Idle = {
         Main = 'Arktoi',
         Sub = 'Thuellaic Ecu +1',
@@ -20,9 +22,9 @@ local sets = {
         Feet = 'Tali\'ah Crackows +1',
     },
 	
-	Resting = Idle;
+	Resting = {};
 	
-	Town = Idle;
+	Town = {};
 	
 	Dt = {
 		Head = 'Meghanada Visor +1',
@@ -52,8 +54,8 @@ local sets = {
         Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
-	Tp_Hybrid = Tp_Default;
-	Tp_Acc = Tp_Hybrid;
+	Tp_Hybrid = {};
+	Tp_Acc = {};
 	
 	Call = {
 		Hands = 'Ankusa Gloves',
@@ -73,13 +75,13 @@ local sets = {
 		Waist = 'Incarnation Sash',
 		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
 	},
-	PetAttack = PetReadyDefault,
-	PetMagicAttack = PetReadyDefault,
-	PetMagicAccuracy = PetReadyDefault,
+	PetAttack = {},
+	PetMagicAttack = {},
+	PetMagicAccuracy = {},
 	
 	Movement = {
 		Feet = 'Meg. Jam. +1',
-	}
+	},
 };
 
 profile.Sets = gcinclude.MergeSets();
@@ -112,7 +114,7 @@ end
 
 profile.HandleDefault = function()
 	local petAction = gData.GetPetAction();
-    if (petAction ~= nil) and BstPetAttack:contains(petAction.Name) then
+    if (petAction ~= nil) and gcinclude.BstPetAttack:contains(petAction.Name) then
         HandlePetAction(petAction);
         return;
     end
@@ -140,20 +142,18 @@ profile.HandleDefault = function()
 end
 
 profile.HandleAbility = function()
-	local action = gData.GetAction();
-	if string.match(action.Name, 'Call Beast') or string.match(action.Name, 'Bestial Loyalty') then
+	local ability = gData.GetAction();
+	if string.match(ability.Name, 'Call Beast') or string.match(ability.Name, 'Bestial Loyalty') then
 		gFunc.EquipSet(sets.Call);
-	elseif string.match(action.Name, 'Reward') then
+	elseif string.match(ability.Name, 'Reward') then
 		gFunc.EquipSet(sets.Reward);
 	end
 end
 
 profile.HandleItem = function()
-	local action = gData.GetAction();
+	local item = gData.GetAction();
 
-	if string.match(action.Name, 'Holy Water') then
-		gFunc.EquipSet(gcinclude.sets.Holy_Water);
-	end
+	if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
 end
 
 profile.HandlePrecast = function()
@@ -169,6 +169,15 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
+	local canWS = gcinclude.WSbailout();
+    if not (canWS) then return;
+    else
+        local ws = gData.GetAction();
+    
+        gFunc.EquipSet(sets.Ws_Default)
+        if (varhelper.GetCycle('Set') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
+    end
 end
 
 return profile;

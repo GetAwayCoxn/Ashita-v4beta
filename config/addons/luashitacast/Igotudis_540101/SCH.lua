@@ -3,7 +3,7 @@ varhelper = gFunc.LoadFile('common/varhelper.lua');
 local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 
 
-local sets = {
+sets = {
 	Idle = {
         Main = '',
         Sub = '',
