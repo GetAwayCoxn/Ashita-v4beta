@@ -6,7 +6,7 @@ local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
-        Head = 'Sulevia\'s Mask +2',
+        Head = 'Nyame Helm',
         Neck ='Sanctity Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etoilation Earring',
@@ -17,18 +17,18 @@ sets = {
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Sulev. Leggings +2',
+        Feet = 'Nyame Sollerets',
     },
     Reseting = {},
     Town = {
-        Main = 'Sakpata\'s Sword',
+        Main = 'Exalibur',
         Sub = 'Aegis',
         Ammo = 'Staunch Tathlum',
-        Head = 'Blistering Sallet +1',
+        Head = 'Nyame Helm',
         Body = 'Cab. Surcoat +3',
         Hands = 'Sakpata\'s Gauntlets',
         Legs = 'Carmine Cuisses +1',
-        Feet = 'Sulev. Leggings +2',
+        Feet = 'Nyame Sollerets',
     },
 
     Dt = {
@@ -140,7 +140,6 @@ end
 
 profile.HandleCommand = function(args)
     gcinclude.SetCommands(args);
-    if (args[1] == 'test') then print(chat.header('Test') .. chat.message('This is a test')) end
 end
 
 profile.HandleDefault = function()
@@ -166,8 +165,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 
-    gcinclude.CheckCommonDebuffs();
-	gcinclude.CheckLockingRings();
+    gcinclude.CheckDefault ();
 end
 
 profile.HandleAbility = function()

@@ -1,5 +1,6 @@
 local gcinclude = {};
 sugar = require('sugar');
+gcauto = gFunc.LoadFile('gcfiles/gcauto.lua');
 local player = gData.GetPlayer();
 
 
@@ -48,6 +49,7 @@ gcinclude.sets = {
 		Neck = 'Fotia Gorget',
 		Waist = 'Fotia Belt',
 		Feet = 'Nyame Sollerets',
+		Ring2 = 'Karieyh Ring',
     },
 	Ws_Hybrid = {
 	};
@@ -143,6 +145,7 @@ function gcinclude.SetCommands(args)
 			varhelper.AdvanceCycle('Weapon');
 		end
 	end
+	if (gcauto ~= nil) then gcauto.SetCommands(args) end
 end
 
 function gcinclude.CheckCommonDebuffs()
@@ -184,6 +187,7 @@ function gcinclude.Initialize()
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
 	gcinclude.SetMacros();
+	if (gcauto ~= nil) then gcauto.Initialize() end
 end
 
 function gcinclude.WSbailout(boolean)
@@ -200,11 +204,6 @@ function gcinclude.WSbailout(boolean)
 	end
 end
 
---[[function gcinclude.MergeSetsTemp(table)
-	mergedsets = sugar.table_mt.merge(gcinclude.sets, sets, true);
-	return mergedsets;
-end]]
-
 function gcinclude.MergeSets()
 	local newset = {};
 	for i in pairs(gcinclude.sets) do
@@ -213,6 +212,14 @@ function gcinclude.MergeSets()
 		end
 	end
 	return newset;
+end
+
+
+function gcinclude.CheckDefault()
+	gcinclude.SetTownGear();
+    gcinclude.CheckCommonDebuffs();
+	gcinclude.CheckLockingRings();
+	if (gcauto ~= nil) then gcauto.AutoWS() end
 end
 
 --[[function gcinclude.MergeSets()

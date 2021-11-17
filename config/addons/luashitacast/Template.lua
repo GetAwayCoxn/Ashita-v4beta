@@ -161,6 +161,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 
+    gcinclude.SetTownGear();
     gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 end
