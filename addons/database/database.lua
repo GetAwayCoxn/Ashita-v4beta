@@ -49,42 +49,42 @@ end
 ashita.events.register('command', 'command_cb', function (e)
     -- Parse the command arguments..
     local args = e.command:args();
-    if (#args == 0 or not args[1]:any('/itemwatch')) then
+    if (#args == 0 or not args[1]:any('/database')) then
         return;
     end
 
     -- Block all related commands..
     e.blocked = true;
 
-    -- Handle: /itemwatch
-    -- Handle: /itemwatch interface
+    -- Handle: /database
+    -- Handle: /database interface
     if (#args == 1 or (#args >= 2 and args[2]:any('interface'))) then
         interface.is_open[1] = not interface.is_open[1];
         return;
     end
 
-    -- Handle: /itemwatch save - Saves the current settings.
+    -- Handle: /database save - Saves the current settings.
     if (#args >= 2 and args[2]:any('save')) then
         interface.settings.save();
         print(chat.header(addon.name):append(chat.message('Settings saved.')));
         return;
     end
 
-    -- Handle: /itemwatch reload - Reloads the current settings from disk.
+    -- Handle: /database reload - Reloads the current settings from disk.
     if (#args >= 2 and args[2]:any('reload')) then
         interface.settings.reload();
         print(chat.header(addon.name):append(chat.message('Settings reloaded.')));
         return;
     end
 
-    -- Handle: /itemwatch reset - Resets the current settings.
+    -- Handle: /database reset - Resets the current settings.
     if (#args >= 2 and args[2]:any('reset')) then
         interface.settings.reset();
         print(chat.header(addon.name):append(chat.message('Settings reset to defaults.')));
         return;
     end
 
-    -- Handle: /itemwatch item add <itemid> - Adds an item to the watch list.
+    -- Handle: /database item add <itemid> - Adds an item to the watch list.
     if (#args >= 4 and args[2]:any('item', 'items') and args[3]:ieq('add')) then
         local id = args[4]:num();
         iifp(interface.lstMgr.add_watched_item:packed()(id),
@@ -93,10 +93,10 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Handle: /itemwatch item delete <itemid> - Deletes an item from the watch list.
-    -- Handle: /itemwatch item del <itemid> - Deletes an item from the watch list.
-    -- Handle: /itemwatch item remove <itemid> - Deletes an item from the watch list.
-    -- Handle: /itemwatch item rem <itemid> - Deletes an item from the watch list.
+    -- Handle: /database item delete <itemid> - Deletes an item from the watch list.
+    -- Handle: /database item del <itemid> - Deletes an item from the watch list.
+    -- Handle: /database item remove <itemid> - Deletes an item from the watch list.
+    -- Handle: /database item rem <itemid> - Deletes an item from the watch list.
     if (#args >= 4 and args[2]:any('item', 'items') and args[3]:any('delete', 'del', 'remove', 'rem')) then
         local id = args[4]:num();
         iifp(interface.lstMgr.delete_watched_item:packed()(id),
@@ -105,14 +105,14 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Handle: /itemwatch item clear - Clears the item watch list.
+    -- Handle: /database item clear - Clears the item watch list.
     if (#args >= 3 and args[2]:any('item', 'items') and args[3]:ieq('clear')) then
         interface.lstMgr.clear_watched_items();
         print(chat.header(addon.name):append(chat.message('Removed all watched items.')));
         return;
     end
 
-    -- Handle: /itemwatch key add <id> - Adds a key item to the watch list.
+    -- Handle: /database key add <id> - Adds a key item to the watch list.
     if (#args >= 4 and args[2]:any('key', 'keys') and args[3]:ieq('add')) then
         local id = args[4]:num();
         iifp(interface.lstMgr.add_watched_keyitem:packed()(id),
@@ -121,10 +121,10 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Handle: /itemwatch key delete <id> - Deletes a key item from the watch list.
-    -- Handle: /itemwatch key del <id> - Deletes a key item from the watch list.
-    -- Handle: /itemwatch key remove <id> - Deletes a key item from the watch list.
-    -- Handle: /itemwatch key rem <id> - Deletes a key item from the watch list.
+    -- Handle: /database key delete <id> - Deletes a key item from the watch list.
+    -- Handle: /database key del <id> - Deletes a key item from the watch list.
+    -- Handle: /database key remove <id> - Deletes a key item from the watch list.
+    -- Handle: /database key rem <id> - Deletes a key item from the watch list.
     if (#args >= 4 and args[2]:any('key', 'keys') and args[3]:any('delete', 'del', 'remove', 'rem')) then
         local id = args[4]:num();
         iifp(interface.lstMgr.delete_watched_keyitem:packed()(id),
@@ -133,14 +133,14 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Handle: /itemwatch key clear - Clears the key item watch list.
+    -- Handle: /database key clear - Clears the key item watch list.
     if (#args >= 3 and args[2]:any('key', 'keys') and args[3]:ieq('clear')) then
         interface.lstMgr.clear_watched_keyitems();
         print(chat.header(addon.name):append(chat.message('Removed all watched key items.')));
         return;
     end
 
-    -- Handle: /itemwatch list load <name>
+    -- Handle: /database list load <name>
     if (#args >= 4 and args[2]:any('list', 'lists') and args[3]:ieq('load')) then
         interface.lstMgr.refresh_saved_lists();
 
@@ -159,7 +159,7 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Handle: /itemwatch list merge <name>
+    -- Handle: /database list merge <name>
     if (#args >= 4 and args[2]:any('list', 'lists') and args[3]:ieq('merge')) then
         interface.lstMgr.refresh_saved_lists();
 

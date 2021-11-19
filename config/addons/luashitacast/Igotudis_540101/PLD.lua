@@ -82,37 +82,37 @@ sets = {
 
     Ws_Default = {
         Ammo = 'Ginsen',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Feet = 'Valorous Greaves',
     },
     Ws_Hybrid = {
     },
     Ws_Acc = {
     },
     Chant_Default = {
-        Ammo = 'Ginsen',
+        Ammo = 'Jukukik Feather',
         Head = 'Blistering Sallet +1',
-        Ear1 = 'Brutal Earring',
+        Ear1 = 'Mache Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Assim. Jubbah +2',
+        Body = 'Cab. Surcoat +3',
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Legs = 'Gleti\'s Breeches',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {
     },
     Chant_Acc = {
     },
-    Savage = {
+    Savage_Default = {
         Ammo = 'Ginsen',
-        Ear1 = 'Brutal Earring',
+        Ear1 = 'Thrud Earring',
         Ear2 = 'Moonshade Earring',
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Begrudging Ring',
+        Ring2 = 'Karieyh Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Herculean Boots',
+        Feet = 'Sulev. Leggings +2',
     },
     Savage_Hybrid = {
     },
@@ -135,7 +135,7 @@ profile.OnLoad = function()
 end
 
 profile.OnUnload = function()
-    varhelper.Destroy();
+    gcinclude.Unload();
 end
 
 profile.HandleCommand = function(args)
@@ -199,7 +199,7 @@ end
 
 profile.HandleWeaponskill = function()
     local canWS = gcinclude.WSbailout();
-    if not (canWS) then gFunc.CancelAction() return;
+    if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     

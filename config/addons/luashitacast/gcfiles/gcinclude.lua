@@ -1,6 +1,6 @@
 local gcinclude = {};
 sugar = require('sugar');
-gcauto = gFunc.LoadFile('gcfiles/gcauto.lua');
+local gcauto = gFunc.LoadFile('gcfiles/gcauto.lua');
 local player = gData.GetPlayer();
 
 
@@ -222,14 +222,9 @@ function gcinclude.CheckDefault()
 	if (gcauto ~= nil) then gcauto.AutoWS() end
 end
 
---[[function gcinclude.MergeSets()
-	for k,v in pairs(gcinclude.sets.Dt) do sets.Dt[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Default) do sets.Tp_Default[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Hybrid) do sets.Tp_Hybrid[k] = v end
-	for k,v in pairs(gcinclude.sets.Tp_Acc) do sets.Tp_Acc[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Default) do sets.Ws_Default[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Hybrid) do sets.Ws_Hybrid[k] = v end
-	for k,v in pairs(gcinclude.sets.Ws_Acc) do sets.Ws_Acc[k] = v end
-	for k,v in pairs(gcinclude.sets.Precast) do sets.Precast[k] = v end
-end]]
+function gcinclude.Unload()
+	varhelper.Destroy();
+	if (gcauto ~= nil) then gcauto.Unload() end
+end
+
 return gcinclude;

@@ -1,8 +1,8 @@
 require('common');
 local settings = require('settings');
 
--- ListManager Variables
-local listmanager = T{
+-- manager Variables
+local manager = T{
     watched_items       = T{ },
     watched_keyitems    = T{ },
     saved_lists         = T{ },
@@ -13,8 +13,8 @@ local listmanager = T{
 *
 * @return {number} The number of watched items.
 --]]
-function listmanager.watched_items_count()
-    return #listmanager.watched_items;
+function manager.watched_items_count()
+    return #manager.watched_items;
 end
 
 --[[
@@ -22,8 +22,8 @@ end
 *
 * @return {number} The number of watched key items.
 --]]
-function listmanager.watched_keyitems_count()
-    return #listmanager.watched_keyitems;
+function manager.watched_keyitems_count()
+    return #manager.watched_keyitems;
 end
 
 --[[
@@ -31,8 +31,8 @@ end
 *
 * @return {number} The number of total watched items.
 --]]
-function listmanager.watched_count()
-    return #listmanager.watched_items + #listmanager.watched_keyitems;
+function manager.watched_count()
+    return #manager.watched_items + #manager.watched_keyitems;
 end
 
 --[[
@@ -41,12 +41,12 @@ end
 * @param {number} id - The item id to add to the watch list.
 * @return {boolean, string} True on success, false otherwise. Error message on false returns.
 --]]
-function listmanager.add_watched_item(id)
+function manager.add_watched_item(id)
     if (id == nil) then
         return false, 'Invalid item id.';
     end
 
-    if (listmanager.watched_items:any(function (v) return v[1] == id; end)) then
+    if (manager.watched_items:any(function (v) return v[1] == id; end)) then
         return false, 'Item is already being watched.';
     end
 
@@ -55,7 +55,7 @@ function listmanager.add_watched_item(id)
         return false, 'Invalid item id; item not found.';
     end
 
-    listmanager.watched_items:append({ id, item.Name[1] });
+    manager.watched_items:append({ id, item.Name[1] });
     return true;
 end
 
@@ -65,14 +65,14 @@ end
 * @param {number} id - The item id to remove from the watch list.
 * @return {boolean, string} True on success, false otherwise. Error message on false returns.
 --]]
-function listmanager.delete_watched_item(id)
+function manager.delete_watched_item(id)
     if (id == nil) then
         return false, 'Invalid item id.';
     end
 
-    for x = #listmanager.watched_items, 1, -1 do
-        if (listmanager.watched_items[x][1] == id) then
-            table.remove(listmanager.watched_items, x);
+    for x = #manager.watched_items, 1, -1 do
+        if (manager.watched_items[x][1] == id) then
+            table.remove(manager.watched_items, x);
             return true;
         end
     end
@@ -82,8 +82,8 @@ end
 --[[
 * Clears the watched item list.
 --]]
-function listmanager.clear_watched_items()
-    listmanager.watched_items = T{ };
+function manager.clear_watched_items()
+    manager.watched_items = T{ };
 end
 
 --[[
@@ -92,12 +92,12 @@ end
 * @param {number} id - The key item id to add to the watch list.
 * @return {boolean, string} True on success, false otherwise. Error message on false returns.
 --]]
-function listmanager.add_watched_keyitem(id)
+function manager.add_watched_keyitem(id)
     if (id == nil) then
         return false, 'Invalid key item id.';
     end
 
-    if (listmanager.watched_keyitems:any(function (v) return v[1] == id; end)) then
+    if (manager.watched_keyitems:any(function (v) return v[1] == id; end)) then
         return false, 'Key item is already being watched.';
     end
 
@@ -106,7 +106,7 @@ function listmanager.add_watched_keyitem(id)
         return false, 'Invalid key item id; key item not found.';
     end
 
-    listmanager.watched_keyitems:append({ id, name });
+    manager.watched_keyitems:append({ id, name });
     return true;
 end
 
@@ -116,14 +116,14 @@ end
 * @param {number} id - The key item id to remove from the watch list.
 * @return {boolean, string} True on success, false otherwise. Error message on false returns.
 --]]
-function listmanager.delete_watched_keyitem(id)
+function manager.delete_watched_keyitem(id)
     if (id == nil) then
         return false, 'Invalid key item id.';
     end
 
-    for x = #listmanager.watched_keyitems, 1, -1 do
-        if (listmanager.watched_keyitems[x][1] == id) then
-            table.remove(listmanager.watched_keyitems, x);
+    for x = #manager.watched_keyitems, 1, -1 do
+        if (manager.watched_keyitems[x][1] == id) then
+            table.remove(manager.watched_keyitems, x);
             return true;
         end
     end
@@ -133,8 +133,8 @@ end
 --[[
 * Clears the watched key item list.
 --]]
-function listmanager.clear_watched_keyitems()
-    listmanager.watched_keyitems = T{ };
+function manager.clear_watched_keyitems()
+    manager.watched_keyitems = T{ };
 end
 
 --[[
@@ -143,7 +143,7 @@ end
 * @param {string} name - The partial item name to look for.
 * @return {T} Table containing any found matches.
 --]]
-function listmanager.find_items(name)
+function manager.find_items(name)
     local items = T{ };
 
     for x = 0, 65535 do
@@ -164,7 +164,7 @@ end
 * @param {string} name - The partial key item name to look for.
 * @return {T} Table containing any found matches.
 --]]
-function listmanager.find_keyitems(name)
+function manager.find_keyitems(name)
     local items = T{ };
 
     for x = 0, 65535 do
@@ -182,10 +182,10 @@ end
 --[[
 * Refreshes the saved lists table.
 --]]
-function listmanager.refresh_saved_lists()
-    listmanager.saved_lists = T{ };
+function manager.refresh_saved_lists()
+    manager.saved_lists = T{ };
 
-    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'itemwatch');
+    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'database');
     if (not ashita.fs.exists(path)) then
         ashita.fs.create_dir(path);
         return;
@@ -196,7 +196,7 @@ function listmanager.refresh_saved_lists()
         return;
     end
 
-    T(files):each(function (v) listmanager.saved_lists:append(v); end);
+    T(files):each(function (v) manager.saved_lists:append(v); end);
 end
 
 --[[
@@ -205,7 +205,7 @@ end
 * @param {string} name - The name of the new list file to save.
 * @return {boolean} True on success, false otherwise.
 --]]
-function listmanager.save_list_new(name)
+function manager.save_list_new(name)
     -- Validate and update the file name..
     if (name == nil or name:len() < 2) then
         return false;
@@ -213,13 +213,13 @@ function listmanager.save_list_new(name)
     name = name .. '.lst';
 
     -- Build a path to the file and ensure it does not exist already..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'itemwatch', name);
+    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
     if (ashita.fs.exists(path)) then
         return false;
     end
 
     -- Create the new settings object to be saved..
-    local t = T{ i = listmanager.watched_items, k = listmanager.watched_keyitems, };
+    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
 
     -- Serialize the settings table for saving..
     local p, s = settings.process(t, 'settings');
@@ -238,7 +238,7 @@ function listmanager.save_list_new(name)
     f:close();
 
     -- Update the saved lists..
-    listmanager.refresh_saved_lists();
+    manager.refresh_saved_lists();
 
     return true;
 end
@@ -249,21 +249,21 @@ end
 * @param {number} The index of the existing list to overwrite.
 * @return {boolean} True on success, false otherwise.
 --]]
-function listmanager.save_list_existing(index)
-    if (index < 0 or #listmanager.saved_lists == 0) then
+function manager.save_list_existing(index)
+    if (index < 0 or #manager.saved_lists == 0) then
         return false;
     end
 
-    local name = listmanager.saved_lists[index + 1];
+    local name = manager.saved_lists[index + 1];
     if (name == nil or name:len() < 1) then
         return false;
     end
 
     -- Build a path to the file..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'itemwatch', name);
+    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
 
     -- Create the new settings object to be saved..
-    local t = T{ i = listmanager.watched_items, k = listmanager.watched_keyitems, };
+    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
 
     -- Serialize the settings table for saving..
     local p, s = settings.process(t, 'settings');
@@ -282,7 +282,7 @@ function listmanager.save_list_existing(index)
     f:close();
 
     -- Update the saved lists..
-    listmanager.refresh_saved_lists();
+    manager.refresh_saved_lists();
 
     return true;
 end
@@ -294,20 +294,20 @@ end
 * @param {boolean} merged - Flag if the list should be merged into the already loaded data.
 * @return {boolean, string} True on success, false otherwise. Error message on false returns.
 --]]
-function listmanager.load_list(index, merged)
-    if (index < 0 or #listmanager.saved_lists == 0) then
+function manager.load_list(index, merged)
+    if (index < 0 or #manager.saved_lists == 0) then
         return false, 'Invalid index.';
     end
 
     merged = merged or false;
 
-    local name = listmanager.saved_lists[index + 1];
+    local name = manager.saved_lists[index + 1];
     if (name == nil or name:len() < 2) then
         return false, 'Invalid list selected.';
     end
 
     -- Build a path to the file and ensure it exists..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'itemwatch', name);
+    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
     if (not ashita.fs.exists(path)) then
         return false, 'Invalid list selected; list file is missing.';
     end
@@ -325,11 +325,11 @@ function listmanager.load_list(index, merged)
 
     -- Update the lists..
     if (merged) then
-        t['i']:each(function (v) listmanager.add_watched_item(v[1]); end);
-        t['k']:each(function (v) listmanager.add_watched_keyitem(v[1]); end);
+        t['i']:each(function (v) manager.add_watched_item(v[1]); end);
+        t['k']:each(function (v) manager.add_watched_keyitem(v[1]); end);
     else
-        listmanager.watched_items = t['i'];
-        listmanager.watched_keyitems = t['k'];
+        manager.watched_items = t['i'];
+        manager.watched_keyitems = t['k'];
     end
 
     return true;
@@ -341,18 +341,18 @@ end
 * @param {number} index - The index of the list to delete.
 * @return {boolean} True on success, false otherwise.
 --]]
-function listmanager.delete_list(index)
-    if (index < 0 or #listmanager.saved_lists == 0) then
+function manager.delete_list(index)
+    if (index < 0 or #manager.saved_lists == 0) then
         return false;
     end
 
-    local name = listmanager.saved_lists[index + 1];
+    local name = manager.saved_lists[index + 1];
     if (name == nil) then
         return false;
     end
 
     -- Build a path to the file and ensure it exists..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'itemwatch', name);
+    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
     if (not ashita.fs.exists(path)) then
         return false;
     end
@@ -361,16 +361,16 @@ function listmanager.delete_list(index)
     ashita.fs.remove(path);
 
     -- Update the saved lists..
-    listmanager.refresh_saved_lists();
+    manager.refresh_saved_lists();
     return true;
 end
 
 --[[
 * Deletes all saved lists.
 --]]
-function listmanager.delete_all_lists()
+function manager.delete_all_lists()
     -- Build a path to the lists folder..
-    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'itemwatch');
+    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'database');
     if (not ashita.fs.exists(path)) then
         ashita.fs.create_dir(path);
         return;
@@ -382,16 +382,16 @@ function listmanager.delete_all_lists()
     end
 
     T(files):each(function (v)
-        path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'itemwatch', v);
+        path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', v);
         if (ashita.fs.exists(path)) then
             ashita.fs.remove(path);
         end
     end);
 
     -- Update the saved lists..
-    listmanager.refresh_saved_lists();
+    manager.refresh_saved_lists();
     return true;
 end
 
--- Return the ListManager object..
-return listmanager;
+-- Return the manager object..
+return manager;

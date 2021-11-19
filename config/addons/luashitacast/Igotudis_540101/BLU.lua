@@ -287,9 +287,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 
-    gcinclude.SetTownGear();
-    gcinclude.CheckCommonDebuffs();
-	gcinclude.CheckLockingRings();
+    gcinclude.CheckDefault ();
 end
 
 profile.HandleAbility = function()
@@ -338,7 +336,7 @@ end
 
 profile.HandleWeaponskill = function()
     local canWS = gcinclude.WSbailout();
-    if not (canWS) then gFunc.CancelAction() return;
+    if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     

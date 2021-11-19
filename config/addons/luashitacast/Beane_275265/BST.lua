@@ -5,8 +5,6 @@ local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 
 sets = {
     Idle = {
-        Main = 'Arktoi',
-        Sub = 'Thuellaic Ecu +1',
         Ammo = 'Voluspa Tathlum',
         Head = { Name = 'Emicho Coronet', AugPath='C' },
         Neck = 'Empath Necklace',
@@ -22,9 +20,9 @@ sets = {
         Feet = 'Tali\'ah Crackows +1',
     },
 	
-	Resting = {};
+	Resting = {},
 	
-	Town = {};
+	Town = {},
 	
 	Dt = {
 		Head = 'Meghanada Visor +1',
@@ -38,8 +36,6 @@ sets = {
 	},
 	
 	Tp_Default = {
-        Main = 'Arktoi',
-        Sub = 'Thuellaic Ecu +1',
         Ammo = 'Voluspa Tathlum',
         Head = { Name = 'Emicho Coronet', AugPath='C' },
         Neck = 'Empath Necklace',
@@ -54,8 +50,28 @@ sets = {
         Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
-	Tp_Hybrid = {};
-	Tp_Acc = {};
+	Tp_Hybrid = {},
+	Tp_Acc = {},
+
+	Ws_Default = {
+        Ammo = '',
+        Head = '',
+        Neck ='',
+        Ear1 = '',
+        Ear2 = '',
+        Body = '',
+        Hands = '',
+        Ring1 = '',
+        Ring2 = '',
+        Back = '',
+        Waist = '',
+        Legs = '',
+        Feet = '',
+    },
+    Ws_Hybrid = {
+    },
+    Ws_Acc = {
+    },
 	
 	Call = {
 		Hands = 'Ankusa Gloves',
@@ -138,7 +154,7 @@ profile.HandleDefault = function()
 	if (varhelper.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
-	gcinclude.CheckLockingRings();
+	gcinclude.CheckDefault ();
 end
 
 profile.HandleAbility = function()
@@ -170,7 +186,7 @@ end
 
 profile.HandleWeaponskill = function()
 	local canWS = gcinclude.WSbailout();
-    if not (canWS) then return;
+    if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     

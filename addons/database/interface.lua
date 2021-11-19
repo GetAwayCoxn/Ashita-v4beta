@@ -4,7 +4,7 @@ local imgui = require('imgui');
 
 -- ItemWatch interface Variables
 local interface = {
-    lstMgr = require('listmanager'),
+    lstMgr = require('manager'),
     settings = require('settings'),
 
     -- Main Window
@@ -536,8 +536,8 @@ function interface.render()
     -- Render the ItemWatch interface..
     imgui.SetNextWindowSize({ 600, 400, });
     imgui.SetNextWindowSizeConstraints({ 600, 400, }, { FLT_MAX, FLT_MAX, });
-    if (imgui.Begin('ItemWatch', interface.is_open, ImGuiWindowFlags_NoResize)) then
-        if (imgui.BeginTabBar('##itemwatch_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+    if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
+        if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('Items interface', nil)) then
                 interface.render_tab_items();
                 imgui.EndTabItem();

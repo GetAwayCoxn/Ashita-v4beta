@@ -1,5 +1,6 @@
 local gcauto = {};
-local ws;
+local gcdisplay = gFunc.LoadFile('gcfiles/gcdisplay.lua');
+wskill = 'unknown';
 
 function gcauto.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
@@ -8,19 +9,19 @@ function gcauto.SetAlias()
 end
 
 function gcauto.SetVariables()
-	varhelper.CreateToggle('AUTO', false);
-	varhelper.CreateToggle('MEDS', false);
-	--varhelper.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
+	gcdisplay.CreateToggle('MEDS', false);
+	gcdisplay.CreateToggle('AUTO', false);
+	--gcdisplay.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
 end
 
 function gcauto.SetCommands(args)
 	if (args[1] == 'auto') then
-		varhelper.AdvanceToggle('AUTO');
+		gcdisplay.AdvanceToggle('AUTO');
 	elseif (args[1] == 'meds') then
-		varhelper.AdvanceToggle('MEDS');
+		gcdisplay.AdvanceToggle('MEDS');
 	elseif (args[1] == 'ws') then
-		ws = args[2];
-		AshitaCore:GetChatManager():QueueCommand(1, '/echo ' .. ws);
+		wskill = args[2];
+		AshitaCore:GetChatManager():QueueCommand(1, '/echo ' .. wskill);
     end
 end
 
@@ -29,21 +30,23 @@ function gcauto.Warp()
 end
 
 function gcauto.AutoWS()
+	local target = gData.GetTarget();
 	local player = gData.GetPlayer();
 
-	if (varhelper.GetToggle('AUTO') == false) then gFunc.CancelAction() return end
-	if (ws == nil) then 
+	if (gcdisplay.GetToggle('AUTO') == false) then return end
+	if (wskill == 'unknown') then 
 		print(chat.header('gcauto'):append(chat.message('You need to set a weapon skill by doing:')));
 		print(chat.header('gcauto'):append(chat.message('/wskill weaponskillnamenospacesorquotes')));
-		print(chat.header('gcauto'):append(chat.message('Disengaging gcauto ... use /auto again when ready.')));
-		varhelper.AdvanceToggle('AUTO');
-	elseif (player.Status == 'Engaged') and (player.TP > 999) then
-		AshitaCore:GetChatManager():QueueCommand(1, '//' .. ws);
+		print(chat.header('gcauto'):append(chat.message('You need to have the shorthand plugin for this to work!')));
+		wskill = 'none';
+	elseif (wskill == 'none') then return
+	elseif (player.Status == 'Engaged') and (player.TP > 999) and (target.HPP < 40) then
+		AshitaCore:GetChatManager():QueueCommand(1, '//' .. wskill);
 	end
 end
 
 function gcauto.Welcome()
-	print(chat.header('gcauto'):append(chat.message('gcauto found!')));
+	print(chat.header('gcauto'):append(chat.message('gcauto file found!')));
 		print(chat.header('gcauto'):append(chat.message('/gcauto for commands')));
 end
 
@@ -51,6 +54,11 @@ function gcauto.Initialize()
 	gcauto.SetVariables();
 	gcauto.SetAlias();
 	gcauto.Welcome();
+	gcdisplay.Initialize();
+end
+
+function gcauto.Unload()
+	gcdisplay.Unload();
 end
 
 return gcauto;
