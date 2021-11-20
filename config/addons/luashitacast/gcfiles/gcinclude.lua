@@ -219,7 +219,7 @@ function gcinclude.CheckDefault()
 	gcinclude.SetTownGear();
     gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
-	if (gcauto ~= nil) then gcauto.AutoWS() end
+	if (gcauto ~= nil) then gcauto.Default() end
 end
 
 function gcinclude.Unload()

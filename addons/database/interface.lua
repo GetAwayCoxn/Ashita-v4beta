@@ -2,15 +2,12 @@ require('common');
 local chat = require('chat');
 local imgui = require('imgui');
 
--- ItemWatch interface Variables
 local interface = {
-    lstMgr = require('manager'),
+    manager = require('manager'),
     settings = require('settings'),
 
-    -- Main Window
-    is_open = { false, },
+    is_open = { true, },
 
-    -- Tabs
     tab_items = T{
         search_buffer = { '' },
         search_buffer_size = 256,
@@ -29,6 +26,10 @@ local interface = {
         list_selected = { -1, },
         name_buffer = { '' },
         name_buffer_size = 256,
+    },
+
+    main_job = T{
+        PLD = {99},
     },
 
     -- Overlay (Defaults)
@@ -79,13 +80,38 @@ end
 --[[
 * Renders the items interface tab elements.
 --]]
+function interface.render_new_tab()
+    imgui.BeginGroup();
+        imgui.TextColored(colors.header, 'JOBS');
+        imgui.BeginChild('leftpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.InputInt('WAR', interface.main_job.PLD,ImGuiInputTextFlags_ReadOnly);
+        imgui.EndChild();
+
+        -- Left side buttons..
+        if (imgui.Button('Remove Selected')) then
+            if (interface.tab_items.watched_selected[1] >= 0) then
+                local item = watched[interface.tab_items.watched_selected[1] + 1];
+                if (item ~= nil) then
+                    interface.tab_items.watched_selected[1] = -1;
+                    interface.manager.delete_watched_item(item[1]);
+                end
+            end
+        end
+        imgui.SameLine();
+        if (imgui.Button('Remove All')) then
+            interface.tab_items.watched_selected[1] = -1;
+            interface.manager.clear_watched_items();
+        end
+    imgui.EndGroup();
+end
+
 function interface.render_tab_items()
     -- Left Side (Many whelps, handle it!!)
     imgui.BeginGroup();
         imgui.TextColored(colors.header, 'Current Tracked Items');
         imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
             -- Display watched items..
-            local watched = interface.lstMgr.watched_items;
+            local watched = interface.manager.watched_items;
             for x = 0, #watched - 1 do
                 if (x < #watched) then
                     local name = ('%s##%d'):fmt(watched[x + 1][2], watched[x + 1][1]);
@@ -100,7 +126,7 @@ function interface.render_tab_items()
                         local item = watched[interface.tab_items.watched_selected[1] + 1];
                         if (item ~= nil) then
                             interface.tab_items.watched_selected[1] = -1;
-                            interface.lstMgr.delete_watched_item(item[1]);
+                            interface.manager.delete_watched_item(item[1]);
                         end
                     end
                 end
@@ -113,14 +139,14 @@ function interface.render_tab_items()
                 local item = watched[interface.tab_items.watched_selected[1] + 1];
                 if (item ~= nil) then
                     interface.tab_items.watched_selected[1] = -1;
-                    interface.lstMgr.delete_watched_item(item[1]);
+                    interface.manager.delete_watched_item(item[1]);
                 end
             end
         end
         imgui.SameLine();
         if (imgui.Button('Remove All')) then
             interface.tab_items.watched_selected[1] = -1;
-            interface.lstMgr.clear_watched_items();
+            interface.manager.clear_watched_items();
         end
     imgui.EndGroup();
     imgui.SameLine();
@@ -132,11 +158,11 @@ function interface.render_tab_items()
             -- Item search..
             if (imgui.InputText('Item Name', interface.tab_items.search_buffer, interface.tab_items.search_buffer_size, ImGuiInputTextFlags_EnterReturnsTrue)) then
                 interface.tab_items.search_selected[1] = -1;
-                interface.tab_items.search_items = interface.lstMgr.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
+                interface.tab_items.search_items = interface.manager.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
             end
             if (imgui.Button('Search', { -1, 0 })) then
                 interface.tab_items.search_selected[1] = -1;
-                interface.tab_items.search_items = interface.lstMgr.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
+                interface.tab_items.search_items = interface.manager.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
             end
             imgui.Separator();
             imgui.BeginChild('rightpane_items');
@@ -152,7 +178,7 @@ function interface.render_tab_items()
                         if (interface.tab_items.search_selected[1] >= 0) then
                             local item = interface.tab_items.search_items[interface.tab_items.search_selected[1] + 1];
                             if (item ~= nil) then
-                                interface.lstMgr.add_watched_item(item[1]);
+                                interface.manager.add_watched_item(item[1]);
                             end
                         end
                     end
@@ -171,7 +197,7 @@ function interface.render_tab_keyitems()
         imgui.TextColored(colors.header, 'Current Tracked Key Items');
         imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
             -- Display watched key items..
-            local watched = interface.lstMgr.watched_keyitems;
+            local watched = interface.manager.watched_keyitems;
             for x = 0, #watched - 1 do
                 if (x < #watched) then
                     local name = ('%s##%d'):fmt(watched[x + 1][2], watched[x + 1][1]);
@@ -186,7 +212,7 @@ function interface.render_tab_keyitems()
                         local item = watched[interface.tab_keyitems.watched_selected[1] + 1];
                         if (item ~= nil) then
                             interface.tab_keyitems.watched_selected[1] = -1;
-                            interface.lstMgr.delete_watched_keyitem(item[1]);
+                            interface.manager.delete_watched_keyitem(item[1]);
                         end
                     end
                 end
@@ -199,14 +225,14 @@ function interface.render_tab_keyitems()
                 local item = watched[interface.tab_keyitems.watched_selected[1] + 1];
                 if (item ~= nil) then
                     interface.tab_keyitems.watched_selected[1] = -1;
-                    interface.lstMgr.delete_watched_keyitem(item[1]);
+                    interface.manager.delete_watched_keyitem(item[1]);
                 end
             end
         end
         imgui.SameLine();
         if (imgui.Button('Remove All')) then
             interface.tab_keyitems.watched_selected[1] = -1;
-            interface.lstMgr.clear_watched_keyitems();
+            interface.manager.clear_watched_keyitems();
         end
     imgui.EndGroup();
     imgui.SameLine();
@@ -218,11 +244,11 @@ function interface.render_tab_keyitems()
             -- Key Item search..
             if (imgui.InputText('Key Item Name', interface.tab_keyitems.search_buffer, interface.tab_keyitems.search_buffer_size, ImGuiInputTextFlags_EnterReturnsTrue)) then
                 interface.tab_keyitems.search_selected[1] = -1;
-                interface.tab_keyitems.search_keyitems = interface.lstMgr.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
+                interface.tab_keyitems.search_keyitems = interface.manager.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
             end
             if (imgui.Button('Search', { -1, 0 })) then
                 interface.tab_keyitems.search_selected[1] = -1;
-                interface.tab_keyitems.search_keyitems = interface.lstMgr.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
+                interface.tab_keyitems.search_keyitems = interface.manager.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
             end
             imgui.Separator();
             imgui.BeginChild('rightpane_items');
@@ -238,7 +264,7 @@ function interface.render_tab_keyitems()
                         if (interface.tab_keyitems.search_selected[1] >= 0) then
                             local item = interface.tab_keyitems.search_keyitems[interface.tab_keyitems.search_selected[1] + 1];
                             if (item ~= nil) then
-                                interface.lstMgr.add_watched_keyitem(item[1]);
+                                interface.manager.add_watched_keyitem(item[1]);
                             end
                         end
                     end
@@ -257,7 +283,7 @@ function interface.render_tab_lists()
         imgui.TextColored(colors.header, 'Saved Lists');
         imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
             -- Display saved lists..
-            local lists = interface.lstMgr.saved_lists;
+            local lists = interface.manager.saved_lists;
             for x = 0, #lists - 1 do
                 if (x < #lists) then
                     local name = ('%s##%d'):fmt(lists[x + 1], x);
@@ -268,7 +294,7 @@ function interface.render_tab_lists()
                     -- Handle saved list double-click..
                     if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
                         if (interface.tab_lists.list_selected[1] >= 0) then
-                            local ret = interface.lstMgr.load_list:packed()(interface.tab_lists.list_selected[1], false);
+                            local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], false);
                             if (not ret[1]) then
                                 print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
                             end
@@ -288,7 +314,7 @@ function interface.render_tab_lists()
 
         -- Left side buttons..
         if (imgui.Button('Refresh Saved Lists')) then
-            interface.lstMgr.refresh_saved_lists();
+            interface.manager.refresh_saved_lists();
         end
         imgui.ShowHelp('Refreshes the saved list shown above.');
     imgui.EndGroup();
@@ -303,12 +329,12 @@ function interface.render_tab_lists()
             imgui.PopItemWidth();
             imgui.ShowHelp('The name of the list file to save.\n(Only used when saving to new file!)\n\nDo not include the file extension, it will be added automatically.');
             if (imgui.Button('Save To New List File', { 225, 0 })) then
-                interface.lstMgr.save_list_new(interface.tab_lists.name_buffer[1]:trim('\0'));
+                interface.manager.save_list_new(interface.tab_lists.name_buffer[1]:trim('\0'));
             end
             imgui.ShowHelp('Saves the current watched items to a new list using the name given above. If the list already exists, it will not be overwritten.');
             if (imgui.Button('Save To Existing List File', { 225, 0 })) then
                 if (interface.tab_lists.list_selected[1] >= 0) then
-                    interface.lstMgr.save_list_existing(interface.tab_lists.list_selected[1]);
+                    interface.manager.save_list_existing(interface.tab_lists.list_selected[1]);
                 end
             end
             imgui.ShowHelp('Saves the current watched items to an existing list; selected on the left. (Does not use the name above!)');
@@ -318,7 +344,7 @@ function interface.render_tab_lists()
 
             if (imgui.Button('Load Selected List', { 225, 0 })) then
                 if (interface.tab_lists.list_selected[1] >= 0) then
-                    local ret = interface.lstMgr.load_list:packed()(interface.tab_lists.list_selected[1], false);
+                    local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], false);
                     if (not ret[1]) then
                         print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
                     end
@@ -327,7 +353,7 @@ function interface.render_tab_lists()
             imgui.ShowHelp('Loads the selected list on the left. (Overwrites any currently watched items.)');
             if (imgui.Button('Load Selected List (Merged)', { 225, 0 })) then
                 if (interface.tab_lists.list_selected[1] >= 0) then
-                    local ret = interface.lstMgr.load_list:packed()(interface.tab_lists.list_selected[1], true);
+                    local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], true);
                     if (not ret[1]) then
                         print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
                     end
@@ -340,7 +366,7 @@ function interface.render_tab_lists()
 
             if (imgui.Button('Delete Selected List', { 225, 0 })) then
                 if (interface.tab_lists.list_selected[1] >= 0) then
-                    interface.lstMgr.delete_list(interface.tab_lists.list_selected[1]);
+                    interface.manager.delete_list(interface.tab_lists.list_selected[1]);
                 end
             end
             imgui.ShowHelp('Deletes the selected list on the left.\n\n(Warning: This deletes the file on disk! This cannot be undone!)');
@@ -354,7 +380,7 @@ function interface.render_tab_lists()
                 imgui.TextColored(colors.warn, 'This cannot be undone! Use with caution!');
             end, PopupButtonsOkCancel), {
                 [PopupResultOk] = function ()
-                    interface.lstMgr.delete_all_lists();
+                    interface.manager.delete_all_lists();
                 end
             });
             imgui.ShowHelp('Deletes all saved list files.\n\n(Warning: This deletes all saved list files on disk! This cannot be undone!)');
@@ -472,8 +498,8 @@ function interface.render_watchlist_overlay()
         local ply = AshitaCore:GetMemoryManager():GetPlayer();
 
         -- Display the watched items..
-        if (interface.lstMgr.watched_items_count() > 0) then
-            interface.lstMgr.watched_items:each(function (v)
+        if (interface.manager.watched_items_count() > 0) then
+            interface.manager.watched_items:each(function (v)
                 local total = 0;
                 for x = 0, 12 do
                     for y = 0, 80 do
@@ -488,8 +514,8 @@ function interface.render_watchlist_overlay()
         end
 
         -- Display the watched items..
-        if (interface.lstMgr.watched_keyitems_count() > 0) then
-            interface.lstMgr.watched_keyitems:each(function (v)
+        if (interface.manager.watched_keyitems_count() > 0) then
+            interface.manager.watched_keyitems:each(function (v)
                 local has = ply:HasKeyItem(v[1]);
                 imgui.TextColored(has and interface.overlay.color_keyitem_have or interface.overlay.color_keyitem_missing, v[2]);
             end);
@@ -524,7 +550,7 @@ end
 --]]
 function interface.render()
     -- Render the watch lists..
-    if (interface.lstMgr.watched_count() > 0) then
+    if (interface.manager.watched_count() > 0) then
         interface.render_watchlist_overlay();
     end
 
@@ -533,11 +559,14 @@ function interface.render()
         return;
     end
 
-    -- Render the ItemWatch interface..
     imgui.SetNextWindowSize({ 600, 400, });
     imgui.SetNextWindowSizeConstraints({ 600, 400, }, { FLT_MAX, FLT_MAX, });
     if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+            if (imgui.BeginTabItem('JOBS', nil)) then
+                interface.render_new_tab();
+                imgui.EndTabItem();
+            end
             if (imgui.BeginTabItem('Items interface', nil)) then
                 interface.render_tab_items();
                 imgui.EndTabItem();
@@ -560,5 +589,4 @@ function interface.render()
     imgui.End();
 end
 
--- Return the interface table..
 return interface;

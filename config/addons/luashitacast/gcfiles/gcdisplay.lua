@@ -1,6 +1,8 @@
 local Cycles = {};
 local Toggles = {};
 local fonts = require('fonts');
+local Defense = 0;
+local Attack = 0;
 
 local gcdisplay = {
 	Toggles = {},
@@ -42,6 +44,11 @@ function gcdisplay.AdvanceToggle(name)
 	end
 end
 
+function gcdisplay.UpdateDef()
+	local data = gData.GetEquipScreen();
+	Defense = data.Defense;
+	Attack = data.Attack;
+end
 --name must be a valid lua variable name in string format.
 --default must be a boolean
 function gcdisplay.CreateToggle(name, default)
@@ -87,10 +94,9 @@ end
 function gcdisplay.Initialize()
 	local player = gData.GetPlayer();
 	local data = gData.GetEquipScreen();
-	--local MagicDefense = AshitaCore:GetMemoryManager():GetPlayer():GetEvasion();
 	gcdisplay.FontObject = fonts.new(fontSettings);	
 	ashita.events.register('d3d_present', 'gcdisplay_present_cb', function ()
-		local outText = 'Attk:' .. data.Attack .. '   Def:' .. data.Defense .. '   WS:' .. wskill ;
+		local outText = 'Attk:' .. Attack .. '   Def:' .. Defense .. '   WS:' .. wskill ;
 		for key, value in pairs(Toggles) do
 			outText = outText .. '   ';
 			if (value == true) then

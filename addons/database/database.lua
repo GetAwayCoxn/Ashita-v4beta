@@ -49,7 +49,10 @@ end
 ashita.events.register('command', 'command_cb', function (e)
     -- Parse the command arguments..
     local args = e.command:args();
-    if (#args == 0 or not args[1]:any('/database')) then
+    if (#args == 0) then
+        return;
+    end
+    if (args[1] ~= '/db') and (args[1] ~= '/database') then
         return;
     end
 
