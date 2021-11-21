@@ -1,4 +1,4 @@
-require('common');
+local sugar = require('sugar');
 local settings = require('settings');
 
 -- manager Variables
@@ -156,6 +156,55 @@ function manager.find_items(name)
     end
 
     return items;
+end
+
+function manager.UpdateJobs()  
+    for x = 1, 22 do
+        local mjobLV = 0;
+        if (interface.jobs[AshitaCore:GetMemoryManager():GetPlayer():GetMainJob()] == interface.jobs[x]) then
+            mjobLV = AshitaCore:GetMemoryManager():GetPlayer():GetMasteryJobLevel();
+        end
+        dtables.jobs[interface.jobs[x]] = {AshitaCore:GetMemoryManager():GetPlayer():GetJobLevel(x),AshitaCore:GetMemoryManager():GetPlayer():GetJobPointsSpent(x),mjobLV};
+    end
+    return;
+end
+
+function manager.save(name)
+    -- Validate and update the file name..
+    if (name == nil or name:len() < 2) then
+        return false;
+    end
+    name = name .. '.lst';
+
+    -- Build a path to the file and ensure it does not exist already..
+    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
+    if (ashita.fs.exists(path)) then
+        return false;
+    end
+
+    -- Create the new settings object to be saved..
+    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
+
+    -- Serialize the settings table for saving..
+    local p, s = settings.process(t, 'settings');
+
+    -- Open and save the new list..
+    local f = io.open(path, 'w+');
+    if (f == nil) then
+        return false;
+    end
+
+    f:write('require(\'common\');\n\n');
+    f:write('local settings = T{ };\n');
+    p:each(function (v) f:write(('%s = T{ };\n'):fmt(v)); end);
+    f:write(s);
+    f:write('\nreturn settings;\n');
+    f:close();
+
+    -- Update the saved lists..
+    --manager.refresh_saved_lists();
+
+    return true;
 end
 
 --[[

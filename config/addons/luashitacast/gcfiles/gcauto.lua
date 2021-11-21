@@ -40,7 +40,7 @@ function gcauto.AutoWS()
 		print(chat.header('gcauto'):append(chat.message('You need to have the shorthand plugin for this to work!')));
 		wskill = 'none';
 	elseif (wskill == 'none') then return
-	elseif (player.Status == 'Engaged') and (player.TP > 999) and (target.HPP < 50) then
+	elseif (player.Status == 'Engaged') and (player.TP > 999) and (target.HPP < 30 or target.HPP > 85) then
 		AshitaCore:GetChatManager():QueueCommand(1, '//' .. wskill);
 	end
 end

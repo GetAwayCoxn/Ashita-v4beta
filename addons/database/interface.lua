@@ -1,37 +1,16 @@
 require('common');
 local chat = require('chat');
 local imgui = require('imgui');
+local manager = require('manager');
+dtables = require('dtables');
 
-local interface = {
-    manager = require('manager'),
+interface = {
     settings = require('settings'),
 
     is_open = { true, },
 
-    tab_items = T{
-        search_buffer = { '' },
-        search_buffer_size = 256,
-        search_items = T{ },
-        search_selected = { -1, },
-        watched_selected = { -1, },
-    },
-    tab_keyitems = T{
-        search_buffer = { '' },
-        search_buffer_size = 256,
-        search_keyitems = T{ },
-        search_selected = { -1, },
-        watched_selected = { -1, },
-    },
-    tab_lists = T{
-        list_selected = { -1, },
-        name_buffer = { '' },
-        name_buffer_size = 256,
-    },
-
-    main_job = T{
-        PLD = {99},
-    },
-
+    jobs = T{[1] ='WAR',[2] ='MNK',[3] ='WHM',[4] ='BLM',[5] ='RDM',[6] ='THF',[7] ='PLD',[8] ='DRK',[9] ='BST',[10] ='BRD',[11] ='RNG',[12] ='SAM',[13] ='NIN',[14] ='DRG',[15] ='SMN',[16] ='BLU',[17] ='COR',[18] ='PUP',[19] ='DNC',[20] ='SCH',[21] ='GEO',[22] ='RUN'},
+    
     -- Overlay (Defaults)
     overlay_defaults = T{
         is_open = { true, },
@@ -60,6 +39,8 @@ function interface.load()
     -- Load the overlay settings..
     interface.overlay = interface.settings.load(interface.overlay_defaults);
 
+    manager.UpdateJobs();
+
     -- Register to the settings update event..
     interface.settings.register('settings', 'settings_update', function (s)
         if(s ~= nil) then
@@ -77,314 +58,57 @@ function interface.unload()
     interface.settings.save();
 end
 
---[[
-* Renders the items interface tab elements.
---]]
-function interface.render_new_tab()
+function interface.renderJobTab()
     imgui.BeginGroup();
         imgui.TextColored(colors.header, 'JOBS');
-        imgui.BeginChild('leftpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.InputInt('WAR', interface.main_job.PLD,ImGuiInputTextFlags_ReadOnly);
+        imgui.BeginChild('jobpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.TextColored(colors.header, 'Job Level               ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Job Points Spent          ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Mastery Level');imgui.ShowHelp('Only accurate for your current job for now.');
+            imgui.InputInt3(interface.jobs[1], dtables.jobs.WAR,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[2], dtables.jobs.MNK,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[3], dtables.jobs.WHM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[4], dtables.jobs.BLM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[5], dtables.jobs.RDM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[6], dtables.jobs.THF,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[7], dtables.jobs.PLD,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[8], dtables.jobs.DRK,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[9], dtables.jobs.BST,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[10], dtables.jobs.BRD,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[11], dtables.jobs.RNG,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[12], dtables.jobs.SAM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[13], dtables.jobs.NIN,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[14], dtables.jobs.DRG,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[15], dtables.jobs.SMN,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[16], dtables.jobs.BLU,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[17], dtables.jobs.COR,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[18], dtables.jobs.PUP,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[19], dtables.jobs.DNC,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[20], dtables.jobs.SCH,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[21], dtables.jobs.GEO,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[22], dtables.jobs.RUN,ImGuiInputTextFlags_ReadOnly);
         imgui.EndChild();
 
-        -- Left side buttons..
-        if (imgui.Button('Remove Selected')) then
-            if (interface.tab_items.watched_selected[1] >= 0) then
-                local item = watched[interface.tab_items.watched_selected[1] + 1];
-                if (item ~= nil) then
-                    interface.tab_items.watched_selected[1] = -1;
-                    interface.manager.delete_watched_item(item[1]);
-                end
-            end
-        end
-        imgui.SameLine();
-        if (imgui.Button('Remove All')) then
-            interface.tab_items.watched_selected[1] = -1;
-            interface.manager.clear_watched_items();
+        if (imgui.Button('Update Jobs')) then
+            manager.UpdateJobs();
         end
     imgui.EndGroup();
 end
 
-function interface.render_tab_items()
-    -- Left Side (Many whelps, handle it!!)
+function interface.renderRelicTab()
     imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Current Tracked Items');
-        imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
-            -- Display watched items..
-            local watched = interface.manager.watched_items;
-            for x = 0, #watched - 1 do
-                if (x < #watched) then
-                    local name = ('%s##%d'):fmt(watched[x + 1][2], watched[x + 1][1]);
-                    if (imgui.Selectable(name, interface.tab_items.watched_selected[1] == x)) then
-                        interface.tab_items.watched_selected[1] = x;
-                    end
-                end
-
-                -- Handle watched item double-click..
-                if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
-                    if (interface.tab_items.watched_selected[1] >= 0) then
-                        local item = watched[interface.tab_items.watched_selected[1] + 1];
-                        if (item ~= nil) then
-                            interface.tab_items.watched_selected[1] = -1;
-                            interface.manager.delete_watched_item(item[1]);
-                        end
-                    end
-                end
-            end
+        imgui.TextColored(colors.header, 'Relic Gear');
+        imgui.BeginChild('jobpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.BeginMenuBar();
+            imgui.BeginMenu('test', true);
+            imgui.EndMenu();
+            imgui.EndMenuBar();
         imgui.EndChild();
 
-        -- Left side buttons..
-        if (imgui.Button('Remove Selected')) then
-            if (interface.tab_items.watched_selected[1] >= 0) then
-                local item = watched[interface.tab_items.watched_selected[1] + 1];
-                if (item ~= nil) then
-                    interface.tab_items.watched_selected[1] = -1;
-                    interface.manager.delete_watched_item(item[1]);
-                end
-            end
+        --Buttons
+        if (imgui.Button('Update Relic Gear')) then
+            --manager.UpdateJobs();
         end
-        imgui.SameLine();
-        if (imgui.Button('Remove All')) then
-            interface.tab_items.watched_selected[1] = -1;
-            interface.manager.clear_watched_items();
-        end
-    imgui.EndGroup();
-    imgui.SameLine();
-
-    -- Right Side (Item Lookup interface)
-    imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Item Lookup Tool');
-        imgui.BeginChild('rightpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            -- Item search..
-            if (imgui.InputText('Item Name', interface.tab_items.search_buffer, interface.tab_items.search_buffer_size, ImGuiInputTextFlags_EnterReturnsTrue)) then
-                interface.tab_items.search_selected[1] = -1;
-                interface.tab_items.search_items = interface.manager.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
-            end
-            if (imgui.Button('Search', { -1, 0 })) then
-                interface.tab_items.search_selected[1] = -1;
-                interface.tab_items.search_items = interface.manager.find_items(interface.tab_items.search_buffer[1]:trim('\0'));
-            end
-            imgui.Separator();
-            imgui.BeginChild('rightpane_items');
-                -- Display the found items from search..
-                for x = 0, #interface.tab_items.search_items - 1 do
-                    local name = ('[%d] %s##sitem_%d'):fmt(interface.tab_items.search_items[x + 1][1], interface.tab_items.search_items[x + 1][2], interface.tab_items.search_items[x + 1][1]);
-                    if (imgui.Selectable(name, interface.tab_items.search_selected[1] == x)) then
-                        interface.tab_items.search_selected[1] = x;
-                    end
-
-                    -- Handle found item double-click..
-                    if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
-                        if (interface.tab_items.search_selected[1] >= 0) then
-                            local item = interface.tab_items.search_items[interface.tab_items.search_selected[1] + 1];
-                            if (item ~= nil) then
-                                interface.manager.add_watched_item(item[1]);
-                            end
-                        end
-                    end
-                end
-            imgui.EndChild();
-        imgui.EndChild();
-    imgui.EndGroup();
-end
-
---[[
-* Renders the key items interface tab elements.
---]]
-function interface.render_tab_keyitems()
-    -- Left Side (Many whelps, handle it!!)
-    imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Current Tracked Key Items');
-        imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
-            -- Display watched key items..
-            local watched = interface.manager.watched_keyitems;
-            for x = 0, #watched - 1 do
-                if (x < #watched) then
-                    local name = ('%s##%d'):fmt(watched[x + 1][2], watched[x + 1][1]);
-                    if (imgui.Selectable(name, interface.tab_keyitems.watched_selected[1] == x)) then
-                        interface.tab_keyitems.watched_selected[1] = x;
-                    end
-                end
-
-                -- Handle watched key item double-click..
-                if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
-                    if (interface.tab_keyitems.watched_selected[1] >= 0) then
-                        local item = watched[interface.tab_keyitems.watched_selected[1] + 1];
-                        if (item ~= nil) then
-                            interface.tab_keyitems.watched_selected[1] = -1;
-                            interface.manager.delete_watched_keyitem(item[1]);
-                        end
-                    end
-                end
-            end
-        imgui.EndChild();
-
-        -- Left side buttons..
-        if (imgui.Button('Remove Selected')) then
-            if (interface.tab_keyitems.watched_selected[1] >= 0) then
-                local item = watched[interface.tab_keyitems.watched_selected[1] + 1];
-                if (item ~= nil) then
-                    interface.tab_keyitems.watched_selected[1] = -1;
-                    interface.manager.delete_watched_keyitem(item[1]);
-                end
-            end
-        end
-        imgui.SameLine();
-        if (imgui.Button('Remove All')) then
-            interface.tab_keyitems.watched_selected[1] = -1;
-            interface.manager.clear_watched_keyitems();
-        end
-    imgui.EndGroup();
-    imgui.SameLine();
-
-    -- Right Side (Key Item Lookup interface)
-    imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Key Item Lookup Tool');
-        imgui.BeginChild('rightpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            -- Key Item search..
-            if (imgui.InputText('Key Item Name', interface.tab_keyitems.search_buffer, interface.tab_keyitems.search_buffer_size, ImGuiInputTextFlags_EnterReturnsTrue)) then
-                interface.tab_keyitems.search_selected[1] = -1;
-                interface.tab_keyitems.search_keyitems = interface.manager.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
-            end
-            if (imgui.Button('Search', { -1, 0 })) then
-                interface.tab_keyitems.search_selected[1] = -1;
-                interface.tab_keyitems.search_keyitems = interface.manager.find_keyitems(interface.tab_keyitems.search_buffer[1]:trim('\0'));
-            end
-            imgui.Separator();
-            imgui.BeginChild('rightpane_items');
-                -- Display the found key items from search..
-                for x = 0, #interface.tab_keyitems.search_keyitems - 1 do
-                    local name = ('[%d] %s##sitem_%d'):fmt(interface.tab_keyitems.search_keyitems[x + 1][1], interface.tab_keyitems.search_keyitems[x + 1][2], interface.tab_keyitems.search_keyitems[x + 1][1]);
-                    if (imgui.Selectable(name, interface.tab_keyitems.search_selected[1] == x)) then
-                        interface.tab_keyitems.search_selected[1] = x;
-                    end
-
-                    -- Handle found key item double-click..
-                    if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
-                        if (interface.tab_keyitems.search_selected[1] >= 0) then
-                            local item = interface.tab_keyitems.search_keyitems[interface.tab_keyitems.search_selected[1] + 1];
-                            if (item ~= nil) then
-                                interface.manager.add_watched_keyitem(item[1]);
-                            end
-                        end
-                    end
-                end
-            imgui.EndChild();
-        imgui.EndChild();
-    imgui.EndGroup();
-end
-
---[[
-* Renders the lists interface tab elements.
---]]
-function interface.render_tab_lists()
-    -- Left Side (Many whelps, handle it!!)
-    imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Saved Lists');
-        imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
-            -- Display saved lists..
-            local lists = interface.manager.saved_lists;
-            for x = 0, #lists - 1 do
-                if (x < #lists) then
-                    local name = ('%s##%d'):fmt(lists[x + 1], x);
-                    if (imgui.Selectable(name, interface.tab_lists.list_selected[1] == x)) then
-                        interface.tab_lists.list_selected[1] = x;
-                    end
-
-                    -- Handle saved list double-click..
-                    if (imgui.IsItemHovered() and imgui.IsMouseDoubleClicked(0)) then
-                        if (interface.tab_lists.list_selected[1] >= 0) then
-                            local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], false);
-                            if (not ret[1]) then
-                                print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
-                            end
-                        end
-                    end
-                end
-            end
-
-            -- Display no lists loaded message..
-            if (#lists <= 0) then
-                imgui.PushTextWrapPos();
-                imgui.TextColored(colors.error, 'No lists loaded or found!');
-                imgui.TextColored(colors.warn, 'Click the \'Refresh\' button below to try and update this list.');
-                imgui.PopTextWrapPos();
-            end
-        imgui.EndChild();
-
-        -- Left side buttons..
-        if (imgui.Button('Refresh Saved Lists')) then
-            interface.manager.refresh_saved_lists();
-        end
-        imgui.ShowHelp('Refreshes the saved list shown above.');
-    imgui.EndGroup();
-    imgui.SameLine();
-
-    -- Right Side (Saved Lists Manager)
-    imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Saved Lists Manager');
-        imgui.BeginChild('rightpane', { -1, -imgui.GetFrameHeightWithSpacing() }, true);
-            imgui.PushItemWidth(225);
-            imgui.InputText('Name', interface.tab_lists.name_buffer, interface.tab_lists.name_buffer_size);
-            imgui.PopItemWidth();
-            imgui.ShowHelp('The name of the list file to save.\n(Only used when saving to new file!)\n\nDo not include the file extension, it will be added automatically.');
-            if (imgui.Button('Save To New List File', { 225, 0 })) then
-                interface.manager.save_list_new(interface.tab_lists.name_buffer[1]:trim('\0'));
-            end
-            imgui.ShowHelp('Saves the current watched items to a new list using the name given above. If the list already exists, it will not be overwritten.');
-            if (imgui.Button('Save To Existing List File', { 225, 0 })) then
-                if (interface.tab_lists.list_selected[1] >= 0) then
-                    interface.manager.save_list_existing(interface.tab_lists.list_selected[1]);
-                end
-            end
-            imgui.ShowHelp('Saves the current watched items to an existing list; selected on the left. (Does not use the name above!)');
-
-            imgui.NewLine();
-            imgui.Separator();
-
-            if (imgui.Button('Load Selected List', { 225, 0 })) then
-                if (interface.tab_lists.list_selected[1] >= 0) then
-                    local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], false);
-                    if (not ret[1]) then
-                        print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
-                    end
-                end
-            end
-            imgui.ShowHelp('Loads the selected list on the left. (Overwrites any currently watched items.)');
-            if (imgui.Button('Load Selected List (Merged)', { 225, 0 })) then
-                if (interface.tab_lists.list_selected[1] >= 0) then
-                    local ret = interface.manager.load_list:packed()(interface.tab_lists.list_selected[1], true);
-                    if (not ret[1]) then
-                        print(chat.header(addon.name):append(chat.error('Failed to load watch list; \'%s\'')):fmt(ret[2]));
-                    end
-                end
-            end
-            imgui.ShowHelp('Loads the selected list on the left. (Merges the lists contents with the currently watched items.)');
-
-            imgui.NewLine();
-            imgui.Separator();
-
-            if (imgui.Button('Delete Selected List', { 225, 0 })) then
-                if (interface.tab_lists.list_selected[1] >= 0) then
-                    interface.manager.delete_list(interface.tab_lists.list_selected[1]);
-                end
-            end
-            imgui.ShowHelp('Deletes the selected list on the left.\n\n(Warning: This deletes the file on disk! This cannot be undone!)');
-
-            if (imgui.Button('Delete All Lists', { 225, 0 })) then
-                imgui.OpenPopup('###DeleteAllSavedLists');
-            end
-            switch(imgui.DisplayPopup('Are you sure?', 'DeleteAllSavedLists', function ()
-                imgui.Text('This will delete all currently saved lists on disk.\nAre you sure?');
-                imgui.NewLine();
-                imgui.TextColored(colors.warn, 'This cannot be undone! Use with caution!');
-            end, PopupButtonsOkCancel), {
-                [PopupResultOk] = function ()
-                    interface.manager.delete_all_lists();
-                end
-            });
-            imgui.ShowHelp('Deletes all saved list files.\n\n(Warning: This deletes all saved list files on disk! This cannot be undone!)');
-        imgui.EndChild();
     imgui.EndGroup();
 end
 
@@ -550,7 +274,7 @@ end
 --]]
 function interface.render()
     -- Render the watch lists..
-    if (interface.manager.watched_count() > 0) then
+    if (manager.watched_count() > 0) then
         interface.render_watchlist_overlay();
     end
 
@@ -559,24 +283,16 @@ function interface.render()
         return;
     end
 
-    imgui.SetNextWindowSize({ 600, 400, });
-    imgui.SetNextWindowSizeConstraints({ 600, 400, }, { FLT_MAX, FLT_MAX, });
+    imgui.SetNextWindowSize({ 800, 700, });
+    imgui.SetNextWindowSizeConstraints({ 800, 700, }, { FLT_MAX, FLT_MAX, });
     if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
-                interface.render_new_tab();
+                interface.renderJobTab();
                 imgui.EndTabItem();
             end
-            if (imgui.BeginTabItem('Items interface', nil)) then
-                interface.render_tab_items();
-                imgui.EndTabItem();
-            end
-            if (imgui.BeginTabItem('Key Items interface', nil)) then
-                interface.render_tab_keyitems();
-                imgui.EndTabItem();
-            end
-            if (imgui.BeginTabItem('Lists interface', nil)) then
-                interface.render_tab_lists();
+            if (imgui.BeginTabItem('Relic Gear', nil)) then
+                interface.renderRelicTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('Settings', nil)) then
