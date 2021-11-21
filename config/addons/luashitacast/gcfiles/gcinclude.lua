@@ -152,6 +152,7 @@ function gcinclude.CheckCommonDebuffs()
 	local weakened = gData.GetBuffCount('Weakened');
 	local sleep = gData.GetBuffCount('Sleep');
 	local doom = (gData.GetBuffCount('Doom'))+(gData.GetBuffCount('Bane'));
+	local cover = gData.GetBuffCount('Cover');
 
 	if (sleep >= 1) then
 		gFunc.EquipSet(gcinclude.sets.Sleeping);

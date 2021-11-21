@@ -79,6 +79,44 @@ sets = {
 
     Precast = {
     },
+    Cure_Precast = {
+        Ear2 = 'Nourish. Earring +1',
+    },
+    Enhancing_Precast = {
+        Waist = 'Siegel Sash',
+    },
+    SIR = {
+        Ammo = 'Staunch Tathlum', -- 10
+        Neck = 'Loricate Torque +1', -- 5
+        Ear1 = 'Gwati Earring',
+        Back = 'Solemnity Cape',
+        Waist = 'Rumination Sash', -- 10
+        Legs = 'Carmine Cuisses +1', -- 20
+    },
+    Enmity = {
+        Neck = 'Unmoving Collar +1',
+        Body = 'Cab. Surcoat +3',
+        Ring1 = 'Cacoethic Ring',
+        Ring2 = 'Vengeful Ring',
+        Ear2 = 'Cryptic Earring',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Waist = 'Creed Baudrier',
+    },
+
+    Cure = {
+        Neck = 'Sacro Gorget', -- 10
+        Ear2 = 'Nourish. Earring +1', -- 6
+        Hands = 'Macabre Gaunt. +1', -- 11
+        Back = 'Solemnity Cape', -- 7
+        Legs = 'Flamma Dirs +2', -- 9 on me
+        Feet = 'Odyssean Greaves', -- 7
+    },
+    Phalanx = {
+        Legs = 'Sakpata\'s Cuisses', -- 5
+    },
+    Stoneskin = {
+        Waist = 'Siegel Sash',
+    },
 
     Ws_Default = {
         Ammo = 'Ginsen',
@@ -119,6 +157,9 @@ sets = {
     Savage_Acc = {
     },
 
+    Fealty = {
+        Body = 'Cab. Surcoat +3',
+    },
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},
@@ -170,8 +211,9 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
-	if string.match(ability.Name, 'Call Beast') or string.match(ability.Name, 'Bestial Loyalty') then
-		gFunc.EquipSet(sets.Call);
+    gFunc.EquipSet(sets.Enmity)
+	if string.match(ability.Name, 'Fealty') then
+		gFunc.EquipSet(sets.Fealty);
 	elseif string.match(ability.Name, 'Reward') then
 		gFunc.EquipSet(sets.Reward);
 	end
@@ -184,11 +226,28 @@ profile.HandleItem = function()
 end
 
 profile.HandlePrecast = function()
+    local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
+
+    if string.contains(spell.Name, 'Cur') then
+        gFunc.EquipSet(sets.Cure_Precast);
+    end
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Cure_Precast);
+    end
 end
 
 profile.HandleMidcast = function()
-    gFunc.EquipSet(sets.Cure)
+    local spell = gData.GetAction();
+    gFunc.EquipSet(sets.SIR)
+
+    if string.contains(spell.Name, 'Cur') then
+        gFunc.EquipSet(sets.Cure);
+    elseif string.match(spell.Name, 'Phalanx') then
+        gFunc.EquipSet(sets.Phalanx);
+    elseif string.match(spell.Name, 'Stoneskin') then
+        gFunc.EquipSet(sets.Stoneskin);
+    end
 end
 
 profile.HandlePreshot = function()

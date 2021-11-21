@@ -1,4 +1,3 @@
-local Cycles = {};
 local Toggles = {};
 local fonts = require('fonts');
 local Defense = 0;
@@ -22,18 +21,6 @@ local fontSettings = T{
 	}
 };
 
-function gcdisplay.AdvanceCycle(name)
-	local ctable = Cycles[name];
-	if (type(ctable) ~= 'table') then
-		return;
-	end
-	
-	ctable.Index = ctable.Index + 1;
-	if (ctable.Index > #ctable.Array) then
-		ctable.Index = 1;
-	end
-end
-
 function gcdisplay.AdvanceToggle(name)
 	if (type(Toggles[name]) ~= 'boolean') then
 		return;
@@ -49,30 +36,9 @@ function gcdisplay.UpdateDef()
 	Defense = data.Defense;
 	Attack = data.Attack;
 end
---name must be a valid lua variable name in string format.
---default must be a boolean
+
 function gcdisplay.CreateToggle(name, default)
 	Toggles[name] = default;
-end
-
---name must be a valid lua variable name in string format.
---values must be an array style table containing only strings mapped to sequential indices.
---first value in table will be default.
-function gcdisplay.CreateCycle(name, values)
-	local newCycle = {
-		Index = 1,
-		Array = values
-	};
-	Cycles[name] = newCycle;
-end
-
-function gcdisplay.GetCyclefunction(name)
-	local ctable = Cycles[name];
-	if (type(ctable) == 'table') then
-		return ctable.Array[ctable.Index];
-	else
-		return 'Unknown';
-	end
 end
 
 function gcdisplay.GetToggle(name)
@@ -82,7 +48,6 @@ function gcdisplay.GetToggle(name)
 		return false;
 	end
 end
-
 
 function gcdisplay.Unload()
 	if (gcdisplay.FontObject ~= nil) then
@@ -104,9 +69,6 @@ function gcdisplay.Initialize()
 			else
 				outText = outText .. '|cFFFF0000|' .. key .. '|r';
 			end
-		end
-		for key, value in pairs(Cycles) do
-			outText = outText .. '  ' .. key .. ': ' .. '|cFF00FF00|' .. value.Array[value.Index] .. '|r';
 		end
 		gcdisplay.FontObject.text = outText;
 	end);

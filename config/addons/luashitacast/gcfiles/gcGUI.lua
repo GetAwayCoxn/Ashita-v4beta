@@ -49,7 +49,7 @@ function gcdisplay.CreateToggle(name, default)
 end
 
 --name must be a valid lua variable name in string format.
---values must be an array style table containing only strings mapped to sequential indices.
+--values must be an array style table containing only strings mapped to sequential indices.	
 --first value in table will be default.
 function gcdisplay.CreateCycle(name, values)
 	local newCycle = {
