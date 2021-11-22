@@ -22,51 +22,15 @@ sets = {
         Feet = '',
     },
     Reseting = {},
+    Regen = {},
+    Refresh = {},
     Town = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Body = '',
-        Hands = '',
-        Legs = '',
-        Feet = '',
     },
 
     Dt = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = 'Malignance Chapeau',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
     },
 
     Tp_Default = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
     },
     Tp_Hybrid = {
     },
@@ -75,39 +39,14 @@ sets = {
 
 
     Precast = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
+    },
+
+    Preshot = {
+    },
+    Midshot = {
     },
 
     Ws_Default = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
     },
     Ws_Hybrid = {
     },
@@ -118,24 +57,23 @@ sets = {
 	},
 };
 
-profile.Sets = gcinclude.MergeSets();
+profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
     gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 end
 
 profile.OnUnload = function()
-    gcinclude.Destroy();
+    gcinclude.Unload();
 end
 
 profile.HandleCommand = function(args)
     gcinclude.SetCommands(args);
-    if (args[1] == 'test') then print(chat.header('Test') .. chat.message('This is a test')) end
 end
 
 profile.HandleDefault = function()
@@ -180,20 +118,40 @@ profile.HandleItem = function()
 end
 
 profile.HandlePrecast = function()
+    local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
+
+    gcinclude.CheckPrecast ();
 end
 
 profile.HandleMidcast = function()
+    local spell = gData.GetAction();
+
+    if string.contains(spell.Name, 'Cur') then
+        gFunc.EquipSet(sets.Cure);
+    elseif string.match(spell.Name, 'Phalanx') then
+        gFunc.EquipSet(sets.Phalanx);
+    elseif string.match(spell.Name, 'Stoneskin') then
+        gFunc.EquipSet(sets.Stoneskin);
+    end
+
+    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
+    gFunc.EquipSet(sets.Preshot);
+
+    gcinclude.CheckPreshot();
 end
 
 profile.HandleMidshot = function()
+    gFunc.EquipSet(sets.Midshot);
+
+    gcinclude.CheckMidshot();
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.WSbailout();
+    local canWS = gcinclude.CheckBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

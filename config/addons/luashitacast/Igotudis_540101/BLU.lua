@@ -1,13 +1,13 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
-local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 
 
 sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Rawhide Mask',
-        Neck = 'Bathy Choker +1',
+        Neck = 'Unmoving Collar +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Gleti\'s Cuirass',
@@ -21,7 +21,14 @@ sets = {
     },
 	Resting = {
         Body = 'Jhakri Robe +2',
-        Waist = 'Fucho-no-Obi'
+        Waist = 'Fucho-no-Obi',
+    },
+    Regen = {
+        Neck = 'Bathy Choker +1';
+    },
+    Refresh = {
+        Body = 'Jhakri Robe +2',
+        Waist = 'Fucho-no-Obi',
     },
 	Town = {
         Head = 'Cumulus Masque',
@@ -31,9 +38,15 @@ sets = {
 		Ammo = 'Staunch Tathlum',
 		Neck = 'Bathy Choker +1',
 		Ear1 = 'Eabani Earring',
+        Head = 'Nyame Helm',
 		Body = 'Gleti\'s Cuirass',
 		Hands = 'Malignance Gloves',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Gelatinous Ring +1',
+        Back = 'Solemnity Cape',
 		Waist = 'Flume Belt +1',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Nyame Sollerets',
 	},
 	
 	Tp_Default = {
@@ -70,7 +83,15 @@ sets = {
 	
 	Precast = {
         Ammo = 'Staunch Tathlum',
+        Head = 'Haruspex Hat',
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Loquac. Earring',
+        Ear2 = 'Etiolation Earring',
         Body = 'Luhlaza Jubbah +3',
+        Ring1 = 'Prolix Ring',
+        Ring2 = 'Kishar Ring',
+        Back = 'Swith Cape +1',
+        Legs = 'Enif Cosciales',
     },
     Precast_Stoneskin = {
         Waist = 'Siegel Sash'   
@@ -178,9 +199,15 @@ sets = {
         Legs = 'Augury Cuisses +1',
     },
 
+    Preshot = {
+    },
+    Midshot = {
+    },
+
     Ws_Default = {
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
+        Neck = 'Fotia Gorget',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Assim. Jubbah +2',
@@ -188,23 +215,24 @@ sets = {
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
-        Feet = 'Herculean Boots',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Ws_Hybrid = {
         Head = 'Nyame Helm',
         Body = 'Gleti\'s Cuirass',
         Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots'
+        Feet = 'Gleti\'s Boots',
     },
     Ws_Acc = {
     },
     Chant_Default = {
-        Ammo = 'Ginsen',
+        Ammo = 'Jukukik Feather',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Assim. Jubbah +2',
+        Body = 'Gleti\'s Cuirass',
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
@@ -213,6 +241,8 @@ sets = {
         Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {
+        Head = 'Nyame Helm',
+        Feet = 'Nyame Sollerets',
     },
     Chant_Acc = {
     },
@@ -230,6 +260,7 @@ sets = {
         Feet = 'Herculean Boots',
     },
     Savage_Hybrid = {
+        Ammo = 'Crepuscular Pebble',
     },
     Savage_Acc = {
     },
@@ -246,7 +277,7 @@ sets = {
 	},
 };
 
-profile.Sets = gcinclude.MergeSets();
+profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -292,6 +323,8 @@ end
 
 profile.HandleAbility = function()
 	local ability = gData.GetAction();
+
+    if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity) end
 end
 
 profile.HandleItem = function()
@@ -304,6 +337,8 @@ profile.HandlePrecast = function()
     local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
     if string.match(spell.Name, 'Stoneskin') then gFunc.EquipSet(sets.Precast_Stoneskin) end
+
+    gcinclude.CheckPrecast ();
 end
 
 profile.HandleMidcast = function()
@@ -326,16 +361,24 @@ profile.HandleMidcast = function()
     if (ca>=1) then gFunc.Equip('Feet','Assim. Charuqs +1') end
     if (ba>=1) then gFunc.Equip('Feet','Hashi. Basmak +1') end
     if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
+
+    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
+    gFunc.EquipSet(sets.Preshot);
+
+    gcinclude.CheckPreshot();
 end
 
 profile.HandleMidshot = function()
+    gFunc.EquipSet(sets.Midshot);
+
+    gcinclude.CheckMidshot();
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.WSbailout();
+    local canWS = gcinclude.CheckBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

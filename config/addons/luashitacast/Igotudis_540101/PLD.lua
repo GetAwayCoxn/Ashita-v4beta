@@ -20,6 +20,8 @@ sets = {
         Feet = 'Nyame Sollerets',
     },
     Reseting = {},
+    Regen = {},
+    Refresh = {},
     Town = {
         Main = 'Exalibur',
         Sub = 'Aegis',
@@ -118,6 +120,41 @@ sets = {
         Waist = 'Siegel Sash',
     },
 
+    Preshot = {
+        Main = '',
+        Sub = '',
+        Ammo = '',
+        Head = '',
+        Neck ='',
+        Ear1 = '',
+        Ear2 = '',
+        Body = '',
+        Hands = '',
+        Ring1 = '',
+        Ring2 = '',
+        Back = '',
+        Waist = '',
+        Legs = '',
+        Feet = '',
+    },
+    Midshot = {
+        Main = '',
+        Sub = '',
+        Ammo = '',
+        Head = '',
+        Neck ='',
+        Ear1 = '',
+        Ear2 = '',
+        Body = '',
+        Hands = '',
+        Ring1 = '',
+        Ring2 = '',
+        Back = '',
+        Waist = '',
+        Legs = '',
+        Feet = '',
+    },
+
     Ws_Default = {
         Ammo = 'Ginsen',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
@@ -165,7 +202,7 @@ sets = {
 	},
 };
 
-profile.Sets = gcinclude.MergeSets();
+profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -235,6 +272,8 @@ profile.HandlePrecast = function()
     if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);
     end
+
+    gcinclude.CheckPrecast ();
 end
 
 profile.HandleMidcast = function()
@@ -248,16 +287,24 @@ profile.HandleMidcast = function()
     elseif string.match(spell.Name, 'Stoneskin') then
         gFunc.EquipSet(sets.Stoneskin);
     end
+
+    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
+    gFunc.EquipSet(sets.Preshot);
+
+    gcinclude.CheckPreshot();
 end
 
 profile.HandleMidshot = function()
+    gFunc.EquipSet(sets.Midshot);
+
+    gcinclude.CheckMidshot();
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.WSbailout();
+    local canWS = gcinclude.CheckBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

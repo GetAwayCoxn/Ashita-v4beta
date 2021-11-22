@@ -1,21 +1,20 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = { Name = 'Excalibur', AugTrial=1012 },
-        Sub = { Name = 'Priwen', AugPath='A' },
-        Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
-        Neck = 'Sanctity Necklace',
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
-        Ear2 = 'Cessance Earring',
-        Body = { Name = 'Cab. Surcoat +3', AugTrial=5478 },
-        Hands = 'Volte Moufles',
+        Main = 'Tauret',
+        Sub = { Name = 'Shijo', AugPath='D' },
+        Range = 'Wingcutter +1',
+        Head = 'Straw Hat',
+        Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Overalls',
+        Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
-        Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Nyame Sollerets',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
 };
 
