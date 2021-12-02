@@ -189,12 +189,24 @@ function gcinclude.CheckDefault()
 	if (gcauto ~= nil) then gcauto.Default() end
 end
 
+function gcinclude.AutoCheck()
+	local f=io.open("gcfiles/gcauto.lua","r")
+	if f~=nil then
+		--io.close(f);
+		gcauto = gFunc.LoadFile('gcfiles/gcauto.lua');
+		return true;
+	else
+		return false;
+	end
+end
+
 function gcinclude.Unload()
 	varhelper.Destroy();
 	if (gcauto ~= nil) then gcauto.Unload() end
 end
 
 function gcinclude.Initialize()
+	--gcinclude.AutoCheck();
 	varhelper.Initialize:once(3);
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();

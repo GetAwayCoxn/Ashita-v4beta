@@ -137,8 +137,8 @@ function gcauto.DoJobStuff()
 end
 
 function gcauto.Welcome()
-	print(chat.header('gcauto'):append(chat.message('gcauto file found!')));
-	print(chat.header('gcauto'):append(chat.message('/gcauto for commands')));
+	print(chat.header('GCAUTO'):append(chat.message('gcauto file found!')));
+	print(chat.header('GCAUTO'):append(chat.message('/gcauto for commands')));
 end
 
 function gcauto.Initialize()

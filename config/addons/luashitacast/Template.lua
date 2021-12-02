@@ -1,6 +1,6 @@
 local profile = {};
 varhelper = gFunc.LoadFile('common/varhelper.lua');
-local gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
 
 
 sets = {

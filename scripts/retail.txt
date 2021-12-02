@@ -13,15 +13,15 @@
 #
 ##########################################################################
 
-/wait 5
-
 ##########################################################################
 #
-# Load Plugins
+# Load Plugins and Addons
 #
 ##########################################################################
 
+/load thirdparty
 /load addons
+/load screenshot
 
 #/load ashitacast
 /load bellhop
@@ -29,19 +29,13 @@
 /load hardwaremouse
 /load lootwhore
 /load minimap
-/load screenshot
 /load shorthand
 /load stylist
 /load uberwarp
 
-##########################################################################
-#
-# Load Addons
-#
-##########################################################################
-
 /addon load distance
 /addon load fps
+/addon load move
 /addon load timestamp
 /addon load tparty
 
@@ -61,7 +55,6 @@
 /addon load luashitacast
 /addon load macrofix
 /addon load mapdot
-/addon load move
 /addon load onevent
 /addon load petinfo
 /addon load recast
@@ -69,11 +62,11 @@
 
 ##########################################################################
 #
-# Keybinds
+# Set Keybinds and Alias
 #
 ##########################################################################
 
-/bind ` /ashita
+/bind insert /ashita
 /bind SYSRQ /screenshot hide
 /bind ^v /paste
 /bind F11 /ambient
@@ -91,29 +84,24 @@
 /bind !F5 /input /ta <a24>
 /bind !F6 /input /ta <a25>
 
-
+/alias /sparks /bh sellall TYPE:sparks
+/alias /trash /bh sellall TYPE:trash
 
 ##########################################################################
 #
-# Settings
+# Plugin and Addon Configurations
+#
+# Use this section to configure loaded plugins, addons and Ashita.
+#
+# Important: The wait here is required! If you remove it, addons will not
+# see any commands inside of this file!
 #
 ##########################################################################
+/wait 4
+##########################################################################
 
-/wait 5
 /ambient
 /drawdistance setworld 10
 /drawdistance setmob 10
 /fps 1
 /blusets delay 1.5
-
-
-
-##########################################################################
-#
-# Alias
-#
-##########################################################################
-
-/wait 3
-/alias //sparks /bh sellall TYPE:sparks
-/alias //trash /bh sellall TYPE:trash

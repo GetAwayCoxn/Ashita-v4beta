@@ -28,16 +28,21 @@ addon.link      = 'https://ashitaxi.com/';
 require('common');
 local chat = require('chat');
 local settings = require('settings');
-local Cycles = {};
-local Toggles = {};
 local fonts = require('fonts');
 local Defense = 0;
 local Attack = 0;
+local MainJob = 0;
+local SubJob = 0;
+local MainJobLV = 0;
+local SubJobLV = 0;
+local ExpHas = 0;
+local ExpNeed = 0;
+local CpHas = 0;
+local CpSpent = 0;
+local MasterHas = 0;
+local MasterNeed = 0;
 
-local playerinfo = {
-	Toggles = {},
-	Values = {}
-};
+local playerinfo = {};
 
 local fontSettings = T{
 	visible = true,
@@ -52,61 +57,21 @@ local fontSettings = T{
 	}
 };
 
-function playerinfo.AdvanceCycle(name)
-	local ctable = Cycles[name];
-	if (type(ctable) ~= 'table') then
-		return;
-	end
-	
-	ctable.Index = ctable.Index + 1;
-	if (ctable.Index > #ctable.Array) then
-		ctable.Index = 1;
-	end
-end
 
-function playerinfo.AdvanceToggle(name)
-	if (type(Toggles[name]) ~= 'boolean') then
-		return;
-	elseif Toggles[name] then
-		Toggles[name] = false;
-	else
-		Toggles[name] = true;
-	end
-end
-
-function playerinfo.UpdateDef()
-	local data = gData.GetEquipScreen();
-	Defense = data.Defense;
-	Attack = data.Attack;
-end
-
-function playerinfo.CreateToggle(name, default)
-	Toggles[name] = default;
-end
-
-function playerinfo.CreateCycle(name, values)
-	local newCycle = {
-		Index = 1,
-		Array = values
-	};
-	Cycles[name] = newCycle;
-end
-
-function playerinfo.GetCyclefunction(name)
-	local ctable = Cycles[name];
-	if (type(ctable) == 'table') then
-		return ctable.Array[ctable.Index];
-	else
-		return 'Unknown';
-	end
-end
-
-function playerinfo.GetToggle(name)
-	if (Toggles[name] ~= nil) then
-		return Toggles[name];
-	else
-		return false;
-	end
+function playerinfo.Update()
+	local JOBid = AshitaCore:GetMemoryManager():GetPlayer():GetMainJob();
+	Defense = AshitaCore:GetMemoryManager():GetPlayer():GetAttack();
+	Attack = AshitaCore:GetMemoryManager():GetPlayer():GetDefense();
+	MainJob = AshitaCore:GetResourceManager():GetString("jobs.names_abbr", mainJob);
+	SubJob = AshitaCore:GetResourceManager():GetString("jobs.names_abbr", subJob);
+	MainJobLV = AshitaCore:GetMemoryManager():GetPlayer():GetMainJobLevel();
+	SubJobLV = AshitaCore:GetMemoryManager():GetPlayer():GetSubJobLevel();
+	ExpHas = AshitaCore:GetMemoryManager():GetPlayer():GetExpCurrent();
+	ExpNeed = AshitaCore:GetMemoryManager():GetPlayer():GetExpNeeded();
+	CpHas = AshitaCore:GetMemoryManager():GetPlayer():GetCapacityPoins(JOBid);
+	CpSpent = AshitaCore:GetMemoryManager():GetPlayer():GetJobPointsSpent(JOBid);
+	MasterHas = AshitaCore:GetMemoryManager():GetPlayer():GetMasteryExp();
+	MasterNeed = AshitaCore:GetMemoryManager():GetPlayer():GetMasteryExpNeeded();
 end
 
 function playerinfo.Unload()
@@ -121,19 +86,8 @@ function playerinfo.Initialize()
 	local data = gData.GetEquipScreen();
 	playerinfo.FontObject = fonts.new(fontSettings);	
 	ashita.events.register('d3d_present', 'playerinfo_present_cb', function ()
-		local outText = 'Attk:' .. Attack .. '   Def:' .. Defense .. '   WS:' .. wskill ;
-		for key, value in pairs(Toggles) do
-			outText = outText .. '   ';
-			if (value == true) then
-				outText = outText .. '|cFF00FF00|' .. key .. '|r';
-			else
-				outText = outText .. '|cFFFF0000|' .. key .. '|r';
-			end
-		end
-		for key, value in pairs(Cycles) do
-			outText = outText .. '  ' .. key .. ': ' .. '|cFF00FF00|' .. value.Array[value.Index] .. '|r';
-		end
-		playerinfo.FontObject.text = outText;
+		local display = 'Attk:' .. Attack .. '   Def:' .. Defense .. '   WS:' .. wskill ;
+		playerinfo.FontObject.text = display;
 	end);
 end
 
