@@ -173,15 +173,22 @@ profile.HandleItem = function()
 end
 
 profile.HandlePrecast = function()
+    gcinclude.CheckPrecast ();
+    gFunc.EquipSet(sets.Precast)
 end
 
 profile.HandleMidcast = function()
+    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
+    gcinclude.CheckPreshot();
+    gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
+    gcinclude.CheckMidshot();
+    gFunc.EquipSet(sets.Midshot);
 end
 
 profile.HandleWeaponskill = function()

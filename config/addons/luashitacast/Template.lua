@@ -119,13 +119,13 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast)
-
     gcinclude.CheckPrecast ();
+    gFunc.EquipSet(sets.Precast)
 end
 
 profile.HandleMidcast = function()
     local spell = gData.GetAction();
+    gcinclude.CheckMidcast ();
 
     if string.contains(spell.Name, 'Cur') then
         gFunc.EquipSet(sets.Cure);
@@ -134,20 +134,16 @@ profile.HandleMidcast = function()
     elseif string.match(spell.Name, 'Stoneskin') then
         gFunc.EquipSet(sets.Stoneskin);
     end
-
-    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
-    gFunc.EquipSet(sets.Preshot);
-
     gcinclude.CheckPreshot();
+    gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gFunc.EquipSet(sets.Midshot);
-
     gcinclude.CheckMidshot();
+    gFunc.EquipSet(sets.Midshot);
 end
 
 profile.HandleWeaponskill = function()

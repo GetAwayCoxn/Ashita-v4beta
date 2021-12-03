@@ -335,13 +335,14 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast)
-    if string.match(spell.Name, 'Stoneskin') then gFunc.EquipSet(sets.Precast_Stoneskin) end
-
     gcinclude.CheckPrecast ();
+    gFunc.EquipSet(sets.Precast);
+
+    if string.match(spell.Name, 'Stoneskin') then gFunc.EquipSet(sets.Precast_Stoneskin) end
 end
 
 profile.HandleMidcast = function()
+    gcinclude.CheckMidcast ();
     local diff = gData.GetBuffCount('Diffusion');
     local ca = gData.GetBuffCount('Chain Affinity');
     local ba = gData.GetBuffCount('Burst Affinity');
@@ -361,20 +362,16 @@ profile.HandleMidcast = function()
     if (ca>=1) then gFunc.Equip('Feet','Assim. Charuqs +1') end
     if (ba>=1) then gFunc.Equip('Feet','Hashi. Basmak +1') end
     if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
-
-    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
-    gFunc.EquipSet(sets.Preshot);
-
     gcinclude.CheckPreshot();
+    gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gFunc.EquipSet(sets.Midshot);
-
     gcinclude.CheckMidshot();
+    gFunc.EquipSet(sets.Midshot);
 end
 
 profile.HandleWeaponskill = function()

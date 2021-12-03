@@ -20,6 +20,9 @@ gcinclude.sets = {
 		Head = 'Twilight Helm',
 		Body = 'Twilight Mail',
     },
+	Utsu_Precast = {
+		Neck = 'Magoraga Beads',
+	},
 };
 
 
@@ -151,19 +154,15 @@ function gcinclude.CheckPrecast ()
     end
 end
 
-function gcinclude.CheckMidcast ()
+function gcinclude.CheckMidcast () --Needs Update
 	local spell = gData.GetAction();
 end
 
-function gcinclude.CheckPreshot ()
+function gcinclude.CheckPreshot () --Needs Update
 	local spell = gData.GetAction();
-
-	if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
-    end
 end
 
-function gcinclude.CheckMidshot ()
+function gcinclude.CheckMidshot () --Needs Update
 	local spell = gData.GetAction();
 end
 
@@ -189,24 +188,12 @@ function gcinclude.CheckDefault()
 	if (gcauto ~= nil) then gcauto.Default() end
 end
 
-function gcinclude.AutoCheck()
-	local f=io.open("gcfiles/gcauto.lua","r")
-	if f~=nil then
-		--io.close(f);
-		gcauto = gFunc.LoadFile('gcfiles/gcauto.lua');
-		return true;
-	else
-		return false;
-	end
-end
-
 function gcinclude.Unload()
 	varhelper.Destroy();
 	if (gcauto ~= nil) then gcauto.Unload() end
 end
 
 function gcinclude.Initialize()
-	--gcinclude.AutoCheck();
 	varhelper.Initialize:once(3);
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();

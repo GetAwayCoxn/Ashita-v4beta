@@ -80,6 +80,14 @@ sets = {
 
 
     Precast = {
+        Ammo = 'Staunch Tathlum',
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Loquac. Earring',
+        Ear2 = 'Etiolation Earring',
+        Ring1 = 'Prolix Ring',
+        Ring2 = 'Kishar Ring',
+        Legs = 'Enif Cosciales',
+        Feet = 'Odyssean Greaves',
     },
     Cure_Precast = {
         Ear2 = 'Nourish. Earring +1',
@@ -120,40 +128,8 @@ sets = {
         Waist = 'Siegel Sash',
     },
 
-    Preshot = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
-    },
-    Midshot = {
-        Main = '',
-        Sub = '',
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
-        Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
-    },
+    Preshot = {},
+    Midshot = {},
 
     Ws_Default = {
         Ammo = 'Ginsen',
@@ -251,8 +227,6 @@ profile.HandleAbility = function()
     gFunc.EquipSet(sets.Enmity)
 	if string.match(ability.Name, 'Fealty') then
 		gFunc.EquipSet(sets.Fealty);
-	elseif string.match(ability.Name, 'Reward') then
-		gFunc.EquipSet(sets.Reward);
 	end
 end
 
@@ -264,20 +238,20 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
+    gcinclude.CheckPrecast ();
     gFunc.EquipSet(sets.Precast)
 
     if string.contains(spell.Name, 'Cur') then
         gFunc.EquipSet(sets.Cure_Precast);
     end
     if (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Cure_Precast);
+        gFunc.EquipSet(sets.Enhancing_Precast);
     end
-
-    gcinclude.CheckPrecast ();
 end
 
 profile.HandleMidcast = function()
     local spell = gData.GetAction();
+    gcinclude.CheckMidcast ();
     gFunc.EquipSet(sets.SIR)
 
     if string.contains(spell.Name, 'Cur') then
@@ -287,20 +261,16 @@ profile.HandleMidcast = function()
     elseif string.match(spell.Name, 'Stoneskin') then
         gFunc.EquipSet(sets.Stoneskin);
     end
-
-    gcinclude.CheckMidcast ();
 end
 
 profile.HandlePreshot = function()
-    gFunc.EquipSet(sets.Preshot);
-
     gcinclude.CheckPreshot();
+    gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gFunc.EquipSet(sets.Midshot);
-
     gcinclude.CheckMidshot();
+    gFunc.EquipSet(sets.Midshot);
 end
 
 profile.HandleWeaponskill = function()

@@ -51,7 +51,8 @@ function gcauto.SetCommands(args)
 	
 	-- Special Main Job Stuffs
 	if (player.MainJob == 'PLD') then
-		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ') end
+		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ')
+	end
 	elseif (player.MainJob == 'BLU') then
 		if (args[1] == 'natmed') then gcdisplay.AdvanceToggle('NatMed') end
 	end
@@ -86,9 +87,9 @@ function gcauto.AutoWS()
 
 	if (gcdisplay.GetToggle('AUTO') == false) then return end
 	if (wskill == 'unknown') then 
-		print(chat.header('gcauto'):append(chat.message('You need to set a weapon skill by doing:')));
-		print(chat.header('gcauto'):append(chat.message('/wskill weaponskillnamenospacesorquotes')));
-		print(chat.header('gcauto'):append(chat.message('You need to have the shorthand plugin for this to work!')));
+		print(chat.header('GCAUTO'):append(chat.message('You need to set a weapon skill by doing:')));
+		print(chat.header('GCAUTO'):append(chat.message('/wskill weaponskillnamenospacesorquotes')));
+		print(chat.header('GCAUTO'):append(chat.message('You need to have the shorthand plugin for this to work!')));
 		wskill = 'none';
 	elseif (wskill == 'none') then return
 	elseif (player.Status == 'Engaged') and (player.TP > 999) and (target.HPP < 97) and (target.HPP > 2) then
@@ -111,7 +112,11 @@ function gcauto.DoJobStuff()
 			gFunc.EquipSet(sets.Fealty); -- same set as fealty
 		end
 		if (gcdisplay.GetToggle('MAJ') == true) then	
-			if ((majesty == 0) and (AshitaCore:GetMemoryManager():GetPlayer():GetAbilityRecast(621) == 0)) then AshitaCore:GetChatManager():QueueCommand(1, '//majesty') end --wrong majesty ability ID
+			if ((majesty == 0) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityRecast(621) == 0)) then --wrong majesty ability ID
+				AshitaCore:GetChatManager():QueueCommand(1, '//majesty')
+			end
+			print ('Maj' .. AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimerID(621));
+			AshitaCore:GetChatManager():QueueCommand(1, '/maj')
 		end
 	elseif (player.MainJob == 'BLU') then
 		local natmed = gData.GetBuffCount('Attack Boost');
@@ -128,9 +133,9 @@ function gcauto.DoJobStuff()
 		local berserk = gData.GetBuffCount('Berserk');
 		local aggressor = gData.GetBuffCount('Aggressor');
 
-		if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetPlayer():GetAbilityRecast(1) <= 0) and (player.Status == 'Engaged') then
+		if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityRecast(1) <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '//berserk');
-		elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetPlayer():GetAbilityRecast(4) <= 0) and (player.Status == 'Engaged') then
+		elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityRecast(4) <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '//aggressor');
 		end
 	end
