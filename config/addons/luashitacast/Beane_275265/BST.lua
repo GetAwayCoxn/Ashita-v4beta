@@ -116,7 +116,7 @@ end
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gcinclude.Initialize:once(3);
 	
 end
 

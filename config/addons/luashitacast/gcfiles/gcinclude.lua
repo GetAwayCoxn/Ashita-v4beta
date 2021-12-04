@@ -169,11 +169,12 @@ end
 function gcinclude.CheckBailout()
 	local player = gData.GetPlayer();
 	local sleep = gData.GetBuffCount('sleep');
+	local petrify = gData.GetBuffCount('petrification');
 	local stun = gData.GetBuffCount('stun');
 	local terror = gData.GetBuffCount('terror');
 	local amnesia = gData.GetBuffCount('amnesia');
 
-	if (sleep+stun+terror+amnesia >= 1) or (player.TP <= 999) then
+	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.TP <= 999) then
 		return false;
 	else
 		return true;
@@ -194,10 +195,10 @@ function gcinclude.Unload()
 end
 
 function gcinclude.Initialize()
-	varhelper.Initialize:once(3);
+	varhelper.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize:once(3) end
+	if (gcauto ~= nil) then gcauto.Initialize() end
 end
 
 return gcinclude;

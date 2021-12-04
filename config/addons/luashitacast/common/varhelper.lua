@@ -86,10 +86,9 @@ varhelper.Destroy = function()
 end
 
 varhelper.Initialize = function()
-	local player = gData.GetPlayer();
 	varhelper.FontObject = fonts.new(fontSettings);	
 	ashita.events.register('d3d_present', 'varhelper_present_cb', function ()
-		local outText = player.MainJobLevel .. player.MainJob .. '/' .. player.SubJobLevel .. player.SubJob .. ' VarHelper';
+		local outText = 'VarHelper';
 		for key, value in pairs(Toggles) do
 			outText = outText .. '  ' .. key .. ': ';
 			if (value == true) then

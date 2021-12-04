@@ -5,7 +5,6 @@ local Attack = 0;
 
 local gcdisplay = {
 	Toggles = {},
-	Values = {}
 };
 
 local fontSettings = T{
@@ -13,7 +12,7 @@ local fontSettings = T{
 	font_family = 'Arial',
 	font_height = 12,
 	color = 0xFFFFFFFF,
-	position_x = 800,
+	position_x = 600,
 	position_y = 800,
 	background = T{
 		visible = true,
@@ -61,16 +60,16 @@ function gcdisplay.Initialize()
 	local data = gData.GetEquipScreen();
 	gcdisplay.FontObject = fonts.new(fontSettings);	
 	ashita.events.register('d3d_present', 'gcdisplay_present_cb', function ()
-		local outText = 'Attk:' .. Attack .. '   Def:' .. Defense .. '   WS:' .. wskill ;
-		for key, value in pairs(Toggles) do
-			outText = outText .. '   ';
-			if (value == true) then
-				outText = outText .. '|cFF00FF00|' .. key .. '|r';
+		local display = player.MainJobLevel .. player.MainJob .. '/' .. player.SubJobLevel .. player.SubJob ..'   Attk:' .. Attack .. '   Def:' .. Defense .. '   WS:' .. wskill ;
+		for k, v in pairs(Toggles) do
+			display = display .. '   ';
+			if (v == true) then
+				display = display .. '|cFF00FF00|' .. k .. '|r';
 			else
-				outText = outText .. '|cFFFF0000|' .. key .. '|r';
+				display = display .. '|cFFFF0000|' .. k .. '|r';
 			end
 		end
-		gcdisplay.FontObject.text = outText;
+		gcdisplay.FontObject.text = display;
 	end);
 end
 

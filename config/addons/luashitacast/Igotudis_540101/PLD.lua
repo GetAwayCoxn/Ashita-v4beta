@@ -182,7 +182,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize();
+    gcinclude.Initialize:once(3);
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
@@ -210,7 +210,10 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
+    local cover = gData.GetBuffCount('Cover');
+	if (cover >= 1) then
+		gFunc.EquipSet(sets.Fealty); -- same set as fealty
+	end
 	if (varhelper.GetToggle('DTset') == true) then
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
