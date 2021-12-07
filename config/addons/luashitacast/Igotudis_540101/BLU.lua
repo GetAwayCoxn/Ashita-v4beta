@@ -93,7 +93,7 @@ sets = {
         Back = 'Swith Cape +1',
         Legs = 'Enif Cosciales',
     },
-    Precast_Stoneskin = {
+    Stoneskin_Precast = {
         Waist = 'Siegel Sash'   
     },
 
@@ -288,7 +288,7 @@ profile.OnLoad = function()
 end
 
 profile.OnUnload = function()
-	varhelper.Destroy();
+    gcinclude.Unload();
 end
 
 profile.HandleCommand = function(args)
@@ -335,14 +335,14 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gcinclude.CheckPrecast ();
     gFunc.EquipSet(sets.Precast);
 
-    if string.match(spell.Name, 'Stoneskin') then gFunc.EquipSet(sets.Precast_Stoneskin) end
+    if string.contains(spell.Name, 'Stoneskin') then
+        gFunc.EquipSet(sets.Stoneskin_Precast);
+    end 
 end
 
 profile.HandleMidcast = function()
-    gcinclude.CheckMidcast ();
     local diff = gData.GetBuffCount('Diffusion');
     local ca = gData.GetBuffCount('Chain Affinity');
     local ba = gData.GetBuffCount('Burst Affinity');
@@ -365,12 +365,10 @@ profile.HandleMidcast = function()
 end
 
 profile.HandlePreshot = function()
-    gcinclude.CheckPreshot();
     gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gcinclude.CheckMidshot();
     gFunc.EquipSet(sets.Midshot);
 end
 

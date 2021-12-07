@@ -29,7 +29,7 @@ gcinclude.sets = {
 --[[
 --Tables for table type stuffs, best to leave this alone
 --]]
-Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library'};
+Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin'};
 LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
 gcinclude.BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
 gcinclude.BstPetMagicAttack = T{'Gloom Spray','Fireball','Acid Spray','Molting Plumage','Cursed Sphere','Nectarous Deluge','Charged Whisker','Nepenthic Plunge'};
@@ -45,7 +45,7 @@ gcinclude.BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Te
 
 
 --[[
---functions for functiony stuffs, definitely leave these stuff alone
+--functions for functiony stuffs, definitely leave this stuff alone
 --]]
 function gcinclude.SetAlias()
 	local player = gData.GetPlayer();
@@ -53,10 +53,16 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd nuke');
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /weapon /lac fwd weapon');
-	elseif (player.MainJob == 'THF') then
+		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+			AshitaCore:GetChatManager():QueueCommand(-1, '/alias /weapon /lac fwd weapon');
+		end
+	end
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /fight /lac fwd fight');
+	end
+	if (player.MainJob == 'THF') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /th /lac fwd th');
 	end
 end
@@ -69,8 +75,14 @@ function gcinclude.SetVariables()
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 		varhelper.CreateCycle('NukeSet', {[1] = 'Power', [2] = 'Macc'});
 		varhelper.CreateToggle('Burst', false);
-		varhelper.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
-	elseif (player.MainJob == 'THF') then
+		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+			varhelper.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
+		end
+	end
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+		varhelper.CreateToggle('Fight', false);
+	end
+	if (player.MainJob == 'THF') then
 		varhelper.CreateToggle('TH', true);
 	end
 end
@@ -85,14 +97,33 @@ function gcinclude.SetCommands(args)
 		varhelper.AdvanceToggle('Kite');
     end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
-		if (args[1] == 'nuke') then
+		if (args[1] == 'nukeset') then
 			varhelper.AdvanceCycle('NukeSet');
 		elseif (args[1] == 'burst') then
 			varhelper.AdvanceToggle('Burst');
-		elseif (args[1] == 'weapon') then
-			varhelper.AdvanceCycle('Weapon');
 		end
-	elseif (player.MainJob == 'THF') then
+		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+			if (args[1] == 'weapon') then
+				varhelper.AdvanceCycle('Weapon');
+			end
+		end
+	end
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+		if (args[1] == 'fight') then
+			if (varhelper.GetToggle('Fight') == false) then
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range');
+				varhelper.AdvanceToggle('Fight');
+			else
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
+				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range');
+				varhelper.AdvanceToggle('Fight');
+			end
+		end
+	end
+	if (player.MainJob == 'THF') then
 		if (args[1] == 'th') then
 			varhelper.AdvanceToggle('TH');
 		end
@@ -144,26 +175,6 @@ function gcinclude.SetRegenRefreshGear()
 			gFunc.EquipSet(sets.Refresh)
 		end
 	end
-end
-
-function gcinclude.CheckPrecast ()
-	local spell = gData.GetAction();
-
-	if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
-    end
-end
-
-function gcinclude.CheckMidcast () --Needs Update
-	local spell = gData.GetAction();
-end
-
-function gcinclude.CheckPreshot () --Needs Update
-	local spell = gData.GetAction();
-end
-
-function gcinclude.CheckMidshot () --Needs Update
-	local spell = gData.GetAction();
 end
 
 function gcinclude.CheckBailout()

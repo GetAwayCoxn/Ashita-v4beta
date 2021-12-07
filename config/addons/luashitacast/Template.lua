@@ -119,13 +119,11 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gcinclude.CheckPrecast ();
     gFunc.EquipSet(sets.Precast)
 end
 
 profile.HandleMidcast = function()
     local spell = gData.GetAction();
-    gcinclude.CheckMidcast ();
 
     if string.contains(spell.Name, 'Cur') then
         gFunc.EquipSet(sets.Cure);
@@ -137,12 +135,10 @@ profile.HandleMidcast = function()
 end
 
 profile.HandlePreshot = function()
-    gcinclude.CheckPreshot();
     gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gcinclude.CheckMidshot();
     gFunc.EquipSet(sets.Midshot);
 end
 

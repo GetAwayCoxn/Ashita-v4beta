@@ -1,25 +1,33 @@
 local gcauto = {};
 local gcdisplay = gFunc.LoadFile('gcfiles/gcdisplay.lua');
 wskill = 'Not Set';
+wstp = 1000;
+
+local Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin'};
 
 function gcauto.SetAlias()
 	local player = gData.GetPlayer();
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meds /lac fwd meds');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd ws');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd wskill');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wstp /lac fwd wstp');
 
-	-- Special Main Job Stuffs
+	
 	if (player.MainJob == 'PLD') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /maj /lac fwd maj');
 	elseif (player.MainJob == 'BLU') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /natmed /lac fwd natmed');
 	end
 
-	--Special Sub Job Stuffs
+	
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /zerk /lac fwd zerk');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /def /lac fwd def');
 	end
+end
+
+function gcauto.DisplayHelp()
+	print(chat.header('GCAUTO'):append(chat.message('NEED TO SET THIS UP STILL')));
 end
 
 function gcauto.SetVariables()
@@ -27,14 +35,14 @@ function gcauto.SetVariables()
 	gcdisplay.CreateToggle('MEDS', false);
 	gcdisplay.CreateToggle('AUTO', false);
 	
-	-- Special Main Job Stuffs
+
 	if (player.MainJob == 'PLD') then
 		gcdisplay.CreateToggle('MAJ', false);
 	elseif (player.MainJob == 'BLU') then
 		gcdisplay.CreateToggle('NatMed', false);
 	end
 
-	--Special Sub Job Stuffs
+
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		gcdisplay.CreateToggle('ZERK', false);
 		gcdisplay.CreateToggle('DEF', false);
@@ -43,15 +51,19 @@ end
 
 function gcauto.SetCommands(args)
 	local player = gData.GetPlayer();
-	if (args[1] == 'auto') then
+	if (args[1] == 'gcauto') then
+		gcauto.DisplayHelp();
+	elseif (args[1] == 'auto') then
 		gcdisplay.AdvanceToggle('AUTO');
 	elseif (args[1] == 'meds') then
 		gcdisplay.AdvanceToggle('MEDS');
-	elseif (args[1] == 'ws') then
+	elseif (args[1] == 'wskill') then
 		wskill = args[2];
+	elseif (args[1] == 'wstp') then
+		wstp = args[2];
     end
 	
-	-- Special Main Job Stuffs
+
 	if (player.MainJob == 'PLD') then
 		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ')
 	end
@@ -59,7 +71,7 @@ function gcauto.SetCommands(args)
 		if (args[1] == 'natmed') then gcdisplay.AdvanceToggle('NatMed') end
 	end
 
-	--Special Sub Job Stuffs
+	
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		if (args[1] == 'zerk') then gcdisplay.AdvanceToggle('ZERK') end
 		if (args[1] == 'def') then gcdisplay.AdvanceToggle('DEF') end
@@ -72,48 +84,70 @@ end
 
 function gcauto.CheckRemedy()
 	local player = gData.GetPlayer();
-	local sleep = gData.GetBuffCount('sleep');
-	local stun = gData.GetBuffCount('stun');
-	local terror = gData.GetBuffCount('terror');
-	local amnesia = gData.GetBuffCount('amnesia');
+	local blind = gData.GetBuffCount('blind');
+	local paralyze = gData.GetBuffCount('paralyze');
+	local poison = gData.GetBuffCount('poison');
+	local silence = gData.GetBuffCount('silence');
 
-	if (sleep+stun+terror+amnesia >= 1) or (player.TP <= 999) then
-		return false;
-	else
+	if (blind+paralyze+poison+silence >= 1) then
 		return true;
+	else
+		return false;
 	end
 end
 
+function gcauto.CheckAbilityRecast(check)
+	local RecastTime = 0;
+
+	for x = 0, 31 do
+		local id = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimerId(x);
+		local timer = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(x);
+
+		if ((id ~= 0 or x == 0) and timer > 0) then
+			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
+
+			if (ability.Name[1] == check) then
+				RecastTime = timer;
+			end
+		end
+	end
+
+	return RecastTime;
+end
+
 function gcauto.AutoWS()
+	if (gcdisplay.GetToggle('AUTO') ~= true) then return end
+
 	local target = gData.GetTarget();
 	local player = gData.GetPlayer();
 
 	if target == nil then return end
-	if (gcdisplay.GetToggle('AUTO') == true) then
-		if (wskill == 'unknown') then 
-			print(chat.header('GCAUTO'):append(chat.message('You need to set a weapon skill by doing:')));
-			print(chat.header('GCAUTO'):append(chat.message('/wskill weaponskillnamenospacesorquotes')));
-			print(chat.header('GCAUTO'):append(chat.message('You need to have the shorthand plugin for this to work!')));
-			wskill = 'none';
-		elseif (wskill == 'none') then return
-		elseif (player.Status == 'Engaged') and (player.TP > 999) and (target.HPP < 97) and (target.HPP > 2) then
-			AshitaCore:GetChatManager():QueueCommand(1, '//' .. wskill);
-		end
+	
+	if (wskill == 'unknown') then 
+		print(chat.header('GCAUTO'):append(chat.message('You need to set a weapon skill by doing:')));
+		print(chat.header('GCAUTO'):append(chat.message('/wskill weaponskillnamenospacesorquotes')));
+		print(chat.header('GCAUTO'):append(chat.message('You need to have the shorthand plugin for this to work!')));
+		wskill = 'none';
+	elseif (wskill == 'none') then return
+	elseif (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+		AshitaCore:GetChatManager():QueueCommand(1, '//' .. wskill);
 	end
 end
 
 function gcauto.AutoMeds()
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
+	local remedy = gcauto.CheckRemedy();
 end
 
 function gcauto.DoJobStuff()
 	local player = gData.GetPlayer();
-
-	-- Main Job Stuffs
+	local zone = gData.GetEnvironment();
+	if (zone.Area == nil) or (Towns:contains(zone.Area)) then return end
+	
 	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
 		if (gcdisplay.GetToggle('MAJ') == true) then	
-			if ((majesty == 0) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(621) == 0)) and (player.Status == 'Engaged') then
+			if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) and (player.Status == 'Engaged') then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "majesty" <me>')
 			end
 		end
@@ -125,21 +159,49 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Nat.Meditation" <me>')
 			end
 		end
+	elseif (player.MainJob == 'RDM') then
+		local composure = gData.GetBuffCount('composure');
+		if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "composure" <me>');
+		end
+
+		if (gcdisplay.GetToggle('AUTO') == true) then
+			local haste = gData.GetBuffCount('Haste');
+			local refresh = gData.GetBuffCount('Refresh');
+			local aquaveil = gData.GetBuffCount('Aquaveil');
+
+			if (haste == 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Haste II" <me>');
+			elseif (refresh == 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh II" <me>');
+			elseif (aquaveil == 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aquaveil" <me>');
+			end
+
+			if (player.Status == 'Engaged') then
+				local temper = gData.GetBuffCount('Multi Strikes');
+				local phalanx = gData.GetBuffCount('Phalanx');
+
+				if (temper == 0) then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "temper" <me>');
+				elseif (phalanx == 0) then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Phalanx II" <me>');
+				end
+			end
+		end
 	end
 
-	-- Sub Job Stuffs
+	
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		local berserk = gData.GetBuffCount('Berserk');
 		local aggressor = gData.GetBuffCount('Aggressor');
 		local defender = gData.GetBuffCount('Defender');
 
-		if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(1) <= 0) and (player.Status == 'Engaged') then
+		if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
-		elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(4) <= 0) and (player.Status == 'Engaged') then
+		elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "aggressor" <me>');
-		end
-
-		if (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(3) <= 0) and (player.Status == 'Engaged') then
+		elseif (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (gcauto.CheckAbilityRecast('Defender') <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "defender" <me>');
 		end
 	end
@@ -174,7 +236,7 @@ function gcauto.Default()
 		return;
 	end
 
-	gcdisplay.UpdateDef();
+	gcdisplay.Update();
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
 	gcauto.AutoWS();

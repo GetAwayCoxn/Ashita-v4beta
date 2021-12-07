@@ -176,25 +176,25 @@ profile.HandleItem = function()
 end
 
 profile.HandlePrecast = function()
-    gcinclude.CheckPrecast ();
+    local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
+
+    if string.contains(spell.Name, 'Utsusemi') then
+        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
+    end
 end
 
 profile.HandleMidcast = function()
-    gcinclude.CheckMidcast ();
-
     if (varhelper.GetToggle('TH') == true) then
 		gFunc.EquipSet(sets.TH);
 	end
 end
 
 profile.HandlePreshot = function()
-    gcinclude.CheckPreshot();
     gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gcinclude.CheckMidshot();
     gFunc.EquipSet(sets.Midshot);
 end
 

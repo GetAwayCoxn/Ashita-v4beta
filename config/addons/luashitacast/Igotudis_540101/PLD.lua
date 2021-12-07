@@ -241,20 +241,21 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gcinclude.CheckPrecast ();
     gFunc.EquipSet(sets.Precast)
 
-    if string.contains(spell.Name, 'Cur') then
-        gFunc.EquipSet(sets.Cure_Precast);
-    end
     if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing_Precast);
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure_Precast);
+    end
+
+    if string.contains(spell.Name, 'Utsusemi') then
+        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
 end
 
 profile.HandleMidcast = function()
     local spell = gData.GetAction();
-    gcinclude.CheckMidcast ();
     gFunc.EquipSet(sets.SIR)
 
     if string.contains(spell.Name, 'Cur') then
@@ -267,12 +268,10 @@ profile.HandleMidcast = function()
 end
 
 profile.HandlePreshot = function()
-    gcinclude.CheckPreshot();
     gFunc.EquipSet(sets.Preshot);
 end
 
 profile.HandleMidshot = function()
-    gcinclude.CheckMidshot();
     gFunc.EquipSet(sets.Midshot);
 end
 
