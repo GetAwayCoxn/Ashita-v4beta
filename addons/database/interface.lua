@@ -58,13 +58,13 @@ function interface.unload()
     interface.settings.save();
 end
 
-function interface.renderJobTab()
+function interface.renderJobPointsTab()
     imgui.BeginGroup();
         imgui.TextColored(colors.header, 'JOBS');
-        imgui.BeginChild('jobpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.TextColored(colors.header, 'Job Level               ');imgui.SameLine();
-            imgui.TextColored(colors.header, 'Job Points Spent          ');imgui.SameLine();
-            imgui.TextColored(colors.header, 'Mastery Level');imgui.ShowHelp('Only accurate for your current job for now.');
+        imgui.BeginChild('JPpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.TextColored(colors.header, 'Job Level              ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Job Points Spent       ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Job Points Current');
             imgui.InputInt3(interface.jobs[1], dtables.jobs.WAR,ImGuiInputTextFlags_ReadOnly);
             imgui.InputInt3(interface.jobs[2], dtables.jobs.MNK,ImGuiInputTextFlags_ReadOnly);
             imgui.InputInt3(interface.jobs[3], dtables.jobs.WHM,ImGuiInputTextFlags_ReadOnly);
@@ -89,26 +89,48 @@ function interface.renderJobTab()
             imgui.InputInt3(interface.jobs[22], dtables.jobs.RUN,ImGuiInputTextFlags_ReadOnly);
         imgui.EndChild();
 
+        --[[imgui.BeginChild('MASTERpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.TextColored(colors.header, 'Job Level              ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Job Points Spent       ');imgui.SameLine();
+            imgui.TextColored(colors.header, 'Job Points Current');
+            imgui.InputInt3(interface.jobs[1], dtables.jobs.WAR,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[2], dtables.jobs.MNK,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[3], dtables.jobs.WHM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[4], dtables.jobs.BLM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[5], dtables.jobs.RDM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[6], dtables.jobs.THF,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[7], dtables.jobs.PLD,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[8], dtables.jobs.DRK,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[9], dtables.jobs.BST,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[10], dtables.jobs.BRD,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[11], dtables.jobs.RNG,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[12], dtables.jobs.SAM,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[13], dtables.jobs.NIN,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[14], dtables.jobs.DRG,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[15], dtables.jobs.SMN,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[16], dtables.jobs.BLU,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[17], dtables.jobs.COR,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[18], dtables.jobs.PUP,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[19], dtables.jobs.DNC,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[20], dtables.jobs.SCH,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[21], dtables.jobs.GEO,ImGuiInputTextFlags_ReadOnly);
+            imgui.InputInt3(interface.jobs[22], dtables.jobs.RUN,ImGuiInputTextFlags_ReadOnly);
+        imgui.EndChild();]]
+
         if (imgui.Button('Update Jobs')) then
             manager.UpdateJobs();
         end
     imgui.EndGroup();
 end
 
-function interface.renderRelicTab()
+function interface.renderTestTab()
     imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'Relic Gear');
-        imgui.BeginChild('jobpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.BeginMenuBar();
-            imgui.BeginMenu('test', true);
-            imgui.EndMenu();
-            imgui.EndMenuBar();
+        imgui.TextColored(colors.header, 'JOB MASTER LEVELS');
+        imgui.BeginChild('testpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.BeginTable('test table', 5);
+                imgui.TableHeader('Test');
+            imgui.EndTable();
         imgui.EndChild();
-
-        --Buttons
-        if (imgui.Button('Update Relic Gear')) then
-            --manager.UpdateJobs();
-        end
     imgui.EndGroup();
 end
 
@@ -288,11 +310,11 @@ function interface.render()
     if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
-                interface.renderJobTab();
+                interface.renderJobPointsTab();
                 imgui.EndTabItem();
             end
-            if (imgui.BeginTabItem('Relic Gear', nil)) then
-                interface.renderRelicTab();
+            if (imgui.BeginTabItem('TEST', nil)) then
+                interface.renderTestTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('Settings', nil)) then

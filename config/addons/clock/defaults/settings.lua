@@ -17,8 +17,8 @@ settings["font"]["color"] = 4294967295;
 settings["font"]["visible"] = true;
 settings["font"]["background"]["visible"] = true;
 settings["font"]["background"]["color"] = 2147483648;
-settings["font"]["position_y"] = 0;
-settings["font"]["position_x"] = 750;
+settings["font"]["position_y"] = 1064;
+settings["font"]["position_x"] = 1495;
 settings["separator"] = " - ";
 
 return settings;

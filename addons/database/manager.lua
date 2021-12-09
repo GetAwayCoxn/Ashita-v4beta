@@ -159,12 +159,13 @@ function manager.find_items(name)
 end
 
 function manager.UpdateJobs()  
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
     for x = 1, 22 do
-        local mjobLV = 0;
+        --[[local mjobLV = 0;
         if (interface.jobs[AshitaCore:GetMemoryManager():GetPlayer():GetMainJob()] == interface.jobs[x]) then
             mjobLV = AshitaCore:GetMemoryManager():GetPlayer():GetMasteryJobLevel();
-        end
-        dtables.jobs[interface.jobs[x]] = {AshitaCore:GetMemoryManager():GetPlayer():GetJobLevel(x),AshitaCore:GetMemoryManager():GetPlayer():GetJobPointsSpent(x),mjobLV};
+        end]]
+        dtables.jobs[interface.jobs[x]] = {player:GetJobLevel(x),player:GetJobPointsSpent(x),player:GetJobPoints(x)};--mjobLV};
     end
     return;
 end
