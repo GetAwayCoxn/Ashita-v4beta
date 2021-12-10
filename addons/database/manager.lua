@@ -1,4 +1,4 @@
-local sugar = require('sugar');
+require('common');
 local settings = require('settings');
 
 -- manager Variables
@@ -175,7 +175,7 @@ function manager.save(name)
     if (name == nil or name:len() < 2) then
         return false;
     end
-    name = name .. '.lst';
+    name = name .. '.lua';
 
     -- Build a path to the file and ensure it does not exist already..
     local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);

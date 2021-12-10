@@ -1,10 +1,10 @@
 require('common');
 local chat = require('chat');
 local imgui = require('imgui');
-local manager = require('manager');
 dtables = require('dtables');
 
 interface = {
+    manager = require('manager'),
     settings = require('settings'),
 
     is_open = { true, },
@@ -23,6 +23,7 @@ interface = {
         color_keyitem_missing = { 1.0, 0.3, 0.3, 1.0, },
         color_keyitem_have = { 0.0, 1.0, 0.10, 1.0, },
     },
+
 };
 
 -- Color Variables
@@ -39,7 +40,7 @@ function interface.load()
     -- Load the overlay settings..
     interface.overlay = interface.settings.load(interface.overlay_defaults);
 
-    manager.UpdateJobs();
+    interface.manager.UpdateJobs();
 
     -- Register to the settings update event..
     interface.settings.register('settings', 'settings_update', function (s)
@@ -89,36 +90,8 @@ function interface.renderJobPointsTab()
             imgui.InputInt3(interface.jobs[22], dtables.jobs.RUN,ImGuiInputTextFlags_ReadOnly);
         imgui.EndChild();
 
-        --[[imgui.BeginChild('MASTERpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.TextColored(colors.header, 'Job Level              ');imgui.SameLine();
-            imgui.TextColored(colors.header, 'Job Points Spent       ');imgui.SameLine();
-            imgui.TextColored(colors.header, 'Job Points Current');
-            imgui.InputInt3(interface.jobs[1], dtables.jobs.WAR,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[2], dtables.jobs.MNK,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[3], dtables.jobs.WHM,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[4], dtables.jobs.BLM,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[5], dtables.jobs.RDM,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[6], dtables.jobs.THF,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[7], dtables.jobs.PLD,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[8], dtables.jobs.DRK,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[9], dtables.jobs.BST,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[10], dtables.jobs.BRD,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[11], dtables.jobs.RNG,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[12], dtables.jobs.SAM,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[13], dtables.jobs.NIN,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[14], dtables.jobs.DRG,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[15], dtables.jobs.SMN,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[16], dtables.jobs.BLU,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[17], dtables.jobs.COR,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[18], dtables.jobs.PUP,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[19], dtables.jobs.DNC,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[20], dtables.jobs.SCH,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[21], dtables.jobs.GEO,ImGuiInputTextFlags_ReadOnly);
-            imgui.InputInt3(interface.jobs[22], dtables.jobs.RUN,ImGuiInputTextFlags_ReadOnly);
-        imgui.EndChild();]]
-
         if (imgui.Button('Update Jobs')) then
-            manager.UpdateJobs();
+            interface.manager.UpdateJobs();
         end
     imgui.EndGroup();
 end
@@ -324,7 +297,7 @@ end
 --]]
 function interface.render()
     -- Render the watch lists..
-    if (manager.watched_count() > 0) then
+    if (interface.manager.watched_count() > 0) then
         interface.render_watchlist_overlay();
     end
 
