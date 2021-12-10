@@ -123,12 +123,40 @@ function interface.renderJobPointsTab()
     imgui.EndGroup();
 end
 
-function interface.renderTestTab()
+function interface.renderWeaponsTab()
     imgui.BeginGroup();
-        imgui.TextColored(colors.header, 'JOB MASTER LEVELS');
+        imgui.TextColored(colors.header, 'EMPY WEAPONS TEST TAB');
         imgui.BeginChild('testpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.BeginTable('test table', 5);
-                imgui.TableHeader('Test');
+            imgui.BeginTable('weapons table', 7, ImGuiTableFlags_Borders);
+                imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'WEAPON');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Abyssea 1');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Abyssea 2');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Abyssea 3');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'HMP');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Rift Stage');imgui.TableNextColumn();
+                imgui.TextColored(colors.header, '10K Boulders');imgui.TableNextColumn();
+                imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Verethragna');imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.Checkbox('Test', dtables.hmp.h2h);imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Twashtar');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Almace');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Caladbolg');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Farsha');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Ukonvasara');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Redemption');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Rhongomiant');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Kannagi');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Masamune');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Gambanteinn');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Hvergelmir');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Gandiva');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Armageddon');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Daurdabla');imgui.TableNextRow();imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'Ochain');imgui.TableNextRow();imgui.TableNextColumn();
+            imgui.EndTable();
+            imgui.BeginTable('totals table', 1);
+                imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                imgui.TextColored(colors.header, 'TOTALS');imgui.TableNextColumn();
             imgui.EndTable();
         imgui.EndChild();
     imgui.EndGroup();
@@ -313,8 +341,8 @@ function interface.render()
                 interface.renderJobPointsTab();
                 imgui.EndTabItem();
             end
-            if (imgui.BeginTabItem('TEST', nil)) then
-                interface.renderTestTab();
+            if (imgui.BeginTabItem('WEAPONS', nil)) then
+                interface.renderWeaponsTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('Settings', nil)) then

@@ -106,7 +106,7 @@ function gcauto.CheckAbilityRecast(check)
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
 
-			if (ability.Name[1] == check) then
+			if (ability.Name[1] == check and ability.Name ~= nil) then
 				RecastTime = timer;
 			end
 		end
@@ -226,6 +226,8 @@ function gcauto.Unload()
 end
 
 function gcauto.Default()
+	gcdisplay.Update();
+
 	local sleep = gData.GetBuffCount('sleep');
 	local petrify = gData.GetBuffCount('petrification');
 	local stun = gData.GetBuffCount('stun');
@@ -236,7 +238,7 @@ function gcauto.Default()
 		return;
 	end
 
-	gcdisplay.Update();
+	
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
 	gcauto.AutoWS();

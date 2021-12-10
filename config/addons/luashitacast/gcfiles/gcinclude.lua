@@ -193,11 +193,12 @@ function gcinclude.CheckBailout()
 end
 
 function gcinclude.CheckDefault()
+	if (gcauto ~= nil) then gcauto.Default() end
+
 	gcinclude.SetRegenRefreshGear();
 	gcinclude.SetTownGear();
     gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
-	if (gcauto ~= nil) then gcauto.Default() end
 end
 
 function gcinclude.Unload()
