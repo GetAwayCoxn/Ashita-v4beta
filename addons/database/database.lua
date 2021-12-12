@@ -1,38 +1,20 @@
-addon.name      = 'database';
-addon.author    = 'getawaycoxn';
+addon.name      = 'Database';
+addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
 addon.desc      = 'Tracks things.';
-addon.link      = 'https://ashitaxi.com/';
+addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
 local chat = require('chat');
 local interface = require('interface');
+imgui = require('imgui');
 
---[[
-* event: load
-* desc : Event called when the addon is being loaded.
---]]
 ashita.events.register('load', 'load_cb', interface.load);
 
---[[
-* event: unload
-* desc : Event called when the addon is being unloaded.
---]]
 ashita.events.register('unload', 'unload_cb', interface.unload);
 
---[[
-* event: d3d_present
-* desc : Event called when the Direct3D device is presenting a scene.
---]]
 ashita.events.register('d3d_present', 'present_cb', interface.render);
 
---[[
-* Conditional printer. Prints the 'tmsg' message on true conditions, or 'fmsg' otherwise.
-*
-* @param {table} t - Table that contains the condition and a message on error.
-* @param {string} tmsg - The message to print if the condition is true.
-* @param {string} fmsg - The message to print if the condition is false.
---]]
 local function iifp(t, tmsg, fmsg)
     local cond, m = unpack(t);
     if (cond) then
@@ -42,10 +24,6 @@ local function iifp(t, tmsg, fmsg)
     end
 end
 
---[[
-* event: command
-* desc : Event called when the addon is processing a command.
---]]
 ashita.events.register('command', 'command_cb', function (e)
     -- Parse the command arguments..
     local args = e.command:args();

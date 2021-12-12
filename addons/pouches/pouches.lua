@@ -34,6 +34,10 @@ ashita.events.register('command', 'command_cb', function (e)
     if (#args == 1) or (args[2] == 'start') then
         active = true;
         count_pouches();
+        if total == 0 then
+            print(chat.header(addon.name) .. chat.message('No pouches found, process aborted.'));
+            return;
+        end
         print(chat.header(addon.name) .. chat.message('Pouches starting ... ' .. silt_total .. ' silt pouches and ' .. bead_total .. ' bead pouches. Use "/pouches stop" to abort.'));
         use_pouches:repeating(0, total, 4.5);
     end

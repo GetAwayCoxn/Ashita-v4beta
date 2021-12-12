@@ -100,7 +100,7 @@ sets = {
 	},
 };
 
-profile.Sets = gcinclude.MergeSets();
+profile.Sets = sets;
 
 local function HandlePetAction(PetAction)
 	if (PetAction.Name == BstPetAttack) then

@@ -1,447 +1,367 @@
-require('common');
-local settings = require('settings');
-
--- manager Variables
 local manager = T{
-    watched_items       = T{ },
-    watched_keyitems    = T{ },
-    saved_lists         = T{ },
 };
 
---[[
-* Returns the number of currently watched items.
-*
-* @return {number} The number of watched items.
---]]
-function manager.watched_items_count()
-    return #manager.watched_items;
-end
+local jobsabrv = T{'WAR','MNK','WHM','BLM','RDM','THF','PLD','DRK','BST','BRD','RNG','SAM','NIN','DRG','SMN','BLU','COR','PUP','DNC','SCH','GEO','RUN'};
+local relics = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator', 'Gjallarhorn', 'Aegis' };
+local mythics = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', };
+local empys = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', 'Daurdabla', 'Ochain' };
+local aeonics = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', };
+local dynastage2 = {'Militant Knuckles', 'Malefic Dagger', 'Glyptic Sword', 'Gilded Blade', 'Leonine Axe', 'Agonal Bhuj', 'Memento Scythe', 'Hotspur Lance', 'Mimizuku', 'Hayatemaru', 'Battering Maul', 'Sage\'s Staff', 'Wolver Bow', 'Marksman Gun', 'Pyrrhic Horn', 'Bulwark Shield' };
+local dynastage3 = {'Dynamis Knuckles', 'Dynamis Dagger', 'Dynamis Sword', 'Dynamis Blade', 'Dynamis Axe', 'Dynamis Bhuj', 'Dynamis Scythe', 'Dynamis Lance', 'Rogetsu', 'Oboromaru', 'Dynamis Maul', 'Dynamis Staff', 'Dynamis Bow', 'Dynamis Gun', 'Dynamis Horn', 'Dynamis Shield' };
+local dynastage4 = {'Caestus', 'Batardeau', 'Caliburn', 'Valhalla', 'Ogre Killer', 'Abaddon Killer', 'Bec de Faucon', 'Gae Assail', 'Yoshimitsu', 'Totsukanotsurugi', 'Gullintani', 'Thyrus', 'Futatokoroto', 'Ferdinand', 'Millennium Horn', 'Ancile' };
 
---[[
-* Returns the number of currently watched key items.
-*
-* @return {number} The number of watched key items.
---]]
-function manager.watched_keyitems_count()
-    return #manager.watched_keyitems;
-end
-
---[[
-* Returns the number of currently watched items and key items combined.
-*
-* @return {number} The number of total watched items.
---]]
-function manager.watched_count()
-    return #manager.watched_items + #manager.watched_keyitems;
-end
-
---[[
-* Adds an item to the watch list.
-*
-* @param {number} id - The item id to add to the watch list.
-* @return {boolean, string} True on success, false otherwise. Error message on false returns.
---]]
-function manager.add_watched_item(id)
-    if (id == nil) then
-        return false, 'Invalid item id.';
-    end
-
-    if (manager.watched_items:any(function (v) return v[1] == id; end)) then
-        return false, 'Item is already being watched.';
-    end
-
-    local item = AshitaCore:GetResourceManager():GetItemById(id);
-    if (item == nil or item.Name[1] == nil or item.Name[1]:len() < 2) then
-        return false, 'Invalid item id; item not found.';
-    end
-
-    manager.watched_items:append({ id, item.Name[1] });
-    return true;
-end
-
---[[
-* Removes an item from the watch list.
-*
-* @param {number} id - The item id to remove from the watch list.
-* @return {boolean, string} True on success, false otherwise. Error message on false returns.
---]]
-function manager.delete_watched_item(id)
-    if (id == nil) then
-        return false, 'Invalid item id.';
-    end
-
-    for x = #manager.watched_items, 1, -1 do
-        if (manager.watched_items[x][1] == id) then
-            table.remove(manager.watched_items, x);
-            return true;
-        end
-    end
-    return false, 'Item is not being watched.';
-end
-
---[[
-* Clears the watched item list.
---]]
-function manager.clear_watched_items()
-    manager.watched_items = T{ };
-end
-
---[[
-* Adds a key item to the watch list.
-*
-* @param {number} id - The key item id to add to the watch list.
-* @return {boolean, string} True on success, false otherwise. Error message on false returns.
---]]
-function manager.add_watched_keyitem(id)
-    if (id == nil) then
-        return false, 'Invalid key item id.';
-    end
-
-    if (manager.watched_keyitems:any(function (v) return v[1] == id; end)) then
-        return false, 'Key item is already being watched.';
-    end
-
-    local name = AshitaCore:GetResourceManager():GetString('keyitems', id);
-    if (name == nil or name:len() < 2) then
-        return false, 'Invalid key item id; key item not found.';
-    end
-
-    manager.watched_keyitems:append({ id, name });
-    return true;
-end
-
---[[
-* Removes a key item from the watch list.
-*
-* @param {number} id - The key item id to remove from the watch list.
-* @return {boolean, string} True on success, false otherwise. Error message on false returns.
---]]
-function manager.delete_watched_keyitem(id)
-    if (id == nil) then
-        return false, 'Invalid key item id.';
-    end
-
-    for x = #manager.watched_keyitems, 1, -1 do
-        if (manager.watched_keyitems[x][1] == id) then
-            table.remove(manager.watched_keyitems, x);
-            return true;
-        end
-    end
-    return false, 'Key item is not being watched.';
-end
-
---[[
-* Clears the watched key item list.
---]]
-function manager.clear_watched_keyitems()
-    manager.watched_keyitems = T{ };
-end
-
---[[
-* Returns a list of items that contain the given partial name.
-*
-* @param {string} name - The partial item name to look for.
-* @return {T} Table containing any found matches.
---]]
-function manager.find_items(name)
-    local items = T{ };
-
-    for x = 0, 65535 do
-        local item = AshitaCore:GetResourceManager():GetItemById(x);
-        if (item ~= nil and item.Name[1] ~= nil and item.Name[1]:len() > 1) then
-            if (item.Name[1]:lower():contains(name)) then
-                items:append({ x, item.Name[1] });
-            end
-        end
-    end
-
-    return items;
-end
 
 function manager.UpdateJobs()  
     local player = AshitaCore:GetMemoryManager():GetPlayer();
-    for x = 1, 22 do
-        --[[local mjobLV = 0;
-        if (interface.jobs[AshitaCore:GetMemoryManager():GetPlayer():GetMainJob()] == interface.jobs[x]) then
-            mjobLV = AshitaCore:GetMemoryManager():GetPlayer():GetMasteryJobLevel();
-        end]]
-        dtables.jobs[interface.jobs[x]] = {player:GetJobLevel(x),player:GetJobPointsSpent(x),player:GetJobPoints(x)};--mjobLV};
+    local jobleveltotal = 0.0;
+    local JPspenttotal = 0.0;
+    local masterleveltotal = 0.0;
+    local joblevelmax = 99.0 * 22.0;
+    local JPmax = 2100.0 * 22.0;
+    local masterlevelmax = 20.0 * 22.0;
+    local JPhastotal = 0.0;
+    
+    for n = 1, #jobsabrv do
+        interface.data.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
     end
-    return;
+
+    for a = 1, #jobsabrv do
+        jobleveltotal = jobleveltotal + player:GetJobLevel(a);
+        JPspenttotal = JPspenttotal + player:GetJobPointsSpent(a);
+        masterleveltotal = masterleveltotal + player:GetJobMasterLevel(a);
+        if (player:GetJobPointsSpent(a) == 2100) then
+            JPhastotal = JPhastotal + player:GetJobPoints(a);
+        end
+    end
+    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax),JPhastotal};
 end
 
-function manager.save(name)
-    -- Validate and update the file name..
-    if (name == nil or name:len() < 2) then
-        return false;
+function manager.DisplayJobs()
+    for n=1, #jobsabrv do
+        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, jobsabrv[n]);
+            for x = 1, 4 do 
+                local t = T{};
+                imgui.TableNextColumn();
+                t:merge(interface.data.jobs[n], true);
+                imgui.Text(tostring(t[x]));
+            end
     end
-    name = name .. '.lua';
-
-    -- Build a path to the file and ensure it does not exist already..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
-    if (ashita.fs.exists(path)) then
-        return false;
-    end
-
-    -- Create the new settings object to be saved..
-    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
-
-    -- Serialize the settings table for saving..
-    local p, s = settings.process(t, 'settings');
-
-    -- Open and save the new list..
-    local f = io.open(path, 'w+');
-    if (f == nil) then
-        return false;
-    end
-
-    f:write('require(\'common\');\n\n');
-    f:write('local settings = T{ };\n');
-    p:each(function (v) f:write(('%s = T{ };\n'):fmt(v)); end);
-    f:write(s);
-    f:write('\nreturn settings;\n');
-    f:close();
-
-    -- Update the saved lists..
-    --manager.refresh_saved_lists();
-
-    return true;
 end
 
---[[
-* Returns a list of key items that contain the given partial name.
-*
-* @param {string} name - The partial key item name to look for.
-* @return {T} Table containing any found matches.
---]]
-function manager.find_keyitems(name)
-    local items = T{ };
+function manager.UpdateEmpyreanWeapons()
+    local t = T{};
 
     for x = 0, 65535 do
-        local n = AshitaCore:GetResourceManager():GetString('keyitems', x);
-        if (n ~= nil and n:len() > 1) then
-            if (n:lower():contains(name)) then
-                items:append({ x, n });
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for n = 1, #empys do
+                if (item.Name[1] == (empys[n])) then
+                    local check = false;
+                    check = manager.CheckWeapon(x);
+                    t:append({ x, item.Name[1], check });
+                end
+            end
+            interface.data.ids.weapons.empyrean:merge(t, true);
+        end
+    end
+end
+
+function manager.UpdateRelicWeapons()
+    local t = T{};
+
+    for x = 0, 65535 do
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for n = 1, #relics do
+                if (item.Name[1] == (relics[n])) then
+                    local check = false;
+                    check = manager.CheckWeapon(x);
+                    t:append({ x, item.Name[1], check });
+                end
+            end
+            interface.data.ids.weapons.relic:merge(t, true);
+        end
+    end
+end
+
+function manager.UpdateDynaWeapons()
+    local t = T{};
+    local u = T{};
+    local v = T{};
+
+    for x = 0, 65535 do
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for n = 1, #dynastage2 do
+                if (item.Name[1] == (dynastage2[n])) then
+                    local check = false;
+                    check = manager.CheckWeapon(x);
+                    t:append({ x, item.Name[1], check });
+                end
+            end
+            interface.data.ids.weapons.dynastage2:merge(t, true);
+
+            for n = 1, #dynastage3 do
+                if (item.Name[1] == (dynastage3[n])) then
+                    local check = false;
+                    check = manager.CheckWeapon(x);
+                    u:append({ x, item.Name[1], check });
+                end
+            end
+            interface.data.ids.weapons.dynastage3:merge(u, true);
+
+            for n = 1, #dynastage4 do
+                if (item.Name[1] == (dynastage4[n])) then
+                    local check = false;
+                    check = manager.CheckWeapon(x);
+                    v:append({ x, item.Name[1], check });
+                end
+            end
+            interface.data.ids.weapons.dynastage4:merge(v, true);
+        end
+    end
+end
+
+function manager.CheckWeapon(id)  
+    local inventory = AshitaCore:GetMemoryManager():GetInventory();
+    local total = 0;
+
+    for x = 0, 12 do
+        for y = 0, 80 do
+            local item = inventory:GetContainerItem(x, y);
+            if (item ~= nil and item.Id == id) then
+                total = total + item.Count;
             end
         end
     end
-
-    return items;
+    if total ~= 0 then return true;
+    else return false end
 end
 
---[[
-* Refreshes the saved lists table.
---]]
-function manager.refresh_saved_lists()
-    manager.saved_lists = T{ };
+function manager.DisplayEmpyreans()
+    for n=1, #empys do
+        local weapon = empys[n];;
+        local stage = 0;
+        local ochain = false;
+        local harp = false;
 
-    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'database');
-    if (not ashita.fs.exists(path)) then
-        ashita.fs.create_dir(path);
-        return;
-    end
-
-    local files = ashita.fs.get_dir(path, '.*.lst', true);
-    if (files == nil) then
-        return;
-    end
-
-    T(files):each(function (v) manager.saved_lists:append(v); end);
-end
-
---[[
-* Saves the current watched items and key items to a new list file.
-*
-* @param {string} name - The name of the new list file to save.
-* @return {boolean} True on success, false otherwise.
---]]
-function manager.save_list_new(name)
-    -- Validate and update the file name..
-    if (name == nil or name:len() < 2) then
-        return false;
-    end
-    name = name .. '.lst';
-
-    -- Build a path to the file and ensure it does not exist already..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
-    if (ashita.fs.exists(path)) then
-        return false;
-    end
-
-    -- Create the new settings object to be saved..
-    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
-
-    -- Serialize the settings table for saving..
-    local p, s = settings.process(t, 'settings');
-
-    -- Open and save the new list..
-    local f = io.open(path, 'w+');
-    if (f == nil) then
-        return false;
-    end
-
-    f:write('require(\'common\');\n\n');
-    f:write('local settings = T{ };\n');
-    p:each(function (v) f:write(('%s = T{ };\n'):fmt(v)); end);
-    f:write(s);
-    f:write('\nreturn settings;\n');
-    f:close();
-
-    -- Update the saved lists..
-    manager.refresh_saved_lists();
-
-    return true;
-end
-
---[[
-* Saves the current watched items and key items to an existing list file.
-*
-* @param {number} The index of the existing list to overwrite.
-* @return {boolean} True on success, false otherwise.
---]]
-function manager.save_list_existing(index)
-    if (index < 0 or #manager.saved_lists == 0) then
-        return false;
-    end
-
-    local name = manager.saved_lists[index + 1];
-    if (name == nil or name:len() < 1) then
-        return false;
-    end
-
-    -- Build a path to the file..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
-
-    -- Create the new settings object to be saved..
-    local t = T{ i = manager.watched_items, k = manager.watched_keyitems, };
-
-    -- Serialize the settings table for saving..
-    local p, s = settings.process(t, 'settings');
-
-    -- Open and save the new list..
-    local f = io.open(path, 'w+');
-    if (f == nil) then
-        return false;
-    end
-
-    f:write('require(\'common\');\n\n');
-    f:write('local settings = T{ };\n');
-    p:each(function (v) f:write(('%s = T{ };\n'):fmt(v)); end);
-    f:write(s);
-    f:write('\nreturn settings;\n');
-    f:close();
-
-    -- Update the saved lists..
-    manager.refresh_saved_lists();
-
-    return true;
-end
-
---[[
-* Loads the given selected saved lists contents.
-*
-* @param {number} index - The index of the list to load.
-* @param {boolean} merged - Flag if the list should be merged into the already loaded data.
-* @return {boolean, string} True on success, false otherwise. Error message on false returns.
---]]
-function manager.load_list(index, merged)
-    if (index < 0 or #manager.saved_lists == 0) then
-        return false, 'Invalid index.';
-    end
-
-    merged = merged or false;
-
-    local name = manager.saved_lists[index + 1];
-    if (name == nil or name:len() < 2) then
-        return false, 'Invalid list selected.';
-    end
-
-    -- Build a path to the file and ensure it exists..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
-    if (not ashita.fs.exists(path)) then
-        return false, 'Invalid list selected; list file is missing.';
-    end
-
-    -- Load the list settings..
-    local t = T{ };
-    local status, err = pcall(function ()
-        t = loadfile(path)();
-    end);
-
-    -- Ensure the list settings are valid..
-    if (not status or err or t['i'] == nil or t['k'] == nil) then
-        return false, 'Invalid list file format.';
-    end
-
-    -- Update the lists..
-    if (merged) then
-        t['i']:each(function (v) manager.add_watched_item(v[1]); end);
-        t['k']:each(function (v) manager.add_watched_keyitem(v[1]); end);
-    else
-        manager.watched_items = t['i'];
-        manager.watched_keyitems = t['k'];
-    end
-
-    return true;
-end
-
---[[
-* Deletes the given selected saved list.
-*
-* @param {number} index - The index of the list to delete.
-* @return {boolean} True on success, false otherwise.
---]]
-function manager.delete_list(index)
-    if (index < 0 or #manager.saved_lists == 0) then
-        return false;
-    end
-
-    local name = manager.saved_lists[index + 1];
-    if (name == nil) then
-        return false;
-    end
-
-    -- Build a path to the file and ensure it exists..
-    local path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', name);
-    if (not ashita.fs.exists(path)) then
-        return false;
-    end
-
-    -- Delete the list..
-    ashita.fs.remove(path);
-
-    -- Update the saved lists..
-    manager.refresh_saved_lists();
-    return true;
-end
-
---[[
-* Deletes all saved lists.
---]]
-function manager.delete_all_lists()
-    -- Build a path to the lists folder..
-    local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'database');
-    if (not ashita.fs.exists(path)) then
-        ashita.fs.create_dir(path);
-        return;
-    end
-
-    local files = ashita.fs.get_dir(path, '.*.lst', true);
-    if (files == nil) then
-        return;
-    end
-
-    T(files):each(function (v)
-        path = ('%s\\config\\addons\\%s\\%s'):fmt(AshitaCore:GetInstallPath(), 'database', v);
-        if (ashita.fs.exists(path)) then
-            ashita.fs.remove(path);
+        if weapon == 'Daurdabla' then
+            imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+            imgui.TableNextColumn();
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 90');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Complete');
+            imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
         end
-    end);
+        
+        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, weapon);
+        
+        -- skip 300 rift stage and very stupid SE stuff for shield/harp/ranged
+        for w=1, #interface.data.ids.weapons.empyrean do
+            if weapon == 'Daurdabla' and interface.data.ids.weapons.empyrean[w][2] == weapon then
+                stage = stage + 1;
 
-    -- Update the saved lists..
-    manager.refresh_saved_lists();
-    return true;
+                if stage < 5 and stage ~= 1 then
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.empyrean[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = 1, #interface.data.ids.weapons.empyrean do
+                            if (interface.data.ids.weapons.empyrean[y][3] == true and interface.data.ids.weapons.empyrean[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        end
+                    end
+                elseif stage == 1 and interface.data.ids.weapons.empyrean[w][3] == true then harp = true;
+                elseif stage == 5 then
+                    imgui.TableNextColumn();
+                    if harp == true then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    else
+                        imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    end
+                end
+            elseif weapon == 'Ochain' and interface.data.ids.weapons.empyrean[w][2] == weapon then
+                stage = stage + 1;
+
+                if stage < 5 and stage ~= 1 then
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.empyrean[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = 1, #interface.data.ids.weapons.empyrean do
+                            if (interface.data.ids.weapons.empyrean[y][3] == true and interface.data.ids.weapons.empyrean[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        end
+                    end
+                elseif stage == 1 and interface.data.ids.weapons.empyrean[w][3] == true then ochain = true;
+                elseif stage == 5 then
+                    imgui.TableNextColumn();
+                    if ochain == true then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    else
+                        imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    end
+                end
+            elseif (interface.data.ids.weapons.empyrean[w][2] == weapon) then
+                stage = stage + 1;
+                
+                if stage ~= 6 and stage < 10 then 
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.empyrean[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = w, #interface.data.ids.weapons.empyrean do
+                            if (interface.data.ids.weapons.empyrean[y][3] == true and interface.data.ids.weapons.empyrean[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.empyrean[w][1]));
+                        end
+                    end
+                end
+            end
+        end
+    end
 end
 
--- Return the manager object..
+function manager.DisplayDynaStage2()
+    for n = 1, #dynastage2 do
+        local weapon = dynastage2[n];
+
+        for w = 1, #interface.data.ids.weapons.dynastage2 do
+            if (interface.data.ids.weapons.dynastage2[w][2] == weapon) then
+                imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.dynastage2[w][1]));
+            else
+                imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.dynastage2[w][1]));
+            end
+        end
+    end
+end
+
+function manager.DisplayRelics()
+    for n=1, #relics do    
+        local weapon = relics[n];
+        local stage = 0;
+        local aegis = false;
+        local ghorn = false;
+        -- skip 250 marrow stage and very stupid SE stuff for shield/horn/ranged
+        if weapon == 'Gjallarhorn' then
+            imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+            imgui.TableNextColumn();
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 75');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 80');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 90');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
+            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Complete');
+            imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+        end
+        
+        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, weapon);
+
+        for w = 1, #interface.data.ids.weapons.relic do
+            if weapon == 'Gjallarhorn' and interface.data.ids.weapons.relic[w][2] == weapon then
+                stage = stage + 1;
+                
+                if stage < 7 and stage ~= 2 then
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.relic[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = 1, #interface.data.ids.weapons.relic do
+                            if (interface.data.ids.weapons.relic[y][3] == true and interface.data.ids.weapons.relic[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.relic[w][1]));
+                        end
+                    end
+                elseif stage == 2 and interface.data.ids.weapons.relic[w][3] == true then ghorn = true;
+                elseif stage == 7 then
+                    imgui.TableNextColumn();
+                    if ghorn == true then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                    else
+                        imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.relic[w][1]));
+                    end
+                end
+            elseif weapon == 'Aegis' and interface.data.ids.weapons.relic[w][2] == weapon then
+                stage = stage + 1;
+
+                if stage < 7 and stage ~= 1 then
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.relic[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = 1, #interface.data.ids.weapons.relic do
+                            if (interface.data.ids.weapons.relic[y][3] == true and interface.data.ids.weapons.relic[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.relic[w][1]));
+                        end
+                    end
+                elseif stage == 1 and interface.data.ids.weapons.relic[w][3] == true then aegis = true;
+                elseif stage == 7 then
+                    imgui.TableNextColumn();
+                    if aegis == true then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                    else
+                        imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.relic[w][1]));
+                    end
+                end
+            elseif (interface.data.ids.weapons.relic[w][2] == weapon) then
+                stage = stage + 1;
+                if stage < 4 then
+                    imgui.TableNextColumn();
+                elseif stage ~= 7 and stage < 11 then
+                    imgui.TableNextColumn();
+                    if (interface.data.ids.weapons.relic[w][3] == true) then
+                        imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                    else
+                    local fwdcount = false;
+                        for y = w, #interface.data.ids.weapons.relic do
+                            if (interface.data.ids.weapons.relic[y][3] == true and interface.data.ids.weapons.relic[y][2] == weapon) then
+                                fwdcount = true;
+                            end
+                        end
+                        if fwdcount == true then
+                            imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.relic[w][1]));
+                        else
+                            imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.relic[w][1]));
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
 return manager;
