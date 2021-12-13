@@ -5,53 +5,74 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = {
     Idle = {
-        Ammo = 'Voluspa Tathlum',
-        Head = { Name = 'Emicho Coronet', AugPath='C' },
+        Ammo = 'Staunch Tathlum',
+        Head = 'Taeon Chapeau',
         Neck = 'Empath Necklace',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Bladeborn Earring',
-        Body = 'Tali\'ah Manteel +1',
-        Hands = 'Macabre Gaunt.',
-        Ring1 = 'Tali\'ah Ring',
-        Ring2 = 'Meghanada Ring',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Hurch\'lan Sash',
-        Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Tali\'ah Crackows +1',
-    },
-	Resting = {},
-    Idle_Regen = {},
-    Idle_Refresh = {},
-	Town = {},
-	
-	Dt = {
-		Head = 'Meghanada Visor +1',
-		Body = 'Tartarus Platemail',
-		Hands = 'Meg. Gloves +2',
-		Legs = 'Meg. Chausses +2',
-		Feet = 'Meg. Jam. +1',
-		Neck = 'Diemer Gorget',
-		Ring1 = 'Defending Ring',
-		Back = 'Solemnity Cape',
-	},
-    Pet_Dt = {
-        Ammo = 'Crepuscular Pebble',
-        Head = 'Anwig Salade',
-        Neck = 'Empath Necklace',
-        Ear1 = 'Rimeice Earring',
-        Ear2 = 'Handler\'s Earring +1',
-        Body = 'Taeon Tabard',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Gleti\'s Cuirass',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Gishdubar Sash',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
+    },
+	Resting = {},
+    Idle_Regen = {
+        Neck = 'Bathy Choker +1',
+    },
+    Idle_Refresh = {},
+	Town = {
+        Main = 'Naegling',
+        Ammo = 'Voluspa Tathlum',
+        Head = 'Straw Hat',
+        Neck = 'Empath Necklace',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Cessance Earring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Epona\'s Ring',
+        Ring2 = 'Petrov Ring',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Waist = 'Flume Belt +1',
+        Legs = 'Tali\'ah Sera. +2',
+        Feet = 'Gleti\'s Boots',
+    },
+	
+	Dt = {
+        Ammo = 'Crepuscular Pebble',
+        Head = 'Nyame Helm',
+        Neck = 'Empath Necklace',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Handler\'s Earring +1',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Gelatinous Ring +1',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Waist = 'Gishdubar Sash',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+	},
+    Pet_Dt = {
+        Head = 'Anwig Salade',
+        Neck = 'Empath Necklace',
+        Ear1 = 'Rimeice Earring',
+        Ear2 = 'Handler\'s Earring +1',
+        Body = 'Taeon Tabard',
+        Hands = 'Taeon Gloves',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Gelatinous Ring +1',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
         Feet = 'Gleti\'s Boots',
 	},
 	
 	Tp_Default = {
-        Ammo = 'Voluspa Tathlum',
+        Ammo = 'Coiste Bodhar',
         Head = 'Malignance Chapeau',
         Neck = 'Anu Torque',
         Ear1 = 'Eabani Earring',
@@ -73,68 +94,79 @@ sets = {
     },
 	Tp_Acc = {},
     Pet_Only_Tp = {
+        Ammo = 'Voluspa Tathlum',
         Neck = 'Shulmanu Collar',
+        Ear1 = 'Rimeice Earring',
+        Ear2 = 'Domes. Earring',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
+        Feet = 'Gleti\'s Boots',
     },
 
     Precast = {
+        Neck = 'Baetyl Pendant',
+        Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
+        Ring2 = 'Prolix Ring',
     },
 
 	Ws_Default = {
-        Ammo = '',
-        Head = '',
-        Neck ='',
-        Ear1 = '',
-        Ear2 = '',
-        Body = '',
-        Hands = '',
-        Ring1 = '',
-        Ring2 = '',
+        Ammo = 'Coiste Bodhar',
+        Head = 'Valorous Mask',
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Meg. Gloves +2',
+        Ring1 = 'Karieyh Ring',
+        Ring2 = 'Rufescent Ring',
         Back = '',
-        Waist = '',
-        Legs = '',
-        Feet = '',
+        Waist = 'Fotia Belt',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
     Ws_Hybrid = {
+        Ammo = 'Voluspa Tathlum',
     },
     Ws_Acc = {
+        Ammo = 'Voluspa Tathlum',
     },
 	
 	Call = {
-		Hands = 'Ankusa Gloves',
+		Hands = 'Ankusa Gloves +1',
+        Feet = 'Gleti\'s Boots',
 	},
 	Reward = {
 		Ammo = 'Pet Food Theta',
-		Body = 'Monster Jackcoat',
-		Feet = 'Monster Gaiters',
-		Ear1 = 'Ferine Earring'
 	},
     Ready = {
 		Legs = 'Gleti\'s Breeches',
 	},
 	PetReadyDefault = {
 		Ammo = 'Voluspa Tathlum',
-		Head = 'Emicho Coronet',
-		Body = 'Valorous Mail',
-		Legs = 'Despair Cuisses',
-		Neck = 'Empath Necklace',
+		Head = 'Nyame Helm',
+        Neck = 'Shulmanu Collar',
+        Ear1 = 'Rimeice Earring',
+        Ear2 = 'Domes. Earring',
+		Body = 'Gleti\'s Cuirass',
+        Hands = 'Nukumi Manoplas +1',
 		Waist = 'Incarnation Sash',
-		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Legs = 'Taeon Tights',
+        Feet = 'Gleti\'s Boots',
 	},
 	PetAttack = {},
 	PetMagicAttack = {},
 	PetMagicAccuracy = {},
 	
 	Movement = {
-		Feet = 'Meg. Jam. +1',
 	},
 };
 
 profile.Sets = sets;
 
 local function HandlePetAction(PetAction)
-	gFunc.EquipSet(sets.PetReadyDefault);
+    gFunc.EquipSet(sets.PetReadyDefault);
 
 	if (PetAction.Name == BstPetAttack) then
         gFunc.EquipSet(sets.PetAttack);
@@ -150,8 +182,8 @@ profile.OnLoad = function()
 	gcinclude.Initialize:once(.1);
 
     --[[ Set you job macro defaults here]]
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
 end
 
 profile.OnUnload = function()

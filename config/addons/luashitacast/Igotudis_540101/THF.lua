@@ -1,6 +1,6 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common/varhelper.lua');
-gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 sets = {
@@ -18,11 +18,11 @@ sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
-    Reseting = {},
-    Regen = {
+    Resting = {},
+    Idle_Regen = {
         Hands = 'Meg. Gloves +2',
     },
-    Refresh = {},
+    Idle_Refresh = {},
     Town = {
         Feet = 'Skulk. Poulaines +1',
     },
@@ -118,7 +118,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize:once(.1);
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');
@@ -167,6 +167,8 @@ profile.HandleAbility = function()
 	if string.match(ability.Name, 'Flee') then
 		gFunc.EquipSet(sets.Flee);
 	end
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleItem = function()
@@ -182,6 +184,8 @@ profile.HandlePrecast = function()
     if string.contains(spell.Name, 'Utsusemi') then
         gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleMidcast = function()

@@ -1,6 +1,6 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common/varhelper.lua');
-gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 sets = {
@@ -23,10 +23,10 @@ sets = {
         Body = 'Jhakri Robe +2',
         Waist = 'Fucho-no-Obi',
     },
-    Regen = {
+    Idle_Regen = {
         Neck = 'Bathy Choker +1';
     },
-    Refresh = {
+    Idle_Refresh = {
         Body = 'Jhakri Robe +2',
         Waist = 'Fucho-no-Obi',
     },
@@ -212,8 +212,8 @@ sets = {
         Ear2 = 'Moonshade Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Begrudging Ring',
+        Ring1 = 'Karieyh Ring',
+        Ring2 = 'Rufescent Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
@@ -246,15 +246,13 @@ sets = {
     },
     Chant_Acc = {
     },
-    Savage = {
+    Savage_Default = {
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
         Feet = 'Herculean Boots',
@@ -281,7 +279,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize:once(.1);
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
@@ -325,6 +323,8 @@ profile.HandleAbility = function()
 	local ability = gData.GetAction();
 
     if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity) end
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleItem = function()
@@ -340,6 +340,8 @@ profile.HandlePrecast = function()
     if string.contains(spell.Name, 'Stoneskin') then
         gFunc.EquipSet(sets.Stoneskin_Precast);
     end 
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleMidcast = function()

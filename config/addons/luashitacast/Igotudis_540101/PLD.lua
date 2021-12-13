@@ -1,6 +1,6 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common/varhelper.lua');
-gcinclude = gFunc.LoadFile('gcfiles/gcinclude.lua');
+varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 sets = {
@@ -19,9 +19,9 @@ sets = {
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
     },
-    Reseting = {},
-    Regen = {},
-    Refresh = {},
+    Resting = {},
+    Idle_Regen = {},
+    Idle_Refresh = {},
     Town = {
         Main = 'Exalibur',
         Sub = 'Aegis',
@@ -182,7 +182,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize:once(.1);
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
@@ -231,6 +231,8 @@ profile.HandleAbility = function()
 	if string.match(ability.Name, 'Fealty') then
 		gFunc.EquipSet(sets.Fealty);
 	end
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleItem = function()
@@ -252,6 +254,8 @@ profile.HandlePrecast = function()
     if string.contains(spell.Name, 'Utsusemi') then
         gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
+
+    gcinclude.CheckCancels();
 end
 
 profile.HandleMidcast = function()

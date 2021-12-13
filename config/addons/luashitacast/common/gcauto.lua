@@ -1,5 +1,5 @@
 local gcauto = {};
-local gcdisplay = gFunc.LoadFile('gcfiles/gcdisplay.lua');
+local gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 wskill = 'Not Set';
 wstp = 1000;
 
@@ -32,6 +32,7 @@ end
 
 function gcauto.SetVariables()
 	local player = gData.GetPlayer();
+	sj = player.SubJob;
 	gcdisplay.CreateToggle('MEDS', false);
 	gcdisplay.CreateToggle('AUTO', false);
 	
@@ -84,10 +85,10 @@ end
 
 function gcauto.CheckRemedy()
 	local player = gData.GetPlayer();
-	local blind = gData.GetBuffCount('blind');
-	local paralyze = gData.GetBuffCount('paralyze');
-	local poison = gData.GetBuffCount('poison');
-	local silence = gData.GetBuffCount('silence');
+	local blind = gData.GetBuffCount('Blind');
+	local paralyze = gData.GetBuffCount('Paralyze');
+	local poison = gData.GetBuffCount('Poison');
+	local silence = gData.GetBuffCount('Silence');
 
 	if (blind+paralyze+poison+silence >= 1) then
 		return true;
@@ -160,7 +161,7 @@ function gcauto.DoJobStuff()
 			end
 		end
 	elseif (player.MainJob == 'RDM') then
-		local composure = gData.GetBuffCount('composure');
+		local composure = gData.GetBuffCount('Composure');
 		if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "composure" <me>');
 		end
@@ -213,11 +214,13 @@ function gcauto.Welcome()
 end
 
 function gcauto.Initialize()
+	local player = gData.GetPlayer();
+	sj = player.SubJob;
 	gcauto.SetVariables();
 	gcauto.SetAlias();
-	gcauto.Welcome();
+	--gcauto.Welcome();
 	gcdisplay.Initialize();
-	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink'); -- add addon load check here when you figure it out maybe
+	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink'); -- add plugin load check here when you figure it out maybe
 	AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
 end
 
@@ -228,11 +231,11 @@ end
 function gcauto.Default()
 	gcdisplay.Update();
 
-	local sleep = gData.GetBuffCount('sleep');
-	local petrify = gData.GetBuffCount('petrification');
-	local stun = gData.GetBuffCount('stun');
-	local terror = gData.GetBuffCount('terror');
-	local amnesia = gData.GetBuffCount('amnesia');
+	local sleep = gData.GetBuffCount('Sleep');
+	local petrify = gData.GetBuffCount('Petrification');
+	local stun = gData.GetBuffCount('Stun');
+	local terror = gData.GetBuffCount('Terror');
+	local amnesia = gData.GetBuffCount('Amnesia');
 
 	if (sleep+petrify+stun+terror+amnesia >= 1) then
 		return;
