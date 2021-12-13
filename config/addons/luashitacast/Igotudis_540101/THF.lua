@@ -118,7 +118,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(.1);
+    gcinclude.Initialize:once(3);
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');

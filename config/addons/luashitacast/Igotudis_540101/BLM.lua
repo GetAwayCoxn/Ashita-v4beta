@@ -83,9 +83,16 @@ sets = {
         Legs = 'Agwu\'s Slops',
         Feet = 'Volte Gaiters',
     },
-    Cure_Precast = {},
-    Enhancing_Precast = {},
-    Stoneskin_Precast = {},
+    Cure_Precast = {
+        Feet = 'Vanya Clogs',
+    },
+    Enhancing_Precast = {
+        Waist = 'Siegel Sash',
+    },
+    Stoneskin_Precast = {
+        Head = 'Umuthi Hat',
+        Waist = 'Siegel Sash',
+    },
 
 
     Cure = {
@@ -93,7 +100,7 @@ sets = {
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = { Name = 'Vanya Hood', AugPath='C' },
-        Neck = 'Incanter\'s Torque',
+        Neck = 'Nodens Gorget',
         Ear1 = 'Mendi. Earring',
         Ear2 = 'Regal Earring',
         Hands = 'Weath. Cuffs +1',
@@ -101,16 +108,21 @@ sets = {
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Rumination Sash',
-        Legs = 'Atrophy Tights',
-        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
+        Legs = 'Vanya Slops',
+        Feet = 'Vanya Clogs',
     },
-    Self_Cure = {},
+    Self_Cure = {
+        Waist = 'Gishdubar Sash',
+    },
     Regen = {
         Main = 'Bolelabunga',
         Sub = 'Ammurapi Shield',
         Body = 'Telchine Chas.',
     },
-    Cursna = {},
+    Cursna = {
+        Ring1 = 'Purity Ring',
+		Waist = 'Gishdubar Sash',
+    },
 
     Enhancing = {
         Main = 'Bunzi\'s Rod',
@@ -131,9 +143,14 @@ sets = {
     },
     Self_Enhancing = {},
     Skill_Enhancing = {},
-    Stoneskin = {},
+    Stoneskin = {
+        Neck = 'Nodens Gorget',
+        Waist = 'Siegel Sash',
+    },
     Phalanx = {},
-    Refresh = {},
+    Refresh = {
+		Waist = 'Gishdubar Sash',
+    },
     Self_Refresh = {},
 
     Enfeebling = {
@@ -201,11 +218,24 @@ sets = {
         Hands = 'Ea Cuffs', --5 and 5
         Ring1 = 'Mujin Band', -- 0 and 5
         Back = 'Taranus\'s Cape', -- 5 and 0
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops', -- 9 and 0
         Feet = 'Ea Pigaches', -- 4 and 4
     },
-    Helix = {},
-    Death = {},
+    Helix = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Head = 'Mall. Chapeau +2',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Mallquis Cuffs +2',
+        Back = 'Taranus\'s Cape',
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Legs = 'Agwu\'s Slops',
+        Feet = 'Agwu\'s Pigaches',
+    },
+    Death = {
+        
+    },
     Af_Body = {Body = 'Spaekona\'s Coat +2'},
 
     Preshot = {
@@ -242,7 +272,7 @@ profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(.1);
+    gcinclude.Initialize:once(3);
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 5');
@@ -316,7 +346,7 @@ profile.HandlePrecast = function()
         gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
 
-    --gcinclude.CheckCancels();
+    gcinclude.CheckCancels();
     if (varhelper.GetCycle('Weapon') == 'Staff') then
         gFunc.EquipSet(sets.Idle_Staff);
     end

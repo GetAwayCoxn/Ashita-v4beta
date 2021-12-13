@@ -157,7 +157,7 @@ function manager.DisplayEmpyreans()
         
         imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, weapon);
         
-        -- skip 300 rift stage and very stupid SE stuff for shield/harp/ranged
+        -- skip 300 rift stage and very stupid SE stuff for shield/harp/ranged IDs
         for w=1, #interface.data.ids.weapons.empyrean do
             if weapon == 'Daurdabla' and interface.data.ids.weapons.empyrean[w][2] == weapon then
                 stage = stage + 1;
@@ -263,7 +263,7 @@ function manager.DisplayRelics()
         local stage = 0;
         local aegis = false;
         local ghorn = false;
-        -- skip 250 marrow stage and very stupid SE stuff for shield/horn/ranged
+        -- skip 250 marrow stage and very stupid SE stuff for shield/horn/ranged IDs
         if weapon == 'Gjallarhorn' then
             imgui.TableNextRow(ImGuiTableRowFlags_Headers);
             imgui.TableNextColumn();

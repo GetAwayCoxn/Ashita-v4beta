@@ -313,7 +313,7 @@ function gcinclude.CheckCancels()
 		gFunc.CancelAction();
 		AshitaCore:GetChatManager():QueueCommand(1, '/cancel Sneak');
 		do_sneak:once(1);
-	elseif (action.Name == 'Stoneskin' and Stoneskin ~= 0) then
+	elseif (action.Name == 'Stoneskin' and stoneskin ~= 0) then
 		gFunc.CancelAction();
 		AshitaCore:GetChatManager():QueueCommand(1, '/cancel Stoneskin');
 		do_ss:once(1);

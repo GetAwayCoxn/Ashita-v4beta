@@ -125,7 +125,7 @@ function interface.renderWeaponsTab()
                     imgui.EndTable();
 
                     if (imgui.Button('Update Relic Weapons')) then
-                        interface.manager.UpdateRelicWeapons();imgui.SameLine();imgui.ShowHelp('Test');
+                        interface.manager.UpdateRelicWeapons();
                     end
                     imgui.EndTabItem();
                 end
@@ -153,7 +153,7 @@ function interface.renderWeaponsTab()
                     imgui.EndTable();
 
                     if (imgui.Button('Update Empyrean Weapons')) then
-                        interface.manager.UpdateEmpyreanWeapons();imgui.SameLine();imgui.ShowHelp('Test');
+                        interface.manager.UpdateEmpyreanWeapons();
                     end
                 imgui.EndTabItem();
                 end
