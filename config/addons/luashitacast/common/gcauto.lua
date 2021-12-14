@@ -61,7 +61,7 @@ function gcauto.SetCommands(args)
 	elseif (args[1] == 'wskill') then
 		wskill = args[2];
 	elseif (args[1] == 'wstp') then
-		wstp = args[2];
+		wstp = tonumber(args[2]);
     end
 	
 
