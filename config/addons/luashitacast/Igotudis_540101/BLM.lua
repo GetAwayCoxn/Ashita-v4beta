@@ -156,7 +156,7 @@ sets = {
     Enfeebling = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
-        Ammo = 'Pemphredo Tathlum',
+        Ammo = 'Staunch Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
@@ -170,7 +170,23 @@ sets = {
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
-    EnfeeblingACC = {},
+    EnfeeblingACC = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Nyame Helm',
+        Neck = 'Erra Pendant',
+        Ear1 = 'Regal Earring',
+        Ear2 = 'Malignance Earring',
+        Body = 'Spaekona\'s Coat +2',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Kishar Ring',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+        Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Legs = 'Jhakri Slops +2',
+        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
+    },
     Mind_Enfeebling = {},
     Int_Enfeebling = {},
     Potency_Enfeebling = {},
@@ -182,7 +198,7 @@ sets = {
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Jhakri Robe +2',
+        Body = 'Spaekona\'s Coat +2',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Metamor. Ring +1',
         Back = 'Aurist\'s Cape +1',
@@ -215,6 +231,7 @@ sets = {
         Main = 'Bunzi\'s Rod', -- 10 and 0
         Sub = 'Ammurapi Shield',
         Head = 'Merlinic Hood', -- 6 and 0
+        Neck = 'Src. Stole +1', -- 7 and 0 for now
         Body = 'Agwu\'s Robe', -- 10 and 0
         Hands = 'Ea Cuffs', --5 and 5
         Ring1 = 'Mujin Band', -- 0 and 5
@@ -235,8 +252,8 @@ sets = {
         Feet = 'Agwu\'s Pigaches',
     },
     Death = {
-        Main = 'Bunzi\'s Rod',
-        Sub = 'Culminus',
+        Main = 'Marin Staff +1',
+        Sub = 'Enki Strap',
         Ammo = 'Ghastly Tathlum +1',
         Head = 'Nyame Helm',
         Neck = 'Sanctity Necklace',
@@ -244,10 +261,10 @@ sets = {
         Ear2 = 'Etiolation Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Sangoma Ring',
+        Ring1 = 'Archon Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Aurist\'s Cape +1',
-        Waist = 'Fucho-no-Obi',
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops',
         Feet = 'Agwu\'s Pigaches',
     },
@@ -284,6 +301,7 @@ sets = {
 };
 
 profile.Sets = sets;
+local player = gData.GetPlayer();
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -302,32 +320,35 @@ profile.HandleCommand = function(args)
 end
 
 profile.HandleDefault = function()
-    gFunc.EquipSet(sets.Idle);
+    if (varhelper.GetToggle('Death') == true) and (player.MPP > 50) then
+        gFunc.EquipSet(sets.Death);
+    else
+        gFunc.EquipSet(sets.Idle);
 
-	local player = gData.GetPlayer();
-    if (player.Status == 'Engaged') then
-        gFunc.EquipSet(sets.Tp_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set'));
+        if (player.Status == 'Engaged') then
+            gFunc.EquipSet(sets.Tp_Default)
+            if (varhelper.GetCycle('Set') ~= 'Default') then
+                gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set'));
+            end
+        elseif (player.Status == 'Resting') then
+            gFunc.EquipSet(sets.Resting);
+        elseif (player.IsMoving == true) then
+		    gFunc.EquipSet(sets.Movement);
         end
-    elseif (player.Status == 'Resting') then
-        gFunc.EquipSet(sets.Resting);
-    elseif (player.IsMoving == true) then
-		gFunc.EquipSet(sets.Movement);
-    end
 	
 	
-	if (varhelper.GetToggle('DTset') == true) then
-		gFunc.EquipSet(gcinclude.sets.Dt);
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (varhelper.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
+	    if (varhelper.GetToggle('DTset') == true) then
+		    gFunc.EquipSet(gcinclude.sets.Dt);
+		    gFunc.EquipSet(sets.Dt);
+	    end
+	    if (varhelper.GetToggle('Kite') == true) then
+		    gFunc.EquipSet(sets.Movement);
+	    end
 
-    gcinclude.CheckDefault ();
-    if (varhelper.GetCycle('Weapon') == 'Staff') then
-        gFunc.EquipSet(sets.Idle_Staff);
+        gcinclude.CheckDefault ();
+        if (varhelper.GetCycle('Weapon') == 'Staff') then
+            gFunc.EquipSet(sets.Idle_Staff);
+        end
     end
 end
 
@@ -345,96 +366,107 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast)
 
-    if (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Enhancing_Precast);
+    if (varhelper.GetToggle('Death') == true) then
+        gFunc.EquipSet(sets.Death);
+    else
+        gFunc.EquipSet(sets.Precast)
 
-        if string.contains(spell.Name, 'Stoneskin') then
-            gFunc.EquipSet(sets.Stoneskin_Precast);
+        if (spell.Skill == 'Enhancing Magic') then
+            gFunc.EquipSet(sets.Enhancing_Precast);
+
+            if string.contains(spell.Name, 'Stoneskin') then
+                gFunc.EquipSet(sets.Stoneskin_Precast);
+            end
+        elseif (spell.Skill == 'Healing Magic') then
+            gFunc.EquipSet(sets.Cure_Precast);
         end
-    elseif (spell.Skill == 'Healing Magic') then
-        gFunc.EquipSet(sets.Cure_Precast);
-    end
 
-    if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
-    end
+        if string.contains(spell.Name, 'Utsusemi') then
+            gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
+        end
 
-    gcinclude.CheckCancels();
-    if (varhelper.GetCycle('Weapon') == 'Staff') then
-        gFunc.EquipSet(sets.Idle_Staff);
+        gcinclude.CheckCancels();
+        if (varhelper.GetCycle('Weapon') == 'Staff') then
+            gFunc.EquipSet(sets.Idle_Staff);
+        end
     end
 end
 
 profile.HandleMidcast = function()
     local weather = gData.GetEnvironment();
-    local player = gData.GetPlayer();
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
 
-    if (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Enhancing);
-        if (target.Name == me) then
-            gFunc.EquipSet(sets.Self_Enhancing);
-        end
-
-        if string.match(spell.Name, 'Phalanx') then
-            gFunc.EquipSet(sets.Phalanx);
-        elseif string.match(spell.Name, 'Stoneskin') then
-            gFunc.EquipSet(sets.Stoneskin);
-        elseif string.contains(spell.Name, 'Temper') then
-            gFunc.EquipSet(sets.Skill_Enhancing);
-        elseif string.contains(spell.Name, 'Refresh') then
-            gFunc.EquipSet(sets.Refresh);
-            if (target.Name == me) then
-                gFunc.EquipSet(sets.Self_Refresh);
-            end
-        end
-    elseif (spell.Skill == 'Healing Magic') then
-        gFunc.EquipSet(sets.Cure);
-        if (target.Name == me) then
-            gFunc.EquipSet(sets.Self_Cure);
-        end
-        if string.contains(spell.Name, 'Regen') then
-            gFunc.EquipSet(sets.Regen);
-        end
-        if string.match(spell.Name, 'Cursna') then
-            gFunc.EquipSet(sets.Cursna);
-        end
-    elseif (spell.Skill == 'Elemental Magic') then
-        gFunc.EquipSet(sets.Nuke);
-
-        if (varhelper.GetToggle('NukeSet') == 'Macc') then
-            gFunc.EquipSet(sets.NukeACC);
-        end
-        if (varhelper.GetToggle('Burst') == true) then
-            gFunc.EquipSet(sets.Burst);
-        end
+    if (varhelper.GetToggle('Death') == true) then
+        gFunc.EquipSet(sets.Death);
         if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
             gFunc.Equip('Waist', 'Hachirin-no-Obi');
         end
-        if string.match(spell.Name, 'helix') then
-            gFunc.EquipSet(sets.Helix);
-        end
-        if (player.MPP < 65) then
-            gFunc.EquipSet(sets.Af_Body);
-        end
-    elseif (spell.Skill == 'Enfeebling Magic') then
-        gFunc.EquipSet(sets.Enfeebling);
-        if (varhelper.GetToggle('NukeSet') == 'Macc') then
-            gFunc.EquipSet(sets.EnfeeblingACC);
-        end
-    elseif (spell.Skill == 'Dark Magic') then
-        gFunc.EquipSet(sets.EnfeeblingACC); -- mostly MACC anyways
-        if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
-            gFunc.EquipSet(sets.Drain);
-        end
-    end
+    else
+        if (spell.Skill == 'Enhancing Magic') then
+            gFunc.EquipSet(sets.Enhancing);
+            if (target.Name == me) then
+                gFunc.EquipSet(sets.Self_Enhancing);
+            end
 
-    if (varhelper.GetCycle('Weapon') == 'Staff') then
-        gFunc.EquipSet(sets.Idle_Staff);
+            if string.match(spell.Name, 'Phalanx') then
+                gFunc.EquipSet(sets.Phalanx);
+            elseif string.match(spell.Name, 'Stoneskin') then
+                gFunc.EquipSet(sets.Stoneskin);
+            elseif string.contains(spell.Name, 'Temper') then
+                gFunc.EquipSet(sets.Skill_Enhancing);
+            elseif string.contains(spell.Name, 'Refresh') then
+                gFunc.EquipSet(sets.Refresh);
+                if (target.Name == me) then
+                    gFunc.EquipSet(sets.Self_Refresh);
+                end
+            end
+        elseif (spell.Skill == 'Healing Magic') then
+            gFunc.EquipSet(sets.Cure);
+            if (target.Name == me) then
+                gFunc.EquipSet(sets.Self_Cure);
+            end
+            if string.contains(spell.Name, 'Regen') then
+                gFunc.EquipSet(sets.Regen);
+            end
+            if string.match(spell.Name, 'Cursna') then
+                gFunc.EquipSet(sets.Cursna);
+            end
+        elseif (spell.Skill == 'Elemental Magic') then
+            gFunc.EquipSet(sets.Nuke);
+
+            if (varhelper.GetToggle('NukeSet') == 'Macc') then
+                gFunc.EquipSet(sets.NukeACC);
+            end
+            if (varhelper.GetToggle('Burst') == true) then
+                gFunc.EquipSet(sets.Burst);
+            end
+            if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
+                gFunc.Equip('Waist', 'Hachirin-no-Obi');
+            end
+            if string.match(spell.Name, 'helix') then
+                gFunc.EquipSet(sets.Helix);
+            end
+            if (player.MPP < 65) then
+                gFunc.EquipSet(sets.Af_Body);
+            end
+        elseif (spell.Skill == 'Enfeebling Magic') then
+            gFunc.EquipSet(sets.Enfeebling);
+            if (varhelper.GetToggle('NukeSet') == 'Macc') then
+                gFunc.EquipSet(sets.EnfeeblingACC);
+            end
+        elseif (spell.Skill == 'Dark Magic') then
+            gFunc.EquipSet(sets.EnfeeblingACC); -- mostly MACC anyways
+            if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
+                gFunc.EquipSet(sets.Drain);
+            end
+        end
+
+        if (varhelper.GetCycle('Weapon') == 'Staff') then
+            gFunc.EquipSet(sets.Idle_Staff);
+        end
     end
 end
 

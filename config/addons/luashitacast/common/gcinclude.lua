@@ -30,9 +30,6 @@ gcinclude.sets = {
 	},
 };
 
-gcinclude.deathswitch = false;
-
-
 --[[
 --Tables for table type stuffs, best to leave this alone
 --]]
@@ -53,13 +50,12 @@ gcinclude.Elements = T{'Thunder', 'Blizzard', 'Fire', 'Stone', 'Aero', 'Water', 
 gcinclude.HelixSpells = T{'Ionohelix', 'Cryohelix', 'Pyrohelix', 'Geohelix', 'Anemohelix', 'Hydrohelix', 'Luminohelix', 'Noctohelix'};
 gcinclude.StormSpells = T{'Thunderstorm', 'Hailstorm', 'Firestorm', 'Sandstorm', 'Windstorm', 'Rainstorm', 'Aurorastorm', 'Voidstorm'};
 
-
-local player = gData.GetPlayer();
 --[[
 --functions for functiony stuffs, definitely leave this stuff alone
 --]]
 function gcinclude.SetAlias()
-	--local player = gData.GetPlayer();
+	local player = gData.GetPlayer();
+
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
@@ -86,7 +82,8 @@ function gcinclude.SetAlias()
 end
 
 function gcinclude.SetVariables() --De-clutter this mess
-	--local player = gData.GetPlayer();
+	local player = gData.GetPlayer();
+
 	varhelper.CreateToggle('DTset', false);
 	varhelper.CreateToggle('Kite', false);
 	varhelper.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
@@ -96,6 +93,9 @@ function gcinclude.SetVariables() --De-clutter this mess
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 			varhelper.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
 			varhelper.CreateCycle('Element', {[1] = 'Thunder', [2] = 'Blizzard', [3] = 'Fire', [4] = 'Stone', [5] = 'Aero', [6] = 'Water', [7] = 'Light', [8] = 'Dark'});
+			if (player.MainJob == 'BLM') then
+				varhelper.CreateToggle('Death', false);
+			end
 		end
 	end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
@@ -107,7 +107,8 @@ function gcinclude.SetVariables() --De-clutter this mess
 end
 
 function gcinclude.SetCommands(args)
-	--local player = gData.GetPlayer();
+	local player = gData.GetPlayer();
+
 	if (args[1] == 'dt') then
 		varhelper.AdvanceToggle('DTset');
     elseif (args[1] == 'set') then
@@ -135,12 +136,7 @@ function gcinclude.SetCommands(args)
 			end
 			if (player.MainJob == 'BLM') then
 				if (args[1] == 'death') then
-					if (gcinclude.deathswitch) then
-						gcinclude.deathswitch = false;
-					else
-						gcinclude.deathswitch = true;
-					end
-				gcinclude.LockDeathSet(gcinclude.deathswitch);
+					varhelper.AdvanceToggle('Death');
 				end
 			end
 		end
@@ -197,8 +193,8 @@ function gcinclude.SetTownGear()
 end
 
 function gcinclude.SetRegenRefreshGear()
+	local player = gData.GetPlayer();
 	local pet = gData.GetPet();
-	--local player = gData.GetPlayer();
 	if (player.Status == 'Idle') then
 		if (player.HPP < 80 ) then
 			gFunc.EquipSet(sets.Idle_Regen);
@@ -218,7 +214,7 @@ function gcinclude.SetRegenRefreshGear()
 end
 
 function gcinclude.CheckBailout()
-	--local player = gData.GetPlayer();
+	local player = gData.GetPlayer();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');
@@ -237,17 +233,7 @@ function gcinclude.DoNukes(tier)
 	AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. cast .. ' ' .. tier .. '" <t>');
 end
 
-function gcinclude.LockDeathSet(toggle)
-	if (toggle) then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/lac set Death 3');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable all');
-	else
-		AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable all');
-	end
-end
-
 function gcinclude.DoSCHspells(spell)
-	--local player = gData.GetPlayer();
 	local e = varhelper.GetCycle('Element');
 	local key = 0;
 	local cast = 'cast';
