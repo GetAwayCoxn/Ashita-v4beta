@@ -54,12 +54,12 @@ gcinclude.HelixSpells = T{'Ionohelix', 'Cryohelix', 'Pyrohelix', 'Geohelix', 'An
 gcinclude.StormSpells = T{'Thunderstorm', 'Hailstorm', 'Firestorm', 'Sandstorm', 'Windstorm', 'Rainstorm', 'Aurorastorm', 'Voidstorm'};
 
 
-
+local player = gData.GetPlayer();
 --[[
 --functions for functiony stuffs, definitely leave this stuff alone
 --]]
 function gcinclude.SetAlias()
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
@@ -86,7 +86,7 @@ function gcinclude.SetAlias()
 end
 
 function gcinclude.SetVariables() --De-clutter this mess
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	varhelper.CreateToggle('DTset', false);
 	varhelper.CreateToggle('Kite', false);
 	varhelper.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
@@ -107,7 +107,7 @@ function gcinclude.SetVariables() --De-clutter this mess
 end
 
 function gcinclude.SetCommands(args)
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	if (args[1] == 'dt') then
 		varhelper.AdvanceToggle('DTset');
     elseif (args[1] == 'set') then
@@ -198,7 +198,7 @@ end
 
 function gcinclude.SetRegenRefreshGear()
 	local pet = gData.GetPet();
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	if (player.Status == 'Idle') then
 		if (player.HPP < 80 ) then
 			gFunc.EquipSet(sets.Idle_Regen);
@@ -218,7 +218,7 @@ function gcinclude.SetRegenRefreshGear()
 end
 
 function gcinclude.CheckBailout()
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');
@@ -239,6 +239,7 @@ end
 
 function gcinclude.LockDeathSet(toggle)
 	if (toggle) then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/lac set Death 3');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable all');
 	else
 		AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable all');
@@ -246,7 +247,7 @@ function gcinclude.LockDeathSet(toggle)
 end
 
 function gcinclude.DoSCHspells(spell)
-	local player = gData.GetPlayer();
+	--local player = gData.GetPlayer();
 	local e = varhelper.GetCycle('Element');
 	local key = 0;
 	local cast = 'cast';

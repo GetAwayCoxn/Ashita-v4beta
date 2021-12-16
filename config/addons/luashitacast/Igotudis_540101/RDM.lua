@@ -100,9 +100,16 @@ sets = {
         Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
         Feet = 'Volte Gaiters',
     },
-    Cure_Precast = {},
-    Enhancing_Precast = {},
-    Stoneskin_Precast = {},
+    Cure_Precast = {
+        Feet = 'Vanya Clogs',
+    },
+    Enhancing_Precast = {
+        Waist = 'Siegel Sash',
+    },
+    Stoneskin_Precast = {
+        Head = 'Umuthi Hat',
+        Waist = 'Siegel Sash',
+    },
 
 
     Cure = {
@@ -122,9 +129,18 @@ sets = {
         Legs = 'Atrophy Tights',
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
-    Self_Cure = {},
-    Regen = {},
-    Cursna = {},
+    Self_Cure = {
+        Waist = 'Gishdubar Sash',
+    },
+    Regen = {
+        Main = 'Bolelabunga',
+        Sub = 'Ammurapi Shield',
+        Body = 'Telchine Chas.',
+    },
+    Cursna = {
+        Ring1 = 'Purity Ring',
+		Waist = 'Gishdubar Sash',
+    },
 
     Enhancing = {
         Main = 'Sakpata\'s Sword',
@@ -145,9 +161,14 @@ sets = {
     },
     Self_Enhancing = {},
     Skill_Enhancing = {},
-    Stoneskin = {},
+    Stoneskin = {
+        Neck = 'Nodens Gorget',
+        Waist = 'Siegel Sash',
+    },
     Phalanx = {},
-    Refresh = {},
+    Refresh = {
+		Waist = 'Gishdubar Sash',
+    },
     Self_Refresh = {},
 
     Enfeebling = {
@@ -167,6 +188,7 @@ sets = {
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
+    EnfeeblingACC = {},
     Mind_Enfeebling = {},
     Int_Enfeebling = {},
     Potency_Enfeebling = {},
@@ -364,6 +386,7 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local weather = gData.GetEnvironment();
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
@@ -385,6 +408,8 @@ profile.HandleMidcast = function()
             if (target.Name == me) then
                 gFunc.EquipSet(sets.Self_Refresh);
             end
+        elseif (target.Name == me) and string.contains(spell.Name, 'En') then
+            gFunc.EquipSet(sets.Skill_Enhancing);
         end
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure);
@@ -403,14 +428,32 @@ profile.HandleMidcast = function()
         if (varhelper.GetToggle('NukeSet') == 'Macc') then
             gFunc.EquipSet(sets.NukeACC);
         end
-        if string.match(spell.Name, 'helix') then
-            gFunc.EquipSet(sets.Helix);
-        end
         if (varhelper.GetToggle('Burst') == true) then
             gFunc.EquipSet(sets.Burst);
         end
+        if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
+            gFunc.Equip('Waist', 'Hachirin-no-Obi');
+        end
+        if string.match(spell.Name, 'helix') then
+            gFunc.EquipSet(sets.Helix);
+        end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
+        if (varhelper.GetToggle('NukeSet') == 'Macc') then
+            gFunc.EquipSet(sets.EnfeeblingACC);
+        end
+        if string.contains(spell.Name, 'Paralyze') or string.contains(spell.Name, 'Slow') or string.contains(spell.Name, 'Addle') then
+            gFunc.EquipSet(sets.Mind_Enfeebling);
+        elseif string.contains(spell.Name, 'Poison') then
+            gFunc.EquipSet(sets.Int_Enfeebling);
+        elseif string.contains(spell.Name, 'Distract') or string.match(spell.Name, 'Frazzle III') then
+            gFunc.EquipSet(sets.Potency_Enfeebling);
+        end
+    elseif (spell.Skill == 'Dark Magic') then
+        gFunc.EquipSet(sets.EnfeeblingACC); -- mostly MACC anyways
+        if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
+            gFunc.EquipSet(sets.Drain);
+        end
     end
 end
 

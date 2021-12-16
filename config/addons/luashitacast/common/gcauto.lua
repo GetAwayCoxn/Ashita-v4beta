@@ -19,7 +19,6 @@ function gcauto.SetAlias()
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /natmed /lac fwd natmed');
 	end
 
-	
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /zerk /lac fwd zerk');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /def /lac fwd def');
@@ -141,9 +140,10 @@ function gcauto.AutoMeds()
 end
 
 function gcauto.DoJobStuff()
-	local player = gData.GetPlayer();
 	local zone = gData.GetEnvironment();
 	if (zone.Area == nil) or (Towns:contains(zone.Area)) then return end
+	local player = gData.GetPlayer();
+	local pet = gData.GetPet();
 	
 	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
@@ -174,7 +174,7 @@ function gcauto.DoJobStuff()
 			if (haste == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Haste II" <me>');
 			elseif (refresh == 0) then
-				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh II" <me>');
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh III" <me>');
 			elseif (aquaveil == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aquaveil" <me>');
 			end
@@ -184,15 +184,26 @@ function gcauto.DoJobStuff()
 				local phalanx = gData.GetBuffCount('Phalanx');
 
 				if (temper == 0) then
-					AshitaCore:GetChatManager():QueueCommand(1, '/ma "temper" <me>');
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Temper II" <me>');
 				elseif (phalanx == 0) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Phalanx II" <me>');
 				end
 			end
 		end
+	elseif (player.MainJob == 'BST') then
+		if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
+		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
+			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
+		end
+	elseif (player.MainJob == 'DRK') then
+		local endark = gData.GetBuffCount('Endark');
+		if (endark == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark" <me>');
+		end
 	end
 
-	
+
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		local berserk = gData.GetBuffCount('Berserk');
 		local aggressor = gData.GetBuffCount('Aggressor');
@@ -202,7 +213,7 @@ function gcauto.DoJobStuff()
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
 		elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "aggressor" <me>');
-		elseif (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (gcauto.CheckAbilityRecast('Defender') <= 0) and (player.Status == 'Engaged') then
+		elseif (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (gcauto.CheckAbilityRecast('Defender') <= 0) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "defender" <me>');
 		end
 	end
@@ -220,7 +231,7 @@ function gcauto.Initialize()
 	gcauto.SetAlias();
 	--gcauto.Welcome();
 	gcdisplay.Initialize();
-	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink'); -- add plugin load check here when you figure it out maybe
+	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
 	AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
 end
 
@@ -236,11 +247,7 @@ function gcauto.Default()
 	local stun = gData.GetBuffCount('Stun');
 	local terror = gData.GetBuffCount('Terror');
 	local amnesia = gData.GetBuffCount('Amnesia');
-
-	if (sleep+petrify+stun+terror+amnesia >= 1) then
-		return;
-	end
-
+	if (sleep+petrify+stun+terror+amnesia >= 1) then return end
 	
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
