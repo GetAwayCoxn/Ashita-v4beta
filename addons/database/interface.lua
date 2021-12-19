@@ -99,6 +99,11 @@ function interface.renderJobPointsTab()
         if (imgui.Button('Update Jobs')) then
             interface.manager.UpdateJobs();
         end
+        imgui.SameLine();
+        if (imgui.Button('Test Button')) then
+            AshitaCore:GetChatManager():QueueCommand(1, '/addon reload Database');
+        end
+        imgui.ShowHelp('Testing Show Help again.');
     imgui.EndGroup();
 end
 
@@ -189,7 +194,7 @@ function interface.render()
     imgui.SetNextWindowSize({ 900, 700, });
     imgui.SetNextWindowSizeConstraints({ 900, 700, }, { FLT_MAX, FLT_MAX, });
     if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
-        if (imgui.BeginTabBar('database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+        if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
                 interface.renderJobPointsTab();
                 imgui.EndTabItem();

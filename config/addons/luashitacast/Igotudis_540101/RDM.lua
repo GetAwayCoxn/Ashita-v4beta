@@ -1,5 +1,5 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = {
@@ -24,8 +24,7 @@ sets = {
     Idle_Regen = {},
     Idle_Refresh = {},
     Town = {
-        --Main = 'Excalibur',
-        Main = 'Sakpata\'s Sword',
+        Main = 'Excalibur',
         Sub = 'Genmei Shield',
         Ammo = 'Staunch Tathlum',
         Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
@@ -328,10 +327,10 @@ profile.HandleDefault = function()
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set')); end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
 
-        if (varhelper.GetToggle('Fight') == false) then
+        if (gcdisplay.GetToggle('Fight') == false) then
             AshitaCore:GetChatManager():QueueCommand(1, '/fight');
         end
     elseif (player.Status == 'Resting') then
@@ -341,11 +340,11 @@ profile.HandleDefault = function()
     end
 	
 	
-	if (varhelper.GetToggle('DTset') == true) then
+	if (gcdisplay.GetToggle('DTset') == true) then
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
 	end
-	if (varhelper.GetToggle('Kite') == true) then
+	if (gcdisplay.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
 
@@ -425,10 +424,10 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Elemental Magic') then
         gFunc.EquipSet(sets.Nuke);
 
-        if (varhelper.GetToggle('NukeSet') == 'Macc') then
+        if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
             gFunc.EquipSet(sets.NukeACC);
         end
-        if (varhelper.GetToggle('Burst') == true) then
+        if (gcdisplay.GetToggle('Burst') == true) then
             gFunc.EquipSet(sets.Burst);
         end
         if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
@@ -439,7 +438,7 @@ profile.HandleMidcast = function()
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
-        if (varhelper.GetToggle('NukeSet') == 'Macc') then
+        if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
             gFunc.EquipSet(sets.EnfeeblingACC);
         end
         if string.contains(spell.Name, 'Paralyze') or string.contains(spell.Name, 'Slow') or string.contains(spell.Name, 'Addle') then
@@ -472,17 +471,17 @@ profile.HandleWeaponskill = function()
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
    
         if string.match(ws.Name, 'Chant du Cygne') then
             gFunc.EquipSet(sets.Chant_Default)
-            if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Chant_' .. gcdisplay.GetCycle('MeleeSet')); end
 	    elseif string.match(ws.Name, 'Savage Blade') then
             gFunc.EquipSet(sets.Savage_Default)
-            if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

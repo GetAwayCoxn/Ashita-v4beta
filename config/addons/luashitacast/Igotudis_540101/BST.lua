@@ -1,5 +1,5 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
@@ -204,7 +204,7 @@ profile.HandleDefault = function()
 	
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
-        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set'));
+        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -216,13 +216,13 @@ profile.HandleDefault = function()
 	if (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
-	if (varhelper.GetToggle('DTset') == true) then
+	if (gcdisplay.GetToggle('DTset') == true) then
 		gFunc.EquipSet(sets.Dt);
         if (pet ~= nil) then
             gFunc.EquipSet(sets.Pet_Dt);
 		end
 	end
-	if (varhelper.GetToggle('Kite') == true) then
+	if (gcdisplay.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
 	gcinclude.CheckDefault ();
@@ -276,8 +276,8 @@ profile.HandleWeaponskill = function()
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
     end
 end
 

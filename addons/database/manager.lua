@@ -3,12 +3,12 @@ local manager = T{
 
 local jobsabrv = T{'WAR','MNK','WHM','BLM','RDM','THF','PLD','DRK','BST','BRD','RNG','SAM','NIN','DRG','SMN','BLU','COR','PUP','DNC','SCH','GEO','RUN'};
 local relics = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator', 'Gjallarhorn', 'Aegis' };
-local mythics = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', };
+local mythics = T{'Conqueror', 'Glanzfaust', 'Yagrush', 'Laevateinn', 'Murgleis', 'Vajra', 'Burtgang', 'Liberator', 'Aymur', 'Carnwenhan', 'Gastraphetes', 'Kogarasumaru', 'Nagi', 'Ryunohige', 'Nirvana', 'Tizona', 'Death Penalty', 'Kenkonken', 'Terpsichore', 'Tupsimati', 'Idris', 'Epeolatry'};
 local empys = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', 'Daurdabla', 'Ochain' };
-local aeonics = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon', };
-local dynastage2 = {'Militant Knuckles', 'Malefic Dagger', 'Glyptic Sword', 'Gilded Blade', 'Leonine Axe', 'Agonal Bhuj', 'Memento Scythe', 'Hotspur Lance', 'Mimizuku', 'Hayatemaru', 'Battering Maul', 'Sage\'s Staff', 'Wolver Bow', 'Marksman Gun', 'Pyrrhic Horn', 'Bulwark Shield' };
-local dynastage3 = {'Dynamis Knuckles', 'Dynamis Dagger', 'Dynamis Sword', 'Dynamis Blade', 'Dynamis Axe', 'Dynamis Bhuj', 'Dynamis Scythe', 'Dynamis Lance', 'Rogetsu', 'Oboromaru', 'Dynamis Maul', 'Dynamis Staff', 'Dynamis Bow', 'Dynamis Gun', 'Dynamis Horn', 'Dynamis Shield' };
-local dynastage4 = {'Caestus', 'Batardeau', 'Caliburn', 'Valhalla', 'Ogre Killer', 'Abaddon Killer', 'Bec de Faucon', 'Gae Assail', 'Yoshimitsu', 'Totsukanotsurugi', 'Gullintani', 'Thyrus', 'Futatokoroto', 'Ferdinand', 'Millennium Horn', 'Ancile' };
+local aeonics = T{'Godhands', 'Aeneas', 'Sequence', 'Lionheart', 'Tri-edge', 'Chango', 'Anguta', 'Trishula', 'Heishi Shorinken', 'Dojikiri Yasutsuna', 'Tishtrya', 'Khatvanga', 'Fail-Not', 'Fomalhaut'};
+local dynastage2 = T{'Militant Knuckles', 'Malefic Dagger', 'Glyptic Sword', 'Gilded Blade', 'Leonine Axe', 'Agonal Bhuj', 'Memento Scythe', 'Hotspur Lance', 'Mimizuku', 'Hayatemaru', 'Battering Maul', 'Sage\'s Staff', 'Wolver Bow', 'Marksman Gun', 'Pyrrhic Horn', 'Bulwark Shield' };
+local dynastage3 = T{'Dynamis Knuckles', 'Dynamis Dagger', 'Dynamis Sword', 'Dynamis Blade', 'Dynamis Axe', 'Dynamis Bhuj', 'Dynamis Scythe', 'Dynamis Lance', 'Rogetsu', 'Oboromaru', 'Dynamis Maul', 'Dynamis Staff', 'Dynamis Bow', 'Dynamis Gun', 'Dynamis Horn', 'Dynamis Shield' };
+local dynastage4 = T{'Caestus', 'Batardeau', 'Caliburn', 'Valhalla', 'Ogre Killer', 'Abaddon Killer', 'Bec de Faucon', 'Gae Assail', 'Yoshimitsu', 'Totsukanotsurugi', 'Gullintani', 'Thyrus', 'Futatokoroto', 'Ferdinand', 'Millennium Horn', 'Ancile' };
 
 
 function manager.UpdateJobs()  

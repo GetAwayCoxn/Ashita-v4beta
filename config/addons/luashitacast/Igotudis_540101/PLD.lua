@@ -1,5 +1,5 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
@@ -202,8 +202,8 @@ profile.HandleDefault = function()
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set')); end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -214,11 +214,11 @@ profile.HandleDefault = function()
 	if (cover >= 1) then
 		gFunc.EquipSet(sets.Fealty); -- same set as fealty
 	end
-	if (varhelper.GetToggle('DTset') == true) then
+	if (gcdisplay.GetToggle('DTset') == true) then
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
 	end
-	if (varhelper.GetToggle('Kite') == true) then
+	if (gcdisplay.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
 
@@ -286,17 +286,17 @@ profile.HandleWeaponskill = function()
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
    
         if string.match(ws.Name, 'Chant du Cygne') then
             gFunc.EquipSet(sets.Chant_Default)
-            if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. varhelper.GetCycle('Set')); end
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Chant_' .. gcdisplay.GetCycle('MeleeSet')); end
 	    elseif string.match(ws.Name, 'Savage Blade') then
             gFunc.EquipSet(sets.Savage_Default)
-            if (varhelper.GetCycle('Set') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. varhelper.GetCycle('Set')); end
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

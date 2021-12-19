@@ -1,4 +1,5 @@
 local gcinclude = {};
+gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcauto = gFunc.LoadFile('common\\gcauto.lua');
 
 if (not gcauto) then
@@ -58,7 +59,7 @@ function gcinclude.SetAlias()
 
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /set /lac fwd set');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meleeset /lac fwd meleeset');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
@@ -79,30 +80,36 @@ function gcinclude.SetAlias()
 	if (player.MainJob == 'THF') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /th /lac fwd th');
 	end
+	if (player.MainJob == 'SAM') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /proc /lac fwd proc');
+	end
 end
 
 function gcinclude.SetVariables() --De-clutter this mess
 	local player = gData.GetPlayer();
 
-	varhelper.CreateToggle('DTset', false);
-	varhelper.CreateToggle('Kite', false);
-	varhelper.CreateCycle('Set', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
+	gcdisplay.CreateToggle('DTset', false);
+	gcdisplay.CreateToggle('Kite', false);
+	gcdisplay.CreateCycle('MeleeSet', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
-		varhelper.CreateToggle('Burst', false);
-		varhelper.CreateCycle('NukeSet', {[1] = 'Power', [2] = 'Macc',});
+		gcdisplay.CreateToggle('Burst', false);
+		gcdisplay.CreateCycle('NukeSet', {[1] = 'Power', [2] = 'Macc',});
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
-			varhelper.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
-			varhelper.CreateCycle('Element', {[1] = 'Thunder', [2] = 'Blizzard', [3] = 'Fire', [4] = 'Stone', [5] = 'Aero', [6] = 'Water', [7] = 'Light', [8] = 'Dark'});
+			gcdisplay.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
+			gcdisplay.CreateCycle('Element', {[1] = 'Thunder', [2] = 'Blizzard', [3] = 'Fire', [4] = 'Stone', [5] = 'Aero', [6] = 'Water', [7] = 'Light', [8] = 'Dark'});
 			if (player.MainJob == 'BLM') then
-				varhelper.CreateToggle('Death', false);
+				gcdisplay.CreateToggle('Death', false);
 			end
 		end
 	end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
-		varhelper.CreateToggle('Fight', false);
+		gcdisplay.CreateToggle('Fight', false);
 	end
 	if (player.MainJob == 'THF') then
-		varhelper.CreateToggle('TH', true);
+		gcdisplay.CreateToggle('TH', true);
+	end
+	if (player.MainJob == 'SAM') then
+		gcdisplay.CreateToggle('PROC', false);
 	end
 end
 
@@ -110,23 +117,23 @@ function gcinclude.SetCommands(args)
 	local player = gData.GetPlayer();
 
 	if (args[1] == 'dt') then
-		varhelper.AdvanceToggle('DTset');
-    elseif (args[1] == 'set') then
-		varhelper.AdvanceCycle('Set');
+		gcdisplay.AdvanceToggle('DTset');
+    elseif (args[1] == 'meleeset') then
+		gcdisplay.AdvanceCycle('MeleeSet');
 	elseif (args[1] == 'kite') then
-		varhelper.AdvanceToggle('Kite');
+		gcdisplay.AdvanceToggle('Kite');
     end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 		if (args[1] == 'nukeset') then
-			varhelper.AdvanceCycle('NukeSet');
+			gcdisplay.AdvanceCycle('NukeSet');
 		elseif (args[1] == 'burst') then
-			varhelper.AdvanceToggle('Burst');
+			gcdisplay.AdvanceToggle('Burst');
 		end
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 			if (args[1] == 'weapon') then
-				varhelper.AdvanceCycle('Weapon');
+				gcdisplay.AdvanceCycle('Weapon');
 			elseif (args[1] == 'elecycle') then
-				varhelper.AdvanceCycle('Element');
+				gcdisplay.AdvanceCycle('Element');
 			elseif (args[1] == 'helix') then
 				gcinclude.DoSCHspells('helix');
 			elseif (args[1] == 'weather') then
@@ -136,29 +143,34 @@ function gcinclude.SetCommands(args)
 			end
 			if (player.MainJob == 'BLM') then
 				if (args[1] == 'death') then
-					varhelper.AdvanceToggle('Death');
+					gcdisplay.AdvanceToggle('Death');
 				end
 			end
 		end
 	end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
 		if (args[1] == 'fight') then
-			if (varhelper.GetToggle('Fight') == false) then
+			if (gcdisplay.GetToggle('Fight') == false) then
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range');
-				varhelper.AdvanceToggle('Fight');
+				gcdisplay.AdvanceToggle('Fight');
 			else
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range');
-				varhelper.AdvanceToggle('Fight');
+				gcdisplay.AdvanceToggle('Fight');
 			end
 		end
 	end
 	if (player.MainJob == 'THF') then
 		if (args[1] == 'th') then
-			varhelper.AdvanceToggle('TH');
+			gcdisplay.AdvanceToggle('TH');
+		end
+	end
+	if (player.MainJob == 'SAM') then
+		if (args[1] == 'proc') then
+			gcdisplay.AdvanceToggle('PROC');
 		end
 	end
 	if (gcauto ~= nil) then gcauto.SetCommands(args) end
@@ -229,12 +241,12 @@ function gcinclude.CheckBailout()
 end
 
 function gcinclude.DoNukes(tier)
-	local cast = varhelper.GetCycle('Element');
+	local cast = gcdisplay.GetCycle('Element');
 	AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. cast .. ' ' .. tier .. '" <t>');
 end
 
 function gcinclude.DoSCHspells(spell)
-	local e = varhelper.GetCycle('Element');
+	local e = gcdisplay.GetCycle('Element');
 	local key = 0;
 	local cast = 'cast';
 	local type = {};
@@ -317,12 +329,11 @@ function gcinclude.CheckDefault()
 end
 
 function gcinclude.Unload()
-	varhelper.Destroy();
-	if (gcauto ~= nil) then gcauto.Unload() end
+	gcdisplay.Unload();
 end
 
 function gcinclude.Initialize()
-	varhelper.Initialize();
+	gcdisplay.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
 	if (gcauto ~= nil) then gcauto.Initialize() end
