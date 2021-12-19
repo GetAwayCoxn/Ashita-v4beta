@@ -1,0 +1,286 @@
+<crossbartheme>
+	<bindingmenu>
+		<maxoptions>10</maxoptions>
+		<maxlabels>8</maxlabels>
+		<menuwidth>400</menuwidth>
+		<optionheight>20</optionheight>
+		<labelheight>30</labelheight>
+		<labelimageoffsetx>10</labelimageoffsetx>
+		<labelimageoffsety>5</labelimageoffsety>
+		<labelimagewidth>20</labelimagewidth>
+		<labelimageheight>20</labelimageheight>
+		
+		<dpadup>ui/dinput/dpadup.png</dpadup>
+		<dpadright>ui/dinput/dpadright.png</dpadright>
+		<dpaddown>ui/dinput/dpaddown.png</dpaddown>
+		<dpadleft>ui/dinput/dpadleft.png</dpadleft>
+		<buttonup>ui/dinput/buttonup.png</buttonup>
+		<buttonright>ui/dinput/buttonright.png</buttonright>
+		<buttondown>ui/dinput/buttondown.png</buttondown>
+		<buttonleft>ui/dinput/buttonleft.png</buttonleft>
+		
+		<prompt enabled="true" z="1">
+			<offsetx>10</offsetx> <!--distance from top left of member element-->
+			<offsety>10</offsety> <!--distance from top left of member element-->
+			<width>380</width> <!--width is used for center/right alignment-->
+			<height>30</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>26</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>near</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>255</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>2</width>
+					<color>
+						<alpha>0</alpha>
+						<red>255</red>
+						<green>255</green>
+						<blue>255</blue>
+					</color>
+				</outline>
+			</font>
+		</prompt>
+				
+		<!--Specifically for menu, height refers to height of ONE option.-->
+		<menu enabled="true" z="1">
+			<offsetx>10</offsetx> <!--distance from top left of member element-->
+			<offsety>0</offsety> <!--distance from top left of member element-->
+			<width>380</width> <!--width is used for center/right alignment-->
+			<height>20</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>16</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>near</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>255</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>0</alpha>
+						<red>255</red>
+						<green>255</green>
+						<blue>255</blue>
+					</color>
+				</outline>
+			</font>
+		</menu>
+		
+		<!--Specifically for label, height refers to height of ONE label.-->
+		<label enabled="true" z="1">
+			<offsetx>35</offsetx> <!--distance from top left of member element-->
+			<offsety>5</offsety> <!--distance from top left of member element-->
+			<width>360</width> <!--width is used for center/right alignment-->
+			<height>20</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>16</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>near</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>255</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>1</width>
+					<color>
+						<alpha>0</alpha>
+						<red>255</red>
+						<green>255</green>
+						<blue>255</blue>
+					</color>
+				</outline>
+			</font>
+		</label>
+	</bindingmenu>
+	
+	<macro>
+		<cost enabled="true" z="1"> <!--All text objects share same schema-->
+			<offsetx>9</offsetx> <!--distance from top left of member element-->
+			<offsety>31</offsety> <!--distance from top left of member element-->
+			<width>40</width> <!--width is used for center/right alignment-->
+			<height>9</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>9</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>far</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>56</red>
+					<green>150</green>
+					<blue>9</blue>
+				</color>
+				<outline>
+					<width>2</width>
+					<color>
+						<alpha>255</alpha>
+						<red>0</red>
+						<green>0</green>
+						<blue>0</blue>
+					</color>
+				</outline>
+			</font>
+		</cost>
+		
+		<recast enabled="true" z="1"> <!--All text objects share same schema-->
+			<offsetx>9</offsetx> <!--distance from top left of member element-->
+			<offsety>31</offsety> <!--distance from top left of member element-->
+			<width>40</width> <!--width is used for center/right alignment-->
+			<height>9</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>9</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>near</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>191</red>
+					<green>204</green>
+					<blue>4</blue>
+				</color>
+				<outline>
+					<width>2</width>
+					<color>
+						<alpha>255</alpha>
+						<red>0</red>
+						<green>0</green>
+						<blue>0</blue>
+					</color>
+				</outline>
+			</font>
+		</recast>
+		
+		<name enabled="true" z="2">
+			<offsetx>0</offsetx> <!--distance from top left of member element-->
+			<offsety>40</offsety> <!--distance from top left of member element-->
+			<width>58</width> <!--width is used for center/right alignment-->
+			<height>12</height> <!--text is always bottom aligned in height field-->
+			<font>
+				<family>Arial</family>
+				<size>9</size>
+				<flags></flags> <!--flags should be seperated by commas and include: bold,italic,underline,strikethrough-->
+				<alignment>center</alignment> <!--near=left, center=center, far=right-->
+				<color>
+					<alpha>255</alpha>
+					<red>255</red>
+					<green>255</green>
+					<blue>255</blue>
+				</color>
+				<outline>
+					<width>2</width>
+					<color>
+						<alpha>255</alpha>
+						<red>0</red>
+						<green>0</green>
+						<blue>0</blue>
+					</color>
+				</outline>
+			</font>
+		</name>
+	
+		<triggercolor>
+			<alpha>140</alpha>
+			<red>255</red>
+			<green>0</green>
+			<blue>0</blue>
+		</triggercolor>
+		
+		<backgroundcolor>
+			<alpha>140</alpha>
+			<red>112</red>
+			<green>112</green>
+			<blue>129</blue>
+		</backgroundcolor>
+		
+		<useitemresource>true</useitemresource>
+		<defaultability>abilities/default.png</defaultability>
+		<defaultcommand>commands/default.png</defaultcommand>
+		<defaultitem>items/default.png</defaultitem>
+		<defaultspell>spells/default.png</defaultspell>
+		<defaultweaponskill>weaponskills/default.png</defaultweaponskill>
+		<liquefaction>skillchains/liquefaction.png</liquefaction>
+		<scission>skillchains/scission.png</scission>
+		<reverberation>skillchains/reverberation.png</reverberation>
+		<detonation>skillchains/detonation.png</detonation>
+		<induration>skillchains/induration.png</induration>
+		<impaction>skillchains/impaction.png</impaction>
+		<transfixion>skillchains/transfixion.png</transfixion>
+		<compression>skillchains/compression.png</compression>
+		<fusion>skillchains/fusion.png</fusion>
+		<gravitation>skillchains/gravitation.png</gravitation>
+		<distortion>skillchains/distortion.png</distortion>
+		<fragmentation>skillchains/fragmentation.png</fragmentation>
+		<light>skillchains/light.png</light>
+		<darkness>skillchains/darkness.png</darkness>
+		<crawl1>ui/crawl_1.png</crawl1>
+		<crawl2>ui/crawl_2.png</crawl2>
+		<crawl3>ui/crawl_3.png</crawl3>
+		<crawl4>ui/crawl_4.png</crawl4>
+		<crawl5>ui/crawl_5.png</crawl5>
+		<crawl6>ui/crawl_6.png</crawl6>
+		<crawl7>ui/crawl_7.png</crawl7>
+	</macro>
+	
+	<!--A subpanel comprises a dpad and a button layout.  Thus, the default interface is made up of 2 sub panels.-->
+	<subpanel>
+		<width>358</width> <!--Width of entire panel-->
+		<height>165</height> <!--Height of entire panel-->
+		<spacing>30</spacing> <!--Spacing between panels on default interface.-->
+		<macro>
+			<width>58</width> <!--Width of each macro area's field-->
+			<height>55</height> <!--Height of each macro area's field-->
+			<xoffset0>58</xoffset0> <!--Offset for X-Position-->
+			<xoffset1>116</xoffset1>
+			<xoffset2>58</xoffset2>
+			<xoffset3>0</xoffset3>
+			<xoffset4>232</xoffset4>
+			<xoffset5>290</xoffset5>
+			<xoffset6>232</xoffset6>
+			<xoffset7>174</xoffset7>
+			<yoffset0>0</yoffset0>
+			<yoffset1>55</yoffset1>
+			<yoffset2>110</yoffset2>
+			<yoffset3>55</yoffset3>
+			<yoffset4>0</yoffset4>
+			<yoffset5>55</yoffset5>
+			<yoffset6>110</yoffset6>
+			<yoffset7>55</yoffset7>
+			
+			<icon>
+				<width>40</width>
+				<height>40</height>
+				<offsetx>9</offsetx>
+				<offsety>0</offsety>
+			</icon>
+		</macro>
+		<buttons>
+			<image>ui/dinput/buttons.png</image>
+			<width>40</width>
+			<height>40</height>
+			<offsetx>241</offsetx>
+			<offsety>55</offsety>
+		</buttons>
+		<dpad>
+			<image>ui/dinput/dpad.png</image>
+			<width>40</width>
+			<height>40</height>
+			<offsetx>67</offsetx>
+			<offsety>55</offsety>
+		</dpad>
+	</subpanel>
+
+</crossbartheme>
+		
