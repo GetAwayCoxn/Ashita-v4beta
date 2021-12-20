@@ -50,6 +50,7 @@ gcinclude.BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Te
 gcinclude.Elements = T{'Thunder', 'Blizzard', 'Fire', 'Stone', 'Aero', 'Water', 'Light', 'Dark'};
 gcinclude.HelixSpells = T{'Ionohelix', 'Cryohelix', 'Pyrohelix', 'Geohelix', 'Anemohelix', 'Hydrohelix', 'Luminohelix', 'Noctohelix'};
 gcinclude.StormSpells = T{'Thunderstorm', 'Hailstorm', 'Firestorm', 'Sandstorm', 'Windstorm', 'Rainstorm', 'Aurorastorm', 'Voidstorm'};
+gcinclude.NinNukes = T{'Katon: Ichi', 'Katon: Ni', 'Katon: San', 'Hyoton: Ichi', 'Hyoton: Ni', 'Hyoton: San', 'Huton: Ichi', 'Huton: Ni', 'Huton: San', 'Doton: Ichi', 'Doton: Ni', 'Doton: San', 'Raiton: Ichi', 'Raiton: Ni', 'Raiton: San', 'Suiton: Ichi', 'Suiton: Ni', 'Suiton: San'};
 
 --[[
 --functions for functiony stuffs, definitely leave this stuff alone
@@ -80,7 +81,7 @@ function gcinclude.SetAlias()
 	if (player.MainJob == 'THF') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /th /lac fwd th');
 	end
-	if (player.MainJob == 'SAM') then
+	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /proc /lac fwd proc');
 	end
 end
@@ -108,7 +109,7 @@ function gcinclude.SetVariables() --De-clutter this mess
 	if (player.MainJob == 'THF') then
 		gcdisplay.CreateToggle('TH', true);
 	end
-	if (player.MainJob == 'SAM') then
+	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('PROC', false);
 	end
 end
@@ -168,7 +169,7 @@ function gcinclude.SetCommands(args)
 			gcdisplay.AdvanceToggle('TH');
 		end
 	end
-	if (player.MainJob == 'SAM') then
+	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		if (args[1] == 'proc') then
 			gcdisplay.AdvanceToggle('PROC');
 		end

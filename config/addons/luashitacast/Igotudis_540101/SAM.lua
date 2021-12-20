@@ -49,11 +49,11 @@ sets = {
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
         Ear2 = 'Etiolation Earring',
-        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
+        Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -165,6 +165,8 @@ sets = {
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
     },
     Ws_Hybrid = {
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
     },
     Ws_Acc = {
     },
@@ -296,13 +298,14 @@ profile.HandleDefault = function()
     local hasso = gData.GetBuffCount('Hasso');
 	
 	local player = gData.GetPlayer();
-    if (gcdisplay.GetToggle('PROC') == true) then
-        gFunc.EquipSet(sets.Tp_Proc);
-    elseif (player.Status == 'Engaged') then
+    
+    if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
         if (hasso >= 1) then gFunc.EquipSet(sets.Hasso) end
+        if (gcdisplay.GetToggle('PROC') == true) then
+            gFunc.EquipSet(sets.Tp_Proc); end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
