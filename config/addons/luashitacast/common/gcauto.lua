@@ -125,7 +125,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('HASSO', true);
 	end
 
-	if (equip == nil) then return;
+	if (equip == nil) then return;--this isnt working on log in
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		gcdisplay.CreateToggle('AM3', false);
 	end

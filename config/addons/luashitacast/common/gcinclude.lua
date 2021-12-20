@@ -12,6 +12,18 @@ end
 --Universal sets here for things like doomed or asleep; avoid main/sub/range/ammo here
 --]]
 gcinclude.sets = {
+	Dt = {
+        Head = 'Nyame Helm',
+        Neck = { Name = 'Loricate Torque +1', AugPath='A' },
+        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
+        Ear2 = 'Etiolation Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Defending Ring',
+        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+	},
 	Doomed = {
 		Ring1 = 'Purity Ring',
 		Waist = 'Gishdubar Sash',
