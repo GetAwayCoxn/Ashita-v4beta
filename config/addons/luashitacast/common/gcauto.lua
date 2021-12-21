@@ -175,8 +175,8 @@ function gcauto.SetCommands(args)
 		if (args[1] == 'hasso') then gcdisplay.AdvanceToggle('HASSO') end
 	end
 
-
-	if (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
+	if (equip == nil) then return;--this isnt working on log in
+	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		if (args[1] == 'am3') then gcdisplay.AdvanceToggle('AM3') end
 	end
 end
@@ -209,7 +209,7 @@ function gcauto.CheckAbilityRecast(check)
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
 
-			if (ability.Name[1] == check and ability.Name ~= nil) then
+			if (ability.Name[1] == check and ability ~= nil) then
 				RecastTime = timer;
 			end
 		end

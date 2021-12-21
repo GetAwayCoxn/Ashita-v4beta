@@ -11,18 +11,6 @@ interface = {
             jobs = {0.0,0.0,0.0,0.0},
         },
 
-        ids = T{
-            weapons = {
-                relic = {},
-                empyrean = {},
-                mythic = {},
-                aeonic = {},
-                dynastage2 = {},
-                dynastage3 = {},
-                dynastage4 = {},
-            },
-        },
-
         gear = T{
             relic = {},
             empyrean = {},
@@ -142,24 +130,6 @@ function interface.renderWeaponsTab()
 
 
                 if (imgui.BeginTabItem('EMPYREANS', nil)) then
-                    imgui.BeginTable('empys table', 9, ImGuiTableFlags_Borders);
-                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Abyssea 1');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Abyssea 2');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Abyssea 3');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'HMP');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, '60 Rifts');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, '300 Rocks');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, '10K Rocks');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Complete');
-
-                        interface.manager.DisplayEmpyreans();
-                    imgui.EndTable();
-
-                    if (imgui.Button('Update Empyrean Weapons')) then
-                        interface.manager.UpdateEmpyreanWeapons();
-                    end
                 imgui.EndTabItem();
                 end
 
@@ -172,16 +142,6 @@ function interface.renderWeaponsTab()
         imgui.EndChild();
 
         
-    imgui.EndGroup();
-
-    imgui.BeginGroup();
-        imgui.BeginChild('Weapon Totals', { 0, -5 }, true);
-            imgui.BeginTable('totals table', 1);
-                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-                        imgui.TextColored(colors.header, 'TOTALS');imgui.TableNextColumn();
-                    imgui.EndTable();
-                    imgui.EndTabItem();
-        imgui.EndChild();
     imgui.EndGroup();
 end
 

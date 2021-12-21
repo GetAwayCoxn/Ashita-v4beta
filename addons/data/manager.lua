@@ -348,7 +348,7 @@ function manager.DisplayRelics()
                 if stage < 4 then
                     if stage == 1 then
                         imgui.TableNextColumn();
-                        --[[local dyna2 = dynastage2[n];
+                        local dyna2 = dynastage2[n];
 
                         if (interface.data.ids.weapons.dynastage2[n][2] == dyna2) then
                             if (interface.data.ids.weapons.dynastage2[n][3] == true) then
@@ -356,18 +356,7 @@ function manager.DisplayRelics()
                             else
                                 imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.dynastage2[n][1]));
                             end
-                        end]]
-                        --[[for n = 1, #dynastage2 do
-                            local dyna2 = dynastage2[n];
-
-                            for w = 1, #interface.data.ids.weapons.dynastage2 do
-                                if (interface.data.ids.weapons.dynastage2[w][2] == dyna2) then
-                                    imgui.TextColored(colors.text1, tostring(interface.data.ids.weapons.dynastage2[w][1]));
-                                else
-                                    imgui.TextColored(colors.error, tostring(interface.data.ids.weapons.dynastage2[w][1]));
-                                end
-                            end
-                        end]]
+                        end
                     end
                     if stage == 2 then
                         imgui.TableNextColumn();
