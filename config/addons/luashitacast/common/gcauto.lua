@@ -44,7 +44,7 @@ gcauto.WeaponSkills = T{
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
 	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
-	['DRK'] = {[1] = 'None',},
+	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus'},
 	['BST'] = {[1] = 'None',},
 	['BRD'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
 	['RNG'] = {[1] = 'None',},
@@ -77,6 +77,8 @@ function gcauto.SetAlias()
 	elseif (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /yonin /lac fwd yonin');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /innin /lac fwd innin');
+	elseif (player.MainJob == 'DRK') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /spikes /lac fwd spikes');
 	end
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
@@ -86,6 +88,10 @@ function gcauto.SetAlias()
 	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /hasso /lac fwd hasso');
 	end
+	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /lr /lac fwd lr');
+	end
+
 	--[[if (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /step /lac fwd step');
 	end]]
@@ -114,6 +120,8 @@ function gcauto.SetVariables()
 	elseif (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('Yonin', false);
 		gcdisplay.CreateToggle('Innin', false);
+	elseif (player.MainJob == 'DRK') then
+		gcdisplay.CreateToggle('Spikes', false);
 	end
 
 
@@ -123,6 +131,9 @@ function gcauto.SetVariables()
 	end
 	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		gcdisplay.CreateToggle('HASSO', true);
+	end
+	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+		gcdisplay.CreateToggle('LR', false);
 	end
 
 	if (equip == nil) then return;--this isnt working on log in
@@ -164,6 +175,8 @@ function gcauto.SetCommands(args)
 		elseif (args[1] == 'innin') then
 			gcdisplay.AdvanceToggle('Innin');
 		end
+	elseif (player.MainJob == 'DRK') then
+		if (args[1] == 'spikes') then gcdisplay.AdvanceToggle('Spikes') end
 	end
 
 	
@@ -173,6 +186,9 @@ function gcauto.SetCommands(args)
 	end
 	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		if (args[1] == 'hasso') then gcdisplay.AdvanceToggle('HASSO') end
+	end
+	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+		if (args[1] == 'lr') then gcdisplay.AdvanceToggle('LR') end
 	end
 
 	if (equip == nil) then return;--this isnt working on log in
@@ -369,10 +385,14 @@ function gcauto.DoJobStuff()
 		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
 		end
-	elseif (player.MainJob == 'DRK') then
+	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then
 		local endark = gData.GetBuffCount('Endark');
-		if (endark == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark" <me>');
+		local spikes = gData.GetBuffCount('Dread Spikes');
+
+		if (endark == 0) and (player.Status == 'Engaged') then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark II" <me>');
+		elseif (spikes == 0) and (player.Status == 'Engaged') and (gcdisplay.GetToggle('Spikes') == true) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Dread Spikes" <me>');
 		end
 	end
 
@@ -382,6 +402,7 @@ function gcauto.DoJobStuff()
 		local aggressor = gData.GetBuffCount('Aggressor');
 		local defender = gData.GetBuffCount('Defender');
 		local impetus = gData.GetBuffCount('Impetus');
+		local lr = gData.GetBuffCount('Last Resort');
 		 
 		if (player.MainJob == 'MNK') and (impetus >= 1) then return end
 
@@ -389,9 +410,9 @@ function gcauto.DoJobStuff()
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "defender" <me>');
 		elseif (target == nil) then return;
 		elseif (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
-			if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) then
+			if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) and (lr == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
-			elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) then
+			elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) and (lr == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "aggressor" <me>');
 			end
 		end
@@ -407,6 +428,14 @@ function gcauto.DoJobStuff()
 			else
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "hasso" <me>');
 			end
+		end
+	end
+	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+		local lr = gData.GetBuffCount('Last Resort');
+		local berserk = gData.GetBuffCount('Berserk');
+
+		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Last Resort" <me>');
 		end
 	end
 end
