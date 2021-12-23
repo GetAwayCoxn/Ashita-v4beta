@@ -58,8 +58,8 @@ sets = {
         Neck = 'Sanctity Necklace',
         Ear1 = 'Mache Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Heath. Cuirass +1',
-        Hands = 'Flam. Manopolas +2',
+        Body = 'Flamma Korazin +2',
+        Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Flamma Ring',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
@@ -78,7 +78,6 @@ sets = {
         Neck = 'Baetyl Pendant',
         Ear1 = 'Malignance Earring',
         Ear2 = 'Etiolation Earring',
-        Hands = 'Volte Moufles',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Legs = 'Enif Cosciales',
@@ -103,23 +102,22 @@ sets = {
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Gifted Earring',
         Ear2 = 'Andoaa Earring',
-        Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Waist = 'Embla Sash',
+    },
+    Dread_Spikes = { -- HP+++++ at cast for max potency
+        Body = 'Heath. Cuirass +1',
+    },
+    Spikes = { -- set to leave body on with dread spikes up, only body here!
+        Body = 'Heath. Cuirass +1',
     },
 
     Enfeebling = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
-        Ear1 = 'Regal Earring',
-        Ear2 = 'Snotra Earring',
-        Body = 'Jhakri Robe +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
     Macc = {},
 
@@ -148,35 +146,25 @@ sets = {
     Midshot = {
     },
 
-    Ws_Default = {
+    Ws_Default = { -- WSD for all scythe basically
         Ammo = 'Knobkierrie',
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Weapon skill damage +4%', [2] = 'Accuracy+13', [3] = '"Mag. Atk. Bns."+8' } },
         Neck = 'Fotia Gorget',
         Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
         Ear2 = 'Thrud Earring',
-        Body = 'Sulevia\'s Plate. +2',
+        Body = 'Sulevia\'s Plate. +2', -- af+3
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Rufescent Ring', --regal ring
         Ring2 = 'Karieyh Ring',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
-        Legs = 'Sakpata\'s Cuisses',
+        Legs = 'Sakpata\'s Cuisses', -- relic +3
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
     },
     Ws_Hybrid = {
     },
     Ws_Acc = {
     },
-
-    Savage_Default = {
-    },
-    Savage_Hybrid = {},
-    Savage_Acc = {},
-
-    Chant_Default = {
-    },
-    Chant_Hybrid = {},
-    Chant_Acc = {},
 
     Movement = {
         Legs = 'Carmine Cuisses +1',
@@ -203,12 +191,14 @@ end
 
 profile.HandleDefault = function()
     gFunc.EquipSet(sets.Idle);
+    local spikes = gData.GetBuffCount('Dread Spikes');
 	
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+        if spikes ~= 0 then gFunc.EquipSet(sets.Spikes) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -243,16 +233,6 @@ profile.HandlePrecast = function()
     local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
 
-    if (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Enhancing_Precast);
-
-        if string.contains(spell.Name, 'Stoneskin') then
-            gFunc.EquipSet(sets.Stoneskin_Precast);
-        end
-    elseif (spell.Skill == 'Healing Magic') then
-        gFunc.EquipSet(sets.Cure_Precast);
-    end
-
     if string.contains(spell.Name, 'Utsusemi') then
         gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
@@ -280,6 +260,8 @@ profile.HandleMidcast = function()
         gFunc.EquipSet(sets.Macc);
         if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
             gFunc.EquipSet(sets.Drain);
+        elseif (string.match(spell.Name, 'Dread Spikes')) then
+            gFunc.EquipSet(sets.Dread_Spikes);
         end
     end
 end
@@ -302,15 +284,6 @@ profile.HandleWeaponskill = function()
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
    
-        if string.match(ws.Name, 'Chant du Cygne') then
-            gFunc.EquipSet(sets.Chant_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. gcdisplay.GetCycle('MeleeSet')); end
-	    elseif string.match(ws.Name, 'Savage Blade') then
-            gFunc.EquipSet(sets.Savage_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
-        end
     end
 end
 

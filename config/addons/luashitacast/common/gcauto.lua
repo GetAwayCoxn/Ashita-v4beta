@@ -45,7 +45,7 @@ gcauto.WeaponSkills = T{
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
 	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus'},
-	['BST'] = {[1] = 'None',},
+	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
 	['RNG'] = {[1] = 'None',},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
@@ -58,7 +58,7 @@ gcauto.WeaponSkills = T{
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
 	['SCH'] = {[1] = 'None',},
 	['GEO'] = {[1] = 'None',},
-	['RUN'] = {[1] = 'None',},
+	['RUN'] = {[1] = 'None', [2] = 'Dimidation', [3] = 'Resolution'},
 };
 
 function gcauto.SetAlias()
@@ -153,7 +153,7 @@ function gcauto.SetCommands(args)
 	elseif (args[1] == 'wskill') then
 		gcdisplay.AdvanceCycle('WSkill');
 	elseif (args[1] == 'wstp') then
-		wstp = tonumber(args[2]);
+		wstp = tonumber(args[2]); -- need to add error msg/check here
     end
 	
 
@@ -380,18 +380,18 @@ function gcauto.DoJobStuff()
 			end
 		end
 	elseif (player.MainJob == 'BST') then
-		if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
+		if (player.Status == 'Engaged') and (pet ~= nil) and (pet.Status ~= 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
-		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
+		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet ~= nil) and(pet.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
 		end
 	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then
 		local endark = gData.GetBuffCount('Endark');
 		local spikes = gData.GetBuffCount('Dread Spikes');
 
-		if (endark == 0) and (player.Status == 'Engaged') then
+		if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark II" <me>');
-		elseif (spikes == 0) and (player.Status == 'Engaged') and (gcdisplay.GetToggle('Spikes') == true) then
+		elseif (spikes == 0) and (player.Status == 'Engaged') and (gcdisplay.GetToggle('Spikes') == true)  then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Dread Spikes" <me>');
 		end
 	end
@@ -456,15 +456,15 @@ function gcauto.Initialize()
 end
 
 function gcauto.Default()
-	gcdisplay.Update();
-
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');
 	local terror = gData.GetBuffCount('Terror');
 	local amnesia = gData.GetBuffCount('Amnesia');
+
 	if (sleep+petrify+stun+terror+amnesia >= 1) then return end
 	
+	gcdisplay.Update();
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
 	gcauto.AutoWS();

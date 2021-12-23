@@ -214,7 +214,15 @@ end
 
 function gcinclude.SetTownGear()
 	local zone = gData.GetEnvironment();
-	if (zone.Area ~= nil) and (gcinclude.Towns:contains(zone.Area)) then gFunc.EquipSet(sets.Town) end
+	local rings = gData.GetEquipment();
+
+	if (zone.Area ~= nil) and (gcinclude.Towns:contains(zone.Area)) then 
+		--if (rings.Ring2 ~= nil) and (rings.Ring2.Name == 'Warp Ring') then --force unequip of warp ring in towns. did it as a check because ForceEquipSet was causing lag hmmm.
+			--gFunc.ForceEquipSet(sets.Town);
+		--else
+			gFunc.EquipSet(sets.Town);
+		--end
+	end
 end
 
 function gcinclude.SetRegenRefreshGear()

@@ -16,7 +16,7 @@ function manager.UpdateJobs()
     local JPhastotal = 0.0;
     
     for n = 1, #jobsabrv do
-        interface.data.ids.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
+        interface.data.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
     end
 
     for a = 1, #jobsabrv do
@@ -27,7 +27,7 @@ function manager.UpdateJobs()
             JPhastotal = JPhastotal + player:GetJobPoints(a);
         end
     end
-    interface.data.ids.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax),JPhastotal};
+    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax),JPhastotal};
 end
 
 function manager.DisplayJobs()
@@ -36,7 +36,7 @@ function manager.DisplayJobs()
             for x = 1, 4 do 
                 local t = T{};
                 imgui.TableNextColumn();
-                t:merge(interface.data.ids.jobs[n], true);
+                t:merge(interface.data.jobs[n], true);
                 imgui.Text(tostring(t[x]));
             end
     end
@@ -60,14 +60,92 @@ function manager.CheckWeapon(id)
 end
 
 function manager.UpdateRelics()
+    --[[local t = T{};
+    local key = '';
 
-    for n = 1, #interface.data.ids.weapons.relics do
-        print (n);
+    for x = 0, 65535 do
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for n = 1, #interface.data.weapons.relics do
+                for m = 2, #interface.data.weapons.relics[n] do
+                    if (item.Id[1] == (interface.data.weapons.relics[n][m])) then
+                        local check = false;
+                        check = manager.CheckWeapon(x);
+                        t:append({ x, item.Name[1], check });
+                    end
+                end
+            end
+            interface.data.acquired.weapons.relics:merge(t, true);
+
+
+
+
+    for n = 1, #interface.data.weapons.relics do
+        for m = 1, #interface.data.weapons.relics[n] do
+            if (m == 1) then
+                key = interface.data.weapons.relics[m];
+            else
+                local o = m - 1;
+                interface.data.acquired.weapons.relics[key][o] = manager.CheckWeapon(m);
+            end
+        end
+    end]]
+
+    local t = T{};
+    for x = 0, 65535 do
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for n = 1, #interface.data.weapons.relics[1] do
+                for m = 2, #interface.data.weapons.relics do
+                    if (item.Id[1] == (interface.data.weapons.relics[m])) then
+                        local check = false;
+                        check = manager.CheckWeapon(x);
+                        t:append({ x, check });
+                    end
+                end
+                interface.data.weapons.relics[n]:merge(t, true);
+            end
+        end
     end
-
 end
 
 function manager.DisplayRelics()
+    imgui.TableNextRow();
+    for m = 1, #interface.data.weapons.relics[1] do
+        for n = 1, #interface.data.weapons.relics do
+            if (interface.data.weapons.relics[n][m][1] == 'Gjallarhorn') then
+                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base Wep');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 2');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 3');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 4');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 75');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 80');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 90');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99');
+                imgui.TableNextColumn();
+                if (interface.data.weapons.relics[n][m][2] == 0) then
+                    imgui.TextColored(colors.header,tostring(interface.data.weapons.relics[n][m][1]));
+                elseif (interface.data.weapons.relics[n][m][2] == true) then
+                    imgui.TextColored(colors.text1,tostring(interface.data.weapons.relics[n][m][1]));
+                else
+                    imgui.TextColored(colors.error,tostring(interface.data.weapons.relics[n][m][1]));
+                end
+            else
+                imgui.TableNextColumn();
+                if (interface.data.weapons.relics[n][m][2] == 0) then
+                    imgui.TextColored(colors.header,tostring(interface.data.weapons.relics[n][m][1]));
+                elseif (interface.data.weapons.relics[n][m][2] == true) then
+                    imgui.TextColored(colors.text1,tostring(interface.data.weapons.relics[n][m][1]));
+                else
+                    imgui.TextColored(colors.error,tostring(interface.data.weapons.relics[n][m][1]));
+                end
+            end
+        end
+    end
 end
 
 return manager;

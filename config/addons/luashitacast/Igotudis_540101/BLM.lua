@@ -170,7 +170,7 @@ sets = {
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
-    EnfeeblingACC = {
+    Macc = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
@@ -187,9 +187,6 @@ sets = {
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
-    Mind_Enfeebling = {},
-    Int_Enfeebling = {},
-    Potency_Enfeebling = {},
 
     Drain = {
         Main = 'Bunzi\'s Rod',
@@ -301,7 +298,6 @@ sets = {
 };
 
 profile.Sets = sets;
-local player = gData.GetPlayer();
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -320,35 +316,38 @@ profile.HandleCommand = function(args)
 end
 
 profile.HandleDefault = function()
+    local player = gData.GetPlayer();
+
     if (gcdisplay.GetToggle('Death') == true) and (player.MPP > 50) then
         gFunc.EquipSet(sets.Death);
-    else
-        gFunc.EquipSet(sets.Idle);
+        return;
+    end
 
-        if (player.Status == 'Engaged') then
-            gFunc.EquipSet(sets.Tp_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-                gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
-            end
-        elseif (player.Status == 'Resting') then
-            gFunc.EquipSet(sets.Resting);
-        elseif (player.IsMoving == true) then
-		    gFunc.EquipSet(sets.Movement);
+    gFunc.EquipSet(sets.Idle);
+
+    if (player.Status == 'Engaged') then
+        gFunc.EquipSet(sets.Tp_Default)
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
         end
+    elseif (player.Status == 'Resting') then
+        gFunc.EquipSet(sets.Resting);
+    elseif (player.IsMoving == true) then
+		gFunc.EquipSet(sets.Movement);
+    end
 	
 	
-	    if (gcdisplay.GetToggle('DTset') == true) then
-            gFunc.EquipSet(gcinclude.sets.Dt);
-		    gFunc.EquipSet(sets.Dt);
-	    end
-	    if (gcdisplay.GetToggle('Kite') == true) then
-		    gFunc.EquipSet(sets.Movement);
-	    end
+	if (gcdisplay.GetToggle('DTset') == true) then
+        gFunc.EquipSet(gcinclude.sets.Dt);
+		gFunc.EquipSet(sets.Dt);
+	end
+	if (gcdisplay.GetToggle('Kite') == true) then
+		gFunc.EquipSet(sets.Movement);
+	end
 
-        gcinclude.CheckDefault ();
-        if (gcdisplay.GetCycle('Weapon') == 'Staff') then
-            gFunc.EquipSet(sets.Idle_Staff);
-        end
+    gcinclude.CheckDefault ();
+    if (gcdisplay.GetCycle('Weapon') == 'Staff') then
+        gFunc.EquipSet(sets.Idle_Staff);
     end
 end
 
@@ -394,6 +393,7 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
     local weather = gData.GetEnvironment();
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
@@ -437,7 +437,7 @@ profile.HandleMidcast = function()
         elseif (spell.Skill == 'Elemental Magic') then
             gFunc.EquipSet(sets.Nuke);
 
-            if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
+            if (gcdisplay.GetCycle('NukeSet') == 'Macc') then
                 gFunc.EquipSet(sets.NukeACC);
             end
             if (gcdisplay.GetToggle('Burst') == true) then
@@ -449,16 +449,16 @@ profile.HandleMidcast = function()
             if string.match(spell.Name, 'helix') then
                 gFunc.EquipSet(sets.Helix);
             end
-            if (player.MPP < 65) then
+            if (player.MPP <= 55) then
                 gFunc.EquipSet(sets.Af_Body);
             end
         elseif (spell.Skill == 'Enfeebling Magic') then
             gFunc.EquipSet(sets.Enfeebling);
-            if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
-                gFunc.EquipSet(sets.EnfeeblingACC);
+            if (gcdisplay.GetCycle('NukeSet') == 'Macc') then
+                gFunc.EquipSet(sets.Macc);
             end
         elseif (spell.Skill == 'Dark Magic') then
-            gFunc.EquipSet(sets.EnfeeblingACC); -- mostly MACC anyways
+            gFunc.EquipSet(sets.Macc);
             if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
                 gFunc.EquipSet(sets.Drain);
             end

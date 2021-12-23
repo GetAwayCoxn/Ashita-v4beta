@@ -6,7 +6,7 @@ addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
 local interface = require('interface');
-local imgui = require('imgui');
+imgui = require('imgui');
 
 ashita.events.register('load', 'load_cb', interface.load);
 
