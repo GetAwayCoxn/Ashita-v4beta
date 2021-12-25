@@ -50,7 +50,7 @@ gcauto.WeaponSkills = T{
 	['RNG'] = {[1] = 'None',},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
-	['DRG'] = {[1] = 'None',},
+	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['COR'] = {[1] = 'None',},
@@ -68,6 +68,7 @@ function gcauto.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd wskill');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wstp /lac fwd wstp');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /mob /lac fwd mob');
 
 	
 	if (player.MainJob == 'PLD') then
@@ -79,6 +80,8 @@ function gcauto.SetAlias()
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /innin /lac fwd innin');
 	elseif (player.MainJob == 'DRK') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /spikes /lac fwd spikes');
+	elseif (player.MainJob == 'DRG') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /jumps /lac fwd jumps');
 	end
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
@@ -111,6 +114,7 @@ function gcauto.SetVariables()
 
 	gcdisplay.CreateToggle('AUTO', false);
 	gcdisplay.CreateCycle('WSkill', gcauto.WeaponSkills[player.MainJob]);
+	gcdisplay.CreateCycle('Mob', {[1] = 'None', [2] = 'Apex Jagil',});
 	
 
 	if (player.MainJob == 'PLD') then
@@ -122,6 +126,8 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('Innin', false);
 	elseif (player.MainJob == 'DRK') then
 		gcdisplay.CreateToggle('Spikes', false);
+	elseif (player.MainJob == 'DRG') then
+		gcdisplay.CreateToggle('Jumps', false);
 	end
 
 
@@ -150,6 +156,8 @@ function gcauto.SetCommands(args)
 		gcauto.DisplayHelp();
 	elseif (args[1] == 'auto') then
 		gcdisplay.AdvanceToggle('AUTO');
+	elseif (args[1] == 'mob') then
+		gcdisplay.AdvanceCycle('Mob');
 	elseif (args[1] == 'wskill') then
 		gcdisplay.AdvanceCycle('WSkill');
 	elseif (args[1] == 'wstp') then
@@ -177,6 +185,8 @@ function gcauto.SetCommands(args)
 		end
 	elseif (player.MainJob == 'DRK') then
 		if (args[1] == 'spikes') then gcdisplay.AdvanceToggle('Spikes') end
+	elseif (player.MainJob == 'DRG') then
+		if (args[1] == 'jumps') then gcdisplay.AdvanceToggle('Jumps') end
 	end
 
 	
@@ -252,6 +262,11 @@ function gcauto.AutoWS()
 	end
 end
 
+function gcauto.AutoFight()
+	local target = gData.GetTarget();
+	local player = gData.GetPlayer();
+end
+
 function gcauto.DoAM3(job)
 	local target = gData.GetTarget();
 	local player = gData.GetPlayer();
@@ -310,8 +325,14 @@ function gcauto.DoJobStuff()
 	local player = gData.GetPlayer();
 	local pet = gData.GetPet();
 	local target = gData.GetTarget();
-	
-	if (player.MainJob == 'PLD') then
+
+	if (player.Status == 'Idle') and (gcdisplay.GetCycle('Mob') ~= 'None') and (gcdisplay.GetToggle('AUTO') == true) then
+		local check = false;
+		
+		if check == false then
+			gcauto.AutoFight();
+		end
+	elseif (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
 		if (gcdisplay.GetToggle('MAJ') == true) then	
 			if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) and (player.Status == 'Engaged') then
@@ -394,6 +415,22 @@ function gcauto.DoJobStuff()
 		elseif (spikes == 0) and (player.Status == 'Engaged') and (gcdisplay.GetToggle('Spikes') == true)  then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Dread Spikes" <me>');
 		end
+	elseif (player.MainJob == 'DRG') and (gcdisplay.GetToggle('AUTO') == true) then
+		local pet = gData.GetPet();
+
+		if (gcauto.CheckAbilityRecast('Spirit Link') <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (((pet.HPP < 75) and (player.HPP > 85)) or ((pet.TP > 1500) and (player.TP < 600))) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Spirit Link" <me>');
+		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 600) then
+			if (gcauto.CheckAbilityRecast('Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Jump" <t>');
+			elseif (gcauto.CheckAbilityRecast('High Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "High Jump" <t>');
+			elseif (gcauto.CheckAbilityRecast('Spirit Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Spirit Jump" <t>');
+			elseif (gcauto.CheckAbilityRecast('Soul Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Soul Jump" <t>');
+			end
+		end
 	end
 
 
@@ -468,6 +505,7 @@ function gcauto.Default()
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
 	gcauto.AutoWS();
+	--gcauto.AutoFight();
 end
 
 return gcauto;

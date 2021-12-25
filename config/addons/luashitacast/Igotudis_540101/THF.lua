@@ -43,17 +43,18 @@ sets = {
     },
 
     Tp_Default = {
-        Head = 'Adhemar Bonnet +1',
-        Neck ='Anu Torque',
+        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
+        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
+        Neck = 'Anu Torque',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Plunderer\'s Vest +3',
-        Hands = 'Adhemar Wrist. +1',
+        Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
+        Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
-        Waist = 'Sailfi Belt +1',
-        Legs = 'Samnuha Tights',
+        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Legs = { Name = 'Samnuha Tights', Augment = { [1] = 'STR+5', [2] = '"Triple Atk."+1', [3] = 'DEX+5' } },
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Tp_Hybrid = {
@@ -68,6 +69,12 @@ sets = {
 
 
     Precast = {
+        Head = 'Haruspex Hat',
+        Neck = 'Baetyl Pendant',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Taeon Tabard',
+        Ring1 = 'Prolix Ring',
+        Legs = 'Enif Cosciales',
     },
     SIR = {
 
@@ -84,14 +91,25 @@ sets = {
     },
 
     Ws_Default = {
-        Head = 'Adhemar Bonnet +1',
+        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
+        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
+        Neck = 'Fotia Gorget',
         Ear1 = 'Odr Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Plunderer\'s Vest +3',
+        Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = 'Meg. Gloves +2',
+        Ring1 = 'Rufescent Ring',
+        Ring2 = 'Karieyh Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+    },
+    Ws_Default_SA = {
+    },
+    Ws_Default_TA = {
+    },
+    Ws_Default_SATA = {
     },
     Ws_Hybrid = {
         Head = 'Nyame Helm',
@@ -99,9 +117,25 @@ sets = {
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
+    Ws_Hybrid_SA = {},
+    Ws_Hybrid_TA = {},
+    Ws_Hybrid_SATA = {},
     Ws_Acc = {
     },
+    Ws_Acc_SA = {},
+    Ws_Acc_TA = {},
+    Ws_Acc_SATA = {},
 
+
+    SATA = {
+        
+    },
+    SA = {
+        
+    },
+    TA = {
+    
+    },
     TH = {
         Hands = 'Plun. Armlets +3',
         Feet = 'Skulk. Poulaines +1',
@@ -135,6 +169,8 @@ end
 
 profile.HandleDefault = function()
     gFunc.EquipSet(sets.Idle);
+    local sa = gData.GetBuffCount('Sneak Attack');
+    local ta = gData.GetBuffCount('Trick Attack');
 	
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
@@ -152,6 +188,13 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
 	end
+    if (sa == 1) and (ta == 1) then
+        gFunc.EquipSet('SATA');
+    elseif (sa == 1) then
+        gFunc.EquipSet('SA');
+    elseif (ta == 1) then
+        gFunc.EquipSet('TA');
+    end
     if (gcdisplay.GetToggle('TH') == true) then
 		gFunc.EquipSet(sets.TH);
 	end
@@ -207,20 +250,19 @@ profile.HandleWeaponskill = function()
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
+        local sa = gData.GetBuffCount('Sneak Attack');
+        local ta = gData.GetBuffCount('Trick Attack');
     
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
-        --[[if string.match(ws.Name, 'Chant du Cygne') then
-            gFunc.EquipSet(sets.Chant_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. gcdisplay.GetCycle('MeleeSet')); end
-	    elseif string.match(ws.Name, 'Savage Blade') then
-            gFunc.EquipSet(sets.Savage_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
-        end ]]
+        if (sa == 1) and (ta == 1) then
+            gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet') .. '_SATA');
+        elseif (sa == 1) then
+            gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet') .. '_SA');
+        elseif (ta == 1) then
+            gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
+        end
     end
 end
 
