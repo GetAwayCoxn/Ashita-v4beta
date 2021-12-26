@@ -247,6 +247,9 @@ end
 function gcauto.AutoWS()
 	local target = gData.GetTarget();
 	local player = gData.GetPlayer();
+	local zone = gData.GetEnvironment();
+	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
+
 	local am = (gData.GetBuffCount('Aftermath: Lv.3')) + (gData.GetBuffCount('Aftermath'));
 
 	if (gcdisplay.GetToggle('AUTO') ~= true) then return end
@@ -483,11 +486,10 @@ function gcauto.Welcome()
 end
 
 function gcauto.Initialize()
-	local player = gData.GetPlayer();
 	gcauto.SetVariables();
 	gcauto.SetAlias();
 	--gcauto.Welcome();
-	gcdisplay.Initialize();
+	--gcdisplay.Initialize();
 	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
 	AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
 end

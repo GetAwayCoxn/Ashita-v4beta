@@ -58,12 +58,25 @@ function manager.CheckWeapon(id)
     else return false end
 end
 
-function manager.CountItem(id)
+function manager.CountItemId(id)
     local total = 0;
     for x = 0, 12 do
         for y = 0, 80 do
             local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
             if (item ~= nil and item.Id == id) then
+                total = total + item.Count;
+            end
+        end
+    end
+    return total;
+end
+
+function manager.CountItemName(name)
+    local total = 0;
+    for x = 0, 12 do
+        for y = 0, 80 do
+            local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
+            if (item ~= nil and item.Name == name) then
                 total = total + item.Count;
             end
         end
@@ -112,12 +125,12 @@ function manager.UpdateRelics()
         end
     end
 
-    countbynes = ( (10000 * manager.CountItem(1457)) + (100 * manager.CountItem(1456)) + (manager.CountItem(1455)) );
-    countbronze = ( (10000 * manager.CountItem(1454)) + (100 * manager.CountItem(1453)) + (manager.CountItem(1452)) );
-    countshells = ( (10000 * manager.CountItem(1457)) + (100 * manager.CountItem(1456)) + (manager.CountItem(1455)) );
-    countmarrows = manager.CountItem(3502);
-    countplutons = manager.CountItem(4509);
-    countcrystals = manager.CountItem(9875);
+    countbynes = ( (10000 * manager.CountItemId(1457)) + (100 * manager.CountItemId(1456)) + (manager.CountItemId(1455)) );
+    countbronze = ( (10000 * manager.CountItemId(1454)) + (100 * manager.CountItemId(1453)) + (manager.CountItemId(1452)) );
+    countshells = ( (10000 * manager.CountItemId(1457)) + (100 * manager.CountItemId(1456)) + (manager.CountItemId(1455)) );
+    countmarrows = manager.CountItemId(3502);
+    countplutons = manager.CountItemId(4509);
+    countcrystals = manager.CountItemId(9875);
 
     bynes = math.abs(bynes - countbynes);
     bronze = math.abs(bronze - countbronze);
@@ -189,22 +202,14 @@ function manager.UpdateEmpyreans()
         end
     end
 
-    local chloris = 0;local glavoid = 0;local briareus = 0;local cara = 0;local fistule = 0;local kukulkan = 0;local ironplates = 0;local ulhuadshi = 0;local itzpapalotl = 0;local sobek = 0;local lanterns = 0;local bukhis = 0;local sedna = 0;local souls = 0;local dragua = 0;local orthus = 0;local apademak = 0;local isgebind = 0;local alfard = 0;local orthus = 0;local azdaja = 0;local hmp = 0;local dross = 0;local cinder = 0;
-
-    local countchloris = 0;local countglavoid = 0;local countbriareus = 0;local countcara = 0;local countfistule = 0;local countkukulkan = 0;local countironplates = 0;local countulhuadshi = 0;local countitzpapalotl = 0;local countsobek = 0;local countlanterns = 0;local countbukhis = 0;local countsedna = 0;local countsouls = 0;local countdragua = 0;local countorthus = 0;local countapademak = 0;local countisgebind = 0;local countalfard = 0;local countorthus = 0;local countazdaja = 0;local counthmp = 0;local countdross = 0;local countcinder = 0;
+    local chloris = 0;local glavoid = 0;local briareus = 0;local cara = 0;local fistule = 0;local kukulkan = 0;local ironplates = 0;local ulhuadshi = 0;local itzpapalotl = 0;local sobek = 0;local lanterns = 0;local bukhis = 0;local sedna = 0;local souls = 0;local dragua = 0;local orthus = 0;local apademak = 0;local isgebind = 0;local alfard = 0;local azdaja = 0;local hmp = 0;local dross = 0;local cinder = 0;local boulders = 0;local empycrystals = 0;
 
     for r = 2, #interface.data.weapons.empyreans do
         for i = 1, #interface.data.weapons.empyreans[r] do
-            print ('R: ' .. r);
-            print ('I: ' .. i);
             chloris = chloris + interface.data.weapons.empyreans[r][i][3];
-            print (tostring(chloris) .. ' chloris');
             glavoid = glavoid + interface.data.weapons.empyreans[r][i][4];
-            print (tostring(glavoid) .. ' glavoid');
             briareus = briareus + interface.data.weapons.empyreans[r][i][5];
-            print (tostring(briareus) .. ' briareus');
             cara = cara + interface.data.weapons.empyreans[r][i][6];
-            print (tostring(cara) .. ' cara');
             fistule = fistule + interface.data.weapons.empyreans[r][i][7];
             kukulkan = kukulkan + interface.data.weapons.empyreans[r][i][8];
             ironplates = ironplates + interface.data.weapons.empyreans[r][i][9];
@@ -220,20 +225,42 @@ function manager.UpdateEmpyreans()
             apademak = apademak + interface.data.weapons.empyreans[r][i][19];
             isgebind = isgebind + interface.data.weapons.empyreans[r][i][20];
             alfard = alfard + interface.data.weapons.empyreans[r][i][21];
-            orthus = orthus + interface.data.weapons.empyreans[r][i][22];
-            azdaja = azdaja + interface.data.weapons.empyreans[r][i][23];
-            hmp = hmp + interface.data.weapons.empyreans[r][i][24];
-            dross = dross + interface.data.weapons.empyreans[r][i][25];
-            cinder = cinder + interface.data.weapons.empyreans[r][i][26];
+            azdaja = azdaja + interface.data.weapons.empyreans[r][i][22];
+            hmp = hmp + interface.data.weapons.empyreans[r][i][23];
+            dross = dross + interface.data.weapons.empyreans[r][i][24];
+            cinder = cinder + interface.data.weapons.empyreans[r][i][25];
+            boulders = boulders + interface.data.weapons.empyreans[r][i][26];
+            empycrystals = empycrystals + interface.data.weapons.empyreans[r][i][27];
         end
     end
-    
 
-    --countbynes = ( (10000 * manager.CountItem(1457)) + (100 * manager.CountItem(1456)) + (manager.CountItem(1455)) );
+    chloris = chloris - manager.CountItemId(2928);
+    glavoid = glavoid - manager.CountItemId(2927);
+    briareus = briareus - manager.CountItemId(2929);
+    cara = cara - manager.CountItemId(2930);
+    fistule = fistule - manager.CountItemId(2931);
+    kukulkan = kukulkan - manager.CountItemId(2932);
+    ironplates = ironplates - manager.CountItemId(3293);
+    ulhuadshi = ulhuadshi - manager.CountItemId(2963);
+    itzpapalotl = itzpapalotl - manager.CountItemId(2962);
+    sobek = sobek - manager.CountItemId(2964);
+    lanterns = lanterns - manager.CountItemId(2965);
+    bukhis = bukhis - manager.CountItemId(2966);
+    sedna = sedna - manager.CountItemId(2967);
+    souls = souls - manager.CountItemId(3294);
+    dragua = dragua - manager.CountItemId(3288);
+    orthus = orthus - manager.CountItemId(3287);
+    apademak = apademak - manager.CountItemId(3289);
+    isgebind = isgebind - manager.CountItemId(3290);
+    alfard = alfard - manager.CountItemId(3291);
+    azdaja = azdaja - manager.CountItemId(3292);
+    hmp = hmp - manager.CountItemId(3509);
+    dross = dross - manager.CountItemId(3498);
+    cinder = cinder - manager.CountItemId(3499);
+    boulders = boulders - manager.CountItemId(4061);
 
-    --bynes = math.abs(bynes - countbynes);
-
-    --interface.data.progress.empyreans = {bynes, bronze, shells, marrows, plutons, crystals};
+    -- empycrystals is fucked up. need count these sad cystals globally i think
+    interface.data.progress.empyreans = {chloris, glavoid, briareus, cara, fistule,kukulkan, ironplates,ulhuadshi,itzpapalotl,sobek,lanterns,bukhis,sedna,souls,dragua,orthus,apademak,isgebind,alfard,azdaja,hmp,dross,cinder,boulders,empycrystals};
 end
 
 function manager.DisplayEmpyreans()

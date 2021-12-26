@@ -37,6 +37,6 @@ settings["ammo_font"]["italic"] = false;
 settings["ammo_font"]["color_outline"] = 4278190080;
 settings["x"][1] = 1533;
 settings["visible"][1] = true;
-settings["opacity"][1] = 1;
+settings["opacity"][1] = 0.5;
 
 return settings;

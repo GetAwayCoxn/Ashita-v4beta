@@ -357,7 +357,7 @@ function gcinclude.Initialize()
 	gcdisplay.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize() end
+	if (gcauto ~= nil) then gcauto.Initialize:once(8) end
 end
 
 return gcinclude;
