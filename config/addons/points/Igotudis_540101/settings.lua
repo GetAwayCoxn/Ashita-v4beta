@@ -13,7 +13,7 @@ settings["bg_color"][2] = 0.080000000000000002;
 settings["bg_color"][3] = 0.080000000000000002;
 settings["bg_color"][4] = 0.80000000000000004;
 settings["token_order_voidwatch"] = "[VWRed] [VWBlue] [VWGreen] [VWYellow] [VWWhite]";
-settings["token_order_assault"] = "[AssaultObjective] [DIV] [EventTimer]";
+settings["bar_divider"] = "";
 settings["rate_reset_timer"] = 600;
 settings["bg_border_color"][1] = 0.68999999999999995;
 settings["bg_border_color"][2] = 0.68000000000000005;
@@ -25,7 +25,7 @@ settings["token_order_nyzul"] = "[NyzulFloor] [DIV] [NyzulObjective] [DIV] [Even
 settings["compact_divider"] = "|";
 settings["token_order_default"] = "[XP] [Merits] [XPHour] [DIV] [CP] [JP] [JPHour] [DIV] [Sparks] [DIV] [Accolades]";
 settings["token_order_mastered"] = "[EP] [EPHour] [EPChain] [DIV] [CP] [JP] [JPHour] [DIV] [Sparks] [DIV] [Accolades]";
-settings["theme"] = "default";
+settings["token_order_assault"] = "[AssaultObjective] [DIV] [EventTimer]";
 settings["bar_y"] = 15;
 settings["decimal"] = ".";
 settings["compact"]["hPadding"] = 8;
@@ -35,7 +35,7 @@ settings["compact"]["font"]["font_family"] = "Tahoma";
 settings["compact"]["font"]["font_height"] = 11;
 settings["compact"]["font"]["color"] = 4294967295;
 settings["compact"]["y"] = -17;
-settings["bar_divider"] = "";
+settings["theme"] = "default";
 settings["token_order_dynamis"] = "[DynamisKI] [DIV] [EventTimer]";
 
 return settings;

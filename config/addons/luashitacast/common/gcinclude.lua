@@ -232,7 +232,7 @@ function gcinclude.SetRegenRefreshGear()
 		if (player.HPP < 80 ) then
 			gFunc.EquipSet(sets.Idle_Regen);
 		end
-		if (player.MPP < 50 ) then
+		if (player.MPP < 70 ) then
 			gFunc.EquipSet(sets.Idle_Refresh);
 		end
 		if (player.HPP < 50) then
@@ -357,7 +357,7 @@ function gcinclude.Initialize()
 	gcdisplay.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize:once(8) end
+	if (gcauto ~= nil) then gcauto.Initialize() end
 end
 
 return gcinclude;

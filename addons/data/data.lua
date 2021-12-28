@@ -8,11 +8,11 @@ require('common');
 local interface = require('interface');
 imgui = require('imgui');
 
-ashita.events.register('load', 'load_cb', interface.load);
+ashita.events.register('load', 'load_cb', interface.Load);
 
-ashita.events.register('unload', 'unload_cb', interface.unload);
+ashita.events.register('unload', 'unload_cb', interface.Unload);
 
-ashita.events.register('d3d_present', 'present_cb', interface.render);
+ashita.events.register('d3d_present', 'present_cb', interface.Render);
 
 ashita.events.register('command', 'command_cb', function (e)
     local args = e.command:args();

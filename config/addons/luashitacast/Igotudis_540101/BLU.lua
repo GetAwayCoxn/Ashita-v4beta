@@ -62,7 +62,7 @@ sets = {
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Samnuha Tights',
-        Feet = 'Herculean Boots',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
 	Tp_Hybrid = {
         Head = 'Malignance Chapeau',

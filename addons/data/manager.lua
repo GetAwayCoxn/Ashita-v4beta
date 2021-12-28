@@ -1,9 +1,5 @@
-local manager = T{
+local manager = T{ -- functions for data management
 };
-
-local jobsabrv = T{'WAR','MNK','WHM','BLM','RDM','THF','PLD','DRK','BST','BRD','RNG','SAM','NIN','DRG','SMN','BLU','COR','PUP','DNC','SCH','GEO','RUN'};
-
-
 
 function manager.UpdateJobs()  
     local player = AshitaCore:GetMemoryManager():GetPlayer();
@@ -15,11 +11,11 @@ function manager.UpdateJobs()
     local masterlevelmax = 20.0 * 22.0;
     local JPhastotal = 0.0;
     
-    for n = 1, #jobsabrv do
+    for n = 1, #interface.data.jobsabrv do
         interface.data.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
     end
 
-    for a = 1, #jobsabrv do
+    for a = 1, #interface.data.jobsabrv do
         jobleveltotal = jobleveltotal + player:GetJobLevel(a);
         JPspenttotal = JPspenttotal + player:GetJobPointsSpent(a);
         masterleveltotal = masterleveltotal + player:GetJobMasterLevel(a);
@@ -31,8 +27,8 @@ function manager.UpdateJobs()
 end
 
 function manager.DisplayJobs()
-    for n=1, #jobsabrv do
-        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, jobsabrv[n]);
+    for n=1, #interface.data.jobsabrv do
+        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, interface.data.jobsabrv[n]);
         for x = 1, 4 do 
             local t = T{};
             imgui.TableNextColumn();
@@ -95,9 +91,9 @@ function manager.UpdateRelics()
                         local check = false;
                         check = manager.CheckWeapon(x);
                         if (check == true) then
-                            interface.data.weapons.relics[r][c] = {x, true, 0,0,0,};
+                            interface.data.weapons.relics[r][c] = {x,true,0,0,0,};
                             for b = r -1, 2, -1 do
-                            interface.data.weapons.relics[b][c] = {interface.data.weapons.relics[b][c][1], true, 0,0,0,};
+                            interface.data.weapons.relics[b][c] = {interface.data.weapons.relics[b][c][1],true,0,0,0,};
                             end
                         end
                     end
@@ -109,7 +105,7 @@ function manager.UpdateRelics()
     local bynes = 0;local bronze = 0;local shells = 0;local marrows = 0;local plutons = 0;local crystals = 0;
     local countbynes = 0;local countbronze = 0;local countshells = 0;local countmarrows = 0;local countplutons = 0;local countcrystals = 0;
 
-    for r = 2, #interface.data.weapons.relics do --need to rebuild default relics tables to eliminate the double use of [3][4][5] values
+    for r = 2, #interface.data.weapons.relics do --need to rebuild default relics tables to eliminate the double use of [3][4][5] values, this works but is very sloppy
         if (r < 7) then
             for i = 1, #interface.data.weapons.relics[r] do
                 bynes = bynes + interface.data.weapons.relics[r][i][3];
@@ -120,7 +116,7 @@ function manager.UpdateRelics()
             for i = 1, #interface.data.weapons.relics[r] do
                 marrows = marrows + interface.data.weapons.relics[r][i][3];
                 plutons = plutons + interface.data.weapons.relics[r][i][5];
-                crystals = crystals + interface.data.weapons.relics[r][i][4]; -- whoops afterthought
+                crystals = crystals + interface.data.weapons.relics[r][i][4]; -- careful of the keys here, again sloppy, need to rebuild the relic weapons arrays
             end
         end
     end
@@ -148,7 +144,7 @@ function manager.DisplayRelics()
         for r = 1, #interface.data.weapons.relics do
             if (interface.data.weapons.relics[r][c][1] == 'Gjallarhorn') then
                 imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'SPECIALS');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base Wep');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 2');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 3');
@@ -160,7 +156,7 @@ function manager.DisplayRelics()
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99');
                 imgui.TableNextColumn();
-                if (interface.data.weapons.relics[r][c][2] == 0) then
+                if (r == 1) then
                     imgui.TextColored(colors.header,tostring(interface.data.weapons.relics[r][c][1]));
                 elseif (interface.data.weapons.relics[r][c][2] == true) then
                     imgui.TextColored(colors.text1,tostring(interface.data.weapons.relics[r][c][1]));
@@ -169,7 +165,7 @@ function manager.DisplayRelics()
                 end
             else
                 imgui.TableNextColumn();
-                if (interface.data.weapons.relics[r][c][2] == 0) then
+                if (r == 1) then
                     imgui.TextColored(colors.header,tostring(interface.data.weapons.relics[r][c][1]));
                 elseif (interface.data.weapons.relics[r][c][2] == true) then
                     imgui.TextColored(colors.text1,tostring(interface.data.weapons.relics[r][c][1]));
@@ -191,9 +187,9 @@ function manager.UpdateEmpyreans()
                         local check = false;
                         check = manager.CheckWeapon(x);
                         if (check == true) then
-                            interface.data.weapons.empyreans[r][c] = {x, true, 0,0,0,};
+                            interface.data.weapons.empyreans[r][c] = {x,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
                             for b = r -1, 2, -1 do
-                            interface.data.weapons.empyreans[b][c] = {interface.data.weapons.empyreans[b][c][1], true, 0,0,0,};
+                            interface.data.weapons.empyreans[b][c] = {interface.data.weapons.empyreans[b][c][1],true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
                             end
                         end
                     end
@@ -259,7 +255,7 @@ function manager.UpdateEmpyreans()
     cinder = cinder - manager.CountItemId(3499);
     boulders = boulders - manager.CountItemId(4061);
 
-    -- empycrystals is fucked up. need count these sad cystals globally i think
+    -- empycrystals is fucked up. need to count these sad cystals globally i think
     interface.data.progress.empyreans = {chloris, glavoid, briareus, cara, fistule,kukulkan, ironplates,ulhuadshi,itzpapalotl,sobek,lanterns,bukhis,sedna,souls,dragua,orthus,apademak,isgebind,alfard,azdaja,hmp,dross,cinder,boulders,empycrystals};
 end
 
@@ -269,7 +265,7 @@ function manager.DisplayEmpyreans()
         for r = 1, #interface.data.weapons.empyreans do
             if (interface.data.weapons.empyreans[r][c][1] == 'Daurdabla') then
                 imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
+                imgui.TableNextColumn();imgui.TextColored(colors.header, 'SPECIALS');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base v2');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
@@ -279,7 +275,7 @@ function manager.DisplayEmpyreans()
                 imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99 Glow');
                 imgui.TableNextColumn();imgui.TextColored(colors.header, '');
                 imgui.TableNextColumn();
-                if (interface.data.weapons.empyreans[r][c][2] == 0) then
+                if (r == 1) then
                     imgui.TextColored(colors.header,tostring(interface.data.weapons.empyreans[r][c][1]));
                 elseif (interface.data.weapons.empyreans[r][c][2] == true) then
                     imgui.TextColored(colors.text1,tostring(interface.data.weapons.empyreans[r][c][1]));
@@ -288,7 +284,7 @@ function manager.DisplayEmpyreans()
                 end
             else
                 imgui.TableNextColumn();
-                if (interface.data.weapons.empyreans[r][c][2] == 0) then
+                if (r == 1) then
                     imgui.TextColored(colors.header,tostring(interface.data.weapons.empyreans[r][c][1]));
                 elseif (interface.data.weapons.empyreans[r][c][2] == true) then
                     imgui.TextColored(colors.text1,tostring(interface.data.weapons.empyreans[r][c][1]));
@@ -300,9 +296,68 @@ function manager.DisplayEmpyreans()
     end
 end
 
+function manager.UpdateMythics()
+    for x = 0, 65535 do
+        local item = AshitaCore:GetResourceManager():GetItemById(x);
+        if (item ~= nil and item.Name[1] ~= nil) then
+            for c = 1, #interface.data.weapons.mythics[1] do
+                for r = 2, #interface.data.weapons.mythics do
+                    if (item.Id == (interface.data.weapons.mythics[r][c][1])) then
+                        local check = false;
+                        check = manager.CheckWeapon(x);
+                        if (check == true) then
+                            interface.data.weapons.mythics[r][c] = {x,true,0,0,0,0,0};
+                            for b = r -1, 2, -1 do
+                            interface.data.weapons.mythics[b][c] = {interface.data.weapons.mythics[b][c][1],true,0,0,0,0,0};
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    local alex = 0;local scoria = 0;local beitetsu = 0;local bayld = 0;local crystals = 0;
+
+    for r = 2, #interface.data.weapons.mythics do
+        for i = 1, #interface.data.weapons.mythics[r] do
+            alex = alex + interface.data.weapons.mythics[r][i][3];
+            scoria = scoria + interface.data.weapons.mythics[r][i][4];
+            beitetsu = beitetsu + interface.data.weapons.mythics[r][i][5];
+            bayld = bayld + interface.data.weapons.mythics[r][i][6];
+            crystals = crystals + interface.data.weapons.mythics[r][i][7];
+        end
+    end
+
+    interface.data.progress.mythics = {alex, scoria, beitetsu, bayld, crystals};
+end
+
+function manager.DisplayMythics()
+    imgui.TableNextRow();
+    for c = 1, #interface.data.weapons.mythics[1] do
+        for r = 1, #interface.data.weapons.mythics do
+            imgui.TableNextColumn();
+            if (r == 1) then
+                imgui.TextColored(colors.header,tostring(interface.data.weapons.mythics[r][c][1]));
+            elseif (interface.data.weapons.mythics[r][c][2] == true) then
+                imgui.TextColored(colors.text1,tostring(interface.data.weapons.mythics[r][c][1]));
+            else
+                imgui.TextColored(colors.error,tostring(interface.data.weapons.mythics[r][c][1]));
+            end
+        end
+    end
+end
+
 function manager.UpdateWeapons()
 	manager.UpdateRelics();
     manager.UpdateEmpyreans();
+    manager.UpdateMythics();
+end
+
+function manager.UpdateGear()
+	--manager.UpdateRelicGear();
+    --manager.UpdateEmpyreans();
+    --manager.UpdateMythics();
 end
 
 

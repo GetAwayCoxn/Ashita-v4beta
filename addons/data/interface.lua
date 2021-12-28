@@ -14,7 +14,7 @@ colors = {
     text2 = { 0.5, 0.9, 1.0, 1.0 }, --light blue
 };
 
-function interface.load()
+function interface.Load()
     interface.data = interface.defaults;--interface.settings.load(interface.defaults);
 
     --[[interface.settings.register('settings', 'settings_update', function (s)
@@ -28,11 +28,11 @@ function interface.load()
     --interface.manager.UpdateWeapons();
 end
 
-function interface.unload()
+function interface.Unload()
     --interface.settings.save();
 end
 
-function interface.renderJobPointsTab()
+function interface.RenderJobPointsTab()
     imgui.BeginGroup();
         imgui.BeginChild('JPpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
             imgui.BeginTable('jobs table', 5, ImGuiTableFlags_Borders);
@@ -68,12 +68,12 @@ function interface.renderJobPointsTab()
     imgui.EndGroup();
 end
 
-function interface.renderWeaponsTab()
+function interface.RenderWeaponsTab()
     imgui.BeginGroup();
-        imgui.BeginChild('weapons_top', { 0, 400 }, true);
+        imgui.BeginChild('WeaponsPane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
             if (imgui.BeginTabBar('weapons_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                 if (imgui.BeginTabItem('RELICS', nil)) then
-                    imgui.Spacing();
+                    --imgui.Spacing();
                     imgui.BeginTable('relics table', #interface.data.weapons.relics, ImGuiTableFlags_Borders);
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
@@ -90,23 +90,66 @@ function interface.renderWeaponsTab()
 
                         interface.manager.DisplayRelics();
                     imgui.EndTable();
-                    imgui.EndTabItem();
+                    
 
                     imgui.Spacing();imgui.Spacing();
-                    if (imgui.Button('Update Weapons')) then
-                        interface.manager.UpdateWeapons();
-                    end
+                    imgui.BeginTable('relic needed table', 6, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Relic Need:');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bynes');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bronze');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Shells');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Marrows');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Plutons');
+                        imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[1]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[2]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[3]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[4]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[5]));
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Est. Gils:');
+                    imgui.EndTable();
+
+                imgui.EndTabItem();
                 end
 
 
                 if (imgui.BeginTabItem('MYTHICS', nil)) then
-                    imgui.EndTabItem();
+                    imgui.Spacing();
+                    imgui.BeginTable('mythics table', #interface.data.weapons.mythics, ImGuiTableFlags_Borders);
+                            imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 75');
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99');
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv.119 I');
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv.119 III');
+                            imgui.TableNextColumn();imgui.TextColored(colors.header, 'Augmented');
+
+                            interface.manager.DisplayMythics();
+                        imgui.EndTable();
+
+                    imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('mythic needed table', 5, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mythic Need:');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Alex');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mulcibar\'s Scoria');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Beitetsu');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'HP Bayld');
+                        imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.mythics[1]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.mythics[2]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.mythics[3]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.mythics[4]));
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Est. Gils:');
+                    imgui.EndTable();
+                imgui.EndTabItem();
                 end
 
 
                 if (imgui.BeginTabItem('EMPYREANS', nil)) then
                     imgui.Spacing();
-                    imgui.BeginTable('relics table', #interface.data.weapons.empyreans, ImGuiTableFlags_Borders);
+                    imgui.BeginTable('empyreans table', #interface.data.weapons.empyreans, ImGuiTableFlags_Borders);
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 80');
@@ -123,111 +166,118 @@ function interface.renderWeaponsTab()
                     imgui.EndTable();
                     imgui.EndTabItem();
 
-                    imgui.Spacing();
-                    if (imgui.Button('Update Weapons')) then
-                        interface.manager.UpdateWeapons();
-                    end
+                    imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('aby1 needed table', 8, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Abyssea Need:');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Chloris');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Glavoid');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Briareus');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cara');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Fistule');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Kukulkan');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'IronPlates');
+                        imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[1]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[2]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[3]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[4]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[5]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[6]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[7]));
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Ulhuadshi');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Itzpapalotl');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Sobek');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lanterns');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bukhis');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Sedna');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Souls');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'HMP');
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[8]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[9]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[10]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[11]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[12]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[13]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[14]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[21]));
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Dragua');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Orthrus');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Apademak');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Isgebind');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Alfard');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Azdaja');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftdross');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftcinder');
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[15]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[16]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[17]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[18]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[19]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[20]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[22]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[23]));
+                    imgui.EndTable();
                 imgui.EndTabItem();
                 end
 
+                if (imgui.BeginTabItem('AMBUSCADE', nil)) then
 
-                if (imgui.BeginTabItem('AEONICS', nil)) then
-                    imgui.EndTabItem();
+                imgui.EndTabItem();
                 end
+
             imgui.EndTabBar();
             end
         imgui.EndChild();
 
-        imgui.BeginChild('weapons _bottom', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.BeginTable('relic needed table', 6, ImGuiTableFlags_Borders);
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Relic Need:');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bynes');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bronze');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Shells');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Marrows');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Plutons');
-                imgui.TableNextColumn();
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[1]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[2]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[3]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[4]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[5]));
-                --imgui.TableNextColumn();imgui.TextColored(colors.header, 'Est. Gils:');
-            imgui.EndTable();
-            imgui.Spacing();
-            imgui.BeginTable('mythic needed table', 5, ImGuiTableFlags_Borders);
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mythic Need:');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Alex');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mulcibar\'s Scoria');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Beitetsu');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'HMP');
-            imgui.EndTable();
-            imgui.Spacing();
-            imgui.BeginTable('aby1 needed table', 8, ImGuiTableFlags_Borders);
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Abyssea Need:');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Chloris');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Glavoid');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Briareus');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cara');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Fistule');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Kukulkan');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'IronPlates');
-                imgui.TableNextColumn();
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[1]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[2]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[3]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[4]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[5]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[6]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[7]));
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Ulhuadshi');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Itzpapalotl');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Sobek');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lanterns');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Bukhis');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Sedna');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Souls');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'HMP');
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[8]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[9]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[10]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[11]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[12]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[13]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[14]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[21]));
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Dragua');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Orthrus');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Apademak');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Isgebind');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Alfard');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Azdaja');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftdross');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftcinder');
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[15]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[16]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[17]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[18]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[19]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[20]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[22]));
-                imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[23]));
-            imgui.EndTable();
-        imgui.EndChild();
+        if (imgui.Button('Update Weapons')) then
+            interface.manager.UpdateWeapons();
+        end
     imgui.EndGroup();
 end
 
-function interface.renderPricesTab()
+function interface.RenderGearTab()
+    imgui.BeginGroup();
+        imgui.BeginChild('GearPane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+                if (imgui.BeginTabItem('AF', nil)) then
+
+                imgui.EndTabItem();
+                end
+
+                if (imgui.BeginTabItem('RELIC', nil)) then
+
+                imgui.EndTabItem();
+                end
+
+                if (imgui.BeginTabItem('EMPYREAN', nil)) then
+
+                imgui.EndTabItem();
+                end
+
+                if (imgui.BeginTabItem('AMBUSCADE', nil)) then
+
+                imgui.EndTabItem();
+                end
+            
+            imgui.EndTabBar();
+            end
+        imgui.EndChild();
+
+        if (imgui.Button('Update Gear')) then
+            interface.manager.UpdateGear();
+        end
+    imgui.EndGroup();
+end
+
+function interface.RenderPricesTab()
     imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
 end
 
 
-function interface.render()
+function interface.Render()
     if (not interface.is_open[1]) then
         return;
     end
@@ -237,15 +287,19 @@ function interface.render()
     if (imgui.Begin('Data', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
-                interface.renderJobPointsTab();
+                interface.RenderJobPointsTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('WEAPONS', nil)) then
-                interface.renderWeaponsTab();
+                interface.RenderWeaponsTab();
+                imgui.EndTabItem();
+            end
+            if (imgui.BeginTabItem('GEAR', nil)) then
+                interface.RenderGearTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('PRICES', nil)) then
-                interface.renderPricesTab();
+                interface.RenderPricesTab();
                 imgui.EndTabItem();
             end
             imgui.EndTabBar();
