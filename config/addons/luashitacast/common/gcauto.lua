@@ -85,9 +85,6 @@ function gcauto.SetAlias()
 	elseif (player.MainJob == 'RUN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /val /lac fwd val');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /foil /lac fwd foil');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /rune1 /lac fwd rune1');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /rune2 /lac fwd rune2');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /rune3 /lac fwd rune3');
 	end
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
@@ -137,9 +134,6 @@ function gcauto.SetVariables()
 	elseif (player.MainJob == 'RUN') then
 		gcdisplay.CreateToggle('Val', true);
 		gcdisplay.CreateToggle('Foil', false);
-		gcdisplay.CreateCycle('Rune1', {[1] = 'None', [2] = 'Ignis', [3] = 'Gelus', [4] = 'Flabra', [5] = 'Tellus', [6] = 'Sulpor', [7] = 'Unda', [8] = 'Lux', [9] = 'Tenebrae',});
-		gcdisplay.CreateCycle('Rune2', {[1] = 'Rune1', [2] = 'Ignis', [3] = 'Gelus', [4] = 'Flabra', [5] = 'Tellus', [6] = 'Sulpor', [7] = 'Unda', [8] = 'Lux', [9] = 'Tenebrae',});
-		gcdisplay.CreateCycle('Rune3', {[1] = 'Rune2', [2] = 'Ignis', [3] = 'Gelus', [4] = 'Flabra', [5] = 'Tellus', [6] = 'Sulpor', [7] = 'Unda', [8] = 'Lux', [9] = 'Tenebrae',});
 	end
 
 
@@ -201,10 +195,7 @@ function gcauto.SetCommands(args)
 		if (args[1] == 'jumps') then gcdisplay.AdvanceToggle('Jumps') end
 	elseif (player.MainJob == 'RUN') then
 		if (args[1] == 'val') then gcdisplay.AdvanceToggle('Val');
-		elseif (args[1] == 'foil') then gcdisplay.AdvanceToggle('Foil');
-		elseif (args[1] == 'rune1') then gcdisplay.AdvanceCycle('Rune1');
-		elseif (args[1] == 'rune2') then gcdisplay.AdvanceCycle('Rune2');
-		elseif (args[1] == 'rune3') then gcdisplay.AdvanceCycle('Rune3') end
+		elseif (args[1] == 'foil') then gcdisplay.AdvanceToggle('Foil') end
 	end
 
 	
@@ -360,6 +351,13 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "majesty" <me>')
 			end
 		end
+		if (gcdisplay.GetToggle('AUTO') == true) then
+			local endark = gData.GetBuffCount('Enlight');
+
+			if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
+			end
+		end
 	elseif (player.MainJob == 'BLU') then
 		local natmed = gData.GetBuffCount('Attack Boost');
 		
@@ -392,17 +390,15 @@ function gcauto.DoJobStuff()
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Dodge" <me>');
 		end
 	elseif (player.MainJob == 'RDM') then
-		local composure = gData.GetBuffCount('Composure');
-		if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) and (player.HPP > 75) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ja "composure" <me>');
-		end
-
 		if (gcdisplay.GetToggle('AUTO') == true) then
 			local haste = gData.GetBuffCount('Haste');
 			local refresh = gData.GetBuffCount('Refresh');
 			local aquaveil = gData.GetBuffCount('Aquaveil');
+			local composure = gData.GetBuffCount('Composure');
 
-			if (haste == 0) then
+			if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) and (player.HPP > 75) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "composure" <me>');
+			elseif (haste == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Haste II" <me>');
 			elseif (refresh == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh III" <me>');
@@ -457,8 +453,6 @@ function gcauto.DoJobStuff()
 		local sulpor = gData.GetBuffCount('Sulpor');local unda = gData.GetBuffCount('Unda');local lux = gData.GetBuffCount('Lux');local tenebrae = gData.GetBuffCount('Tenebrae');
 		local totalrunes = ignis+gelus+flabra+tellus+sulpor+unda+lux+tenebrae;
 
-		local rune1 = gcdisplay.GetCycle('Rune1');local rune2 = gcdisplay.GetCycle('Rune2');local rune3 = gcdisplay.GetCycle('Rune3');
-		local rune1recast = 10;local rune2recast = 10;local rune3recast = 10;
 
 		if (gcdisplay.GetToggle('AUTO') == true) then
 			local refresh = gData.GetBuffCount('Refresh');
@@ -494,43 +488,6 @@ function gcauto.DoJobStuff()
 						end
 					elseif (vallation == 0) and (valiance == 0) and (gcauto.CheckAbilityRecast('Vallation') <= 0) then
 						do_vallation();
-					end
-				end
-				if (rune1 == 'None') then
-				else
-					rune1recast = gcauto.CheckAbilityRecast(tostring(rune1));
-					
-					if (rune2 == 'Rune1') then 
-						rune2 = rune1;
-						rune2recast = rune1recast;
-					else 
-						rune2recast = gcauto.CheckAbilityRecast(tostring(rune2));
-					end
-					if (rune3 == 'Rune2') then 
-						rune3 = rune2;
-						rune3recast = rune2recast;
-					else 
-						rune3recast = gcauto.CheckAbilityRecast(tostring(rune3));
-					end
-
-					if (rune1recast <= 0) and (gData.GetBuffCount(rune1) == 0) then
-						AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune1 .. '" <me>');
-					end
-					if (rune2recast <= 0) then
-						if (rune2 == rune1) and (gData.GetBuffCount(rune2) < 2) then
-							AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune2 .. '" <me>');
-						elseif (gData.GetBuffCount(rune2) == 0) then
-							AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune2 .. '" <me>');
-						end
-					end
-					if (rune3recast <= 0) then
-						if (rune3 == rune1) and (gData.GetBuffCount(rune3) < 3) then
-							AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune3 .. '" <me>');
-						elseif (rune3 == rune2) and (gData.GetBuffCount(rune3) < 2) then
-							AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune3 .. '" <me>');
-						elseif (gData.GetBuffCount(rune3) == 0) then
-							AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. rune3 .. '" <me>');
-						end
 					end
 				end
 
@@ -612,7 +569,7 @@ function gcauto.Default()
 	local weak = gData.GetBuffCount('Weakness');
 
 	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.Status == 'Dead') then return end
-	
+
 	gcdisplay.Update();
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();

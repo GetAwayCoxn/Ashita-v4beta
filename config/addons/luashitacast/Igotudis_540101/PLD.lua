@@ -50,6 +50,20 @@ sets = {
     },
 
     Tp_Default = {
+        Ammo = 'Ginsen',
+        Head ='Nyame Helm',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Cessance Earring',
+        Body = 'Cab. Surcoat +3',
+        Hands = 'Sakpata\'s Gauntlets',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Flamma Ring',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Sakpata\'s Cuisses',
+        Feet = 'Nyame Sollerets',
+    },
+    Tp_Hybrid = {
         Ammo = 'Coiste Bodhar',
         Head = 'Flam. Zucchetto +2',
         Neck ='Sanctity Necklace',
@@ -63,17 +77,6 @@ sets = {
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Flam. Gambieras +2',
-    },
-    Tp_Hybrid = {
-        Ammo = 'Ginsen',
-        Head ='Sulevia\'s Mask +2',
-        Ear1 = 'Odnowa Earring +1',
-        Body = 'Sulevia\'s Plate. +2',
-        Hands = 'Sakpata\'s Gauntlets',
-        Ring2 = 'Cacoethic Ring',
-        Waist = 'Creed Baudrier',
-        Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Sulev. Leggings +2',
     },
     Tp_Acc = {
     },
@@ -90,6 +93,7 @@ sets = {
         Feet = 'Odyssean Greaves',
     },
     Cure_Precast = {
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Nourish. Earring +1',
     },
     Enhancing_Precast = {
@@ -115,6 +119,7 @@ sets = {
 
     Cure = {
         Neck = 'Sacro Gorget', -- 10
+        Ear1 = 'Mendi. Earring', -- 5
         Ear2 = 'Nourish. Earring +1', -- 6
         Hands = 'Macabre Gaunt. +1', -- 11
         Back = 'Solemnity Cape', -- 7
@@ -133,7 +138,17 @@ sets = {
 
     Ws_Default = {
         Ammo = 'Ginsen',
+        Head = 'Nyame Helm',
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Sakpata\'s Gauntlets',
+        Ring1 = 'Rufescent Ring',
+        Ring2 = 'Karieyh Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Waist = 'Fotia Belt',
+        Legs = 'Sakpata\'s Cuisses',
         Feet = 'Valorous Greaves',
     },
     Ws_Hybrid = {
@@ -145,8 +160,8 @@ sets = {
         Head = 'Blistering Sallet +1',
         Ear1 = 'Mache Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Cab. Surcoat +3',
-        Hands = 'Adhemar Wrist. +1',
+        Body = 'Nyame Mail',
+        Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
@@ -157,13 +172,6 @@ sets = {
     Chant_Acc = {
     },
     Savage_Default = {
-        Ammo = 'Ginsen',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Moonshade Earring',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Karieyh Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
-        Feet = 'Sulev. Leggings +2',
     },
     Savage_Hybrid = {
     },
