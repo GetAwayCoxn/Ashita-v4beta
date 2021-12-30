@@ -258,7 +258,17 @@ function interface.RenderGearTab()
                 end
 
                 if (imgui.BeginTabItem('AMBUSCADE', nil)) then
+                    imgui.BeginTable('ambu table', 6, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'SET');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Head');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Body');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Hands');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Legs');
+                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Feet');
 
+                        interface.manager.DisplayAmbuGear();
+                    imgui.EndTable();
                 imgui.EndTabItem();
                 end
             

@@ -354,6 +354,20 @@ function manager.UpdateWeapons()
     manager.UpdateMythics();
 end
 
+function manager.DisplayAmbuGear()
+    imgui.TableNextRow();
+    for a = 1, #interface.data.gear.ambu do
+        for b = 1, 1 do
+            imgui.TableNextColumn();
+            if a == 1 then
+                imgui.TextColored(colors.header,interface.data.gear.ambu[a][b]);
+            else
+                imgui.TextColored(colors.header,interface.data.gear.ambu[a][b]);
+            end
+        end
+    end
+end
+
 function manager.UpdateGear()
 	--manager.UpdateRelicGear();
     --manager.UpdateEmpyreans();

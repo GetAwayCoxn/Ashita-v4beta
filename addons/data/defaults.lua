@@ -12,7 +12,22 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
         af = {},
         relic = {},
         empyrean = {},
-        ambu = {},
+        ambu = {
+            {'Sulevia\'s',{'Sulevia\'s Mask','Sulevia\'s Mask +1','Sulevia\'s Mask +2'},
+            {'Sulevia\'s Plate.','Sulevia\'s Plate. +1','Sulevia\'s Plate. +2'},
+            {'Sulevia\'s Gauntlets','Sulev. Gauntlets +1','Sulev. Gauntlets +2'},
+            {'Sulevia\'s Cuisses','Sulevi. Cuisses +1','Sulev. Cuisses +2'},
+            {'Sulevia\'s Leggings','Sulev. Leggings +1','Sulev. Leggings +2'},},
+            --[['Sulevia\'s'] = {
+                            --['Mask'] = {25659,25660,25574},
+                            --['Platemail'] = {25745,25746,25790},
+                            ['Mask'] = {25659,25660,25574},
+                            ['Platemail'] = {25745,25746,25790},
+                            ['Gauntlets'] = {},
+                            ['Cuisses'] = {},
+                            ['Leggings'] = {},
+                            },]]
+        },
     },
     prices = {
         dyna = {1200,1200,1200,1000000,2000}, --not implemented yet
