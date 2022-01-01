@@ -38,14 +38,37 @@ function manager.DisplayJobs()
     end
 end
 
-function manager.CheckWeapon(id)  
-    local inventory = AshitaCore:GetMemoryManager():GetInventory();
+function manager.CheckItemId(id)
     local total = 0;
 
     for x = 0, 12 do
         for y = 0, 80 do
-            local item = inventory:GetContainerItem(x, y);
+            local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
             if (item ~= nil and item.Id == id) then
+                total = total + item.Count;
+            end
+        end
+    end
+    if total ~= 0 then return true;
+    else return false end
+end
+
+function manager.CheckItemName(name)
+    local total = 0;
+    local tempitem = AshitaCore:GetResourceManager():GetItemByName(name, 0);
+    if tempitem == nil then
+    else
+        --for s = 1, 70 do 
+            --if tempitem.SlipData[s] ~= nil then
+                --print ('SlipData:   ' .. tostring(tempitem.SlipData[70]))
+            --end
+        --end
+    end
+
+    for x = 0, 12 do
+        for y = 0, 80 do
+            local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
+            if (item ~= nil and tempitem ~= nil and item.Id == tempitem.Id) then
                 total = total + item.Count;
             end
         end
@@ -67,20 +90,6 @@ function manager.CountItemId(id)
     return total;
 end
 
-function manager.CountItemName(name)
-    local total = 0;
-    for x = 0, 12 do
-        for y = 0, 80 do
-            local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
-            if (item ~= nil and item.Name == name) then
-                total = total + item.Count;
-            end
-        end
-    end
-    return total;
-end
-
-
 function manager.UpdateRelics()
     for x = 0, 65535 do
         local item = AshitaCore:GetResourceManager():GetItemById(x);
@@ -89,7 +98,7 @@ function manager.UpdateRelics()
                 for r = 2, #interface.data.weapons.relics do
                     if (item.Id == (interface.data.weapons.relics[r][c][1])) then
                         local check = false;
-                        check = manager.CheckWeapon(x);
+                        check = manager.CheckItemId(x);
                         if (check == true) then
                             interface.data.weapons.relics[r][c] = {x,true,0,0,0,};
                             for b = r -1, 2, -1 do
@@ -185,7 +194,7 @@ function manager.UpdateEmpyreans()
                 for r = 2, #interface.data.weapons.empyreans do
                     if (item.Id == (interface.data.weapons.empyreans[r][c][1])) then
                         local check = false;
-                        check = manager.CheckWeapon(x);
+                        check = manager.CheckItemId(x);
                         if (check == true) then
                             interface.data.weapons.empyreans[r][c] = {x,true,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
                             for b = r -1, 2, -1 do
@@ -304,7 +313,7 @@ function manager.UpdateMythics()
                 for r = 2, #interface.data.weapons.mythics do
                     if (item.Id == (interface.data.weapons.mythics[r][c][1])) then
                         local check = false;
-                        check = manager.CheckWeapon(x);
+                        check = manager.CheckItemId(x);
                         if (check == true) then
                             interface.data.weapons.mythics[r][c] = {x,true,0,0,0,0,0};
                             for b = r -1, 2, -1 do
@@ -354,24 +363,60 @@ function manager.UpdateWeapons()
     manager.UpdateMythics();
 end
 
-function manager.DisplayAmbuGear()
-    imgui.TableNextRow();
+function manager.UpdateAmbuGear()
     for a = 1, #interface.data.gear.ambu do
-        for b = 1, 1 do
+        for b = 1, #interface.data.gear.ambu[a] do
+            for c = 3, 1, -1 do
+                local check = manager.CheckItemName(interface.data.gear.ambu[a][b][c]);
+                --print (tostring(check));
+                if check == true then
+                    local d = b + 1;
+                    interface.data.progress.gear.ambu[a][d] = interface.data.gear.ambu[a][b][c];
+                    break;
+                end
+            end
+        end
+    end
+end
+
+function manager.DisplayAmbuGear()
+    imgui.Spacing();imgui.Spacing();
+    for a = 1, #interface.data.progress.gear.ambu do
+        for b = 2, #interface.data.progress.gear.ambu[a] do
             imgui.TableNextColumn();
-            if a == 1 then
-                imgui.TextColored(colors.header,interface.data.gear.ambu[a][b]);
+            if b == 1 then
+                imgui.TextColored(colors.header,interface.data.progress.gear.ambu[a][b][2]);
             else
-                imgui.TextColored(colors.header,interface.data.gear.ambu[a][b]);
+                local temp = {interface.data.progress.gear.ambu[a][b][1] +1};
+                if (imgui.Combo(interface.data.progress.gear.ambu[a][b][2], temp, 'None\0NQ\0+1\0+2\0')) then
+                    interface.data.progress.gear.ambu[a][b][1] = temp[1] - 1;
+                end
+            end
+            if a == 5 then
+            imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
+            end
+        end
+    end
+end
+
+function manager.Test()
+    local temp = AshitaCore:GetResourceManager():GetItemByName('Montante +1', 0);
+    local inventory = AshitaCore:GetMemoryManager():GetInventory();
+
+    for x = 0, 12 do
+        for y = 0, 80 do
+            local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
+            if (item ~= nil and item.Id == temp.Id) then
+                for a = 1, 28 do
+                    print ('Testing:  ' .. a .. '   ' .. item.Extra[a]); --WTF is this extra table in the item struct 
+                end
             end
         end
     end
 end
 
 function manager.UpdateGear()
-	--manager.UpdateRelicGear();
-    --manager.UpdateEmpyreans();
-    --manager.UpdateMythics();
+	manager.UpdateAmbuGear();
 end
 
 

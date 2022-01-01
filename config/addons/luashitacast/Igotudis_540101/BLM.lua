@@ -29,7 +29,9 @@ sets = {
         Neck = 'Bathy Choker +1',
     },
     Idle_Refresh = {
+        Head = 'Befouled Crown',
         Waist = 'Fucho-no-Obi',
+        Legs = 'Assid. Pants +1',
     },
     Town = {
         Main = 'Bunzi\'s Rod',
@@ -91,6 +93,7 @@ sets = {
     },
     Stoneskin_Precast = {
         Head = 'Umuthi Hat',
+        Hands = 'Carapacho Cuffs',
         Waist = 'Siegel Sash',
     },
 

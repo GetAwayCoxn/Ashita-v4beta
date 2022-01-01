@@ -18,7 +18,7 @@
 
 addon.name      = 'pupsets';
 addon.author    = 'sippius - blusets(atom0s)/pupsets-v3(DivByZero)';
-addon.version   = '1.0';
+addon.version   = '1.1';
 addon.desc      = 'Manage pup attachments easily with slash commands.';
 
 
@@ -104,14 +104,14 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
-    -- Check for PUP main/sub..
-    if (not pup.is_pup_main() and not pup.is_pup_sub()) then
-        print(chat.header(addon.name):append(chat.error('Must be PUP main or sub to use this addon!')));
-        return;
-    end
-
     -- Handle: /pupsets load <file> - Loads the PUP attachments from the given attachment list file.
     if (#args >= 3 and args[2]:any('load')) then
+
+        -- Check for PUP main/sub..
+        if (not pup.is_pup_cmd_ok(args[2])) then
+            return;
+        end
+
         local name = args:concat(' ', 3):gsub('.txt', ''):trim();
         local path = ('%s\\config\\addons\\%s\\'):fmt(AshitaCore:GetInstallPath(), 'pupsets');
 
@@ -177,6 +177,11 @@ ashita.events.register('command', 'command_cb', function (e)
 
     -- Handle: /pupsets save <file> - Saves the current set PUP attachments to the given attachment list file.
     if (#args >= 3 and args[2]:any('save')) then
+
+        if (not pup.is_pup_cmd_ok(args[2])) then
+            return;
+        end
+
         local attachments = pup.get_attachments_names();
 
         if pup.debug then
@@ -217,6 +222,12 @@ ashita.events.register('command', 'command_cb', function (e)
 
     -- Handle: /pupsets (clear | reset | unset) - Unsets all currently set PUP attachments.
     if (#args >= 2 and args[2]:any('clear', 'reset', 'unset')) then
+
+        -- Check for PUP main/sub..
+        if (not pup.is_pup_cmd_ok(args[2])) then
+            return;
+        end
+
         pup.reset_all_attachments();
 
         print(chat.header(addon.name):append(chat.message('Attachments reset.')));
@@ -225,12 +236,24 @@ ashita.events.register('command', 'command_cb', function (e)
 
     -- Handle: /pupsets set <slot> <attachment> - Sets the given slot to the given PUP attachment by its id.
     if (#args >= 4 and args[2]:any('set')) then
+
+        -- Check for PUP main/sub..
+        if (not pup.is_pup_cmd_ok(args[2])) then
+            return;
+        end
+
         pup.set_attachment(args[3]:num(), args[4]:num_or(0));
         return;
     end
 
     -- Handle: /pupsets setn <slot> <attachment> - Sets the given slot to the given PUP attachment by its name.
     if (#args >= 4 and args[2]:any('setn')) then
+
+        -- Check for PUP main/sub..
+        if (not pup.is_pup_cmd_ok(args[2])) then
+            return;
+        end
+
         pup.set_attachment_by_name(args[3]:num(), args:concat(' ', 4));
         return;
     end

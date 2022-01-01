@@ -61,7 +61,7 @@ sets = {
         Body = 'Flamma Korazin +2',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Flamma Ring',
+        Ring2 = 'Niqmaddu Ring',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',

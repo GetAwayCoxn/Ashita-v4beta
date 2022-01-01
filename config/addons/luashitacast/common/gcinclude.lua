@@ -48,6 +48,7 @@ gcinclude.sets = {
 --]]
 gcinclude.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin'};
 gcinclude.LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
+gcinclude.DistanceWS = T{'Flamming Arrow','Piercing Arrow','Dulling Arrow','Sidewinder','Blast Arrow','Arching Arrow','Empyreal Arrow','Refulgent Arrow','Apex Arrow','Namas Arrow','Jishnu\'s Randiance','Hot Shot','Split Shot','Sniper Shot','Slug Shot','Blast Shot','Heavy Shot','Detonator','Numbing Shot','Last Stand','Coronach','Wildfire','Trueflight','Leaden Salute','Myrkr','Dagan','Moonlight','Starlight',};
 gcinclude.BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
 gcinclude.BstPetMagicAttack = T{'Gloom Spray','Fireball','Acid Spray','Molting Plumage','Cursed Sphere','Nectarous Deluge','Charged Whisker','Nepenthic Plunge'};
 gcinclude.BstPetMagicAccuracy = T{'Toxic Spit','Acid Spray','Leaf Dagger','Venom Spray','Venom','Dark Spore','Sandblast','Dust Cloud','Stink Bomb','Slug Family','Intimidate','Gloeosuccus','Spider Web','Filamented Hold','Choke Breath','Blaster','Snow Cloud','Roar','Palsy Pollen','Spore','Brain Crush','Choke Breath','Silence Gas','Chaotic Eye','Sheep Song','Soporific','Predatory Glare','Sudden Lunge','Numbing Noise','Jettatura','Bubble Shower','Spoil','Scream','Noisome Powder','Acid Mist','Rhinowrecker','Swooping Frenzy','Venom Shower','Corrosive Ooze','Spiral Spin','Infrasonics','Hi-Freq Field','Purulent Ooze','Foul Waters','Sandpit','Infected Leech','Pestilent Plume'};
@@ -73,7 +74,7 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meleeset /lac fwd meleeset');
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
@@ -104,7 +105,7 @@ function gcinclude.SetVariables() --De-clutter this mess
 	gcdisplay.CreateToggle('DTset', false);
 	gcdisplay.CreateToggle('Kite', false);
 	gcdisplay.CreateCycle('MeleeSet', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		gcdisplay.CreateToggle('Burst', false);
 		gcdisplay.CreateCycle('NukeSet', {[1] = 'Power', [2] = 'Macc',});
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
@@ -136,7 +137,7 @@ function gcinclude.SetCommands(args)
 	elseif (args[1] == 'kite') then
 		gcdisplay.AdvanceToggle('Kite');
     end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		if (args[1] == 'nukeset') then
 			gcdisplay.AdvanceCycle('NukeSet');
 		elseif (args[1] == 'burst') then
@@ -248,6 +249,8 @@ end
 
 function gcinclude.CheckBailout()
 	local player = gData.GetPlayer();
+	local ws = gData.GetAction();
+	local target = gData.GetActionTarget();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');
@@ -256,6 +259,12 @@ function gcinclude.CheckBailout()
 
 	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.TP <= 999) then
 		return false;
+	--[[elseif (tonumber(target.Distance) >= 5) then -- 5 yalms can still cause loss of TP on some mobs
+		if (gcinclude.DistanceWS:contains(ws.Name) then
+
+		else
+			return false;
+		end]]
 	else
 		return true;
 	end
@@ -314,7 +323,7 @@ function gcinclude.CheckCancels()
 	local action = gData.GetAction();
 	local sneak = gData.GetBuffCount('Sneak');
 	local stoneskin = gData.GetBuffCount('Stoneskin');
-
+	--local function calls to be able to use :once delay method easy
 	local function do_jig()
 		AshitaCore:GetChatManager():QueueCommand(1, '/ja "Spectral Jig" <me>');
 	end

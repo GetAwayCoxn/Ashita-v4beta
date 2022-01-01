@@ -100,6 +100,20 @@ function pup.is_pup_sub()
 end
 
 --[[
+* Returns if the players main or sub job is PUP. Prints error if false.
+*
+* @return {boolean} True if PUP main or sub, false otherwise.
+--]]
+function pup.is_pup_cmd_ok(cmd)
+    if (not pup.is_pup_main() and not pup.is_pup_sub()) then
+        print(chat.header(addon.name):append(chat.error('Must be PUP main or sub to use /pupset ' .. cmd .. '!')));
+        return false;
+    else
+        return true;
+    end
+end
+
+--[[
 * Returns the raw buffer used in PUP attachment packets.
 *
 * @return {number} The current PUP raw buffer pointer.

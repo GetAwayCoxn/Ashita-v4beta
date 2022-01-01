@@ -65,7 +65,7 @@ sets = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Malignance Chapeau',
         Neck = 'Anu Torque',
-        Ear1 = 'Mache Earring',
+        Ear1 = 'Sherida Earring',
         Ear2 = 'Cessance Earring',
         Body = 'Jhakri Robe +2',
         Hands = 'Malignance Gloves',

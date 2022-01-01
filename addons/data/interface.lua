@@ -102,12 +102,14 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Marrows');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Plutons');
                         imgui.TableNextColumn();
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[1]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[2]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[3]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[4]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[5]));
+                        for a = 1, 5 do
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.relics[a]));
+                        end
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Est. Gils:');
+                        for b = 1, 5 do
+                            local total = (interface.data.progress.relics[b] * interface.data.prices.dyna[b])
+                            imgui.TableNextColumn();imgui.Text(tostring(total));
+                        end
                     imgui.EndTable();
 
                 imgui.EndTabItem();
@@ -178,13 +180,9 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Kukulkan');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'IronPlates');
                         imgui.TableNextColumn();
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[1]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[2]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[3]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[4]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[5]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[6]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[7]));
+                        for a = 1, 7 do
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[a]));
+                        end
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Ulhuadshi');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Itzpapalotl');
@@ -194,13 +192,9 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Sedna');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Souls');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'HMP');
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[8]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[9]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[10]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[11]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[12]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[13]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[14]));
+                        for b = 1, 7 do
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[b]));
+                        end
                         imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[21]));
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Dragua');
@@ -211,14 +205,9 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Azdaja');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftdross');
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'Riftcinder');
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[15]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[16]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[17]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[18]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[19]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[20]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[22]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[23]));
+                        for c = 1, 8 do
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.empyreans[c]));
+                        end
                     imgui.EndTable();
                 imgui.EndTabItem();
                 end
@@ -258,15 +247,7 @@ function interface.RenderGearTab()
                 end
 
                 if (imgui.BeginTabItem('AMBUSCADE', nil)) then
-                    imgui.BeginTable('ambu table', 6, ImGuiTableFlags_Borders);
-                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'SET');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Head');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Body');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Hands');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Legs');
-                        imgui.TableNextColumn();imgui.TextColored(colors.header, 'Feet');
-
+                    imgui.BeginTable('ambu table', 5, ImGuiTableFlags_Borders);
                         interface.manager.DisplayAmbuGear();
                     imgui.EndTable();
                 imgui.EndTabItem();
@@ -277,13 +258,15 @@ function interface.RenderGearTab()
         imgui.EndChild();
 
         if (imgui.Button('Update Gear')) then
-            interface.manager.UpdateGear();
+            --interface.manager.Test();
         end
     imgui.EndGroup();
 end
 
 function interface.RenderPricesTab()
+    imgui.TextColored(colors.header,'Bynes                       Bronze                      Shells');
     imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
+    imgui.InputText();
 end
 
 

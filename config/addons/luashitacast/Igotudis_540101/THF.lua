@@ -46,7 +46,7 @@ sets = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
-        Ear1 = 'Brutal Earring',
+        Ear1 = 'Sherida Earring',
         Ear2 = 'Cessance Earring',
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },

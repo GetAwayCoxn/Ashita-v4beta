@@ -4,12 +4,16 @@ wstp = 1000;
 gcauto.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',
 };
 
+gcauto.Spellcasters = T{'WHM','BLM','RDM','PLD','DRK','BRD','NIN','SMN','BLU','SCH','GEO','RUN',};
+
 gcauto.AMWeapons = T{
 	empyrean = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon'},
 	relic = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator'},
 	mythic = T{'Conqueror', 'Glanzfaust', 'Yagrush', 'Laevateinn', 'Murgleis', 'Vajra', 'Burtgang', 'Liberator', 'Aymur', 'Carnwenhan', 'Gastraphetes', 'Kogarasumaru', 'Nagi', 'Ryunohige', 'Nirvana', 'Tizona', 'Death Penalty', 'Kenkonken', 'Terpsichore', 'Tupsimati', 'Idris', 'Epeolatry'},
 	aeonic = T{'Godhands', 'Aeneas', 'Sequence', 'Lionheart', 'Tri-edge', 'Chango', 'Anguta', 'Trishula', 'Heishi Shorinken', 'Dojikiri Yasutsuna', 'Tishtrya', 'Khatvanga', 'Fail-Not', 'Fomalhaut'},
 };
+
+gcauto.DistanceWS = T{'Flamming Arrow','Piercing Arrow','Dulling Arrow','Sidewinder','Blast Arrow','Arching Arrow','Empyreal Arrow','Refulgent Arrow','Apex Arrow','Namas Arrow','Jishnu\'s Randiance','Hot Shot','Split Shot','Sniper Shot','Slug Shot','Blast Shot','Heavy Shot','Detonator','Numbing Shot','Last Stand','Coronach','Wildfire','Trueflight','Leaden Salute','Myrkr','Dagan','Moonlight','Starlight',};
 
 gcauto.AMWeaponSkills = T{
 	['WAR'] = {relic = 'Scourge', empyrean = 'Ukko\'s Fury', mythic = 'King\'s Justice', aeonic = 'Upheaval'},
@@ -148,7 +152,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('LR', false);
 	end
 
-	if (equip == nil) then return;--this isnt working on log in
+	if (equip.Main == nil) then return;--this isnt working on log in
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		gcdisplay.CreateToggle('AM3', false);
 	end
@@ -319,15 +323,36 @@ function gcauto.DoAM3(job)
 	end
 end
 
+function gcauto.CheckItemINV(name)
+	local total = 0;
+    local tempitem = AshitaCore:GetResourceManager():GetItemByName(name, 0);
+
+    for x = 0, 80 do
+        local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(0, x);
+        if (item ~= nil and tempitem ~= nil and item.Id == tempitem.Id) then
+            total = total + item.Count;
+        end
+    end
+
+    if total ~= 0 then return true;
+    else return false end
+end
 
 function gcauto.AutoMeds()
+	local player = gData.GetPlayer();
 	local remedy = gcauto.CheckRemedy();
 	local silence = gData.GetBuffCount('Silence');
-
-	if (silence >= 1) then
-		AshitaCore:GetChatManager():QueueCommand(1, '/item "Echo Drops" <me>');
+	
+	if (silence >= 1) and (gcauto.Spellcasters:contains(player.MainJob) or gcauto.Spellcasters:contains(player.SubJob))then
+		local check = gcauto.CheckItemINV('Echo Drops');
+		if (check == true) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/item "Echo Drops" <me>');
+		end
 	elseif (remedy == true) then
-		AshitaCore:GetChatManager():QueueCommand(1, '/item "Remedy" <me>');
+		local check = gcauto.CheckItemINV('Remedy');
+		if (check == true) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/item "Remedy" <me>');
+		end
 	end
 end
 

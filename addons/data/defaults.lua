@@ -1,34 +1,29 @@
 defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
     jobsabrv = {'WAR','MNK','WHM','BLM','RDM','THF','PLD','DRK','BST','BRD','RNG','SAM','NIN','DRG','SMN','BLU','COR','PUP','DNC','SCH','GEO','RUN'}; --for easier reference is all
-    jobs = {-- for building data per job array, leave empty
+    jobs = {
     },
     progress = {
         jobs = {0.0,0.0,0.0,0.0}, -- EXP completion, CP completion, Mastery completion, total JP holding for Oboro
         relics = {0,0,0,0,0,0}, --bynes, bronze, shells, marrows, plutons, SAD crystals
         mythics = {0,0,0,0,0}, --alex,scoria,Beitetsu,HP bayld,crystals
         empyreans = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, --{chloris,glavoid,briareus,cara,fistule,kukulkan,iron plates,ulhuadshi,itzpapalotl,sobek,CC lantern,bukhis,sedna,colorless soul,dragua,orthus,apademak,isgebind,alfard,azdaja,HMP,dross,cinder,boulders,crystals}
-    },
-    gear = {
-        af = {},
-        relic = {},
-        empyrean = {},
-        ambu = {
-            {'Sulevia\'s',{'Sulevia\'s Mask','Sulevia\'s Mask +1','Sulevia\'s Mask +2'},
-            {'Sulevia\'s Plate.','Sulevia\'s Plate. +1','Sulevia\'s Plate. +2'},
-            {'Sulevia\'s Gauntlets','Sulev. Gauntlets +1','Sulev. Gauntlets +2'},
-            {'Sulevia\'s Cuisses','Sulevi. Cuisses +1','Sulev. Cuisses +2'},
-            {'Sulevia\'s Leggings','Sulev. Leggings +1','Sulev. Leggings +2'},},
-            --[['Sulevia\'s'] = {
-                            --['Mask'] = {25659,25660,25574},
-                            --['Platemail'] = {25745,25746,25790},
-                            ['Mask'] = {25659,25660,25574},
-                            ['Platemail'] = {25745,25746,25790},
-                            ['Gauntlets'] = {},
-                            ['Cuisses'] = {},
-                            ['Leggings'] = {},
-                            },]]
+
+        gear = {
+            ambu = {
+               {{-1,'Sulevia\'s'},{-1,'S Head'},{-1,'S Body'},{-1,'S Hands'},{-1,'S Legs'},{-1,'S Feet'}},
+               {{-1,'Hizamaru'},{-1,'H Head'},{-1,'H Body'},{-1,'H Hands'},{-1,'H Legs'},{-1,'H Feet'}},
+               {{-1,'Inyanga'},{-1,'I Head'},{-1,'I Body'},{-1,'I Hands'},{-1,'I Legs'},{-1,'I Feet'}},
+               {{-1,'Meghanada'},{-1,'Meg Head'},{-1,'Meg Body'},{-1,'Meg Hands'},{-1,'Meg Legs'},{-1,'Meg Feet'}},
+               {{-1,'Jhakri'},{-1,'J Head'},{-1,'J Body'},{-1,'J Hands'},{-1,'J Legs'},{-1,'J Feet'}},
+               {{-1,'Flamma'},{-1,'F Head'},{-1,'F Body'},{-1,'F Hands'},{-1,'F Legs'},{-1,'F Feet'}},
+               {{-1,'Tali\'ah'},{-1,'T Head'},{-1,'T Body'},{-1,'T Hands'},{-1,'T Legs'},{-1,'T Feet'}},
+               {{-1,'Mummu'},{-1,'Mu Head'},{-1,'Mu Body'},{-1,'Mu Hands'},{-1,'Mu Legs'},{-1,'Mu Feet'}},
+               {{-1,'Ayanmo'},{-1,'A Head'},{-1,'A Body'},{-1,'A Hands'},{-1,'A Legs'},{-1,'A Feet'}},
+               {{-1,'Mallquis'},{-1,'Mal Head'},{-1,'Mal Body'},{-1,'Mal Hands'},{-1,'Mal Legs'},{-1,'Mal Feet'}},
+            },
         },
     },
+    
     prices = {
         dyna = {1200,1200,1200,1000000,2000}, --not implemented yet
     },
