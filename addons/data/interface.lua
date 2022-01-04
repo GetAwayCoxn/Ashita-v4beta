@@ -266,7 +266,7 @@ end
 function interface.RenderPricesTab()
     imgui.TextColored(colors.header,'Bynes                       Bronze                      Shells');
     imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
-    imgui.InputText();
+    imgui.InputText('Test', );
 end
 
 

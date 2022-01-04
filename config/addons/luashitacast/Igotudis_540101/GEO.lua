@@ -4,7 +4,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = {
     Idle = {
-        Main = 'Bunzi\'s Rod',
+        Main = 'Bolelabunga',
         Sub = 'Genmei Shield',
         Head = 'Nyame Helm',
         Neck = 'Loricate Torque +1',
@@ -21,9 +21,17 @@ sets = {
     },
     Idle_Pet = {
         Main = 'Solstice',
+        Sub = 'Genmei Shield',
+        Range = 'Dunna',
+        Head = 'Azimuth Hood +1',
+        Neck = 'Loricate Torque +1',
         Ear1 = 'Handler\'s Earring +1',
         Ear2 = 'Rimeice Earring',
-        Hands = 'Geomancy Mitaines',
+        Body = 'Telchine Chas.',
+        Hands = 'Geo. Mitaines +1',
+        Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = 'Eva.+20', [2] = 'Pet: "Regen"+15', [3] = 'Mag. Eva.+20' } },
+        Legs = 'Telchine Braconi',
+        Feet = 'Telchine Pigaches',
     },
     Resting = {},
     Idle_Regen = {
@@ -38,10 +46,10 @@ sets = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Culminus',
         Range = 'Dunna',
-        Head = 'Geomancy Galero',
+        Head = 'Bagua Galero +1',
         Neck = 'Bathy Choker +1',
         Body = 'Agwu\'s Robe',
-        Hands = 'Ea Cuffs',
+        Hands = 'Geo. Mitaines +1',
         Back = 'Solemnity Cape',
         Legs = 'Agwu\'s Slops',
         Feet = 'Volte Gaiters',
@@ -157,11 +165,12 @@ sets = {
     Geomancy = { --900 skill, then indi duration, then CMP
         Main = 'Solstice',
         Range = 'Dunna',
+        Head = 'Azimuth Hood +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Gifted Earring',
         Ear2 = 'Mendi. Earring',
         Body = 'Telchine Chas.',
-        Hands = 'Nyame Gauntlets',
+        Hands = 'Geo. Mitaines +1',
         Waist = 'Hachirin-no-Obi',
         Legs = 'Vanya Slops',
         Feet = 'Medium\'s Sabots',
@@ -206,6 +215,7 @@ sets = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
+        Head = 'Bagua Galero +1',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
@@ -230,7 +240,7 @@ sets = {
         Hands = 'Jhakri Cuffs +2',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Taranus\'s Cape',
+        Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = '"Mag. Atk. Bns."+10', [2] = 'Mag. Acc+20', [3] = 'Magic Damage +20', [4] = 'INT+20' } },
         Waist = 'Sacro Cord',
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Merlinic Crackows', Augment = { [1] = 'CHR+10', [2] = 'Mag. Acc.+2', [3] = '"Mag. Atk. Bns."+30' } },
@@ -304,10 +314,6 @@ profile.HandleDefault = function()
 
     gFunc.EquipSet(sets.Idle);
 
-    if (pet ~= nil) then
-        gFunc.EquipSet(sets.Idle_Pet);
-    end
-
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
@@ -329,10 +335,15 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (pet ~= nil) then
+        gFunc.EquipSet(sets.Idle_Pet);
+    end
 end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if string.match('Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
 
     gcinclude.CheckCancels();
 end

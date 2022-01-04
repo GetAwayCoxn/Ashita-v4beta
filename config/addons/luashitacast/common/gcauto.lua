@@ -101,10 +101,9 @@ function gcauto.SetAlias()
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /lr /lac fwd lr');
 	end
-
-	--[[if (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /step /lac fwd step');
-	end]]
+	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /stance /lac fwd stance');
+	end
 
 	if (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /am3 /lac fwd am3');
@@ -151,6 +150,11 @@ function gcauto.SetVariables()
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		gcdisplay.CreateToggle('LR', false);
 	end
+	if (player.MainJob == 'DNC') then
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Saber Dance', [3] = 'Fan Dance', [4] = 'Haste Samba', [5] = 'Drain Samba III',});
+	elseif (player.SubJob == 'DNC') then
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba II',});
+	end
 
 	if (equip.Main == nil) then return;--this isnt working on log in
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
@@ -170,6 +174,7 @@ function gcauto.SetCommands(args)
 		gcdisplay.AdvanceCycle('Mob');
 	elseif (args[1] == 'wskill') then
 		gcdisplay.AdvanceCycle('WSkill');
+		if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
 	elseif (args[1] == 'wstp') then
 		wstp = tonumber(args[2]); -- need to add error msg/check here
     end
@@ -212,6 +217,12 @@ function gcauto.SetCommands(args)
 	end
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		if (args[1] == 'lr') then gcdisplay.AdvanceToggle('LR') end
+	end
+	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+		if (args[1] == 'stance') then
+			gcdisplay.AdvanceCycle('Stance');
+			if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
+		end
 	end
 
 	if (equip == nil) then return;--this isnt working on log in
@@ -567,6 +578,16 @@ function gcauto.DoJobStuff()
 
 		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Last Resort" <me>');
+		end
+	end
+	if (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
+		local temp = gcdisplay.GetCycle('Stance');
+		if (temp ~= 'None') then
+			local buff = gData.GetBuffCount(temp);
+
+			if (buff <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
+			end
 		end
 	end
 end

@@ -43,7 +43,6 @@ sets = {
     },
 
     Tp_Default = {
-        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
@@ -91,7 +90,6 @@ sets = {
     },
 
     Ws_Default = {
-        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Fotia Gorget',
         Ear1 = 'Odr Earring',

@@ -187,6 +187,7 @@ function gcinclude.SetCommands(args)
 			gcdisplay.AdvanceToggle('PROC');
 		end
 	end
+	
 	if (gcauto ~= nil) then gcauto.SetCommands(args) end
 end
 

@@ -4,36 +4,34 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = {
     Idle = {
-        Ammo = 'Staunch Tathlum',
+        Ammo = 'Yamarang',
         Head = 'Malignance Chapeau',
-        Neck = 'Sanctity Necklace',
-        Ear1 = 'Brutal Earring',
-        Ear2 = 'Eabani Earring',
-        Body = 'Hiza. Haramaki +2',
+        Neck = 'Loricate Torque +1',
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Ring2 = 'Karieyh Ring',
         Back = 'Solemnity Cape',
-        Waist = 'Moonbow Belt',
-        Legs = 'Mummu Kecks +2',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+        Waist = 'Gishdubar Sash',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
-        Body = 'Hiza. Haramaki +2',
-        Hands = 'Rao Kote',
     },
     Idle_Refresh = {},
     Town = {
-        Main = 'Sakpata\'s Fists',
-        Ammo = 'Crepuscular Pebble',
-        Head = 'Wakido Kabuto +2',
-        Body = 'Hiza. Haramaki +2',
-        Hands = 'Flam. Manopolas +2',
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
-        Legs = 'Mpaca\'s Hose',
-        Feet = 'Mpaca\'s Boots',
+        Main = 'Acrontica',
+        Sub = 'Tauret',
+        Ammo = 'Yamarang',
+        Head = 'Cumulus Masque',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
 
     Dt = {
@@ -42,49 +40,47 @@ sets = {
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
         Ear2 = 'Etiolation Earring',
+        Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
 
     Tp_Default = {
-        Ammo = 'Coiste Bodhar',
+        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Hiza. Haramaki +2',
-        Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Niqmaddu Ring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Ilabrat Ring',
         Ring2 = 'Epona\'s Ring',
-        Back = { Name = 'Segomo\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = 'Moonbow Belt',
-        Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
+        Back = { Name = 'Mecisto. Mantle', Augment = { [1] = 'DEF+3', [2] = 'Cap. Point+32%', [3] = 'MP+20', [4] = '"Mag. Atk. Bns."+4' } },
+        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Legs = 'Gleti\'s Breeches',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Tp_Hybrid = {
-        Head = 'Mpaca\'s Cap',
+        Head = 'Malignance Chapeau',
         Neck = 'Sanctity Necklace',
-        Hands = 'Mpaca\'s Gloves',
-        Legs = 'Mpaca\'s Hose',
-        Feet = 'Mpaca\'s Boots',
     },
     Tp_Acc = {
-        Ammo = 'Ginsen',
+        Ammo = 'Yamarang',
         Ear1 = 'Mache Earring',
-        Hands = 'Tatena. Gote +1',
-        Ring1 = 'Cacoethic Ring',
-        Feet = 'Tatena. Sune. +1',
+        Ring2 = 'Cacoethic Ring',
     },
 
 
     Precast = {
         Ammo = 'Staunch Tathlum',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Etiolation Earring',
+        Ear1 = 'Loquac. Earring',
+        Ear2 = 'Etiolation Earring',
         Ring2 = 'Prolix Ring',
     },
 
@@ -94,18 +90,17 @@ sets = {
     },
 
     Ws_Default = {
-        Ammo = 'Knobkierrie',
+        Ammo = 'Voluspa Tathlum',
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Fotia Gorget',
         Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
         Ear2 = 'Odr Earring',
-        Body = 'Mummu Jacket +2',
+        Body = 'Nyame Mail',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Niqmaddu Ring',
-        Ring2 = 'Epona\'s Ring',
-        Back = { Name = 'Segomo\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Ring1 = 'Ilabrat Ring',
+        Ring2 = 'Karieyh Ring',
         Waist = 'Moonbow Belt',
-        Legs = 'Hiza. Hizayoroi +2',
+        Legs = 'Nyame Flanchard',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Ws_Hybrid = {
@@ -123,8 +118,8 @@ sets = {
     Shijin_Hybrid = {},
     Shijin_Acc = {},
 
-    Impetus = {
-        Body = 'Bhikku Cyclas +1',
+    Waltz = {
+        Ammo = 'Yamarang',
     },
 
     Movement = {
@@ -138,8 +133,8 @@ profile.OnLoad = function()
     gSettings.AllowAddSet = false;
     gcinclude.Initialize:once(3);
 
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 4');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 7');
 end
 
 profile.OnUnload = function()
@@ -182,7 +177,8 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity) end
+    if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity);
+    elseif string.contains(ability.Name, 'Waltz') then gFunc.EquipSet(sets.Waltz) end
 
     gcinclude.CheckCancels();
 end
