@@ -97,6 +97,12 @@ function gcinclude.SetAlias()
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /proc /lac fwd proc');
 	end
+	if (player.MainJob == 'PUP') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /pupmode /lac fwd pupmode');
+	end
+	if (player.MainJob == 'BRD') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /forcestring /lac fwd forcestring');
+	end
 end
 
 function gcinclude.SetVariables() --De-clutter this mess
@@ -106,7 +112,7 @@ function gcinclude.SetVariables() --De-clutter this mess
 	gcdisplay.CreateToggle('Kite', false);
 	gcdisplay.CreateCycle('MeleeSet', {[1] = 'Default', [2] = 'Hybrid', [3] = 'Acc'});
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
-		gcdisplay.CreateToggle('Burst', false);
+		gcdisplay.CreateToggle('Burst', true);
 		gcdisplay.CreateCycle('NukeSet', {[1] = 'Power', [2] = 'Macc',});
 		if (player.MainJob == 'BLM') or (player.MainJob == 'SCH') then
 			gcdisplay.CreateCycle('Weapon', {[1] = 'Club', [2] = 'Staff'});
@@ -124,6 +130,12 @@ function gcinclude.SetVariables() --De-clutter this mess
 	end
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('PROC', false);
+	end
+	if (player.MainJob == 'PUP') then
+		gcdisplay.CreateCycle('PupMode', {[1] = 'Tank', [2] = 'Melee', [3] = 'Ranger', [4] = 'Mage'});
+	end
+	if (player.MainJob == 'BRD') then
+		gcdisplay.CreateToggle('String', false);
 	end
 end
 
@@ -167,12 +179,12 @@ function gcinclude.SetCommands(args)
 			if (gcdisplay.GetToggle('Fight') == false) then
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
-				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range');
+				--AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range');
 				gcdisplay.AdvanceToggle('Fight');
 			else
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
-				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range');
+				--AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range');
 				gcdisplay.AdvanceToggle('Fight');
 			end
 		end
@@ -185,6 +197,16 @@ function gcinclude.SetCommands(args)
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		if (args[1] == 'proc') then
 			gcdisplay.AdvanceToggle('PROC');
+		end
+	end
+	if (player.MainJob == 'PUP') then
+		if (args[1] == 'pupmode') then
+			gcdisplay.AdvanceCycle('PupMode');
+		end
+	end
+	if (player.MainJob == 'BRD') then
+		if (args[1] == 'forcestring') then
+			gcdisplay.AdvanceToggle('String');
 		end
 	end
 	
@@ -277,6 +299,7 @@ function gcinclude.DoNukes(tier)
 end
 
 function gcinclude.DoSCHspells(spell)
+	local player = gData.GetPlayer();
 	local e = gcdisplay.GetCycle('Element');
 	local key = 0;
 	local cast = 'cast';
@@ -367,7 +390,7 @@ function gcinclude.Initialize()
 	gcdisplay.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize() end
+	if (gcauto ~= nil) then gcauto.Initialize:once(10) end --maybe sort out a better solution with a while loop
 end
 
 return gcinclude;

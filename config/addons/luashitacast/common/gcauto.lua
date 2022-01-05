@@ -50,7 +50,7 @@ gcauto.WeaponSkills = T{
 	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
-	['BRD'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
+	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['RNG'] = {[1] = 'None',},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
@@ -58,7 +58,7 @@ gcauto.WeaponSkills = T{
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['COR'] = {[1] = 'None',},
-	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Shijin Spiral'},
+	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
 	['SCH'] = {[1] = 'None',},
 	['GEO'] = {[1] = 'None',},
@@ -105,7 +105,8 @@ function gcauto.SetAlias()
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /stance /lac fwd stance');
 	end
 
-	if (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
+	if (equip.Main == nil) then return;--this isnt working on log in
+	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /am3 /lac fwd am3');
 	end
 end

@@ -8,73 +8,61 @@ sets = {
         Sub = 'Genmei Shield',
         Ammo = 'Staunch Tathlum',
         Head = 'Befouled Crown',
-        Neck = 'Bathy Choker +1',
+        Neck = 'Loricate Torque +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Malignance Gloves',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
+        Back = 'Lugh\'s Cape',
+        Waist = 'Gishdubar Sash',
+        Legs = 'Agwu\'s Slops',
         Feet = 'Volte Gaiters',
     },
+    Idle_Staff = {
+        Main = 'Marin Staff +1',
+        Sub = 'Enki Strap',
+    },
     Resting = {},
-    Idle_Regen = {},
-    Idle_Refresh = {},
-    Town = {
-        Main = 'Excalibur',
-        Sub = 'Genmei Shield',
-        Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
+    Idle_Regen = {
         Neck = 'Bathy Choker +1',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
+    },
+    Idle_Refresh = {
+        Head = 'Befouled Crown',
+        Waist = 'Fucho-no-Obi',
+        Legs = 'Assid. Pants +1',
+    },
+    Town = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Culminus',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Acad. Mortar. +2',
+        Neck = 'Bathy Choker +1',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Acad. Bracers +2',
+        Back = 'Lugh\'s Cape',
+        Legs = 'Agwu\'s Slops',
         Feet = 'Volte Gaiters',
     },
 
     Dt = {
-        Main = 'Sakpata\'s Sword',
-        Sub = 'Genmei Shield',
         Ammo = 'Staunch Tathlum',
-        Head = 'Malignance Chapeau',
-        Neck = { Name = 'Loricate Torque +1', AugPath='A' },
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
+        Head = 'Nyame Helm',
+        Neck = 'Loricate Torque +1',
+        Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
-        Hands = 'Malignance Gloves',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
-        Waist = 'Flume Belt +1',
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
+        Ring2 = 'Gelatinous Ring +1',
+        Back = 'Lugh\'s Cape',
+        Waist = 'Gishdubar Sash',
+        Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
 
     Tp_Default = {
-        Main = 'Sakpata\'s Sword',
-        Sub = 'Genmei Shield',
-        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
-        Head = 'Malignance Chapeau',
-        Neck = 'Anu Torque',
-        Ear1 = 'Sherida Earring',
-        Ear2 = 'Cessance Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
-        Ring2 = 'Petrov Ring',
-        Back = { Name = 'Sucellos\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+20', [3] = 'DEX+20' } },
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Nyame Sollerets',
     },
     Tp_Hybrid = {
     },
@@ -83,21 +71,19 @@ sets = {
 
 
     Precast = {
-        Main = 'Sakpata\'s Sword',
-        Sub = 'Ammurapi Shield',
         Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Merlinic Hood', Augment = { [1] = 'Mag. Acc.+7', [2] = 'CHR+5', [3] = 'Magic burst dmg.+6%', [4] = '"Mag. Atk. Bns."+25' } },
+        Head = 'Peda. M.Board +2',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = { Name = 'Gende. Gages +1', Augment = { [1] = 'Phys. dmg. taken -4%', [2] = 'Song spellcasting time -5%' } },
+        Body = 'Agwu\'s Robe',
+        Hands = 'Acad. Bracers +2',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Prolix Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
-        Feet = 'Volte Gaiters',
+        Legs = 'Agwu\'s Slops',
+        Feet = 'Acad. Loafers +2',
     },
     Cure_Precast = {
         Ear1 = 'Mendi. Earring',
@@ -108,6 +94,7 @@ sets = {
     },
     Stoneskin_Precast = {
         Head = 'Umuthi Hat',
+        Hands = 'Carapacho Cuffs',
         Waist = 'Siegel Sash',
     },
 
@@ -117,17 +104,17 @@ sets = {
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = { Name = 'Vanya Hood', AugPath='C' },
-        Neck = 'Incanter\'s Torque',
+        Neck = 'Nodens Gorget',
         Ear1 = 'Mendi. Earring',
         Ear2 = 'Regal Earring',
-        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
+        Body = 'Gende. Bliaut +1',
         Hands = 'Weath. Cuffs +1',
         Ring1 = 'Rufescent Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Rumination Sash',
-        Legs = 'Atrophy Tights',
-        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
+        Legs = 'Vanya Slops',
+        Feet = 'Vanya Clogs',
     },
     Self_Cure = {
         Waist = 'Gishdubar Sash',
@@ -135,7 +122,13 @@ sets = {
     Regen = {
         Main = 'Bolelabunga',
         Sub = 'Ammurapi Shield',
+        Head = 'Arbatel Bonnet +1',
         Body = 'Telchine Chas.',
+        Hands = 'Arbatel Bracers +1',
+        Back = 'Lugh\'s Cape',
+        Waist = 'Embla Sash',
+        Legs = 'Telchine Braconi',
+        Feet = 'Telchine Pigaches',
     },
     Cursna = {
         Ring1 = 'Purity Ring',
@@ -143,21 +136,21 @@ sets = {
     },
 
     Enhancing = {
-        Main = 'Sakpata\'s Sword',
+        Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Gifted Earring',
         Ear2 = 'Andoaa Earring',
-        Body = 'Lethargy Sayon +1',
-        Hands = 'Malignance Gloves',
+        Body = 'Peda. Gown +3',
+        Hands = 'Arbatel Bracers +1',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = { Name = 'Sucellos\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+20', [3] = 'DEX+20' } },
+        Back = 'Solemnity Cape',
         Waist = 'Embla Sash',
         Legs = { Name = 'Telchine Braconi', Augment = { [1] = 'Enh. Mag. eff. dur. +8', [2] = '"Conserve MP"+4' } },
-        Feet = 'Leth. Houseaux +1',
+        Feet = 'Telchine Pigaches',
     },
     Self_Enhancing = {},
     Skill_Enhancing = {},
@@ -175,68 +168,80 @@ sets = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
+        Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
-        Ear2 = 'Snotra Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Malignance Gloves',
+        Ear2 = 'Malignance Earring',
+        Body = 'Acad. Gown +2',
+        Hands = 'Peda. Bracers +2',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
+        Legs = 'Acad. Pants +2',
+        Feet = 'Acad. Loafers +2',
     },
-    EnfeeblingACC = {},
-    Mind_Enfeebling = {},
-    Int_Enfeebling = {},
-    Potency_Enfeebling = {},
 
     Drain = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
+        Head = 'Acad. Mortar. +2',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
-        Ear2 = 'Snotra Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Malignance Gloves',
+        Ear2 = 'Malignance Earring',
+        Body = 'Acad. Gown +2',
         Ring1 = 'Kishar Ring',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
+        Ring2 = 'Metamor. Ring +1',
+        Back = 'Aurist\'s Cape +1',
         Waist = 'Fucho-no-Obi',
-        Legs = 'Jhakri Slops +2',
-        Feet = { Name = 'Merlinic Crackows', Augment = { [1] = 'CHR+10', [2] = 'Mag. Acc.+2', [3] = '"Mag. Atk. Bns."+30' } },
+        Legs = 'Acad. Pants +2',
+        Feet = 'Agwu\'s Pigaches',
     },
 
     Nuke = {
-        Main = 'Marin Staff +1',
-        Sub = 'Enki Strap',
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = 'Jhakri Coronal +2',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Hands = 'Merlinic Dastanas',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Aurist\'s Cape +1',
-        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Back = 'Lugh\'s Cape',
+        Waist = 'Sacro Cord',
         Legs = 'Jhakri Slops +2',
         Feet = { Name = 'Merlinic Crackows', Augment = { [1] = 'CHR+10', [2] = 'Mag. Acc.+2', [3] = '"Mag. Atk. Bns."+30' } },
     },
-    NukeACC = {};
+    NukeACC = {
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+    },
     Burst = {
         Main = 'Bunzi\'s Rod', -- 10 and 0
         Sub = 'Ammurapi Shield',
-        Hands = 'Ea Cuffs', --5 and 5
+        Head = 'Peda. M.Board +2', -- 0 and 2
+        Neck = 'Argute Stole +1', -- 7 and 0
+        Body = 'Agwu\'s Robe', -- 10 and 0
         Ring1 = 'Mujin Band', -- 0 and 5
-        Feet = 'Ea Pigaches', -- 4 and 4
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Legs = 'Agwu\'s Slops', -- 9 and 0
+        Feet = 'Agwu\'s Pigaches', -- 6 and 0
     },
-    Helix = {},
+    Helix = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Head = 'Mall. Chapeau +2',
+        Neck = 'Argute Stole +1',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Mallquis Cuffs +2',
+        Back = 'Lugh\'s Cape',
+        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Legs = 'Agwu\'s Slops',
+        Feet = 'Agwu\'s Pigaches',
+    },
 
     Preshot = {
     },
@@ -245,10 +250,10 @@ sets = {
 
     Ws_Default = {
         Ammo = 'Voluspa Tathlum',
-        Head = { Name = 'Blistering Sallet +1', AugPath='A' },
+        Head = 'Jhakri Coronal +2',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
         Body = 'Jhakri Robe +2',
         Hands = 'Jhakri Cuffs +2',
         Ring1 = 'Rufescent Ring',
@@ -256,51 +261,15 @@ sets = {
         Back = 'Solemnity Cape',
         Waist = 'Fotia Belt',
         Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
+        Feet = 'Nyame Sollerets',
     },
     Ws_Hybrid = {
     },
     Ws_Acc = {
     },
 
-    Savage_Default = {
-        Ammo = 'Voluspa Tathlum',
-        Head = 'Jhakri Coronal +2',
-        Neck = 'Fotia Gorget',
-        Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
-        Ear2 = 'Brutal Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring',
-        Back = 'Solemnity Cape',
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
-    },
-    Savage_Hybrid = {},
-    Savage_Acc = {},
-
-    Chant_Default = {
-        Ammo = 'Yetshila',
-        Head = { Name = 'Blistering Sallet +1', AugPath='A' },
-        Neck = 'Fotia Gorget',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Begrudging Ring',
-        Back = 'Solemnity Cape',
-        Waist = 'Fotia Belt',
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
-    },
-    Chant_Hybrid = {},
-    Chant_Acc = {},
-
     Movement = {
-        Legs = 'Carmine Cuisses +1',
+        Feet = 'Herald\'s Gaiters',
 	},
 };
 
@@ -310,8 +279,8 @@ profile.OnLoad = function()
     gSettings.AllowAddSet = false;
     gcinclude.Initialize:once(3);
 
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 8');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 2');
 end
 
 profile.OnUnload = function()
@@ -323,16 +292,14 @@ profile.HandleCommand = function(args)
 end
 
 profile.HandleDefault = function()
+    local player = gData.GetPlayer();
+
     gFunc.EquipSet(sets.Idle);
-	
-	local player = gData.GetPlayer();
+
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-
-        if (gcdisplay.GetToggle('Fight') == false) then
-            AshitaCore:GetChatManager():QueueCommand(1, '/fight');
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
         end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
@@ -342,7 +309,7 @@ profile.HandleDefault = function()
 	
 	
 	if (gcdisplay.GetToggle('DTset') == true) then
-		gFunc.EquipSet(gcinclude.sets.Dt);
+        gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then
@@ -350,6 +317,9 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcdisplay.GetCycle('Weapon') == 'Staff') then
+        gFunc.EquipSet(sets.Idle_Staff);
+    end
 end
 
 profile.HandleAbility = function()
@@ -366,6 +336,7 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
+
     gFunc.EquipSet(sets.Precast)
 
     if (spell.Skill == 'Enhancing Magic') then
@@ -383,9 +354,13 @@ profile.HandlePrecast = function()
     end
 
     gcinclude.CheckCancels();
+    if (gcdisplay.GetCycle('Weapon') == 'Staff') then
+        gFunc.EquipSet(sets.Idle_Staff);
+    end
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
     local weather = gData.GetEnvironment();
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
@@ -408,8 +383,6 @@ profile.HandleMidcast = function()
             if (target.Name == me) then
                 gFunc.EquipSet(sets.Self_Refresh);
             end
-        elseif (target.Name == me) and string.contains(spell.Name, 'En') then
-            gFunc.EquipSet(sets.Skill_Enhancing);
         end
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure);
@@ -425,7 +398,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Elemental Magic') then
         gFunc.EquipSet(sets.Nuke);
 
-        if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
+        if (gcdisplay.GetCycle('NukeSet') == 'Macc') then
             gFunc.EquipSet(sets.NukeACC);
         end
         if (gcdisplay.GetToggle('Burst') == true) then
@@ -439,21 +412,15 @@ profile.HandleMidcast = function()
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
-        if (gcdisplay.GetToggle('NukeSet') == 'Macc') then
-            gFunc.EquipSet(sets.EnfeeblingACC);
-        end
-        if string.contains(spell.Name, 'Paralyze') or string.contains(spell.Name, 'Slow') or string.contains(spell.Name, 'Addle') then
-            gFunc.EquipSet(sets.Mind_Enfeebling);
-        elseif string.contains(spell.Name, 'Poison') then
-            gFunc.EquipSet(sets.Int_Enfeebling);
-        elseif string.contains(spell.Name, 'Distract') or string.match(spell.Name, 'Frazzle III') then
-            gFunc.EquipSet(sets.Potency_Enfeebling);
-        end
     elseif (spell.Skill == 'Dark Magic') then
-        gFunc.EquipSet(sets.EnfeeblingACC); -- mostly MACC anyways
+        gFunc.EquipSet(sets.Enfeebling); -- mostly macc anyways
         if (string.contains(spell.Name, 'Aspir') or string.contains(spell.Name, 'Drain')) then
             gFunc.EquipSet(sets.Drain);
         end
+    end
+
+    if (gcdisplay.GetCycle('Weapon') == 'Staff') then
+        gFunc.EquipSet(sets.Idle_Staff);
     end
 end
 
@@ -474,16 +441,6 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
-        if string.match(ws.Name, 'Chant du Cygne') then
-            gFunc.EquipSet(sets.Chant_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Chant_' .. gcdisplay.GetCycle('MeleeSet')); end
-	    elseif string.match(ws.Name, 'Savage Blade') then
-            gFunc.EquipSet(sets.Savage_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
-        end
     end
 end
 

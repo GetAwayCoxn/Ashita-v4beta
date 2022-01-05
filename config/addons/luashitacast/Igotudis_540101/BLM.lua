@@ -86,6 +86,7 @@ sets = {
         Feet = 'Volte Gaiters',
     },
     Cure_Precast = {
+        Ear1 = 'Mendi. Earring',
         Feet = 'Vanya Clogs',
     },
     Enhancing_Precast = {
@@ -121,6 +122,8 @@ sets = {
         Main = 'Bolelabunga',
         Sub = 'Ammurapi Shield',
         Body = 'Telchine Chas.',
+        Legs = 'Telchine Braconi',
+        Feet = 'Telchine Pigaches',
     },
     Cursna = {
         Ring1 = 'Purity Ring',
@@ -159,7 +162,7 @@ sets = {
     Enfeebling = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
-        Ammo = 'Staunch Tathlum',
+        Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
