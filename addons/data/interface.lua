@@ -1,7 +1,7 @@
 interface = {
     manager = require('manager'),
-    --settings = require('settings'),
-    is_open = { true, },
+    settings = require('settings'),
+    is_open = { false, },
 
     defaults = require('defaults'),
 };
@@ -15,21 +15,21 @@ colors = {
 };
 
 function interface.Load()
-    interface.data = interface.defaults;--interface.settings.load(interface.defaults);
+    interface.data = interface.settings.load(interface.defaults);
 
-    --[[interface.settings.register('settings', 'settings_update', function (s)
+    interface.settings.register('settings', 'settings_update', function (s)
         if(s ~= nil) then
             interface.data = s;
         end
         interface.settings.save();
-    end);]]
+    end);
 
     interface.manager.UpdateJobs();
-    --interface.manager.UpdateWeapons();
+    interface.manager.UpdateWeapons();
 end
 
 function interface.Unload()
-    --interface.settings.save();
+    interface.settings.save();
 end
 
 function interface.RenderJobPointsTab()
@@ -247,8 +247,14 @@ function interface.RenderGearTab()
                 end
 
                 if (imgui.BeginTabItem('AMBUSCADE', nil)) then
-                    imgui.BeginTable('ambu table', 5, ImGuiTableFlags_Borders);
+                    imgui.BeginTable('ambu gear has', 5, ImGuiTableFlags_Borders);
                         interface.manager.DisplayAmbuGear();
+                    imgui.EndTable();
+                    
+                    imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
+
+                    imgui.BeginTable('ambu gear need', 6, ImGuiTableFlags_Borders);
+                        interface.manager.DisplayAmbuNeeds();
                     imgui.EndTable();
                 imgui.EndTabItem();
                 end
@@ -259,6 +265,7 @@ function interface.RenderGearTab()
 
         if (imgui.Button('Update Gear')) then
             --interface.manager.Test();
+            interface.manager.UpdateGear();
         end
     imgui.EndGroup();
 end
@@ -266,12 +273,16 @@ end
 function interface.RenderPricesTab()
     imgui.TextColored(colors.header,'Bynes                       Bronze                      Shells');
     imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
-    imgui.InputText('Test', );
+    --imgui.InputText('Test', );
 end
 
 
 function interface.Render()
     if (not interface.is_open[1]) then
+        return;
+    end
+
+    if (AshitaCore:GetMemoryManager():GetPlayer():GetIsZoning() ~= 0) then
         return;
     end
 

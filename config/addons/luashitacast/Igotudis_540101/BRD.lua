@@ -42,7 +42,7 @@ sets = {
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
         Legs = 'Fili Rhingrave +1',
-        Feet = 'Volte Gaiters',
+        Feet = 'Fili Cothurnes +1',
     },
 
     Dt = {
@@ -70,12 +70,12 @@ sets = {
         Ear1 = 'Brutal Earring',
         Ear2 = 'Cessance Earring',
         Body = { Name = 'Bihu Jstcorps. +3', AugTrial=5481 },
-        Hands = 'Brioso Cuffs +2',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Ilabrat Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Brioso Cannions +2',
+        Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
     Tp_Hybrid = {
@@ -127,7 +127,7 @@ sets = {
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Embla Sash',
         Legs = 'Brioso Cannions +2',
-        Feet = { Name = 'Bihu Slippers +1', AugTrial=5279 },
+        Feet = 'Bihu Slippers +2',
     },
 
 
@@ -217,6 +217,7 @@ sets = {
         Feet = 'Brioso Slippers +3',
     },
     String = { --need update for harps, mostly for Horde Lullaby
+        Range = 'Blurred Harp',
     },
     Harp = {--use /forcestring in game to lock this on all songs, I personally just use Paeons
         Range = 'Blurred Harp', -- This should be ur extra song harp, whichever you use
@@ -280,18 +281,18 @@ sets = {
     },
 
     Ws_Default = {
-        Head = { Name = 'Blistering Sallet +1', AugPath='A' },
+        Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Ear1 = 'Mache Earring',
+        Ear2 = 'Cessance Earring',
+        Body = 'Bihu Jstcorps. +3',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring',
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Bihu Slippers +2',
     },
     Ws_Hybrid = {
     },
@@ -299,35 +300,16 @@ sets = {
     },
 
     Savage_Default = {
-        Head = 'Jhakri Coronal +2',
-        Neck = 'Fotia Gorget',
         Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
-        Ear2 = 'Brutal Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
         Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring',
-        Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
     },
     Savage_Hybrid = {},
     Savage_Acc = {},
 
     Chant_Default = {
         Head = { Name = 'Blistering Sallet +1', AugPath='A' },
-        Neck = 'Fotia Gorget',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Begrudging Ring',
-        Back = 'Solemnity Cape',
-        Waist = 'Fotia Belt',
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {},
     Chant_Acc = {},
@@ -335,7 +317,7 @@ sets = {
     Nitro = {--includes legs for soul voice as well
         Body = 'Bihu Jstcorps. +3',
         Legs = 'Bihu Cannions +1',
-        Feet = 'Bihu Slippers +1',
+        Feet = 'Bihu Slippers +2',
     },
     Movement = {
         Feet = 'Fili Cothurnes +1',

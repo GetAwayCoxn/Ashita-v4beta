@@ -72,7 +72,6 @@ function gcauto.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd wskill');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wstp /lac fwd wstp');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /mob /lac fwd mob');
 
 	
 	if (player.MainJob == 'PLD') then
@@ -121,7 +120,6 @@ function gcauto.SetVariables()
 
 	gcdisplay.CreateToggle('AUTO', false);
 	gcdisplay.CreateCycle('WSkill', gcauto.WeaponSkills[player.MainJob]);
-	gcdisplay.CreateCycle('Mob', {[1] = 'None', [2] = 'Apex Jagil',});
 	
 
 	if (player.MainJob == 'PLD') then
@@ -171,8 +169,6 @@ function gcauto.SetCommands(args)
 		gcauto.DisplayHelp();
 	elseif (args[1] == 'auto') then
 		gcdisplay.AdvanceToggle('AUTO');
-	elseif (args[1] == 'mob') then
-		gcdisplay.AdvanceCycle('Mob');
 	elseif (args[1] == 'wskill') then
 		gcdisplay.AdvanceCycle('WSkill');
 		if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
@@ -260,7 +256,7 @@ function gcauto.CheckAbilityRecast(check)
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
 
-			if (ability.Name[1] == check and ability ~= nil) then
+			if (ability.Name[1] == check) and (ability ~= nil or ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end

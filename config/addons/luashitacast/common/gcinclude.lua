@@ -264,7 +264,7 @@ function gcinclude.SetRegenRefreshGear()
 		end
 	end
 	if pet ~= nil then
-		if (pet.HPP < 75) then
+		if (pet.HPP < 55) then
 			gFunc.EquipSet(sets.Pet_Dt);
 		end
 	end

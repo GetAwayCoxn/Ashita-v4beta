@@ -52,7 +52,7 @@ sets = {
         Hands = 'Geo. Mitaines +1',
         Back = 'Solemnity Cape',
         Legs = 'Agwu\'s Slops',
-        Feet = 'Volte Gaiters',
+        Feet = 'Herald\'s Gaiters',
     },
 
     Dt = {
@@ -174,6 +174,10 @@ sets = {
         Waist = 'Hachirin-no-Obi',
         Legs = 'Vanya Slops',
         Feet = 'Medium\'s Sabots',
+    },
+    Indi = {
+        Legs = 'Bagua Pants',
+        Feet = 'Azimuth Gaiters +1',
     },
 
     Enfeebling = {
@@ -343,7 +347,7 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if string.match('Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
+    if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
 
     gcinclude.CheckCancels();
 end
@@ -428,6 +432,9 @@ profile.HandleMidcast = function()
         end
     elseif (spell.Skill == 'Geomancy') then
         gFunc.EquipSet(sets.Geomancy);
+        if (string.contains(spell.Name, 'Indi') then
+            gFunc.EquipSet(sets.Indi);
+        end
     end
 end
 

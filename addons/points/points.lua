@@ -25,7 +25,7 @@
 --SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 addon.name      = "points";
 addon.author    = "Shinzaku";
-addon.version   = "1.0.3";
+addon.version   = "1.0.6";
 addon.desc      = "Various resource point and event tracking; Includes XP, CP, Abyssea lights, Dynamis KI and time, Assault objectives and time, Nyzul Isle floor and time";
 addon.link      = "https://github.com/Shinzaku/Ashita4-Addons/points";
 
@@ -70,6 +70,7 @@ compactBar.jobiconIndent = "   ";
 compactBar.textObjs = {};
 
 local debugText = "";
+local zoning = false;
 
 function UpdateSettings(s)
     -- Update the settings table..
@@ -231,6 +232,19 @@ ashita.events.register("command", "command_callback1", function (e)
 end);
 
 ----------------------------------------------------------------------------------------------------
+-- func: packet_out
+-- desc: Event called when the addon is processing outgoing packets.
+----------------------------------------------------------------------------------------------------
+ashita.events.register('packet_out', 'packet_out_callback1', function (e)
+    if (e.id == 0x100) then
+        -- Job change update
+        local jobId = struct.unpack("B", e.data, 0x05);
+        local zone = AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0);
+        UpdateFromZone(zone, true, jobId);
+    end
+end);
+
+----------------------------------------------------------------------------------------------------
 -- func: packet_in
 -- desc: Event called when the addon is processing incoming packets.
 ----------------------------------------------------------------------------------------------------
@@ -277,14 +291,7 @@ ashita.events.register("packet_in", "packet_in_callback1", function (e)
         tValues.default.sparks = struct.unpack("I", e.data, 0x75);
 		tValues.default.accolades = struct.unpack('I', e.data, 0xE5);
     elseif (e.id == 0x00A) then	
-		local zoneId = struct.unpack('H', e.data, 0x30 + 1);
-		if (zoneId == 0) then
-			zoneId = struct.unpack('H', e.data, 0x42 + 1);
-		end
-        
-        if (points.loaded) then
-            UpdateFromZone(zoneId, true);
-        end				
+        zoning = true;
     elseif (e.id == 0x055) then
         --print("KI Log Update");
         local type = struct.unpack("B", e.data, 0x85);
@@ -450,17 +457,17 @@ ashita.events.register("d3d_present", "present_cb", function ()
         if (compactBar.wrapper:GetVisible()) then
             SetCompactVisibility(false);
         end
-        return;
-    elseif (not points.settings.use_compact and compactBar.textObjs[1]:GetVisible()) then
-        SetCompactVisibility(false);
-        return;
+        return;    
+    elseif (not player.isZoning and zoning) then
+        zoning = false;
+        UpdateFromZone(currZone, true);
     elseif ((points.settings.use_compact and not compactBar.wrapper:GetVisible()) or points.use_both) then
         SetCompactVisibility(true);
         return;
     elseif (currZone ~= nil and currZone ~= 0 and currZone ~= lastZone) then
         lastZone = currZone;
     end
-    if (currJob ~= lastJob) then
+    if (currJob ~= lastJob and currJob ~= 0) then
         lastJob = currJob;
     end
     -----------------------------
@@ -507,7 +514,7 @@ function DrawPointsBar(currJob)
     if (tValues.default.mBreaker) then
         jobLevel = player:GetMasteryJobLevel();
     end
-    if (not points.settings.use_compact or points.useboth) then
+    if (not points.settings.use_compact or points.use_both) then
         imgui.SetNextWindowSize({ -1, 32 }, ImGuiCond_Always);
         imgui.SetNextWindowPos({ points.settings.bar_x, points.settings.bar_y }, ImGuiCond_FirstUseEver);    
     end    
@@ -744,7 +751,7 @@ function TickTimers()
     end
 end
 
-function UpdateFromZone(zoneId, reset)
+function UpdateFromZone(zoneId, reset, jobId)
     if (DynamisMapping[zoneId] ~= nil) then
         currTokens = ashita.regex.split(points.settings.token_order_dynamis, " ");
         if (reset) then
@@ -765,8 +772,13 @@ function UpdateFromZone(zoneId, reset)
         end
     elseif (NyzulMapping[zoneId] ~= nil) then
         currTokens = ashita.regex.split(points.settings.token_order_nyzul, " ");
-    else 
-        if (tValues.default.mBreaker) then
+    else         
+        local currJob = player:GetMainJob();
+        local mastered = player:GetJobPointsSpent(currJob) == 2100;
+        if (jobId) then
+            mastered = player:GetJobPointsSpent(jobId) == 2100;
+        end
+        if (tValues.default.mBreaker and mastered) then
             currTokens = ashita.regex.split(points.settings.token_order_mastered, " ");
         else
             currTokens = ashita.regex.split(points.settings.token_order_default, " ");
@@ -895,7 +907,7 @@ function ParseToken(i, token)
     end
 
     if (token =="[XP]") then
-        if (player:GetExpCurrent() == 55999 or player:GetLimitMode() > 96) then
+        if (player:GetExpCurrent() == 55999 or player:GetIsLimitModeEnabled() or player:GetIsExperiencePointsLocked()) then
             if (not points.settings.use_compact or points.use_both) then
                 imgui.Text(string.format("LP: %s/%s", SeparateNumbers(player:GetLimitPoints()), SeparateNumbers(10000)));    
             end            
@@ -919,7 +931,7 @@ function ParseToken(i, token)
             compactBar.textObjs[i]:SetText(string.format(TemplateBracket, player:GetMeritPoints()));
         end
     elseif (token =="[XPHour]") then
-        if (player:GetExpCurrent() == 55999 or player:GetLimitMode() > 96) then
+        if (player:GetExpCurrent() == 55999 or player:GetIsLimitModeEnabled() or player:GetIsExperiencePointsLocked()) then
             if (not points.settings.use_compact or points.use_both) then
                 imgui.Text(string.format("(%s LP/hr)", SeparateNumbers(AbbreviateNum(tValues.default.estXpHour))));
             end
@@ -932,7 +944,7 @@ function ParseToken(i, token)
         end
     elseif (token =="[XPChain]") then
         local label = "XP";
-        if (player:GetExpCurrent() == 55999 or player:GetLimitMode() > 96) then
+        if (player:GetExpCurrent() == 55999 or player:GetIsLimitModeEnabled() or player:GetIsExperiencePointsLocked()) then
             label = "LP";
         end
         if (tValues.default.xpTimer > 0) then

@@ -5,7 +5,6 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = {
     Idle = {
-        Ammo = 'Staunch Tathlum',
         Head = 'Mpaca\'s Cap',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -22,8 +21,8 @@ sets = {
     Idle_Pet = {
         Head = 'Taeon Chapeau',
         Neck = 'Empath Necklace',
-        Ear1 = 'Handler\'s Earring +1',
-        Ear2 = 'Burana Earring',
+        Ear1 = 'Burana Earring',
+        Ear2 = 'Handler\'s Earring +1',
         Body = 'Taeon Tabard',
         Hands = 'Taeon Gloves',
         Back = 'Visucius\'s Mantle',
@@ -51,7 +50,6 @@ sets = {
     },
 	
 	Dt = {
-        Ammo = 'Crepuscular Pebble',
         Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -81,7 +79,6 @@ sets = {
 	},
 	
     Pet_Only_Tp_Default = {
-        Ammo = 'Voluspa Tathlum',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Rimeice Earring',
         Ear2 = 'Domes. Earring',
@@ -96,7 +93,6 @@ sets = {
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Ammo = 'Coiste Bodhar',
         Head = 'Mpaca\'s Cap',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Mache Earring',
@@ -106,7 +102,7 @@ sets = {
         Ring1 = 'Epona\'s Ring',
         Ring2 = 'Petrov Ring',
         Back = 'Visucius\'s Mantle',
-        Waist = 'Sailfi Belt +1',
+        Waist = 'Moonbow Belt',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
     },
@@ -118,10 +114,18 @@ sets = {
     },
 	Tp_Acc = {},
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
-    Tank = {},
-    Melee = {},
-    Ranger = {},
-    Mage = {},
+    Tank = {
+        Range = 'Animator P',
+    },
+    Melee = {
+        Range = 'Neo Animator',
+    },
+    Ranger = {
+        Range = 'Animator P',
+    },
+    Mage = {
+        Range = 'Neo Animator',
+    },
 
     Precast = {
         Neck = 'Baetyl Pendant',
@@ -153,15 +157,30 @@ sets = {
         Ammo = 'Voluspa Tathlum',
     },
     Pet_WS = {
+        Head = 'Karagoz Capello +1',
+        Neck = 'Shulmanu Collar',
+        Ear2 = 'Domes. Earring',
+        Body = 'Pitre Tobe +3',
+        Hands = 'Mpaca\'s Gloves',
+        Waist = 'Incarnation Sash',
+        Legs = 'Mpaca\'s Hose',
+        Feet = 'Mpaca\'s Boots',
 	},
     Pet_RNGWS = {
+        Head = 'Karagoz Capello +1',
+        Neck = 'Shulmanu Collar',
+        Ear2 = 'Domes. Earring',
+        Body = 'Pitre Tobe +3',
+        Hands = 'Mpaca\'s Gloves',
+        Waist = 'Incarnation Sash',
+        Legs = 'Mpaca\'s Hose',
+        Feet = 'Mpaca\'s Boots',
 	},
 	
 	Repair = {
 		Ammo = 'Automat. Oil +3',
 	},
     Maneuver = {
-		Ammo = 'Automat. Oil +3',
 	},
 	
 	
@@ -223,15 +242,11 @@ profile.HandleDefault = function()
 	end
 	
     gcinclude.CheckDefault ();
-    if (pet ~= nil) then 
-        if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
-            AshitaCore:GetChatManager():QueueCommand(1, '/ja "Deploy" <t>');
-        elseif (pet.TP > 95) then 
-            if (gcdisplay.GetCycle('PupMode') == 'Ranger') then
-                gFunc.EquipSet(sets.Pet_RNGWS);
-            else
-                gFunc.EquipSet(sets.Pet_WS);
-            end
+    if (pet ~= nil) and (pet.TP > 950) then 
+        if (gcdisplay.GetCycle('PupMode') == 'Ranger') then
+            gFunc.EquipSet(sets.Pet_RNGWS);
+        else
+            gFunc.EquipSet(sets.Pet_WS);
         end
     end
 end

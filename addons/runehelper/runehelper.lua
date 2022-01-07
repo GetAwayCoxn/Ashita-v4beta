@@ -11,8 +11,8 @@ local Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau'
 };
 
 local manager = {
-    is_open = {true,},
-    size = {410,170},
+    is_open = {false,},
+    size = {410,175},
     text_color = { 1.0, 0.75, 0.25, 1.0 },
     enabled = 'Disabled',
     runes = {{'Ignis',0},{'Gelus',0},{'Flabra',0},{'Tellus',0},{'Sulpor',0},{'Unda',0},{'Lux',0},{'Tenebrae',0}},
@@ -26,9 +26,14 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     local Player = AshitaCore:GetMemoryManager():GetPlayer();
 
     -- Force Disabled under these conditions
-    if (Area == nil) or (Towns:contains(Area)) or (Player:GetIsZoning() ~= 0) or ((Player:GetMainJob() ~= 22) and (Player:GetSubJob() ~= 22)) then 
+    if (Area == nil) or (Towns:contains(Area)) or (Player:GetIsZoning() ~= 0) or ((Player:GetMainJob() ~= 22) and (Player:GetSubJob() ~= 22)) or (AshitaCore:GetMemoryManager():GetParty():GetMemberHPPercent(0) < 1) then 
 		manager.enabled = 'Disabled';
 	end
+
+    -- Also force gui hide when zoning
+    if (Player:GetIsZoning() ~= 0) then
+        return;
+    end
 
     -- Do Work here if Enabled and before the is_open check
     if (manager.enabled == 'Enabled') then
@@ -130,10 +135,12 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         imgui.ShowHelp('Requires 3 runes, if all 3 are Tenebrae then this % is for MPP instead of HPP, default to 0 if /RUN');
 
         imgui.Spacing();
-        if (imgui.Button(manager.enabled)) then
+        if (imgui.Button(manager.enabled)) then --colors not quite working the way i want 
             if (manager.enabled == 'Disabled') then
+                --imgui.PushStyleColor(ImGuiCol_Button, { 0.2, 0.7, 0.0, 1.0 });
                 manager.enabled = 'Enabled';
             else
+                --imgui.PushStyleColor(ImGuiCol_Button, { 1.0, 0.4, 0.4, 1.0 });
                 manager.enabled = 'Disabled';
             end
         end

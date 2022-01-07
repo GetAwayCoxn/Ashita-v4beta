@@ -32,6 +32,7 @@ local imgui = require('imgui');
 local petinfo = T{
     is_open = { true, },
     target  = nil,
+    pos = {700,640,},
 };
 
 --[[
@@ -119,6 +120,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         return;
     end
 
+    imgui.SetNextWindowPos(petinfo.pos, ImGuiCond_Always);
     imgui.SetNextWindowBgAlpha(0.8);
     imgui.SetNextWindowSize({ 250, -1, }, ImGuiCond_Always);
     if (imgui.Begin('PetInfo', petinfo.is_open, bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_AlwaysAutoResize, ImGuiWindowFlags_NoSavedSettings, ImGuiWindowFlags_NoFocusOnAppearing, ImGuiWindowFlags_NoNav))) then

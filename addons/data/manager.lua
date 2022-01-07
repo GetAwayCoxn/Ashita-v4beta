@@ -32,8 +32,12 @@ function manager.DisplayJobs()
         for x = 1, 4 do 
             local t = T{};
             imgui.TableNextColumn();
-            t:merge(interface.data.jobs[n], true);
-            imgui.Text(tostring(t[x]));
+            if (interface.data.jobs[n] ~= nil) then
+                t:merge(interface.data.jobs[n], true);
+                imgui.Text(tostring(t[x]));
+            else
+                imgui.Text('0');
+            end
         end
     end
 end
@@ -366,13 +370,18 @@ end
 function manager.UpdateAmbuGear()
     for a = 1, #interface.data.gear.ambu do
         for b = 1, #interface.data.gear.ambu[a] do
-            for c = 3, 1, -1 do
-                local check = manager.CheckItemName(interface.data.gear.ambu[a][b][c]);
-                --print (tostring(check));
+            for c = 1, #interface.data.gear.ambu[a][b] do
+                local check = manager.CheckItemId(interface.data.gear.ambu[a][b][c]);
                 if check == true then
-                    local d = b + 1;
-                    interface.data.progress.gear.ambu[a][d] = interface.data.gear.ambu[a][b][c];
-                    break;
+                    local d = 4 - c;
+                    interface.data.progress.gear.ambu[a][b][1] = d;
+                    --[[if (d == 3) then
+                        interface.data.progress.gear.ambu[a][b][3] = 0;
+                    elseif (d == 2) then
+                        interface.data.progress.gear.ambu[a][b][3] = 10;
+                    elseif (d == 1) then
+                        interface.data.progress.gear.ambu[a][b][3] = 5;
+                    end]]
                 end
             end
         end
@@ -387,16 +396,86 @@ function manager.DisplayAmbuGear()
             if b == 1 then
                 imgui.TextColored(colors.header,interface.data.progress.gear.ambu[a][b][2]);
             else
-                local temp = {interface.data.progress.gear.ambu[a][b][1] +1};
-                if (imgui.Combo(interface.data.progress.gear.ambu[a][b][2], temp, 'None\0NQ\0+1\0+2\0')) then
-                    interface.data.progress.gear.ambu[a][b][1] = temp[1] - 1;
+                if (interface.data.progress.gear.ambu[a][b][1] ~= -1) then
+                    local temp = {interface.data.progress.gear.ambu[a][b][1]};
+                    if (imgui.Combo(interface.data.progress.gear.ambu[a][b][2], temp, 'None\0NQ\0+1\0+2\0')) then
+                        interface.data.progress.gear.ambu[a][b][1] = temp[1];
+                    end
+                else
+                    local temp = {interface.data.progress.gear.ambu[a][b][1] +1};
+                    if (imgui.Combo(interface.data.progress.gear.ambu[a][b][2], temp, 'None\0NQ\0+1\0+2\0')) then
+                        interface.data.progress.gear.ambu[a][b][1] = temp[1] -1;
+                    end
                 end
             end
             if a == 5 then
-            imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
+                imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
             end
         end
     end
+end
+
+function manager.DisplayAmbuNeeds()
+    local headvouchers = 0;local bodyvouchers = 0;local handvouchers = 0;local legvouchers = 0;local feetvouchers = 0;
+    local metals = 0;local fibers = 0;
+
+    for s = 1, #interface.data.progress.gear.ambu do 
+        for p = 2, #interface.data.progress.gear.ambu[s] do
+            if (interface.data.progress.gear.ambu[s][p][1] == -1) then
+                if (p == 2) then
+                    headvouchers = headvouchers + 1;
+                elseif (p == 3) then
+                    bodyvouchers = bodyvouchers + 1;
+                elseif (p == 4) then
+                    handvouchers = handvouchers + 1;
+                elseif (p == 5) then
+                    legvouchers = legvouchers + 1;
+                elseif (p == 6) then
+                    feetvouchers = feetvouchers + 1;
+                end
+                if (s < 6) then
+                    metals = metals + 15;
+                else
+                    fibers = fibers + 15;
+                end
+            elseif (interface.data.progress.gear.ambu[s][p][1] == 0) then
+                if (s < 6) then
+                    metals = metals + 15;
+                else
+                    fibers = fibers + 15;
+                end
+            elseif (interface.data.progress.gear.ambu[s][p][1] == 1) then
+                if (s < 6) then
+                    metals = metals + 10;
+                else
+                    fibers = fibers + 10;
+                end
+            end
+        end
+    end
+
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Ambu Gear Need:');
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Head');
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Body');
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Hands');
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Legs');
+    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Feet');
+                        
+    imgui.TableNextColumn();imgui.Text('A. Vouchers:');
+    imgui.TableNextColumn();imgui.Text(tostring(headvouchers));
+    imgui.TableNextColumn();imgui.Text(tostring(bodyvouchers));
+    imgui.TableNextColumn();imgui.Text(tostring(handvouchers));
+    imgui.TableNextColumn();imgui.Text(tostring(legvouchers));
+    imgui.TableNextColumn();imgui.Text(tostring(feetvouchers));
+
+    imgui.TableNextColumn();imgui.Text('Abdhaljs Metals:');
+    imgui.TableNextColumn();imgui.Text(tostring(metals));
+    imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+
+    imgui.TableNextColumn();imgui.Text('Abdhaljs Fibers:');
+    imgui.TableNextColumn();imgui.Text(tostring(fibers));
+    --imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
 end
 
 function manager.Test()
