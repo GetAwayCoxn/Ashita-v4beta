@@ -7,22 +7,30 @@ sets = {
         Main = 'Bolelabunga',
         Sub = 'Genmei Shield',
         Ammo = 'Staunch Tathlum',
-        Head = 'Befouled Crown',
-        Neck = 'Bathy Choker +1',
+        Head = 'Nyame Helm',
+        Neck = 'Loricate Torque +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Jhakri Robe +2',
+        Body = 'Nyame Mail',
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
-        Feet = 'Volte Gaiters',
+        Feet = 'Nyame Sollerets',
     },
     Resting = {},
-    Idle_Regen = {},
-    Idle_Refresh = {},
+    Idle_Regen = {
+        Head = 'Befouled Crown',
+        Neck = 'Bathy Choker +1',
+    },
+    Idle_Refresh = {
+        Ammo = 'Homiliary',
+        Head = 'Befouled Crown',
+        Body = 'Jhakri Robe +2',
+        Feet = 'Volte Gaiters',
+    },
     Town = {
         Main = 'Excalibur',
         Sub = 'Genmei Shield',
@@ -150,7 +158,7 @@ sets = {
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Gifted Earring',
         Ear2 = 'Andoaa Earring',
-        Body = 'Lethargy Sayon +1',
+        Body = 'Telchine Chas.',
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -179,7 +187,7 @@ sets = {
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Snotra Earring',
-        Body = 'Jhakri Robe +2',
+        Body = 'Lethargy Sayon +1',
         Hands = 'Malignance Gloves',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -232,6 +240,7 @@ sets = {
     Burst = {
         Main = 'Bunzi\'s Rod', -- 10 and 0
         Sub = 'Ammurapi Shield',
+        Body = 'Ea Houppelande', -- 8 and 9
         Hands = 'Ea Cuffs', --5 and 5
         Ring1 = 'Mujin Band', -- 0 and 5
         Feet = 'Ea Pigaches', -- 4 and 4

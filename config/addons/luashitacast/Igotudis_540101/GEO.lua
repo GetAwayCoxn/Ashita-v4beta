@@ -253,10 +253,11 @@ sets = {
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
     },
     Burst = {
-        Main = 'Bunzi\'s Rod', -- 10 and 0
-        Sub = 'Ammurapi Shield',
+        Main = 'Marin Staff +1', -- 0 and 0
+        Sub = 'Enki Strap',
         Head = 'Merlinic Hood', -- 6 and 0
-        Body = 'Agwu\'s Robe', -- 10 and 0
+        --Body = 'Agwu\'s Robe', -- 10 and 0
+        Body = 'Ea Houppelande', -- 8 and 9
         Hands = 'Ea Cuffs', --5 and 5
         Ring1 = 'Mujin Band', -- 0 and 5
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
@@ -432,7 +433,7 @@ profile.HandleMidcast = function()
         end
     elseif (spell.Skill == 'Geomancy') then
         gFunc.EquipSet(sets.Geomancy);
-        if (string.contains(spell.Name, 'Indi') then
+        if (string.contains(spell.Name, 'Indi')) then
             gFunc.EquipSet(sets.Indi);
         end
     end

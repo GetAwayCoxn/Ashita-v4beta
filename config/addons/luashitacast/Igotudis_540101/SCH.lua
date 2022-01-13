@@ -29,6 +29,7 @@ sets = {
         Neck = 'Bathy Choker +1',
     },
     Idle_Refresh = {
+        Ammo = 'Homiliary',
         Head = 'Befouled Crown',
         Waist = 'Fucho-no-Obi',
         Legs = 'Assid. Pants +1',

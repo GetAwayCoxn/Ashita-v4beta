@@ -76,7 +76,7 @@ sets = {
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Nyame Flanchard',
-        Feet = 'Nyame Sollerets',
+        Feet = 'Bihu Slippers +3',
     },
     Tp_Hybrid = {
     },
@@ -127,7 +127,7 @@ sets = {
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Embla Sash',
         Legs = 'Brioso Cannions +2',
-        Feet = 'Bihu Slippers +2',
+        Feet = 'Bihu Slippers +3',
     },
 
 
@@ -218,6 +218,8 @@ sets = {
     },
     String = { --need update for harps, mostly for Horde Lullaby
         Range = 'Blurred Harp',
+        Ear2 = 'Regal Earring',
+        Feet = 'Brioso Slippers +3',
     },
     Harp = {--use /forcestring in game to lock this on all songs, I personally just use Paeons
         Range = 'Blurred Harp', -- This should be ur extra song harp, whichever you use
@@ -243,18 +245,14 @@ sets = {
         Main = { Name = 'Kali', AugPath='C' },
         Sub = 'Culminus',
         Range = 'Blurred Harp',
-        Head = 'Brioso Roundlet +2',
-        Neck = 'Moonbow Whistle',
         Ear1 = 'Gifted Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Fili Hongreline +1',
-        Hands = 'Fili Manchettes +1',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Inyanga Shalwar +2',
-        Feet = 'Fili Cothurnes +1',
+        Legs = 'Fili Rhingrave +1',
+        Feet = 'Volte Gaiters',
     },
     March = {
         Hands = 'Fili Manchettes +1',
@@ -292,7 +290,7 @@ sets = {
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Nyame Flanchard',
-        Feet = 'Bihu Slippers +2',
+        Feet = 'Bihu Slippers +3',
     },
     Ws_Hybrid = {
     },
@@ -317,7 +315,7 @@ sets = {
     Nitro = {--includes legs for soul voice as well
         Body = 'Bihu Jstcorps. +3',
         Legs = 'Bihu Cannions +1',
-        Feet = 'Bihu Slippers +2',
+        Feet = 'Bihu Slippers +3',
     },
     Movement = {
         Feet = 'Fili Cothurnes +1',
@@ -450,7 +448,11 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Drain);
         end
     elseif (spell.Skill == 'Singing') then
-        gFunc.EquipSet(sets.Buff);
+        if (string.contains(spell.Name, 'Paeon')) or (string.contains(spell.Name, 'Mazurka')) then
+            gFunc.EquipSet(sets.Paeon);
+        else
+            gFunc.EquipSet(sets.Buff);
+        end
         if (string.contains(spell.Name, 'Requiem')) or (string.contains(spell.Name, 'Elegy')) or (string.contains(spell.Name, 'Threnody')) or (string.contains(spell.Name, 'Finale')) or (string.contains(spell.Name, 'Lullaby')) then
             gFunc.EquipSet(sets.Wind);
         end
@@ -464,8 +466,6 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Scherzo);
         elseif (string.contains(spell.Name, 'Ballad')) then
             gFunc.EquipSet(sets.Ballad);
-        elseif (string.contains(spell.Name, 'Paeon')) or (string.contains(spell.Name, 'Mazurka')) then
-            gFunc.EquipSet(sets.Paeon);
         end
 
         if (gcdisplay.GetToggle('String') == true) then

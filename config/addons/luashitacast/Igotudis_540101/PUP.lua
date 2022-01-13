@@ -128,6 +128,7 @@ sets = {
     },
 
     Precast = {
+        Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
@@ -231,11 +232,11 @@ profile.HandleDefault = function()
 	end
 
 	if (gcdisplay.GetToggle('DTset') == true) then
-        gFunc.EquipSet(gcinclude.sets.Dt);
-		gFunc.EquipSet(sets.Dt);
         if (pet ~= nil) then
             gFunc.EquipSet(sets.Pet_Dt);
 		end
+        gFunc.EquipSet(gcinclude.sets.Dt);
+        gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);

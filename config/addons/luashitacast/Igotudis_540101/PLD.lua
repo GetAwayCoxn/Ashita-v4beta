@@ -7,7 +7,7 @@ sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
-        Neck ='Sanctity Necklace',
+        Neck ='Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etoilation Earring',
         Body = 'Cab. Surcoat +3',
@@ -20,8 +20,12 @@ sets = {
         Feet = 'Nyame Sollerets',
     },
     Resting = {},
-    Idle_Regen = {},
-    Idle_Refresh = {},
+    Idle_Regen = {
+        Neck = 'Bathy Choker +1',
+    },
+    Idle_Refresh = {
+        Ammo = 'Homiliary',
+    },
     Town = {
         Main = 'Exalibur',
         Sub = 'Aegis',

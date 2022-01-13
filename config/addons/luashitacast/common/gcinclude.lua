@@ -74,6 +74,7 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meleeset /lac fwd meleeset');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /aspir /lac fwd aspir');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
@@ -148,6 +149,8 @@ function gcinclude.SetCommands(args)
 		gcdisplay.AdvanceCycle('MeleeSet');
 	elseif (args[1] == 'kite') then
 		gcdisplay.AdvanceToggle('Kite');
+	elseif (args[1] == 'aspir') then
+		gcinclude.DoAspir();
     end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		if (args[1] == 'nukeset') then
@@ -179,12 +182,12 @@ function gcinclude.SetCommands(args)
 			if (gcdisplay.GetToggle('Fight') == false) then
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
-				--AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range');
+				if (player.MainJob == 'RDM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range') end
 				gcdisplay.AdvanceToggle('Fight');
 			else
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
-				--AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range');
+				if (player.MainJob == 'RDM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range') end
 				gcdisplay.AdvanceToggle('Fight');
 			end
 		end
@@ -256,7 +259,7 @@ function gcinclude.SetRegenRefreshGear()
 		if (player.HPP < 80 ) then
 			gFunc.EquipSet(sets.Idle_Regen);
 		end
-		if (player.MPP < 70 ) then
+		if (player.MPP < 76 ) then
 			gFunc.EquipSet(sets.Idle_Refresh);
 		end
 		if (player.HPP < 50) then
@@ -296,6 +299,31 @@ end
 function gcinclude.DoNukes(tier)
 	local cast = gcdisplay.GetCycle('Element');
 	AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. cast .. ' ' .. tier .. '" <t>');
+end
+
+function gcinclude.DoAspir()
+	local player = AshitaCore:GetMemoryManager():GetPlayer();
+	local recast1 = AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(247);
+	local recast2 = AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(248);
+	local recast3 = AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(881);
+	
+	if (player:GetMainJob() == 4 and player:GetJobPointsSpent(4) > 550) or (player:GetMainJob() == 21 and player:GetJobPointsSpent(21) > 550) then
+		if (recast3 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir III" <t>');
+		elseif (recast2 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
+		elseif (recast1 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+		end
+	elseif (player:GetMainJob() == 4 and player:GetMainJobLevel() >= 83) or (player:GetMainJob() == 8 and player:GetMainJobLevel() >= 78) or (player:GetMainJob() == 20 and player:GetMainJobLevel() >= 97) or (player:GetMainJob() == 21 and player:GetMainJobLevel() >= 90) then
+		if (recast2 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
+		elseif (recast1 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+		end
+	elseif (recast1 == 0) then
+		AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+	end
 end
 
 function gcinclude.DoSCHspells(spell)

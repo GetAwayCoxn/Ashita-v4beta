@@ -5,6 +5,7 @@ addon.desc      = 'Tracks things.';
 addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
+chat = require('chat');
 local interface = require('interface');
 imgui = require('imgui');
 

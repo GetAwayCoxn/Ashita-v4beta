@@ -5,6 +5,21 @@
     
     <!--These bindings are for right trigger only.-->
     <righttrigger>
+        <dpadup>
+            <type>Command</type>
+            <command>/addon unload data</command>
+            <text>UNLOAD DATA</text>
+        </dpadup>
+        <dpaddown>
+            <type>Command</type>
+            <command>/addon load data</command>
+            <text>LOAD DATA</text>
+        </dpaddown>
+        <buttondown>
+            <type>Command</type>
+            <command>/addon reload data</command>
+            <text>RELOAD DATA</text>
+        </buttondown>
     </righttrigger>
     
     <!--These bindings are for LT>RT, but also used for LT+RT if allowpriority is disabled.-->

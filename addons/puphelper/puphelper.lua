@@ -2,7 +2,7 @@ addon.name      = 'puphelper';
 addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
 addon.desc      = 'Does puppetmaster things. Based on my runehelper addon for Ashita v4, inspired by pupper addon by Towbes for Ashita v3';
-addon.link      = 'https://github.com/GetAwayCoxn/Rune-Helper';
+addon.link      = 'https://github.com/GetAwayCoxn/Pup-Helper';
 
 require('common');
 local imgui = require('imgui');
@@ -208,12 +208,19 @@ end
 
 ashita.events.register('command', 'command_cb', function (e)
     local args = e.command:args();
-    if (#args == 0) then
+    if (#args == 0) or ((args[1] ~= '/puphelper') and (args[1] ~= '/ph')) then
         return;
     end
-    if (args[1] == '/puphelper') or (args[1] == '/ph') then
+
+    e.blocked = true;
+
+    if (#args <= 1) and ((args[1] == '/puphelper') or (args[1] == '/ph')) then
         manager.is_open[1] = not manager.is_open[1];
-    else
-        return;
+    elseif (#args >= 2 and args[2]:any('toggle')) then
+        if (manager.enabled == 'Enabled') then
+            manager.enabled = 'Disabled';
+        elseif (manager.enabled == 'Disabled') then
+            manager.enabled = 'Enabled';
+        end
     end
 end);

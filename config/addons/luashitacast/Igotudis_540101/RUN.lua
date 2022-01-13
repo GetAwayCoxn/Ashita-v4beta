@@ -25,6 +25,7 @@ sets = {
         Hands = 'Turms Mittens',
     },
     Idle_Refresh = {
+        Ammo = 'Homiliary',
         Head = 'Rawhide Mask',
         Body = 'Agwu\'s Robe',
         Waist = 'Fucho-no-Obi',

@@ -286,11 +286,6 @@ function gcauto.AutoWS()
 	end
 end
 
-function gcauto.AutoFight()
-	local target = gData.GetTarget();
-	local player = gData.GetPlayer();
-end
-
 function gcauto.DoAM3(job)
 	local target = gData.GetTarget();
 	local player = gData.GetPlayer();
@@ -371,13 +366,7 @@ function gcauto.DoJobStuff()
 	local pet = gData.GetPet();
 	local target = gData.GetTarget();
 
-	if (player.Status == 'Idle') and (gcdisplay.GetCycle('Mob') ~= 'None') and (gcdisplay.GetToggle('AUTO') == true) then
-		local check = false;
-		
-		if check == false then
-			gcauto.AutoFight();
-		end
-	elseif (player.MainJob == 'PLD') then
+	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
 		if (gcdisplay.GetToggle('MAJ') == true) then	
 			if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) and (player.Status == 'Engaged') then
@@ -603,6 +592,7 @@ function gcauto.Initialize()
 end
 
 function gcauto.Default()
+	local zone = gData.GetEnvironment();
 	local player = gData.GetPlayer();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
@@ -613,11 +603,14 @@ function gcauto.Default()
 
 	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.Status == 'Dead') then return end
 
+	if ((zone.Area == nil) or (gcauto.Towns:contains(zone.Area))) and (gcdisplay.GetToggle('AUTO') == true) then
+		gcdisplay.AdvanceToggle('AUTO');
+	end
+
 	gcdisplay.Update();
 	gcauto.AutoMeds();
 	gcauto.DoJobStuff();
 	gcauto.AutoWS();
-	--gcauto.AutoFight();
 end
 
 return gcauto;
