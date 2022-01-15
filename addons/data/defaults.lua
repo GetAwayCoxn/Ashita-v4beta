@@ -104,10 +104,12 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
         afneed = {
             {--109,head > feet,{chapters,slot mat, tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane,}
                 {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
-            {--119+1,head > feet,{chapters,slot mat, tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane,}
+            {--119+1,head > feet,{chapters,slot mat, behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot}
                 {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
-            {},--119+2
-            {},--119+3
+            {--119+2,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+            {--119+3,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
         },
 
         relic = {--head > feet; nq,nq+1,nq+2,109,119+1,119+2,119+3
@@ -171,6 +173,65 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             {{25581,25582,25570},{25781,25782,25798},{25820,25821,25836},{25875,25876,25887},{25942,25943,25954}},
             {{25588,25589,25572},{25762,25763,25795},{25810,25811,25833},{25869,25870,25884},{25935,25936,25951}},
             {{25583,25584,25571},{25783,25784,25799},{25822,25823,25837},{25877,25878,25888},{25944,25945,25955}},
+        },
+    },
+
+    points = {
+        hallmarks = {
+            nuggets = {false, 7500},
+            gems = {false, 10000},
+            animas = {false, 15000},
+            matters = {false, 20000},
+            threads = {false, 4000},
+            dusts = {false, 4000},
+            saps = {false, 4000},
+            dyes = {false, 12000},
+            resins = {false, 15000},
+            bynes1 = {false, 3000},
+            bynes2 = {false, 4000},
+            bronze1 = {false, 3000},
+            bronze2 = {false, 4000},
+            shells1 = {false, 3000},
+            shells2 = {false, 4000},
+            marrows = {false, 60000},
+            scorias = {false, 50000},
+            drosses = {false, 4500},
+            cinders = {false, 4500},
+            plutons = {false, 25000},
+            boulders = {false, 25000},
+            beitetsu = {false, 25000},
+            baylds = {false, 26250},
+            hmp = {false, 20000},
+            alex = {false, 26250},
+        },
+        gallantry = {
+            nuggets = {false, 12500},
+            gems = {false, 17500},
+            animas = {false, 22500},
+            matters = {false, 27500},
+            threads = {false, 2000},
+            dusts = {false, 2000},
+            saps = {false, 2000},
+            dyes = {false, 4000},
+            resins = {false, 7500},
+            needles = {false, 2000},
+            bynes1 = {false, 1500},
+            bynes2 = {false, 2000},
+            bronze1 = {false, 1500},
+            bronze2 = {false, 2000},
+            shells1 = {false, 1500},
+            shells2 = {false, 2000},
+            marrows = {false, 30000},
+            scorias = {false, 50000},
+            drosses = {false, 3000},
+            cinders = {false, 3000},
+            plutons = {false, 12500},
+            boulders = {false, 12500},
+            beitetsu = {false, 12500},
+            baylds = {false, 13125},
+            hmp = {false, 10000},
+            alex = {false, 13125},
+            month = {0,},
         },
     },
 };

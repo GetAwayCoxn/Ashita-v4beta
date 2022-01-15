@@ -72,7 +72,7 @@ sets = {
 
     Precast = {
         Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Merlinic Hood', Augment = { [1] = 'Mag. Acc.+7', [2] = 'CHR+5', [3] = 'Magic burst dmg.+6%', [4] = '"Mag. Atk. Bns."+25' } },
+        Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
@@ -233,7 +233,7 @@ sets = {
     Burst = {
         Main = 'Bunzi\'s Rod', -- 10 and 0
         Sub = 'Ammurapi Shield',
-        Head = 'Merlinic Hood', -- 6 and 0
+        Head = 'Ea Hat', -- 6 and 6
         Neck = 'Src. Stole +1', -- 7 and 0 for now
         Body = 'Ea Houppelande', -- 8 and 9
         Hands = 'Ea Cuffs', --5 and 5

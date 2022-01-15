@@ -1,4 +1,4 @@
-interface = {
+interface = T{
     manager = require('manager'),
     settings = require('settings'),
     is_open = { true, },
@@ -72,7 +72,6 @@ function interface.RenderWeaponsTab()
         imgui.BeginChild('WeaponsPane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
             if (imgui.BeginTabBar('weapons_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                 if (imgui.BeginTabItem('RELICS', nil)) then
-                    --imgui.Spacing();
                     imgui.BeginTable('relics table', #interface.defaults.weapons.relics, ImGuiTableFlags_Borders);
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
@@ -271,12 +270,11 @@ function interface.RenderGearTab()
                         imgui.EndTabItem();
                         end
                         if (imgui.BeginTabItem('AF NEED', nil)) then 
-                            if (imgui.BeginTabBar('afneed_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
-                                if (imgui.BeginTabItem('AFlv109', nil)) then
-                                    interface.manager.DisplayAFGearNeed109();
-                                imgui.EndTabItem();
-                                end
-                            imgui.EndTabBar();
+                            interface.manager.DisplayAFGearNeed109();
+                            imgui.Spacing();imgui.Spacing();
+                            if (imgui.Button('Update AF Items')) then
+                                print(chat.header(addon.name) .. chat.message('Updating ... '));
+                                interface.manager.CountAF();
                             end
                         imgui.EndTabItem();
                         end
@@ -343,8 +341,7 @@ function interface.RenderGearTab()
                     imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
 
                     imgui.BeginTable('ambu gear summary table', 1);
-                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-                        imgui.TextColored(colors.header, 'SUMMARY');imgui.TableNextColumn();
+                        imgui.TableNextRow();imgui.TableNextColumn();
                         imgui.TextColored(colors.text1, 'Total AMBU Gear Completion:');imgui.ShowHelp('Inaccurate but close, quick progress calc based on remaining metals/fibers needed');imgui.TableNextColumn();
                         imgui.ProgressBar(interface.data.progress.gear.ambuProgress[1],10);imgui.TableNextColumn();
                     imgui.EndTable();
@@ -375,9 +372,9 @@ function interface.RenderGearTab()
     imgui.EndGroup();
 end
 
-function interface.RenderPointsTab()
+function interface.RenderAMBUPointsTab()
     imgui.BeginGroup();
-        imgui.BeginChild('PointsPane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+        imgui.BeginChild('AMBUPointsPane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
             if (imgui.BeginTabBar('points_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                 if (imgui.BeginTabItem('HALLMARKS', nil)) then
                     interface.manager.DisplayHallmarks();
@@ -390,13 +387,16 @@ function interface.RenderPointsTab()
             imgui.EndTabBar();
             end
         imgui.EndChild();
+        if (imgui.Button('Reset Monthly AMBU')) then
+            interface.manager.ResetAMBU();
+        end
+        imgui.SameLine();imgui.ShowHelp('Click to reset to default, cannot undo this action');
     imgui.EndGroup();
 end
 
 function interface.RenderPricesTab()
     imgui.TextColored(colors.header,'Bynes                       Bronze                      Shells');
     imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
-    --imgui.InputText('Test', );
 end
 
 
@@ -425,8 +425,8 @@ function interface.Render()
                 interface.RenderGearTab();
                 imgui.EndTabItem();
             end
-            if (imgui.BeginTabItem('POINTS', nil)) then
-                interface.RenderPointsTab();
+            if (imgui.BeginTabItem('AMBU POINTS', nil)) then
+                interface.RenderAMBUPointsTab();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('PRICES', nil)) then

@@ -1,6 +1,10 @@
 require('common');
 local modifind = require('modifind');
 local manager = T{ -- functions for data management
+    nuggets = true;
+    gems = true;
+    animas = true;
+    matters = true;
 };
 
 function manager.UpdateJobs()  
@@ -358,7 +362,7 @@ function manager.DisplayAmbuWeps()
 end
 
 function manager.DisplayAmbuWepsNeed()
-    local items = {0,0,0,0,0,0}; --voucher,nugget,gem,anima,matter,pulse,
+    local items = T{0,0,0,0,0,0}; --voucher,nugget,gem,anima,matter,pulse,
 
     for a = 1, #interface.data.progress.weapons.ambu do
         if (interface.data.progress.weapons.ambu[a][1] < 5) then
@@ -404,6 +408,8 @@ function manager.DisplayAmbuWepsNeed()
     end
     imgui.TableNextColumn();imgui.TextColored(colors.header, 'Need Pulse Weapons:  ');
     imgui.TableNextColumn();imgui.Text(tostring(items[6]));
+
+    interface.data.progress.weapons.ambuWepItems = items:merge(items, true);
 end
 
 function manager.UpdateWeapons()
@@ -438,26 +444,177 @@ function manager.UpdateAFGear()
     end
 
     interface.data.progress.gear.afProgress[1] = (totalgear-countgear)/totalgear;
+    manager.CountAF();--might remove
+end
+
+function manager.CountAF()
+    local cards = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    interface.data.progress.gear.afneed = {
+            {--109,head > feet,{chapters,slot mat, tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane,}
+                {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
+            {--119+1,head > feet,{chapters,slot mat, behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot}
+                {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
+            {--119+2,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+            {--119+3,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+        };
 
     for x = 1, #interface.data.progress.gear.af do
         for y = 1, #interface.data.progress.gear.af[x] do
             if interface.data.progress.gear.af[x][y][1] <= 1 then
-                interface.defaults.gear.afneed[1][y][1] = interface.defaults.gear.afneed[1][y][1] + 10;
-                interface.defaults.gear.afneed[1][y][2] = interface.defaults.gear.afneed[1][y][2] + 1;
+                interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 10;
+                interface.data.progress.gear.afneed[1][y][2] = interface.data.progress.gear.afneed[1][y][2] + 1;
+                interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
+                interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
+                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
+                if (x == 1) or (x == 9) then
+                    interface.data.progress.gear.afneed[1][y][3] = interface.data.progress.gear.afneed[1][y][3] + 1;
+                    interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
+                elseif (x == 2) or (x == 6) or (x == 19) then
+                    interface.data.progress.gear.afneed[1][y][4] = interface.data.progress.gear.afneed[1][y][4] + 1;
+                    interface.data.progress.gear.afneed[2][y][4] = interface.data.progress.gear.afneed[2][y][4] + 1;
+                elseif (x == 3) or (x == 10) or (x == 16) then
+                    interface.data.progress.gear.afneed[1][y][5] = interface.data.progress.gear.afneed[1][y][5] + 1;
+                    interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
+                elseif (x == 4) or (x == 11) or (x == 17) or (x == 18) then
+                    interface.data.progress.gear.afneed[1][y][6] = interface.data.progress.gear.afneed[1][y][6] + 1;
+                    interface.data.progress.gear.afneed[2][y][6] = interface.data.progress.gear.afneed[2][y][6] + 1;
+                elseif (x == 5) or (x == 15) or (x == 20) then
+                    interface.data.progress.gear.afneed[1][y][7] = interface.data.progress.gear.afneed[1][y][7] + 1;
+                    interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
+                elseif (x == 7) or (x == 14) then
+                    interface.data.progress.gear.afneed[1][y][8] = interface.data.progress.gear.afneed[1][y][8] + 1;
+                    interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
+                elseif (x == 8) then
+                    interface.data.progress.gear.afneed[1][y][9] = interface.data.progress.gear.afneed[1][y][9] + 1;
+                    interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
+                elseif (x == 12) or (x == 13) then
+                    interface.data.progress.gear.afneed[1][y][10] = interface.data.progress.gear.afneed[1][y][10] + 1;
+                    interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
+                elseif (x == 21) then interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
+                elseif (x == 22) then interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
+                end
+                if (y == 1) then
+                    cards[x] = cards[x] + 48;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 60;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 42;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 54;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 36;
+                end
             elseif interface.data.progress.gear.af[x][y][1] == 2 then
-                interface.defaults.gear.afneed[1][y][1] = interface.defaults.gear.afneed[1][y][1] + 5;
-                interface.defaults.gear.afneed[1][y][2] = interface.defaults.gear.afneed[1][y][2] + 1;
-            elseif interface.data.progress.gear.af[x][y][1] <= 3 then
-                interface.defaults.gear.afneed[2][y][1] = interface.defaults.gear.afneed[2][y][1] + 8;
-                interface.defaults.gear.afneed[2][y][2] = interface.defaults.gear.afneed[2][y][2] + 1;
+                interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 5;
+                interface.data.progress.gear.afneed[1][y][2] = interface.data.progress.gear.afneed[1][y][2] + 1;
+                interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
+                interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
+                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
+                if (x == 1) or (x == 9) then
+                    interface.data.progress.gear.afneed[1][y][3] = interface.data.progress.gear.afneed[1][y][3] + 1;
+                    interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
+                elseif (x == 2) or (x == 6) or (x == 19) then
+                    interface.data.progress.gear.afneed[1][y][4] = interface.data.progress.gear.afneed[1][y][4] + 1;
+                    interface.data.progress.gear.afneed[2][y][4] = interface.data.progress.gear.afneed[2][y][4] + 1;
+                elseif (x == 3) or (x == 10) or (x == 16) then
+                    interface.data.progress.gear.afneed[1][y][5] = interface.data.progress.gear.afneed[1][y][5] + 1;
+                    interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
+                elseif (x == 4) or (x == 11) or (x == 17) or (x == 18) then
+                    interface.data.progress.gear.afneed[1][y][6] = interface.data.progress.gear.afneed[1][y][6] + 1;
+                    interface.data.progress.gear.afneed[2][y][6] = interface.data.progress.gear.afneed[2][y][6] + 1;
+                elseif (x == 5) or (x == 15) or (x == 20) then
+                    interface.data.progress.gear.afneed[1][y][7] = interface.data.progress.gear.afneed[1][y][7] + 1;
+                    interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
+                elseif (x == 7) or (x == 14) then
+                    interface.data.progress.gear.afneed[1][y][8] = interface.data.progress.gear.afneed[1][y][8] + 1;
+                elseif (x == 8) then
+                    interface.data.progress.gear.afneed[1][y][9] = interface.data.progress.gear.afneed[1][y][9] + 1;
+                    interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
+                elseif (x == 12) or (x == 13) then
+                    interface.data.progress.gear.afneed[1][y][10] = interface.data.progress.gear.afneed[1][y][10] + 1;
+                    interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
+                elseif (x == 21) then interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
+                elseif (x == 22) then interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
+                end
+                if (y == 1) then
+                    cards[x] = cards[x] + 48;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 60;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 42;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 54;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 36;
+                end
+            elseif interface.data.progress.gear.af[x][y][1] == 3 then
+                interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
+                interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
+                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
+                if (x == 1) or (x == 9) then
+                    interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
+                elseif (x == 2) or (x == 6) or (x == 19) then
+                    interface.data.progress.gear.afneed[2][y][4] = interface.data.progress.gear.afneed[2][y][4] + 1;
+                elseif (x == 3) or (x == 10) or (x == 16) or (x == 21) then
+                    interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
+                elseif (x == 4) or (x == 11) or (x == 17) or (x == 18) then
+                    interface.data.progress.gear.afneed[2][y][6] = interface.data.progress.gear.afneed[2][y][6] + 1;
+                elseif (x == 5) or (x == 15) or (x == 20) then
+                    interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
+                elseif (x == 7) or (x == 14) then
+                    interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
+                    interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
+                elseif (x == 8) then
+                    interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
+                elseif (x == 12) or (x == 13) or (x == 22) then
+                    interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
+                end
+                if (y == 1) then
+                    cards[x] = cards[x] + 48;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 60;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 42;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 54;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 36;
+                end
             elseif interface.data.progress.gear.af[x][y][1] == 4 then
-
+                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
+                if (y == 1) then
+                    cards[x] = cards[x] + 48;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 60;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 42;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 54;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 36;
+                end
             elseif interface.data.progress.gear.af[x][y][1] == 5 then
-
+                
+                if (y == 1) then
+                    cards[x] = cards[x] + 40;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 50;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 35;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 45;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 30;
+                end
             end
         end
     end
-    --interface.data.progress.gear.afneed:copy(interface.defaults.gear.afneed);
+    
+    for l = 1, #interface.data.progress.gear.jobcards do
+        interface.data.progress.gear.jobcards[l] = cards[l]
+    end
 end
 
 function manager.DisplayAFGear()
@@ -474,8 +631,7 @@ function manager.DisplayAFGear()
 end
 
 function manager.DisplayAFGearNeed109()
-    imgui.Spacing();imgui.Spacing();
-    imgui.BeginTable('af gear need 1', 11, ImGuiTableFlags_Borders);
+    imgui.BeginTable('chapters', 11, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(colors.header, 'Chapters');imgui.TableNextColumn();
         for t = 1, 10 do
@@ -483,10 +639,130 @@ function manager.DisplayAFGearNeed109()
         end
         imgui.TableNextColumn();
         for i = 1, 5 do
-            imgui.Text(' ' .. interface.defaults.gear.afneed[1][i][1] .. ' ');imgui.TableNextColumn();
+            imgui.Text(tostring(interface.data.progress.gear.afneed[1][i][1]));imgui.TableNextColumn();
         end
         for i = 1, 5 do
-            imgui.Text(' ' .. interface.defaults.gear.afneed[2][i][1] .. ' ');imgui.TableNextColumn();
+            imgui.Text(tostring(interface.data.progress.gear.afneed[2][i][1]));
+            if (i ~= 5) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('109slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Phx. Feather');imgui.TableNextColumn();
+        imgui.Text('Mal. Fiber');imgui.TableNextColumn();
+        imgui.Text('Btl. Blood');imgui.TableNextColumn();
+        imgui.Text('Damas. Cloth');imgui.TableNextColumn();
+        imgui.Text('Oxblood');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.afneed[1] do
+            imgui.Text(tostring(interface.data.progress.gear.afneed[1][i][2]));
+            if (i ~= #interface.data.progress.gear.afneed[1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('109job', 9, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'WAR/BST');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'WHM/BRD/BLU');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'DRK');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'SAM/NIN');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('Tgr Leather');imgui.TableNextColumn();
+        imgui.Text('Gld Thread');imgui.TableNextColumn();
+        imgui.Text('Imp Slk Cloth');imgui.TableNextColumn();
+        imgui.Text('Kara. Cloth');imgui.TableNextColumn();
+        imgui.Text('Scarlet Linen');imgui.TableNextColumn();
+        imgui.Text('Gld Sheet');imgui.TableNextColumn();
+        imgui.Text('Drkstl Sheet');imgui.TableNextColumn();
+        imgui.Text('Tama-Hagane');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 3, #interface.data.progress.gear.afneed[1][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[1] do
+                count = count + interface.data.progress.gear.afneed[1][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.afneed[1][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('119slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Maliy. Orb');imgui.TableNextColumn();
+        imgui.Text('Hepa. Ingot');imgui.TableNextColumn();
+        imgui.Text('Bery. Ingot');imgui.TableNextColumn();
+        imgui.Text('Exalt. Lbr.');imgui.TableNextColumn();
+        imgui.Text('Sif\'s Macarame');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.afneed[2] do
+            imgui.Text(tostring(interface.data.progress.gear.afneed[2][i][2]));
+            if (i ~= #interface.data.progress.gear.afneed[2]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('119job', 9, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'WAR/BST');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'WHM/BRD/BLU/GEO');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'DRK');imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'SAM/NIN/RUN');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('Behe Leather');imgui.TableNextColumn();
+        imgui.Text('Plt Slk Thrd');imgui.TableNextColumn();
+        imgui.Text('Raxa');imgui.TableNextColumn();
+        imgui.Text('Twill Damask');imgui.TableNextColumn();
+        imgui.Text('Siren\'s Hair');imgui.TableNextColumn();
+        imgui.Text('Ori Sheet');imgui.TableNextColumn();
+        imgui.Text('Durium Sheet');imgui.TableNextColumn();
+        imgui.Text('Dama Ingot');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 3, #interface.data.progress.gear.afneed[2][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[1] do
+                count = count + interface.data.progress.gear.afneed[2][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.afneed[2][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+
+    imgui.BeginTable('cards', (#interface.defaults.jobsabrv +1), ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(colors.header, 'Cards');imgui.TableNextColumn();
+        for j = 1, #interface.defaults.jobsabrv do
+            imgui.TextColored(colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+        end
+        imgui.TableNextColumn();
+        for c = 1, #interface.data.progress.gear.jobcards do
+            imgui.Text(tostring(interface.data.progress.gear.jobcards[c]));
+            if (c ~= #interface.data.progress.gear.jobcards) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
 end
@@ -602,10 +878,11 @@ end
 
 function manager.DisplayAmbuGearNeed()
     local headvouchers = 0;local bodyvouchers = 0;local handvouchers = 0;local legvouchers = 0;local feetvouchers = 0;local headtokens = 0;local bodytokens = 0;local handtokens = 0;local legtokens = 0;local feettokens = 0;
-    local metals = 0;local fibers = 0;
     local countmetals = manager.CountItemId(9270);
     local countfibers = manager.CountItemId(9271);
     interface.data.progress.gear.ambuProgress[1] = 0.0;
+    local metals = 0;
+    local fibers = 0;
 
     for s = 1, #interface.data.progress.gear.ambu do 
         for p = 1, #interface.data.progress.gear.ambu[s] do
@@ -711,31 +988,443 @@ function manager.UpdateGear()
     manager.UpdateAFGear();
 end
 
-function manager.UpdateHallmarks()
-
-end
-
 function manager.DisplayHallmarks()
-    imgui.Spacing();imgui.Spacing();
-    imgui.BeginTable('Display Hallmarks',5,ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'NEEDED HALLMARK POINTS:');
-    imgui.TableNextColumn();imgui.TextColored(colors.text1, 'TEST');
+    local total = 0;
+    for k,v in pairs(interface.data.points.hallmarks) do
+        if (v[1] == false) then
+            total = total + v[2];
+        end
+    end
 
+    imgui.Spacing();
+    imgui.TextColored(colors.header, 'NEEDED HALLMARK POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+
+    imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn(); 
+        imgui.Checkbox('Nuggets', interface.data.points.hallmarks.nuggets);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[2] == 0) then interface.data.points.hallmarks.nuggets[1] = true end
+            if (interface.data.points.hallmarks.nuggets[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.nuggets[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Gems', interface.data.points.hallmarks.gems);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[3] == 0) then interface.data.points.hallmarks.gems[1] = true end
+            if (interface.data.points.hallmarks.gems[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.gems[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Animas', interface.data.points.hallmarks.animas);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[4] == 0) then interface.data.points.hallmarks.animas[1] = true end
+            if (interface.data.points.hallmarks.animas[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.animas[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Matters', interface.data.points.hallmarks.matters);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[5] == 0) then interface.data.points.hallmarks.matters[1] = true end
+            if (interface.data.points.hallmarks.matters[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.matters[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    imgui.BeginTable('Capes', 10, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('Threads', interface.data.points.hallmarks.threads);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.threads[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.threads[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Dusts', interface.data.points.hallmarks.dusts);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.dusts[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.dusts[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Saps', interface.data.points.hallmarks.saps);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.saps[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.saps[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Dyes', interface.data.points.hallmarks.dyes);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.dyes[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.dyes[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Resins', interface.data.points.hallmarks.resins);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.resins[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.resins[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    imgui.BeginTable('DynaCurrency', 6, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Dyna Currency');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('1 Byne', interface.data.points.hallmarks.bynes1);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.bynes1[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.bynes1[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('O.Bronze', interface.data.points.hallmarks.bronze1);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.bronze1[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.bronze1[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('T.Shells', interface.data.points.hallmarks.shells1);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.shells1[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.shells1[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('100Byne', interface.data.points.hallmarks.bynes2);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.bynes2[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.bynes2[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('M.Bronze', interface.data.points.hallmarks.bronze2);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.bronze2[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.bronze2[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('L.Shells', interface.data.points.hallmarks.shells2);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.shells2[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.shells2[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    imgui.BeginTable('MISC', 8, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'MISC');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('Marrows', interface.data.points.hallmarks.marrows);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.marrows[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.marrows[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Scorias', interface.data.points.hallmarks.scorias);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.scorias[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.scorias[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('R.Dross', interface.data.points.hallmarks.drosses);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.drosses[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.drosses[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('R.Cinders', interface.data.points.hallmarks.cinders);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.cinders[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.cinders[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    imgui.BeginTable('ROCKS', 6, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'ROCKS');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('Plutons', interface.data.points.hallmarks.plutons);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.plutons[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.plutons[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Boulders', interface.data.points.hallmarks.boulders);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.boulders[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.boulders[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Beitetsu', interface.data.points.hallmarks.beitetsu);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.beitetsu[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.beitetsu[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('HPBayld', interface.data.points.hallmarks.baylds);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.baylds[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.baylds[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('HMPs', interface.data.points.hallmarks.hmp);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.hmp[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.hmp[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Alex', interface.data.points.hallmarks.alex);imgui.TableNextColumn();
+            if (interface.data.points.hallmarks.alex[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.hallmarks.alex[2]));
+            end
     imgui.EndTable();
 end
 
-function manager.UpdateGallantry()
+function manager.DisplayGallantry()
+    local total = 0;
+    
+    for k,v in pairs(interface.data.points.gallantry) do
+        if (v[1] == false) then
+            total = total + v[2];
+        end
+    end
+    
 
+    imgui.Spacing();
+    imgui.TextColored(colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+
+    imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('Nuggets', interface.data.points.gallantry.nuggets);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[2] == 0) then interface.data.points.gallantry.nuggets[1] = true end
+            if (interface.data.points.gallantry.nuggets[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.nuggets[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Gems', interface.data.points.gallantry.gems);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[3] == 0) then interface.data.points.gallantry.gems[1] = true end
+            if (interface.data.points.gallantry.gems[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.gems[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Animas', interface.data.points.gallantry.animas);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[4] == 0) then interface.data.points.gallantry.animas[1] = true end
+            if (interface.data.points.gallantry.animas[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.animas[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Matters', interface.data.points.gallantry.matters);imgui.TableNextColumn();
+            if (interface.data.progress.weapons.ambuWepItems[5] == 0) then interface.data.points.gallantry.matters[1] = true end
+            if (interface.data.points.gallantry.matters[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.matters[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    imgui.BeginTable('Capes', 12, ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Checkbox('Threads', interface.data.points.gallantry.threads);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.threads[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.threads[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Dusts', interface.data.points.gallantry.dusts);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.dusts[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.dusts[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Saps', interface.data.points.gallantry.saps);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.saps[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.saps[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Dyes', interface.data.points.gallantry.dyes);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.dyes[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.dyes[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Resins', interface.data.points.gallantry.resins);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.resins[1]) then
+                imgui.Text('    0');imgui.TableNextColumn();
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.resins[2]));imgui.TableNextColumn();
+            end
+        imgui.Checkbox('Needles', interface.data.points.gallantry.needles);imgui.TableNextColumn();
+            if (interface.data.points.gallantry.needles[1]) then
+                imgui.Text('    0');
+            else
+                imgui.Text(tostring(interface.data.points.gallantry.needles[2]));
+            end
+    imgui.EndTable();
+
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    local month = {interface.data.points.gallantry.month[1],};
+    if (imgui.Combo('Pick the current gallantry month', month, ' \0Relic\0Mythic\0Empyrean\0')) then
+        if (month[1] == 0) then
+            month[1] = interface.data.points.gallantry.month[1];
+        else
+            interface.data.points.gallantry.month[1] = month[1];
+        end
+        if (interface.data.points.gallantry.month[1] == 1) then
+            interface.data.points.gallantry.alex[1] = true;interface.data.points.gallantry.baylds[1] = true;interface.data.points.gallantry.beitetsu[1] = true;interface.data.points.gallantry.scorias[1] = true;
+            interface.data.points.gallantry.drosses[1] = true;interface.data.points.gallantry.cinders[1] = true;interface.data.points.gallantry.hmp[1] = true;interface.data.points.gallantry.boulders[1] = true;
+            interface.data.points.gallantry.plutons[1] = false;interface.data.points.gallantry.marrows[1] = false;interface.data.points.gallantry.bynes1[1] = false;interface.data.points.gallantry.bynes2[1] = false;
+            interface.data.points.gallantry.bronze1[1] = false;interface.data.points.gallantry.bronze2[1] = false;interface.data.points.gallantry.shells1[1] = false;interface.data.points.gallantry.shells2[1] = false;
+        elseif (interface.data.points.gallantry.month[1] == 2) then
+            interface.data.points.gallantry.plutons[1] = true;interface.data.points.gallantry.marrows[1] = true;interface.data.points.gallantry.bynes1[1] = true;interface.data.points.gallantry.bynes2[1] = true;
+            interface.data.points.gallantry.bronze1[1] = true;interface.data.points.gallantry.bronze2[1] = true;interface.data.points.gallantry.shells1[1] = true;interface.data.points.gallantry.shells2[1] = true;
+            interface.data.points.gallantry.drosses[1] = true;interface.data.points.gallantry.cinders[1] = true;interface.data.points.gallantry.hmp[1] = true;interface.data.points.gallantry.boulders[1] = true;
+            interface.data.points.gallantry.alex[1] = false;interface.data.points.gallantry.baylds[1] = false;interface.data.points.gallantry.beitetsu[1] = false;interface.data.points.gallantry.scorias[1] = false;
+        elseif (interface.data.points.gallantry.month[1] == 2) then
+            interface.data.points.gallantry.plutons[1] = true;interface.data.points.gallantry.marrows[1] = true;interface.data.points.gallantry.bynes1[1] = true;interface.data.points.gallantry.bynes2[1] = true;
+            interface.data.points.gallantry.bronze1[1] = true;interface.data.points.gallantry.bronze2[1] = true;interface.data.points.gallantry.shells1[1] = true;interface.data.points.gallantry.shells2[1] = true;
+            interface.data.points.gallantry.alex[1] = true;interface.data.points.gallantry.baylds[1] = true;interface.data.points.gallantry.beitetsu[1] = true;interface.data.points.gallantry.scorias[1] = true;
+            interface.data.points.gallantry.drosses[1] = false;interface.data.points.gallantry.cinders[1] = false;interface.data.points.gallantry.hmp[1] = false;interface.data.points.gallantry.boulders[1] = false;
+        end
+    end
+    imgui.Spacing();imgui.Separator();imgui.Spacing();
+    
+    if (interface.data.points.gallantry.month[1] == 1) then
+        imgui.BeginTable('Relics', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Relics');imgui.TableNextRow();imgui.TableNextColumn();
+            imgui.Checkbox('1 Byne', interface.data.points.gallantry.bynes1);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.bynes1[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.bynes1[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('O.Bronze', interface.data.points.gallantry.bronze1);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.bronze1[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.bronze1[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('T.Shells', interface.data.points.gallantry.shells1);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.shells1[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.shells1[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('100Byne', interface.data.points.gallantry.bynes2);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.bynes2[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.bynes2[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('M.Bronze', interface.data.points.gallantry.bronze2);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.bronze2[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.bronze2[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('L.Shells', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.shells2[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.shells2[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Plutons', interface.data.points.gallantry.plutons);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.plutons[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.plutons[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Marrows', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.marrows[1]) then
+                    imgui.Text('    0');
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.marrows[2]));
+                end
+        imgui.EndTable();
+    elseif (interface.data.points.gallantry.month[1] == 2) then
+        imgui.BeginTable('Mythics', 8, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mythics');imgui.TableNextRow();imgui.TableNextColumn();
+            imgui.Checkbox('Alex', interface.data.points.gallantry.alex);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.alex[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.alex[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('HP Bayld', interface.data.points.gallantry.baylds);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.baylds[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.baylds[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Beitetsu', interface.data.points.gallantry.beitetsu);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.beitetsu[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.beitetsu[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Scorias', interface.data.points.gallantry.scorias);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.scorias[1]) then
+                    imgui.Text('    0');
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.scorias[2]));
+                end
+        imgui.EndTable();
+    elseif (interface.data.points.gallantry.month[1] == 3) then
+        imgui.BeginTable('Empys', 8, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Empyreans');imgui.TableNextRow();imgui.TableNextColumn();
+            imgui.Checkbox('R.Dross', interface.data.points.gallantry.drosses);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.drosses[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.drosses[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Cinders', interface.data.points.gallantry.cinders);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.cinders[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.cinders[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('Boulders', interface.data.points.gallantry.boulders);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.boulders[1]) then
+                    imgui.Text('    0');imgui.TableNextColumn();
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.boulders[2]));imgui.TableNextColumn();
+                end
+            imgui.Checkbox('HMP', interface.data.points.gallantry.hmp);imgui.TableNextColumn();
+                if (interface.data.points.gallantry.hmp[1]) then
+                    imgui.Text('    0');
+                else
+                    imgui.Text(tostring(interface.data.points.gallantry.hmp[2]));
+                end
+        imgui.EndTable();
+    end
+    
 end
 
-function manager.DisplayGallantry()
-    imgui.Spacing();imgui.Spacing();
+function manager.ResetAMBU()
+    --[[for k,v in pairs(interface.data.points.hallmarks) do
+            interface.data.points.hallmarks[k][v] = interface.defaults.points.hallmarks[k][v];
+        end]]
 
+    interface.data.points = interface.data.points:merge(interface.defaults.points, true);
 end
 
 function manager.Test()
-    print(tostring(modifind.search(23468)));
+    --print(tostring(modifind.search(23468)));
+    for x = 1, #interface.defaults.gear.afneed[1] do
+        for y = 1, #interface.defaults.gear.afneed[1][x] do
+            print(tostring(interface.defaults.gear.afneed[1][x][y]));
+        end
+    end
 end
 
 return manager;
