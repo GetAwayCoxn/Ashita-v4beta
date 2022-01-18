@@ -1347,6 +1347,27 @@ function manager.DisplayEmpyReforgedGearNeed()
             if (i ~= #interface.data.progress.gear.empyneed[2]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
+
+    imgui.BeginTable('109job', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Phx. Feather');imgui.TableNextColumn();
+        imgui.Text('Mal. Fiber');imgui.TableNextColumn();
+        imgui.Text('Btl. Blood');imgui.TableNextColumn();
+        imgui.Text('Damas. Cloth');imgui.TableNextColumn();
+        imgui.Text('Oxblood');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[2] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[2][i][2]));
+            if (i ~= #interface.data.progress.gear.empyneed[2]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
 end
 
 function manager.UpdateAmbuGear()
