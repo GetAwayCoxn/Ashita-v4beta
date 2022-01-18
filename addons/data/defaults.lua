@@ -108,8 +108,8 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                 {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
             {--119+2,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
                 {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
-            {--119+3,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
-                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+            {--119+3,head > feet,{kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather}
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
         },
 
         relic = {--head > feet; nq,nq+1,nq+2,109,119+1,119+2,119+3
@@ -160,6 +160,11 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             {{12027,11183,11083,26778,26779},{12047,11203,11103,26936,26937},{12067,11223,11123,27090,27091},{12087,11243,11143,27275,27276},{12107,11263,11163,27449,27450}},--sch
             {{0,0,0,26780,26781},{0,0,0,26938,26939},{0,0,0,27092,27093},{0,0,0,27277,27278},{0,0,0,27451,27452}},--geo
             {{0,0,0,26782,26783},{0,0,0,26940,26941},{0,0,0,27094,27095},{0,0,0,27279,27280},{0,0,0,27453,27454}},--run
+        },
+        empyneed = {
+            {{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,}},-- +2 head > feet; {stone,jewel,coin,card}
+            {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},-- 109 head > feet; {chapters,slot mat,briareus,itzpapalotl,orthus,glavoid,lanterns,alfard,kukulkan,cara,dragua,ulhuadshi,apademak,bukhis,azdaja,isgebind,sobek,chloris,sedna}
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},-- 109 head > feet; {chapters,slot mat,etched memories}
         },
 
         ambu = {-- Sulevia's > Mallquis, Head > Feet, {nq,hq1,hq2}

@@ -1,0 +1,19 @@
+require('common');
+
+local settings = T{ };
+settings["i"] = T{ };
+settings["i"][1] = T{ };
+settings["k"] = T{ };
+settings["k"][1] = T{ };
+settings["k"][2] = T{ };
+settings["k"][3] = T{ };
+settings["i"][1][1] = 3294;
+settings["i"][1][2] = "Colorless Soul";
+settings["k"][1][1] = 1564;
+settings["k"][1][2] = "clear demilune abyssite";
+settings["k"][2][1] = 1565;
+settings["k"][2][2] = "colorful demilune abyssite";
+settings["k"][3][1] = 1654;
+settings["k"][3][2] = "indigo demilune abyssite";
+
+return settings;

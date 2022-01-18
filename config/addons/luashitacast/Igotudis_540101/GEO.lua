@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = {
+sets = T{
     Idle = {
         Main = 'Bolelabunga',
         Sub = 'Genmei Shield',
@@ -233,8 +233,8 @@ sets = {
     },
 
     Nuke = {
-        Main = 'Bunzi\'s Rod',
-        Sub = 'Ammurapi Shield',
+        Main = 'Marin Staff +1',
+        Sub = 'Enki Strap',
         Ammo = 'Pemphredo Tathlum',
         Head = 'Jhakri Coronal +2',
         Neck = 'Baetyl Pendant',
@@ -253,8 +253,8 @@ sets = {
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
     },
     Burst = {
-        Main = 'Marin Staff +1', -- 0 and 0
-        Sub = 'Enki Strap',
+        Main = 'Bunzi\'s Rod', --10 and 0
+        Sub = 'Ammurapi Shield',
         Head = 'Ea Hat', -- 6 and 6
         --Body = 'Agwu\'s Robe', -- 10 and 0
         Body = 'Ea Houppelande', -- 8 and 9
@@ -295,7 +295,7 @@ sets = {
 	},
 };
 
-profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -372,10 +372,6 @@ profile.HandlePrecast = function()
         end
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);
-    end
-
-    if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
 
     gcinclude.CheckCancels();

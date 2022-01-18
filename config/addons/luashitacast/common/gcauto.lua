@@ -480,9 +480,9 @@ function gcauto.DoJobStuff()
 			local refresh = gData.GetBuffCount('Refresh');
 			local aquaveil = gData.GetBuffCount('Aquaveil');
 
-			--if (refresh == 0) then
-				--AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh" <me>');
-			if (aquaveil == 0) then
+			if (refresh == 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh" <me>');
+			elseif (aquaveil == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aquaveil" <me>');
 			end
 
@@ -549,7 +549,7 @@ function gcauto.DoJobStuff()
 		local hasso = gData.GetBuffCount('Hasso');
 		local seigan = gData.GetBuffCount('Seigan');
 
-		if (hasso <= 0) and (gcdisplay.GetToggle('HASSO') == true) and (gcauto.CheckAbilityRecast('Hasso') <= 0) then
+		if (hasso <= 0) and (gcdisplay.GetToggle('HASSO') == true) and (gcauto.CheckAbilityRecast('Hasso') <= 0) and (gcdisplay.GetToggle('AUTO') == true) then
 			if (seigan >= 1) then
 				gcdisplay.AdvanceToggle('HASSO');
 				return;

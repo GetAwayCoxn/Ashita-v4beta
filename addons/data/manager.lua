@@ -34,7 +34,7 @@ end
 
 function manager.DisplayJobs()
     for n=1, #interface.defaults.jobsabrv do
-        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(colors.header, interface.defaults.jobsabrv[n]);
+        imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[n]);
         for x = 1, 4 do 
             local t = T{};
             imgui.TableNextColumn();
@@ -147,33 +147,33 @@ function manager.DisplayRelics()
         for r = 1, #interface.defaults.weapons.relics do
             if (interface.defaults.weapons.relics[r][c][1] == 'Gjallarhorn') then
                 imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'SPECIALS');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base Wep');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 2');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 3');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Stage 4');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 75');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 80');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 90');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'SPECIALS');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base Wep');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Stage 2');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Stage 3');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Stage 4');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 75');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 80');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 85');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 90');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 95');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 99');
                 imgui.TableNextColumn();
                 if (r == 1) then
-                    imgui.TextColored(colors.header,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.relics[r][c][1]));
                 elseif (interface.defaults.weapons.relics[r][c][2] == true) then
-                    imgui.TextColored(colors.text1,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.relics[r][c][1]));
                 else
-                    imgui.TextColored(colors.error,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.relics[r][c][1]));
                 end
             else
                 imgui.TableNextColumn();
                 if (r == 1) then
-                    imgui.TextColored(colors.header,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.relics[r][c][1]));
                 elseif (interface.defaults.weapons.relics[r][c][2] == true) then
-                    imgui.TextColored(colors.text1,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.relics[r][c][1]));
                 else
-                    imgui.TextColored(colors.error,tostring(interface.defaults.weapons.relics[r][c][1]));
+                    imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.relics[r][c][1]));
                 end
             end
         end
@@ -259,31 +259,31 @@ function manager.DisplayEmpyreans()
         for r = 1, #interface.defaults.weapons.empyreans do
             if (interface.defaults.weapons.empyreans[r][c][1] == 'Daurdabla') then
                 imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'SPECIALS');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Base v2');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 85');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 90');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 95');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, 'Lv. 99 Glow');
-                imgui.TableNextColumn();imgui.TextColored(colors.header, '');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'SPECIALS');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base v2');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 85');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 90');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 95');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 99');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 99 Glow');
+                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, '');
                 imgui.TableNextColumn();
                 if (r == 1) then
-                    imgui.TextColored(colors.header,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 elseif (interface.defaults.weapons.empyreans[r][c][2] == true) then
-                    imgui.TextColored(colors.text1,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 else
-                    imgui.TextColored(colors.error,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 end
             else
                 imgui.TableNextColumn();
                 if (r == 1) then
-                    imgui.TextColored(colors.header,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 elseif (interface.defaults.weapons.empyreans[r][c][2] == true) then
-                    imgui.TextColored(colors.text1,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 else
-                    imgui.TextColored(colors.error,tostring(interface.defaults.weapons.empyreans[r][c][1]));
+                    imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.empyreans[r][c][1]));
                 end
             end
         end
@@ -323,11 +323,11 @@ function manager.DisplayMythics()
         for r = 1, #interface.defaults.weapons.mythics do
             imgui.TableNextColumn();
             if (r == 1) then
-                imgui.TextColored(colors.header,tostring(interface.defaults.weapons.mythics[r][c][1]));
+                imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.mythics[r][c][1]));
             elseif (interface.defaults.weapons.mythics[r][c][2] == true) then
-                imgui.TextColored(colors.text1,tostring(interface.defaults.weapons.mythics[r][c][1]));
+                imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.mythics[r][c][1]));
             else
-                imgui.TextColored(colors.error,tostring(interface.defaults.weapons.mythics[r][c][1]));
+                imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.mythics[r][c][1]));
             end
         end
     end
@@ -351,7 +351,7 @@ end
 function manager.DisplayAmbuWeps()
     imgui.Spacing();imgui.Spacing();
     imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'WEAPONS');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'WEAPONS');
     for a = 1, #interface.data.progress.weapons.ambu do
         imgui.TableNextColumn();
         local temp = {interface.data.progress.weapons.ambu[a][1]};
@@ -385,12 +385,12 @@ function manager.DisplayAmbuWepsNeed()
 
     imgui.Spacing();imgui.Spacing();
     imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'NEEDED:');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Vouchers');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Nuggets');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Gems:');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Animas');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Matters');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'NEEDED:');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Vouchers');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Nuggets');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Gems:');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Animas');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Matters');
     imgui.TableNextColumn();
 
     for b = 1, (#items -1) do
@@ -406,7 +406,7 @@ function manager.DisplayAmbuWepsNeed()
     else
         items[6] = items[6] - pulsecount;
     end
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Need Pulse Weapons:  ');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Need Pulse Weapons:  ');
     imgui.TableNextColumn();imgui.Text(tostring(items[6]));
 
     interface.data.progress.weapons.ambuWepItems = items:merge(items, true);
@@ -444,115 +444,112 @@ function manager.UpdateAFGear()
     end
 
     interface.data.progress.gear.afProgress[1] = (totalgear-countgear)/totalgear;
-    manager.CountAF();--might remove
+    manager.CountAFGear();--might remove
 end
 
-function manager.CountAF()
+function manager.CountAFGearInv(items)
+    if items == nil then return end
+    local chap1 = 0;local chap2 = 0;local slot1 = 0;local slot2 = 0;local slot3 = 0;
+    
+    for y=1, #items[1] do
+        if y == 1 then -- set IDs for some of the variables
+            chap1 = 4064;
+            chap2 = 4069;
+            slot1 = 844;
+            slot2 = 8720;
+            slot3 = 8983;
+        elseif y == 2 then
+            chap1 = 4065;
+            chap2 = 4070;
+            slot1 = 837;
+            slot2 = 8722;
+            slot3 = 8986;
+        elseif y == 3 then
+            chap1 = 4066;
+            chap2 = 4071;
+            slot1 = 1110;
+            slot2 = 8724;
+            slot3 = 8979;
+        elseif y == 4 then
+            chap1 = 4067;
+            chap2 = 4072;
+            slot1 = 836;
+            slot2 = 8726;
+            slot3 = 8988;
+        elseif y == 5 then
+            chap1 = 4068;
+            chap2 = 4073;
+            slot1 = 1311;
+            slot2 = 8728;
+            slot3 = 8981;
+        end
+        items[1][y][1] = 0 - manager.CountItemId(chap1); --countchapt 1-5
+        items[2][y][1] = 0 - manager.CountItemId(chap2); --countchapt 6-10
+        items[1][y][2] = 0 - manager.CountItemId(slot1); --count 109slot
+        items[2][y][2] = 0 - manager.CountItemId(slot2); --count 1191slot
+        items[3][y][1] = 0 - manager.CountItemId(slot3); --count 1192slot
+    end
+
+    local checks1 = {0,0,855,823,2340,2288,1699,752,664,657}; -- lv109 extra items in order of default array: blank,blank,tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane
+    local checks1 = {0,0,862,2476,1132,2200,1313,668,758,658}; -- lv119+1 extra items in order of default array: blank,blank,behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot
+    for i = 3, #items[1][1] do
+        items[1][1][i] = 0 - manager.CountItemId(checks1[i]);
+        items[2][1][i] = 0 - manager.CountItemId(checks1[i]);
+    end
+
+    local checks3 = {0,9253,9245,9251,9257,9255,9249,9247};-- lv119+1 extra items in order of default array: blank,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,
+    for i = 3, #items[3][1] do
+        items[3][1][i] = 0 - manager.CountItemId(checks1[i]);
+    end
+
+    local checks4 = {9303,9305,9304,9307,9306,9253,9245,9246,9251,9252,9258,9256,9250,9248,9254};-- lv119+1 extra items in order of default array: kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather
+    for i = 3, #items[4][1] do
+        items[4][1][i] = 0 - manager.CountItemId(checks1[i]);
+    end
+
+    return items;
+end
+
+function manager.CountAFGear()
     local cards = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     interface.data.progress.gear.afneed = {
-            {--109,head > feet,{chapters,slot mat, tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane,}
-                {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
-            {--119+1,head > feet,{chapters,slot mat, behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot}
-                {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
-            {--119+2,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
-                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
-            {--119+3,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
-                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
-        };
+        {{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}, 
+    };
+    interface.data.progress.gear.afneed = manager.CountAFGearInv(interface.data.progress.gear.afneed);
 
     for x = 1, #interface.data.progress.gear.af do
         for y = 1, #interface.data.progress.gear.af[x] do
-            if interface.data.progress.gear.af[x][y][1] <= 1 then
-                interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 10;
+            if interface.data.progress.gear.af[x][y][1] <= 2 then
+                if interface.data.progress.gear.af[x][y][1] <= 1 then
+                    interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 10;
+                else
+                    interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 5;
+                end
                 interface.data.progress.gear.afneed[1][y][2] = interface.data.progress.gear.afneed[1][y][2] + 1;
-                interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
-                interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
-                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
                 if (x == 1) or (x == 9) then
                     interface.data.progress.gear.afneed[1][y][3] = interface.data.progress.gear.afneed[1][y][3] + 1;
-                    interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
                 elseif (x == 2) or (x == 6) or (x == 19) then
                     interface.data.progress.gear.afneed[1][y][4] = interface.data.progress.gear.afneed[1][y][4] + 1;
-                    interface.data.progress.gear.afneed[2][y][4] = interface.data.progress.gear.afneed[2][y][4] + 1;
                 elseif (x == 3) or (x == 10) or (x == 16) then
                     interface.data.progress.gear.afneed[1][y][5] = interface.data.progress.gear.afneed[1][y][5] + 1;
-                    interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
                 elseif (x == 4) or (x == 11) or (x == 17) or (x == 18) then
                     interface.data.progress.gear.afneed[1][y][6] = interface.data.progress.gear.afneed[1][y][6] + 1;
-                    interface.data.progress.gear.afneed[2][y][6] = interface.data.progress.gear.afneed[2][y][6] + 1;
                 elseif (x == 5) or (x == 15) or (x == 20) then
                     interface.data.progress.gear.afneed[1][y][7] = interface.data.progress.gear.afneed[1][y][7] + 1;
-                    interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
-                elseif (x == 7) or (x == 14) then
-                    interface.data.progress.gear.afneed[1][y][8] = interface.data.progress.gear.afneed[1][y][8] + 1;
-                    interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
-                elseif (x == 8) then
-                    interface.data.progress.gear.afneed[1][y][9] = interface.data.progress.gear.afneed[1][y][9] + 1;
-                    interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
-                elseif (x == 12) or (x == 13) then
-                    interface.data.progress.gear.afneed[1][y][10] = interface.data.progress.gear.afneed[1][y][10] + 1;
-                    interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
-                elseif (x == 21) then interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
-                elseif (x == 22) then interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
-                end
-                if (y == 1) then
-                    cards[x] = cards[x] + 48;
-                elseif (y == 2) then
-                    cards[x] = cards[x] + 60;
-                elseif (y == 3) then
-                    cards[x] = cards[x] + 42;
-                elseif (y == 4) then
-                    cards[x] = cards[x] + 54;
-                elseif (y == 5) then
-                    cards[x] = cards[x] + 36;
-                end
-            elseif interface.data.progress.gear.af[x][y][1] == 2 then
-                interface.data.progress.gear.afneed[1][y][1] = interface.data.progress.gear.afneed[1][y][1] + 5;
-                interface.data.progress.gear.afneed[1][y][2] = interface.data.progress.gear.afneed[1][y][2] + 1;
-                interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
-                interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
-                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
-                if (x == 1) or (x == 9) then
-                    interface.data.progress.gear.afneed[1][y][3] = interface.data.progress.gear.afneed[1][y][3] + 1;
-                    interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
-                elseif (x == 2) or (x == 6) or (x == 19) then
-                    interface.data.progress.gear.afneed[1][y][4] = interface.data.progress.gear.afneed[1][y][4] + 1;
-                    interface.data.progress.gear.afneed[2][y][4] = interface.data.progress.gear.afneed[2][y][4] + 1;
-                elseif (x == 3) or (x == 10) or (x == 16) then
-                    interface.data.progress.gear.afneed[1][y][5] = interface.data.progress.gear.afneed[1][y][5] + 1;
-                    interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
-                elseif (x == 4) or (x == 11) or (x == 17) or (x == 18) then
-                    interface.data.progress.gear.afneed[1][y][6] = interface.data.progress.gear.afneed[1][y][6] + 1;
-                    interface.data.progress.gear.afneed[2][y][6] = interface.data.progress.gear.afneed[2][y][6] + 1;
-                elseif (x == 5) or (x == 15) or (x == 20) then
-                    interface.data.progress.gear.afneed[1][y][7] = interface.data.progress.gear.afneed[1][y][7] + 1;
-                    interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
                 elseif (x == 7) or (x == 14) then
                     interface.data.progress.gear.afneed[1][y][8] = interface.data.progress.gear.afneed[1][y][8] + 1;
                 elseif (x == 8) then
                     interface.data.progress.gear.afneed[1][y][9] = interface.data.progress.gear.afneed[1][y][9] + 1;
-                    interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
                 elseif (x == 12) or (x == 13) then
                     interface.data.progress.gear.afneed[1][y][10] = interface.data.progress.gear.afneed[1][y][10] + 1;
-                    interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
-                elseif (x == 21) then interface.data.progress.gear.afneed[2][y][5] = interface.data.progress.gear.afneed[2][y][5] + 1;
-                elseif (x == 22) then interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
                 end
-                if (y == 1) then
-                    cards[x] = cards[x] + 48;
-                elseif (y == 2) then
-                    cards[x] = cards[x] + 60;
-                elseif (y == 3) then
-                    cards[x] = cards[x] + 42;
-                elseif (y == 4) then
-                    cards[x] = cards[x] + 54;
-                elseif (y == 5) then
-                    cards[x] = cards[x] + 36;
-                end
-            elseif interface.data.progress.gear.af[x][y][1] == 3 then
+            end
+            if interface.data.progress.gear.af[x][y][1] <= 3 then
                 interface.data.progress.gear.afneed[2][y][1] = interface.data.progress.gear.afneed[2][y][1] + 8;
                 interface.data.progress.gear.afneed[2][y][2] = interface.data.progress.gear.afneed[2][y][2] + 1;
-                interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
                 if (x == 1) or (x == 9) then
                     interface.data.progress.gear.afneed[2][y][3] = interface.data.progress.gear.afneed[2][y][3] + 1;
                 elseif (x == 2) or (x == 6) or (x == 19) then
@@ -565,38 +562,74 @@ function manager.CountAF()
                     interface.data.progress.gear.afneed[2][y][7] = interface.data.progress.gear.afneed[2][y][7] + 1;
                 elseif (x == 7) or (x == 14) then
                     interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
-                    interface.data.progress.gear.afneed[2][y][8] = interface.data.progress.gear.afneed[2][y][8] + 1;
                 elseif (x == 8) then
                     interface.data.progress.gear.afneed[2][y][9] = interface.data.progress.gear.afneed[2][y][9] + 1;
                 elseif (x == 12) or (x == 13) or (x == 22) then
                     interface.data.progress.gear.afneed[2][y][10] = interface.data.progress.gear.afneed[2][y][10] + 1;
                 end
-                if (y == 1) then
-                    cards[x] = cards[x] + 48;
-                elseif (y == 2) then
-                    cards[x] = cards[x] + 60;
-                elseif (y == 3) then
-                    cards[x] = cards[x] + 42;
-                elseif (y == 4) then
-                    cards[x] = cards[x] + 54;
-                elseif (y == 5) then
-                    cards[x] = cards[x] + 36;
-                end
-            elseif interface.data.progress.gear.af[x][y][1] == 4 then
+            end
+            if interface.data.progress.gear.af[x][y][1] <= 4 then
                 interface.data.progress.gear.afneed[3][y][1] = interface.data.progress.gear.afneed[3][y][1] + 1;
-                if (y == 1) then
-                    cards[x] = cards[x] + 48;
-                elseif (y == 2) then
-                    cards[x] = cards[x] + 60;
-                elseif (y == 3) then
-                    cards[x] = cards[x] + 42;
-                elseif (y == 4) then
-                    cards[x] = cards[x] + 54;
-                elseif (y == 5) then
-                    cards[x] = cards[x] + 36;
+                if (x == 1) or (x == 9) or (x == 11) then
+                    interface.data.progress.gear.afneed[3][y][2] = interface.data.progress.gear.afneed[3][y][2] + 1;
+                elseif (x == 2) or (x == 6) or (x == 19) then
+                    interface.data.progress.gear.afneed[3][y][3] = interface.data.progress.gear.afneed[3][y][3] + 1;
+                elseif (x == 3) or (x == 10) or (x == 16) or (x == 21) then
+                    interface.data.progress.gear.afneed[3][y][4] = interface.data.progress.gear.afneed[3][y][4] + 1;
+                elseif (x == 4) or (x == 17) or (x == 18) then
+                    interface.data.progress.gear.afneed[3][y][5] = interface.data.progress.gear.afneed[3][y][5] + 1;
+                elseif (x == 5) or (x == 15) or (x == 20) then
+                    interface.data.progress.gear.afneed[3][y][6] = interface.data.progress.gear.afneed[3][y][6] + 1;
+                elseif (x == 7) or (x == 14) then
+                    interface.data.progress.gear.afneed[3][y][7] = interface.data.progress.gear.afneed[3][y][7] + 1;
+                elseif (x == 8) or (x == 12) or (x == 13) or (x == 22) then
+                    interface.data.progress.gear.afneed[3][y][8] = interface.data.progress.gear.afneed[3][y][8] + 1;
                 end
-            elseif interface.data.progress.gear.af[x][y][1] == 5 then
-                
+                if (y == 1) then
+                    cards[x] = cards[x] + 8;
+                elseif (y == 2) then
+                    cards[x] = cards[x] + 10;
+                elseif (y == 3) then
+                    cards[x] = cards[x] + 7;
+                elseif (y == 4) then
+                    cards[x] = cards[x] + 9;
+                elseif (y == 5) then
+                    cards[x] = cards[x] + 6;
+                end
+            end
+            if interface.data.progress.gear.af[x][y][1] <= 5 then
+                if (x == 1) or (x == 2) or (x == 7) or (x == 8) or (x == 12) then
+                    interface.data.progress.gear.afneed[4][y][1] = interface.data.progress.gear.afneed[4][y][1] + 1;
+                elseif (x == 2) or (x == 3) or (x == 4) or (x == 16) or (x == 20) then
+                    interface.data.progress.gear.afneed[4][y][2] = interface.data.progress.gear.afneed[4][y][2] + 1;
+                elseif (x == 6) or (x == 13) or (x == 19) or (x == 22) then
+                    interface.data.progress.gear.afneed[4][y][3] = interface.data.progress.gear.afneed[4][y][3] + 1;
+                elseif (x == 9) or (x == 14) or (x == 15) or (x == 18) then
+                    interface.data.progress.gear.afneed[4][y][4] = interface.data.progress.gear.afneed[4][y][4] + 1;
+                elseif (x == 10) or (x == 11) or (x == 17) or (x == 21) then
+                    interface.data.progress.gear.afneed[4][y][5] = interface.data.progress.gear.afneed[4][y][5] + 1;
+                end
+                if (y == 1) then
+                    interface.data.progress.gear.afneed[4][y][6] = interface.data.progress.gear.afneed[4][y][6] + 1;
+                    interface.data.progress.gear.afneed[4][y][10] = interface.data.progress.gear.afneed[4][y][10] + 1;
+                    interface.data.progress.gear.afneed[4][y][12] = interface.data.progress.gear.afneed[4][y][12] + 2;
+                elseif (y == 2) then
+                    interface.data.progress.gear.afneed[4][y][8] = interface.data.progress.gear.afneed[4][y][8] + 1;
+                    interface.data.progress.gear.afneed[4][y][12] = interface.data.progress.gear.afneed[4][y][12] + 3;
+                    interface.data.progress.gear.afneed[4][y][14] = interface.data.progress.gear.afneed[4][y][14] + 1;
+                elseif (y == 3)  then
+                    interface.data.progress.gear.afneed[4][y][15] = interface.data.progress.gear.afneed[4][y][15] + 3;
+                    interface.data.progress.gear.afneed[4][y][7] = interface.data.progress.gear.afneed[4][y][7] + 1;
+                    interface.data.progress.gear.afneed[4][y][12] = interface.data.progress.gear.afneed[4][y][12] + 1;
+                elseif (y == 4) then
+                    interface.data.progress.gear.afneed[4][y][8] = interface.data.progress.gear.afneed[4][y][8] + 1;
+                    interface.data.progress.gear.afneed[4][y][12] = interface.data.progress.gear.afneed[4][y][12] + 2;
+                    interface.data.progress.gear.afneed[4][y][13] = interface.data.progress.gear.afneed[4][y][13] + 1;
+                elseif (y == 5) then
+                    interface.data.progress.gear.afneed[4][y][9] = interface.data.progress.gear.afneed[4][y][9] + 1;
+                    interface.data.progress.gear.afneed[4][y][11] = interface.data.progress.gear.afneed[4][y][11] + 3;
+                    interface.data.progress.gear.afneed[4][y][12] = interface.data.progress.gear.afneed[4][y][12] + 1;
+                end
                 if (y == 1) then
                     cards[x] = cards[x] + 40;
                 elseif (y == 2) then
@@ -630,12 +663,12 @@ function manager.DisplayAFGear()
     end
 end
 
-function manager.DisplayAFGearNeed109()
+function manager.DisplayAFGearNeed()
     imgui.BeginTable('chapters', 11, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Chapters');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Chapters');imgui.TableNextColumn();
         for t = 1, 10 do
-            imgui.TextColored(colors.header,'Chap. ' .. t);imgui.TableNextColumn();
+            imgui.TextColored(interface.colors.header,'Chap. ' .. t);imgui.TableNextColumn();
         end
         imgui.TableNextColumn();
         for i = 1, 5 do
@@ -649,12 +682,12 @@ function manager.DisplayAFGearNeed109()
 
     imgui.BeginTable('109slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Lv109');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Phx. Feather');imgui.TableNextColumn();
         imgui.Text('Mal. Fiber');imgui.TableNextColumn();
@@ -670,15 +703,15 @@ function manager.DisplayAFGearNeed109()
 
     imgui.BeginTable('109job', 9, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Lv109');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'WAR/BST');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'WHM/BRD/BLU');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'PLD/DRG');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'DRK');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'SAM/NIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/BST');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BRD/BLU');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'DRK');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SAM/NIN');imgui.TableNextColumn();
         imgui.Text('Job Spec.');imgui.TableNextColumn();
         imgui.Text('Tgr Leather');imgui.TableNextColumn();
         imgui.Text('Gld Thread');imgui.TableNextColumn();
@@ -699,14 +732,14 @@ function manager.DisplayAFGearNeed109()
         end
     imgui.EndTable();
 
-    imgui.BeginTable('119slot', 6, ImGuiTableFlags_Borders);
+    imgui.BeginTable('1191slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Lv119+1');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Maliy. Orb');imgui.TableNextColumn();
         imgui.Text('Hepa. Ingot');imgui.TableNextColumn();
@@ -720,17 +753,17 @@ function manager.DisplayAFGearNeed109()
         end
     imgui.EndTable();
 
-    imgui.BeginTable('119job', 9, ImGuiTableFlags_Borders);
+    imgui.BeginTable('1191job', 9, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Lv119+1');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'WAR/BST');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'WHM/BRD/BLU/GEO');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'PLD/DRG');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'DRK');imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'SAM/NIN/RUN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/BST');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BRD/BLU/GEO');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLM/RNG/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'DRK');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SAM/NIN/RUN');imgui.TableNextColumn();
         imgui.Text('Job Spec.');imgui.TableNextColumn();
         imgui.Text('Behe Leather');imgui.TableNextColumn();
         imgui.Text('Plt Slk Thrd');imgui.TableNextColumn();
@@ -743,7 +776,7 @@ function manager.DisplayAFGearNeed109()
         imgui.Text('Items');imgui.TableNextColumn();
         for x = 3, #interface.data.progress.gear.afneed[2][1] do
             local count = 0;
-            for i = 1, #interface.data.progress.gear.afneed[1] do
+            for i = 1, #interface.data.progress.gear.afneed[2] do
                 count = count + interface.data.progress.gear.afneed[2][i][x];
             end
             imgui.Text(tostring(count));
@@ -751,18 +784,113 @@ function manager.DisplayAFGearNeed109()
         end
     imgui.EndTable();
 
-    imgui.Spacing();imgui.Separator();imgui.Spacing();
-
     imgui.BeginTable('cards', (#interface.defaults.jobsabrv +1), ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(colors.header, 'Cards');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Cards');imgui.TableNextColumn();
         for j = 1, #interface.defaults.jobsabrv do
-            imgui.TextColored(colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
         end
         imgui.TableNextColumn();
         for c = 1, #interface.data.progress.gear.jobcards do
             imgui.Text(tostring(interface.data.progress.gear.jobcards[c]));
             if (c ~= #interface.data.progress.gear.jobcards) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1192slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Emp Artho Shell');imgui.TableNextColumn();
+        imgui.Text('Joyous Moss');imgui.TableNextColumn();
+        imgui.Text('Imperator Wing');imgui.TableNextColumn();
+        imgui.Text('Warblade Beak Hide');imgui.TableNextColumn();
+        imgui.Text('Abyssdiver Feather');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.afneed[3] do
+            imgui.Text(tostring(interface.data.progress.gear.afneed[3][i][1]));
+            if (i ~= #interface.data.progress.gear.afneed[3]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1192job', 8, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/BST/RNG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BRD/BLU/GEO');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLM/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'DRK/SAM/NIN/RUN');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('S.Faulpie Lthr');imgui.TableNextColumn();
+        imgui.Text('Cypress Log');imgui.TableNextColumn();
+        imgui.Text('Khoma Thread');imgui.TableNextColumn();
+        imgui.Text('Azure Leaf');imgui.TableNextColumn();
+        imgui.Text('Cyan Coral');imgui.TableNextColumn();
+        imgui.Text('Ruth. Ore');imgui.TableNextColumn();
+        imgui.Text('Niob. Ore');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 2, #interface.data.progress.gear.afneed[3][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[3] do
+                count = count + interface.data.progress.gear.afneed[3][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.afneed[3][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1193scales', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+3 Scales');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Kin');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Kei');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Gin');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Fu');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Kyou');imgui.TableNextColumn();imgui.TableNextColumn();
+        for x = 1, 5 do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[4] do
+                count = count + interface.data.progress.gear.afneed[4][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= 5) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1193items', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+3 Items');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.Text('SYN. Faulpie Lthr');imgui.TableNextColumn();
+        imgui.Text('Cypress Log');imgui.TableNextColumn();
+        imgui.Text('Cypress Lbr');imgui.TableNextColumn();
+        imgui.Text('Khoma Thread');imgui.TableNextColumn();
+        imgui.Text('Khoma Cloth');imgui.TableNextColumn();
+        for x = 6, 10 do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[4] do
+                count = count + interface.data.progress.gear.afneed[4][i][x];
+            end
+            imgui.Text(tostring(count));imgui.TableNextColumn();
+        end
+        imgui.Text('Azure Cermet');imgui.TableNextColumn();
+        imgui.Text('Cyan Orb');imgui.TableNextColumn();
+        imgui.Text('Ruthenium Ingot');imgui.TableNextColumn();
+        imgui.Text('Niobium Ingot');imgui.TableNextColumn();
+        imgui.Text('Faulpie Leather');imgui.TableNextColumn();
+        for x =11, #interface.data.progress.gear.afneed[4][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.afneed[4] do
+                count = count + interface.data.progress.gear.afneed[4][i][x];
+            end
+            imgui.Text(tostring(count));imgui.TableNextColumn();
         end
     imgui.EndTable();
 end
@@ -826,6 +954,217 @@ function manager.UpdateEmpyGear()
     interface.data.progress.gear.empyProgress[1] = (totalgear-countgear)/totalgear;
 end
 
+function manager.CountEmpyGearInv(items)
+    if items == nil then return end
+    local slot1 = 0;local slot2 = 0;local slot3 = 0;local slot4 = 0;
+    
+    for y=1, #items[1] do
+        if y == 1 then
+            slot1 = 3210;
+            slot2 = 3212;
+            slot3 = 3211;
+            slot4 = 3213;
+        elseif y == 2 then
+            slot1 = 3214;
+            slot2 = 3216;
+            slot3 = 3215;
+            slot4 = 3217;
+        elseif y == 3 then
+            slot1 = 3218;
+            slot2 = 3220;
+            slot3 = 3219;
+            slot4 = 3221;
+        elseif y == 4 then
+            slot1 = 3222;
+            slot2 = 3224;
+            slot3 = 3223;
+            slot4 = 3225;
+        elseif y == 5 then
+            slot1 = 3226;
+            slot2 = 3228;
+            slot3 = 3227;
+            slot4 = 3229;
+        end
+        items[1][y][1] = 0 - manager.CountItemId(slot1); --count stones
+        items[1][y][2] = 0 - manager.CountItemId(slot2); --count jewels
+        items[1][y][3] = 0 - manager.CountItemId(slot3); --count coins
+        items[1][y][4] = 0 - manager.CountItemId(slot4); --count cards
+    end
+
+
+    return items;
+end
+
+function manager.CountEmpyBaseGear()
+    for j = 1, #interface.data.progress.gear.empyrean do
+        --head
+        if (j == 1) or (j == 3) or (j == 6) or (j == 10) or (j == 11) then
+            if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][1][1] = interface.data.progress.gear.empyneed[1][1][1] + 6;
+            end
+        elseif (j == 2) or (j == 7) or (j == 12) or (j == 17) or (j == 18) then
+            if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][1][2] = interface.data.progress.gear.empyneed[1][1][2] + 6;
+            end
+        elseif (j == 4) or (j == 8) or (j == 9) or (j == 13) or (j == 15) then
+            if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][1][3] = interface.data.progress.gear.empyneed[1][1][3] + 6;
+            end
+        elseif (j == 7) or (j == 14) or (j == 16) or (j == 19) or (j == 20) then
+            if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][1][4] = interface.data.progress.gear.empyneed[1][1][4] + 6;
+            end
+        end
+        --body
+        if (j == 1) or (j == 7) or (j == 10) or (j == 13) or (j == 16) then
+            if (interface.data.progress.gear.empyrean[j][2][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][2][1] = interface.data.progress.gear.empyneed[1][2][1] + 9;
+            end
+        elseif (j == 4) or (j == 5) or (j == 12) or (j == 18) or (j == 19) then
+            if (interface.data.progress.gear.empyrean[j][2][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][2][2] = interface.data.progress.gear.empyneed[1][2][2] + 9;
+            end
+        elseif (j == 6) or (j == 8) or (j == 11) or (j == 15) or (j == 17) then
+            if (interface.data.progress.gear.empyrean[j][2][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][2][3] = interface.data.progress.gear.empyneed[1][2][3] + 9;
+            end
+        elseif (j == 2) or (j == 3) or (j == 9) or (j == 14) or (j == 20) then
+            if (interface.data.progress.gear.empyrean[j][2][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][2][4] = interface.data.progress.gear.empyneed[1][2][4] + 9;
+            end
+        end
+        --hands
+        if (j == 1) or (j == 5) or (j == 6) or (j == 9) or (j == 20) then
+            if (interface.data.progress.gear.empyrean[j][3][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][3][1] = interface.data.progress.gear.empyneed[1][3][1] + 6;
+            end
+        elseif (j == 2) or (j == 4) or (j == 10) or (j == 12) or (j == 15) then
+            if (interface.data.progress.gear.empyrean[j][3][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][3][2] = interface.data.progress.gear.empyneed[1][3][2] + 6;
+            end
+        elseif (j == 3) or (j == 8) or (j == 11) or (j == 16) or (j == 19) then
+            if (interface.data.progress.gear.empyrean[j][3][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][3][3] = interface.data.progress.gear.empyneed[1][3][3] + 6;
+            end
+        elseif (j == 7) or (j == 13) or (j == 14) or (j == 17) or (j == 18) then
+            if (interface.data.progress.gear.empyrean[j][3][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][3][4] = interface.data.progress.gear.empyneed[1][3][4] + 6;
+            end
+        end
+        --legs
+        if (j == 1) or (j == 4) or (j == 13) or (j == 16) or (j == 18) then
+            if (interface.data.progress.gear.empyrean[j][4][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][4][1] = interface.data.progress.gear.empyneed[1][4][1] + 6;
+            end
+        elseif (j == 2) or (j == 9) or (j == 11) or (j == 12) or (j == 20) then
+            if (interface.data.progress.gear.empyrean[j][4][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][4][2] = interface.data.progress.gear.empyneed[1][4][2] + 6;
+            end
+        elseif (j == 5) or (j == 6) or (j == 7) or (j == 8) or (j == 10) then
+            if (interface.data.progress.gear.empyrean[j][4][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][4][3] = interface.data.progress.gear.empyneed[1][4][3] + 6;
+            end
+        elseif (j == 3) or (j == 14) or (j == 15) or (j == 17) or (j == 19) then
+            if (interface.data.progress.gear.empyrean[j][4][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][4][4] = interface.data.progress.gear.empyneed[1][4][4] + 6;
+            end
+        end
+        --feet
+        if (j == 1) or (j == 5) or (j == 7) or (j == 15) or (j == 19) then
+            if (interface.data.progress.gear.empyrean[j][5][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][5][1] = interface.data.progress.gear.empyneed[1][5][1] + 6;
+            end
+        elseif (j == 3) or (j == 6) or (j == 10) or (j == 12) or (j == 18) then
+            if (interface.data.progress.gear.empyrean[j][5][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][5][2] = interface.data.progress.gear.empyneed[1][5][2] + 6;
+            end
+        elseif (j == 2) or (j == 8) or (j == 16) or (j == 17) or (j == 20) then
+            if (interface.data.progress.gear.empyrean[j][5][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][5][3] = interface.data.progress.gear.empyneed[1][5][3] + 6;
+            end
+        elseif (j == 4) or (j == 9) or (j == 11) or (j == 13) or (j == 14) then
+            if (interface.data.progress.gear.empyrean[j][5][1] <= 2) then
+                interface.data.progress.gear.empyneed[1][5][4] = interface.data.progress.gear.empyneed[1][5][4] + 6;
+            end
+        end
+    end
+end
+
+function manager.CountEmpyGear()
+    interface.data.progress.gear.empyneed = {
+        {{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,}},
+        {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+    };
+    interface.data.progress.gear.empyneed = manager.CountEmpyGearInv(interface.data.progress.gear.empyneed);
+    manager.CountEmpyBaseGear();
+
+    for x = 1, #interface.data.progress.gear.empyrean do
+        for y = 1, #interface.data.progress.gear.empyrean[x] do
+            if interface.data.progress.gear.empyrean[x][y][1] <= 3 then
+                if interface.data.progress.gear.empyrean[x][y][1] <= 2 then
+                    interface.data.progress.gear.empyneed[2][y][1] = interface.data.progress.gear.empyneed[2][y][1] + 10;
+                else
+                    interface.data.progress.gear.empyneed[2][y][1] = interface.data.progress.gear.empyneed[2][y][1] + 5;
+                end
+                interface.data.progress.gear.empyneed[2][y][2] = interface.data.progress.gear.empyneed[2][y][2] + 1;
+
+                if (x == 1) or (x == 8) then
+                    interface.data.progress.gear.empyneed[2][y][3] = interface.data.progress.gear.empyneed[2][y][3] + 1;
+                elseif (x == 2) then
+                    interface.data.progress.gear.empyneed[2][y][4] = interface.data.progress.gear.empyneed[2][y][4] + 1;
+                elseif (x == 3) then
+                    interface.data.progress.gear.empyneed[2][y][5] = interface.data.progress.gear.empyneed[2][y][5] + 1;
+                elseif (x == 4) then
+                    interface.data.progress.gear.empyneed[2][y][6] = interface.data.progress.gear.empyneed[2][y][6] + 1;
+                elseif (x == 5) then
+                    interface.data.progress.gear.empyneed[2][y][7] = interface.data.progress.gear.empyneed[2][y][7] + 1;
+                elseif (x == 6) then
+                    interface.data.progress.gear.empyneed[2][y][8] = interface.data.progress.gear.empyneed[2][y][8] + 1;
+                elseif (x == 7) then
+                    interface.data.progress.gear.empyneed[2][y][9] = interface.data.progress.gear.empyneed[2][y][9] + 1;
+                elseif (x == 9) or (x == 15) or (x == 18) then
+                    interface.data.progress.gear.empyneed[2][y][10] = interface.data.progress.gear.empyneed[2][y][10] + 1;
+                elseif (x == 10) then
+                    interface.data.progress.gear.empyneed[2][y][11] = interface.data.progress.gear.empyneed[2][y][11] + 1;
+                elseif (x == 11) then
+                    interface.data.progress.gear.empyneed[2][y][12] = interface.data.progress.gear.empyneed[2][y][12] + 1;
+                elseif (x == 12) then
+                    interface.data.progress.gear.empyneed[2][y][13] = interface.data.progress.gear.empyneed[2][y][13] + 1;
+                elseif (x == 13) then
+                    interface.data.progress.gear.empyneed[2][y][14] = interface.data.progress.gear.empyneed[2][y][14] + 1;
+                elseif (x == 14) then
+                    interface.data.progress.gear.empyneed[2][y][15] = interface.data.progress.gear.empyneed[2][y][15] + 1;
+                elseif (x == 16) then
+                    interface.data.progress.gear.empyneed[2][y][16] = interface.data.progress.gear.empyneed[2][y][16] + 1;
+                elseif (x == 17) then
+                    interface.data.progress.gear.empyneed[2][y][17] = interface.data.progress.gear.empyneed[2][y][17] + 1;
+                elseif (x == 19) then
+                    interface.data.progress.gear.empyneed[2][y][18] = interface.data.progress.gear.empyneed[2][y][18] + 1;
+                elseif (x == 20) then
+                    interface.data.progress.gear.empyneed[2][y][19] = interface.data.progress.gear.empyneed[2][y][19] + 1;
+                end
+            end
+            if interface.data.progress.gear.empyrean[x][y][1] <= 4 then
+                interface.data.progress.gear.empyneed[3][y][1] = interface.data.progress.gear.empyneed[3][y][1] + 8;
+                interface.data.progress.gear.empyneed[3][y][2] = interface.data.progress.gear.empyneed[3][y][2] + 1;
+                if (y == 1) then
+                    interface.data.progress.gear.empyneed[3][y][3] = interface.data.progress.gear.empyneed[3][y][3] + 15;
+                elseif (y == 2) then
+                    interface.data.progress.gear.empyneed[3][y][3] = interface.data.progress.gear.empyneed[3][y][3] + 25;
+                elseif (y == 3) then
+                    interface.data.progress.gear.empyneed[3][y][3] = interface.data.progress.gear.empyneed[3][y][3] + 15;
+                elseif (y == 4) then
+                    interface.data.progress.gear.empyneed[3][y][3] = interface.data.progress.gear.empyneed[3][y][3] + 20;
+                elseif (y == 5) then
+                    interface.data.progress.gear.empyneed[3][y][3] = interface.data.progress.gear.empyneed[3][y][3] + 15;
+                end
+            end
+        end
+    end
+end
+
 function manager.DisplayEmpyGear()
     imgui.Spacing();imgui.Spacing();
     for a = 1, #interface.data.progress.gear.empyrean do
@@ -839,8 +1178,175 @@ function manager.DisplayEmpyGear()
     end
 end
 
-function manager.DisplayEmpyGearNeed()
-    imgui.Spacing();imgui.Spacing();
+function manager.DisplayEmpyBaseGearNeed()
+
+    imgui.BeginTable('empy seals need', 12, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SEALS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HEAD');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BODY');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HANDS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'LEGS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'FEET');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HEAD');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BODY');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HANDS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'LEGS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'FEET');imgui.TableNextColumn();
+        for j = 1, #interface.defaults.jobsabrv do
+            imgui.Text(interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            for p = 1, #interface.data.progress.gear.empyrean[j] do
+                if (interface.data.progress.gear.empyrean[j][p][1] <= 1) then
+                    if (p == 2) then
+                        imgui.Text('10');imgui.TableNextColumn();
+                    else
+                        imgui.Text('8');
+                        if (j == #interface.defaults.jobsabrv) and (p == 5) then 
+                        else imgui.TableNextColumn() end
+                    end
+                else
+                    imgui.Text('0');
+                    if (j == #interface.defaults.jobsabrv) and (p == 5) then 
+                    else imgui.TableNextColumn() end
+                end
+            end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('empy head need', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HEAD NEEDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'STONE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'JEWEL');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'CARD');imgui.TableNextColumn();
+        imgui.Text('Vision');imgui.TableNextColumn();
+        imgui.Text('WAR/WHM/THF/BRD/RNG');imgui.TableNextColumn();
+        imgui.Text('MNK/RDM/SAM/COR/PUP');imgui.TableNextColumn();
+        imgui.Text('BLM/DRK/BST/NIN/SMN');imgui.TableNextColumn();
+        imgui.Text('PLD/DRG/BLU/DNC/SCH');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[1][1] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[1][1][i]));
+            if i ~= #interface.data.progress.gear.empyneed[1][1] then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('empy body need', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BODY NEEDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'STONE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'JEWEL');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'CARD');imgui.TableNextColumn();
+        imgui.Text('Ardor');imgui.TableNextColumn();
+        imgui.Text('WAR/PLD/BRD/NIN/BLU');imgui.TableNextColumn();
+        imgui.Text('BLM/RDM/SAM/PUP/DNC');imgui.TableNextColumn();
+        imgui.Text('THF/DRK/RNG/SMN/COR');imgui.TableNextColumn();
+        imgui.Text('MNK/WHM/BST/DRG/SCH');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[1][2] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[1][2][i]));
+            if i ~= #interface.data.progress.gear.empyneed[1][2] then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('empy hands need', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'HANDS NEEDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'STONE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'JEWEL');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'CARD');imgui.TableNextColumn();
+        imgui.Text('Wieldance');imgui.TableNextColumn();
+        imgui.Text('WAR/RDM/THF/BST/SCH');imgui.TableNextColumn();
+        imgui.Text('MNK/BLM/BRD/SAM/SMN');imgui.TableNextColumn();
+        imgui.Text('WHM/DRK/RNG/BLU/DNC');imgui.TableNextColumn();
+        imgui.Text('PLD/NIN/DRG/COR/PUP');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[1][3] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[1][3][i]));
+            if i ~= #interface.data.progress.gear.empyneed[1][3] then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('empy legs need', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'LEGS NEEDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'STONE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'JEWEL');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'CARD');imgui.TableNextColumn();
+        imgui.Text('Balance');imgui.TableNextColumn();
+        imgui.Text('WAR/BLM/NIN/BLU/PUP');imgui.TableNextColumn();
+        imgui.Text('MNK/BST/RNG/SAM/SCH');imgui.TableNextColumn();
+        imgui.Text('RDM/THF/PLD/DRK/BRD');imgui.TableNextColumn();
+        imgui.Text('WHM/DRG/SMN/COR/DNC');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[1][4] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[1][4][i]));
+            if i ~= #interface.data.progress.gear.empyneed[1][4] then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('empy feet need', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'FEET NEEDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'STONE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'JEWEL');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'CARD');imgui.TableNextColumn();
+        imgui.Text('Voyage');imgui.TableNextColumn();
+        imgui.Text('WAR/RDM/PLD/SMN/DNC');imgui.TableNextColumn();
+        imgui.Text('WHM/THF/BRD/SAM/PUP');imgui.TableNextColumn();
+        imgui.Text('MNK/DRK/BLU/COR/SCH');imgui.TableNextColumn();
+        imgui.Text('BLM/BST/RNG/NIN/DRG');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[1][5] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[1][5][i]));
+            if i ~= #interface.data.progress.gear.empyneed[1][5] then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+end
+
+function manager.DisplayEmpyReforgedGearNeed()
+    imgui.BeginTable('chapters', 11, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Chapters');imgui.TableNextColumn();
+        for t = 1, 10 do
+            imgui.TextColored(interface.colors.header,'Chap. ' .. t);imgui.TableNextColumn();
+        end
+        imgui.TableNextColumn();
+        for i = 1, 5 do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[2][i][1]));imgui.TableNextColumn();
+        end
+        for i = 1, 5 do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[3][i][1]));
+            if (i ~= 5) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('109slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Phx. Feather');imgui.TableNextColumn();
+        imgui.Text('Mal. Fiber');imgui.TableNextColumn();
+        imgui.Text('Btl. Blood');imgui.TableNextColumn();
+        imgui.Text('Damas. Cloth');imgui.TableNextColumn();
+        imgui.Text('Oxblood');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[2] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[2][i][2]));
+            if (i ~= #interface.data.progress.gear.empyneed[2]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
 end
 
 function manager.UpdateAmbuGear()
@@ -944,12 +1450,12 @@ function manager.DisplayAmbuGearNeed()
     
 
     imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Ambu Gear Slips Need:');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Head');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Body');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Hands');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Legs');
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Feet');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ambu Gear Slips Need:');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Head');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Body');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Hands');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Legs');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Feet');
                         
     imgui.TableNextColumn();imgui.Text('A. Vouchers:');
     imgui.TableNextColumn();imgui.Text(tostring(headvouchers));
@@ -966,7 +1472,7 @@ function manager.DisplayAmbuGearNeed()
     imgui.TableNextColumn();imgui.Text(tostring(feettokens));
 
     imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(colors.header, 'Upgrade Items Need:');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Upgrade Items Need:');
     imgui.TableNextColumn();
     imgui.TableNextColumn();
     imgui.TableNextColumn();
@@ -997,11 +1503,11 @@ function manager.DisplayHallmarks()
     end
 
     imgui.Spacing();
-    imgui.TextColored(colors.header, 'NEEDED HALLMARK POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.TextColored(interface.colors.header, 'NEEDED HALLMARK POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
     imgui.Spacing();imgui.Separator();imgui.Spacing();
 
     imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn(); 
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn(); 
         imgui.Checkbox('Nuggets', interface.data.points.hallmarks.nuggets);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[2] == 0) then interface.data.points.hallmarks.nuggets[1] = true end
             if (interface.data.points.hallmarks.nuggets[1]) then
@@ -1035,7 +1541,7 @@ function manager.DisplayHallmarks()
     imgui.Spacing();imgui.Separator();imgui.Spacing();
     
     imgui.BeginTable('Capes', 10, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('Threads', interface.data.points.hallmarks.threads);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.threads[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
@@ -1071,7 +1577,7 @@ function manager.DisplayHallmarks()
     imgui.Spacing();imgui.Separator();imgui.Spacing();
     
     imgui.BeginTable('DynaCurrency', 6, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Dyna Currency');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Dyna Currency');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('1 Byne', interface.data.points.hallmarks.bynes1);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.bynes1[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
@@ -1113,7 +1619,7 @@ function manager.DisplayHallmarks()
     imgui.Spacing();imgui.Separator();imgui.Spacing();
     
     imgui.BeginTable('MISC', 8, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'MISC');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'MISC');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('Marrows', interface.data.points.hallmarks.marrows);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.marrows[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
@@ -1143,7 +1649,7 @@ function manager.DisplayHallmarks()
     imgui.Spacing();imgui.Separator();imgui.Spacing();
     
     imgui.BeginTable('ROCKS', 6, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'ROCKS');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'ROCKS');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('Plutons', interface.data.points.hallmarks.plutons);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.plutons[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
@@ -1185,20 +1691,18 @@ end
 
 function manager.DisplayGallantry()
     local total = 0;
-    
     for k,v in pairs(interface.data.points.gallantry) do
         if (v[1] == false) then
             total = total + v[2];
         end
     end
-    
 
     imgui.Spacing();
-    imgui.TextColored(colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.TextColored(interface.colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
     imgui.Spacing();imgui.Separator();imgui.Spacing();
 
     imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Wep Items');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('Nuggets', interface.data.points.gallantry.nuggets);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[2] == 0) then interface.data.points.gallantry.nuggets[1] = true end
             if (interface.data.points.gallantry.nuggets[1]) then
@@ -1232,7 +1736,7 @@ function manager.DisplayGallantry()
     imgui.Spacing();imgui.Separator();imgui.Spacing();
     
     imgui.BeginTable('Capes', 12, ImGuiTableFlags_Borders);
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Cape Items');imgui.TableNextRow();imgui.TableNextColumn();
         imgui.Checkbox('Threads', interface.data.points.gallantry.threads);imgui.TableNextColumn();
             if (interface.data.points.gallantry.threads[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
@@ -1300,7 +1804,7 @@ function manager.DisplayGallantry()
     
     if (interface.data.points.gallantry.month[1] == 1) then
         imgui.BeginTable('Relics', 6, ImGuiTableFlags_Borders);
-        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Relics');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Relics');imgui.TableNextRow();imgui.TableNextColumn();
             imgui.Checkbox('1 Byne', interface.data.points.gallantry.bynes1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bynes1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
@@ -1352,7 +1856,7 @@ function manager.DisplayGallantry()
         imgui.EndTable();
     elseif (interface.data.points.gallantry.month[1] == 2) then
         imgui.BeginTable('Mythics', 8, ImGuiTableFlags_Borders);
-        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Mythics');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Mythics');imgui.TableNextRow();imgui.TableNextColumn();
             imgui.Checkbox('Alex', interface.data.points.gallantry.alex);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.alex[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
@@ -1380,7 +1884,7 @@ function manager.DisplayGallantry()
         imgui.EndTable();
     elseif (interface.data.points.gallantry.month[1] == 3) then
         imgui.BeginTable('Empys', 8, ImGuiTableFlags_Borders);
-        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(colors.header, 'Empyreans');imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Empyreans');imgui.TableNextRow();imgui.TableNextColumn();
             imgui.Checkbox('R.Dross', interface.data.points.gallantry.drosses);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.drosses[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
@@ -1411,20 +1915,13 @@ function manager.DisplayGallantry()
 end
 
 function manager.ResetAMBU()
-    --[[for k,v in pairs(interface.data.points.hallmarks) do
-            interface.data.points.hallmarks[k][v] = interface.defaults.points.hallmarks[k][v];
-        end]]
-
+    interface.manager.UpdateAmbuWeps();
     interface.data.points = interface.data.points:merge(interface.defaults.points, true);
 end
 
 function manager.Test()
     --print(tostring(modifind.search(23468)));
-    for x = 1, #interface.defaults.gear.afneed[1] do
-        for y = 1, #interface.defaults.gear.afneed[1][x] do
-            print(tostring(interface.defaults.gear.afneed[1][x][y]));
-        end
-    end
+    interface.manager.CountEmpyGear();
 end
 
 return manager;

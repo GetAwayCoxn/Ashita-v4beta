@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = {
+sets = T{
     Idle = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Flam. Zucchetto +2',
@@ -31,7 +31,7 @@ sets = {
         Neck = 'Anu Torque',
         Ear1 = 'Mache Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Gleti\'s Cuirass',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Niqmaddu Ring',
@@ -73,6 +73,7 @@ sets = {
         Feet = 'Gleti\'s Boots',
     },
     Tp_Hybrid = {
+        Body = 'Hjarrandi Breast.',
     },
     Tp_Acc = {
     },
@@ -152,6 +153,7 @@ sets = {
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
     },
     Ws_Hybrid = {
+        Body = 'Hjarrandi Breast.',
     },
     Ws_Acc = {
     },
@@ -161,7 +163,7 @@ sets = {
 	},
 };
 
-profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -219,11 +221,7 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast)
-
-    if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
-    end
+    gFunc.EquipSet(sets.Precast);
 
     gcinclude.CheckCancels();
 end

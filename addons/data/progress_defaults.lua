@@ -45,8 +45,8 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                     {0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}},
                 {--119+2,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
                     {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
-                {--119+3,head > feet,{slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
-                    {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+                {--119+3,head > feet,{kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather}
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
             },
             jobcards = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             afProgress = {0.0,},
@@ -100,6 +100,11 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                {{0,'SCH Head'},{0,'SCH Body'},{0,'SCH Hands'},{0,'SCH Legs'},{0,'SCH Feet'}},
                {{0,'GEO Head'},{0,'GEO Body'},{0,'GEO Hands'},{0,'GEO Legs'},{0,'GEO Feet'}},
                {{0,'RUN Head'},{0,'RUN Body'},{0,'RUN Hands'},{0,'RUN Legs'},{0,'RUN Feet'}},
+            },
+            empyneed = {
+                {{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,},{0,0,0,0,}},-- +2 head > feet; {stone,jewel,coin,card}
+                {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},-- 109 head > feet; {chapters,slot mat,briareus,itzpapalotl,orthus,glavoid,lanterns,alfard,kukulkan,cara,dragua,ulhuadshi,apademak,bukhis,azdaja,isgebind,sobek,chloris,sedna}
+                {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},-- 109 head > feet; {chapters,slot mat,etched memories}
             },
             empyProgress = {0.0,},
 

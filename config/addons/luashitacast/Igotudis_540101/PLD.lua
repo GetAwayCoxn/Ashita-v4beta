@@ -3,14 +3,14 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = {
+sets = T{
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
         Neck ='Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etoilation Earring',
-        Body = 'Cab. Surcoat +3',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Volte Moufles',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -31,7 +31,7 @@ sets = {
         Sub = 'Aegis',
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
-        Body = 'Cab. Surcoat +3',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
         Legs = 'Carmine Cuisses +1',
         Feet = 'Nyame Sollerets',
@@ -43,7 +43,7 @@ sets = {
         Neck ='Loricate Torque +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etoilation Earring',
-        Body = 'Cab. Surcoat +3',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -58,7 +58,7 @@ sets = {
         Head ='Nyame Helm',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Cab. Surcoat +3',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Flamma Ring',
@@ -164,7 +164,7 @@ sets = {
         Head = 'Blistering Sallet +1',
         Ear1 = 'Mache Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Nyame Mail',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
@@ -190,7 +190,7 @@ sets = {
 	},
 };
 
-profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
@@ -261,10 +261,6 @@ profile.HandlePrecast = function()
         gFunc.EquipSet(sets.Enhancing_Precast);
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);
-    end
-
-    if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
     end
 
     gcinclude.CheckCancels();

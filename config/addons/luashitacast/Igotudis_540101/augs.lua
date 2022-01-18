@@ -1,5 +1,5 @@
 local profile = {};
-local sets = {
+local sets = T{
     TP = {
         Main = 'Sakpata\'s Sword',
         Sub = 'Genmei Shield',
@@ -103,7 +103,7 @@ local sets = {
     },
 };
 
-profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = true;
