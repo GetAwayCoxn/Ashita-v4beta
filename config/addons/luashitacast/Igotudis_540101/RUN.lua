@@ -173,7 +173,6 @@ sets = T{
 
     Movement = {
         Legs = 'Carmine Cuisses +1',
-        Feet = 'Hermes\' Sandals'
 	},
 };
 

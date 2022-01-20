@@ -17,7 +17,7 @@ local manager = {
     enabled = 'Disabled',
     runes = {{'Ignis',0},{'Gelus',0},{'Flabra',0},{'Tellus',0},{'Sulpor',0},{'Unda',0},{'Lux',0},{'Tenebrae',0}},
     menu_holders = {-1,-1,-1},
-    pulse = {0,},
+    pulse = {85,},
 };
 
 ashita.events.register('d3d_present', 'present_cb', function ()
@@ -51,6 +51,9 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 			    if (buffString ~= nil) and (buffString == manager.runes[b][1]) then
                     manager.runes[b][2] = manager.runes[b][2] + 1;
                     total = total + 1;
+                end
+                if (buffString ~= nil) and (buffString == 'Mounted') then
+                    manager.enabled = 'Disabled';
                 end
             end
         end
@@ -135,12 +138,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         imgui.ShowHelp('Requires 3 runes, if all 3 are Tenebrae then this % is for MPP instead of HPP, default to 0 if /RUN');
 
         imgui.Spacing();
-        if (imgui.Button(manager.enabled)) then --colors not quite working the way i want 
+        if (imgui.Button(manager.enabled)) then
             if (manager.enabled == 'Disabled') then
-                --imgui.PushStyleColor(ImGuiCol_Button, { 0.2, 0.7, 0.0, 1.0 });
                 manager.enabled = 'Enabled';
             else
-                --imgui.PushStyleColor(ImGuiCol_Button, { 1.0, 0.4, 0.4, 1.0 });
                 manager.enabled = 'Disabled';
             end
         end

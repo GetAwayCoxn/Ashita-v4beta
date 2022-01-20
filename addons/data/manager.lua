@@ -1350,22 +1350,65 @@ function manager.DisplayEmpyReforgedGearNeed()
 
     imgui.BeginTable('109job', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
-        imgui.Text('Slot');imgui.TableNextColumn();
-        imgui.Text('Phx. Feather');imgui.TableNextColumn();
-        imgui.Text('Mal. Fiber');imgui.TableNextColumn();
-        imgui.Text('Btl. Blood');imgui.TableNextColumn();
-        imgui.Text('Damas. Cloth');imgui.TableNextColumn();
-        imgui.Text('Oxblood');imgui.TableNextColumn();
-        imgui.Text('Items');imgui.TableNextColumn();
-        for i = 1, #interface.data.progress.gear.empyneed[2] do
-            imgui.Text(tostring(interface.data.progress.gear.empyneed[2][i][2]));
-            if (i ~= #interface.data.progress.gear.empyneed[2]) then imgui.TableNextColumn() end
+        imgui.TextColored(interface.colors.header, 'Lv109 Job Items');imgui.TableNextColumn();
+        imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/DRK');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLM');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'THF');imgui.TableNextColumn();
+        imgui.Text('Briareus');imgui.TableNextColumn();
+        imgui.Text('Itzpapalotl');imgui.TableNextColumn();
+        imgui.Text('Orthrus');imgui.TableNextColumn();
+        imgui.Text('Glavoid');imgui.TableNextColumn();
+        imgui.Text('Cirein-croin');imgui.TableNextColumn();
+        imgui.Text('Alfard');imgui.TableNextColumn();
+        for x = 3, 8 do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.empyneed[2] do
+                count = count + interface.data.progress.gear.empyneed[2][i][x];
+            end
+            imgui.Text(tostring(count));imgui.TableNextColumn();
+        end
+        imgui.TextColored(interface.colors.header, 'PLD');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BST/SMN/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BRD');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RNG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SAM');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'NIN');imgui.TableNextColumn();
+        imgui.Text('Kukulkan');imgui.TableNextColumn();
+        imgui.Text('Carabosse');imgui.TableNextColumn();
+        imgui.Text('Dragua');imgui.TableNextColumn();
+        imgui.Text('Ulhuadshi');imgui.TableNextColumn();
+        imgui.Text('Apademak');imgui.TableNextColumn();
+        imgui.Text('Bukhis');imgui.TableNextColumn();
+        for x = 9, 14 do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.empyneed[2] do
+                count = count + interface.data.progress.gear.empyneed[2][i][x];
+            end
+            imgui.Text(tostring(count));imgui.TableNextColumn();
+        end
+        imgui.TextColored(interface.colors.header, 'DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLU');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'COR');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SCH');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        imgui.Text('Azdaja');imgui.TableNextColumn();
+        imgui.Text('Isgebind');imgui.TableNextColumn();
+        imgui.Text('Sobek');imgui.TableNextColumn();
+        imgui.Text('Chloris');imgui.TableNextColumn();
+        imgui.Text('Sedna');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for x = 15, 19 do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.empyneed[2] do
+                count = count + interface.data.progress.gear.empyneed[2][i][x];
+            end
+            imgui.Text(tostring(count));
+            if x ~= 19 then imgui.TableNextColumn() end
         end
     imgui.EndTable();
 end

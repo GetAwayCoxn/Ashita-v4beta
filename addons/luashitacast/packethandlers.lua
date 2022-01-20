@@ -93,7 +93,7 @@ packethandlers.HandleIncoming0x28 = function(e)
                     gState.PetAction.Name = AshitaCore:GetResourceManager():GetString("monsters.abilities", actionId - 256);
                 else
                     gState.PetAction.Type = 'Ability';
-                    gState.PetAction.Resource = AshitaCore:GetResourceManager():GetAbilityById(actionId);
+                    gState.PetAction.Resource = AshitaCore:GetResourceManager():GetAbilityById(actionId + 512);
                 end
             else
                 --Pet Spell (8)

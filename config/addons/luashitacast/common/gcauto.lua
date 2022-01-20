@@ -480,7 +480,7 @@ function gcauto.DoJobStuff()
 			local refresh = gData.GetBuffCount('Refresh');
 			local aquaveil = gData.GetBuffCount('Aquaveil');
 
-			if (refresh == 0) then
+			if (refresh == 0) and (player.MPP < 60) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh" <me>');
 			elseif (aquaveil == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aquaveil" <me>');

@@ -65,6 +65,9 @@ ashita.events.register('d3d_present', 'present_cb', function ()
                     manager.maneuvers[b][2] = manager.maneuvers[b][2] + 1;
                     total = total + 1;
                 end
+                if (buffString ~= nil) and (buffString == 'Mounted') then
+                    manager.enabled = 'Disabled';
+                end
             end
         end
 
