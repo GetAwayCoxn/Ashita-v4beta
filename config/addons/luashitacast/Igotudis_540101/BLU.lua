@@ -108,15 +108,16 @@ sets = T{
         Back = 'Solemnity Cape',
     },
     WhiteWind = {
-        Head = 'Pinga Crown',
+        Head = 'Nyame Helm',
         Neck = 'Bathy Choker +1',
-        Ear1 = 'Tuisto Earring',
+        Ear1 = 'Eabani Earring',
         Ear2 = 'Odnowa Earring +1',
-        Body = 'Despair Mail',
-        Ring1 = 'Bomb Queen Ring',
-        Ring2 = 'Meridian Ring',
-        Back = 'Moonbeam Cape',
-        Legs = 'Pinga Pants +1',
+        Body = 'Nyame Mail',
+        Hands = 'Weath. Cuffs +1',
+        Ring1 = 'Ilabrat Ring',
+        Ring2 = 'Vengeful Ring',
+        Back = 'Solemnity Cape',
+        Legs = 'Nyame Flanchard',
         Feet = 'Medium\'s Sabots',
     },
     BluSkill = {
@@ -375,7 +376,7 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckBailout();
+    local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

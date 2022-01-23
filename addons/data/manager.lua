@@ -1,4 +1,3 @@
-require('common');
 local modifind = require('modifind');
 local manager = T{ -- functions for data management
     nuggets = true;
@@ -916,6 +915,89 @@ function manager.UpdateRelicGear()
     interface.data.progress.gear.relicProgress[1] = (totalgear-countgear)/totalgear;
 end
 
+function manager.CountRelicGearInv(items)
+    if items == nil then return end
+end
+
+function manager.CountRelicGear()
+    interface.data.progress.gear.relicneed = {
+        {0,0,0,0,0},
+        {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+        {{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}},
+    };
+    interface.data.progress.gear.relicneed = manager.CountRelicGearInv(interface.data.progress.gear.relicneed);
+
+    for x = 1, #interface.data.progress.gear.relic do
+        for y = 1, #interface.data.progress.gear.relic[x] do
+            if interface.data.progress.gear.relic[x][y][1] <= 2 then
+                if interface.data.progress.gear.relic[x][y][1] <= 1 then
+                    interface.data.progress.gear.relicneed[1][y] = interface.data.progress.gear.relicneed[1][y] + 50;
+                else
+                    interface.data.progress.gear.relicneed[1][y] = interface.data.progress.gear.relicneed[1][y] + 30;
+                end
+            end
+            if interface.data.progress.gear.relic[x][y][1] <= 3 then
+                if interface.data.progress.gear.relic[x][y][1] <= 1 then
+                    interface.data.progress.gear.relicneed[2][y][1] = interface.data.progress.gear.relicneed[2][y][1] + 10;
+                else
+                    interface.data.progress.gear.relicneed[2][y][1] = interface.data.progress.gear.relicneed[2][y][1] + 5;
+                end
+                interface.data.progress.gear.relicneed[2][y][2] = interface.data.progress.gear.relicneed[2][y][2] + 1;
+                if (x == 1) or (x == 7) or (x == 8) then
+                    interface.data.progress.gear.relicneed[2][y][3] = interface.data.progress.gear.relicneed[2][y][3] + 1;
+                elseif (x == 2) or (x == 5) or (x == 6) or (x == 10) or (x == 11) or (x == 14) or (x == 16) then
+                    interface.data.progress.gear.relicneed[2][y][4] = interface.data.progress.gear.relicneed[2][y][4] + 1;
+                elseif (x == 3) or (x == 4) or (x == 17) then
+                    interface.data.progress.gear.relicneed[2][y][5] = interface.data.progress.gear.relicneed[2][y][5] + 1;
+                elseif (x == 9) or (x == 19) then
+                    interface.data.progress.gear.relicneed[2][y][6] = interface.data.progress.gear.relicneed[2][y][6] + 1;
+                elseif (x == 12) or (x == 13) then
+                    interface.data.progress.gear.relicneed[2][y][7] = interface.data.progress.gear.relicneed[2][y][7] + 1;
+                elseif (x == 15) or (x == 18) or (x == 20) then
+                    interface.data.progress.gear.relicneed[2][y][8] = interface.data.progress.gear.relicneed[2][y][8] + 1;
+                end
+            end
+            if interface.data.progress.gear.relic[x][y][1] <= 4 then
+                interface.data.progress.gear.relicneed[3][y][1] = interface.data.progress.gear.relicneed[3][y][1] + 8;
+                interface.data.progress.gear.relicneed[3][y][2] = interface.data.progress.gear.relicneed[3][y][2] + 1;
+                if (x == 1) or (x == 13) or (x == 14) then
+                    interface.data.progress.gear.relicneed[3][y][3] = interface.data.progress.gear.relicneed[3][y][3] + 1;
+                elseif (x == 2) or (x == 6) or (x == 10) or (x == 17) then
+                    interface.data.progress.gear.relicneed[3][y][4] = interface.data.progress.gear.relicneed[3][y][4] + 1;
+                elseif (x == 3) or (x == 4) or (x == 20) or (x == 21) then
+                    interface.data.progress.gear.relicneed[3][y][5] = interface.data.progress.gear.relicneed[3][y][5] + 1;
+                elseif (x == 5) or (x == 7) or (x == 8) or (x == 12) or (x == 16) then
+                    interface.data.progress.gear.relicneed[3][y][6] = interface.data.progress.gear.relicneed[3][y][6] + 1;
+                elseif (x == 9) or (x == 15) or (x == 18) then
+                    interface.data.progress.gear.relicneed[3][y][7] = interface.data.progress.gear.relicneed[3][y][7] + 1;
+                elseif (x == 11) or (x == 19) or (x == 22) then
+                    interface.data.progress.gear.relicneed[3][y][8] = interface.data.progress.gear.relicneed[3][y][8] + 1;
+                end
+            end
+            if interface.data.progress.gear.relic[x][y][1] <= 5 then
+                interface.data.progress.gear.relicneed[4][y][1] = interface.data.progress.gear.relicneed[4][y][1] + 2;
+                interface.data.progress.gear.relicneed[4][y][2] = interface.data.progress.gear.relicneed[4][y][2] + 3;
+                if (x == 1) or (x == 9) or (x == 11) then
+                    interface.data.progress.gear.relicneed[4][y][3] = interface.data.progress.gear.relicneed[4][y][3] + 1;
+                elseif (x == 2) or (x == 6) or (x == 19) then
+                    interface.data.progress.gear.relicneed[4][y][4] = interface.data.progress.gear.relicneed[4][y][4] + 1;
+                elseif (x == 3) or (x == 10) or (x == 16) or (x == 21) then
+                    interface.data.progress.gear.relicneed[4][y][5] = interface.data.progress.gear.relicneed[4][y][5] + 1;
+                elseif (x == 4) or (x == 17) or (x == 18) then
+                    interface.data.progress.gear.relicneed[4][y][6] = interface.data.progress.gear.relicneed[4][y][6] + 1;
+                elseif (x == 5) or (x == 15) or (x == 20) then
+                    interface.data.progress.gear.relicneed[4][y][7] = interface.data.progress.gear.relicneed[4][y][7] + 1;
+                elseif (x == 7) or (x == 14) then
+                    interface.data.progress.gear.relicneed[4][y][8] = interface.data.progress.gear.relicneed[4][y][8] + 1;
+                elseif (x == 8) or (x == 12) or (x == 13) or (x == 22) then
+                    interface.data.progress.gear.relicneed[4][y][9] = interface.data.progress.gear.relicneed[4][y][9] + 1;
+                end
+            end
+        end
+    end
+end
+
 function manager.DisplayRelicGear()
     imgui.Spacing();imgui.Spacing();
     for a = 1, #interface.data.progress.gear.relic do
@@ -957,7 +1039,7 @@ end
 function manager.CountEmpyGearInv(items)
     if items == nil then return end
     local slot1 = 0;local slot2 = 0;local slot3 = 0;local slot4 = 0;
-    
+    local dropids = {2929,2962,3287,2927,2965,3291,2932,2930,3288,2963,3289,2966,3292,3290,2964,2928,2967};-- {briareus,itzpapalotl,orthus,glavoid,lanterns,alfard,kukulkan,cara,dragua,ulhuadshi,apademak,bukhis,azdaja,isgebind,sobek,chloris,sedna}
     for y=1, #items[1] do
         if y == 1 then
             slot1 = 3210;
@@ -991,6 +1073,10 @@ function manager.CountEmpyGearInv(items)
         items[1][y][4] = 0 - manager.CountItemId(slot4); --count cards
     end
 
+    --count NM items
+    for i = 3, #items[2][1] do
+        items[2][1][i] = items[2][1][i] - manager.CountItemId(dropids[i-2]);
+    end
 
     return items;
 end
@@ -1349,6 +1435,7 @@ function manager.DisplayEmpyReforgedGearNeed()
     imgui.EndTable();
 
     imgui.BeginTable('109job', 6, ImGuiTableFlags_Borders);
+        local names = {'Briareus','Itzpapalotl','Orthrus','Glavoid','Cirein-croin','Alfard','Kukulkan','Carabosse','Dragua','Ulhuadshi','Apademak','Bukhis','Azdaja','Isgebind','Sobek','Chloris','Sedna'};
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv109 Job Items');imgui.TableNextColumn();
         imgui.TableNextRow();imgui.TableNextColumn();
@@ -1358,18 +1445,12 @@ function manager.DisplayEmpyReforgedGearNeed()
         imgui.TextColored(interface.colors.header, 'BLM');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'RDM');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'THF');imgui.TableNextColumn();
-        imgui.Text('Briareus');imgui.TableNextColumn();
-        imgui.Text('Itzpapalotl');imgui.TableNextColumn();
-        imgui.Text('Orthrus');imgui.TableNextColumn();
-        imgui.Text('Glavoid');imgui.TableNextColumn();
-        imgui.Text('Cirein-croin');imgui.TableNextColumn();
-        imgui.Text('Alfard');imgui.TableNextColumn();
         for x = 3, 8 do
             local count = 0;
             for i = 1, #interface.data.progress.gear.empyneed[2] do
                 count = count + interface.data.progress.gear.empyneed[2][i][x];
             end
-            imgui.Text(tostring(count));imgui.TableNextColumn();
+            imgui.Text(tostring(count) .. '   ' .. names[x-2]);imgui.TableNextColumn();
         end
         imgui.TextColored(interface.colors.header, 'PLD');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'BST/SMN/PUP');imgui.TableNextColumn();
@@ -1377,18 +1458,12 @@ function manager.DisplayEmpyReforgedGearNeed()
         imgui.TextColored(interface.colors.header, 'RNG');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'SAM');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'NIN');imgui.TableNextColumn();
-        imgui.Text('Kukulkan');imgui.TableNextColumn();
-        imgui.Text('Carabosse');imgui.TableNextColumn();
-        imgui.Text('Dragua');imgui.TableNextColumn();
-        imgui.Text('Ulhuadshi');imgui.TableNextColumn();
-        imgui.Text('Apademak');imgui.TableNextColumn();
-        imgui.Text('Bukhis');imgui.TableNextColumn();
         for x = 9, 14 do
             local count = 0;
             for i = 1, #interface.data.progress.gear.empyneed[2] do
                 count = count + interface.data.progress.gear.empyneed[2][i][x];
             end
-            imgui.Text(tostring(count));imgui.TableNextColumn();
+            imgui.Text(tostring(count) .. '   ' .. names[x-2]);imgui.TableNextColumn();
         end
         imgui.TextColored(interface.colors.header, 'DRG');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'BLU');imgui.TableNextColumn();
@@ -1396,19 +1471,55 @@ function manager.DisplayEmpyReforgedGearNeed()
         imgui.TextColored(interface.colors.header, 'DNC');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'SCH');imgui.TableNextColumn();
         imgui.TableNextColumn();
-        imgui.Text('Azdaja');imgui.TableNextColumn();
-        imgui.Text('Isgebind');imgui.TableNextColumn();
-        imgui.Text('Sobek');imgui.TableNextColumn();
-        imgui.Text('Chloris');imgui.TableNextColumn();
-        imgui.Text('Sedna');imgui.TableNextColumn();
-        imgui.TableNextColumn();
         for x = 15, 19 do
             local count = 0;
             for i = 1, #interface.data.progress.gear.empyneed[2] do
                 count = count + interface.data.progress.gear.empyneed[2][i][x];
             end
-            imgui.Text(tostring(count));
+            imgui.Text(tostring(count) .. '   ' .. names[x-2]);
             if x ~= 19 then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('119slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Defiant Sweat');imgui.TableNextColumn();
+        imgui.Text('Dark Matter');imgui.TableNextColumn();
+        imgui.Text('Macuil Horn');imgui.TableNextColumn();
+        imgui.Text('Tartarian Chain');imgui.TableNextColumn();
+        imgui.Text('Plovid Effluvium');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.empyneed[3] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[3][i][2]));
+            if (i ~= #interface.data.progress.gear.empyneed[3]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('119memories', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Total Etched Mems');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        local count = 0;
+        for i = 1, #interface.data.progress.gear.empyneed[3] do
+            count = count + interface.data.progress.gear.empyneed[3][i][3];
+            if (i == #interface.data.progress.gear.empyneed[3]) then
+                imgui.Text(tostring(count));imgui.TableNextColumn();
+            end
+        end
+        for i = 1, #interface.data.progress.gear.empyneed[3] do
+            imgui.Text(tostring(interface.data.progress.gear.empyneed[3][i][3]));
+            if (i ~= #interface.data.progress.gear.empyneed[3]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
 end

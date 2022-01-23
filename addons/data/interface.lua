@@ -22,7 +22,7 @@ function interface.Load()
         end
         interface.settings.save();
     end);
-    interface.manager.UpdateJobs:once(1);
+    interface.manager.UpdateJobs();
 end
 
 function interface.Unload()

@@ -136,6 +136,17 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             {{0,0,0,26664,26665,23083,23418},{0,0,0,26840,26841,23150,23485},{0,0,0,27016,27017,23217,23552},{0,0,0,27192,27193,23284,23619},{0,0,0,27368,27369,23351,23686}},--geo
             {{0,0,0,26666,26667,23084,23419},{0,0,0,26842,26843,23151,23486},{0,0,0,27018,27019,23218,23553},{0,0,0,27194,27195,23285,23620},{0,0,0,27370,27371,23352,23687}},--run
         },
+        relicneed = {
+            {0,0,0,0,0},-- nq + 2, {thoughts,hopes,touches,journey,steps}
+            {--109,head > feet,{chapters,slot mat,wootze ore,griffon hide,sparkling stone,mammoth tusk,relic iron,lancewood log,}
+                {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+            {--119+1,head > feet,{chapters,slot mat,voidwrought plate,kaggen's cuticle,akvan's pennon,pil's tuille,hahava's mail,celaeno's cloth'}
+                    {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+            {--119+2,head > feet,{shard,slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}},
+            {--119+3,head > feet,{kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather}
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        },
 
         empyrean = {--nq,+1,+2,109,119+1 
             {{12008,11164,11064,26740,26741},{12028,11184,11084,26898,26899},{12048,11204,11104,27052,27053},{12068,11224,11124,27237,27238},{12088,11244,11144,27411,27412}},--war

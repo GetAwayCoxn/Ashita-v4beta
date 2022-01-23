@@ -28,17 +28,17 @@ sets = T{
     },
 
     Dt = {
-        Head = 'Malignance Chapeau',
+        Head = 'Nyame Helm',
         Neck ='Bathy Choker +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Gleti\'s Cuirass',
-        Hands = 'Malignance Gloves',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
-        Legs = 'Gleti\'s Breeches',
+        Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
 
@@ -240,7 +240,7 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckBailout();
+    local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

@@ -75,6 +75,17 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                {{0,'GEO Head'},{0,'GEO Body'},{0,'GEO Hands'},{0,'GEO Legs'},{0,'GEO Feet'}},
                {{0,'RUN Head'},{0,'RUN Body'},{0,'RUN Hands'},{0,'RUN Legs'},{0,'RUN Feet'}},
             },
+            relicneed = {
+                {0,0,0,0,0},-- nq + 2, {thoughts,hopes,touches,journey,steps}
+                {--109,head > feet,{chapters,slot mat,wootze ore,griffon hide,sparkling stone,mammoth tusk,relic iron,lancewood log,}
+                    {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+                {--119+1,head > feet,{chapters,slot mat,voidwrought plate,kaggen's cuticle,akvan's pennon,pil's tuille,hahava's mail,celaeno's cloth'}
+                    {0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+                {--119+2,head > feet,{shard,slot mat,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+                {0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}},
+                {--119+3,head > feet,{kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather}
+                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+            },
             relicProgress = {0.0,},
 
             empyrean = {

@@ -61,7 +61,7 @@ sets = T{
         Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Flamma Ring',
+        Ring2 = 'Cacoethic Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
@@ -76,7 +76,7 @@ sets = T{
         Body = 'Flamma Korazin +2',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Flamma Ring',
+        Ring2 = 'Cacoethic Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
@@ -288,7 +288,7 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckBailout();
+    local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

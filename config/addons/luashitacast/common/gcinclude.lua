@@ -256,9 +256,9 @@ function gcinclude.SetRegenRefreshGear()
 		if (player.MPP < 76 ) then
 			gFunc.EquipSet(sets.Idle_Refresh);
 		end
-		if (player.HPP < 50) then
-			gFunc.EquipSet(sets.Dt);
-		end
+	end
+	if (player.HPP < 50) then
+		gFunc.EquipSet(sets.Dt);
 	end
 	if pet ~= nil then
 		if (pet.HPP < 55) then
@@ -267,7 +267,7 @@ function gcinclude.SetRegenRefreshGear()
 	end
 end
 
-function gcinclude.CheckBailout()
+function gcinclude.CheckWsBailout()
 	local player = gData.GetPlayer();
 	local ws = gData.GetAction();
 	local target = gData.GetActionTarget();
@@ -285,6 +285,23 @@ function gcinclude.CheckBailout()
 		else
 			return false;
 		end]]
+	else
+		return true;
+	end
+end
+
+function gcinclude.CheckSpellBailout()
+	local player = gData.GetPlayer();
+	local ws = gData.GetAction();
+	local target = gData.GetActionTarget();
+	local sleep = gData.GetBuffCount('Sleep');
+	local petrify = gData.GetBuffCount('Petrification');
+	local stun = gData.GetBuffCount('Stun');
+	local terror = gData.GetBuffCount('Terror');
+	local silence = gData.GetBuffCount('Silence');
+
+	if (sleep+petrify+stun+terror+silence >= 1) then
+		return false;
 	else
 		return true;
 	end

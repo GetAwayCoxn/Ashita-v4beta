@@ -140,7 +140,7 @@ function gcauto.SetVariables()
 
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
-		gcdisplay.CreateToggle('ZERK', true);
+		gcdisplay.CreateToggle('ZERK', false);
 		gcdisplay.CreateToggle('DEF', false);
 	end
 	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then

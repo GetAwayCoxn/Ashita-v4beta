@@ -17,7 +17,7 @@ sets = T{
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Fili Rhingrave +1',
+        Legs = 'Inyanga Shalwar +2',
         Feet = 'Volte Gaiters',
     },
     Resting = {},
@@ -41,7 +41,7 @@ sets = T{
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Fili Rhingrave +1',
+        Legs = 'Inyanga Shalwar +2',
         Feet = 'Fili Cothurnes +1',
     },
 
@@ -219,6 +219,7 @@ sets = T{
     String = { --need update for harps, mostly for Horde Lullaby
         Range = 'Blurred Harp',
         Ear2 = 'Regal Earring',
+        Legs = 'Inyanga Shalwar +2',
         Feet = 'Brioso Slippers +3',
     },
     Harp = {--use /forcestring in game to lock this on all songs, I personally just use Paeons
@@ -238,7 +239,7 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Fili Rhingrave +1',
+        Legs = 'Inyanga Shalwar +2',
         Feet = 'Brioso Slippers +3',
     },
     Paeon = {--I personally force paeons to use my extra song harp, you can also use /forcestring if you want
@@ -251,7 +252,7 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Fili Rhingrave +1',
+        Legs = 'Inyanga Shalwar +2',
         Feet = 'Volte Gaiters',
     },
     March = {
@@ -261,7 +262,7 @@ sets = T{
         Head = 'Fili Calot +1',
     },
     Ballad = {--I dont use this
-        --Legs = 'Fili Rhingrave +1',
+        --Legs = 'Inyanga Shalwar +2',
     },
     Scherzo = {
         Feet = 'Fili Cothurnes +1',
@@ -479,7 +480,7 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckBailout();
+    local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();

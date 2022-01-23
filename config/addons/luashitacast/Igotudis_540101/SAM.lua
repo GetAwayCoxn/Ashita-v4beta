@@ -95,7 +95,7 @@ sets = T{
         Body = 'Kasuga Domaru +1',
         Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Flamma Ring',
+        Ring2 = 'Karieyh Ring',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
@@ -180,7 +180,7 @@ sets = T{
         Body = 'Kasuga Domaru +1',
         Hands = 'Wakido Kote +3',
         Ring1 = 'Rufescent Ring',
-        Ring2 = 'Flamma Ring',
+        Ring2 = 'Karieyh Ring',
         Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
         Legs = 'Mpaca\'s Hose',
@@ -297,9 +297,8 @@ end
 profile.HandleDefault = function()
     gFunc.EquipSet(sets.Idle);
     local hasso = gData.GetBuffCount('Hasso');
-	
 	local player = gData.GetPlayer();
-    
+
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
@@ -366,7 +365,7 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckBailout();
+    local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     elseif (gcdisplay.GetToggle('PROC') == true) then
         gFunc.EquipSet(sets.Ws_Proc);
