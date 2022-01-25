@@ -296,9 +296,11 @@ function interface.RenderGearTab()
                         imgui.EndTabItem();
                         end
                         if (imgui.BeginTabItem('RELIC NEED', nil)) then
-                            imgui.BeginTable('relic gear need', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayRelicGearNeed();
-                            imgui.EndTable();
+                            interface.manager.DisplayRelicGearNeed();
+                        imgui.EndTabItem();
+                        end
+                        if (imgui.BeginTabItem('SHARDS NEED', nil)) then
+                            interface.manager.DisplayRelicShardsNeed();
                         imgui.EndTabItem();
                         end
                     imgui.EndTabBar();
@@ -409,8 +411,8 @@ function interface.Render()
         return;
     end
 
-    imgui.SetNextWindowSize({ 900, 700, });
-    imgui.SetNextWindowSizeConstraints({ 900, 700, }, { FLT_MAX, FLT_MAX, });
+    imgui.SetNextWindowSize({ 1000, 720, });
+    imgui.SetNextWindowSizeConstraints({ 1000, 720, }, { FLT_MAX, FLT_MAX, });
     if (imgui.Begin('Data', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then

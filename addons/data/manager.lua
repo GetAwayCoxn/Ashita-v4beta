@@ -889,7 +889,8 @@ function manager.DisplayAFGearNeed()
             for i = 1, #interface.data.progress.gear.afneed[4] do
                 count = count + interface.data.progress.gear.afneed[4][i][x];
             end
-            imgui.Text(tostring(count));imgui.TableNextColumn();
+            imgui.Text(tostring(count));
+            if x~= #interface.data.progress.gear.afneed[4][1] then imgui.TableNextColumn() end
         end
     imgui.EndTable();
 end
@@ -917,6 +918,14 @@ end
 
 function manager.CountRelicGearInv(items)
     if items == nil then return end
+    local forgottenIDs = {3493,3494,3495,3496,3497};
+
+    for i = 1, #forgottenIDs do
+        items[1][i] = items[1][i] - manager.CountItemId(forgottenIDs[i]);
+    end
+
+
+    return items;
 end
 
 function manager.CountRelicGear()
@@ -925,6 +934,7 @@ function manager.CountRelicGear()
         {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
         {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
         {{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}},
+        {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
     };
     interface.data.progress.gear.relicneed = manager.CountRelicGearInv(interface.data.progress.gear.relicneed);
 
@@ -938,7 +948,7 @@ function manager.CountRelicGear()
                 end
             end
             if interface.data.progress.gear.relic[x][y][1] <= 3 then
-                if interface.data.progress.gear.relic[x][y][1] <= 1 then
+                if interface.data.progress.gear.relic[x][y][1] <= 2 then
                     interface.data.progress.gear.relicneed[2][y][1] = interface.data.progress.gear.relicneed[2][y][1] + 10;
                 else
                     interface.data.progress.gear.relicneed[2][y][1] = interface.data.progress.gear.relicneed[2][y][1] + 5;
@@ -994,6 +1004,11 @@ function manager.CountRelicGear()
                     interface.data.progress.gear.relicneed[4][y][9] = interface.data.progress.gear.relicneed[4][y][9] + 1;
                 end
             end
+            if interface.data.progress.gear.relic[x][y][1] <= 6 then
+                interface.data.progress.gear.relicneed[5][y][1] = interface.data.progress.gear.relicneed[5][y][1] + 3;
+                interface.data.progress.gear.relicneed[5][y][2] = interface.data.progress.gear.relicneed[5][y][2] + 3;
+                interface.data.progress.gear.relicneed[5][y][3] = interface.data.progress.gear.relicneed[5][y][3] + 3;
+            end
         end
     end
 end
@@ -1012,7 +1027,251 @@ function manager.DisplayRelicGear()
 end
 
 function manager.DisplayRelicGearNeed()
-    imgui.Spacing();imgui.Spacing();
+    imgui.BeginTable('Forgotten', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Forgotten');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Thought');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hope');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Touch');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Journey');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Step');imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.relicneed[1] do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[1][i]));
+            if (i ~= #interface.data.progress.gear.relicneed[1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('chapters', 11, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Chapters');imgui.TableNextColumn();
+        for t = 1, 10 do
+            imgui.TextColored(interface.colors.header,'Chap. ' .. t);imgui.TableNextColumn();
+        end
+        imgui.TableNextColumn();
+        for i = 1, 5 do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[2][i][1]));imgui.TableNextColumn();
+        end
+        for i = 1, 5 do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[3][i][1]));
+            if (i ~= 5) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('109slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Phx. Feather');imgui.TableNextColumn();
+        imgui.Text('Mal. Fiber');imgui.TableNextColumn();
+        imgui.Text('Btl. Blood');imgui.TableNextColumn();
+        imgui.Text('Damas. Cloth');imgui.TableNextColumn();
+        imgui.Text('Oxblood');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.relicneed[2] do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[2][i][2]));
+            if (i ~= #interface.data.progress.gear.relicneed[2]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('109job', 7, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv109');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/PLD/DRK');imgui.TableNextColumn();
+        --imgui.TextColored(interface.colors.header, 'MNK/RDM/THF/BRD/RNG/DRG/BLU');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'ALL ELSE');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BLM/COR');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BST/DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SAM/NIN');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SMN/PUP/SCH');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('Wootz Ore');imgui.TableNextColumn();
+        imgui.Text('Griffon Hide');imgui.TableNextColumn();
+        imgui.Text('Sparkling Stone');imgui.TableNextColumn();
+        imgui.Text('Mammoth Tusk');imgui.TableNextColumn();
+        imgui.Text('Relic Iron');imgui.TableNextColumn();
+        imgui.Text('Lancewood Log');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 3, #interface.data.progress.gear.relicneed[2][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.relicneed[1] do
+                count = count + interface.data.progress.gear.relicneed[2][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.relicneed[2][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1191slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Gabbrath Horn');imgui.TableNextColumn();
+        imgui.Text('Yggdreant Bole');imgui.TableNextColumn();
+        imgui.Text('Bztavian Stinger');imgui.TableNextColumn();
+        imgui.Text('Waktza Rostrum');imgui.TableNextColumn();
+        imgui.Text('Rockfin Tooth');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.relicneed[3] do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[3][i][2]));
+            if (i ~= #interface.data.progress.gear.relicneed[3]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1191job', 7, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+1');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/NIN/DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK/THF/BRD/COR');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BLM/SCH/GEO');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM/PLD/DRK/SAM/BLU');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BST/SMN/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RNG/DNC/RUN');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('Voidwrought Plate');imgui.TableNextColumn();
+        imgui.Text('Kaggen\'s Cuticle');imgui.TableNextColumn();
+        imgui.Text('Akvan\'s Pennon');imgui.TableNextColumn();
+        imgui.Text('Pil\'s Tuille');imgui.TableNextColumn();
+        imgui.Text('Hahava\'s Mail');imgui.TableNextColumn();
+        imgui.Text('Celaeno\'s Cloth');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 3, #interface.data.progress.gear.relicneed[3][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.relicneed[3] do
+                count = count + interface.data.progress.gear.relicneed[3][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.relicneed[3][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1192slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Gabbrath Horn');imgui.TableNextColumn();
+        imgui.Text('Yggdreant Bole');imgui.TableNextColumn();
+        imgui.Text('Bztavian Stinger');imgui.TableNextColumn();
+        imgui.Text('Waktza Rostrum');imgui.TableNextColumn();
+        imgui.Text('Rockfin Tooth');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.relicneed[4] do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[4][i][1]));
+            if (i ~= #interface.data.progress.gear.relicneed[4]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1192job', 8, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WAR/BST/RNG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'MNK/THF/DNC');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'WHM/BRD/BLU/GEO');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'BLM/COR/PUP');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'RDM/SMN/SCH');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'PLD/DRG');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'DRK/SAM/NIN/RUN');imgui.TableNextColumn();
+        imgui.Text('Job Spec.');imgui.TableNextColumn();
+        imgui.Text('S.Faulpie Lthr');imgui.TableNextColumn();
+        imgui.Text('Cypress Log');imgui.TableNextColumn();
+        imgui.Text('Khoma Thread');imgui.TableNextColumn();
+        imgui.Text('Azure Leaf');imgui.TableNextColumn();
+        imgui.Text('Cyan Coral');imgui.TableNextColumn();
+        imgui.Text('Ruth. Ore');imgui.TableNextColumn();
+        imgui.Text('Niob. Ore');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for x = 3, #interface.data.progress.gear.relicneed[4][1] do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.relicneed[4] do
+                count = count + interface.data.progress.gear.relicneed[4][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.relicneed[4][1]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.BeginTable('1193slot', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Lv119+3');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.Text('Slot');imgui.TableNextColumn();
+        imgui.Text('Defiant Scarf');imgui.TableNextColumn();
+        imgui.Text('Hades Claw');imgui.TableNextColumn();
+        imgui.Text('Macuil Plating');imgui.TableNextColumn();
+        imgui.Text('Tartarian Soul');imgui.TableNextColumn();
+        imgui.Text('Plovid Flesh');imgui.TableNextColumn();
+        imgui.Text('Items');imgui.TableNextColumn();
+        for i = 1, #interface.data.progress.gear.relicneed[5] do
+            imgui.Text(tostring(interface.data.progress.gear.relicneed[5][i][3]));
+            if (i ~= #interface.data.progress.gear.relicneed[5]) then imgui.TableNextColumn() end
+        end
+    imgui.EndTable();
+
+    imgui.Spacing();
+    imgui.ShowHelp('119+2 and +3 items also need various shards and voids, see the next tab for display of those needs');
+
+    if (imgui.Button('Update Relic Items')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        interface.manager.CountRelicGear();
+    end
+end
+
+function manager.DisplayRelicShardsNeed()
+    imgui.BeginTable('Shards', 12, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'SHARDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'VOIDS:');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        for j = 1, #interface.defaults.jobsabrv do
+            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            for i = 1, #interface.data.progress.gear.relicneed[5] do
+                local total = interface.data.progress.gear.relicneed[4][i][1] + interface.data.progress.gear.relicneed[5][i][1];
+                imgui.Text(tostring(total));imgui.TableNextColumn();
+            end
+            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            for i = 1, #interface.data.progress.gear.relicneed[5] do
+                imgui.Text(tostring(interface.data.progress.gear.relicneed[5][i][2]));
+                if i ~= #interface.data.progress.gear.relicneed[5] then
+                    imgui.TableNextColumn();
+                elseif (j ~= #interface.defaults.jobsabrv) then 
+                    imgui.TableNextColumn();
+                end
+            end
+        end
+    imgui.EndTable();
+    
+    if (imgui.Button('Update Relic Items')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        interface.manager.CountRelicGear();
+    end
 end
 
 function manager.UpdateEmpyGear()
@@ -1265,7 +1524,6 @@ function manager.DisplayEmpyGear()
 end
 
 function manager.DisplayEmpyBaseGearNeed()
-
     imgui.BeginTable('empy seals need', 12, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'SEALS');imgui.TableNextColumn();

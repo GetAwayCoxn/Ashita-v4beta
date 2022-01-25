@@ -181,7 +181,7 @@ sets = T{
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
-        Neck = 'Erra Pendant',
+        Neck = 'Src. Stole +1',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Spaekona\'s Coat +2',
@@ -450,6 +450,9 @@ profile.HandleMidcast = function()
             end
             if string.match(spell.Name, 'helix') then
                 gFunc.EquipSet(sets.Helix);
+                if (gcdisplay.GetToggle('Burst') == true) then
+                    gFunc.EquipSet(sets.Burst);
+                end
             end
             if (player.MPP <= 55) then
                 gFunc.EquipSet(sets.Af_Body);

@@ -406,6 +406,9 @@ profile.HandleMidcast = function()
         end
         if string.match(spell.Name, 'helix') then
             gFunc.EquipSet(sets.Helix);
+            if (gcdisplay.GetToggle('Burst') == true) then
+                gFunc.EquipSet(sets.Burst);
+            end
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
