@@ -1251,13 +1251,15 @@ function manager.DisplayRelicGearNeed()
         imgui.Text('Tartarian Soul');imgui.TableNextColumn();
         imgui.Text('Plovid Flesh');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();
-        for j = 1, #interface.data.progress.gear.relicshards do
-            local count = 0;
-            for i = 1, #interface.data.progress.gear.relicneed[1] do
-                count = count + interface.data.progress.gear.relicneed[2][i][x];
+        for h = 1, #interface.data.progress.gear.relicneed[5][1] do
+            for i = 3, #interface.data.progress.gear.relicneed[5][1][h] do
+                local count = 0;
+                for j = 1, #interface.data.progress.gear.relicneed[5] do
+                    count = count + interface.data.progress.gear.relicneed[5][j][h][i];
+                end
+                imgui.Text(tostring(count));
+                if (h ~= #interface.data.progress.gear.relicneed[5][1]) then imgui.TableNextColumn() end
             end
-            imgui.Text(tostring(count));
-            if (x ~= #interface.data.progress.gear.relicneed[2][1]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
     imgui.Spacing();
@@ -1284,7 +1286,7 @@ function manager.DisplayRelicShardsNeed()
         imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
-        for j = 1, #interface.data.progress.gear.relicshards do
+        for j = 1, #interface.data.progress.gear.relicneed do
 
         end
     imgui.EndTable();
