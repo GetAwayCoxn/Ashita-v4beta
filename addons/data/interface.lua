@@ -23,6 +23,7 @@ function interface.Load()
         interface.settings.save();
     end);
     interface.manager.UpdateJobs();
+    interface.manager.UpdateWeapons();
 end
 
 function interface.Unload()
@@ -284,15 +285,7 @@ function interface.RenderGearTab()
                 if (imgui.BeginTabItem('RELIC', nil)) then
                     if (imgui.BeginTabBar('relic_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                         if (imgui.BeginTabItem('RELIC HAVE', nil)) then
-                            imgui.BeginTable('relic gear has', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayRelicGear();
-                            imgui.EndTable();
-                            if (imgui.Button('Update Relic Gear')) then
-                                print(chat.header(addon.name) .. chat.message('Updating ... '));
-                                interface.manager.UpdateRelicGear();
-                            end
-                            imgui.SameLine();
-                            imgui.ProgressBar(interface.data.progress.gear.relicProgress[1]);
+                            interface.manager.DisplayRelicGear();
                         imgui.EndTabItem();
                         end
                         if (imgui.BeginTabItem('RELIC NEED', nil)) then
@@ -311,15 +304,7 @@ function interface.RenderGearTab()
                 if (imgui.BeginTabItem('EMPYREAN', nil)) then
                     if (imgui.BeginTabBar('empy_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                         if (imgui.BeginTabItem('EMPYREAN HAVE', nil)) then
-                            imgui.BeginTable('empy gear has', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayEmpyGear();
-                            imgui.EndTable();
-                            if (imgui.Button('Update Empy Gear')) then
-                                print(chat.header(addon.name) .. chat.message('Updating ... '));
-                                interface.manager.UpdateEmpyGear();
-                            end
-                            imgui.SameLine();
-                            imgui.ProgressBar(interface.data.progress.gear.empyProgress[1]);
+                            interface.manager.DisplayEmpyGear();
                         imgui.EndTabItem();
                         end
                         if (imgui.BeginTabItem('EMPYREAN BASE NEED', nil)) then

@@ -17,7 +17,7 @@ sets = T{
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Inyanga Shalwar +2',
+        Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
     },
     Resting = {},
@@ -41,7 +41,7 @@ sets = T{
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Inyanga Shalwar +2',
+        Legs = 'Brioso Cannions +2',
         Feet = 'Fili Cothurnes +1',
     },
 

@@ -255,8 +255,8 @@ function gcauto.CheckAbilityRecast(check)
 
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
-
-			if (ability.Name[1] == check) and (ability ~= nil or ability.Name[1] ~= 'Unknown') then
+			if ability == nil then return end
+			if (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end
@@ -440,9 +440,10 @@ function gcauto.DoJobStuff()
 			end
 		end
 	elseif (player.MainJob == 'BST') then
-		if (player.Status == 'Engaged') and (pet ~= nil) and (pet.Status ~= 'Engaged') then
+		if pet == nil then return end
+		if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
-		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet ~= nil) and(pet.Status == 'Engaged') then
+		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
 		end
 	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then

@@ -291,9 +291,6 @@ function gcinclude.CheckWsBailout()
 end
 
 function gcinclude.CheckSpellBailout()
-	local player = gData.GetPlayer();
-	local ws = gData.GetAction();
-	local target = gData.GetActionTarget();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');

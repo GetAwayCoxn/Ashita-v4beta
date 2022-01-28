@@ -443,7 +443,7 @@ function manager.UpdateAFGear()
     end
 
     interface.data.progress.gear.afProgress[1] = (totalgear-countgear)/totalgear;
-    manager.CountAFGear();--might remove
+    manager.CountAFGear();
 end
 
 function manager.CountAFGearInv(items)
@@ -490,20 +490,20 @@ function manager.CountAFGearInv(items)
     end
 
     local checks1 = {0,0,855,823,2340,2288,1699,752,664,657}; -- lv109 extra items in order of default array: blank,blank,tiger leather,gold thread,imp.silk cloth,karakul cloth,scarlet linen,gold sheet,DS sheet,Tama Hagane
-    local checks1 = {0,0,862,2476,1132,2200,1313,668,758,658}; -- lv119+1 extra items in order of default array: blank,blank,behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot
+    local checks2 = {0,0,862,2476,1132,2200,1313,668,758,658}; -- lv119+1 extra items in order of default array: blank,blank,behe leather, plat silk thread, raxa, twill damask, siren's hair, ori sheet, durium sheet, dama. ingot
     for i = 3, #items[1][1] do
         items[1][1][i] = 0 - manager.CountItemId(checks1[i]);
-        items[2][1][i] = 0 - manager.CountItemId(checks1[i]);
+        items[2][1][i] = 0 - manager.CountItemId(checks2[i]);
     end
 
     local checks3 = {0,9253,9245,9251,9257,9255,9249,9247};-- lv119+1 extra items in order of default array: blank,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,
     for i = 3, #items[3][1] do
-        items[3][1][i] = 0 - manager.CountItemId(checks1[i]);
+        items[3][1][i] = 0 - manager.CountItemId(checks3[i]);
     end
 
     local checks4 = {9303,9305,9304,9307,9306,9253,9245,9246,9251,9252,9258,9256,9250,9248,9254};-- lv119+1 extra items in order of default array: kin,kei,gin,fu,kyou,S.Faulpie Leather,Cypress Log,cypress Lbr,Khoma Thread,khoma cloth,Azure Cermet,Cyan Orb,Ruthenium Ingot,Niobium Ingot,Faulpie Leather
     for i = 3, #items[4][1] do
-        items[4][1][i] = 0 - manager.CountItemId(checks1[i]);
+        items[4][1][i] = 0 - manager.CountItemId(checks4[i]);
     end
 
     return items;
@@ -914,14 +914,30 @@ function manager.UpdateRelicGear()
         end
     end
     interface.data.progress.gear.relicProgress[1] = (totalgear-countgear)/totalgear;
+    manager.CountRelicGear();
 end
 
 function manager.CountRelicGearInv(items)
     if items == nil then return end
-    local forgottenIDs = {3493,3494,3495,3496,3497};
 
+    local forgottenIDs = {3493,3494,3495,3496,3497};
     for i = 1, #forgottenIDs do
         items[1][i] = items[1][i] - manager.CountItemId(forgottenIDs[i]);
+    end
+
+    local checks1 = {0,0,1469,1516,1470,1458,1466,1464};--{blank,blank,wootze ore,griffon hide,sparkling stone,mammoth tusk,relic iron,lancewood log,}
+    for i = 3, #checks1 do
+        items[2][1][i] = items[2][1][i] - manager.CountItemId(checks1[i]);
+    end
+
+    local checks2 = {0,0,3447,3492,3491,3490,3445,3449};--{blank,blank,voidwrought plate,kaggen's cuticle,akvan's pennon,pil's tuille,hahava's mail,celaeno's cloth'}
+    for i = 3, #checks2 do
+        items[3][1][i] = items[3][1][i] - manager.CountItemId(checks2[i]);
+    end
+
+    local checks3 = {0,9253,9245,9251,9257,9255,9249,9247};--{blank,S.Faulpie Leather,Cypress Log,Khoma Thread,Azure Leaf,Cyan Coral,Ruthenium Ore,Niobium Ore,}
+    for i = 3, #checks3 do
+        items[4][1][i] = items[4][1][i] - manager.CountItemId(checks3[i]);
     end
 
 
@@ -933,8 +949,16 @@ function manager.CountRelicGear()
         {0,0,0,0,0},
         {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
         {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
-        {{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}},
-        {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+        {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}},
+        {   {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}},
+            {{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}}
+        },
     };
     interface.data.progress.gear.relicneed = manager.CountRelicGearInv(interface.data.progress.gear.relicneed);
 
@@ -986,35 +1010,35 @@ function manager.CountRelicGear()
                 end
             end
             if interface.data.progress.gear.relic[x][y][1] <= 5 then
-                interface.data.progress.gear.relicneed[4][y][1] = interface.data.progress.gear.relicneed[4][y][1] + 2;
-                interface.data.progress.gear.relicneed[4][y][2] = interface.data.progress.gear.relicneed[4][y][2] + 3;
+                interface.data.progress.gear.relicneed[5][x][y][1] = interface.data.progress.gear.relicneed[5][x][y][1] + 2;
+                interface.data.progress.gear.relicneed[4][y][1] = interface.data.progress.gear.relicneed[4][y][1] + 3;
                 if (x == 1) or (x == 9) or (x == 11) then
-                    interface.data.progress.gear.relicneed[4][y][3] = interface.data.progress.gear.relicneed[4][y][3] + 1;
+                    interface.data.progress.gear.relicneed[4][y][2] = interface.data.progress.gear.relicneed[4][y][2] + 1;
                 elseif (x == 2) or (x == 6) or (x == 19) then
-                    interface.data.progress.gear.relicneed[4][y][4] = interface.data.progress.gear.relicneed[4][y][4] + 1;
+                    interface.data.progress.gear.relicneed[4][y][3] = interface.data.progress.gear.relicneed[4][y][3] + 1;
                 elseif (x == 3) or (x == 10) or (x == 16) or (x == 21) then
-                    interface.data.progress.gear.relicneed[4][y][5] = interface.data.progress.gear.relicneed[4][y][5] + 1;
+                    interface.data.progress.gear.relicneed[4][y][4] = interface.data.progress.gear.relicneed[4][y][4] + 1;
                 elseif (x == 4) or (x == 17) or (x == 18) then
-                    interface.data.progress.gear.relicneed[4][y][6] = interface.data.progress.gear.relicneed[4][y][6] + 1;
+                    interface.data.progress.gear.relicneed[4][y][5] = interface.data.progress.gear.relicneed[4][y][5] + 1;
                 elseif (x == 5) or (x == 15) or (x == 20) then
-                    interface.data.progress.gear.relicneed[4][y][7] = interface.data.progress.gear.relicneed[4][y][7] + 1;
+                    interface.data.progress.gear.relicneed[4][y][6] = interface.data.progress.gear.relicneed[4][y][6] + 1;
                 elseif (x == 7) or (x == 14) then
-                    interface.data.progress.gear.relicneed[4][y][8] = interface.data.progress.gear.relicneed[4][y][8] + 1;
+                    interface.data.progress.gear.relicneed[4][y][7] = interface.data.progress.gear.relicneed[4][y][7] + 1;
                 elseif (x == 8) or (x == 12) or (x == 13) or (x == 22) then
-                    interface.data.progress.gear.relicneed[4][y][9] = interface.data.progress.gear.relicneed[4][y][9] + 1;
+                    interface.data.progress.gear.relicneed[4][y][8] = interface.data.progress.gear.relicneed[4][y][8] + 1;
                 end
             end
             if interface.data.progress.gear.relic[x][y][1] <= 6 then
-                interface.data.progress.gear.relicneed[5][y][1] = interface.data.progress.gear.relicneed[5][y][1] + 3;
-                interface.data.progress.gear.relicneed[5][y][2] = interface.data.progress.gear.relicneed[5][y][2] + 3;
-                interface.data.progress.gear.relicneed[5][y][3] = interface.data.progress.gear.relicneed[5][y][3] + 3;
+                interface.data.progress.gear.relicneed[5][x][y][1] = interface.data.progress.gear.relicneed[5][x][y][1] + 3;
+                interface.data.progress.gear.relicneed[5][x][y][2] = interface.data.progress.gear.relicneed[5][x][y][2] + 3;
+                interface.data.progress.gear.relicneed[5][x][y][3] = interface.data.progress.gear.relicneed[5][x][y][3] + 3;
             end
         end
     end
 end
 
 function manager.DisplayRelicGear()
-    imgui.Spacing();imgui.Spacing();
+    imgui.BeginTable('relic gear has', 5, ImGuiTableFlags_Borders);
     for a = 1, #interface.data.progress.gear.relic do
         for b = 1, #interface.data.progress.gear.relic[a] do
             imgui.TableNextColumn();
@@ -1024,6 +1048,13 @@ function manager.DisplayRelicGear()
             end
         end
     end
+    imgui.EndTable();
+    if (imgui.Button('Update Relic Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        manager.UpdateRelicGear();
+    end
+    imgui.SameLine();
+    imgui.ProgressBar(interface.data.progress.gear.relicProgress[1]);
 end
 
 function manager.DisplayRelicGearNeed()
@@ -1195,7 +1226,7 @@ function manager.DisplayRelicGearNeed()
         imgui.Text('Ruth. Ore');imgui.TableNextColumn();
         imgui.Text('Niob. Ore');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();
-        for x = 3, #interface.data.progress.gear.relicneed[4][1] do
+        for x = 2, #interface.data.progress.gear.relicneed[4][1] do
             local count = 0;
             for i = 1, #interface.data.progress.gear.relicneed[4] do
                 count = count + interface.data.progress.gear.relicneed[4][i][x];
@@ -1220,18 +1251,21 @@ function manager.DisplayRelicGearNeed()
         imgui.Text('Tartarian Soul');imgui.TableNextColumn();
         imgui.Text('Plovid Flesh');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();
-        for i = 1, #interface.data.progress.gear.relicneed[5] do
-            imgui.Text(tostring(interface.data.progress.gear.relicneed[5][i][3]));
-            if (i ~= #interface.data.progress.gear.relicneed[5]) then imgui.TableNextColumn() end
+        for j = 1, #interface.data.progress.gear.relicshards do
+            local count = 0;
+            for i = 1, #interface.data.progress.gear.relicneed[1] do
+                count = count + interface.data.progress.gear.relicneed[2][i][x];
+            end
+            imgui.Text(tostring(count));
+            if (x ~= #interface.data.progress.gear.relicneed[2][1]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
-
     imgui.Spacing();
     imgui.ShowHelp('119+2 and +3 items also need various shards and voids, see the next tab for display of those needs');
 
-    if (imgui.Button('Update Relic Items')) then
+    if (imgui.Button('Update Relic Gear')) then
         print(chat.header(addon.name) .. chat.message('Updating ... '));
-        interface.manager.CountRelicGear();
+        manager.UpdateRelicGear();
     end
 end
 
@@ -1250,27 +1284,14 @@ function manager.DisplayRelicShardsNeed()
         imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
-        for j = 1, #interface.defaults.jobsabrv do
-            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
-            for i = 1, #interface.data.progress.gear.relicneed[5] do
-                local total = interface.data.progress.gear.relicneed[4][i][1] + interface.data.progress.gear.relicneed[5][i][1];
-                imgui.Text(tostring(total));imgui.TableNextColumn();
-            end
-            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
-            for i = 1, #interface.data.progress.gear.relicneed[5] do
-                imgui.Text(tostring(interface.data.progress.gear.relicneed[5][i][2]));
-                if i ~= #interface.data.progress.gear.relicneed[5] then
-                    imgui.TableNextColumn();
-                elseif (j ~= #interface.defaults.jobsabrv) then 
-                    imgui.TableNextColumn();
-                end
-            end
+        for j = 1, #interface.data.progress.gear.relicshards do
+
         end
     imgui.EndTable();
     
-    if (imgui.Button('Update Relic Items')) then
+    if (imgui.Button('Update Relic Gear')) then
         print(chat.header(addon.name) .. chat.message('Updating ... '));
-        interface.manager.CountRelicGear();
+        manager.UpdateRelicGear();
     end
 end
 
@@ -1293,6 +1314,7 @@ function manager.UpdateEmpyGear()
         end
     end
     interface.data.progress.gear.empyProgress[1] = (totalgear-countgear)/totalgear;
+    interface.manager.CountEmpyGear();
 end
 
 function manager.CountEmpyGearInv(items)
@@ -1511,7 +1533,7 @@ function manager.CountEmpyGear()
 end
 
 function manager.DisplayEmpyGear()
-    imgui.Spacing();imgui.Spacing();
+    imgui.BeginTable('empy gear has', 5, ImGuiTableFlags_Borders);
     for a = 1, #interface.data.progress.gear.empyrean do
         for b = 1, #interface.data.progress.gear.empyrean[a] do
             imgui.TableNextColumn();
@@ -1521,6 +1543,13 @@ function manager.DisplayEmpyGear()
             end
         end
     end
+    imgui.EndTable();
+    if (imgui.Button('Update Empy Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        interface.manager.UpdateEmpyGear();
+    end
+    imgui.SameLine();
+    imgui.ProgressBar(interface.data.progress.gear.empyProgress[1]);
 end
 
 function manager.DisplayEmpyBaseGearNeed()
@@ -1652,6 +1681,10 @@ function manager.DisplayEmpyBaseGearNeed()
             if i ~= #interface.data.progress.gear.empyneed[1][5] then imgui.TableNextColumn() end
         end
     imgui.EndTable();
+    if (imgui.Button('Update Empy Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        interface.manager.UpdateEmpyGear();
+    end
 end
 
 function manager.DisplayEmpyReforgedGearNeed()
@@ -1780,6 +1813,10 @@ function manager.DisplayEmpyReforgedGearNeed()
             if (i ~= #interface.data.progress.gear.empyneed[3]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
+    if (imgui.Button('Update Empy Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        interface.manager.UpdateEmpyGear();
+    end
 end
 
 function manager.UpdateAmbuGear()
