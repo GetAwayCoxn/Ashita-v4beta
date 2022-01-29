@@ -22,8 +22,8 @@ function interface.Load()
         end
         interface.settings.save();
     end);
-    interface.manager.UpdateJobs();
-    interface.manager.UpdateWeapons();
+    interface.manager.UpdateJobs:once(5);
+    interface.manager.UpdateWeapons:once(5);
 end
 
 function interface.Unload()

@@ -102,7 +102,7 @@ function modifind.search(searchID)
         local foundCount = 1;
         for j = 0, inventory:GetContainerCountMax(v.id), 1 do
             local itemEntry = inventory:GetContainerItem(v.id, j);
-            if (itemEntry.Id ~= 0 and itemEntry.Id ~= 65535 and itemEntry.Id ~= nil) then
+            if (itemEntry.Id ~= 0 and itemEntry.Id ~= 65535) then
                 local item = resources:GetItemById(itemEntry.Id);
 
                 if (item ~= nil) then
