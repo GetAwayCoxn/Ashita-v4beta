@@ -236,10 +236,11 @@ function gcauto.CheckRemedy()
 	local player = gData.GetPlayer();
 	local blind = gData.GetBuffCount('Blind');
 	local paralyze = gData.GetBuffCount('Paralyze');
-	local poison = 0; --gData.GetBuffCount('Poison');
-	local silence = gData.GetBuffCount('Silence');
-
-	if (blind+paralyze+poison+silence >= 1) then
+	local silence = 0;
+	if (gcauto.Spellcasters:contains(player.MainJob) or gcauto.Spellcasters:contains(player.SubJob))then
+		silence = gData.GetBuffCount('Silence');
+	end
+	if (blind+paralyze+silence >= 1) then
 		return true;
 	else
 		return false;

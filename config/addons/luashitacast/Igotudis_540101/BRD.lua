@@ -13,7 +13,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Fili Manchettes +1',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
@@ -140,7 +140,7 @@ sets = T{
         Ear2 = 'Regal Earring',
         Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
         Hands = 'Weath. Cuffs +1',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Rumination Sash',
@@ -163,7 +163,7 @@ sets = T{
     Enhancing = {
         Head = 'Befouled Crown',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Body = 'Telchine Chas.',
         Hands = 'Chironic Gloves',
@@ -205,7 +205,7 @@ sets = T{
         Range = { Name = 'Gjallarhorn', AugTrial=3591 },
         Head = 'Brioso Roundlet +2',
         Neck = 'Moonbow Whistle',
-        Ear1 = 'Gwati Earring',
+        Ear1 = 'Crep. Earring',
         Ear2 = 'Regal Earring',
         Body = 'Brioso Justau. +2',
         Hands = 'Brioso Cuffs +2',
@@ -231,7 +231,7 @@ sets = T{
         Range = { Name = 'Gjallarhorn', AugTrial=3591 },
         Head = 'Fili Calot +1',
         Neck = 'Moonbow Whistle',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Fili Hongreline +1',
         Hands = 'Fili Manchettes +1',
@@ -246,7 +246,7 @@ sets = T{
         Main = { Name = 'Kali', AugPath='C' },
         Sub = 'Culminus',
         Range = 'Blurred Harp',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Etiolation Earring',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
@@ -369,6 +369,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

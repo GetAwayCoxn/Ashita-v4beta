@@ -22,8 +22,8 @@ function interface.Load()
         end
         interface.settings.save();
     end);
-    interface.manager.UpdateJobs:once(5);
-    interface.manager.UpdateWeapons:once(5);
+    interface.manager.UpdateJobs:once(2);
+    --interface.manager.UpdateWeapons:once(5);
 end
 
 function interface.Unload()
@@ -101,12 +101,12 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Plutons');
                         imgui.TableNextColumn();
                         for a = 1, 5 do
-                            imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.relics[a]));
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.relics[a])));
                         end
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
                         for b = 1, 5 do
                             local total = (interface.data.progress.weapons.relics[b] * interface.data.prices.dyna[b])
-                            imgui.TableNextColumn();imgui.Text(tostring(total));
+                            imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(total)));
                         end
                     imgui.EndTable();
                     if (imgui.Button('Update Relics')) then
@@ -140,10 +140,10 @@ function interface.RenderWeaponsTab()
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Beitetsu');
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'HP Bayld');
                         imgui.TableNextColumn();
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.mythics[1]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.mythics[2]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.mythics[3]));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.mythics[4]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[1])));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[2])));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[3])));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[4])));
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
                     imgui.EndTable();
                     if (imgui.Button('Update Mythics')) then
@@ -199,7 +199,7 @@ function interface.RenderWeaponsTab()
                         for b = 1, 7 do
                             imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.empyreans[b]));
                         end
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.data.progress.weapons.empyreans[21]));
+                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.empyreans[21])));
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Dragua');
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Orthrus');

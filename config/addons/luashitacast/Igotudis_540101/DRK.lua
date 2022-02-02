@@ -11,7 +11,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Volte Moufles',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
@@ -101,7 +101,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
@@ -116,6 +116,8 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
+        Ear1 = 'Crep. Earring',
+        Ear2 = 'Malignance Earring',
         Hands = 'Malignance Gloves',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -124,6 +126,8 @@ sets = T{
 
     Drain = {
         Neck = 'Erra Pendant',
+        Ear1 = 'Crep. Earring',
+        Ear2 = 'Malignance Earring',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
@@ -216,6 +220,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

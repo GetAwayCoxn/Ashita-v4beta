@@ -132,7 +132,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Body = 'Lethargy Sayon +1',
         Hands = 'Malignance Gloves',
@@ -188,19 +188,19 @@ sets = T{
     },
 
     Savage_Default = {
-        Ammo = 'Voluspa Tathlum',
-        Head = 'Jhakri Coronal +2',
+        Ammo = 'Knobkierrie',
+        Head = 'Mpaca\'s Cap',
         Neck = 'Fotia Gorget',
         Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
         Ear2 = 'Brutal Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
+        Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
         Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring',
         Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Thereoid Greaves',
+        Legs = 'Mpaca\'s Hose',
+        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
     },
     Savage_Hybrid = {},
     Savage_Acc = {},
@@ -227,7 +227,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Sanctity Necklace',
-        Ear1 = 'Gwati Earring',
+        Ear1 = 'Crep. Earring',
         Ear2 = 'Lugra Earring +1',
         Body = 'Flamma Korazin +2',
         Hands = 'Mpaca\'s Gloves',
@@ -322,6 +322,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

@@ -115,13 +115,13 @@ sets = T{
 	Tp_Acc = {},
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
-        Range = 'Animator P',
+        Range = 'Animator P +1',
     },
     Melee = {
         Range = 'Neo Animator',
     },
     Ranger = {
-        Range = 'Animator P',
+        Range = 'Animator P +1',
     },
     Mage = {
         Range = 'Neo Animator',
@@ -250,6 +250,7 @@ profile.HandleDefault = function()
             gFunc.EquipSet(sets.Pet_WS);
         end
     end
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

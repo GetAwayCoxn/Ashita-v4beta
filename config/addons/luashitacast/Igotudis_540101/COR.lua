@@ -101,7 +101,7 @@ sets = T{
     Enhancing = {
         Ammo = 'Pemphredo Tathlum',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
@@ -209,6 +209,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

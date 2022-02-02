@@ -799,11 +799,11 @@ function manager.DisplayAFGearNeed()
     imgui.BeginTable('1192slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head (8 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body (10 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands (7 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs (9 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet (6 cards)');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Emp Artho Shell');imgui.TableNextColumn();
         imgui.Text('Joyous Moss');imgui.TableNextColumn();
@@ -940,6 +940,12 @@ function manager.CountRelicGearInv(items)
         items[4][1][i] = items[4][1][i] - manager.CountItemId(checks3[i]);
     end
 
+    for j = 1, #items[5] do
+        for s = 1, #items[5][j] do
+            items[5][j][s][1] = 0 - manager.CountItemId(interface.defaults.gear.relicshards[s][j]);
+            items[5][j][s][2] = 0 - manager.CountItemId(interface.defaults.gear.relicvoids[s][j]);
+        end
+    end
 
     return items;
 end
@@ -1189,11 +1195,11 @@ function manager.DisplayRelicGearNeed()
     imgui.BeginTable('1192slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet (3 ea.)');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Gabbrath Horn');imgui.TableNextColumn();
         imgui.Text('Yggdreant Bole');imgui.TableNextColumn();
@@ -1239,11 +1245,11 @@ function manager.DisplayRelicGearNeed()
     imgui.BeginTable('1193slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv119+3');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs (3 ea.)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet (3 ea.)');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Defiant Scarf');imgui.TableNextColumn();
         imgui.Text('Hades Claw');imgui.TableNextColumn();
@@ -1272,6 +1278,9 @@ function manager.DisplayRelicGearNeed()
 end
 
 function manager.DisplayRelicShardsNeed()
+    local bm = 0 - manager.CountItemId(9539);
+    local km = 0 - manager.CountItemId(9541);
+
     imgui.BeginTable('Shards', 12, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'SHARDS:');imgui.TableNextColumn();
@@ -1286,11 +1295,41 @@ function manager.DisplayRelicShardsNeed()
         imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
-        for j = 1, #interface.data.progress.gear.relicneed do
-
+        for j = 1, #interface.defaults.jobsabrv do
+            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            for s = 1, #interface.data.progress.gear.relicneed[5][j] do
+                bm = bm + interface.data.progress.gear.relicneed[5][j][s][1];
+                if (interface.data.progress.gear.relicneed[5][j][s][1] >= 5) then
+                    imgui.TextColored(interface.colors.error, tostring(interface.data.progress.gear.relicneed[5][j][s][1]));imgui.TableNextColumn();
+                elseif (interface.data.progress.gear.relicneed[5][j][s][1] <= 0) then
+                    imgui.TextColored(interface.colors.text1, tostring(interface.data.progress.gear.relicneed[5][j][s][1]));imgui.TableNextColumn();
+                else
+                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.relicneed[5][j][s][1]));imgui.TableNextColumn();
+                end
+            end
+            imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[j]);imgui.TableNextColumn();
+            for v = 1, #interface.data.progress.gear.relicneed[5][j] do
+                km = km + interface.data.progress.gear.relicneed[5][j][v][2];
+                if (interface.data.progress.gear.relicneed[5][j][v][2] >= 3) then
+                    imgui.TextColored(interface.colors.error, tostring(interface.data.progress.gear.relicneed[5][j][v][2]));
+                elseif (interface.data.progress.gear.relicneed[5][j][v][2] <= 0) then
+                    imgui.TextColored(interface.colors.text1, tostring(interface.data.progress.gear.relicneed[5][j][v][2]));
+                else
+                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.relicneed[5][j][v][2]));
+                end
+                if v == #interface.data.progress.gear.relicneed[5][j] and j == #interface.defaults.jobsabrv then 
+                else
+                    imgui.TableNextColumn();
+                end
+            end
         end
     imgui.EndTable();
-    
+
+    imgui.Separator();
+
+    imgui.Text('Needed Beastmen\'s Medals:  ' .. bm);
+    imgui.Text('Needed Kindred\'s Medals:  ' .. km);
+
     if (imgui.Button('Update Relic Gear')) then
         print(chat.header(addon.name) .. chat.message('Updating ... '));
         manager.UpdateRelicGear();
@@ -1798,11 +1837,11 @@ function manager.DisplayEmpyReforgedGearNeed()
     imgui.BeginTable('119memories', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Total Etched Mems');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head (15/ea)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body (25/ea)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands (15/ea)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs (20/ea)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet (15/ea)');imgui.TableNextColumn();
         local count = 0;
         for i = 1, #interface.data.progress.gear.empyneed[3] do
             count = count + interface.data.progress.gear.empyneed[3][i][3];
@@ -1975,7 +2014,7 @@ function manager.DisplayHallmarks()
     end
 
     imgui.Spacing();
-    imgui.TextColored(interface.colors.header, 'NEEDED HALLMARK POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.TextColored(interface.colors.header, 'NEEDED HALLMARK POINTS:');imgui.SameLine();imgui.Text('    ' .. interface.manager.comma_value(total) .. '    ');
     imgui.Spacing();imgui.Separator();imgui.Spacing();
 
     imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
@@ -1985,28 +2024,28 @@ function manager.DisplayHallmarks()
             if (interface.data.points.hallmarks.nuggets[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.nuggets[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.nuggets[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Gems', interface.data.points.hallmarks.gems);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[3] == 0) then interface.data.points.hallmarks.gems[1] = true end
             if (interface.data.points.hallmarks.gems[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.gems[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.gems[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Animas', interface.data.points.hallmarks.animas);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[4] == 0) then interface.data.points.hallmarks.animas[1] = true end
             if (interface.data.points.hallmarks.animas[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.animas[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.animas[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Matters', interface.data.points.hallmarks.matters);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[5] == 0) then interface.data.points.hallmarks.matters[1] = true end
             if (interface.data.points.hallmarks.matters[1]) then
                 imgui.Text('    0');
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.matters[2]));
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.matters[2])));
             end
     imgui.EndTable();
 
@@ -2018,31 +2057,31 @@ function manager.DisplayHallmarks()
             if (interface.data.points.hallmarks.threads[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.threads[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.threads[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Dusts', interface.data.points.hallmarks.dusts);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.dusts[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.dusts[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.dusts[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Saps', interface.data.points.hallmarks.saps);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.saps[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.saps[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.saps[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Dyes', interface.data.points.hallmarks.dyes);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.dyes[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.dyes[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.dyes[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Resins', interface.data.points.hallmarks.resins);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.resins[1]) then
                 imgui.Text('    0');
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.resins[2]));
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.resins[2])));
             end
     imgui.EndTable();
 
@@ -2096,25 +2135,25 @@ function manager.DisplayHallmarks()
             if (interface.data.points.hallmarks.marrows[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.marrows[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.marrows[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Scorias', interface.data.points.hallmarks.scorias);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.scorias[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.scorias[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.scorias[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('R.Dross', interface.data.points.hallmarks.drosses);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.drosses[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.drosses[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.drosses[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('R.Cinders', interface.data.points.hallmarks.cinders);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.cinders[1]) then
                 imgui.Text('    0');
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.cinders[2]));
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.cinders[2])));
             end
     imgui.EndTable();
 
@@ -2126,37 +2165,37 @@ function manager.DisplayHallmarks()
             if (interface.data.points.hallmarks.plutons[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.plutons[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.plutons[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Boulders', interface.data.points.hallmarks.boulders);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.boulders[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.boulders[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.boulders[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Beitetsu', interface.data.points.hallmarks.beitetsu);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.beitetsu[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.beitetsu[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.beitetsu[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('HPBayld', interface.data.points.hallmarks.baylds);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.baylds[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.baylds[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.baylds[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('HMPs', interface.data.points.hallmarks.hmp);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.hmp[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.hmp[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.hmp[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Alex', interface.data.points.hallmarks.alex);imgui.TableNextColumn();
             if (interface.data.points.hallmarks.alex[1]) then
                 imgui.Text('    0');
             else
-                imgui.Text(tostring(interface.data.points.hallmarks.alex[2]));
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.hallmarks.alex[2])));
             end
     imgui.EndTable();
 end
@@ -2170,7 +2209,7 @@ function manager.DisplayGallantry()
     end
 
     imgui.Spacing();
-    imgui.TextColored(interface.colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. total .. '    ');
+    imgui.TextColored(interface.colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. interface.manager.comma_value(total) .. '    ');
     imgui.Spacing();imgui.Separator();imgui.Spacing();
 
     imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
@@ -2180,28 +2219,28 @@ function manager.DisplayGallantry()
             if (interface.data.points.gallantry.nuggets[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.gallantry.nuggets[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.nuggets[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Gems', interface.data.points.gallantry.gems);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[3] == 0) then interface.data.points.gallantry.gems[1] = true end
             if (interface.data.points.gallantry.gems[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.gallantry.gems[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.gems[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Animas', interface.data.points.gallantry.animas);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[4] == 0) then interface.data.points.gallantry.animas[1] = true end
             if (interface.data.points.gallantry.animas[1]) then
                 imgui.Text('    0');imgui.TableNextColumn();
             else
-                imgui.Text(tostring(interface.data.points.gallantry.animas[2]));imgui.TableNextColumn();
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.animas[2])));imgui.TableNextColumn();
             end
         imgui.Checkbox('Matters', interface.data.points.gallantry.matters);imgui.TableNextColumn();
             if (interface.data.progress.weapons.ambuWepItems[5] == 0) then interface.data.points.gallantry.matters[1] = true end
             if (interface.data.points.gallantry.matters[1]) then
                 imgui.Text('    0');
             else
-                imgui.Text(tostring(interface.data.points.gallantry.matters[2]));
+                imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.matters[2])));
             end
     imgui.EndTable();
 
@@ -2281,49 +2320,49 @@ function manager.DisplayGallantry()
                 if (interface.data.points.gallantry.bynes1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.bynes1[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bynes1[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('O.Bronze', interface.data.points.gallantry.bronze1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bronze1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.bronze1[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bronze1[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('T.Shells', interface.data.points.gallantry.shells1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.shells1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.shells1[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.shells1[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('100Byne', interface.data.points.gallantry.bynes2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bynes2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.bynes2[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bynes2[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('M.Bronze', interface.data.points.gallantry.bronze2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bronze2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.bronze2[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bronze2[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('L.Shells', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.shells2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.shells2[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.shells2[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Plutons', interface.data.points.gallantry.plutons);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.plutons[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.plutons[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.plutons[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Marrows', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.marrows[1]) then
                     imgui.Text('    0');
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.marrows[2]));
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.marrows[2])));
                 end
         imgui.EndTable();
     elseif (interface.data.points.gallantry.month[1] == 2) then
@@ -2333,25 +2372,25 @@ function manager.DisplayGallantry()
                 if (interface.data.points.gallantry.alex[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.alex[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.alex[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('HP Bayld', interface.data.points.gallantry.baylds);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.baylds[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.baylds[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.baylds[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Beitetsu', interface.data.points.gallantry.beitetsu);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.beitetsu[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.beitetsu[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.beitetsu[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Scorias', interface.data.points.gallantry.scorias);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.scorias[1]) then
                     imgui.Text('    0');
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.scorias[2]));
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.scorias[2])));
                 end
         imgui.EndTable();
     elseif (interface.data.points.gallantry.month[1] == 3) then
@@ -2361,25 +2400,25 @@ function manager.DisplayGallantry()
                 if (interface.data.points.gallantry.drosses[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.drosses[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.drosses[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Cinders', interface.data.points.gallantry.cinders);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.cinders[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.cinders[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.cinders[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('Boulders', interface.data.points.gallantry.boulders);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.boulders[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.boulders[2]));imgui.TableNextColumn();
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.boulders[2])));imgui.TableNextColumn();
                 end
             imgui.Checkbox('HMP', interface.data.points.gallantry.hmp);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.hmp[1]) then
                     imgui.Text('    0');
                 else
-                    imgui.Text(tostring(interface.data.points.gallantry.hmp[2]));
+                    imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.hmp[2])));
                 end
         imgui.EndTable();
     end
@@ -2389,6 +2428,11 @@ end
 function manager.ResetAMBU()
     interface.manager.UpdateAmbuWeps();
     interface.data.points = interface.data.points:merge(interface.defaults.points, true);
+end
+
+function manager.comma_value(n) --credit--http://richard.warburton.it
+	local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+	return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
 end
 
 function manager.Test()

@@ -85,7 +85,7 @@ sets = T{
         Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
         Feet = 'Tatena. Sune. +1',
     },
-    Tp_Proc = { -- a set to force low dmg for things like Vagary or Abyssea
+    Tp_Proc = { -- a set to force low dmg for things like Abyssea
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Flam. Zucchetto +2',
         Neck = { Name = 'Sam. Nodowa +1', AugPath='A' },
@@ -175,6 +175,8 @@ sets = T{
     Ws_Hybrid = {
     },
     Ws_Acc = {
+    },
+    Ws_Proc = { -- a set to force low dmg for things like Abyssea
     },
 
     Hi_Default = {
@@ -312,6 +314,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()
@@ -360,6 +363,8 @@ end
 profile.HandleWeaponskill = function()
     local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
+    elseif (gcdisplay.GetToggle('PROC') == true) then
+        gFunc.EquipSet(sets.Ws_Proc);
     else
         local ws = gData.GetAction();
     

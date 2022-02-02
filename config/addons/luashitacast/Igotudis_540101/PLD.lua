@@ -25,6 +25,7 @@ sets = T{
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
+        Ring2 = 'Stikini Ring +1',
     },
     Town = {
         Main = 'Exalibur',
@@ -106,7 +107,7 @@ sets = T{
     SIR = {
         Ammo = 'Staunch Tathlum', -- 10
         Neck = 'Loricate Torque +1', -- 5
-        Ear1 = 'Gwati Earring',
+        Ear1 = 'Crep. Earring',
         Back = 'Solemnity Cape',
         Waist = 'Rumination Sash', -- 10
         Legs = 'Carmine Cuisses +1', -- 20
@@ -126,6 +127,7 @@ sets = T{
         Ear1 = 'Mendi. Earring', -- 5
         Ear2 = 'Nourish. Earring +1', -- 6
         Hands = 'Macabre Gaunt. +1', -- 11
+        Ring1 = 'Stikini Ring +1',
         Back = 'Solemnity Cape', -- 7
         Legs = 'Flamma Dirs +2', -- 9 on me
         Feet = 'Odyssean Greaves', -- 7
@@ -235,6 +237,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()

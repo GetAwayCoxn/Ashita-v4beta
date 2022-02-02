@@ -12,7 +12,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
@@ -143,7 +143,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Body = 'Telchine Chas.',
         Hands = 'Nyame Gauntlets',
@@ -167,16 +167,18 @@ sets = T{
         Range = 'Dunna',
         Head = 'Azimuth Hood +1',
         Neck = 'Incanter\'s Torque',
-        Ear1 = 'Gifted Earring',
+        Ear1 = 'Mendi. Earring',
         Ear2 = 'Mendi. Earring',
         Body = 'Telchine Chas.',
         Hands = 'Geo. Mitaines +1',
+        Ring1 = 'Stikini Ring +1',
         Waist = 'Hachirin-no-Obi',
         Legs = 'Vanya Slops',
         Feet = 'Medium\'s Sabots',
     },
     Indi = {
-        Legs = 'Bagua Pants',
+        Back = 'Nantosuelta\'s Cape',
+        Legs = 'Bagua Pants +1',
         Feet = 'Azimuth Gaiters +1',
     },
 
@@ -188,7 +190,7 @@ sets = T{
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Jhakri Robe +2',
+        Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -240,14 +242,14 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Amalric Gages +1',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = '"Mag. Atk. Bns."+10', [2] = 'Mag. Acc+20', [3] = 'Magic Damage +20', [4] = 'INT+20' } },
         Waist = 'Sacro Cord',
         Legs = 'Jhakri Slops +2',
-        Feet = { Name = 'Merlinic Crackows', Augment = { [1] = 'CHR+10', [2] = 'Mag. Acc.+2', [3] = '"Mag. Atk. Bns."+30' } },
+        Feet = 'Amalric Nails +1',
     },
     NukeACC = {
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
@@ -257,8 +259,8 @@ sets = T{
         Sub = 'Ammurapi Shield',
         Head = 'Ea Hat', -- 6 and 6
         --Body = 'Agwu\'s Robe', -- 10 and 0
-        Body = 'Ea Houppelande', -- 8 and 9
-        Hands = 'Ea Cuffs', --5 and 5
+        Body = 'Ea Houppelande', -- 8 and 8
+        Hands = 'Amalric Gages +1', -- 0 and 6
         Ring1 = 'Mujin Band', -- 0 and 5
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops', -- 9 and 0
@@ -272,17 +274,17 @@ sets = T{
 
     Ws_Default = {
         Ammo = 'Voluspa Tathlum',
-        Head = 'Jhakri Coronal +2',
+        Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring',
         Back = 'Solemnity Cape',
         Waist = 'Fotia Belt',
-        Legs = 'Jhakri Slops +2',
+        Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
     Ws_Hybrid = {
@@ -343,6 +345,7 @@ profile.HandleDefault = function()
     if (pet ~= nil) then
         gFunc.EquipSet(sets.Idle_Pet);
     end
+    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end
 
 profile.HandleAbility = function()
