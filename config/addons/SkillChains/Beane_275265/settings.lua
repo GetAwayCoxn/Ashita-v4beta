@@ -128,11 +128,11 @@ settings["Show"]["weapon"][22] = "RUN";
 settings["aeonic"] = false;
 settings["display"]["pos"]["y"] = 500;
 settings["display"]["pos"]["x"] = 0;
-settings["display"]["bg"] = true;
-settings["display"]["color"] = -1;
 settings["display"]["size"] = 10;
-settings["display"]["font"] = "Consolas";
+settings["display"]["color"] = -1;
 settings["display"]["bgcolor"] = 1711276032;
+settings["display"]["font"] = "Consolas";
+settings["display"]["bg"] = true;
 settings["color"] = false;
 
 return settings;

@@ -19,7 +19,7 @@ local manager = {
     menu_holders = {-1,-1,-1},
     menu1old = {-1},
     repair = {0,},
-    autodeploy = {true,},
+    autodeploy = {false,},
     autocooldown = {true,},
     autolight = {0,90},
 };
@@ -43,7 +43,11 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 
     -- Do Work here if Enabled and before the is_open check
     if (manager.enabled == 'Enabled') and (PetID ~= 0 or PetID ~= nil) then
-        
+        -- Don't do stuff if mob is basically dead (trying to prevent hangs when killing ambu stuff and zoning right away)
+        --[[if (AshitaCore:GetMemoryManager():GetEntity():GetStatus(PetID) == 1) and (AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(TargetID) <= 1) then
+            return;
+        end]]
+
         --Do auto Deploy
         if (TargetID ~= 0 or TargetID ~= nil) and (manager.autodeploy[1] == true) and (AshitaCore:GetMemoryManager():GetEntity():GetStatus(AshitaCore:GetMemoryManager():GetParty():GetMemberTargetIndex(0)) == 1) and (AshitaCore:GetMemoryManager():GetEntity():GetStatus(PetID) == 0) and (AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(TargetID) > 10) then
             AshitaCore:GetChatManager():QueueCommand(1, '/ja "Deploy" <t>');

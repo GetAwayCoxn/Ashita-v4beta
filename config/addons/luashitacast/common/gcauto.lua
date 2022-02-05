@@ -41,7 +41,7 @@ gcauto.AMWeaponSkills = T{
 };
 
 gcauto.WeaponSkills = T{
-	['WAR'] = {[1] = 'None',},
+	['WAR'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['MNK'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Shijin Spiral'},
 	['WHM'] = {[1] = 'None',},
 	['BLM'] = {[1] = 'None',},
@@ -57,7 +57,7 @@ gcauto.WeaponSkills = T{
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
-	['COR'] = {[1] = 'None',},
+	['COR'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
 	['SCH'] = {[1] = 'None',},

@@ -3,11 +3,11 @@ local gcinclude = T{};
 --[[
 Only edit the next two small sections here. See the readme on my github for more information on usages for my profiles.
 
-These are universal sets for things like doomed or asleep; avoid main/sub/range/ammo here, also only use gear names here, no augments paths/details etc.
+These are universal sets for things like doomed or asleep; avoid main/sub/range/ammo here. Also avoid calling out any specific augments on gear in here, merge function doesnt play nice with augments.
 The second section is a couple basic settings to decide on whether or not to use you the automatic equiping function of idle regen, idle refresh, DT gear etc.
 More details in each section.
 ]]
-gcinclude.sets = T{
+gcinclude.sets = {
 	Doomed = { -- this set will equip any time you have the doom status
 		Ring1 = 'Purity Ring',
 		Waist = 'Gishdubar Sash',
@@ -25,13 +25,17 @@ gcinclude.sets = T{
 	Warp_Ring = { -- leave alone
 		Ring2 = 'Warp Ring',
 	},
-	Tele_Ring = { -- only uncomment the ring you actually own/use, leave it on Ring2
+	Tele_Ring1 = { -- leave alone
 		Ring2 = 'Dim. Ring (Dem)',
-		--Ring2 = 'Dim. Ring (Holla)',
-		--Ring2 = 'Dim. Ring (Mea)',
+	},
+	Tele_Ring2 = { -- leave alone
+		Ring2 = 'Dim. Ring (Holla)',
+	},
+	Tele_Ring3 = { -- leave alone
+		Ring2 = 'Dim. Ring (Mea)',
 	},
 };
-gcinclude.settings = T{
+gcinclude.settings = {
 	AutoGear = true; --set to false if you dont want DT/Regen/Refresh/PetDT gear to come on automatically at the defined %'s here
 	RegenGearHPP = 75; -- set HPP to have your idle regen set to come on
 	RefreshGearMPP = 70; -- set MPP to have your idle refresh set to come on
@@ -54,7 +58,7 @@ if (not gcauto) then
 end
 
 gcinclude.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin'};
-gcinclude.LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
+gcinclude.LockingRings = T{'Echad Ring', 'Trizek Ring', 'Endorsement Ring', 'Capacity Ring', 'Warp Ring','Facility Ring','Dim. Ring (Dem)','Dim. Ring (Mea)','Dim. Ring (Holla)'};
 gcinclude.DistanceWS = T{'Flamming Arrow','Piercing Arrow','Dulling Arrow','Sidewinder','Blast Arrow','Arching Arrow','Empyreal Arrow','Refulgent Arrow','Apex Arrow','Namas Arrow','Jishnu\'s Randiance','Hot Shot','Split Shot','Sniper Shot','Slug Shot','Blast Shot','Heavy Shot','Detonator','Numbing Shot','Last Stand','Coronach','Wildfire','Trueflight','Leaden Salute','Myrkr','Dagan','Moonlight','Starlight'};
 gcinclude.BstPetAttack = T{'Foot Kick','Whirl Claws','Big Scissors','Tail Blow','Blockhead','Sensilla Blades','Tegmina Buffet','Lamb Chop','Sheep Charge','Pentapeck','Recoil Dive','Frogkick','Queasyshroom','Numbshroom','Shakeshroom','Nimble Snap','Cyclotail','Somersault','Tickling Tendrils','Sweeping Gouge','Grapple','Double Claw','Spinning Top','Suction','Tortoise Stomp','Power Attack','Rhino Attack','Razor Fang','Claw Cyclone','Crossthrash','Scythe Tail','Ripper Fang','Chomp Rush','Pecking Flurry','Sickle Slash','Mandibular Bite','Wing Slap','Beak Lunge','Head Butt','Wild Oats','Needle Shot','Disembowel','Extirpating Salvo','Mega Scissors','Back Heel','Hoof Volley','Fluid Toss','Fluid Spread'};
 gcinclude.BstPetMagicAttack = T{'Gloom Spray','Fireball','Acid Spray','Molting Plumage','Cursed Sphere','Nectarous Deluge','Charged Whisker','Nepenthic Plunge'};
@@ -62,6 +66,7 @@ gcinclude.BstPetMagicAccuracy = T{'Toxic Spit','Acid Spray','Leaf Dagger','Venom
 gcinclude.SmnSkill = T{'Shining Ruby','Glittering Ruby','Crimson Howl','Inferno Howl','Frost Armor','Crystal Blessing','Aerial Armor','Hastega II','Fleet Wind','Hastega','Earthen Ward','Earthen Armor','Rolling Thunder','Lightning Armor','Soothing Current','Ecliptic Growl','Heavenward Howl','Ecliptic Howl','Noctoshield','Dream Shroud','Altana\'s Favor','Reraise','Reraise II','Reraise III','Raise','Raise II','Raise III','Wind\'s Blessing'};
 gcinclude.SmnMagical = T{'Searing Light','Meteorite','Holy Mist','Inferno','Fire II','Fire IV','Meteor Strike','Conflag Strike','Diamond Dust','Blizzard II','Blizzard IV','Heavenly Strike','Aerial Blast','Aero II','Aero IV','Wind Blade','Earthen Fury','Stone II','Stone IV','Geocrush','Judgement Bolt','Thunder II','Thunder IV','Thunderstorm','Thunderspark','Tidal Wave','Water II','Water IV','Grand Fall','Howling Moon','Lunar Bay','Ruinous Omen','Somnolence','Nether Blast','Night Terror','Level ? Holy'};
 gcinclude.SmnHealing = T{'Healing Ruby','Whispering Wind','Spring Water'};
+gcinclude.SmnHybrid = T{'Flamming Crush','Burning Strike'};
 gcinclude.SmnEnfeebling = T{'Diamond Storm','Sleepga','Shock Squall','Slowga','Tidal Roar','Pavor Nocturnus','Ultimate Terror','Nightmare','Mewing Lullaby','Eerie Eye'};
 gcinclude.BluMagPhys = T{'Foot Kick','Sprout Smack','Wild Oats','Power Attack','Queasyshroom','Battle Dance','Feather Storm','Helldive','Bludgeon','Claw Cyclone','Screwdriver','Grand Slam','Smite of Rage','Pinecone Bomb','Jet Stream','Uppercut','Terror Touch','Mandibular Bite','Sickle Slash','Dimensional Death','Spiral Spin','Death Scissors','Seedspray','Body Slam','Hydro Shot','Frenetic Rip','Spinal Cleave','Hysteric Barrage','Asuran Claws','Cannonball','Disseverment','Ram Charge','Vertical Cleave','Final Sting','Goblin Rush','Vanity Dive','Whirl of Rage','Benthic Typhoon','Quad. Continuum','Empty Thrash','Delta Thrust','Heavy Strike','Quadrastrike','Tourbillion','Amorphic Spikes','Barbed Crescent','Bilgestorm','Bloodrake','Glutinous Dart','Paralyzing Triad','Thrashing Assault','Sinker Drill','Sweeping Gouge','Saurian Slide'};
 gcinclude.BluMagDebuff = T{'Filamented Hold','Cimicine Discharge','Demoralizing Roar','Venom Shell','Light of Penance','Sandspray','Auroral Drape','Frightful Roar','Enervation','Infrasonics','Lowing','CMain Wave','Awful Eye','Voracious Trunk','Sheep Song','Soporific','Yawn','Dream Flower','Chaotic Eye','Sound Blast','Blank Gaze','Stinking Gas','Geist Wall','Feather Tickle','Reaving Wind','Mortal Ray','Absolute Terror','Blistering Roar'};
@@ -76,6 +81,7 @@ gcinclude.HelixSpells = T{'Ionohelix', 'Cryohelix', 'Pyrohelix', 'Geohelix', 'An
 gcinclude.StormSpells = T{'Thunderstorm', 'Hailstorm', 'Firestorm', 'Sandstorm', 'Windstorm', 'Rainstorm', 'Aurorastorm', 'Voidstorm'};
 gcinclude.NinNukes = T{'Katon: Ichi', 'Katon: Ni', 'Katon: San', 'Hyoton: Ichi', 'Hyoton: Ni', 'Hyoton: San', 'Huton: Ichi', 'Huton: Ni', 'Huton: San', 'Doton: Ichi', 'Doton: Ni', 'Doton: San', 'Raiton: Ichi', 'Raiton: Ni', 'Raiton: San', 'Suiton: Ichi', 'Suiton: Ni', 'Suiton: San'};
 gcinclude.RRSET = false;
+gcinclude.CORmsg = true;
 
 function gcinclude.SetAlias()
 	local player = gData.GetPlayer();
@@ -88,6 +94,7 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /warpring /lac fwd warpring');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /telering /lac fwd telering');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /rrset /lac fwd rrset');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cormsg /lac fwd cormsg');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
@@ -175,6 +182,14 @@ function gcinclude.SetCommands(args)
 			gcinclude.RRSET = false;
 		else
 			gcinclude.RRSET = true;
+		end
+	elseif (args[1] == 'cormsg') then
+		if gcinclude.CORmsg == true then
+			gcinclude.CORmsg = false;
+			print(chat.header('GCinclude'):append(chat.message('COR Roll message will no longer show')));
+		else
+			gcinclude.CORmsg = true;
+			print(chat.header('GCinclude'):append(chat.message('COR Roll message will now show')));
 		end
     end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
@@ -342,9 +357,13 @@ function gcinclude.DoWarpRing()
 end
 
 function gcinclude.DoTeleRing()
-	AshitaCore:GetChatManager():QueueCommand(1, '/lac set Tele_Ring');
+	AshitaCore:GetChatManager():QueueCommand(1, '/lac set Tele_Ring1');
+	AshitaCore:GetChatManager():QueueCommand(1, '/lac set Tele_Ring2');
+	AshitaCore:GetChatManager():QueueCommand(1, '/lac set Tele_Ring3');
+	
 	local function usering()
-		AshitaCore:GetChatManager():QueueCommand(1, '/item "' .. sets.Tele_Ring.Ring2 .. '" <me>');	
+		local ring = gData.GetEquipment();
+		AshitaCore:GetChatManager():QueueCommand(1, '/item "' .. ring.Ring2.Name .. '" <me>');	
 	end
 	usering:once(11);
 end
@@ -352,6 +371,23 @@ end
 function gcinclude.DoNukes(tier)
 	local cast = gcdisplay.GetCycle('Element');
 	AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. cast .. ' ' .. tier .. '" <t>');
+end
+
+function gcinclude.DoCORmsg(roll)
+	if gcinclude.CORmsg == false then return end
+	local numbers = T{
+		{'Fighter\'s Roll',5,9}, {'Monk\'s Roll',3,7}, {'Healer\'s Roll',3,7}, {'Corsair\'s Roll',5,9}, {'Ninja\'s Roll',4,8},
+		{'Hunter\'s Roll',4,8}, {'Chaos Roll',4,8}, {'Magus\'s Roll',2,6}, {'Drachen Roll',4,8}, {'Choral Roll',2,6},
+		{'Beast Roll',4,8}, {'Samurai Roll',2,6}, {'Evoker\'s Roll',5,9}, {'Rogue\'s Roll',5,9}, {'Warlock\'s Roll',4,8},
+		{'Puppet Roll',3,7}, {'Gallant\'s Roll',3,7}, {'Wizard\'s Roll',5,9}, {'Dancer\'s Roll',3,7}, {'Scholar\'s Roll',2,6},
+		{'Naturalist\'s Roll',3,7}, {'Runeist\'s Roll',4,8}, {'Bolter\'s Roll',3,9}, {'Caster\'s Roll',2,7}, {'Courser\'s Roll',3,9},
+		{'Blitzer\'s Roll',4,9}, {'Tactician\'s Roll',5,8}, {'Allies\' Roll',3,10}, {'Miser\'s Roll',5,7}, {'Companion\'s Roll',2,10},
+		{'Avernger\'s Roll',4,8},}; -- {name,lucky,unlucky}
+	for n = 1, #numbers do
+		if numbers[n][1] == roll then
+			print(chat.header('GCinclude'):append(chat.message('[' .. roll .. ']' .. '  [Lucky: ' .. numbers[n][2] .. ']  [Unlucky: ' .. numbers[n][3] .. ']')));
+		end
+	end
 end
 
 function gcinclude.DoAspir()

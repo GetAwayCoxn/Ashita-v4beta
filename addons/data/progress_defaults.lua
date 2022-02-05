@@ -143,7 +143,11 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
     },
     
     prices = {
-        dyna = {1200,1200,1200,1000000,2000}, --not implemented yet
+        dyna1 = {0,0,0}, -- Bynes, Bronze, Shells
+        dyna2 = {0,0}, -- Marrow, Pluton
+        rocks = {0,0,0}, --Pluton, Boulders, Beitetsu
+        misc1 = {0,0,0}, --Marrow, scoria, HMP
+        rifts = {0,0}, --Cinders,Dross
     },
 
     points = {

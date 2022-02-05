@@ -382,8 +382,14 @@ function interface.RenderAMBUPointsTab()
 end
 
 function interface.RenderPricesTab()
-    imgui.TextColored(interface.colors.header,'Bynes                       Bronze                      Shells');
-    imgui.InputInt3('Dyna Currency', interface.data.prices.dyna);
+    imgui.TextColored(interface.colors.header,'Bynes                           Bronze                         Shells');--imgui.SameLine();imgui.TextColored(interface.colors.header,'Marrows                          Plutons');
+    imgui.InputInt3('', interface.data.prices.dyna1);--imgui.SameLine();imgui.InputInt2('', interface.data.prices.dyna2);
+    imgui.TextColored(interface.colors.header,'Plutons                         Boulders                       Beitetsu');
+    imgui.InputInt3(' ', interface.data.prices.rocks);
+    imgui.TextColored(interface.colors.header,'Marrows                         Scorias                        HMP');
+    imgui.InputInt3('  ', interface.data.prices.misc1);
+    imgui.TextColored(interface.colors.header,'Rift Cinders                                    Rift Dross');
+    imgui.InputInt2('    ', interface.data.prices.rifts);
 end
 
 
