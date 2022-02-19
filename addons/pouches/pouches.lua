@@ -2,7 +2,7 @@ addon.name      = 'pouches';
 addon.author    = 'getawaycoxn';
 addon.version   = '1.0';
 addon.desc      = 'Uses any silt and bead pouches in your main inventory';
-addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
+addon.link      = 'https://github.com/GetAwayCoxn/';
 
 --[[
     1.0 - Creation
@@ -31,7 +31,11 @@ ashita.events.register('command', 'command_cb', function (e)
 
     e.blocked = true;
 
-    if (#args == 1) or (args[2] == 'start') then
+    if (args[2] == 'help') then
+        print(chat.header(addon.name) .. chat.message('Pouches will use silt pouches and bead pouches from your inventory bag'));
+        print(chat.header(addon.name) .. chat.message('The only commands are [start] and [stop]'));
+
+    elseif (args[2] == 'start') then
         active = true;
         count_pouches();
         if total == 0 then
@@ -39,31 +43,30 @@ ashita.events.register('command', 'command_cb', function (e)
             return;
         end
         print(chat.header(addon.name) .. chat.message('Pouches starting ... ' .. silt_total .. ' silt pouches and ' .. bead_total .. ' bead pouches. Use "/pouches stop" to abort.'));
-        use_pouches:repeating(0, total, 4.5);
-    end
+        use_pouches:repeating(0, total, 5);
 
-    if (args[2] == 'stop') then
+    elseif (args[2] == 'stop') then
         active = false;
         print(chat.header(addon.name) .. chat.message('Pouches stopped.'));
-        silt_total = 0;
-        bead_total = 0;
     end
 end);
 
 function count_pouches()
+    silt_total = 0;
+    bead_total = 0;
     local silt = AshitaCore:GetResourceManager():GetItemByName('Silt Pouch',0);
     local bead = AshitaCore:GetResourceManager():GetItemByName('Bead Pouch',0);
     local inventory = AshitaCore:GetMemoryManager():GetInventory();
 
-    for x = 0, 80, 1 do
+    for x = 0, inventory:GetContainerCountMax(0) do
         local item = inventory:GetContainerItem(0, x);
         if (item ~= nil and item.Id == silt.Id) then
             silt_total = silt_total + item.Count;
         end
     end
 
-    for y = 0, 80, 1 do
-        local item = inventory:GetContainerItem(0, y);
+    for x = 0, inventory:GetContainerCountMax(0) do
+        local item = inventory:GetContainerItem(0, x);
         if (item ~= nil and item.Id == bead.Id) then
             bead_total = bead_total + item.Count;
         end
@@ -75,10 +78,10 @@ end
 function use_pouches()
     if active ~= true then return end
 
-    if silt_total > 0 then
+    if (silt_total > 0) then
         AshitaCore:GetChatManager():QueueCommand(1, '/item "Silt Pouch" <me>');
         silt_total = silt_total -1;
-    elseif bead_total > 0 then
+    elseif (bead_total > 0) then
         AshitaCore:GetChatManager():QueueCommand(1, '/item "Bead Pouch" <me>');
         bead_total = bead_total - 1;
     end

@@ -14,7 +14,7 @@ function manager.UpdateJobs()
     local masterleveltotal = 0.0;
     local joblevelmax = 99.0 * 22.0;
     local JPmax = 2100.0 * 22.0;
-    local masterlevelmax = 20.0 * 22.0;
+    local masterlevelmax = 30.0 * 22.0;
     local JPhastotal = 0.0;
     
     for n = 1, #interface.defaults.jobsabrv do
@@ -40,7 +40,7 @@ function manager.DisplayJobs()
             imgui.TableNextColumn();
             if (interface.defaults.jobs[n] ~= nil) then
                 t:merge(interface.defaults.jobs[n], true);
-                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 20)) then
+                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 30)) then
                     imgui.TextColored(interface.colors.text1, tostring(t[x]));
                 else
                     imgui.Text(tostring(t[x]));
@@ -56,8 +56,8 @@ end
 function manager.CheckItemId(id)
     local total = 0;
 
-    for x = 0, 12 do
-        for y = 0, 80 do
+    for x = 0, 16 do
+        for y = 0, AshitaCore:GetMemoryManager():GetInventory():GetContainerCountMax(x) do
             local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
             if (item ~= nil and item.Id == id) then
                 total = total + item.Count;
@@ -73,8 +73,8 @@ function manager.CheckItemName(name)
     local tempitem = AshitaCore:GetResourceManager():GetItemByName(name, 0);
     if tempitem == nil then return end
 
-    for x = 0, 12 do
-        for y = 0, 80 do
+    for x = 0, 16 do
+        for y = 0, AshitaCore:GetMemoryManager():GetInventory():GetContainerCountMax(x) do
             local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
             if (item ~= nil and tempitem ~= nil and item.Id == tempitem.Id) then
                 total = total + item.Count;
@@ -87,8 +87,8 @@ end
 
 function manager.CountItemId(id)
     local total = 0;
-    for x = 0, 12 do
-        for y = 0, 80 do
+    for x = 0, 16 do
+        for y = 0, AshitaCore:GetMemoryManager():GetInventory():GetContainerCountMax(x) do
             local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(x, y);
             if (item ~= nil and item.Id == id) then
                 total = total + item.Count;
@@ -2445,7 +2445,8 @@ end
 
 function manager.Test()
     --print(tostring(modifind.search(23468)));
-    interface.manager.CountEmpyGear();
+    --interface.manager.CountEmpyGear();
+    print(tostring(AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags()));
 end
 
 return manager;
