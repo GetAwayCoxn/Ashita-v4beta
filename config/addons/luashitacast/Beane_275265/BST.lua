@@ -1,9 +1,9 @@
 local profile = {};
-varhelper = gFunc.LoadFile('common\\varhelper.lua');
+gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = {
+sets = T{
     Idle = {
         Ammo = 'Voluspa Tathlum',
         Head = { Name = 'Emicho Coronet', AugPath='C' },
@@ -38,9 +38,9 @@ sets = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
-        Ear1 = 'Rimeice Earring',
-        Ear2 = 'Handler\'s Earring +1',
-        Body = 'Taeon Tabard',
+        --Ear1 = 'Rimeice Earring',
+        --Ear2 = 'Handler\'s Earring +1',
+        --Body = 'Taeon Tabard',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -131,10 +131,10 @@ sets = {
 	},
 };
 
-profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 local function HandlePetAction(PetAction)
-	gFunc.EquipSet(sets.PetReadyDefault);
+    gFunc.EquipSet(sets.PetReadyDefault);
 
 	if (PetAction.Name == BstPetAttack) then
         gFunc.EquipSet(sets.PetAttack);
@@ -165,14 +165,14 @@ end
 profile.HandleDefault = function()
     local pet = gData.GetPet();
 	local petAction = gData.GetPetAction();
-    if (petAction ~= nil) and gcinclude.BstPetAttack:contains(petAction.Name) then
+    if (petAction ~= nil) then
         HandlePetAction(petAction);
         return;
     end
 	
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
-        gFunc.EquipSet('Tp_' .. varhelper.GetCycle('Set'));
+        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -184,16 +184,23 @@ profile.HandleDefault = function()
 	if (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
-	if (varhelper.GetToggle('DTset') == true) then
+	if (gcdisplay.GetToggle('DTset') == true) then
+        gFunc.EquipSet(gcinclude.sets.Dt);
 		gFunc.EquipSet(sets.Dt);
         if (pet ~= nil) then
             gFunc.EquipSet(sets.Pet_Dt);
 		end
 	end
-	if (varhelper.GetToggle('Kite') == true) then
+	if (gcdisplay.GetToggle('Kite') == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
 	gcinclude.CheckDefault ();
+    if (pet ~= nil) then 
+        if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
+            AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
+        end
+    end
+     
 end
 
 profile.HandleAbility = function()
@@ -217,11 +224,7 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast)
-
-    if string.contains(spell.Name, 'Utsusemi') then
-        gFunc.EquipSet(gcinclude.sets.Utsu_Precast);
-    end
+    gFunc.EquipSet(sets.Precast);
 
     gcinclude.CheckCancels();
 end
@@ -238,14 +241,14 @@ profile.HandleMidshot = function()
 end
 
 profile.HandleWeaponskill = function()
-	local canWS = gcinclude.CheckBailout();
+	local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
     
         gFunc.EquipSet(sets.Ws_Default)
-        if (varhelper.GetCycle('Set') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. varhelper.GetCycle('Set')) end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
     end
 end
 

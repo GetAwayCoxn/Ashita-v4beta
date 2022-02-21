@@ -253,6 +253,9 @@ sets = T{
         Ear1 = 'Crematio Earring',
         Feet = 'Amalric Nails +1',
     },
+    Storm = {
+        Feet = 'Peda. Loafers +1',
+    },
     Kaustra = {--need to refine this set
         Main = 'Marin Staff +1',
         Sub = 'Enki Strap',
@@ -349,7 +352,7 @@ profile.HandleDefault = function()
     if (gcdisplay.GetCycle('Weapon') == 'Staff') then
         gFunc.EquipSet(sets.Idle_Staff);
     end
-    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
+     
 end
 
 profile.HandleAbility = function()

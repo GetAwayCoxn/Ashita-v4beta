@@ -252,7 +252,7 @@ profile.HandleDefault = function()
             gFunc.EquipSet(sets.Pet_WS);
         end
     end
-    if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
+     
 end
 
 profile.HandleAbility = function()

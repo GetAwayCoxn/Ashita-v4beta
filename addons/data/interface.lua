@@ -23,7 +23,7 @@ function interface.Load()
         interface.settings.save();
     end);
     interface.manager.UpdateJobs:once(2);
-    --interface.manager.UpdateWeapons:once(5);
+    interface.manager.UpdateWeapons:once(5);
 end
 
 function interface.Unload()

@@ -5,6 +5,7 @@ local manager = T{ -- functions for data management
     animas = true;
     matters = true;
     guilditemsgil = 0;
+    plasm = 0;
 };
 
 function manager.UpdateJobs()  
@@ -12,9 +13,9 @@ function manager.UpdateJobs()
     local jobleveltotal = 0.0;
     local JPspenttotal = 0.0;
     local masterleveltotal = 0.0;
-    local joblevelmax = 99.0 * 22.0;
-    local JPmax = 2100.0 * 22.0;
-    local masterlevelmax = 30.0 * 22.0;
+    local joblevelmax = 99.0 * #defaults.jobsabrv;
+    local JPmax = 2100.0 * #defaults.jobsabrv;
+    local masterlevelmax = 30.0 * #defaults.jobsabrv;
     local JPhastotal = 0.0;
     
     for n = 1, #interface.defaults.jobsabrv do
@@ -669,6 +670,8 @@ function manager.DisplayAFGear()
 end
 
 function manager.DisplayAFGearNeed()
+    manager.guilditemsgil = 0;
+
     imgui.BeginTable('chapters', 11, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Chapters');imgui.TableNextColumn();
@@ -848,7 +851,7 @@ function manager.DisplayAFGearNeed()
                 count = count + interface.data.progress.gear.afneed[3][i][x];
             end
             imgui.Text(tostring(count));
-            --manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
+            manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
             if (x ~= #interface.data.progress.gear.afneed[3][1]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
@@ -897,9 +900,12 @@ function manager.DisplayAFGearNeed()
                 count = count + interface.data.progress.gear.afneed[4][i][x];
             end
             imgui.Text(tostring(count));
+            --manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
             if x~= #interface.data.progress.gear.afneed[4][1] then imgui.TableNextColumn() end
         end
     imgui.EndTable();
+
+    imgui.Text('Est. Needed Gil for Guild Items:  ');imgui.SameLine();imgui.TextColored(interface.colors.header, manager.comma_value(manager.guilditemsgil));
 end
 
 function manager.UpdateRelicGear()
@@ -1071,6 +1077,9 @@ function manager.DisplayRelicGear()
 end
 
 function manager.DisplayRelicGearNeed()
+    manager.guilditemsgil = 0;
+    manager.plasm = 0;
+
     imgui.BeginTable('Forgotten', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Forgotten');imgui.TableNextColumn();
@@ -1167,7 +1176,10 @@ function manager.DisplayRelicGearNeed()
         imgui.Text('Rockfin Tooth');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();
         for i = 1, #interface.data.progress.gear.relicneed[3] do
+            local count = 0;
+            count = count + interface.data.progress.gear.relicneed[3][i][2];
             imgui.Text(tostring(interface.data.progress.gear.relicneed[3][i][2]));
+            manager.plasm = manager.plasm + (count * 300000);
             if (i ~= #interface.data.progress.gear.relicneed[3]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
@@ -1215,7 +1227,10 @@ function manager.DisplayRelicGearNeed()
         imgui.Text('Rockfin Tooth');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();
         for i = 1, #interface.data.progress.gear.relicneed[4] do
+            local count = 0;
+            count = count + interface.data.progress.gear.relicneed[4][i][1];
             imgui.Text(tostring(interface.data.progress.gear.relicneed[4][i][1]));
+            manager.plasm = manager.plasm + (count * 300000);
             if (i ~= #interface.data.progress.gear.relicneed[4]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
@@ -1245,7 +1260,7 @@ function manager.DisplayRelicGearNeed()
                 count = count + interface.data.progress.gear.relicneed[4][i][x];
             end
             imgui.Text(tostring(count));
-            --manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
+            manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
             if (x ~= #interface.data.progress.gear.relicneed[4][1]) then imgui.TableNextColumn() end
         end
     imgui.EndTable();
@@ -1276,13 +1291,17 @@ function manager.DisplayRelicGearNeed()
             end
         end
     imgui.EndTable();
-    imgui.Spacing();
-    imgui.ShowHelp('119+2 and +3 items also need various shards and voids, see the next tab for display of those needs');
 
+    imgui.Spacing();
+    imgui.Text('Est. Needed Gil for Guild Items:  ');imgui.SameLine();imgui.TextColored(interface.colors.header, manager.comma_value(manager.guilditemsgil));
+    imgui.Text('Est. Needed Plasm:  ');imgui.SameLine();imgui.TextColored(interface.colors.header, manager.comma_value(manager.plasm));
+
+    imgui.Spacing();
     if (imgui.Button('Update Relic Gear')) then
         print(chat.header(addon.name) .. chat.message('Updating ... '));
         manager.UpdateRelicGear();
     end
+    imgui.ShowHelp('119+2 and +3 items also need various shards and voids, see the next tab for display of those needs');
 end
 
 function manager.DisplayRelicShardsNeed()
