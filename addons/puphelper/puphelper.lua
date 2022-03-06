@@ -1,6 +1,6 @@
-addon.name      = 'puphelper';
+addon.name      = 'Puphelper';
 addon.author    = 'GetAwayCoxn';
-addon.version   = '1.01';
+addon.version   = '1.03';
 addon.desc      = 'Does puppetmaster things. Based on my runehelper addon for Ashita v4, inspired by pupper addon by Towbes for Ashita v3';
 addon.link      = 'https://github.com/GetAwayCoxn/Pup-Helper';
 
@@ -68,9 +68,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 			    if (buffString ~= nil) and (buffString == manager.maneuvers[b][1]) then
                     manager.maneuvers[b][2] = manager.maneuvers[b][2] + 1;
                     total = total + 1;
-                end
-                if (buffString ~= nil) and (buffString == 'Mounted') then
+                elseif (buffString ~= nil) and (buffString == 'Mounted') then
                     manager.enabled = 'Disabled';
+                elseif (buffString ~= nil) and (buffString == 'Sleep') then
+                    return;
                 end
             end
         end
@@ -133,7 +134,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     end
 
     imgui.SetNextWindowSize(manager.size);
-    if (imgui.Begin('RuneHelper', manager.is_open, ImGuiWindowFlags_NoDecoration)) then
+    if (imgui.Begin('Puphelper', manager.is_open, ImGuiWindowFlags_NoDecoration)) then
         imgui.TextColored(manager.text_color, tostring(' +3 oils:  ' .. oils .. '                           Use /ph to hide'));
 
         local selection1 = {manager.menu_holders[1] + 1};
@@ -170,12 +171,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         imgui.ShowHelp('First entry is what HP% to force Manuever 1 to light, second entry is what HP% to go back to your previous Maneuver 1. First entry 0 to disable.');
 
         imgui.Checkbox('Auto Deploy', manager.autodeploy);imgui.SameLine();imgui.Checkbox('Auto Cooldown', manager.autocooldown);imgui.SameLine();imgui.Indent(300);
-        if (imgui.Button(manager.enabled)) then --colors not quite working the way i want 
+        if (imgui.Button(manager.enabled)) then
             if (manager.enabled == 'Disabled') then
-                --imgui.PushStyleColor(ImGuiCol_Button, { 0.2, 0.7, 0.0, 1.0 });
                 manager.enabled = 'Enabled';
             else
-                --imgui.PushStyleColor(ImGuiCol_Button, { 1.0, 0.4, 0.4, 1.0 });
                 manager.enabled = 'Disabled';
             end
         end
@@ -228,6 +227,16 @@ ashita.events.register('command', 'command_cb', function (e)
             manager.enabled = 'Disabled';
         elseif (manager.enabled == 'Disabled') then
             manager.enabled = 'Enabled';
+        end
+    elseif (#args >= 2 and args[2]:any('set')) then
+        local eles = {'dark','light','earth','wind','fire','ice','thunder','water'};
+        for x = 1, #eles do
+            for y = 1, #manager.menu_holders do
+                if args[y+2] == nil then
+                elseif string.lower(args[y+2]) == eles[x] then
+                    manager.menu_holders[y] = x - 1;
+                end
+            end
         end
     end
 end);

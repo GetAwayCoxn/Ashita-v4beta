@@ -237,7 +237,7 @@ profile.HandleDefault = function()
         if (pet ~= nil) then
             gFunc.EquipSet(sets.Pet_Dt);
 		end
-        gFunc.EquipSet(gcinclude.sets.Dt);
+         
         gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then

@@ -1,6 +1,6 @@
-addon.name      = 'runehelper';
+addon.name      = 'Runehelper';
 addon.author    = 'GetAwayCoxn';
-addon.version   = '1.01';
+addon.version   = '1.02';
 addon.desc      = 'Does runefencer things.';
 addon.link      = 'https://github.com/GetAwayCoxn/Rune-Helper';
 
@@ -51,9 +51,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 			    if (buffString ~= nil) and (buffString == manager.runes[b][1]) then
                     manager.runes[b][2] = manager.runes[b][2] + 1;
                     total = total + 1;
-                end
-                if (buffString ~= nil) and (buffString == 'Mounted') then
+                elseif (buffString ~= nil) and (buffString == 'Mounted') then
                     manager.enabled = 'Disabled';
+                elseif (buffString ~= nil) and (buffString == 'Sleep') then
+                    return;
                 end
             end
         end

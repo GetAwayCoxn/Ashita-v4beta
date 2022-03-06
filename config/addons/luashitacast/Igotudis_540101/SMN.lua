@@ -204,7 +204,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 	if (gcdisplay.GetToggle('DTset') == true) then
-        gFunc.EquipSet(gcinclude.sets.Dt);
+         
 		gFunc.EquipSet(sets.Dt);
         if (pet ~= nil) then
             gFunc.EquipSet(sets.Pet_Dt);

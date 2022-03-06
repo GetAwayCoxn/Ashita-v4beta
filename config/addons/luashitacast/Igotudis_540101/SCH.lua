@@ -219,6 +219,7 @@ sets = T{
         Feet = 'Amalric Nails +1',
     },
     NukeACC = {
+        Neck = 'Argute Stole +1',
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
     },
     Burst = {
@@ -341,7 +342,7 @@ profile.HandleDefault = function()
 	
 	
 	if (gcdisplay.GetToggle('DTset') == true) then
-        gFunc.EquipSet(gcinclude.sets.Dt);
+         
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then

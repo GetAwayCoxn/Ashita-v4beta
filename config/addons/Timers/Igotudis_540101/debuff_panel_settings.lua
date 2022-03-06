@@ -2,13 +2,13 @@ require('common');
 
 local settings = T{ };
 settings["move"] = T{ };
-settings["move"]["drag_y"] = 12;
-settings["move"]["drag_x"] = 47;
-settings["move"]["shift_down"] = false;
 settings["move"]["dragging"] = false;
+settings["move"]["drag_x"] = 87;
+settings["move"]["shift_down"] = false;
+settings["move"]["drag_y"] = 33;
 settings["scale"] = 1;
-settings["party_buffs"] = true;
 settings["padding"] = 1;
+settings["party_buffs"] = true;
 settings["locked"] = false;
 settings["opacity"] = 1;
 

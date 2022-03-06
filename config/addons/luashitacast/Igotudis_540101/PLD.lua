@@ -229,7 +229,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Fealty); -- same set as fealty
 	end
 	if (gcdisplay.GetToggle('DTset') == true) then
-		gFunc.EquipSet(gcinclude.sets.Dt);
+		 
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then

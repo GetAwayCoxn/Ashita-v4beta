@@ -210,7 +210,7 @@ profile.HandleDefault = function()
     end
 	
 	if (gcdisplay.GetToggle('DTset') == true) then
-		gFunc.EquipSet(gcinclude.sets.Dt);
+		 
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then

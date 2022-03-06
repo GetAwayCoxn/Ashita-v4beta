@@ -1,15 +1,16 @@
-addon.name      = 'pouches';
+addon.name      = 'Pouches';
 addon.author    = 'getawaycoxn';
 addon.version   = '1.0';
 addon.desc      = 'Uses any silt and bead pouches in your main inventory';
-addon.link      = 'https://github.com/GetAwayCoxn/';
+addon.link      = 'https://github.com/GetAwayCoxn/Pouches';
 
 --[[
     1.0 - Creation
     
     Known Issues
-        - Quick or repeated use of start after stop will result in command line chat message errors in game and not using all items
-          Worse with more pouches available for use due to how I implemented use_pouches() with :repeating 
+        - Quick/repeated use of start after stop will result in command line chat message errors in game and not using all items
+          Worse with more pouches available for use due to how I implemented use_pouches() with :repeating, best to let it finish 
+          once it has started for now.
 ]]
 
 
