@@ -17,7 +17,6 @@ local manager = {
     enabled = 'Disabled',
     maneuvers = {{'Dark Maneuver',0},{'Light Maneuver',0},{'Earth Maneuver',0},{'Wind Maneuver',0},{'Fire Maneuver',0},{'Ice Maneuver',0},{'Thunder Maneuver',0},{'Water Maneuver',0},{'Overload',0}},
     menu_holders = {-1,-1,-1},
-    menu1old = {-1},
     repair = {0,},
     autodeploy = {false,},
     autocooldown = {true,},
@@ -85,7 +84,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         if (AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(PetID) < manager.autolight[1]) then
             manager.menu_holders[1] = 1;
         elseif (AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(PetID) >= manager.autolight[2]) then
-            manager.menu_holders[1] = manager.menu1old[1];
+            manager.menu_holders[1] = manager.menu_holders[1];
         end
 
         --Do the maneuver things
@@ -140,7 +139,6 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         local selection1 = {manager.menu_holders[1] + 1};
         if (imgui.Combo('Maneuver 1', selection1, 'None\0Dark\0Light\0Earth\0Wind\0Fire\0Ice\0Thunder\0Water\0')) then
             manager.menu_holders[1] = selection1[1] - 1;
-            manager.menu1old[1] = selection1[1] - 1;
         end
         
         local selection2 = {manager.menu_holders[2] + 1};

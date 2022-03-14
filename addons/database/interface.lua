@@ -22,7 +22,7 @@ function interface.Load()
         end
         interface.settings.save();
     end);
-    interface.manager.UpdateJobs:once(5);
+    interface.manager.UpdateJobs();
     --interface.manager.UpdateWeapons:once(5); --causing nil crash on load in modifind lua
 end
 
@@ -396,7 +396,7 @@ function interface.Render()
 
     imgui.SetNextWindowSize({ 1000, 720, });
     imgui.SetNextWindowSizeConstraints({ 1000, 720, }, { FLT_MAX, FLT_MAX, });
-    if (imgui.Begin('Data', interface.is_open, ImGuiWindowFlags_NoResize)) then
+    if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
                 interface.RenderJobPointsTab();
