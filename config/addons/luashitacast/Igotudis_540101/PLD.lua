@@ -92,6 +92,7 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Legs = 'Enif Cosciales',

@@ -77,6 +77,7 @@ sets = T{
     Precast = {
         Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
+        Hands = 'Leyline Gloves',
         Ear1 = 'Malignance Earring',
         Ear2 = 'Etiolation Earring',
         Ring1 = 'Prolix Ring',

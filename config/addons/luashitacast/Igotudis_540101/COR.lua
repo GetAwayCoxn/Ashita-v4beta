@@ -32,7 +32,7 @@ sets = T{
         Main = 'Naegling',
         Sub = 'Nusku Shield',
         Range = 'Holliday',
-        Head = 'Laksa. Tricorne',
+        Head = 'Laksa. Tricorne +1',
         Body = 'Tanner\'s Apron',
         Hands = 'Malignance Gloves',
         Ring1 = 'Petrov Ring',
@@ -84,6 +84,7 @@ sets = T{
         Ear1 = 'Malignance Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Legs = 'Enif Cosciales',
     },
@@ -289,6 +290,7 @@ sets = T{
 
     QD = {
         Ammo = 'Animikii Bullet',
+        Head = 'Laksa. Tricorne +1',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',

@@ -109,7 +109,7 @@ sets = T{
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
         Body = { Name = 'Rawhide Vest', AugPath='A' },
-        Hands = 'Malignance Gloves',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Magic Damage +20', [2] = 'Mag. Acc+20', [3] = '"Fast Cast"+10', [4] = 'INT+20' } },

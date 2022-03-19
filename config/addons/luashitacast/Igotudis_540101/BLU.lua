@@ -90,6 +90,7 @@ sets = T{
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Luhlaza Jubbah +3',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Back = 'Swith Cape +1',

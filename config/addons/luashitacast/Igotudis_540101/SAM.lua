@@ -108,6 +108,7 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
+        Hands = 'Leyline Gloves',
         Ring2 = 'Prolix Ring',
     },
 
