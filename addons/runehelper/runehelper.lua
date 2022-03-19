@@ -1,6 +1,6 @@
 addon.name      = 'Runehelper';
 addon.author    = 'GetAwayCoxn';
-addon.version   = '1.02';
+addon.version   = '1.03';
 addon.desc      = 'Does runefencer things.';
 addon.link      = 'https://github.com/GetAwayCoxn/Rune-Helper';
 
@@ -38,7 +38,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     -- Do Work here if Enabled and before the is_open check
     if (manager.enabled == 'Enabled') then
         --Set recasts, runes dont work correcty however due to recasts addon i think, every rune is Ignis? This works for our needs for now however
-        local runerecast = CheckAbilityRecast('Ignis');
+        local runerecast = CheckAbilityRecast('Rune Enchantment');
         local pulserecast = CheckAbilityRecast('Vivacious Pulse');
 
         --Count runes, credit to Thorny here, this is from his luashitacast gData.GetBuffCount funtion, slightly modified for my specific use case

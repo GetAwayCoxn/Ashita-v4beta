@@ -88,7 +88,7 @@ sets = T{
     },
 	Tp_Hybrid = {
         Neck = 'Empath Necklace',
-        Ear1 = 'Mache Earring',
+        Ear1 = 'Mache Earring +1',
         Hands = 'Malignance Gloves',
         Ring1 = 'Cacoethic Ring',
     },

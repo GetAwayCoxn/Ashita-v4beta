@@ -4,7 +4,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Range = 'Doomsday',
+        Range = 'Holliday',
         Head = 'Malignance Chapeau',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Odnowa Earring +1',
@@ -21,21 +21,22 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Hands = 'Meg. Gloves +2',
+        Feet = 'Meg. Jam. +2',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Rawhide Mask',
+        Ring1 = 'Stikini Ring +1',
+    },
     Town = {
         Main = 'Naegling',
         Sub = 'Nusku Shield',
-        Head = 'Cumulus Masque',
-        Neck = 'Anu Torque',
-        Ear1 = 'Mache Earring',
-        Ear2 = 'Cessance Earring',
+        Range = 'Holliday',
+        Head = 'Laksa. Tricorne',
         Body = 'Tanner\'s Apron',
         Hands = 'Malignance Gloves',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Ilabrat Ring',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Lanun Bottes +2',
     },
@@ -56,7 +57,7 @@ sets = T{
     },
 
     Tp_Default = {
-        Range = 'Doomsday',
+        Range = 'Holliday',
         Head = 'Adhemar Bonnet +1',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Telos Earring',
@@ -65,7 +66,7 @@ sets = T{
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Ilabrat Ring',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Carmine Cuisses +1',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
@@ -127,22 +128,27 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
 
-    Preshot = {--base preshot, no flurry
-        Waist = 'Impulse Belt',
-        Legs = 'Adhemar Kecks +1',
+    Preshot = {--base preshot, no flurry, 70cap, 10 from gifts (only 1200 JP needed)
+        Hands = 'Lanun Gants +2',--11
+        Back = { Name = 'Camulus\'s Mantle', Augment = '"Snapshot"+10' },--10
+        Waist = 'Impulse Belt',--3
+        Legs = 'Ikenga\'s Trousers',--8
+        Feet = 'Meg. Jam. +2',--10
     },
-    Preshot_FlurryI = {--with flurry I on
+    Preshot_FlurryI = {--with flurry I on, gives 15
     },
-    Preshot_FlurryII = {--with flurry II on
+    Preshot_FlurryII = {--with flurry II on, gives 30
     },
     Midshot = {
         Head = 'Malignance Chapeau',
         Neck = 'Marked Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Enervating Earring',
+        Body = 'Mummu Jacket +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Ilabrat Ring',
+        Back = 'Gunslinger\'s Cape',
         Waist = 'Aquiline Belt',
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Nyame Sollerets',
@@ -160,6 +166,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring',
+        Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Legs = 'Nyame Flanchard',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
@@ -249,12 +256,13 @@ sets = T{
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Ilabrat Ring',
-        Back = 'Gunslinger\'s Cape',
+        Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Mummu Kecks +2',
         Feet = 'Lanun Bottes +2',
     },
     Wildfire_Hybrid = {
+        Neck = 'Sanctity Necklace',
     },
     Wildfire_Acc = {
     },
@@ -268,12 +276,13 @@ sets = T{
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Archon Ring',
-        Back = 'Gunslinger\'s Cape',
+        Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Mummu Kecks +2',
         Feet = 'Lanun Bottes +2',
     },
     Leaden_Hybrid = {
+        Neck = 'Sanctity Necklace',
     },
     Leaden_Acc = {
     },
@@ -286,7 +295,7 @@ sets = T{
         Body = 'Rawhide Vest',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
-        Back = 'Gunslinger\'s Cape',
+        Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Lanun Bottes +2',
@@ -302,13 +311,13 @@ sets = T{
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Nyame Sollerets',
     },
-    Rolls = {
+    Rolls = { -- it will put on ur DT gear set first then layer this set on during rolls (not dbl up), use /dt if you think you need to lock dt set while buffing
         Range = 'Compensator',
+        Back = 'Camulus\'s Mantle',
     },
-    WildCard = {Feet = 'Lanun Bottes +2'},
-    Movement = {
-        Legs = 'Carmine Cuisses +1',
-	},
+    Fold = {Hands = 'Lanun Gants +2'},
+    WildCard = {Feet = 'Lanun Bottes +2'}, 
+    Movement = {Legs = 'Carmine Cuisses +1'},
 };
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
@@ -367,7 +376,9 @@ profile.HandleAbility = function()
         gcinclude.DoCORmsg(ability.Name);
     elseif (ability.Name == 'Wild Card') then
         gFunc.EquipSet(sets.WildCard);
-    elseif (ability.Name:contains('Shot')) then
+    elseif (ability.Name == 'Fold') then
+        gFunc.EquipSet(sets.Fold);
+    elseif (ability.Name:contains('Shot')) and (ability.Name ~= 'Triple Shot') then
         gFunc.EquipSet(sets.QD);
         if (gcdisplay.GetCycle('Melee') == 'Acc') or (ability.Name == 'Dark Shot') or (ability.Name == 'Light Shot') then
             gFunc.EquipSet(sets.QD_Acc);

@@ -74,7 +74,7 @@ sets = T{
     },
     Tp_Acc = {
         Ammo = 'Ginsen',
-        Ear1 = 'Mache Earring',
+        Ear1 = 'Mache Earring +1',
         Hands = 'Tatena. Gote +1',
         Ring1 = 'Cacoethic Ring',
         Feet = 'Tatena. Sune. +1',
@@ -114,6 +114,7 @@ sets = T{
     },
 
     Victory_Default = {
+        Hands = 'Ryuo Tekko',
     },
     Victory_Hybrid = {},
     Victory_Acc = {},

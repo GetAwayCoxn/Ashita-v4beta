@@ -75,7 +75,7 @@ sets = T{
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt',
         Legs = 'Carmine Cuisses',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = '"Triple Atk."+1', [2] = 'Accuracy+17', [3] = 'Attack+17', [4] = 'Crit. hit damage +1%' } },
+        Feet = 'Adhemar Gamashes',
     },
 	Tp_Hybrid = {
         Head = 'Malignance Chapeau',
@@ -152,7 +152,8 @@ sets = T{
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+23', [5] = 'Magic Damage +20' } },
         Waist = 'Salire Belt',
         Legs = 'Jhakri Slops +2',
-        Feet = 'Jhakri Pigaches +2',
+        --Feet = 'Jhakri Pigaches +2',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = '"Dbl.Atk."+1', [2] = '"Mag. Atk. Bns."+39', [3] = 'Accuracy+3', [4] = 'Attack+3', [5] = 'Mag. Acc.+16' } },
     },
     BluDark = {
         Ring2 = 'Archon Ring',

@@ -57,7 +57,7 @@ gcauto.WeaponSkills = T{
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
-	['COR'] = {[1] = 'None', [2] = 'Savage Blade'},
+	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
 	['SCH'] = {[1] = 'None',},
@@ -172,8 +172,12 @@ function gcauto.SetCommands(args)
 	elseif (args[1] == 'wskill') then
 		gcdisplay.AdvanceCycle('WSkill');
 		if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
-	elseif (args[1] == 'wstp') then
-		wstp = tonumber(args[2]); -- need to add error msg/check here
+	elseif (args[1] == 'wstp') and (#args == 2) then
+		local tp = tonumber(args[2]);
+		if tp == nil then return;
+		elseif (tp > 0) and (tp < 3001) then
+			wstp = tp;
+		end
     end
 	
 
@@ -234,6 +238,10 @@ end
 
 function gcauto.CheckRemedy()
 	local player = gData.GetPlayer();
+
+	local muddle = gData.GetBuffCount('Muddle');
+	if muddle >= 1 then return false end;
+
 	local blind = gData.GetBuffCount('Blind');
 	local paralyze = gData.GetBuffCount('Paralyze');
 	local silence = 0;

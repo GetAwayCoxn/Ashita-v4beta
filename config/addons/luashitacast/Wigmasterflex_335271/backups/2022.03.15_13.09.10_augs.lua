@@ -79,11 +79,11 @@ local sets = {
         Body = 'Jhakri Robe +2',
         Hands = 'Aya. Manopolas +1',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Ayanmo Ring',
+        Ring2 = { Name = 'Dark Ring', Augment = { [1] = 'Magic dmg. taken -4%', [2] = 'Breath dmg. taken -5%', [3] = 'Phys. dmg. taken -4%' } },
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+23', [5] = 'Magic Damage +20' } },
         Waist = 'Sailfi Belt',
         Legs = { Name = 'Carmine Cuisses', AugPath='D' },
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = '"Dbl.Atk."+1', [2] = '"Mag. Atk. Bns."+39', [3] = 'Accuracy+3', [4] = 'Attack+3', [5] = 'Mag. Acc.+16' } },
+        Feet = 'Aya. Gambieras +2',
     },
     Precast = {
         Main = 'Sakpata\'s Sword',

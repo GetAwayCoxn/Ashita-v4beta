@@ -186,7 +186,7 @@ sets = T{
         Ear1 = 'Telos Earring',
         Ear2 = 'Odr Earring',
         Body = 'Mummu Jacket +2',
-        Hands = 'Mummu Wrists +2',
+        Hands = 'Ryuo Tekko',
         Ring1 = 'Mummu Ring',
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },

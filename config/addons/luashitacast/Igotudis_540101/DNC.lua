@@ -71,7 +71,7 @@ sets = T{
     },
     Tp_Acc = {
         Ammo = 'Yamarang',
-        Ear1 = 'Mache Earring',
+        Ear1 = 'Mache Earring +1',
         Ring2 = 'Cacoethic Ring',
     },
 
