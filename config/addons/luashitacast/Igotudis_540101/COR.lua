@@ -313,9 +313,10 @@ sets = T{
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Nyame Sollerets',
     },
-    Rolls = { -- it will put on ur DT gear set first then layer this set on during rolls (not dbl up), use /dt if you think you need to lock dt set while buffing
+    Rolls = { -- it will put on ur DT gear set first then layer this set on for phantom roll (not dbl up), use /dt if you think you need to lock dt set while rolling
         Range = 'Compensator',
         Back = 'Camulus\'s Mantle',
+        Ring2 = 'Barataria Ring',
     },
     Fold = {Hands = 'Lanun Gants +2'},
     WildCard = {Feet = 'Lanun Bottes +2'}, 
