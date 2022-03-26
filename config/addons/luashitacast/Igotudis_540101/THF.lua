@@ -46,7 +46,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
-        Ear2 = 'Cessance Earring',
+        Ear2 = 'Telos Earring',
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',

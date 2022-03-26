@@ -22,6 +22,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Body = 'Futhark Coat +3',
         Hands = 'Turms Mittens',
     },
     Idle_Refresh = {
@@ -63,7 +64,7 @@ sets = T{
         Neck = 'Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Nyame Mail',
+        Body = 'Futhark Coat +3',
         Hands = 'Turms Mittens',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -77,7 +78,7 @@ sets = T{
         Head = 'Adhemar Bonnet +1',
         Neck ='Anu Torque',
         Ear1 = 'Sherida Earring',
-        Ear2 = 'Cessance Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Herculean Vest',
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Niqmaddu Ring',
@@ -88,6 +89,7 @@ sets = T{
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Tp_Acc = {
+        Waist = 'Ioskeha Belt +1',
     },
 
 

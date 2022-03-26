@@ -5,6 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Range = 'Holliday',
+        Ammo = 'Decimating Bullet',
         Head = 'Malignance Chapeau',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Odnowa Earring +1',
@@ -32,13 +33,13 @@ sets = T{
         Main = 'Naegling',
         Sub = 'Nusku Shield',
         Range = 'Holliday',
-        Head = 'Laksa. Tricorne +1',
-        Body = 'Tanner\'s Apron',
+        Head = 'Chass. Tricorne +1',
+        Body = 'Laksa. Frac +1',
         Hands = 'Malignance Gloves',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Ilabrat Ring',
-        Legs = 'Ikenga\'s Trousers',
-        Feet = 'Lanun Bottes +2',
+        Legs = 'Carmine Cuisses +1',
+        Feet = 'Chass. Bottes +1',
     },
 
     Dt = {
@@ -58,6 +59,7 @@ sets = T{
 
     Tp_Default = {
         Range = 'Holliday',
+        Ammo = 'Decimating Bullet',
         Head = 'Adhemar Bonnet +1',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Telos Earring',
@@ -130,6 +132,7 @@ sets = T{
     },
 
     Preshot = {--base preshot, no flurry, 70cap, 10 from gifts (only 1200 JP needed)
+        Head = 'Chass. Tricorne +1',
         Hands = 'Lanun Gants +2',--11
         Back = { Name = 'Camulus\'s Mantle', Augment = '"Snapshot"+10' },--10
         Waist = 'Impulse Belt',--3
@@ -139,8 +142,10 @@ sets = T{
     Preshot_FlurryI = {--with flurry I on, gives 15
     },
     Preshot_FlurryII = {--with flurry II on, gives 30
+        Hands = 'Carmine Fin. Ga. +1',
     },
     Midshot = {
+        Ammo = 'Decimating Bullet',
         Head = 'Malignance Chapeau',
         Neck = 'Marked Gorget',
         Ear1 = 'Telos Earring',
@@ -159,6 +164,9 @@ sets = T{
         Legs = 'Ikenga\'s Trousers',
     },
     TripleShot = {
+        Ammo = 'Decimating Bullet',
+        Body = 'Chasseur\'s Frac. +1',
+        Hands = 'Lanun Gants +2',
     },
 
     Ws_Default = {
@@ -217,10 +225,10 @@ sets = T{
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Mummu Jacket +2',
-        Hands = 'Meg. Gloves +2',
+        Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
-        Back = 'Gunslinger\'s Cape',
+        Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Fotia Belt',
         Legs = 'Mummu Kecks +2',
         Feet = 'Lanun Bottes +2',
@@ -254,7 +262,7 @@ sets = T{
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
         Body = 'Mummu Jacket +2',
-        Hands = 'Meg. Gloves +2',
+        Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Ilabrat Ring',
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
@@ -274,7 +282,7 @@ sets = T{
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Mummu Jacket +2',
-        Hands = 'Meg. Gloves +2',
+        Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Archon Ring',
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
@@ -300,7 +308,7 @@ sets = T{
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Ikenga\'s Trousers',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Chass. Bottes +1',
     },
     QD_Acc = {
         Head = 'Malignance Chapeau',
@@ -311,10 +319,11 @@ sets = T{
         Ring1 = 'Crepuscular Ring',
         Ring2 = 'Metamor. Ring +1',
         Legs = 'Ikenga\'s Trousers',
-        Feet = 'Nyame Sollerets',
+        Feet = 'Chass. Bottes +1',
     },
     Rolls = { -- it will put on ur DT gear set first then layer this set on for phantom roll (not dbl up), use /dt if you think you need to lock dt set while rolling
         Range = 'Compensator',
+        Hands = 'Chasseur\'s Gants +1',
         Back = 'Camulus\'s Mantle',
         Ring2 = 'Barataria Ring',
     },

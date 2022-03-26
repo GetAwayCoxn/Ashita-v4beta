@@ -73,10 +73,10 @@ sets = T{
         Head = 'Malignance Chapeau',
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
-        Ear2 = 'Cessance Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Ilabrat Ring',
         Ring2 = 'Petrov Ring',
         Back = { Name = 'Sucellos\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+20', [3] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
@@ -84,6 +84,7 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
     Tp_Hybrid = {
+        Ring1 = 'Defending Ring',
     },
     Tp_Acc = {
     },
@@ -300,7 +301,7 @@ sets = T{
     Savage_Acc = {},
 
     Chant_Default = {
-        Ammo = 'Yetshila',
+        Ammo = 'Voluspa Tathlum',
         Head = { Name = 'Blistering Sallet +1', AugPath='A' },
         Neck = 'Fotia Gorget',
         Ear1 = 'Eabani Earring',

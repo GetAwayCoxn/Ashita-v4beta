@@ -102,7 +102,6 @@ sets = T{
     },
 
     Cure = {
-        Head = 'Ipoca Beret',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
         Body = 'Ayanmo Corazza +2',
@@ -194,14 +193,14 @@ sets = T{
     },
     CMP = {
         Ammo = 'Pemphredo Tathlum',
-        Head = 'Ipoca Beret',
+        Head = 'Ipoca Beret',--in storage probably
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
         Ring1 = 'Metamor. Ring +1',
         Ring2 = 'Kishar Ring',
         Back = 'Solemnity Cape',
         Waist = 'Hachirin-no-Obi',
-        Legs = 'Augury Cuisses +1',
+        Legs = 'Augury Cuisses +1',--in storage probably
         Feet = 'Amalric Nails +1',
     },
 

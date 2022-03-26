@@ -54,7 +54,7 @@ sets = T{
         Ring1 = 'Defending Ring',--10
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },--7
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
-        Waist = 'Ioskeha Belt',
+        Waist = 'Ioskeha Belt +1',
         Legs = 'Nyame Flanchard',--8
         Feet = 'Nyame Sollerets',--7
     },
@@ -70,7 +70,7 @@ sets = T{
         Ring1 = 'Ilabrat Ring',
         Ring2 = 'Niqmaddu Ring',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
-        Waist = 'Ioskeha Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
         Feet = { Name = 'Tatena. Sune. +1', AugPath='A' },
     },
@@ -84,6 +84,7 @@ sets = T{
         Ear1 = 'Mache Earring +1',
         Hands = 'Tatena. Gote +1',
         Ring1 = 'Cacoethic Ring',
+        Waist = 'Ioskeha Belt +1',
         Feet = 'Tatena. Sune. +1',
     },
     Tp_Proc = { -- a set to force low dmg for things like Vagary
@@ -97,7 +98,7 @@ sets = T{
         Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
-        Waist = 'Ioskeha Belt',
+        Waist = 'Ioskeha Belt +1',
         Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
         Feet = 'Flam. Gambieras +2',
     },

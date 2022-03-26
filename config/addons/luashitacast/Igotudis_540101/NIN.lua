@@ -59,7 +59,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
         Ear1 = 'Eabani Earring',
-        Ear2 = 'Cessance Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
@@ -78,7 +78,7 @@ sets = T{
     Tp_Acc = {
         Head = 'Malignance Chapeau',
         Ear1 = 'Odr Earring',
-        Ear2 = 'Cessance Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Mummu Jacket +2',
         Hands = 'Malignance Gloves',
         Ring2 = 'Cacoethic Ring',
@@ -123,7 +123,7 @@ sets = T{
     },
     Nuke = {
         Ammo = 'Ghastly Tathlum +1',
-        Head = 'Mummu Bonnet +2',
+        Head = 'Mochi. Hatsuburi +2',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Hecate\'s Earring',
         Ear2 = 'Lugra Earring +1',
@@ -138,7 +138,7 @@ sets = T{
     },
     Macc = {
         Ammo = 'Staunch Tathlum',
-        Head = 'Mummu Bonnet +2',
+        Head = 'Mochi. Hatsuburi +2',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Gwati Earring',
@@ -180,7 +180,7 @@ sets = T{
     },
 
     Hi_Default = {
-        Ammo = 'Yetshila',
+        Ammo = 'Voluspa Tathlum',
         Head = 'Mummu Bonnet +2',
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
         Ear1 = 'Telos Earring',

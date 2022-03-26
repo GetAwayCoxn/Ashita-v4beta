@@ -406,7 +406,7 @@ function manager.UpdateAFGear()
         end
     end
 
-    interface.data.progress.gear.afProgress[1] = (totalgear-countgear)/totalgear;
+    interface.data.progress.gear.afProgress[1] = countgear/totalgear;
     manager.CountAFGear();
 end
 
@@ -883,7 +883,7 @@ function manager.UpdateRelicGear()
             countgear = countgear + interface.data.progress.gear.relic[a][b][1];
         end
     end
-    interface.data.progress.gear.relicProgress[1] = (totalgear-countgear)/totalgear;
+    interface.data.progress.gear.relicProgress[1] = countgear/totalgear;
     manager.CountRelicGear();
 end
 
@@ -1338,7 +1338,7 @@ function manager.UpdateEmpyGear()
             countgear = countgear + interface.data.progress.gear.empyrean[a][b][1];
         end
     end
-    interface.data.progress.gear.empyProgress[1] = (totalgear-countgear)/totalgear;
+    interface.data.progress.gear.empyProgress[1] = countgear/totalgear;
     interface.manager.CountEmpyGear();
 end
 
