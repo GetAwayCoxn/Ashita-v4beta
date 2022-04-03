@@ -17,7 +17,7 @@ sets = T{
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Ikenga\'s Trousers',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Lanun Bottes +3',
     },
     Resting = {},
     Idle_Regen = {
@@ -185,7 +185,7 @@ sets = T{
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Fotia Belt',
         Legs = 'Nyame Flanchard',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+        Feet = 'Lanun Bottes +3',
     },
     Ws_Hybrid = {
     },
@@ -201,7 +201,7 @@ sets = T{
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Sailfi Belt +1',
         Legs = 'Mummu Kecks +2',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+        Feet = 'Lanun Bottes +3',
     },
     Savage_Hybrid = {
     },
@@ -239,7 +239,7 @@ sets = T{
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Fotia Belt',
         Legs = 'Mummu Kecks +2',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Lanun Bottes +3',
     },
     Aedge_Hybrid = {
     },
@@ -257,7 +257,7 @@ sets = T{
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Fotia Belt',
         Legs = 'Mummu Kecks +2',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Lanun Bottes +3',
     },
     Laststand_Hybrid = {
     },
@@ -276,7 +276,7 @@ sets = T{
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Mummu Kecks +2',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Lanun Bottes +3',
     },
     Wildfire_Hybrid = {
         Neck = 'Sanctity Necklace',
@@ -296,7 +296,7 @@ sets = T{
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Aquiline Belt',
         Legs = 'Mummu Kecks +2',
-        Feet = 'Lanun Bottes +2',
+        Feet = 'Lanun Bottes +3',
     },
     Leaden_Hybrid = {
         Neck = 'Sanctity Necklace',
