@@ -11,7 +11,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
@@ -34,7 +34,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
@@ -64,6 +64,14 @@ sets = T{
         Feet = 'Gleti\'s Boots',
     },
     Tp_Acc = {
+        Head = 'Malignance Chapeau',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Mache Earring +1',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Moonbeam Ring',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
 
 
@@ -75,9 +83,6 @@ sets = T{
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Legs = 'Enif Cosciales',
-    },
-    SIR = {
-
     },
 
     Preshot = {
@@ -98,7 +103,7 @@ sets = T{
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',

@@ -57,7 +57,7 @@ gcauto.WeaponSkills = T{
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
-	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute'},
+	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Detonator'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
 	['SCH'] = {[1] = 'None',},
@@ -598,7 +598,7 @@ function gcauto.Initialize()
 	gcauto.SetAlias();
 	--gcauto.Welcome();
 	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
-	AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
+	--AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
 end
 
 function gcauto.Default()

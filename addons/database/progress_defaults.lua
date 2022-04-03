@@ -1,6 +1,6 @@
 progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
     progress = {
-        jobs = {0.0,0.0,0.0,0.0}, -- EXP completion, CP completion, Mastery completion, total JP holding for Oboro
+        jobs = {0.0,0.0,0.0}, -- EXP completion, CP completion, Mastery completion
         weapons ={
             relics = {0,0,0,0,0,0}, --bynes, bronze, shells, marrows, plutons, SAD crystals
             mythics = {0,0,0,0,0}, --alex,scoria,Beitetsu,HP bayld,crystals

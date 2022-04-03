@@ -7,7 +7,7 @@ sets = T{
         Main = 'Kali',
         Sub = 'Joiner\'s Shield',
         Range = 'Gjallarhorn',
-        Head = 'Aya. Zucchetto +1',
+        Head = 'Aya. Zucchetto +2',
         Neck = 'Loricate Torque',
         Ear1 = 'Colossus\'s Earring',
         Ear2 = 'Ethereal Earring',
@@ -47,7 +47,7 @@ sets = T{
 
     Dt = {
         Sub = 'Joiner\'s Shield',
-        Head = 'Aya. Zucchetto +1',
+        Head = 'Aya. Zucchetto +2',
         Neck = 'Loricate Torque',
         Ear1 = 'Colossus\'s Earring',
         Ear2 = 'Ethereal Earring',
@@ -65,7 +65,7 @@ sets = T{
         Main = 'Naegling',
         Sub = 'Joiner\'s Shield',
         Range = 'Gjallarhorn',
-        Head = 'Aya. Zucchetto +1',
+        Head = 'Aya. Zucchetto +2',
         Neck = { Name = 'Bard\'s Charm +1', AugPath='A' },
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
@@ -239,7 +239,7 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = 'Rhapsode\'s Cape',
         Waist = 'Fucho-no-Obi',
-        Legs = 'Inyanga Shalwar +2',
+        Legs = 'Inyanga Shalwar +1',
         Feet = 'Brioso Slippers +1',
     },
     Paeon = {--I personally force paeons to use my extra song harp, you can also use /forcestring if you want
@@ -252,7 +252,7 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Fucho-no-Obi',
-        Legs = 'Inyanga Shalwar +2',
+        Legs = 'Inyanga Shalwar +1',
         Feet = 'Volte Gaiters',
     },
     March = {
@@ -262,7 +262,7 @@ sets = T{
         Head = 'Aoidos\' Calot +2',
     },
     Ballad = {--I dont use this
-        --Legs = 'Inyanga Shalwar +2',
+        --Legs = 'Inyanga Shalwar +1',
         Legs = 'Aoidos\'s Rhing. +2',
     },
     Scherzo = {
@@ -281,7 +281,7 @@ sets = T{
     },
 
     Ws_Default = {
-        Head = 'Aya. Zucchetto +1',
+        Head = 'Aya. Zucchetto +2',
         Neck = 'Fotia Gorget',
         Ear1 = 'Mache Earring +1',
         Ear2 = 'Cessance Earring',

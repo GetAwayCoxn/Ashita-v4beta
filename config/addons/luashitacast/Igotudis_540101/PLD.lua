@@ -12,7 +12,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Volte Moufles',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Flume Belt +1',
@@ -46,7 +46,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Flume Belt +1',
@@ -61,8 +61,8 @@ sets = T{
         Ear2 = 'Cessance Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Cacoethic Ring',
+        Ring1 = 'Moonbeam Ring',
+        Ring2 = 'Petrov Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
@@ -76,14 +76,15 @@ sets = T{
         Ear2 = 'Cessance Earring',
         Body = 'Flamma Korazin +2',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Cacoethic Ring',
+        Ring1 = 'Moonbeam Ring',
+        Ring2 = 'Petrov Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Flam. Gambieras +2',
     },
     Tp_Acc = {
+        Ring2 = 'Cacoethic Ring',
     },
 
 
@@ -128,7 +129,7 @@ sets = T{
         Ear1 = 'Mendi. Earring', -- 5
         Ear2 = 'Nourish. Earring +1', -- 6
         Hands = 'Macabre Gaunt. +1', -- 11
-        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Stikini Ring +1',
         Back = 'Solemnity Cape', -- 7
         Legs = 'Flamma Dirs +2', -- 9 on me
         Feet = 'Odyssean Greaves', -- 7
@@ -152,7 +153,7 @@ sets = T{
         Body = 'Nyame Mail',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Sakpata\'s Cuisses',

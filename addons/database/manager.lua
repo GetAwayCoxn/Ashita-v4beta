@@ -16,7 +16,6 @@ function manager.UpdateJobs()
     local joblevelmax = 99.0 * #defaults.jobsabrv;
     local JPmax = 2100.0 * #defaults.jobsabrv;
     local masterlevelmax = 30.0 * #defaults.jobsabrv;
-    local JPhastotal = 0.0;
     
     for n = 1, #interface.defaults.jobsabrv do
         interface.defaults.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
@@ -26,11 +25,8 @@ function manager.UpdateJobs()
         jobleveltotal = jobleveltotal + player:GetJobLevel(a);
         JPspenttotal = JPspenttotal + player:GetJobPointsSpent(a);
         masterleveltotal = masterleveltotal + player:GetJobMasterLevel(a);
-        if (player:GetJobPointsSpent(a) == 2100) then
-            JPhastotal = JPhastotal + player:GetJobPoints(a);
-        end
     end
-    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax),JPhastotal};
+    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax)};
 end
 
 function manager.DisplayJobs()
@@ -834,7 +830,7 @@ function manager.DisplayAFGearNeed()
     imgui.BeginTable('1193items', 5, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv119+3 Items');imgui.TableNextRow();imgui.TableNextColumn();
-        imgui.Text('SYN. Faulpie Lthr');imgui.TableNextColumn();
+        imgui.Text('Faulpie Lthr');imgui.TableNextColumn();
         imgui.Text('Cypress Log');imgui.TableNextColumn();
         imgui.Text('Cypress Lbr');imgui.TableNextColumn();
         imgui.Text('Khoma Thread');imgui.TableNextColumn();
@@ -845,6 +841,10 @@ function manager.DisplayAFGearNeed()
                 count = count + interface.data.progress.gear.afneed[4][i][x];
             end
             imgui.Text(tostring(count));imgui.TableNextColumn();
+            if x == 10 then
+                count = count + (count * 2);--accounting for cloth needing three threads
+            end
+            manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
         end
         imgui.Text('Azure Cermet');imgui.TableNextColumn();
         imgui.Text('Cyan Orb');imgui.TableNextColumn();
@@ -857,7 +857,10 @@ function manager.DisplayAFGearNeed()
                 count = count + interface.data.progress.gear.afneed[4][i][x];
             end
             imgui.Text(tostring(count));
-            --manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
+            if x == 13 or x == 14 then
+                count = count + (count * 3);--accounting for the ingots needing four ores
+            end
+            manager.guilditemsgil = manager.guilditemsgil + (count * 1126125);
             if x~= #interface.data.progress.gear.afneed[4][1] then imgui.TableNextColumn() end
         end
     imgui.EndTable();
@@ -2300,19 +2303,19 @@ function manager.DisplayGallantry()
     if (interface.data.points.gallantry.month[1] == 1) then
         imgui.BeginTable('Relics', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Relics');imgui.TableNextRow();imgui.TableNextColumn();
-            imgui.Checkbox('1 Byne', interface.data.points.gallantry.bynes1);imgui.TableNextColumn();
+            imgui.Checkbox('1 Byne(75)', interface.data.points.gallantry.bynes1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bynes1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bynes1[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('O.Bronze', interface.data.points.gallantry.bronze1);imgui.TableNextColumn();
+            imgui.Checkbox('O.Bronze(75)', interface.data.points.gallantry.bronze1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bronze1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bronze1[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('T.Shells', interface.data.points.gallantry.shells1);imgui.TableNextColumn();
+            imgui.Checkbox('T.Shells(75)', interface.data.points.gallantry.shells1);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.shells1[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
@@ -2330,19 +2333,19 @@ function manager.DisplayGallantry()
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bronze2[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('L.Shells', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
+            imgui.Checkbox('L.Shell', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.shells2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.shells2[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('Plutons', interface.data.points.gallantry.plutons);imgui.TableNextColumn();
+            imgui.Checkbox('Plutons(250)', interface.data.points.gallantry.plutons);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.plutons[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.plutons[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('Marrows', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
+            imgui.Checkbox('Marrow', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.marrows[1]) then
                     imgui.Text('    0');
                 else

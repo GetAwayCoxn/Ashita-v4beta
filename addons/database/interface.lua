@@ -56,8 +56,6 @@ function interface.RenderJobPointsTab()
                 imgui.ProgressBar(interface.data.progress.jobs[3], 10);imgui.TableNextColumn(); 
             imgui.EndTable();
 
-            imgui.Separator();imgui.Spacing();
-            imgui.TextColored(interface.colors.text1, 'JOB Points available to spend at Oboro: ');imgui.SameLine();imgui.Text(tostring(interface.data.progress.jobs[4]));
         imgui.EndChild();
 
         if (imgui.Button('Update Jobs')) then

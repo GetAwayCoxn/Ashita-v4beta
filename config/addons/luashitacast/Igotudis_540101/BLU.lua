@@ -140,7 +140,7 @@ sets = T{
         Ring2 = 'Shiva Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Acuity Belt +1',
-        Legs = 'Jhakri Slops +2',
+        Legs = 'Amalric Slops +1',
         Feet = 'Amalric Nails +1',
     },
     BluDark = {
@@ -158,7 +158,7 @@ sets = T{
         Ring2 = 'Crepuscular Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Acuity Belt +1',
-        Legs = 'Jhakri Slops +2',
+        Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
     BluStun = {
@@ -173,7 +173,7 @@ sets = T{
         Ring2 = 'Crepuscular Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Acuity Belt +1',
-        Legs = 'Jhakri Slops +2',
+        Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
     BluPhysical = {
@@ -217,7 +217,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
-        Ring1 = 'Karieyh Ring',
+        Ring1 = 'Karieyh Ring +1',
         Ring2 = 'Rufescent Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',

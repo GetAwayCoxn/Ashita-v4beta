@@ -1044,7 +1044,6 @@ settings["prices"]["rifts"][2] = 0;
 settings["progress"]["jobs"][1] = 0;
 settings["progress"]["jobs"][2] = 0;
 settings["progress"]["jobs"][3] = 0;
-settings["progress"]["jobs"][4] = 0;
 settings["progress"]["gear"]["ambu"][1][1][1] = 0;
 settings["progress"]["gear"]["ambu"][1][1][2] = "S Head";
 settings["progress"]["gear"]["ambu"][1][2][1] = 0;
