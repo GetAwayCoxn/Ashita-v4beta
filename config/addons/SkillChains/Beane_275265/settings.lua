@@ -130,9 +130,9 @@ settings["display"]["pos"]["y"] = 573;
 settings["display"]["pos"]["x"] = 717;
 settings["display"]["size"] = 10;
 settings["display"]["color"] = -1;
-settings["display"]["bg"] = true;
 settings["display"]["bgcolor"] = 1711276032;
 settings["display"]["font"] = "Consolas";
+settings["display"]["bg"] = true;
 settings["color"] = false;
 
 return settings;

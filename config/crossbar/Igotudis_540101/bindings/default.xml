@@ -22,14 +22,19 @@
     <righttrigger>
         <dpadup>
             <type>Command</type>
-            <command>/addon unload data</command>
-            <text>UNLOAD DATA</text>
+            <command>/addon unload database</command>
+            <text>/addon unload database</text>
         </dpadup>
         <dpaddown>
             <type>Command</type>
             <command>/addon load database</command>
             <text>database</text>
         </dpaddown>
+        <buttonup>
+            <type>Command</type>
+            <command>/db</command>
+            <text>/db</text>
+        </buttonup>
         <buttondown>
             <type>Command</type>
             <command>/addon reload database</command>

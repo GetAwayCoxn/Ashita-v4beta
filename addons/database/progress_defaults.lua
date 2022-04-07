@@ -12,6 +12,7 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             },
             ambuProgress = {0.0,},
             ambuWepItems = {0,0,0,0,0,0}, --voucher,nugget,gem,anima,matter,pulse,
+            ergons = {},
         },
         gear = {
             af = {

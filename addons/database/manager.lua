@@ -292,6 +292,22 @@ function manager.DisplayMythics()
     end
 end
 
+function manager.DisplayErgons()
+    imgui.TableNextRow();
+    for c = 1, #interface.defaults.weapons.mythics[1] do
+        for r = 1, #interface.defaults.weapons.mythics do
+            imgui.TableNextColumn();
+            if (r == 1) then
+                imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.mythics[r][c][1]));
+            elseif (interface.defaults.weapons.mythics[r][c][2] == true) then
+                imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.mythics[r][c][1]));
+            else
+                imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.mythics[r][c][1]));
+            end
+        end
+    end
+end
+
 function manager.UpdateAmbuWeps()
     for a = 1, #interface.defaults.weapons.ambu do
         local count = 1;

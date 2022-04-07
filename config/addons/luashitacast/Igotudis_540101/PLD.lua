@@ -28,7 +28,7 @@ sets = T{
         Ring2 = 'Stikini Ring +1',
     },
     Town = {
-        Main = 'Exalibur',
+        Main = 'Excalibur',
         Sub = 'Aegis',
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',

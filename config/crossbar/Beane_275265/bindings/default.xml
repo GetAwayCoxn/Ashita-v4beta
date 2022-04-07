@@ -6,24 +6,34 @@
             <command>/lw profile Beane</command>
             <text>/lw profile Beane</text>
         </dpadup>
+        <dpaddown>
+            <type>Command</type>
+            <command>/addon load skillchains</command>
+            <text>/addon load skillchains</text>
+        </dpaddown>
     </lefttrigger>
     
     <!--These bindings are for right trigger only.-->
     <righttrigger>
         <dpadup>
             <type>Command</type>
-            <command>/addon unload data</command>
-            <text>UNLOAD DATA</text>
+            <command>/addon unload database</command>
+            <text>/addon unload database</text>
         </dpadup>
         <dpaddown>
             <type>Command</type>
-            <command>/addon load data</command>
-            <text>LOAD DATA</text>
+            <command>/addon load database</command>
+            <text>/addon load database</text>
         </dpaddown>
+        <buttonup>
+            <type>Command</type>
+            <command>/db</command>
+            <text>/db</text>
+        </buttonup>
         <buttondown>
             <type>Command</type>
-            <command>/addon reload data</command>
-            <text>RELOAD DATA</text>
+            <command>/addon reload database</command>
+            <text>/addon reload database</text>
         </buttondown>
     </righttrigger>
     
@@ -32,7 +42,7 @@
         <dpadup>
             <type>Command</type>
             <command>/auto</command>
-            <text>GC_AUTO</text>
+            <text>AUTO</text>
         </dpadup>
         <dpadright>
             <type>Command</type>
@@ -42,7 +52,7 @@
         <dpaddown>
             <type>Command</type>
             <command>/dt</command>
-            <text>GC_DT</text>
+            <text>DT</text>
         </dpaddown>
         <dpadleft>
             <type>Command</type>

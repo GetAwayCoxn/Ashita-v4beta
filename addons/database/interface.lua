@@ -118,7 +118,6 @@ function interface.RenderWeaponsTab()
                 imgui.EndTabItem();
                 end
 
-
                 if (imgui.BeginTabItem('MYTHICS', nil)) then
                     imgui.Spacing();
                     imgui.BeginTable('mythics table', #interface.defaults.weapons.mythics, ImGuiTableFlags_Borders);
@@ -155,6 +154,44 @@ function interface.RenderWeaponsTab()
                 imgui.EndTabItem();
                 end
 
+                if (imgui.BeginTabItem('ERGONS', nil)) then
+                    imgui.Spacing();
+                    imgui.BeginTable('ergon table', 9, ImGuiTableFlags_Borders);
+                            imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'WEAPONS');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Quest');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 1');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Fight');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 2');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 3');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base Ergon');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Afterglow');
+                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Augmented');
+
+                            interface.manager.DisplayErgons();
+                        imgui.EndTable();
+
+                    imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('ergon needed table', 5, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ergon Need:');
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'HP Bayld');
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Plasm');
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Beitetsu');
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Sad Crystals');
+                        imgui.TableNextColumn();
+                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[1])));
+                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[2])));
+                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[3])));
+                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[4])));
+                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
+                    imgui.EndTable();
+                    if (imgui.Button('Update Ergons')) then
+                        print(chat.header(addon.name) .. chat.message('Updating ... '));
+                        interface.manager.UpdateMythics();
+                    end
+                imgui.EndTabItem();
+                end
 
                 if (imgui.BeginTabItem('EMPYREANS', nil)) then
                     imgui.Spacing();
