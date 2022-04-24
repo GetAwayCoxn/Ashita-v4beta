@@ -7,11 +7,11 @@ sets = T{
         Main = 'Bolelabunga',
         Sub = 'Genmei Shield',
         Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
+        Head = 'Malignance Chapeau',
         Neck = 'Loricate Torque +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Nyame Mail',
+        Body = 'Atrophy Tabard +2',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -24,6 +24,7 @@ sets = T{
     Idle_Regen = {
         Head = 'Befouled Crown',
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
@@ -87,13 +88,15 @@ sets = T{
         Ring1 = 'Defending Ring',
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 
     Precast = {
         Main = 'Sakpata\'s Sword',
         Sub = 'Ammurapi Shield',
-        Ammo = 'Staunch Tathlum',
+        Ammo = 'Sapience Orb',
         Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
@@ -256,6 +259,7 @@ sets = T{
         Feet = 'Ea Pigaches', -- 4 and 4
     },
     Helix = {},
+    Mp_Body = {Body = 'Seidr Cotehardie',},
 
     Preshot = {
     },
@@ -452,6 +456,9 @@ profile.HandleMidcast = function()
         end
         if string.match(spell.Name, 'helix') then
             gFunc.EquipSet(sets.Helix);
+        end
+        if (player.MPP <= 40) then
+            gFunc.EquipSet(sets.Mp_Body);
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);

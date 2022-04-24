@@ -21,6 +21,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
     Town = {
@@ -75,6 +76,8 @@ sets = T{
     Tp_Hybrid = {
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 

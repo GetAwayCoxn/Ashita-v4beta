@@ -10,16 +10,26 @@
         
         <!--These bindings are for LT>RT, but also used for LT+RT if allowpriority is disabled.-->
         <bothtriggerslt>
+            <buttonup>
+                <type>Command</type>
+                <command>/sir</command>
+                <text>SIR</text>
+            </buttonup>
             <buttonright>
                 <type>Command</type>
-                <command>/maj</command>
-                <text>MAJ</text>
+                <command>/tankset</command>
+                <text>TANKset</text>
             </buttonright>
             <buttondown>
                 <type>Command</type>
                 <command>/def</command>
                 <text>DEF</text>
             </buttondown>
+            <buttonleft>
+                <type>Command</type>
+                <command>/am3</command>
+                <text>AM3</text>
+            </buttonleft>
         </bothtriggerslt>
         
         <!--These bindings are for RT>LT, and will not be used if allowpriority is disabled.-->

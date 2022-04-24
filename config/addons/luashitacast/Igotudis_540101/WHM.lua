@@ -23,6 +23,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
@@ -65,11 +66,13 @@ sets = T{
     Tp_Hybrid = {
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 
     Precast = {
-        Ammo = 'Staunch Tathlum',
+        Ammo = 'Sapience Orb',
         Head = 'Peda. M.Board +2',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',

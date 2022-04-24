@@ -23,6 +23,7 @@ sets = T{
         Neck = 'Bathy Choker +1',
         Body = 'Hiza. Haramaki +2',
         Hands = 'Rao Kote',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
     Town = {
@@ -42,6 +43,7 @@ sets = T{
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
         Ear2 = 'Etiolation Earring',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
@@ -68,6 +70,7 @@ sets = T{
     Tp_Hybrid = {
         Head = 'Mpaca\'s Cap',
         Neck = 'Sanctity Necklace',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Mpaca\'s Gloves',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
@@ -76,7 +79,8 @@ sets = T{
         Ammo = 'Ginsen',
         Ear1 = 'Mache Earring +1',
         Hands = 'Tatena. Gote +1',
-        Ring1 = 'Cacoethic Ring',
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Feet = 'Tatena. Sune. +1',
     },
 
@@ -95,7 +99,7 @@ sets = T{
 
     Ws_Default = {
         Ammo = 'Knobkierrie',
-        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
+        Head = 'Mpaca\'s Cap',
         Neck = 'Fotia Gorget',
         Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
         Ear2 = 'Odr Earring',

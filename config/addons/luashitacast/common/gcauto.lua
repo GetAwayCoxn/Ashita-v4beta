@@ -44,10 +44,10 @@ gcauto.WeaponSkills = T{
 	['WAR'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['MNK'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Shijin Spiral'},
 	['WHM'] = {[1] = 'None',},
-	['BLM'] = {[1] = 'None',},
+	['BLM'] = {[1] = 'None', [2] = 'Myrkr'},
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
-	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
+	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement'},
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
@@ -57,12 +57,12 @@ gcauto.WeaponSkills = T{
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
 	['SMN'] = {[1] = 'None',},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
-	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Detonator'},
+	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
-	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm'},
-	['SCH'] = {[1] = 'None',},
+	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Aeolian Edge'},
+	['SCH'] = {[1] = 'Myrkr',},
 	['GEO'] = {[1] = 'None',},
-	['RUN'] = {[1] = 'None', [2] = 'Dimidiation', [3] = 'Resolution'},
+	['RUN'] = {[1] = 'None', [2] = 'Dimidiation', [3] = 'Resolution', [4] = 'Shockwave'},
 };
 
 function gcauto.SetAlias()
@@ -123,7 +123,7 @@ function gcauto.SetVariables()
 	
 
 	if (player.MainJob == 'PLD') then
-		gcdisplay.CreateToggle('MAJ', false);
+		gcdisplay.CreateToggle('MAJ', true);
 	elseif (player.MainJob == 'BLU') then
 		gcdisplay.CreateToggle('NatMed', false);
 	elseif (player.MainJob == 'NIN') then
@@ -150,7 +150,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('LR', false);
 	end
 	if (player.MainJob == 'DNC') then
-		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Saber Dance', [3] = 'Fan Dance', [4] = 'Haste Samba', [5] = 'Drain Samba III',});
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba III',});
 	elseif (player.SubJob == 'DNC') then
 		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba II',});
 	end
@@ -291,6 +291,8 @@ function gcauto.AutoWS()
 
 		if (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <t>');
+		elseif (gcdisplay.GetCycle('WSkill') == 'Myrkr') and (player.TP >= wstp) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <me>');
 		end
 	end
 end
@@ -377,16 +379,21 @@ function gcauto.DoJobStuff()
 
 	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
+
 		if (gcdisplay.GetToggle('MAJ') == true) then	
 			if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) and (player.Status == 'Engaged') then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "majesty" <me>')
 			end
 		end
 		if (gcdisplay.GetToggle('AUTO') == true) then
-			local endark = gData.GetBuffCount('Enlight');
+			local enlight = gData.GetBuffCount('Enlight');
+			local haste = gData.GetBuffCount('Haste');
 
-			if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
+			end
+			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1)  and (haste >= 1) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Reprisal" <me>');
 			end
 		end
 	elseif (player.MainJob == 'BLU') then
@@ -487,7 +494,7 @@ function gcauto.DoJobStuff()
 
 
 		if (gcdisplay.GetToggle('AUTO') == true) then
-			local refresh = gData.GetBuffCount('Refresh');
+			--local refresh = gData.GetBuffCount('Refresh');
 			local aquaveil = gData.GetBuffCount('Aquaveil');
 
 			if (refresh == 0) and (player.MPP < 60) then
@@ -523,11 +530,11 @@ function gcauto.DoJobStuff()
 					end
 				end
 
-				if (temper == 0) then
+				--[[if (temper == 0) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Temper" <me>');
-				elseif (phalanx == 0) then
+				else]]if (phalanx == 0) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Phalanx" <me>');
-				elseif (foil == 0) and (gcdisplay.GetToggle('Foil') == true) then
+				elseif (foil == 0) and (gcdisplay.GetToggle('Foil') == true) and (target.HPP < 98) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Foil" <me>');
 				end
 			end

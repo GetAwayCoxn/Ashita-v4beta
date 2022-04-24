@@ -22,8 +22,12 @@ sets = T{
 	Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Jumalik Helm',
+        Ring1 = 'Stikini Ring +1',
+    },
 	Town = {
         Main = 'Naegling',
         Sub = 'Adapa Shield',
@@ -91,9 +95,12 @@ sets = T{
         Neck = 'Empath Necklace',
         Ear1 = 'Mache Earring +1',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Cacoethic Ring',
+        Ring1 = 'Cacoethic Ring +1',
     },
-	Tp_Acc = {},
+	Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
+    },
     Pet_Only_Tp = {
         Ammo = 'Voluspa Tathlum',
         Neck = 'Shulmanu Collar',

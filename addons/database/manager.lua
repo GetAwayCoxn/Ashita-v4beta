@@ -30,6 +30,14 @@ function manager.UpdateJobs()
 end
 
 function manager.DisplayJobs()
+    imgui.BeginTable('jobs table', 5, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'JOB');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Level');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Points Spent');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Master Level');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Points Current');
+
     for n=1, #interface.defaults.jobsabrv do
         imgui.TableNextRow();imgui.TableNextColumn();imgui.TextColored(interface.colors.header, interface.defaults.jobsabrv[n]);
         for x = 1, 4 do 
@@ -47,6 +55,23 @@ function manager.DisplayJobs()
                 imgui.Text('0');
             end
         end
+    end
+    imgui.EndTable();
+
+    imgui.Separator();imgui.Spacing();
+    imgui.BeginTable('totals table', 1);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'TOTALS');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.text1, 'Total JOB Level Completion:');imgui.TableNextColumn();
+        imgui.ProgressBar(interface.data.progress.jobs[1], 10);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.text1, 'Total JOB Points Completion:');imgui.TableNextColumn();
+        imgui.ProgressBar(interface.data.progress.jobs[2], 10);imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.text1, 'Total JOB Master Level Completion:');imgui.TableNextColumn();
+        imgui.ProgressBar(interface.data.progress.jobs[3], 10);imgui.TableNextColumn(); 
+    imgui.EndTable();
+    if (imgui.Button('Update Jobs')) then
+        print(chat.header(addon.name) .. chat.message('Updated Jobs'));
+        manager.UpdateJobs();
     end
 end
 
@@ -93,6 +118,52 @@ function manager.CountItemId(id)
         end
     end
     return total;
+end
+
+function manager.CheckItemRankInfo(id)
+    local info = {};
+    local map = {[1] = 50, [2] = 80, [3] = 120, [4] = 170, [5] = 220, [6] = 280, [7] = 340, [8] = 410, [9] = 480, [10]=560, [11]=650, [12] = 750, [13] = 960, [14] = 980};
+    local inv = AshitaCore:GetMemoryManager():GetInventory();
+    for bag = 0,16 do
+        for slot = 1,80 do
+            local item = inv:GetContainerItem(bag, slot);
+            if item and item.Id == id then
+                local extData = item.Extra;
+                local augType = struct.unpack('B', extData, 1);
+                if (augType == 2) or (augType == 3) then
+                    local augFlag = struct.unpack('B', extData, 2);
+                    if (augFlag == 131) then
+                        local rankByte = struct.unpack('B', extData, 7);
+                        local rank = ((rankByte % 128) - (rankByte % 4)) / 4;
+                        local rankPointsByte = struct.unpack('B', extData, x);--need to figure out correct pointer
+                        local rankPoints = math.max(map[rank] or 0 - extData:byte(6)*256 - extData:byte(5),0);
+                        info = {rank, rankPoints};
+                        return info;
+                    end
+                end
+                return info;
+            end    
+        end
+    end
+    return info;
+end
+
+
+function manager.CheckKeyItemName(name)
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
+
+    for x = 0, 65535 do
+        local n = AshitaCore:GetResourceManager():GetString('keyitems.names', x);
+        if (n ~= nil and n:len() > 1) then
+            if (n:lower():match(name:lower())) then
+                if player:HasKeyItem(x) == true then
+                    return true;
+                else
+                    return false;
+                end
+            end
+        end
+    end
 end
 
 function manager.UpdateRelics()
@@ -253,27 +324,26 @@ function manager.UpdateMythics()
     for c = 1, #interface.defaults.weapons.mythics[1] do
         for r = 2, #interface.defaults.weapons.mythics do
             if (manager.CheckItemId(interface.defaults.weapons.mythics[r][c][1])) then
-                interface.defaults.weapons.mythics[r][c] = {interface.defaults.weapons.mythics[r][c][1],true,0,0,0,0,0};
+                interface.defaults.weapons.mythics[r][c] = {interface.defaults.weapons.mythics[r][c][1],true,0,0,0,0};
                 for b = r -1, 2, -1 do
-                interface.defaults.weapons.mythics[b][c] = {interface.defaults.weapons.mythics[b][c][1],true,0,0,0,0,0};
+                interface.defaults.weapons.mythics[b][c] = {interface.defaults.weapons.mythics[b][c][1],true,0,0,0,0};
                 end
             end
         end
     end
 
-    local alex = 0;local scoria = 0;local beitetsu = 0;local bayld = 0;local crystals = 0;
+    local alex = 0;local scoria = 0;local beitetsu = 0;local crystals = 0;
 
     for r = 2, #interface.defaults.weapons.mythics do
         for i = 1, #interface.defaults.weapons.mythics[r] do
             alex = alex + interface.defaults.weapons.mythics[r][i][3];
             scoria = scoria + interface.defaults.weapons.mythics[r][i][4];
             beitetsu = beitetsu + interface.defaults.weapons.mythics[r][i][5];
-            bayld = bayld + interface.defaults.weapons.mythics[r][i][6];
-            crystals = crystals + interface.defaults.weapons.mythics[r][i][7];
+            crystals = crystals + interface.defaults.weapons.mythics[r][i][6];
         end
     end
 
-    interface.data.progress.weapons.mythics = {alex, scoria, beitetsu, bayld, crystals};
+    interface.data.progress.weapons.mythics = {alex, scoria, beitetsu, crystals};
 end
 
 function manager.DisplayMythics()
@@ -292,20 +362,108 @@ function manager.DisplayMythics()
     end
 end
 
-function manager.DisplayErgons()
-    imgui.TableNextRow();
-    for c = 1, #interface.defaults.weapons.mythics[1] do
-        for r = 1, #interface.defaults.weapons.mythics do
-            imgui.TableNextColumn();
-            if (r == 1) then
-                imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.mythics[r][c][1]));
-            elseif (interface.defaults.weapons.mythics[r][c][2] == true) then
-                imgui.TextColored(interface.colors.text1,tostring(interface.defaults.weapons.mythics[r][c][1]));
-            else
-                imgui.TextColored(interface.colors.error,tostring(interface.defaults.weapons.mythics[r][c][1]));
+function manager.UpdateErgons()
+    interface.data.progress.weapons.ergonNeeds = {26198,8600000,20000,1192};--{bayld,plasm,beitetsu,sad crystals}
+
+    for w = 1, 2 do
+        for c = 2, #interface.defaults.weapons.ergons[w] do
+            if c <= 6 then
+                local check = manager.CheckKeyItemName(interface.defaults.weapons.ergons[w][c]);
+                if (check == false) and (c > 2) then
+                    check = manager.CheckItemId(interface.defaults.weapons.ergons[w+2][c]);
+                end
+                interface.data.progress.weapons.ergons[w][c] = check;
+                if check == true then
+                    for b = c -1, 2, -1 do
+                        interface.data.progress.weapons.ergons[w][b] = check;
+                    end
+                end
+            elseif c <= 8 then
+                local check = manager.CheckItemId(interface.defaults.weapons.ergons[w][c]);
+                interface.data.progress.weapons.ergons[w][c] = check;
+                if check == true then
+                    for b = c -1, 2, -1 do
+                        interface.data.progress.weapons.ergons[w][b] = check;
+                    end
+                end
+            elseif c == 9 then
+                --need to sort out augment check here and count the crystals remaining
+                local check = manager.CheckItemId(interface.defaults.weapons.ergons[w][c]);
+                interface.data.progress.weapons.ergons[w][c] = check;
+                if check == true then
+                    for b = c -1, 2, -1 do
+                        interface.data.progress.weapons.ergons[w][b] = check;
+                    end
+                end
             end
         end
     end
+
+    for i = 1, 2 do
+        local Needs = {{0,0,100,500,2500,9999,0,0,0},{0,0,0,900000,900000,2500000,0,0,0},{0,0,0,0,0,0,0,10000,0},{0,0,0,0,0,0,0,0,596}};--{bayld,plasm,beitetsu,sad crystals} needed for each of the nine stages
+        for x = #interface.data.progress.weapons.ergons[i] - 1, 2, -1 do
+            if interface.data.progress.weapons.ergons[i][x] == true then
+                for n = 1, #interface.data.progress.weapons.ergonNeeds do
+                    local count = 0;
+                    for c = x, 2, -1 do
+                        count = count + Needs[n][c];
+                        Needs[n][c] = 0;
+                    end
+                    interface.data.progress.weapons.ergonNeeds[n] = interface.data.progress.weapons.ergonNeeds[n] - count;
+                end
+            end
+        end
+    end
+end
+
+function manager.DisplayErgons()
+    imgui.BeginTable('ergon table', #interface.defaults.weapons.ergons[1], ImGuiTableFlags_Borders);
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'WEAPONS');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Quest');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 1');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 2');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 3');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 4');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base Ergon');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Afterglow');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Augmented');
+    imgui.TableNextRow();
+    for w = 1, 2 do
+        for c = 1, #interface.defaults.weapons.ergons[w] do
+            if c == 1 then
+                imgui.TableNextColumn();
+                imgui.TextColored(interface.colors.header,tostring(interface.defaults.weapons.ergons[w][1]));
+            elseif c <= 8 then
+                imgui.TableNextColumn();
+                if interface.data.progress.weapons.ergons[w][c] == true then
+                    imgui.TextColored(interface.colors.text1,'Yep');
+                else
+                    imgui.TextColored(interface.colors.error,'Nupe');
+                end
+            else
+                imgui.TableNextColumn();
+                imgui.Text('TBD');
+            end
+        end
+    end
+
+    imgui.EndTable();
+end
+
+function manager.DisplayErgonsNeed()
+    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ergon Need:');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'HP Bayld');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Plasm');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Beitetsu');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Sad Crystals');
+    imgui.TableNextColumn();
+    imgui.TableNextColumn();imgui.Text(manager.comma_value(interface.data.progress.weapons.ergonNeeds[1]));
+    imgui.TableNextColumn();imgui.Text(manager.comma_value(interface.data.progress.weapons.ergonNeeds[2]));
+    imgui.TableNextColumn();imgui.Text(manager.comma_value(interface.data.progress.weapons.ergonNeeds[3]));
+    imgui.TableNextColumn();imgui.Text(manager.comma_value(interface.data.progress.weapons.ergonNeeds[4]));
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
 end
 
 function manager.UpdateAmbuWeps()
@@ -391,6 +549,7 @@ function manager.UpdateWeapons()
 	manager.UpdateRelics();
     manager.UpdateEmpyreans();
     manager.UpdateMythics();
+    manager.UpdateErgons();
     manager.UpdateAmbuWeps();
 end
 
@@ -400,18 +559,15 @@ function manager.UpdateAFGear()
 
     for a = 1, (#interface.defaults.gear.af - 1) do
         for b = 1, #interface.defaults.gear.af[a] do
-            local count = 1;
-            if interface.data.progress.gear.af[a][b][1] == #interface.defaults.gear.af[a][b] then
-                count = #interface.defaults.gear.af[a][b] + 1;
-            elseif interface.data.progress.gear.af[a][b][1] == 0 then
-            else count = interface.data.progress.gear.af[a][b][1] end
-            for c = count, #interface.defaults.gear.af[a][b] do
-                if (modifind.search(interface.defaults.gear.af[a][b][c])) then
+            for c = #interface.defaults.gear.af[a][b], interface.data.progress.gear.af[a][b][1], -1  do --checks from highest to lowest in case have random NQ in storage would give false positive modifind.search 
+                if c < 1 then break end;
+                if (modifind.search(interface.defaults.gear.af[a][b][c]) == true) then
                     interface.data.progress.gear.af[a][b][1] = c;
-                elseif (a == (#interface.defaults.gear.af - 1)) then
-                    if (modifind.search(interface.defaults.gear.af[#interface.defaults.gear.af][b][c])) then --checking female DNC AF
-                        interface.data.progress.gear.af[19][b][1] = c;
-                    end
+                    break;
+                end
+                if (a == 19) and (modifind.search(interface.defaults.gear.af[23][b][c]) == true) then --added bit here for stupid female dnc af
+                    interface.data.progress.gear.af[a][b][1] = c;
+                    break;
                 end
             end
             countgear = countgear + interface.data.progress.gear.af[a][b][1];
@@ -626,6 +782,7 @@ function manager.CountAFGear()
 end
 
 function manager.DisplayAFGear()
+    imgui.BeginTable('af gear has', 5, ImGuiTableFlags_Borders);
     imgui.Spacing();imgui.Spacing();
     for a = 1, #interface.data.progress.gear.af do
         for b = 1, #interface.data.progress.gear.af[a] do
@@ -636,6 +793,13 @@ function manager.DisplayAFGear()
             end
         end
     end
+    imgui.EndTable();
+    if (imgui.Button('Update AF Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updated AF Gear'));
+        interface.manager.UpdateAFGear();
+    end
+    imgui.SameLine();
+    imgui.ProgressBar(interface.data.progress.gear.afProgress[1],10);
 end
 
 function manager.DisplayAFGearNeed()
@@ -777,11 +941,11 @@ function manager.DisplayAFGearNeed()
     imgui.BeginTable('1192slot', 6, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.header, 'Lv119+2');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Head (8 cards)');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Body (10 cards)');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Hands (7 cards)');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Legs (9 cards)');imgui.TableNextColumn();
-        imgui.TextColored(interface.colors.header, 'Feet (6 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Head (8/40 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Body (10/50 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Hands (7/35 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Legs (9/45 cards)');imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.header, 'Feet (6/30 cards)');imgui.TableNextColumn();
         imgui.Text('Slot');imgui.TableNextColumn();
         imgui.Text('Emp Artho Shell');imgui.TableNextColumn();
         imgui.Text('Joyous Moss');imgui.TableNextColumn();
@@ -889,14 +1053,11 @@ function manager.UpdateRelicGear()
     local totalgear = #interface.defaults.gear.relic * #interface.defaults.gear.relic[1] * #interface.defaults.gear.relic[1][1];
     for a = 1, #interface.defaults.gear.relic do
         for b = 1, #interface.defaults.gear.relic[a] do
-            local count = 1;
-            if interface.data.progress.gear.relic[a][b][1] == #interface.defaults.gear.relic[a][b] then
-                count = #interface.defaults.gear.relic[a][b] + 1;
-            elseif interface.data.progress.gear.relic[a][b][1] == 0 then
-            else count = interface.data.progress.gear.relic[a][b][1] end
-            for c = 1, #interface.defaults.gear.relic[a][b] do
-                if (modifind.search(interface.defaults.gear.relic[a][b][c])) then
+            for c = #interface.defaults.gear.relic[a][b], interface.data.progress.gear.relic[a][b][1], -1  do --checks from highest to lowest in case have random NQ in storage would give false positive modifind.search 
+                if c < 1 then break end;
+                if (modifind.search(interface.defaults.gear.relic[a][b][c]) == true) then
                     interface.data.progress.gear.relic[a][b][1] = c;
+                    break;
                 end
             end
             countgear = countgear + interface.data.progress.gear.relic[a][b][1];
@@ -1045,7 +1206,7 @@ function manager.DisplayRelicGear()
     end
     imgui.EndTable();
     if (imgui.Button('Update Relic Gear')) then
-        print(chat.header(addon.name) .. chat.message('Updating ... '));
+        print(chat.header(addon.name) .. chat.message('Updated Relic Gear'));
         manager.UpdateRelicGear();
     end
     imgui.SameLine();
@@ -1344,14 +1505,11 @@ function manager.UpdateEmpyGear()
     local totalgear = #interface.defaults.gear.empyrean * #interface.defaults.gear.empyrean[1] * #interface.defaults.gear.empyrean[1][1];
     for a = 1, #interface.defaults.gear.empyrean do
         for b = 1, #interface.defaults.gear.empyrean[a] do
-            local count = 1;
-            if interface.data.progress.gear.empyrean[a][b][1] == #interface.defaults.gear.empyrean[a][b] then
-                count = #interface.defaults.gear.empyrean[a][b] + 1;
-            elseif interface.data.progress.gear.empyrean[a][b][1] == 0 then
-            else count = interface.data.progress.gear.empyrean[a][b][1] end
-            for c = count, #interface.defaults.gear.empyrean[a][b] do
-                if (modifind.search(interface.defaults.gear.empyrean[a][b][c])) then
+            for c = #interface.defaults.gear.empyrean[a][b], interface.data.progress.gear.empyrean[a][b][1], -1  do --checks from highest to lowest in case have random NQ in storage would give false positive modifind.search 
+                if c < 1 then break end;
+                if (modifind.search(interface.defaults.gear.empyrean[a][b][c]) == true) then
                     interface.data.progress.gear.empyrean[a][b][1] = c;
+                    break;
                 end
             end
             countgear = countgear + interface.data.progress.gear.empyrean[a][b][1];
@@ -1961,44 +2119,69 @@ function manager.DisplayAmbuGearNeed()
         fibers = fibers - countfibers;
     end
 
-    
+    imgui.BeginTable('ambu gear summary table', 1);
+        imgui.TableNextRow();imgui.TableNextColumn();
+        imgui.TextColored(interface.colors.text1, 'Total AMBU Gear Completion:');imgui.ShowHelp('Inaccurate but close, quick progress calc based on remaining metals/fibers needed');imgui.TableNextColumn();
+        imgui.ProgressBar(interface.data.progress.gear.ambuProgress[1]);imgui.TableNextColumn();
+    imgui.EndTable();
 
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ambu Gear Slips Need:');
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Head');
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Body');
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Hands');
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Legs');
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Feet');
+    imgui.Spacing();imgui.Spacing();
+
+    imgui.BeginTable('ambu gear need', 6, ImGuiTableFlags_Borders);
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ambu Gear Slips Need:');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Head');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Body');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Hands');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Legs');
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Feet');
                         
-    imgui.TableNextColumn();imgui.Text('A. Vouchers:');
-    imgui.TableNextColumn();imgui.Text(tostring(headvouchers));
-    imgui.TableNextColumn();imgui.Text(tostring(bodyvouchers));
-    imgui.TableNextColumn();imgui.Text(tostring(handvouchers));
-    imgui.TableNextColumn();imgui.Text(tostring(legvouchers));
-    imgui.TableNextColumn();imgui.Text(tostring(feetvouchers));
+        imgui.TableNextColumn();imgui.Text('A. Vouchers:');
+        imgui.TableNextColumn();imgui.Text(tostring(headvouchers));
+        imgui.TableNextColumn();imgui.Text(tostring(bodyvouchers));
+        imgui.TableNextColumn();imgui.Text(tostring(handvouchers));
+        imgui.TableNextColumn();imgui.Text(tostring(legvouchers));
+        imgui.TableNextColumn();imgui.Text(tostring(feetvouchers));
 
-    imgui.TableNextColumn();imgui.Text('A. Tokens:');
-    imgui.TableNextColumn();imgui.Text(tostring(headtokens));
-    imgui.TableNextColumn();imgui.Text(tostring(bodytokens));
-    imgui.TableNextColumn();imgui.Text(tostring(handtokens));
-    imgui.TableNextColumn();imgui.Text(tostring(legtokens));
-    imgui.TableNextColumn();imgui.Text(tostring(feettokens));
+        imgui.TableNextColumn();imgui.Text('A. Tokens:');
+        imgui.TableNextColumn();imgui.Text(tostring(headtokens));
+        imgui.TableNextColumn();imgui.Text(tostring(bodytokens));
+        imgui.TableNextColumn();imgui.Text(tostring(handtokens));
+        imgui.TableNextColumn();imgui.Text(tostring(legtokens));
+        imgui.TableNextColumn();imgui.Text(tostring(feettokens));
 
-    imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Upgrade Items Need:');
-    imgui.TableNextColumn();
-    imgui.TableNextColumn();
-    imgui.TableNextColumn();
-    imgui.TableNextColumn();
-    imgui.TableNextColumn();
+        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
+        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Upgrade Items Need:');
+        imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        imgui.TableNextColumn();
+        imgui.TableNextColumn();
 
-    imgui.TableNextColumn();imgui.Text('Abdhaljs Metals:');
-    imgui.TableNextColumn();imgui.Text(tostring(metals));
-    imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+        imgui.TableNextColumn();imgui.Text('Abdhaljs Metals:');
+        imgui.TableNextColumn();imgui.Text(tostring(metals));
+        imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
 
-    imgui.TableNextColumn();imgui.Text('Abdhaljs Fibers:');
-    imgui.TableNextColumn();imgui.Text(tostring(fibers));
+        imgui.TableNextColumn();imgui.Text('Abdhaljs Fibers:');
+        imgui.TableNextColumn();imgui.Text(tostring(fibers));
+    imgui.EndTable();
+
+    if (imgui.Button('Update Ambu Gear')) then
+        print(chat.header(addon.name) .. chat.message('Updated Ambuscade Gear'));
+        interface.manager.UpdateAmbuGear();
+    end
+end
+
+function manager.DisplayScaleGear()
+    imgui.Spacing();imgui.Spacing();
+end
+
+function manager.DisplayHideGear()
+    imgui.Spacing();imgui.Spacing();
+end
+
+function manager.DisplayWingGear()
+    imgui.Spacing();imgui.Spacing();
 end
 
 function manager.UpdateGear()
@@ -2371,7 +2554,7 @@ function manager.DisplayGallantry()
     elseif (interface.data.points.gallantry.month[1] == 2) then
         imgui.BeginTable('Mythics', 8, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Mythics');imgui.TableNextRow();imgui.TableNextColumn();
-            imgui.Checkbox('Alex()', interface.data.points.gallantry.alex);imgui.TableNextColumn();
+            imgui.Checkbox('Alex(875)', interface.data.points.gallantry.alex);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.alex[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
@@ -2439,9 +2622,13 @@ function manager.comma_value(n) --credit--http://richard.warburton.it
 end
 
 function manager.Test()
-    --print(tostring(modifind.search(23468)));
-    --interface.manager.CountEmpyGear();
-    print(tostring(AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags()));
+    local test = {};
+    test = manager.CheckItemRankInfo(21956);
+    if test[1] == nil then return end;
+    print('\n Rank/Points: ');
+    for x = 1, #test do
+        print(tostring(test[x]));
+    end
 end
 
 return manager;

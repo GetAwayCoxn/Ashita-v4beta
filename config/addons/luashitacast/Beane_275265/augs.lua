@@ -102,6 +102,23 @@ local sets = {
         Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
         Feet = 'Volte Gaiters',
     },
+    Idle = {
+        Main = 'Tokko Knife',
+        Sub = 'Eminent Dagger',
+        Range = 'Raider\'s Bmrng.',
+        Head = 'Meghanada Visor +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Bladeborn Earring',
+        Ear2 = 'Steelflash Earring',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Mummu Wrists +1',
+        Ring1 = 'Meghanada Ring',
+        Ring2 = 'Yacuruna Ring',
+        Back = 'Bleating Mantle',
+        Waist = 'Hurch\'lan Sash',
+        Legs = 'Meg. Chausses +2',
+        Feet = 'Meg. Jam. +1',
+    },
 };
 
 profile.Sets = sets;

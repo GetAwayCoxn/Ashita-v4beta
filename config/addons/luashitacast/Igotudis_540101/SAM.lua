@@ -9,7 +9,7 @@ sets = T{
         Neck = 'Loricate Torque +1',
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
         Ear2 = 'Eabani Earring',
-        Body = 'Nyame Mail',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Macabre Gaunt. +1',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
@@ -23,6 +23,7 @@ sets = T{
         Neck = 'Bathy Choker +1',
         Body = 'Hiza. Haramaki +2',
         Hands = 'Rao Kote',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
     Town = {
@@ -49,7 +50,7 @@ sets = T{
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },--6
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },--1
         Ear2 = 'Schere Earring',
-        Body = 'Kasuga Domaru +1',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Nyame Gauntlets',--7
         Ring1 = 'Defending Ring',--10
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },--7
@@ -67,8 +68,8 @@ sets = T{
         Ear2 = 'Schere Earring',
         Body = 'Kasuga Domaru +1',
         Hands = 'Flam. Manopolas +2',
-        Ring1 = 'Ilabrat Ring',
-        Ring2 = 'Niqmaddu Ring',
+        Ring1 = 'Niqmaddu Ring',
+        Ring2 = 'Chirich Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
@@ -76,6 +77,7 @@ sets = T{
     },
     Tp_Hybrid = {
         Head = 'Mpaca\'s Cap',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Mpaca\'s Gloves',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
@@ -83,7 +85,8 @@ sets = T{
     Tp_Acc = {
         Ear1 = 'Mache Earring +1',
         Hands = 'Tatena. Gote +1',
-        Ring1 = 'Cacoethic Ring',
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Waist = 'Ioskeha Belt +1',
         Feet = 'Tatena. Sune. +1',
     },
@@ -222,7 +225,7 @@ sets = T{
         Ring1 = 'Karieyh Ring +1',
         Ring2 = 'Rufescent Ring',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
-        Waist = 'Flume Belt +1',
+        Waist = 'Eschan Stone',
         Legs = 'Hiza. Hizayoroi +2',
         Feet = 'Nyame Sollerets',
     },
@@ -241,10 +244,10 @@ sets = T{
         Ear2 = 'Lugra Earring +1',
         Body = 'Nyame Mail',
         Hands = 'Mpaca\'s Gloves',
-        Ring1 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Ring2 = 'Stikini Ring +1',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
-        Waist = 'Flume Belt +1',
+        Waist = 'Eschan Stone',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Nyame Sollerets',
     },

@@ -13,7 +13,7 @@ sets = T{
         Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Gelatinous Ring +1',
+        Ring2 = 'Chirich Ring +1',
 		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Gleti\'s Breeches',
@@ -25,11 +25,12 @@ sets = T{
     },
     Idle_Regen = {
         Neck = 'Bathy Choker +1';
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
         Head = 'Rawhide Mask',
         Body = 'Luhlaza Jubbah +3',
-        Ring2 = 'Stikini Ring +1',
+        Ring1 = 'Stikini Ring +1',
         Waist = 'Fucho-no-Obi',
     },
 	Town = {
@@ -80,31 +81,33 @@ sets = T{
         Ear1 = 'Mache Earring +1',
         Body = 'Luhlaza Jubbah +3',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Cacoethic Ring'
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 	
-	Precast = {
-        Ammo = 'Staunch Tathlum',
-        Head = 'Haruspex Hat',
-        Neck = 'Baetyl Pendant',
-        Ear1 = 'Loquac. Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Luhlaza Jubbah +3',
-        Hands = 'Leyline Gloves',
-        Ring1 = 'Prolix Ring',
-        Ring2 = 'Kishar Ring',
-        Back = 'Swith Cape +1',
-        Legs = 'Enif Cosciales',
-        Feet = 'Amalric Nails +1',
+	Precast = {--55
+        Ammo = 'Sapience Orb',--2
+        Head = 'Haruspex Hat',--8
+        Neck = 'Baetyl Pendant',--4
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',--1
+        Body = 'Luhlaza Jubbah +3',--9
+        Hands = 'Leyline Gloves',--6
+        Ring1 = 'Prolix Ring',--2
+        Ring2 = 'Kishar Ring',--4
+        Back = 'Swith Cape +1',--4
+        Waist = 'Kasiri Belt',
+        Legs = 'Enif Cosciales',--8
+        Feet = 'Carmine Greaves +1',--7
     },
     Stoneskin_Precast = {
-        Waist = 'Siegel Sash'   
+        Waist = 'Siegel Sash',
     },
 
     Cure = {
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
-        Body = 'Ayanmo Corazza +2',
+        Ear2 = 'Etiolation Earring',
         Hands = 'Weath. Cuffs +1',
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Metamor. Ring +1',
@@ -114,15 +117,15 @@ sets = T{
     WhiteWind = {
         Head = 'Nyame Helm',
         Neck = 'Bathy Choker +1',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Odnowa Earring +1',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
-        Hands = 'Weath. Cuffs +1',
-        Ring1 = 'Stikini Ring +1',
-        Ring2 = 'Vengeful Ring',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Supershear Ring',
+        Ring2 = 'Gelatinous Ring +1',
         Back = 'Solemnity Cape',
         Legs = 'Nyame Flanchard',
-        Feet = 'Medium\'s Sabots',
+        Feet = 'Carmine Greaves +1',
     },
     BluSkill = {
         Body = 'Assim. Jubbah +2',
@@ -139,7 +142,7 @@ sets = T{
         Ring1 = 'Metamor. Ring +1',
         Ring2 = 'Shiva Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
-        Waist = 'Acuity Belt +1',
+        Waist = 'Eschan Stone',
         Legs = 'Amalric Slops +1',
         Feet = 'Amalric Nails +1',
     },
@@ -227,6 +230,7 @@ sets = T{
     Ws_Hybrid = {
         Head = 'Nyame Helm',
         Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
@@ -246,8 +250,8 @@ sets = T{
         Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {
-        Head = 'Nyame Helm',
-        Feet = 'Nyame Sollerets',
+        Head = 'Malignance Chapeau',
+        Hands = 'Malignance Gloves',
     },
     Chant_Acc = {
     },
@@ -268,9 +272,16 @@ sets = T{
     Savage_Acc = {
     },
 	
+    Ca = {
+        Feet = 'Assim. Charuqs +1',
+    },
+    Ba = {
+        Feet = 'Hashi. Basmak +1',
+    },
     Diffusion = {
         Feet = 'Luhlaza Charuqs +1'
     },
+
     Enmity = {
         Neck = 'Unmoving Collar +1',
         Ear1 = 'Cryptic Earring',
@@ -367,8 +378,8 @@ profile.HandleMidcast = function()
     elseif string.match(spell.Name, 'Evryone. Grudge') or string.match(spell.Name, 'Tenebral Crush') then gFunc.EquipSet(sets.BluDark);
     end
 
-    if (ca>=1) then gFunc.Equip('Feet','Assim. Charuqs +1') end
-    if (ba>=1) then gFunc.Equip('Feet','Hashi. Basmak +1') end
+    if (ca>=1) then gFunc.EquipSet(sets.Ca) end
+    if (ba>=1) then gFunc.EquipSet(sets.Ba) end
     if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
 end
 

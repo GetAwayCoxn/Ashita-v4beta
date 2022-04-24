@@ -3,7 +3,7 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
         jobs = {0.0,0.0,0.0}, -- EXP completion, CP completion, Mastery completion
         weapons ={
             relics = {0,0,0,0,0,0}, --bynes, bronze, shells, marrows, plutons, SAD crystals
-            mythics = {0,0,0,0,0}, --alex,scoria,Beitetsu,HP bayld,crystals
+            mythics = {0,0,0,0}, --alex,scoria,Beitetsu,crystals
             empyreans = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, --{chloris,glavoid,briareus,cara,fistule,kukulkan,iron plates,ulhuadshi,itzpapalotl,sobek,CC lantern,bukhis,sedna,colorless soul,dragua,orthus,apademak,isgebind,alfard,azdaja,HMP,dross,cinder,boulders,crystals}
             ambu = {
                 {0,'H2H -- Karambit'},{0,'Dagger -- Tauret'},{0,'Sword -- Naegling'},{0,'GS -- Nandaka'},{0,'Axe -- Dolichenus'},
@@ -12,7 +12,11 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             },
             ambuProgress = {0.0,},
             ambuWepItems = {0,0,0,0,0,0}, --voucher,nugget,gem,anima,matter,pulse,
-            ergons = {},
+            ergons = {
+                {'Epeolatry',false,false,false,false,false,false,false,'TDB'},--Epeolatry{Name,broken rapier hilt, vial of crimson catalyst,fight, superlative runic ring of deluge, superlative runic ring of luster, superlative runic ring of vision,Epeolatry,Epeolatryafterglow,Epeolatryaumented}
+                {'Idris',false,false,false,false,false,false,false,'TDB'},--Idris{Name,Rusted handbell, emblazoned handbell,fight, ripple prominence concretion,inferno concretion, cyclone concretion,Idris,Idrisafterglow,Idrisaugmented}
+            },
+            ergonNeeds = {26198,8600000,20000,1192}--{bayld,plasm,beitetsu,sad crystals}
         },
         gear = {
             af = {
@@ -145,10 +149,10 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
     
     prices = {
         dyna1 = {0,0,0}, -- Bynes, Bronze, Shells
-        dyna2 = {0,0}, -- Marrow, Pluton
         rocks = {0,0,0}, --Pluton, Boulders, Beitetsu
         misc1 = {0,0,0}, --Marrow, scoria, HMP
         rifts = {0,0}, --Cinders,Dross
+        misc2 = {0,0}, --HP Bayld, Sad Crystals
     },
 
     points = {

@@ -22,6 +22,7 @@ sets = T{
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
         Hands = 'Volte Moufles',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
     Town = {
@@ -79,6 +80,8 @@ sets = T{
     Tp_Acc = {
         Ammo = 'Seeth. Bomblet +1',
         Hands = 'Tatena. Gote +1',
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Legs = 'Tatena. Haidate +1',
     },
 

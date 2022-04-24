@@ -24,7 +24,7 @@ sets = T{
         Sub = 'Genmei Shield',
         Range = 'Dunna',
         Head = 'Azimuth Hood +1',
-        Neck = 'Loricate Torque +1',
+        Neck = 'Bagua Charm',
         Ear1 = 'Handler\'s Earring +1',
         Ear2 = 'Rimeice Earring',
         Body = 'Telchine Chas.',
@@ -36,6 +36,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
         Head = 'Befouled Crown',
@@ -75,6 +76,8 @@ sets = T{
     Tp_Hybrid = {
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 
@@ -164,16 +167,16 @@ sets = T{
     Geomancy = { --900 skill, then indi duration, then CMP
         Main = 'Solstice',
         Range = 'Dunna',
-        Head = 'Azimuth Hood +1',
-        Neck = 'Incanter\'s Torque',
+        Head = 'Agwu\'s Cap',--sir
+        Neck = 'Bagua Charm',
         Ear1 = 'Mendi. Earring',
-        Ear2 = 'Mendi. Earring',
         Body = 'Telchine Chas.',
-        Hands = 'Geo. Mitaines +1',
-        Ring1 = 'Stikini Ring +1',
+        Hands = 'Geo. Mitaines +1',--15
+        Ring1 = 'Stikini Ring +1',--8
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Waist = 'Hachirin-no-Obi',
         Legs = 'Vanya Slops',
-        Feet = 'Medium\'s Sabots',
+        Feet = 'Medium\'s Sabots',--5
     },
     Indi = {
         Back = 'Nantosuelta\'s Cape',
@@ -206,7 +209,7 @@ sets = T{
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Spaekona\'s Coat +2',
+        Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -224,7 +227,7 @@ sets = T{
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Spaekona\'s Coat +2',
+        Body = 'Agwu\'s Robe',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Metamor. Ring +1',
         Back = 'Aurist\'s Cape +1',
@@ -265,6 +268,7 @@ sets = T{
         Legs = 'Agwu\'s Slops', -- 9 and 0
         Feet = 'Ea Pigaches', -- 4 and 4
     },
+    Mp_Body = {Body = 'Seidr Cotehardie',},
 
     Preshot = {
     },
@@ -418,6 +422,9 @@ profile.HandleMidcast = function()
         end
         if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
             gFunc.Equip('Waist', 'Hachirin-no-Obi');
+        end
+        if (player.MPP <= 40) then
+            gFunc.EquipSet(sets.Mp_Body);
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);

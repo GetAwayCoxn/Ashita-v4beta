@@ -21,9 +21,11 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
-        Head = 'Befouled Crown',
+        Head = 'Jumalik Helm',
+        Ring1 = 'Stikini Ring +1',
     },
     Town = {
         Main = 'Apocalypse',
@@ -71,10 +73,13 @@ sets = T{
         Body = 'Hjarrandi Breast.',
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 
     Precast = {
+        Ammo = 'Sapience Orb',
         Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
         Hands = 'Leyline Gloves',
@@ -83,7 +88,7 @@ sets = T{
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Legs = 'Enif Cosciales',
-        Feet = { Name = 'Odyssean Greaves', Augment = { [1] = 'Damage taken-4%', [2] = 'Attack+8', [3] = 'Accuracy+2' } },
+        Feet = 'Carmine Greaves +1',--7
     },
 
 
@@ -101,6 +106,7 @@ sets = T{
     Enhancing = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
+        Body = 'Shabti Cuirass',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',

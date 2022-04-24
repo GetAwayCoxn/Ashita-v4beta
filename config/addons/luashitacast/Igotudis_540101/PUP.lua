@@ -9,7 +9,7 @@ sets = T{
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Nyame Mail',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -32,6 +32,7 @@ sets = T{
 	Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
 	Town = {
@@ -50,11 +51,11 @@ sets = T{
     },
 	
 	Dt = {
-        Head = 'Nyame Helm',
+        Head = 'Malignance Chapeau',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Handler\'s Earring +1',
-        Body = 'Nyame Mail',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -94,7 +95,7 @@ sets = T{
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Head = 'Mpaca\'s Cap',
+        Head = 'Malignance Chapeau',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
@@ -109,10 +110,16 @@ sets = T{
     },
 	Tp_Hybrid = {
         Neck = 'Empath Necklace',
+        Body = 'Mpaca\'s Doublet',
         Hands = 'Malignance Gloves',
         Ring2 = 'Varar Ring +1',
+        Legs = 'Mpaca\'s Hose',
+        Feet = 'Mpaca\'s Boots',
     },
-	Tp_Acc = {},
+	Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
+    },
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
         Range = 'Animator P +1',
@@ -145,7 +152,7 @@ sets = T{
         Neck = 'Fotia Gorget',
         Ear1 = 'Schere Earring',
         Ear2 = 'Moonshade Earring',
-        --Body = 'Mpaca\'s Doublet',
+        Body = 'Mpaca\'s Doublet',
         Body = 'Herculean Vest',
         Hands = 'Ryuo Tekko',
         Ring1 = 'Karieyh Ring +1',
@@ -186,6 +193,7 @@ sets = T{
         Ear2 = 'Domes. Earring',
         Body = 'Pitre Tobe +3',
         Hands = 'Mpaca\'s Gloves',
+        Ring1 = 'Overbearing Ring',--get second varar
         Ring2 = 'Varar Ring +1',
         Waist = 'Incarnation Sash',
         Legs = 'Mpaca\'s Hose',
@@ -208,7 +216,7 @@ sets = T{
 		Ammo = 'Automat. Oil +3',
 	},
     Maneuver = {
-        Ear2 = 'Burana Earring',
+        Ear1 = 'Burana Earring',
 	},
     Overdrive = {
         Body = 'Pitre Tobe +3',

@@ -21,8 +21,12 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ring2 = 'Chirich Ring +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Jumalik Helm',
+        Ring1 = 'Stikini Ring +1',
+    },
     Town = {
         Main = 'Shining One',
         Sub = 'Utu Grip',
@@ -76,6 +80,8 @@ sets = T{
         Body = 'Hjarrandi Breast.',
     },
     Tp_Acc = {
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
     },
 
 

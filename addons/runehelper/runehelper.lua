@@ -17,7 +17,7 @@ local manager = {
     enabled = 'Disabled',
     runes = {{'Ignis',0},{'Gelus',0},{'Flabra',0},{'Tellus',0},{'Sulpor',0},{'Unda',0},{'Lux',0},{'Tenebrae',0}},
     menu_holders = {-1,-1,-1},
-    pulse = {85,},
+    pulse = {70,},
 };
 
 ashita.events.register('d3d_present', 'present_cb', function ()
@@ -26,7 +26,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     local Player = AshitaCore:GetMemoryManager():GetPlayer();
 
     -- Force Disabled under these conditions
-    if (Area == nil) or (Towns:contains(Area)) or (Player:GetIsZoning() ~= 0) or ((Player:GetMainJob() ~= 22) and (Player:GetSubJob() ~= 22)) or (AshitaCore:GetMemoryManager():GetParty():GetMemberHPPercent(0) < 1) then 
+    if (Player:GetIsZoning() ~= 0) or (Area == nil) or (Towns:contains(Area)) or ((Player:GetMainJob() ~= 22) and (Player:GetSubJob() ~= 22)) or (AshitaCore:GetMemoryManager():GetParty():GetMemberHPPercent(0) < 1) then 
 		manager.enabled = 'Disabled';
 	end
 
@@ -114,17 +114,17 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 
         imgui.Spacing();
         local selection1 = {manager.menu_holders[1] + 1};
-        if (imgui.Combo('Rune 1', selection1, 'None\0Ignis\0Gellus\0Flabra\0Tellus\0Sulpor\0Unda\0Lux\0Tenebrae\0')) then
+        if (imgui.Combo('Rune 1', selection1, 'None\0Ignis (Fire/Ice)\0Gellus (Ice/Wind)\0Flabra (Wind/Earth)\0Tellus (Earth/Ltng)\0Sulpor (Ltng/Water)\0Unda (Water/Fire)\0Lux (Light/Dark)\0Tenebrae (Dark/Light)\0')) then
             manager.menu_holders[1] = selection1[1] - 1;
         end
         imgui.Spacing();
         local selection2 = {manager.menu_holders[2] + 1};
-        if (imgui.Combo('Rune 2', selection2, 'None\0Ignis\0Gellus\0Flabra\0Tellus\0Sulpor\0Unda\0Lux\0Tenebrae\0')) then
+        if (imgui.Combo('Rune 2', selection2, 'None\0Ignis (Fire/Ice)\0Gellus (Ice/Wind)\0Flabra (Wind/Earth)\0Tellus (Earth/Ltng)\0Sulpor (Ltng/Water)\0Unda (Water/Fire)\0Lux (Light/Dark)\0Tenebrae (Dark/Light)\0')) then
             manager.menu_holders[2] = selection2[1] - 1;
         end
         imgui.Spacing();
         local selection3 = {manager.menu_holders[3] + 1};
-        if (imgui.Combo('Rune 3', selection3, 'None\0Ignis\0Gellus\0Flabra\0Tellus\0Sulpor\0Unda\0Lux\0Tenebrae\0')) then
+        if (imgui.Combo('Rune 3', selection3, 'None\0Ignis (Fire/Ice)\0Gellus (Ice/Wind)\0Flabra (Wind/Earth)\0Tellus (Earth/Ltng)\0Sulpor (Ltng/Water)\0Unda (Water/Fire)\0Lux (Light/Dark)\0Tenebrae (Dark/Light)\0')) then
             manager.menu_holders[3] = selection3[1] - 1;
             if (Player:GetMainJob() ~= 22) then manager.menu_holders[3] = -1 end
         end
@@ -160,8 +160,8 @@ function CheckAbilityRecast(check)
 
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
-
-			if (ability.Name[1] == check and ability ~= nil) then
+            
+			if (ability ~= nil and ability.Name[1] == check) then
 				RecastTime = timer;
 			end
 		end

@@ -1,7 +1,7 @@
 interface = T{
     manager = require('manager'),
     settings = require('settings'),
-    is_open = { true, },
+    is_open = { false, },
     progress_defaults = require('progress_defaults'),
     defaults = require('defaults'),
     colors = {
@@ -22,7 +22,6 @@ function interface.Load()
         end
         interface.settings.save();
     end);
-    interface.manager.UpdateJobs();
     --interface.manager.UpdateWeapons:once(5); --causing nil crash on load in modifind lua
 end
 
@@ -33,35 +32,8 @@ end
 function interface.RenderJobPointsTab()
     imgui.BeginGroup();
         imgui.BeginChild('JPpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.BeginTable('jobs table', 5, ImGuiTableFlags_Borders);
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'JOB');
-                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Level');
-                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Points Spent');
-                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Master Level');
-                imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Job Points Current');
-
-                interface.manager.DisplayJobs();
-            imgui.EndTable();
-
-            imgui.Separator();imgui.Spacing();
-            imgui.BeginTable('totals table', 1);
-                imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-                imgui.TextColored(interface.colors.header, 'TOTALS');imgui.TableNextColumn();
-                imgui.TextColored(interface.colors.text1, 'Total JOB Level Completion:');imgui.TableNextColumn();
-                imgui.ProgressBar(interface.data.progress.jobs[1], 10);imgui.TableNextColumn();
-                imgui.TextColored(interface.colors.text1, 'Total JOB Points Completion:');imgui.TableNextColumn();
-                imgui.ProgressBar(interface.data.progress.jobs[2], 10);imgui.TableNextColumn();
-                imgui.TextColored(interface.colors.text1, 'Total JOB Master Level Completion:');imgui.TableNextColumn();
-                imgui.ProgressBar(interface.data.progress.jobs[3], 10);imgui.TableNextColumn(); 
-            imgui.EndTable();
-
+            interface.manager.DisplayJobs();
         imgui.EndChild();
-
-        if (imgui.Button('Update Jobs')) then
-            print(chat.header(addon.name) .. chat.message('Updating ... '));
-            interface.manager.UpdateJobs();
-        end
     imgui.EndGroup();
 end
 
@@ -106,8 +78,8 @@ function interface.RenderWeaponsTab()
                             local total = (interface.data.progress.weapons.relics[b] * interface.data.prices.dyna1[b])
                             imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(total)));
                         end
-                        for c = 1, 2 do
-                            local total = (interface.data.progress.weapons.relics[c+3] * interface.data.prices.dyna2[c])
+                        for c = 1, 1 do
+                            local total = (interface.data.progress.weapons.relics[c+3] * interface.data.prices.misc1[c])
                             imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(total)));
                         end
                     imgui.EndTable();
@@ -133,22 +105,20 @@ function interface.RenderWeaponsTab()
                         imgui.EndTable();
 
                     imgui.Spacing();imgui.Spacing();
-                    imgui.BeginTable('mythic needed table', 5, ImGuiTableFlags_Borders);
+                    imgui.BeginTable('mythic needed table', 4, ImGuiTableFlags_Borders);
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Mythic Need:');
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Alex');
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Mulcibar\'s Scoria');
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Beitetsu');
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'HP Bayld');
                         imgui.TableNextColumn();
                         imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[1])));
                         imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[2])));
                         imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[3])));
-                        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[4])));
                         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
                     imgui.EndTable();
                     if (imgui.Button('Update Mythics')) then
-                        print(chat.header(addon.name) .. chat.message('Updating ... '));
+                        print(chat.header(addon.name) .. chat.message('Updated Mythics'));
                         interface.manager.UpdateMythics();
                     end
                 imgui.EndTabItem();
@@ -156,39 +126,17 @@ function interface.RenderWeaponsTab()
 
                 if (imgui.BeginTabItem('ERGONS', nil)) then
                     imgui.Spacing();
-                    imgui.BeginTable('ergon table', 9, ImGuiTableFlags_Borders);
-                            imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'WEAPONS');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Quest');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 1');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Fight');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 2');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Part 3');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Base Ergon');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Afterglow');
-                            imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Augmented');
-
-                            interface.manager.DisplayErgons();
-                        imgui.EndTable();
+                    
+                    interface.manager.DisplayErgons();
 
                     imgui.Spacing();imgui.Spacing();
                     imgui.BeginTable('ergon needed table', 5, ImGuiTableFlags_Borders);
-                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Ergon Need:');
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'HP Bayld');
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Plasm');
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Beitetsu');
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Sad Crystals');
-                        imgui.TableNextColumn();
-                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[1])));
-                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[2])));
-                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[3])));
-                        imgui.TableNextColumn();--imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythics[4])));
-                        imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
+                        interface.manager.DisplayErgonsNeed()
                     imgui.EndTable();
+
                     if (imgui.Button('Update Ergons')) then
-                        print(chat.header(addon.name) .. chat.message('Updating ... '));
-                        interface.manager.UpdateMythics();
+                        print(chat.header(addon.name) .. chat.message('Updated Ergon Weapons'));
+                        interface.manager.UpdateErgons();
                     end
                 imgui.EndTabItem();
                 end
@@ -294,23 +242,11 @@ function interface.RenderGearTab()
                 if (imgui.BeginTabItem('AF', nil)) then
                     if (imgui.BeginTabBar('af_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
                         if (imgui.BeginTabItem('AF HAVE', nil)) then
-                            imgui.BeginTable('af gear has', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayAFGear();
-                            imgui.EndTable();
-                            if (imgui.Button('Update AF Gear')) then
-                                print(chat.header(addon.name) .. chat.message('Updating ... '));
-                                interface.manager.UpdateAFGear();
-                            end
-                            imgui.SameLine();
-                            imgui.ProgressBar(interface.data.progress.gear.afProgress[1],10);
+                            interface.manager.DisplayAFGear();
                         imgui.EndTabItem();
                         end
                         if (imgui.BeginTabItem('AF NEED', nil)) then 
                             interface.manager.DisplayAFGearNeed();
-                            --[[if (imgui.Button('Update AF Items')) then
-                                print(chat.header(addon.name) .. chat.message('Updating ... '));
-                                interface.manager.CountAFGear();
-                            end]]
                         imgui.EndTabItem();
                         end
                     imgui.EndTabBar();
@@ -362,21 +298,38 @@ function interface.RenderGearTab()
                     imgui.EndTable();
                     
                     imgui.Spacing();imgui.Spacing();imgui.Separator();imgui.Spacing();imgui.Spacing();
+                    
+                    interface.manager.DisplayAmbuGearNeed();
+                    
+                imgui.EndTabItem();
+                end
 
-                    imgui.BeginTable('ambu gear summary table', 1);
-                        imgui.TableNextRow();imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.text1, 'Total AMBU Gear Completion:');imgui.ShowHelp('Inaccurate but close, quick progress calc based on remaining metals/fibers needed');imgui.TableNextColumn();
-                        imgui.ProgressBar(interface.data.progress.gear.ambuProgress[1]);imgui.TableNextColumn();
-                    imgui.EndTable();
-                    imgui.Spacing();imgui.Spacing();
-                    imgui.BeginTable('ambu gear need', 6, ImGuiTableFlags_Borders);
-                        interface.manager.DisplayAmbuGearNeed();
-                    imgui.EndTable();
+                if (imgui.BeginTabItem('ODYSSEY', nil)) then
+                imgui.BeginChild('OdyPane', { 0, 600, }, true);
+                    if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+                        if (imgui.BeginTabItem('SCALE', nil)) then
+                            imgui.BeginTable('scale gear has', 5, ImGuiTableFlags_Borders);
+                                interface.manager.DisplayScaleGear();
+                            imgui.EndTable();
+                        imgui.EndTabItem();
+                        end
 
-                    if (imgui.Button('Update Ambu Gear')) then
-                        print(chat.header(addon.name) .. chat.message('Updating ... '));
-                        interface.manager.UpdateAmbuGear();
+                        if (imgui.BeginTabItem('HIDE', nil)) then
+                            imgui.BeginTable('hide gear has', 5, ImGuiTableFlags_Borders);
+                                interface.manager.DisplayHideGear();
+                            imgui.EndTable();
+                        imgui.EndTabItem();
+                        end
+
+                        if (imgui.BeginTabItem('WING', nil)) then
+                            imgui.BeginTable('wing gear has', 5, ImGuiTableFlags_Borders);
+                                interface.manager.DisplayWingGear();
+                            imgui.EndTable();
+                        imgui.EndTabItem();
+                        end
+                    imgui.EndTabBar();
                     end
+                imgui.EndChild();
                 imgui.EndTabItem();
                 end
             
@@ -413,14 +366,29 @@ function interface.RenderAMBUPointsTab()
 end
 
 function interface.RenderPricesTab()
-    imgui.TextColored(interface.colors.header,'Bynes                           Bronze                         Shells');--imgui.SameLine();imgui.TextColored(interface.colors.header,'Marrows                          Plutons');
-    imgui.InputInt3('', interface.data.prices.dyna1);--imgui.SameLine();imgui.InputInt2('', interface.data.prices.dyna2);
+    --[[imgui.TextColored(interface.colors.header,'Bynes                           Bronze                         Shells');
+    imgui.InputInt3('dyna1', interface.data.prices.dyna1);
     imgui.TextColored(interface.colors.header,'Plutons                         Boulders                       Beitetsu');
     imgui.InputInt3(' ', interface.data.prices.rocks);
     imgui.TextColored(interface.colors.header,'Marrows                         Scorias                        HMP');
     imgui.InputInt3('  ', interface.data.prices.misc1);
     imgui.TextColored(interface.colors.header,'Rift Cinders                                    Rift Dross');
     imgui.InputInt2('    ', interface.data.prices.rifts);
+    imgui.TextColored(interface.colors.header,'H-P Bayld                                       Sad Crystals');
+    imgui.InputInt2('     ', interface.data.prices.misc2);]]
+    -- Left Side (Many whelps, handle it!!)
+    imgui.BeginGroup();
+        imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
+        imgui.EndChild();
+    imgui.EndGroup();
+    imgui.SameLine();
+
+    imgui.BeginGroup();
+        imgui.BeginChild('rightpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            imgui.BeginChild('rightpane_items', {0,150}, true);
+            imgui.EndChild();
+        imgui.EndChild();
+    imgui.EndGroup();
 end
 
 
@@ -429,12 +397,13 @@ function interface.Render()
         return;
     end
 
-    imgui.SetNextWindowSize({ 1000, 720, });
+    imgui.SetNextWindowSize({ 1000, 730, });
     imgui.SetNextWindowSizeConstraints({ 1000, 720, }, { FLT_MAX, FLT_MAX, });
     if (imgui.Begin('Database', interface.is_open, ImGuiWindowFlags_NoResize)) then
         if (imgui.BeginTabBar('##database_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('JOBS', nil)) then
                 interface.RenderJobPointsTab();
+                interface.manager.UpdateJobs();
                 imgui.EndTabItem();
             end
             if (imgui.BeginTabItem('WEAPONS', nil)) then
