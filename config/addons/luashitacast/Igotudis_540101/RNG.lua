@@ -21,6 +21,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
@@ -95,7 +96,6 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
-        Ring1 = 'Rufescent Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Legs = 'Carmine Cuisses +1',
@@ -125,7 +125,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Hecate\'s Earring',
+        Ear1 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
@@ -137,6 +137,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
     TripleShot = {
     },
@@ -165,6 +167,9 @@ sets = T{
     Savage_Acc = {
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},

@@ -22,6 +22,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Body = 'Futhark Coat +3',
         Hands = 'Turms Mittens',
         Ring2 = 'Chirich Ring +1',
@@ -146,7 +147,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Moonbeam Ring',
+        Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
         Waist = 'Kasiri Belt',
         Legs = 'Futhark Trousers +1',
@@ -173,7 +174,7 @@ sets = T{
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Cryptic Earring',
         Body = 'Emet Harness +1',
-        Ring1 = 'Vengeful Ring',
+        Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
         Waist = 'Kasiri Belt',
@@ -213,7 +214,10 @@ sets = T{
     },
 
     Preshot = {},
-    Midshot = {},
+    Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
+    },
 
     Ws_Default = {
         Ammo = 'Knobkierrie',
@@ -267,7 +271,7 @@ sets = T{
         Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
         Ear1 = 'Friomisi Earring',
-        Ear2 = 'Hecate\'s Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Ring1 = 'Niqmaddu Ring',
         Ring2 = 'Epona\'s Ring',
@@ -289,12 +293,12 @@ sets = T{
         Head = 'Agwu\'s Cap',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Crematio Earring',
-        Ear2 = 'Hecate\'s Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Waist = 'Sacro Cord',
+        Waist = 'Eschan Stone',
         Legs = 'Agwu\'s Slops',
         Feet = 'Agwu\'s Pigaches',
     },
@@ -308,6 +312,9 @@ sets = T{
         Head = 'Fu. Bandeau +1',
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},

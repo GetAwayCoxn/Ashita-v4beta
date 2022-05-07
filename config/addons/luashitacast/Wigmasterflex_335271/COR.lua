@@ -307,6 +307,9 @@ sets = T{
         Range = 'Compensator',
     },
     WildCard = {Feet = 'Lanun Bottes +2'},
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},

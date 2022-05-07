@@ -2,9 +2,52 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
     progress = {
         jobs = {0.0,0.0,0.0}, -- EXP completion, CP completion, Mastery completion
         weapons ={
-            relics = {0,0,0,0,0,0}, --bynes, bronze, shells, marrows, plutons, SAD crystals
-            mythics = {0,0,0,0}, --alex,scoria,Beitetsu,crystals
-            empyreans = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, --{chloris,glavoid,briareus,cara,fistule,kukulkan,iron plates,ulhuadshi,itzpapalotl,sobek,CC lantern,bukhis,sedna,colorless soul,dragua,orthus,apademak,isgebind,alfard,azdaja,HMP,dross,cinder,boulders,crystals}
+            relics = {--name,level pointer, augment rank
+                {'Spharai',0,0},{'Mandau',0,0},{'Excalibur',0,0},{'Ragnarok',0,0},{'Guttler',0,0},{'Bravura',0,0},{'Apocalypse',0,0},{'Gungnir',0,0},{'Kikoku',0,0},{'Amanomurakumo',0,0},{'Mjollnir',0,0},{'Claustrum',0,0},{'Yoichinoyumi',0,0,},{'Annihilator',0,0},{'Gjallarhorn',0,0},{'Aegis',0,0},
+            },
+            relicsneeds = {0,0,0,0,0,0}, --bynes, bronze, shells, marrows, plutons, SAD crystals
+            mythics = {--name,level pointer, augment rank
+                {'Conqueror',0,0},
+                {'Glanzfaust',0,0},
+                {'Yagrush',0,0},
+                {'Laevateinn',0,0},
+                {'Murgleis',0,0},
+                {'Vajra',0,0},
+                {'Burtgang',0,0},
+                {'Liberator',0,0},
+                {'Aymur',0,0},
+                {'Carnwenhan',0,0},
+                {'Gastraphetes',0,0},
+                {'Kogarasumaru',0,0},
+                {'Nagi',0,0},
+                {'Ryunohige',0,0},
+                {'Nirvana',0,0},
+                {'Tizona',0,0},
+                {'Death Penalty',0,0},
+                {'Kenkonken',0,0},
+                {'Terpsichore',0,0},
+                {'Tupsimati',0,0},
+            },
+            mythicsneeds = {0,0,0,0}, --alex,scoria,Beitetsu,crystals
+            empyreans = {--name,level pointer, augment rank
+                {'Verethragna',0,0},
+                {'Twashtar',0,0},
+                {'Almace',0,0},
+                {'Caladbolg',0,0},
+                {'Farsha',0,0},
+                {'Ukonvasara',0,0},
+                {'Redemption',0,0},
+                {'Rhongomiant',0,0},
+                {'Kannagi',0,0},
+                {'Masamune',0,0},
+                {'Gambanteinn',0,0},
+                {'Hvergelmir',0,0},
+                {'Gandiva',0,0},
+                {'Armageddon',0,0},
+                {'Daurdabla',0,0},
+                {'Ochain',0,0},
+            },
+            empyreansneeds = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, --{chloris,glavoid,briareus,cara,fistule,kukulkan,iron plates,ulhuadshi,itzpapalotl,sobek,CC lantern,bukhis,sedna,colorless soul,dragua,orthus,apademak,isgebind,alfard,azdaja,HMP,dross,cinder,boulders,crystals}
             ambu = {
                 {0,'H2H -- Karambit'},{0,'Dagger -- Tauret'},{0,'Sword -- Naegling'},{0,'GS -- Nandaka'},{0,'Axe -- Dolichenus'},
                 {0,'GA -- Lycurgos'},{0,'Scythe -- Drepanum'},{0,'Polearm -- Shining One'},{0,'Katana -- Gokotai'},{0,'GK -- Hachimonji'},
@@ -13,10 +56,10 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             ambuProgress = {0.0,},
             ambuWepItems = {0,0,0,0,0,0}, --voucher,nugget,gem,anima,matter,pulse,
             ergons = {
-                {'Epeolatry',false,false,false,false,false,false,false,'TDB'},--Epeolatry{Name,broken rapier hilt, vial of crimson catalyst,fight, superlative runic ring of deluge, superlative runic ring of luster, superlative runic ring of vision,Epeolatry,Epeolatryafterglow,Epeolatryaumented}
-                {'Idris',false,false,false,false,false,false,false,'TDB'},--Idris{Name,Rusted handbell, emblazoned handbell,fight, ripple prominence concretion,inferno concretion, cyclone concretion,Idris,Idrisafterglow,Idrisaugmented}
+                {'Epeolatry',false,false,false,false,false,false,false,0},--Epeolatry{Name,broken rapier hilt, vial of crimson catalyst,fight, superlative runic ring of deluge, superlative runic ring of luster, superlative runic ring of vision,Epeolatry,Epeolatryafterglow,Epeolatryaumented}
+                {'Idris',false,false,false,false,false,false,false,0},--Idris{Name,Rusted handbell, emblazoned handbell,fight, ripple prominence concretion,inferno concretion, cyclone concretion,Idris,Idrisafterglow,Idrisaugmented}
             },
-            ergonNeeds = {26198,8600000,20000,1192}--{bayld,plasm,beitetsu,sad crystals}
+            ergonNeeds = {26198,8600000,20000,1192},--{bayld,plasm,beitetsu,sad crystals}
         },
         gear = {
             af = {
@@ -144,6 +187,12 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                {{0,'Mal Head'},{0,'Mal Body'},{0,'Mal Hands'},{0,'Mal Legs'},{0,'Mal Feet'}},
             },
             ambuProgress = {0.0,},
+
+            unm = {
+                scale = {{'Scale',false,false,false,0,0,0},},--{Name,ignored,completed,HQhas,rank,needed mats, gil est}
+                hide = {{'Hide',false,false,false,0,0,0},},
+                wing = {{'Wing',false,false,false,0,0,0},},
+            },
         },
     },
     

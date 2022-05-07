@@ -319,6 +319,10 @@ sets = T{
         Legs = 'Bihu Cannions',
         Feet = 'Bihu Slippers +1',
     },
+
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Feet = 'Aoidos\' Cothrn. +2',
 	},

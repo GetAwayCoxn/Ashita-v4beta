@@ -22,6 +22,7 @@ sets = T{
 	Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {},
@@ -43,7 +44,7 @@ sets = T{
     },
 	
 	Dt = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -124,8 +125,8 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Karieyh Ring +1',
-        Ring2 = 'Rufescent Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Ring1 = 'Petrov Ring',
         Back = '',
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
@@ -145,6 +146,9 @@ sets = T{
 	SmnEnfeebling = {},
     SmnHybrid = {}, --special set for flamming crush and burning strike (for now)
 	
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
 	Movement = {
 	},
 };

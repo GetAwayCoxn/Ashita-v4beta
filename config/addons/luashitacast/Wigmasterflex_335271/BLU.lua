@@ -14,7 +14,7 @@ sets = T{
         Hands = 'Aya. Manopolas +2',
         Ring1 = 'Defending Ring',
         Ring2 = 'Ayanmo Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+27', [5] = 'Magic Damage +20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
         Waist = 'Sailfi Belt',
         Legs = 'Carmine Cuisses',
         Feet = 'Aya. Gambieras +2',
@@ -42,9 +42,9 @@ sets = T{
         Hands = 'Carpenter\'s Gloves',
         Ring1 = 'Orvail Ring',
         Ring2 = 'Craftmaster\'s Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+27', [5] = 'Magic Damage +20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
         Waist = 'Sailfi Belt',
-        Legs = { Name = 'Carmine Cuisses', AugPath='D' },
+        Legs = 'Carmine Cuisses',
         Feet = 'Aya. Gambieras +2',
     },
 	
@@ -56,7 +56,7 @@ sets = T{
 		Hands = 'Umuthi Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Dark Ring', Augment = { [1] = 'Magic dmg. taken -4%', [2] = 'Breath dmg. taken -5%', [3] = 'Phys. dmg. taken -4%' } },
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+27', [5] = 'Magic Damage +20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
 		Waist = 'Flume Belt +1',
         Legs = 'Aya. Cosciales +2',
         Feet = 'Aya. Gambieras +2',
@@ -137,7 +137,7 @@ sets = T{
     },
     BluSkill = {
         Body = 'Assim. Jubbah +2',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+27', [5] = 'Magic Damage +20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
     },
     BluMagical = {
         Ammo = 'Sturm\'s Report',
@@ -146,14 +146,13 @@ sets = T{
         Ear1 = 'Hecate\'s Earring',
         Ear2 = 'Psystorm Earring',
         Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +1',
+        Hands = 'Merlinic Dastanas',
         Ring1 = 'Jhakri Ring',
         Ring2 = 'Ayanmo Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+27', [5] = 'Magic Damage +20' } },
-        Waist = 'Salire Belt',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
+        Waist = 'Sacro Cord',
         Legs = 'Jhakri Slops +2',
-        --Feet = 'Jhakri Pigaches +2',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = '"Dbl.Atk."+1', [2] = '"Mag. Atk. Bns."+39', [3] = 'Accuracy+3', [4] = 'Attack+3', [5] = 'Mag. Acc.+16' } },
+        Feet = 'Merlinic Crackows',
     },
     BluDark = {
         Ring2 = 'Archon Ring',
@@ -169,7 +168,7 @@ sets = T{
         Ring1 = 'Sangoma Ring',
         Ring2 = 'Ayanmo Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
-        Waist = 'Famine Sash',
+        Waist = 'Sacro Cord',
         Legs = 'Jhakri Slops +2',
         Feet = 'Jhakri Pigaches +2',
     },
@@ -274,8 +273,12 @@ sets = T{
         Neck = 'Unmoving Collar +1',
         Ear1 = 'Cryptic Earring',
     },
+
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
 	Movement = {
-		Legs = 'Carmine Cuisses +1',
+		Legs = 'Carmine Cuisses',
 	},
 };
 

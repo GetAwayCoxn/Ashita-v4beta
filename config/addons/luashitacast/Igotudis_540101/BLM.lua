@@ -27,6 +27,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -82,7 +83,7 @@ sets = T{
         Body = 'Agwu\'s Robe',
         Hands = 'Mallquis Cuffs +2',
         Ring1 = 'Kishar Ring',
-        Ring2 = 'Prolix Ring',
+        Ring2 = 'Mallquis Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
         Legs = 'Agwu\'s Slops',
@@ -226,7 +227,7 @@ sets = T{
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Taranus\'s Cape',
-        Waist = 'Sacro Cord',
+        Waist = 'Eschan Stone',
         Legs = 'Amalric Slops +1',
         Feet = 'Amalric Nails +1',
     },
@@ -280,6 +281,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {--myrkr mostly
@@ -302,6 +305,9 @@ sets = T{
     Ws_Acc = {
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Feet = 'Herald\'s Gaiters',
 	},

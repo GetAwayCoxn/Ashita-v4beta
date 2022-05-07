@@ -45,8 +45,6 @@ sets = T{
 		Feet = 'Meg. Jam. +1',
 	},
     Pet_Dt = {
-        Main = 'Astolfo',
-        Sub = 'Guichard\'s Axe +2',
         Ammo = 'Crepuscular Pebble',
         Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
@@ -157,6 +155,9 @@ sets = T{
         Waist = 'Incarnation Sash',
     },
 	
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
 	Movement = {
 		Feet = 'Meg. Jam. +1',
 	},

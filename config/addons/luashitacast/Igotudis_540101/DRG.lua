@@ -21,6 +21,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -100,7 +101,6 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
-        Ring1 = 'Rufescent Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Legs = 'Carmine Cuisses +1',
@@ -130,7 +130,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Hecate\'s Earring',
+        Ear1 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
@@ -142,6 +142,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {
@@ -149,10 +151,10 @@ sets = T{
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Weapon skill damage +4%', [2] = 'Accuracy+13', [3] = '"Mag. Atk. Bns."+8' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
-        Ear2 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
+        Ear2 = 'Moonshade Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
@@ -165,6 +167,9 @@ sets = T{
     Ws_Acc = {
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},

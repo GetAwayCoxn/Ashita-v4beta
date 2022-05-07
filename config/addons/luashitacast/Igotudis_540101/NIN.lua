@@ -21,6 +21,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = 'Rao Kote',
         Ring2 = 'Chirich Ring +1',
@@ -29,8 +30,8 @@ sets = T{
     Town = {
         Main = 'Kikoku',
         Sub = 'Tauret',
-        Ammo = 'Crepuscular Pebble',
-        Head = 'Cumulus Masque',
+        Ammo = 'Staunch Tathlum',
+        Head = 'Mochi. Hatsuburi +2',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Mpaca\'s Gloves',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
@@ -40,7 +41,7 @@ sets = T{
     },
 
     Dt = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Malignance Chapeau',
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
@@ -63,7 +64,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Gere Ring',
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
@@ -127,7 +128,7 @@ sets = T{
         Ammo = 'Ghastly Tathlum +1',
         Head = 'Mochi. Hatsuburi +2',
         Neck = 'Sanctity Necklace',
-        Ear1 = 'Hecate\'s Earring',
+        Ear1 = 'Crematio Earring',
         Ear2 = 'Lugra Earring +1',
         Body = 'Samnuha Coat',
         Hands = 'Hattori Tekko +1',
@@ -157,6 +158,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {
@@ -164,7 +167,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
         Ear1 = 'Telos Earring',
-        Ear2 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
+        Ear2 = 'Moonshade Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
@@ -243,14 +246,17 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = 'Macabre Gaunt. +1',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Vengeful Ring',
+        Ring1 = 'Eihwaz Ring',
+        Ring2 = 'Supershear Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Mummu Kecks +2',
         Feet = 'Danzo Sune-Ate',
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Feet = 'Danzo Sune-Ate',
 	},

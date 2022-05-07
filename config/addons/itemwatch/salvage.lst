@@ -1,0 +1,16 @@
+require('common');
+
+local settings = T{ };
+settings["i"] = T{ };
+settings["i"][1] = T{ };
+settings["i"][2] = T{ };
+settings["i"][3] = T{ };
+settings["k"] = T{ };
+settings["i"][1][1] = 2488;
+settings["i"][1][2] = "Alexandrite";
+settings["i"][2][1] = 5735;
+settings["i"][2][2] = "Ctn. Purse (Alx.)";
+settings["i"][3][1] = 5736;
+settings["i"][3][2] = "Lin. Purse (Alx.)";
+
+return settings;

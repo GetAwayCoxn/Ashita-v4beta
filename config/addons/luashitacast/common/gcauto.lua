@@ -48,7 +48,7 @@ gcauto.WeaponSkills = T{
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
 	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement'},
-	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus'},
+	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus', [5] = 'Aeolian Edge'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['RNG'] = {[1] = 'None',},
@@ -81,8 +81,6 @@ function gcauto.SetAlias()
 	elseif (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /yonin /lac fwd yonin');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /innin /lac fwd innin');
-	elseif (player.MainJob == 'DRK') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /spikes /lac fwd spikes');
 	elseif (player.MainJob == 'DRG') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /jumps /lac fwd jumps');
 	elseif (player.MainJob == 'RUN') then
@@ -129,8 +127,6 @@ function gcauto.SetVariables()
 	elseif (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('Yonin', false);
 		gcdisplay.CreateToggle('Innin', false);
-	elseif (player.MainJob == 'DRK') then
-		gcdisplay.CreateToggle('Spikes', false);
 	elseif (player.MainJob == 'DRG') then
 		gcdisplay.CreateToggle('Jumps', false);
 	elseif (player.MainJob == 'RUN') then
@@ -199,8 +195,6 @@ function gcauto.SetCommands(args)
 		elseif (args[1] == 'innin') then
 			gcdisplay.AdvanceToggle('Innin');
 		end
-	elseif (player.MainJob == 'DRK') then
-		if (args[1] == 'spikes') then gcdisplay.AdvanceToggle('Spikes') end
 	elseif (player.MainJob == 'DRG') then
 		if (args[1] == 'jumps') then gcdisplay.AdvanceToggle('Jumps') end
 	elseif (player.MainJob == 'RUN') then
@@ -464,12 +458,9 @@ function gcauto.DoJobStuff()
 		end
 	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then
 		local endark = gData.GetBuffCount('Endark');
-		local spikes = gData.GetBuffCount('Dread Spikes');
 
 		if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark II" <me>');
-		elseif (spikes == 0) and (player.Status == 'Engaged') and (gcdisplay.GetToggle('Spikes') == true)  then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Dread Spikes" <me>');
 		end
 	elseif (player.MainJob == 'DRG') and (gcdisplay.GetToggle('AUTO') == true) then
 		local pet = gData.GetPet();
@@ -554,7 +545,7 @@ function gcauto.DoJobStuff()
 		if (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (gcauto.CheckAbilityRecast('Defender') <= 0) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "defender" <me>');
 		elseif (target == nil) then return;
-		elseif (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (target.HPP < 99) and (target.HPP > 1) then
 			if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) and (lr == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
 			elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) and (lr == 0) then
@@ -579,7 +570,7 @@ function gcauto.DoJobStuff()
 		local lr = gData.GetBuffCount('Last Resort');
 		local berserk = gData.GetBuffCount('Berserk');
 
-		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
+		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Last Resort" <me>');
 		end
 	end

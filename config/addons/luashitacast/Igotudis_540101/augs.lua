@@ -1,21 +1,20 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = 'Excalibur',
-        Sub = { Name = 'Aegis', AugTrial=4453 },
+        Main = 'Naegling',
         Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
+        Head = 'Cumulus Masque',
         Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
+        Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Hjarrandi Breast.',
-        Hands = 'Volte Moufles',
-        Ring1 = 'Moonbeam Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Chirich Ring +1',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Evasion+15' } },
         Waist = 'Flume Belt +1',
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
-        Feet = 'Nyame Sollerets',
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
 };
 

@@ -6,7 +6,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Ammo = 'Staunch Tathlum',
-        Head = 'Taeon Chapeau',
+        Head = 'Malignance Chapeau',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
@@ -22,6 +22,7 @@ sets = T{
 	Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -32,7 +33,7 @@ sets = T{
         Main = 'Naegling',
         Sub = 'Adapa Shield',
         Ammo = 'Voluspa Tathlum',
-        Head = 'Straw Hat',
+        Head = 'Malignance Chapeau',
         Neck = 'Empath Necklace',
         Ear1 = 'Thrud Earring',
         Ear2 = 'Telos Earring',
@@ -47,7 +48,7 @@ sets = T{
     },
 	
 	Dt = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -85,7 +86,7 @@ sets = T{
         Body = 'Gleti\'s Cuirass',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Epona\'s Ring',
-        Ring2 = 'Petrov Ring',
+        Ring2 = 'Gere Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Gleti\'s Breeches',
@@ -103,6 +104,7 @@ sets = T{
     },
     Pet_Only_Tp = {
         Ammo = 'Voluspa Tathlum',
+        Head = 'Taeon Chapeau',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Rimeice Earring',
         Ear2 = 'Domes. Earring',
@@ -128,8 +130,8 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Karieyh Ring +1',
-        Ring2 = 'Rufescent Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Ring1 = 'Petrov Ring',
         Back = '',
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
@@ -168,6 +170,9 @@ sets = T{
 	PetMagicAttack = {},
 	PetMagicAccuracy = {},
 	
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
 	Movement = {
 	},
 };

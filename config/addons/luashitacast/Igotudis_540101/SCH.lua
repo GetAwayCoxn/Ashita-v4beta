@@ -27,6 +27,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -79,12 +80,12 @@ sets = T{
         Ammo = 'Sapience Orb',
         Head = 'Peda. M.Board +3',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Etiolation Earring',
+        Ear1 = 'Loquac. Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Acad. Bracers +3',
         Ring1 = 'Kishar Ring',
-        Ring2 = 'Prolix Ring',
+        Ring2 = 'Mallquis Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
         Legs = 'Agwu\'s Slops',
@@ -218,7 +219,7 @@ sets = T{
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Lugh\'s Cape',
-        Waist = 'Sacro Cord',
+        Waist = 'Eschan Stone',
         Legs = 'Amalric Slops +1',
         Feet = 'Amalric Nails +1',
     },
@@ -237,25 +238,29 @@ sets = T{
         Ring1 = 'Mujin Band', -- 0 and 5
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops', -- 9 and 0
-        Feet = 'Agwu\'s Pigaches', -- 6 and 0
+        --Feet = 'Agwu\'s Pigaches', -- 6 and 0
+        Feet = 'Merlinic Crackows', -- 10 and 0
     },
     Helix = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Culminus',
         Ammo = 'Ghastly Tathlum +1',
-        Head = 'Mall. Chapeau +2',
+        Head = 'Agwu\'s Cap',
         Neck = 'Argute Stole +1',
+        Ear1 = 'Regal Earring',
+        Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Amalric Gages +1',
-        Neck = 'Argute Stole +1',
-        Ring1 = 'Stikini Ring +1',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Mallquis Ring',
         Back = 'Lugh\'s Cape',
-        Waist = { Name = 'Acuity Belt +1', AugPath='A' },
+        Waist = 'Eschan Stone',
         Legs = 'Agwu\'s Slops',
         Feet = 'Amalric Nails +1',
     },
     HelixBurst = {
         Ear1 = 'Crematio Earring',
+        Ring1 = 'Mujin Band',
         Feet = 'Amalric Nails +1',
     },
     Storm = {
@@ -269,9 +274,8 @@ sets = T{
         Neck = 'Argute Stole +1',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Agwu\'s Robe',--seidr cotehardie
+        Body = 'Seidr Cotehardie',
         Hands = 'Amalric Gages +1',
-        Neck = 'Argute Stole +1',
         Ring1 = 'Stikini Ring +1',--freke ring
         Ring2 = 'Archon Ring',
         Back = 'Lugh\'s Cape',
@@ -284,6 +288,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {--for me this is basically just mykyr
@@ -294,7 +300,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Acad. Gown +2',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Sangoma Ring',
         Ring2 = 'Metamor. Ring +1',
         Back = 'Aurist\'s Cape +1',
         Waist = 'Fucho-no-Obi',
@@ -305,7 +311,29 @@ sets = T{
     },
     Ws_Acc = {
     },
+    Cataclysm_Default = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Pixie Hairpin +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Moonshade Earring',
+        Ear2 = 'Malignance Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Back = 'Lugh\'s Cape',
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Cataclysm_Hybrid = {
+    },
+    Cataclysm_Acc = {
+    },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Feet = 'Herald\'s Gaiters',
 	},
@@ -487,6 +515,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
+
+        if string.match(ws.Name, 'Cataclysm') then
+            gFunc.EquipSet(sets.Cataclysm_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Cataclysm_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 

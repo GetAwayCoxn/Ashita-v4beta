@@ -31,7 +31,7 @@ sets = T{
 		Body = 'Tartarus Platemail',
 		Hands = 'Umuthi Gloves',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Patricius Ring',
+        Ring2 = 'Meghanada Ring',
 		Legs = 'Meg. Chausses +2',
 		Feet = 'Diama. Sollerets',
 		Back = 'Impassive Mantle',
@@ -125,7 +125,7 @@ sets = T{
         Neck = 'Empath Necklace',
         Ear1 = 'Ferine Earring',
 		Body = 'Valorous Mail',
-        Hands = 'Valorous Mitts',
+        Hands = 'Nukumi Manoplas',
 		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Legs = 'Despair Cuisses',
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Pet: "Mag. Atk. Bns."+6', [2] = 'Pet: Attack+22', [3] = 'Pet: Rng.Atk.+22', [4] = 'Attack+12', [5] = 'Accuracy+12' } },
@@ -148,6 +148,9 @@ sets = T{
         Waist = 'Incarnation Sash',
     },
 	
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
 	Movement = {
 		Feet = 'Meg. Jam. +1',
 	},

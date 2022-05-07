@@ -24,7 +24,7 @@ sets = T{
     },
     Idle_Refresh = {},
     Town = {
-        Feet = 'Skulk. Poulaines +1',
+        Feet = 'Pillager\'s Poulaines',
     },
 
     Dt = {

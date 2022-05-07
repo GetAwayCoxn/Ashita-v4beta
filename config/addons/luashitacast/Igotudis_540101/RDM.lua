@@ -24,6 +24,7 @@ sets = T{
     Idle_Regen = {
         Head = 'Befouled Crown',
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -264,6 +265,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {
@@ -274,7 +277,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Ilabrat Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Fotia Belt',
@@ -290,11 +293,11 @@ sets = T{
         Ammo = 'Voluspa Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
-        Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
+        Ear1 = 'Moonshade Earring',
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Atrophy Gloves +2',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
@@ -312,7 +315,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
         Back = 'Solemnity Cape',
         Waist = 'Fotia Belt',
@@ -322,6 +325,9 @@ sets = T{
     Chant_Hybrid = {},
     Chant_Acc = {},
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},
@@ -410,6 +416,7 @@ profile.HandleMidcast = function()
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
+    local player = gData.GetPlayer();
 
     if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing);

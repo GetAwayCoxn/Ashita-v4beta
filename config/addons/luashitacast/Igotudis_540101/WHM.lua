@@ -23,6 +23,7 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -73,18 +74,18 @@ sets = T{
 
     Precast = {
         Ammo = 'Sapience Orb',
-        Head = 'Peda. M.Board +2',
+        Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Agwu\'s Robe',
-        Hands = 'Acad. Bracers +2',
+        --Body = '',
+        Hands = 'Gende. Gages +1',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Prolix Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
-        Legs = 'Agwu\'s Slops',
-        Feet = 'Acad. Loafers +2',
+        Legs = 'Lengo Pants',
+        Feet = 'Volte Gaiters',
     },
     Cure_Precast = {
         Ear1 = 'Mendi. Earring',
@@ -213,7 +214,7 @@ sets = T{
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Lugh\'s Cape',
-        Waist = 'Sacro Cord',
+        Waist = 'Eschan Stone',
         Legs = 'Amalric Slops +1',
         Feet = 'Amalric Nails +1',
     },
@@ -224,6 +225,8 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = {
@@ -234,7 +237,6 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Rufescent Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Fotia Belt',
@@ -246,6 +248,9 @@ sets = T{
     Ws_Acc = {
     },
 
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Feet = 'Herald\'s Gaiters',
 	},

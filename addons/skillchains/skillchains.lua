@@ -352,15 +352,15 @@ end
 ashita.events.register('packet_in', 'packet_in_cb', function(e)
 
     -- Packet: Zone Leave
-    if (e.id == 0x000B) then
-        --print('packet_in - 0x000B'); --debug
+    if (e.id == 0x00B) then
+        --print('packet_in - 0x00B'); --debug
         sc.zoning = true;
         return;
     end
 
     -- Packet: Inventory Update Completed
-    if (e.id == 0x001D) then
-        --print('packet_in - 0x001D'); --debug
+    if (e.id == 0x01D) then
+        --print('packet_in - 0x01D'); --debug
         sc.zoning = false;
         return;
     end

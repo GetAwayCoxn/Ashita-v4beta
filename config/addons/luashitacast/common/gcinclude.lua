@@ -7,7 +7,7 @@ These are universal sets for things like doomed or asleep; avoid main/sub/range/
 The second section is a couple basic settings to decide on whether or not to use you the automatic equiping function of idle regen, idle refresh, DT gear etc.
 More details in each section.
 ]]
-gcinclude.sets = {
+gcinclude.sets = T{
 	Doomed = { -- this set will equip any time you have the doom status
 		Ring1 = 'Purity Ring',
 		Waist = 'Gishdubar Sash',
@@ -87,6 +87,7 @@ gcinclude.BluMagSkill = T{'Metallic Body','Diamondhide','Magic Barrier','Occulta
 gcinclude.BluMagDiffus = T{'Erratic Flutter','Carcharian Verve','Harden Shell','Mighty Guard'};
 gcinclude.BluMagCure = T{'Pollen','Healing Breeze','Wild Carrot','Magic Fruit','Plenilune Embrace'};
 gcinclude.BluMagEnmity = T{'Actinic Burst','Exuviation','Fantod','Jettatura','Temporal Shift'};
+gcinclude.BluMagTH = T{'Actinic Burst','Dream Flower','Subduction'};
 gcinclude.Elements = T{'Thunder', 'Blizzard', 'Fire', 'Stone', 'Aero', 'Water', 'Light', 'Dark'};
 gcinclude.HelixSpells = T{'Ionohelix', 'Cryohelix', 'Pyrohelix', 'Geohelix', 'Anemohelix', 'Hydrohelix', 'Luminohelix', 'Noctohelix'};
 gcinclude.StormSpells = T{'Thunderstorm', 'Hailstorm', 'Firestorm', 'Sandstorm', 'Windstorm', 'Rainstorm', 'Aurorastorm', 'Voidstorm'};
@@ -104,6 +105,7 @@ function gcinclude.SetAlias()
 
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /dt /lac fwd dt');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /kite /lac fwd kite');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /th /lac fwd th');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meleeset /lac fwd meleeset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /aspir /lac fwd aspir');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /drain /lac fwd drain');
@@ -127,15 +129,12 @@ function gcinclude.SetAlias()
 			end
 		end
 	end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /fight /lac fwd fight');
 	end
 	if (player.MainJob == 'PLD') or (player.MainJob == 'RUN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /sir /lac fwd sir');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /tankset /lac fwd tankset');
-	end
-	if (player.MainJob == 'THF') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /th /lac fwd th');
 	end
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /proc /lac fwd proc');
@@ -148,6 +147,9 @@ function gcinclude.SetAlias()
 	end
 	if (player.MainJob == 'COR') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /tpgun /lac fwd tpgun');
+	end
+	if (player.MainJob == 'BLU') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cjmode /lac fwd cj');
 	end
 end
 
@@ -168,15 +170,15 @@ function gcinclude.SetVariables()
 			end
 		end
 	end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') then
 		gcdisplay.CreateToggle('Fight', false);
 	end
 	if (player.MainJob == 'PLD') or (player.MainJob == 'RUN') then
 		gcdisplay.CreateToggle('SIR', false);
 		gcdisplay.CreateCycle('TankSet', {[1] = 'Main', [2] = 'MEVA', [3] = 'None'});
 	end
-	if (player.MainJob == 'THF') then
-		gcdisplay.CreateToggle('TH', true);
+	if (player.MainJob == 'THF') or (player.MainJob == 'BLU') then
+		gcdisplay.CreateToggle('TH', false);
 	end
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('PROC', false);
@@ -189,6 +191,9 @@ function gcinclude.SetVariables()
 	end
 	if (player.MainJob == 'COR') then
 		gcdisplay.CreateToggle('TPgun', false);
+	end
+	if (player.MainJob == 'BLU') then
+		gcdisplay.CreateToggle('CJmode', false);
 	end
 end
 
@@ -261,7 +266,7 @@ function gcinclude.SetCommands(args)
 			end
 		end
 	end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') then
 		if (args[1] == 'fight') then
 			if (gcdisplay.GetToggle('Fight') == false) then
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
@@ -284,9 +289,11 @@ function gcinclude.SetCommands(args)
 			gcdisplay.AdvanceCycle('TankSet');
 		end
 	end
-	if (player.MainJob == 'THF') then
-		if (args[1] == 'th') then
+	if (args[1] == 'th') then
+		if (player.MainJob == 'THF') or (player.MainJob == 'BLU') then
 			gcdisplay.AdvanceToggle('TH');
+		else
+			AshitaCore:GetChatManager():QueueCommand(-1, '/lac set TH 10');
 		end
 	end
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
@@ -307,6 +314,11 @@ function gcinclude.SetCommands(args)
 	if (player.MainJob == 'COR') then
 		if (args[1] == 'tpgun') then
 			gcdisplay.AdvanceToggle('TPgun');
+		end
+	end
+	if (player.MainJob == 'BLU') then
+		if (args[1] == 'cj') then
+			gcdisplay.AdvanceToggle('CJmode');
 		end
 	end
 	

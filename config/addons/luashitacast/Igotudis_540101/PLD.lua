@@ -21,7 +21,9 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Baghere Salade',
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -73,11 +75,11 @@ sets = T{
     },
     Tp_Hybrid = {
         Ammo = 'Coiste Bodhar',
-        Head = 'Flam. Zucchetto +2',
+        Head = 'Hjarrandi Helm',
         Neck ='Sanctity Necklace',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Flamma Korazin +2',
+        Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Petrov Ring',
@@ -95,6 +97,7 @@ sets = T{
     Tank_Main = {--Default Tanking,  dt 
         Ammo = 'Staunch Tathlum',
         Head = 'Souv. Schaller +1',
+        Neck = 'Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
         Body = 'Hjarrandi Breast.',
@@ -157,7 +160,7 @@ sets = T{
         Head = 'Souv. Schaller +1',--9
         Neck = 'Moonbeam Necklace',--10
         Body = 'Cab. Surcoat +3',--10
-        Ring1 = 'Vengeful Ring',--3
+        Ring1 = 'Eihwaz Ring',--5
         Ring2 = 'Supershear Ring',--5
         Ear1 = 'Friomisi Earring',--2
         Ear2 = 'Cryptic Earring',--4
@@ -167,14 +170,18 @@ sets = T{
     },
 
     Cure = {
-        Head = 'Souv. Schaller +1', --15
+        Ammo = 'Staunch Tathlum',
+        Head = 'Souv. Schaller +1', --15rec
         Neck = 'Moonbeam Necklace',
-        Ear1 = 'Tuisto Earring',
+        --Ear1 = 'Tuisto Earring',
+        Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Nourish. Earring +1', -- 6
+        Body = 'Yorium Cuirass',--sir10
         Hands = 'Macabre Gaunt. +1', -- 11
-        Ring1 = 'Moonbeam Ring',
-        Ring2 = 'Supershear Ring',
+        Ring1 = 'Eihwaz Ring',
+        Ring2 = 'Gelatinous Ring +1',
         Back = 'Solemnity Cape', -- 7
+        Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Odyssean Greaves', -- 7
     },
@@ -197,8 +204,8 @@ sets = T{
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Cryptic Earring',
-        Body = 'Shabti Cuirass',
-        Ring1 = 'Moonbeam Ring',
+        Body = 'Shab. Cuirass +1',
+        Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Audumbla Sash',
@@ -212,7 +219,7 @@ sets = T{
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Cryptic Earring',
         Body = 'Rev. Surcoat +2',
-        Ring1 = 'Moonbeam Ring',
+        Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Audumbla Sash',
@@ -221,7 +228,10 @@ sets = T{
     },
 
     Preshot = {},
-    Midshot = {},
+    Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
+    },
 
     Ws_Default = {
         Ammo = 'Ginsen',
@@ -231,7 +241,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Nyame Mail',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -282,7 +292,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Moonbeam Ring',
+        Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Fotia Belt',
@@ -313,7 +323,10 @@ sets = T{
     Rampart = {
         Head = 'Cab. Coronet',
     },
-   
+    
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},

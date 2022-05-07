@@ -5,14 +5,14 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
-        Neck = 'Loricate Torque +1',
-        Ear1 = 'Eabani Earring',
+        Head = 'Jumalik Helm',
+        Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Volte Moufles',
         Ring1 = 'Stikini Ring +1',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+        Ring2 = 'Chirich Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
         Legs = 'Nyame Flanchard',
@@ -20,7 +20,9 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Baghere Salade',
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
@@ -31,7 +33,7 @@ sets = T{
         Main = 'Apocalypse',
         Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
-        Head = 'Cumulus Masque',
+        Head = 'Hjarrandi Helm',
         Body = 'Hjarrandi Breast.',
         Hands = 'Nyame Gauntlets',
         Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
@@ -65,16 +67,23 @@ sets = T{
         Ring1 = 'Petrov Ring',
         Ring2 = 'Niqmaddu Ring',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Waist = 'Ioskeha Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Flam. Gambieras +2',
     },
     Tp_Hybrid = {
         Body = 'Hjarrandi Breast.',
+        Ring1 = 'Moonbeam Ring',
+        Ring2 = 'Sulevia\'s Ring',
+        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Legs = 'Sakpata\'s Cuisses',
     },
     Tp_Acc = {
+        Ammo = 'Seeth. Bomblet +1',
+        Head = 'Blistering Sallet +1',
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
+        Waist = 'Ioskeha Belt +1',
     },
 
 
@@ -96,7 +105,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
-        Ring1 = 'Rufescent Ring',
+        Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Legs = 'Carmine Cuisses +1',
@@ -106,17 +115,24 @@ sets = T{
     Enhancing = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
-        Body = 'Shabti Cuirass',
+        Body = 'Shab. Cuirass +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
     Dread_Spikes = { -- HP+++++ at cast for max potency
-        Body = 'Heath. Cuirass +1',
-    },
-    Spikes = { -- set to leave body on with dread spikes up, only body here!
-        Body = 'Heath. Cuirass +1',
+        Head = 'Hjarrandi Helm',
+        Neck = 'Unmoving Collar +1',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Hjarrandi Breast.',
+        Hands = 'Sakpata\'s Gauntlets',
+        Ring1 = 'Moonbeam Ring',
+        Ring2 = 'Eihwaz Ring',
+        Waist = 'Asklepian Belt',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Carmine Greaves +1',
     },
 
     Enfeebling = {
@@ -125,11 +141,16 @@ sets = T{
         Neck = 'Erra Pendant',
         Ear1 = 'Crep. Earring',
         Ear2 = 'Malignance Earring',
-        Hands = 'Malignance Gloves',
         Ring1 = 'Kishar Ring',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
-    Macc = {},
+    Macc = {
+        Neck = 'Erra Pendant',
+        Ear1 = 'Crep. Earring',
+        Ear2 = 'Malignance Earring',
+        Ring1 = 'Kishar Ring',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+    },
 
     Drain = {
         Neck = 'Erra Pendant',
@@ -143,7 +164,7 @@ sets = T{
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Hecate\'s Earring',
+        Ear1 = 'Crematio Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
@@ -156,28 +177,56 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Enervating Earring',
     },
 
     Ws_Default = { -- WSD for all scythe basically
         Ammo = 'Knobkierrie',
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Weapon skill damage +4%', [2] = 'Accuracy+13', [3] = '"Mag. Atk. Bns."+8' } },
         Neck = 'Fotia Gorget',
-        Ear1 = { Name = 'Moonshade Earring', Augment = { [1] = 'Accuracy+4', [2] = 'TP Bonus +250' } },
+        Ear1 = 'Moonshade Earring',
         Ear2 = 'Thrud Earring',
         Body = 'Hjarrandi Breast.', -- af+3
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Rufescent Ring', --regal ring
+        Ring1 = 'Petrov Ring', --regal ring
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Sakpata\'s Cuisses', -- relic +3
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Sulev. Leggings +2',
     },
     Ws_Hybrid = {
     },
     Ws_Acc = {
     },
 
+    Aedge_Default = {
+        Ammo = 'Seeth. Bomblet +1',
+        Head = 'Nyame Helm',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Malignance Earring',
+        Ear2 = 'Friomisi Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Carmine Fin. Ga. +1',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Metamor. Ring +1',
+        Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Aedge_Hybrid = {
+    },
+    Aedge_Acc = {
+    },
+
+    Spikes = { -- set to leave body on with dread spikes up, only body here!
+        Body = 'Heath. Cuirass +1',
+    },
+    TH = {--/th will force this set to equip for 10 seconds
+		Waist = 'Chaac Belt',
+	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},
@@ -210,16 +259,15 @@ profile.HandleDefault = function()
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-        if spikes ~= 0 then gFunc.EquipSet(sets.Spikes) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
     end
 	
+    if spikes ~= 0 then gFunc.EquipSet(sets.Spikes) end
 	
 	if (gcdisplay.GetToggle('DTset') == true) then
-		 
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then
@@ -227,7 +275,7 @@ profile.HandleDefault = function()
 	end
 
     gcinclude.CheckDefault ();
-     
+    
 end
 
 profile.HandleAbility = function()
@@ -292,7 +340,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
+        
+        if string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 
