@@ -430,14 +430,13 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Stoneskin);
         elseif string.contains(spell.Name, 'Refresh') then
             gFunc.EquipSet(sets.Refresh);
+        elseif string.contains(spell.Name, 'Regen') then
+            gFunc.EquipSet(sets.Regen);
         end
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure);
         if (target.Name == me) then
             gFunc.EquipSet(sets.Self_Cure);
-        end
-        if string.contains(spell.Name, 'Regen') then
-            gFunc.EquipSet(sets.Regen);
         end
         if string.match(spell.Name, 'Cursna') then
             gFunc.EquipSet(sets.Cursna);

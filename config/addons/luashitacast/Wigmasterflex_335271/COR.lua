@@ -16,7 +16,7 @@ sets = T{
         Ring1 = 'Mummu Ring',
         Ring2 = 'Meghanada Ring',
         Back = 'Bleating Mantle',
-        Waist = 'Sailfi Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = { Name = 'Carmine Cuisses', AugPath='D' },
         Feet = { Name = 'Herculean Boots', Augment = { [1] = '"Triple Atk."+1', [2] = 'Accuracy+17', [3] = 'Attack+17', [4] = 'Crit. hit damage +1%' } },
     },

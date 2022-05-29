@@ -26,7 +26,7 @@ sets = T{
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
-        Head = 'Jumalik Helm',
+        Head = 'Baghere Salade',
         Ring1 = 'Stikini Ring +1',
     },
     Town = {

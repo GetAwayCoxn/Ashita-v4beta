@@ -20,6 +20,7 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Crepuscular Helm',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
         Body = 'Hiza. Haramaki +2',
@@ -289,7 +290,7 @@ sets = T{
     },
     Meditate = {
         Head = 'Wakido Kabuto +2',
-        Hands = 'Sakonji Kote',
+        Hands = 'Sakonji Kote +1',
     },
     Meikyo = {
         Feet = 'Sakonji Sune-Ate',

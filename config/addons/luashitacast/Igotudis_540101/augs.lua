@@ -1,20 +1,20 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = 'Naegling',
+        Main = { Name = 'Masamune', AugPath='A' },
+        Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
-        Head = 'Cumulus Masque',
-        Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Gleti\'s Cuirass',
-        Hands = 'Malignance Gloves',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
+        Neck = 'Bathy Choker +1',
+        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
+        Ear2 = 'Eabani Earring',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Chirich Ring +1',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Evasion+15' } },
+        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots',
+        Legs = 'Mpaca\'s Hose',
+        Feet = 'Danzo Sune-Ate',
     },
 };
 

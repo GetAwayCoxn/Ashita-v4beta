@@ -314,8 +314,9 @@ sets = T{
         Ring1 = 'Eihwaz Ring',
     },
 
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
 	Movement = {
 		Legs = 'Carmine Cuisses +1',

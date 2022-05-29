@@ -271,9 +271,9 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
         },
 
         unm = {
-            {{'Buramgh',20807},{'Emeici',20522},{'Kunimune',21035},{'Tancho',20988},{'Pouwhenua',21163},{'Mengado',21223},{'Wingcutter',21350},{'Evalach',27637},{'Refined Grip',21417},{'Imperial Wing Hairpin',26710},{'Agony Jerkin',26943},{'Lugra Cloak',26897},{'Rosette Jaseran',26869},{'Macabre Gauntlets',27994},{'Shigure Tekko',27996},{'Assiduity Pants',28135},{'Augury Cuisses',28137},{'Zoar Subligar',27231},{'Hippomenes Socks',27410},{'Regal Pumps',28274},{'Acuity Belt',28430},{'Apeile Ring',27561},{'Arete del Luna',28487},{'Canto Necklace',28353},{'Gelatinous Ring',10769},{'Handler\'s Earring',28491},{'Lugra Earring',28482},{'Metamorph Ring',27563},{'Nourishing Earring',28485},{'Sailfi Belt',28428},{'Shinjutsu-no-Obi',28424},{'Unmoving Collar',27509},},--scale {name,hq}
-            {{'Name',26000},},--hide {name,hq}
-            {{'Combuster',20697},},--wing {name,hq}
+            scale = {{'Buramgh',20807},{'Emeici',20522},{'Kunimune',21035},{'Tancho',20988},{'Pouwhenua',21163},{'Mengado',21223},{'Wingcutter',21350},{'Evalach',27637},{'Refined Grip',21417},{'Imperial Wing Hairpin',26710},{'Agony Jerkin',26943},{'Lugra Cloak',26897},{'Rosette Jaseran',26869},{'Macabre Gauntlets',27994},{'Shigure Tekko',27996},{'Assiduity Pants',28135},{'Augury Cuisses',28137},{'Zoar Subligar',27231},{'Hippomenes Socks',27410},{'Regal Pumps',28274},{'Acuity Belt',28430},{'Apeile Ring',27561},{'Arete del Luna',28487},{'Canto Necklace',28353},{'Gelatinous Ring',10769},{'Handler\'s Earring',28491},{'Lugra Earring',28482},{'Metamorph Ring',27563},{'Nourishing Earring',28485},{'Sailfi Belt',28428},{'Shinjutsu-no-Obi',28424},{'Unmoving Collar',27509},},--scale {name,hqID}
+            hide = {{'Name',26000},},--hide {name,hqID}
+            wing = {{'Combuster',20697},},--wing {name,hqID}
         },
     },
 
@@ -322,7 +322,7 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             bronze2 = {false, 2000},
             shells1 = {false, 1500},
             shells2 = {false, 2000},
-            marrows = {false, 0},
+            marrows = {false, 30000},
             scorias = {false, 50000},
             drosses = {false, 3000},
             cinders = {false, 3000},
@@ -332,7 +332,7 @@ defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             baylds = {false, 13125},
             hmp = {false, 10000},
             alex = {false, 13125},
-            month = {0,},
+            month = {0,0},
         },
     },
 };

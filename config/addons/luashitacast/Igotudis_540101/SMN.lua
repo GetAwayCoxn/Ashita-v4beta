@@ -5,19 +5,18 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Ammo = 'Staunch Tathlum',
-        Head = 'Taeon Chapeau',
+        Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Gleti\'s Cuirass',
+        Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Gelatinous Ring +1',
+        Ring2 = 'Stikini Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Gishdubar Sash',
         Legs = 'Assid. Pants +1',
-        Feet = 'Gleti\'s Boots',
+        Feet = 'Volte Gaiters',
     },
 	Resting = {},
     Idle_Regen = {
@@ -25,7 +24,13 @@ sets = T{
         Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Befouled Crown',
+        Body = 'Witching Robe',
+        Ring2 = 'Stikini Ring +1',
+        Legs = 'Assid. Pants +1',
+        Feet = 'Volte Gaiters',
+    },
 	Town = {
         Main = 'Naegling',
         Ammo = 'Voluspa Tathlum',
@@ -33,18 +38,17 @@ sets = T{
         Neck = 'Empath Necklace',
         Ear1 = 'Thrud Earring',
         Ear2 = 'Telos Earring',
-        Body = 'Gleti\'s Cuirass',
+        Body = 'Witching Robe',
         Hands = 'Malignance Gloves',
         Ring1 = 'Epona\'s Ring',
         Ring2 = 'Petrov Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Gleti\'s Boots',
+        Feet = 'Volte Gaiters',
     },
 	
 	Dt = {
-        Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -74,24 +78,21 @@ sets = T{
 	},
 	
 	Tp_Default = {
-        Ammo = 'Coiste Bodhar',
-        Head = 'Malignance Chapeau',
-        Neck = 'Anu Torque',
-        Ear1 = 'Sherida Earring',
+        Head = 'Nyame Helm',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
-        Body = 'Gleti\'s Cuirass',
-        Hands = 'Meg. Gloves +2',
-        Ring1 = 'Epona\'s Ring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Chirich Ring +1',
         Ring2 = 'Petrov Ring',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Sailfi Belt +1',
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots',
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
     },
 	Tp_Hybrid = {
         Neck = 'Empath Necklace',
         Ear1 = 'Mache Earring +1',
-        Hands = 'Malignance Gloves',
         Ring1 = 'Cacoethic Ring +1',
     },
 	Tp_Acc = {
@@ -118,25 +119,15 @@ sets = T{
     },
 
 	Ws_Default = {
-        Ammo = 'Coiste Bodhar',
-        Head = 'Valorous Mask',
-        Neck = 'Fotia Gorget',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Moonshade Earring',
-        Body = 'Gleti\'s Cuirass',
-        Hands = 'Meg. Gloves +2',
-        Ring2 = 'Karieyh Ring +1',
-        Ring1 = 'Petrov Ring',
-        Back = '',
-        Waist = 'Fotia Belt',
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots',
+        Head = 'Nyame Helm',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
     },
     Ws_Hybrid = {
-        Ammo = 'Voluspa Tathlum',
     },
     Ws_Acc = {
-        Ammo = 'Voluspa Tathlum',
     },
 	
 	SmnPhysical = {},
@@ -150,6 +141,7 @@ sets = T{
 		Waist = 'Chaac Belt',
 	},
 	Movement = {
+        Feet = 'Herald\'s Gaiters',
 	},
 };
 

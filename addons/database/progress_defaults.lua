@@ -259,7 +259,7 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
             baylds = {false, 13125},
             hmp = {false, 10000},
             alex = {false, 13125},
-            month = {0, 'Test'},
+            month = {0, 0},
         },
     },
 };

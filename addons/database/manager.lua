@@ -7,27 +7,35 @@ local manager = T{ -- functions for data management
     guilditemsgil = 0;
     plasm = 0;
     pointsmap = {50, 80, 120, 170, 220, 280, 340, 410, 480, 560, 650, 750, 860, 980};
+    expmap = {2500,5550,8721,11919,15122,18327,21532,24737,27942,31147,41205,48130,53677,58618,63292,67848,72353,76835,81307,85775,109112,127014,141329,153277,163663,173018,181692,189917,197845,205578,258409};
 };
 
 function manager.UpdateJobs()  
     local player = AshitaCore:GetMemoryManager():GetPlayer();
     local jobleveltotal = 0.0;
     local JPspenttotal = 0.0;
-    local masterleveltotal = 0.0;
-    local joblevelmax = 99.0 * #defaults.jobsabrv;
-    local JPmax = 2100.0 * #defaults.jobsabrv;
-    local masterlevelmax = 30.0 * #defaults.jobsabrv;
+    local masterexpspent = 0.0;
+    local masterexptotal = 0.0;
+    local joblevelmax = 99.0 * #interface.defaults.jobsabrv;
+    local JPmax = 2100.0 * #interface.defaults.jobsabrv;
     
     for n = 1, #interface.defaults.jobsabrv do
-        interface.defaults.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),player:GetJobMasterLevel(n),player:GetJobPoints(n)};
+        local mLV = player:GetJobMasterLevel(n);
+        for x = 1, #manager.expmap do
+            masterexptotal = masterexptotal + manager.expmap[x];
+        end
+        interface.defaults.jobs[n] = {player:GetJobLevel(n),player:GetJobPointsSpent(n),mLV,player:GetJobPoints(n)};
+        jobleveltotal = jobleveltotal + player:GetJobLevel(n);
+        JPspenttotal = JPspenttotal + player:GetJobPointsSpent(n);
+        for l = mLV, 1, -1 do
+            if l == mLV then
+                masterexpspent = masterexpspent + player:GetMasteryExp();
+            else
+                masterexpspent = masterexpspent + manager.expmap[mLV];
+            end
+        end
     end
-
-    for a = 1, #interface.defaults.jobsabrv do
-        jobleveltotal = jobleveltotal + player:GetJobLevel(a);
-        JPspenttotal = JPspenttotal + player:GetJobPointsSpent(a);
-        masterleveltotal = masterleveltotal + player:GetJobMasterLevel(a);
-    end
-    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterleveltotal / masterlevelmax)};
+    interface.data.progress.jobs = {(jobleveltotal / joblevelmax),(JPspenttotal / JPmax),(masterexpspent / masterexptotal)};
 end
 
 function manager.DisplayJobs()
@@ -46,7 +54,7 @@ function manager.DisplayJobs()
             imgui.TableNextColumn();
             if (interface.defaults.jobs[n] ~= nil) then
                 t:merge(interface.defaults.jobs[n], true);
-                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 30)) then
+                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 30)) or ((x == 4) and (t[x] == 500)) then
                     imgui.TextColored(interface.colors.text1, tostring(t[x]));
                 else
                     imgui.Text(tostring(t[x]));
@@ -68,7 +76,7 @@ function manager.DisplayJobs()
         imgui.TextColored(interface.colors.text1, 'Total JOB Points Completion:');imgui.TableNextColumn();
         imgui.ProgressBar(interface.data.progress.jobs[2], 10);imgui.TableNextColumn();
         imgui.TextColored(interface.colors.text1, 'Total JOB Master Level Completion:');imgui.TableNextColumn();
-        imgui.ProgressBar(interface.data.progress.jobs[3], 10);imgui.TableNextColumn(); 
+        imgui.ProgressBar(interface.data.progress.jobs[3], 100);imgui.TableNextColumn(); 
     imgui.EndTable();
     if (imgui.Button('Update Jobs')) then
         print(chat.header(addon.name) .. chat.message('Updated Jobs'));
@@ -2501,15 +2509,33 @@ function manager.DisplayScaleGear()
 end
 
 function manager.UpdateScaleGear()
-    
+    for i = 1, #interface.defaults.gear.unm.scale do
+        if (interface.data.progress.gear.unm.scale[i][2] == nil) then
+            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],false,false,false,0,0,0};
+        elseif interface.data.progress.gear.unm.scale[i][2] == false then
+            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],false,false,false,0,0,0};
+        else
+            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],true,false,false,0,0,0};
+        end
+        interface.data.progress.gear.unm.scale[i][4] = manager.CheckItemId(interface.defaults.gear.unm.scale[i][2]);
+        interface.data.progress.gear.unm.scale[i][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[i][2]);
+    end
 end
 
 function manager.DisplayHideGear()
     imgui.Spacing();imgui.Spacing();
 end
 
+function manager.UpdateHideGear()
+    
+end
+
 function manager.DisplayWingGear()
     imgui.Spacing();imgui.Spacing();
+end
+
+function manager.UpdateWingGear()
+    
 end
 
 function manager.UpdateGear()
@@ -2717,13 +2743,14 @@ end
 function manager.DisplayGallantry()
     local total = 0;
     for k,v in pairs(interface.data.points.gallantry) do
-        if (v[1] == false) then
-            total = total + v[2];
+        total = total + v[2];
+        if (v[1] == true) then
+            total = total - v[2];
         end
     end
 
     imgui.Spacing();
-    imgui.TextColored(interface.colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. interface.manager.comma_value(total) .. '    ');
+    imgui.TextColored(interface.colors.header, 'NEEDED GALLANTRY POINTS:');imgui.SameLine();imgui.Text('    ' .. interface.manager.comma_value(total));
     imgui.Spacing();imgui.Separator();imgui.Spacing();
 
     imgui.BeginTable('Weps', 8, ImGuiTableFlags_Borders);
@@ -2818,7 +2845,7 @@ function manager.DisplayGallantry()
             interface.data.points.gallantry.bronze1[1] = true;interface.data.points.gallantry.bronze2[1] = true;interface.data.points.gallantry.shells1[1] = true;interface.data.points.gallantry.shells2[1] = true;
             interface.data.points.gallantry.drosses[1] = true;interface.data.points.gallantry.cinders[1] = true;interface.data.points.gallantry.hmp[1] = true;interface.data.points.gallantry.boulders[1] = true;
             interface.data.points.gallantry.alex[1] = false;interface.data.points.gallantry.baylds[1] = false;interface.data.points.gallantry.beitetsu[1] = false;interface.data.points.gallantry.scorias[1] = false;
-        elseif (interface.data.points.gallantry.month[1] == 2) then
+        elseif (interface.data.points.gallantry.month[1] == 3) then
             interface.data.points.gallantry.plutons[1] = true;interface.data.points.gallantry.marrows[1] = true;interface.data.points.gallantry.bynes1[1] = true;interface.data.points.gallantry.bynes2[1] = true;
             interface.data.points.gallantry.bronze1[1] = true;interface.data.points.gallantry.bronze2[1] = true;interface.data.points.gallantry.shells1[1] = true;interface.data.points.gallantry.shells2[1] = true;
             interface.data.points.gallantry.alex[1] = true;interface.data.points.gallantry.baylds[1] = true;interface.data.points.gallantry.beitetsu[1] = true;interface.data.points.gallantry.scorias[1] = true;
@@ -2848,19 +2875,19 @@ function manager.DisplayGallantry()
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.shells1[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('100Byne', interface.data.points.gallantry.bynes2);imgui.TableNextColumn();
+            imgui.Checkbox('100Byne(1)', interface.data.points.gallantry.bynes2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bynes2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bynes2[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('M.Bronze', interface.data.points.gallantry.bronze2);imgui.TableNextColumn();
+            imgui.Checkbox('M.Bronze(1)', interface.data.points.gallantry.bronze2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.bronze2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.bronze2[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('L.Shell', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
+            imgui.Checkbox('L.Shell(1)', interface.data.points.gallantry.shells2);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.shells2[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
@@ -2872,7 +2899,7 @@ function manager.DisplayGallantry()
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.plutons[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('Marrow', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
+            imgui.Checkbox('Marrow(1)', interface.data.points.gallantry.marrows);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.marrows[1]) then
                     imgui.Text('    0');
                 else
@@ -2910,25 +2937,25 @@ function manager.DisplayGallantry()
     elseif (interface.data.points.gallantry.month[1] == 3) then
         imgui.BeginTable('Empys', 8, ImGuiTableFlags_Borders);
         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Empyreans');imgui.TableNextRow();imgui.TableNextColumn();
-            imgui.Checkbox('R.Dross', interface.data.points.gallantry.drosses);imgui.TableNextColumn();
+            imgui.Checkbox('R.Dross(2)', interface.data.points.gallantry.drosses);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.drosses[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.drosses[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('Cinders', interface.data.points.gallantry.cinders);imgui.TableNextColumn();
+            imgui.Checkbox('Cinders(2)', interface.data.points.gallantry.cinders);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.cinders[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.cinders[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('Boulders', interface.data.points.gallantry.boulders);imgui.TableNextColumn();
+            imgui.Checkbox('Boulders(250)', interface.data.points.gallantry.boulders);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.boulders[1]) then
                     imgui.Text('    0');imgui.TableNextColumn();
                 else
                     imgui.Text(tostring(interface.manager.comma_value(interface.data.points.gallantry.boulders[2])));imgui.TableNextColumn();
                 end
-            imgui.Checkbox('HMP', interface.data.points.gallantry.hmp);imgui.TableNextColumn();
+            imgui.Checkbox('HMP(50)', interface.data.points.gallantry.hmp);imgui.TableNextColumn();
                 if (interface.data.points.gallantry.hmp[1]) then
                     imgui.Text('    0');
                 else

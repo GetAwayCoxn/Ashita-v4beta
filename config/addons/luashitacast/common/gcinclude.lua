@@ -19,8 +19,8 @@ gcinclude.sets = T{
 	Sleeping = { -- this set will auto equip if you are asleep
     },
 	Reraise = { -- this set will try to equip when weakened if AutoGear variable is true below or you can force it with /rrset in game
-		Head = 'Twilight Helm',
-		Body = 'Twilight Mail',
+		Head = 'Crepuscular Helm',
+		Body = 'Crepuscular Mail',
     },
 	Crafting = { -- this set is meant as a default set for crafting, equip using /craftset, be sure to dbl check what rings you want to use
 		Head = 'Midras\'s Helm +1',

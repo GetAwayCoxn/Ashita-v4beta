@@ -350,8 +350,8 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Phalanx);
         elseif string.match(spell.Name, 'Stoneskin') then
             gFunc.EquipSet(sets.Stoneskin);
-        elseif string.contains(spell.Name, 'Temper') then
-            gFunc.EquipSet(sets.Skill_Enhancing);
+        elseif string.contains(spell.Name, 'Regen') then
+            gFunc.EquipSet(sets.Regen);
         elseif string.contains(spell.Name, 'Refresh') then
             gFunc.EquipSet(sets.Refresh);
             if (target.Name == me) then
@@ -362,9 +362,6 @@ profile.HandleMidcast = function()
         gFunc.EquipSet(sets.Cure);
         if (target.Name == me) then
             gFunc.EquipSet(sets.Self_Cure);
-        end
-        if string.contains(spell.Name, 'Regen') then
-            gFunc.EquipSet(sets.Regen);
         end
         if string.match(spell.Name, 'Cursna') then
             gFunc.EquipSet(sets.Cursna);

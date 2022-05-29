@@ -186,6 +186,10 @@ ashita.events.register('load', 'load_cb', function()
 end);
 
 function update_weapon()
+	if (AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id == nil) then 
+		update_weapon:once(1);
+	end
+	
     local main_weapon = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id;
     if main_weapon ~= 0 then
         info.aeonic = aeonic_weapon[main_weapon] or

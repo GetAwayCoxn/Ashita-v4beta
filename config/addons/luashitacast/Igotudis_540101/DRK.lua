@@ -20,7 +20,7 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
-        Head = 'Baghere Salade',
+        Head = 'Crepuscular Helm',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
@@ -33,9 +33,11 @@ sets = T{
         Main = 'Apocalypse',
         Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
-        Head = 'Hjarrandi Helm',
-        Body = 'Hjarrandi Breast.',
+        Head = 'Crepuscular Helm',
+        Body = 'Found. Breastplate',
         Hands = 'Nyame Gauntlets',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
         Feet = 'Nyame Sollerets',
     },
@@ -183,7 +185,7 @@ sets = T{
 
     Ws_Default = { -- WSD for all scythe basically
         Ammo = 'Knobkierrie',
-        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Weapon skill damage +4%', [2] = 'Accuracy+13', [3] = '"Mag. Atk. Bns."+8' } },
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Moonshade Earring',
         Ear2 = 'Thrud Earring',
@@ -203,7 +205,7 @@ sets = T{
 
     Aedge_Default = {
         Ammo = 'Seeth. Bomblet +1',
-        Head = 'Nyame Helm',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Sanctity Necklace',
         Ear1 = 'Malignance Earring',
         Ear2 = 'Friomisi Earring',

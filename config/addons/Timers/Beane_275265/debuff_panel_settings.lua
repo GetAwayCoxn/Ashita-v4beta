@@ -2,8 +2,8 @@ require('common');
 
 local settings = T{ };
 settings["move"] = T{ };
-settings["move"]["drag_y"] = 67;
-settings["move"]["drag_x"] = 75;
+settings["move"]["drag_y"] = 23;
+settings["move"]["drag_x"] = 204;
 settings["move"]["shift_down"] = false;
 settings["move"]["dragging"] = false;
 settings["scale"] = 1;

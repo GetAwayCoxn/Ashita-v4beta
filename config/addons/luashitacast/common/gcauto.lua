@@ -51,16 +51,16 @@ gcauto.WeaponSkills = T{
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus', [5] = 'Aeolian Edge'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
-	['RNG'] = {[1] = 'None',},
+	['RNG'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Last Stand', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
-	['SMN'] = {[1] = 'None',},
+	['SMN'] = {[1] = 'None', [2] = 'Retribution'},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Aeolian Edge'},
-	['SCH'] = {[1] = 'Myrkr',},
+	['SCH'] = {[1] = 'Myrkr'},
 	['GEO'] = {[1] = 'None',},
 	['RUN'] = {[1] = 'None', [2] = 'Dimidiation', [3] = 'Resolution', [4] = 'Shockwave'},
 };
@@ -386,7 +386,7 @@ function gcauto.DoJobStuff()
 			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
 			end
-			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1)  and (haste >= 1) then
+			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (haste >= 1) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Reprisal" <me>');
 			end
 		end
@@ -486,7 +486,7 @@ function gcauto.DoJobStuff()
 
 		if (gcdisplay.GetToggle('AUTO') == true) then
 			--local refresh = gData.GetBuffCount('Refresh');
-			local aquaveil = gData.GetBuffCount('Aquaveil');
+			--local aquaveil = gData.GetBuffCount('Aquaveil');
 
 			if (refresh == 0) and (player.MPP < 60) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Refresh" <me>');
@@ -521,9 +521,9 @@ function gcauto.DoJobStuff()
 					end
 				end
 
-				--[[if (temper == 0) then
+				if (temper == 0) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Temper" <me>');
-				else]]if (phalanx == 0) then
+				elseif (phalanx == 0) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Phalanx" <me>');
 				elseif (foil == 0) and (gcdisplay.GetToggle('Foil') == true) and (target.HPP < 98) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Foil" <me>');

@@ -21,6 +21,7 @@ sets = T{
     },
 	Resting = {},
     Idle_Regen = {
+        Head = 'Crepuscular Helm',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
@@ -124,7 +125,7 @@ sets = T{
 
 	Ws_Default = {
         Ammo = 'Coiste Bodhar',
-        Head = 'Valorous Mask',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
         Ear2 = 'Moonshade Earring',

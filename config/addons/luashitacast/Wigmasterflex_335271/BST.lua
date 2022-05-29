@@ -35,8 +35,8 @@ sets = T{
         Neck = 'Loricate Torque',
         Ear1 = 'Colossus\'s Earring',
         Ear2 = 'Ethereal Earring',
-		Body = 'Tartarus Platemail',
-		Hands = 'Umuthi Gloves',
+		Body = 'Meg. Cuirie +10',
+		Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Dark Ring', Augment = { [1] = 'Magic dmg. taken -4%', [2] = 'Breath dmg. taken -5%', [3] = 'Phys. dmg. taken -4%' } },
         Back = 'Repulse Mantle',
@@ -48,16 +48,10 @@ sets = T{
         Ammo = 'Crepuscular Pebble',
         Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
-        --Ear1 = 'Rimeice Earring',
-        --Ear2 = 'Handler\'s Earring +1',
-        --Body = 'Taeon Tabard',
         Hands = 'Ankusa Gloves',
         Ring1 = 'Defending Ring',
-        --Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        --Waist = 'Gishdubar Sash',
         Legs = 'Tali\'ah Sera. +2',
-        --Feet = 'Gleti\'s Boots',
 	},
 	
 	Tp_Default = {
@@ -71,7 +65,7 @@ sets = T{
         Ring1 = 'Epona\'s Ring',
         Ring2 = 'Meghanada Ring',
         Back = 'Bleating Mantle',
-        Waist = 'Sailfi Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
@@ -87,7 +81,7 @@ sets = T{
     },
 	Tp_Acc = {},
     Pet_Only_Tp = {
-        --Head = 'Emicho Coronet',
+        Head = 'Emicho Coronet',
         Head = 'Anwig Salade',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
@@ -121,16 +115,17 @@ sets = T{
     },
 	
 	Call = {
-		Hands = 'Mst. Gloves +2',
+		Hands = 'Ankusa Gloves',
 	},
 	Reward = {
 		Ammo = 'Pet Food Theta',
 		Body = 'Mst. Jackcoat +1',
 	},
     Ready = {
-		Legs = 'Gleti\'s Breeches',
+		Legs = 'Desultor Tassets',
 	},
 	PetReadyDefault = {
+        Head = 'Emicho Coronet',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring2 = 'Tali\'ah Ring',

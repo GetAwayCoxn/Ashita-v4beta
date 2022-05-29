@@ -5,7 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
-        Head = 'Nyame Helm',
+        Head = 'Valorous Mask',
         Neck = 'Loricate Torque +1',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
@@ -13,14 +13,13 @@ sets = T{
         Hands = 'Volte Moufles',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
     },
     Resting = {},
     Idle_Regen = {
-        Head = 'Baghere Salade',
+        Head = 'Crepuscular Helm',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
         Hands = 'Volte Moufles',
@@ -29,18 +28,18 @@ sets = T{
     Idle_Refresh = {},
     Town = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
-        Head = 'Flam. Zucchetto +2',
-        Neck = 'Anu Torque',
+        Head = 'Hjarrandi Helm',
+        Neck = 'Bathy Choker +1',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Volte Moufles',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = 'Cichol\'s Mantle',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Gleti\'s Boots',
+        Feet = 'Hermes\'s Sandals',
     },
 
     Dt = {
@@ -69,7 +68,7 @@ sets = T{
         Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Niqmaddu Ring',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = 'Cichol\'s Mantle',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Tatena. Sune. +1',
@@ -85,6 +84,7 @@ sets = T{
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
         Legs = 'Tatena. Haidate +1',
+        Waist = 'Ioskeha Belt +1',
     },
 
 
@@ -148,7 +148,7 @@ sets = T{
 
     Ws_Default = {
         Ammo = 'Knobkierrie',
-        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Weapon skill damage +4%', [2] = 'Accuracy+13', [3] = '"Mag. Atk. Bns."+8' } },
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
         Ear2 = 'Moonshade Earring',
@@ -165,6 +165,26 @@ sets = T{
         Body = 'Hjarrandi Breast.',
     },
     Ws_Acc = {
+    },
+    Aedge_Default = {
+        Ammo = 'Knobkierrie',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
+        --Head = 'Nyame Helm',
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Friomisi Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Aedge_Hybrid = {
+    },
+    Aedge_Acc = {
     },
 
     TH = {--/th will force this set to equip for 10 seconds
@@ -280,7 +300,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
+        
+        if string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 
