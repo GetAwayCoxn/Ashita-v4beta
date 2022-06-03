@@ -101,7 +101,7 @@ sets = T{
         Ear1 = 'Odr Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Nyame Mail',
-        Hands = 'Malignance Gloves',
+        Hands = 'Meg. Gloves +2',
         Ring1 = 'Ilabrat Ring',
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Fotia Belt',
@@ -118,7 +118,7 @@ sets = T{
         Head = 'Nyame Helm',
         Neck = 'Baetyl Necklace',
         Ear1 = 'Friomisi Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
@@ -236,7 +236,7 @@ profile.HandleWeaponskill = function()
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
 
-	    if string.match(ws.Name, 'Aedge Smite') then
+	    if string.match(ws.Name, 'Aeolian Edge') then
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end

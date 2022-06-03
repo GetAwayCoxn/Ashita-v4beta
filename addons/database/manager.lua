@@ -2509,6 +2509,22 @@ function manager.DisplayScaleGear()
 end
 
 function manager.UpdateScaleGear()
+    local temptracked = {};
+
+    for t = 1, #interface.data.progress.gear.unm.scale do
+        if (type(temptracked[t]) == 'boolean') then
+            temptracked[t] = interface.data.progress.gear.unm.scale[t][2];
+        else
+            temptracked[t] = false;--defaults to false incase weird stuff happens
+        end
+    end
+
+    interface.data.progress.gear.unm.scale:clear();
+
+    for x = 1, #interface.defaults.gear.unm.scale do
+        
+    end
+
     for i = 1, #interface.defaults.gear.unm.scale do
         if (interface.data.progress.gear.unm.scale[i][2] == nil) then
             interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],false,false,false,0,0,0};

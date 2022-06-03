@@ -47,7 +47,7 @@ gcauto.WeaponSkills = T{
 	['BLM'] = {[1] = 'None', [2] = 'Myrkr'},
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
-	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement'},
+	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement', [6] = 'Aeolian Edge'},
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus', [5] = 'Aeolian Edge'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
@@ -55,7 +55,7 @@ gcauto.WeaponSkills = T{
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
-	['SMN'] = {[1] = 'None', [2] = 'Retribution'},
+	['SMN'] = {[1] = 'None', [2] = 'Cataclysm'},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
@@ -68,6 +68,8 @@ gcauto.WeaponSkills = T{
 function gcauto.SetAlias()
 	local player = gData.GetPlayer();
 	local equip = gData.GetEquipment();
+
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /testfunc /lac fwd testfunc');
 
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd wskill');
@@ -163,6 +165,8 @@ function gcauto.SetCommands(args)
 
 	if (args[1] == 'gcauto') then
 		gcauto.DisplayHelp();
+	elseif (args[1] == 'testfunc') then
+		gcauto.testfunc();
 	elseif (args[1] == 'auto') then
 		gcdisplay.AdvanceToggle('AUTO');
 	elseif (args[1] == 'wskill') then
@@ -224,6 +228,13 @@ function gcauto.SetCommands(args)
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		if (args[1] == 'am3') then gcdisplay.AdvanceToggle('AM3') end
 	end
+end
+
+function gcauto.testfunc()
+	local target = gData.GetTarget();
+	local test = gData.GetEntity(target.Index);
+
+	print(tostring(test.Index))
 end
 
 function gcauto.Warp()
@@ -529,6 +540,11 @@ function gcauto.DoJobStuff()
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Foil" <me>');
 				end
 			end
+		end
+	elseif (player.MainJob == 'SMN') then
+		local af = gData.GetBuffCount('Avatar\'s Favor');
+		if (pet ~= nil) and (af == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Avatar\'s Favor" <me>');
 		end
 	end
 

@@ -303,6 +303,22 @@ sets = T{
     },
     Atone_Acc = {
     },
+    Aedge_Default = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Nyame Helm',
+        Neck = 'Baetyl Necklace',
+        Ear1 = 'Friomisi Earring',
+        Ear2 = 'Crematio Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Aedge_Hybrid = {},
+    Aedge_Acc = {},
 
     Fealty = {
         Body = 'Cab. Surcoat +3',
@@ -472,6 +488,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Atone_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Atone_' .. gcdisplay.GetCycle('MeleeSet')); end
+        elseif string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

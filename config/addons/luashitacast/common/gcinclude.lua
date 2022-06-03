@@ -76,7 +76,7 @@ gcinclude.BstPetMagicAttack = T{'Gloom Spray','Fireball','Acid Spray','Molting P
 gcinclude.BstPetMagicAccuracy = T{'Toxic Spit','Acid Spray','Leaf Dagger','Venom Spray','Venom','Dark Spore','Sandblast','Dust Cloud','Stink Bomb','Slug Family','Intimidate','Gloeosuccus','Spider Web','Filamented Hold','Choke Breath','Blaster','Snow Cloud','Roar','Palsy Pollen','Spore','Brain Crush','Choke Breath','Silence Gas','Chaotic Eye','Sheep Song','Soporific','Predatory Glare','Sudden Lunge','Numbing Noise','Jettatura','Bubble Shower','Spoil','Scream','Noisome Powder','Acid Mist','Rhinowrecker','Swooping Frenzy','Venom Shower','Corrosive Ooze','Spiral Spin','Infrasonics','Hi-Freq Field','Purulent Ooze','Foul Waters','Sandpit','Infected Leech','Pestilent Plume'};
 gcinclude.SmnSkill = T{'Shining Ruby','Glittering Ruby','Crimson Howl','Inferno Howl','Frost Armor','Crystal Blessing','Aerial Armor','Hastega II','Fleet Wind','Hastega','Earthen Ward','Earthen Armor','Rolling Thunder','Lightning Armor','Soothing Current','Ecliptic Growl','Heavenward Howl','Ecliptic Howl','Noctoshield','Dream Shroud','Altana\'s Favor','Reraise','Reraise II','Reraise III','Raise','Raise II','Raise III','Wind\'s Blessing'};
 gcinclude.SmnMagical = T{'Searing Light','Meteorite','Holy Mist','Inferno','Fire II','Fire IV','Meteor Strike','Conflag Strike','Diamond Dust','Blizzard II','Blizzard IV','Heavenly Strike','Aerial Blast','Aero II','Aero IV','Wind Blade','Earthen Fury','Stone II','Stone IV','Geocrush','Judgement Bolt','Thunder II','Thunder IV','Thunderstorm','Thunderspark','Tidal Wave','Water II','Water IV','Grand Fall','Howling Moon','Lunar Bay','Ruinous Omen','Somnolence','Nether Blast','Night Terror','Level ? Holy'};
-gcinclude.SmnHealing = T{'Healing Ruby','Whispering Wind','Spring Water'};
+gcinclude.SmnHealing = T{'Healing Ruby','Healing Ruby II','Whispering Wind','Spring Water'};
 gcinclude.SmnHybrid = T{'Flamming Crush','Burning Strike'};
 gcinclude.SmnEnfeebling = T{'Diamond Storm','Sleepga','Shock Squall','Slowga','Tidal Roar','Pavor Nocturnus','Ultimate Terror','Nightmare','Mewing Lullaby','Eerie Eye'};
 gcinclude.BluMagPhys = T{'Foot Kick','Sprout Smack','Wild Oats','Power Attack','Queasyshroom','Battle Dance','Feather Storm','Helldive','Bludgeon','Claw Cyclone','Screwdriver','Grand Slam','Smite of Rage','Pinecone Bomb','Jet Stream','Uppercut','Terror Touch','Mandibular Bite','Sickle Slash','Dimensional Death','Spiral Spin','Death Scissors','Seedspray','Body Slam','Hydro Shot','Frenetic Rip','Spinal Cleave','Hysteric Barrage','Asuran Claws','Cannonball','Disseverment','Ram Charge','Vertical Cleave','Final Sting','Goblin Rush','Vanity Dive','Whirl of Rage','Benthic Typhoon','Quad. Continuum','Empty Thrash','Delta Thrust','Heavy Strike','Quadrastrike','Tourbillion','Amorphic Spikes','Barbed Crescent','Bilgestorm','Bloodrake','Glutinous Dart','Paralyzing Triad','Thrashing Assault','Sinker Drill','Sweeping Gouge','Saurian Slide'};
@@ -151,6 +151,9 @@ function gcinclude.SetAlias()
 	if (player.MainJob == 'BLU') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cjmode /lac fwd cj');
 	end
+	if (player.MainJob == 'SMN') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /siphon /lac fwd siphon');
+	end
 end
 
 function gcinclude.SetVariables()
@@ -177,7 +180,7 @@ function gcinclude.SetVariables()
 		gcdisplay.CreateToggle('SIR', false);
 		gcdisplay.CreateCycle('TankSet', {[1] = 'Main', [2] = 'MEVA', [3] = 'None'});
 	end
-	if (player.MainJob == 'THF') or (player.MainJob == 'BLU') then
+	if (player.MainJob == 'THF') or (player.MainJob == 'BLU') or (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('TH', false);
 	end
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
@@ -290,7 +293,7 @@ function gcinclude.SetCommands(args)
 		end
 	end
 	if (args[1] == 'th') then
-		if (player.MainJob == 'THF') or (player.MainJob == 'BLU') then
+		if (player.MainJob == 'THF') or (player.MainJob == 'BLU') or (player.MainJob == 'NIN') then
 			gcdisplay.AdvanceToggle('TH');
 		else
 			AshitaCore:GetChatManager():QueueCommand(-1, '/lac set TH 10');
@@ -321,7 +324,12 @@ function gcinclude.SetCommands(args)
 			gcdisplay.AdvanceToggle('CJmode');
 		end
 	end
-	
+	if (player.MainJob == 'SMN') then
+		if (args[1] == 'siphon') then
+			gcinclude.DoSiphon();
+		end
+	end
+
 	if (gcauto ~= nil) then gcauto.SetCommands(args) end
 end
 
@@ -334,6 +342,25 @@ function gcinclude.CheckCommonDebuffs()
 	if (sleep >= 1) then gFunc.EquipSet(gcinclude.sets.Sleeping) end
 	if (doom >= 1) then	gFunc.EquipSet(gcinclude.sets.Doomed) end
 	if (weakened >= 1) then gFunc.EquipSet(gcinclude.sets.Reraise) end
+end
+
+function gcinclude.CheckAbilityRecast(check)
+	local RecastTime = 0;
+
+	for x = 0, 31 do
+		local id = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimerId(x);
+		local timer = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(x);
+
+		if ((id ~= 0 or x == 0) and timer > 0) then
+			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
+			if ability == nil then return end
+			if (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
+				RecastTime = timer;
+			end
+		end
+	end
+
+	return RecastTime;
 end
 
 function gcinclude.CheckLockingRings()
@@ -539,6 +566,51 @@ function gcinclude.DoSCHspells(spell)
 			end
 		end
 		AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. cast .. ' II" ' .. target);
+	end
+end
+
+function gcinclude.DoSiphon()
+	local recast = gcinclude.CheckAbilityRecast('Elemental Siphon');
+	if recast ~= 0 then 
+		print(chat.header('GCinclude'):append(chat.warning('Elemental Siphon not available yet!')));
+		return;
+	end
+	local pet = gData.GetPet();
+	local oldpet = 'none';
+	local spirit = 'none';
+	local spirits = {['Firesday'] = 'Fire Spirit', ['Earthsday'] = 'Earth Spirit', ['Watersday'] = 'Water Spirit', ['Windsday'] = 'Air Spirit', ['Iceday'] = 'Ice Spirit', ['Lightningday'] = 'Thunder Spirit', ['Lightsday'] = 'Light Spirit', ['Darksday'] = 'Dark Spirit'};
+	local e = gData.GetEnvironment();
+	
+	local function release()
+		AshitaCore:GetChatManager():QueueCommand(1, '/ja "Release" <me>');
+	end
+	local function siphon()
+		AshitaCore:GetChatManager():QueueCommand(1, '/ja "Elemental Siphon" <me>');
+	end
+	local function castavatar()
+		AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. oldpet .. '" <me>');
+	end
+	local function castspirit()
+		AshitaCore:GetChatManager():QueueCommand(1, '/ma "' .. spirit .. '" <me>');
+		siphon:once(4);
+		release:once(6);
+		if oldpet ~= 'none' then
+			castavatar:once(8);
+		end
+	end
+
+	if pet ~= nil then
+		oldpet = pet.Name;
+		release:once(1);
+	end
+
+	for k,v in pairs(spirits) do
+		if k == e.Day then
+			if v ~= nil then
+				spirit = v;
+				castspirit:once(3);
+			end
+		end
 	end
 end
 

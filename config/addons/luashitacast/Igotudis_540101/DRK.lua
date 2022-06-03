@@ -61,23 +61,23 @@ sets = T{
     Tp_Default = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Flam. Zucchetto +2',
-        Neck = 'Sanctity Necklace',
+        Neck = 'Sanctity Necklace',--jse neck
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Flamma Korazin +2',
+        Body = 'Flamma Korazin +2',--Sakpata\ body
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Niqmaddu Ring',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = 'Ioskeha Belt +1',
-        Legs = 'Sakpata\'s Cuisses',
+        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Legs = 'Sakpata\'s Cuisses',--af+3
         Feet = 'Flam. Gambieras +2',
     },
     Tp_Hybrid = {
         Body = 'Hjarrandi Breast.',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Sulevia\'s Ring',
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Waist = 'Ioskeha Belt +1',
         Legs = 'Sakpata\'s Cuisses',
     },
     Tp_Acc = {

@@ -5,6 +5,9 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Ammo = 'Epitaph',
         Head = 'Nyame Helm',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -13,10 +16,26 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Back = 'Mecisto. Mantle',
         Waist = 'Gishdubar Sash',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
+    },
+    Pet_Idle = {--only need 14+
+        Main = 'Gridarvor',--5
+        Sub = 'Enki Strap',
+        Ammo = 'Epitaph',
+        Head = 'Beckoner\'s Horn +1',
+        Neck = 'Caller\'s Pendant'--1,
+        Ear1 = 'Evans Earring',--2
+        Ear2 = 'Odnowa Earring +1',
+        Body = 'Beckoner\'s Doublet',--5
+        Ring1 = 'Evoker\'s Ring',--1
+        Ring2 = 'Stikini Ring +1',--1
+        Back = 'Mecisto. Mantle',
+        Waist = 'Gishdubar Sash',
+        Legs = 'Assid. Pants +1',--1
+        Feet = 'Volte Gaiters',--1
     },
 	Resting = {},
     Idle_Regen = {
@@ -26,26 +45,26 @@ sets = T{
     },
     Idle_Refresh = {
         Head = 'Befouled Crown',
-        Body = 'Witching Robe',
+        Body = 'Shomonjijoe +1',
+        Hands = 'Asteria Mitts',
         Ring2 = 'Stikini Ring +1',
+        Waist = 'Fucho-no-Obi',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
     },
 	Town = {
-        Main = 'Naegling',
-        Ammo = 'Voluspa Tathlum',
-        Head = 'Straw Hat',
-        Neck = 'Empath Necklace',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Telos Earring',
-        Body = 'Witching Robe',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Epona\'s Ring',
-        Ring2 = 'Petrov Ring',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Flume Belt +1',
-        Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Volte Gaiters',
+        Main = 'Gridarvor',
+        Sub = 'Khonsu',
+        Ammo = 'Epitaph',
+        Head = 'Beckoner\'s Horn +1',
+        Body = 'Shomonjijoe +1',
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Solemnity Cape',
+        Waist = 'Fucho-no-Obi',
+        Legs = 'Assid. Pants +1',
+        Feet = 'Herald\'s Gaiters',
     },
 	
 	Dt = {
@@ -57,7 +76,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -71,7 +90,6 @@ sets = T{
         Hands = 'Taeon Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
         Feet = 'Gleti\'s Boots',
@@ -100,10 +118,14 @@ sets = T{
         Ring2 = 'Chirich Ring +1',
     },
     Pet_Only_Tp = {
-        Ammo = 'Voluspa Tathlum',
+        Main = 'Gridarvor',
+        Sub = 'Enki Strap',
+        Ammo = 'Epitaph',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Rimeice Earring',
         Ear2 = 'Domes. Earring',
+        Hands = 'Asteria Mitts',
+        Ring1 = 'Varar Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         Legs = 'Assid. Pants +1',
@@ -112,16 +134,111 @@ sets = T{
 
     Precast = {
         Ammo = 'Sapience Orb',
+        Head = 'Haruspex',
         Neck = 'Baetyl Pendant',
+        Ear1 = 'Malignance Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Taeon Tabard',
+        Body = 'Inyanga Jubbah +2',
+        Ring1 = 'Kishar Ring',
         Ring2 = 'Prolix Ring',
+        Waist = 'Embla Sash',
+        Legs = 'Lengo Pants',
+        Feet = 'Amalric Nails +1',
+    },
+    Cure_Precast = {
+        Ear1 = 'Mendi. Earring',
+        Feet = 'Vanya Clogs',
+    },
+    Enhancing_Precast = {
+        Waist = 'Siegel Sash',
+    },
+    Stoneskin_Precast = {
+        Head = 'Umuthi Hat',
+        Waist = 'Siegel Sash',
+    },
+
+    Cure = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Ammo = 'Pemphredo Tathlum',
+        Head = { Name = 'Vanya Hood', AugPath='C' },
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Mendi. Earring',
+        Ear2 = 'Regal Earring',
+        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
+        Hands = 'Weath. Cuffs +1',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+        Back = 'Solemnity Cape',
+        Waist = 'Rumination Sash',
+        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
+    },
+    Regen = {
+        Main = 'Bolelabunga',
+        Sub = 'Ammurapi Shield',
+    },
+    Cursna = {
+        Ring1 = 'Purity Ring',
+		Waist = 'Gishdubar Sash',
+    },
+
+    Enhancing = {
+        Main = 'Bolelabunga',
+        Sub = 'Ammurapi Shield',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Befouled Crown',
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Mendi. Earring',
+        Ear2 = 'Andoaa Earring',
+        Body = 'Telchine Chas.',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+        Waist = 'Embla Sash',
+        Legs = { Name = 'Telchine Braconi', Augment = { [1] = 'Enh. Mag. eff. dur. +8', [2] = '"Conserve MP"+4' } },
+    },
+    Stoneskin = {
+        Neck = 'Nodens Gorget',
+        Waist = 'Siegel Sash',
+    },
+    Refresh = {
+		Waist = 'Gishdubar Sash',
+    },
+
+    SIR = {
+        Head = 'Vanya Hood',--15
+        Neck = 'Loricate Torque +1',--5
+        Hands = 'Amalric Gages +1',--11
+        Waist = 'Rumination Sash',--10
+        Legs ='Lengo Pants',--10
+        Feet = 'Amalric Nails +1',--16
+    },
+
+    Drain = {
+        Main = 'Bunzi\'s Rod',
+        Sub = 'Ammurapi Shield',
+        Ammo = 'Pemphredo Tathlum',
+        Neck = 'Erra Pendant',
+        Ear1 = 'Regal Earring',
+        Ear2 = 'Malignance Earring',
+        Ring1 = 'Kishar Ring',
+        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
+        Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
+        Waist = 'Fucho-no-Obi',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Amalric Nails +1',
     },
 
 	Ws_Default = {
-        Head = 'Nyame Helm',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Pixie Hairpin +1',
+        Neck = 'Baetyl Necklace',
+        Ear1 = 'Friomisi Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Eschan Stone',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -130,12 +247,74 @@ sets = T{
     Ws_Acc = {
     },
 	
-	SmnPhysical = {},
-	SmnMagical = {},
-	SmnSkill = {},
-    SmnHealing = {},
+    BP = {--I/II cap at 15
+        Head = 'Beckoner\'s Horn +1',
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Evans Earring',--I 2
+        Ear2 = 'Andoaa Earring',
+        Body = 'Shomonjijoe +1',--I 8
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Samanisi Cape',--I 3
+    },
+    Siphon = {
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Andoaa Earring',
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Astute Cape',
+    },
+
+	SmnPhysical = {
+        Main = 'Gridarvor',
+        Sub = 'Enki Strap',
+        Neck = 'Shulmanu Collar',
+        Ear2 = 'Lugalbanda Earring',
+        Ring1 = 'Varar Ring +1',
+        Waist = 'Incarnation Sash',
+        Feet = 'Inyan. Crackows +2',
+    },
+	SmnMagical = {
+        Neck = 'Adad Amulet',
+        Ear2 = 'Lugalbanda Earring',
+        Body = 'Shomonjijoe +1',
+        Hands = 'Asteria Mitts',
+        Ring1 = 'Varar Ring +1',
+        Legs = 'Enticer\'s Pants',
+        Feet = 'Inyan. Crackows +2',
+    },
+	SmnSkill = {
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Andoaa Earring',
+        Body = 'Beckoner\'s Doublet',
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Astute Cape',
+        Legs = 'Beckoner\'s Spats',
+    },
+    SmnAttributes = {--mostly for Wind's Blessing'
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Andoaa Earring',
+        Body = 'Shomonjijoe +1',--need to Augment
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Astute Cape',
+        Legs = 'Assid. Pants +1',--need to Augment
+    },
+    SmnHealing = {--avatar HP+
+        
+    },
 	SmnEnfeebling = {},
-    SmnHybrid = {}, --special set for flamming crush and burning strike (for now)
+    SmnHybrid = {--special set for flamming crush and burning strike (for now)
+        Neck = 'Adad Amulet',
+        Ear2 = 'Lugalbanda Earring',
+        Ring1 = 'Varar Ring +1',
+        Waist = 'Incarnation Sash',
+        Feet = 'Inyan. Crackows +2',
+    },
 	
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
@@ -148,17 +327,18 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 local function HandlePetAction(PetAction)
-    gFunc.EquipSet(sets.PetReadyDefault);
-
-	if (PetAction.Name == SmnSkill) then
+	if (gcinclude.SmnSkill:contains(PetAction.Name) then
         gFunc.EquipSet(sets.SmnSkill);
-	elseif (PetAction.Name == SmnMagical) then
+        if PetAction.Name == 'Wind\'s Blessing' then
+            gFunc.EquipSet(sets.SmnAttributes);
+        end
+	elseif (gcinclude.SmnMagical:contains(PetAction.Name) then
         gFunc.EquipSet(sets.SmnMagical);
-    elseif (PetAction.Name == SmnHybrid) then
+    elseif (gcinclude.SmnHybrid:contains(PetAction.Name) then
         gFunc.EquipSet(sets.SmnHybrid);
-	elseif (PetAction.Name == SmnHealing) then
+	elseif (gcinclude.SmnHealing:contains(PetAction.Name) then
         gFunc.EquipSet(sets.SmnHealing);
-    elseif (PetAction.Name == SmnEnfeebling) then
+    elseif (gcinclude.SmnEnfeebling:contains(PetAction.Name) then
         gFunc.EquipSet(sets.SmnEnfeebling);
     else
         gFunc.EquipSet(sets.SmnPhysical);
@@ -192,7 +372,9 @@ profile.HandleDefault = function()
 	
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
+        gFunc.EquipSet(sets.Tp_Default);
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -200,6 +382,10 @@ profile.HandleDefault = function()
     else
 		gFunc.EquipSet(sets.Idle);
     end
+
+    if (pet ~= nil) and (pet.Status == 'Idle') then
+        gFunc.EquipSet(sets.Pet_Idle);
+	end
 	
 	if (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
@@ -220,6 +406,16 @@ end
 
 profile.HandleAbility = function()
 	local ability = gData.GetAction();
+    local ac = gData.GetBuffCount('Astral Conduit');
+    if ac > 0 then return end
+
+    if (ability.Name == 'Release') or (ability.Name == 'Assault') or (ability.Name == 'Retreat') or (ability.Name == 'Apogee') then return end
+
+    gFunc.EquipSet(sets.BP);
+
+    if (ability.Name == 'Elemental Siphon') then
+        gFunc.EquipSet(sets.Siphon);
+    end
 
     gcinclude.CheckCancels();
 end
@@ -234,10 +430,44 @@ profile.HandlePrecast = function()
     local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast);
 
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing_Precast);
+
+        if string.contains(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin_Precast);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure_Precast);
+    end
+
     gcinclude.CheckCancels();
 end
 
 profile.HandleMidcast = function()
+    local spell = gData.GetAction();
+
+    gFunc.EquipSet(sets.SIR);
+
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing);
+
+        if string.match(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin);
+        elseif string.contains(spell.Name, 'Regen') then
+            gFunc.EquipSet(sets.Regen);
+        elseif string.contains(spell.Name, 'Refresh') then
+            gFunc.EquipSet(sets.Refresh);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure);
+        if string.match(spell.Name, 'Cursna') then
+            gFunc.EquipSet(sets.Cursna);
+        end
+    elseif (spell.Skill == 'Summoning Magic') then
+        gFunc.EquipSet(sets.SIR);
+    elseif (spell.Skill == 'Dark Magic') then
+        gFunc.EquipSet(sets.Drain);
+    end
 end
 
 profile.HandlePreshot = function()

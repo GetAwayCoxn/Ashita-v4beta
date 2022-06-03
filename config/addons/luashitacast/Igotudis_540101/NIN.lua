@@ -263,6 +263,10 @@ sets = T{
     Movement_Night = {
         Feet = 'Hachi. Kyahan +1',
 	},
+    Extra = {
+        Main = 'Levin',
+        Sub = 'Burrower\'s Wand',
+    },
 };
 
 sets = sets:merge(gcinclude.sets, false);sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
@@ -293,6 +297,7 @@ profile.HandleDefault = function()
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+            if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH); end
         if (gcdisplay.GetToggle('PROC') == true) then
             gFunc.EquipSet(sets.Tp_Proc); end
     elseif (player.Status == 'Resting') then
@@ -355,6 +360,10 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Macc);
         end
     end
+
+    if (gcdisplay.GetToggle('TH') == true) then
+		gFunc.EquipSet(sets.TH);
+	end
 end
 
 profile.HandlePreshot = function()

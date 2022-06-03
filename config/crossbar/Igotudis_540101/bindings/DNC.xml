@@ -10,6 +10,10 @@
         
         <!--These bindings are for LT>RT, but also used for LT+RT if allowpriority is disabled.-->
         <bothtriggerslt>
+            <buttonup>
+                <type>Ability</type>
+                <resource>381</resource> <!--Chocobo Jig II-->
+            </buttonup>
             <buttonright>
                 <type>Command</type>
                 <command>/stance</command>
@@ -20,6 +24,10 @@
                 <command>/zerk</command>
                 <text>ZERK</text>
             </buttondown>
+            <buttonleft>
+                <type>Ability</type>
+                <resource>196</resource> <!--Spectral Jig-->
+            </buttonleft>
         </bothtriggerslt>
         
         <!--These bindings are for RT>LT, and will not be used if allowpriority is disabled.-->
