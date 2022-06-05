@@ -2458,46 +2458,96 @@ function manager.DisplayScaleGear()
         if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('Scale Working', nil)) then
                 imgui.BeginChild('topscaleworking', { 0, 400, }, true);
-                    imgui.BeginTable('scale gear working', 6, ImGuiTableFlags_Borders);
+                    imgui.BeginTable('scale gear working', 4, ImGuiTableFlags_Borders);
                         imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.header, 'Tracking Items');imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.header, 'Fully Aug\'d');imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.header, 'HQ Owned');imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.header, 'Rank');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'List of Tracked Items');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
                         imgui.TextColored(interface.colors.header, 'Est. Mats');imgui.TableNextColumn();
-                        imgui.TextColored(interface.colors.header, 'Est. Gil');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Gil');
                         for i = 1, #interface.data.progress.gear.unm.scale do
                             local track = {interface.data.progress.gear.unm.scale[i][2]};
                             local done = interface.data.progress.gear.unm.scale[i][3];
                             local own = interface.data.progress.gear.unm.scale[i][4];
-                            imgui.Checkbox(interface.data.progress.gear.unm.scale[i][1], track);imgui.TableNextColumn();
-                            interface.data.progress.gear.unm.scale[i][2] = track[1];
-                            if (done == true) then
-                                imgui.Bullet();imgui.TableNextColumn();
-                            else
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == true then
                                 imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.scale[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.scale[i][2] = track[1];
+                                if (own == true) then
+                                    local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.scale[i][5]);
+                                    imgui.TextColored(interface.colors.warning, display);
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][7]));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][7]));
+                                end
                             end
-                            if (own == true) then
-                                imgui.Bullet();imgui.TableNextColumn();
-                            else
-                                imgui.TableNextColumn();
-                            end
-
-                            imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
-
                         end
                     imgui.EndTable();
                 imgui.EndChild();
 
                 imgui.BeginChild('bottomscaleworking', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    
                 imgui.EndChild();
             imgui.EndTabItem();
             end
 
             if (imgui.BeginTabItem('Scale Other', nil)) then
-                imgui.BeginTable('scale gear other', 7, ImGuiTableFlags_Borders);
-                
-                imgui.EndTable();
+                imgui.BeginChild('topscaleother', { 0, 300, }, true);
+                    imgui.BeginTable('scale gear other', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Click to Track');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Mats');
+                        for i = 1, #interface.data.progress.gear.unm.scale do
+                            local track = {interface.data.progress.gear.unm.scale[i][2]};
+                            local done = interface.data.progress.gear.unm.scale[i][3];
+                            local own = interface.data.progress.gear.unm.scale[i][4];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == false then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.scale[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.scale[i][2] = track[1];
+                                if (own == true) then
+                                    local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.scale[i][5]);
+                                    imgui.TextColored(interface.colors.warning, display);
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                end
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+
+                imgui.BeginChild('bottomscaleother', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    imgui.BeginTable('scale gear completed', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Completed Gears');
+                        imgui.TableNextColumn();imgui.TableNextColumn();
+                        for i = 1, #interface.data.progress.gear.unm.scale do
+                            local track = {interface.data.progress.gear.unm.scale[i][2]};
+                            local done = interface.data.progress.gear.unm.scale[i][3];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == true then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.scale[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.scale[i][2] = track[1];
+                                imgui.TextColored(interface.colors.text1, 'COMPLETED');
+                                imgui.TableNextColumn();
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
             imgui.EndTabItem();
             end
         imgui.EndTabBar();
@@ -2512,29 +2562,37 @@ function manager.UpdateScaleGear()
     local temptracked = {};
 
     for t = 1, #interface.data.progress.gear.unm.scale do
-        if (type(temptracked[t]) == 'boolean') then
-            temptracked[t] = interface.data.progress.gear.unm.scale[t][2];
-        else
-            temptracked[t] = false;--defaults to false incase weird stuff happens
-        end
+        temptracked[t] = {interface.data.progress.gear.unm.scale[t][2],interface.data.progress.gear.unm.scale[t][3]};
     end
 
-    interface.data.progress.gear.unm.scale:clear();
+    for l = 1, #interface.defaults.gear.unm.scale do
+        interface.data.progress.gear.unm.scale[l]:merge(interface.defaults.gear.unm.scale[l], true);
+    end
 
     for x = 1, #interface.defaults.gear.unm.scale do
-        
-    end
+        interface.data.progress.gear.unm.scale[x][1] = interface.defaults.gear.unm.scale[x][1];
+        interface.data.progress.gear.unm.scale[x][2] = temptracked[x][1];
+        interface.data.progress.gear.unm.scale[x][3] = temptracked[x][2];
 
-    for i = 1, #interface.defaults.gear.unm.scale do
-        if (interface.data.progress.gear.unm.scale[i][2] == nil) then
-            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],false,false,false,0,0,0};
-        elseif interface.data.progress.gear.unm.scale[i][2] == false then
-            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],false,false,false,0,0,0};
+        if interface.data.progress.gear.unm.scale[x][3] == true then
+            
+        elseif interface.data.progress.gear.unm.scale[x][4] == false then
+            interface.data.progress.gear.unm.scale[x][4] = manager.CheckItemId(interface.defaults.gear.unm.scale[x][2]);
+            if interface.data.progress.gear.unm.scale[x][4] == true then
+                interface.data.progress.gear.unm.scale[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[x][2]);
+                if interface.data.progress.gear.unm.scale[x][5] == 15 then
+                    interface.data.progress.gear.unm.scale[x][3] = true;
+                end
+            end
         else
-            interface.data.progress.gear.unm.scale[i][1] = {interface.defaults.gear.unm.scale[i][1],true,false,false,0,0,0};
+            --update Rank
+            interface.data.progress.gear.unm.scale[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[x][2]);
+            if interface.data.progress.gear.unm.scale[x][5] == 15 then
+                interface.data.progress.gear.unm.scale[x][3] = true;
+            end
+            --update Mats
+            --update gil
         end
-        interface.data.progress.gear.unm.scale[i][4] = manager.CheckItemId(interface.defaults.gear.unm.scale[i][2]);
-        interface.data.progress.gear.unm.scale[i][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[i][2]);
     end
 end
 

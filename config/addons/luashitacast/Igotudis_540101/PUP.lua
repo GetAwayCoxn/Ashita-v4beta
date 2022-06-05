@@ -147,7 +147,7 @@ sets = T{
         Ring2 = 'Chirich Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
-        Legs = 'Foire Churidars +1',
+        Legs = 'Foire Churidars +2',
         Feet = 'Mpaca\'s Boots',
     },
 

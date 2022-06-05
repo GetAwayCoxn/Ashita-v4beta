@@ -1,7 +1,7 @@
 interface = T{
     manager = require('manager'),
     settings = require('settings'),
-    is_open = { false, },
+    is_open = { true, },
     progress_defaults = require('progress_defaults'),
     defaults = require('defaults'),
     colors = {
