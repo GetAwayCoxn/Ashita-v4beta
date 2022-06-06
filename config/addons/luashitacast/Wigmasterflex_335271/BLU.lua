@@ -96,8 +96,8 @@ sets = T{
 	
 	Precast = {
         Ammo = 'Sapience Orb',
-        Head = 'Haruspex Hat',
-        Neck = 'Baetyl Pendant',
+        Head = 'Herculean Helm',
+        Neck = 'Voltsurge Torque',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Vrikodara Jupon',

@@ -21,17 +21,17 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Baghere Salade',
         Neck = 'Bathy Choker +1',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
-        Head = 'Baghere Salade',
         Ring1 = 'Stikini Ring +1',
     },
     Town = {
         Main = 'Tanmogayi',
-        Sub = 'Aegis',
+        Sub = 'Ochain',
         Ammo = 'Crepuscular Pebble',
         Head = 'Rev. Coronet +1',
         Body = 'Rev. Surcoat +1',
@@ -125,7 +125,7 @@ sets = T{
     Precast = {
         Ammo = 'Sapience Orb',--2
         --Head = 'Chev. Armet +1',--7
-        --Neck = 'Baetyl Pendant',--4
+        Neck = 'Voltsurge Torque',
         Ear1 = 'Creed Earring',
         Ear2 = 'Loquac. Earring',--1
         Body = 'Rev. Surcoat +1',

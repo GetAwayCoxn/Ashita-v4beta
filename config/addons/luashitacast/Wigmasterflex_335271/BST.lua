@@ -92,7 +92,9 @@ sets = T{
     },
 
     Precast = {
+        Neck = 'Voltsurge Torque',
         Body = 'Taeon Tabard',
+        Ring1 = 'Prolix Ring',
     },
 
 	Ws_Default = {

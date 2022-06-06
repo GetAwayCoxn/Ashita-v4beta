@@ -64,8 +64,8 @@ sets = T{
 
 
     Precast = {
-        Head = 'Haruspex Hat',
-        Neck = 'Baetyl Pendant',
+        Head = 'Herculean Helm',
+        Neck = 'Voltsurge Torque',
         Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Hands = 'Leyline Gloves',
