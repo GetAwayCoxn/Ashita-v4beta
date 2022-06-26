@@ -167,6 +167,24 @@ sets = T{
     },
     Ws_Acc = {
     },
+    Aedge_Default = {
+        Ammo = 'Knobkierrie',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Friomisi Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Aedge_Hybrid = {
+    },
+    Aedge_Acc = {
+    },
 
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
@@ -281,7 +299,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
+        
+        if string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 

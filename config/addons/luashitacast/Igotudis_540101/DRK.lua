@@ -34,7 +34,7 @@ sets = T{
         Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
         Head = 'Crepuscular Helm',
-        Body = 'Found. Breastplate',
+        Body = 'Fall. Cuirass +3',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Chirich Ring +1',
@@ -93,6 +93,7 @@ sets = T{
         Ammo = 'Sapience Orb',
         Head = 'Haruspex Hat',
         Neck = 'Baetyl Pendant',
+        Body = 'Fall. Cuirass +3',
         Hands = 'Leyline Gloves',
         Ear1 = 'Malignance Earring',
         Ear2 = 'Etiolation Earring',
@@ -168,7 +169,7 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Crematio Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Nyame Mail',
+        Body = 'Fall. Cuirass +3',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -209,7 +210,7 @@ sets = T{
         Neck = 'Sanctity Necklace',
         Ear1 = 'Malignance Earring',
         Ear2 = 'Friomisi Earring',
-        Body = 'Nyame Mail',
+        Body = 'Fall. Cuirass +3',
         Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Shiva Ring +1',
         Ring2 = 'Metamor. Ring +1',
@@ -225,6 +226,9 @@ sets = T{
 
     Spikes = { -- set to leave body on with dread spikes up, only body here!
         Body = 'Heath. Cuirass +1',
+    },
+    BloodWeapon = {
+        Body = 'Fall. Cuirass +3',
     },
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
@@ -282,6 +286,10 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if string.match(ability.Name, 'Blood Weapon') then
+		gFunc.EquipSet(sets.BloodWeapon);
+    end
 
     gcinclude.CheckCancels();
 end

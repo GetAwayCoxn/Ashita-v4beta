@@ -7,7 +7,7 @@ sets = T{
     Idle = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Sulevia\'s Mask +1',
-        Neck ='Unmoving Collar +1',
+        Neck = 'Wiglen Gorget',
         Ear1 = 'Creed Earring',
         Ear2 = 'Ethereal Earring',
         Body = 'Rev. Surcoat +1',
@@ -22,12 +22,12 @@ sets = T{
     Resting = {},
     Idle_Regen = {
         Head = 'Baghere Salade',
-        Neck = 'Bathy Choker +1',
+        Neck = 'Wiglen Gorget',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
-        Ammo = 'Homiliary',
-        Ring1 = 'Stikini Ring +1',
+        Neck = 'Creed Collar',
+        Body = 'Jumalik Mail',
     },
     Town = {
         Main = 'Tanmogayi',
@@ -57,34 +57,34 @@ sets = T{
     },
 
     Tp_Default = {
-        Ammo = 'Coiste Bodhar',
-        Head = 'Flam. Zucchetto +2',
-        Neck ='Sanctity Necklace',
-        Ear1 = 'Telos Earring',
-        Ear2 = 'Cessance Earring',
-        Body = 'Flamma Korazin +2',
-        Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'K\'ayres Ring',
-        Ring2 = 'Petrov Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Ammo = 'Ginsen',
+        Head = 'Flam. Zucchetto +1',
+        Neck ='Clotharius Torque',
+        Ear1 = 'Steelflash Earring',
+        Ear2 = 'Bladeborn Earring',
+        Body = 'Found. Breastplate',
+        Hands = 'Sulev. Gauntlets +1',
+        Ring1 = 'Sulevia\'s Ring',
+        Ring2 = 'Flamma Ring',
+        Back = 'Bleating Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Flam. Gambieras +2',
+        Feet = 'Flam. Gambieras +1',
     },
     Tp_Hybrid = {
         Ammo = 'Coiste Bodhar',
-        Head = 'Flam. Zucchetto +2',
-        Neck ='Sanctity Necklace',
+        Head = 'Flam. Zucchetto +1',
+        Neck ='Clotharius Torque',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
-        Body = 'Flamma Korazin +2',
+        Body = 'Found. Breastplate',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'K\'ayres Ring',
-        Ring2 = 'Petrov Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Ring1 = 'Sulevia\'s Ring',
+        Ring2 = 'Flamma Ring',
+        Back = 'Bleating Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Flam. Gambieras +2',
+        Feet = 'Flam. Gambieras +1',
     },
     Tp_Acc = {
         Ring1 = 'Cacoethic Ring +1',
@@ -146,12 +146,8 @@ sets = T{
     },
     SIR = {--10 merits,106 gear
         Ammo = 'Crepuscular Pebble', -- 10
-        Head = 'Souv. Schaller +1', --20
         Neck = 'Moonbeam Necklace', -- 10
-        Body = 'Yorium Cuirass', -- 10
         Waist = 'Creed Baudrier',
-        Legs = 'Founder\'s Hose', -- 30
-        Feet = 'Odyssean Greaves', -- 26
     },
     Enmity = {
         Ammo = 'Sapience Orb',--2
@@ -172,11 +168,12 @@ sets = T{
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Tuisto Earring',
         Ear2 = 'Nourish. Earring +1', -- 6
-        Hands = 'Macabre Gaunt. +1', -- 11
+        Body = 'Jumalik Mail',
+        Hands = 'Buremte Gloves',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = 'Solemnity Cape', -- 7
-        Legs = 'Founder\'s Hose',
+        Legs = 'Flamma Dirs +1',
         Feet = 'Odyssean Greaves', -- 7
     },
     Phalanx = {
@@ -213,6 +210,7 @@ sets = T{
         Ear1 = 'Creed Earring',
         Ear2 = 'Cryptic Earring',
         Body = 'Rev. Surcoat +1',
+        Hands = 'Rev. Gauntlets +1',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = 'Weard Mantle',
@@ -228,13 +226,7 @@ sets = T{
         Ammo = 'Ginsen',
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Thrud Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Flamma Dirs +1',
         Feet = 'Valorous Greaves',
@@ -244,15 +236,9 @@ sets = T{
     Ws_Acc = {
     },
     Chant_Default = {
-        Ammo = 'Jukukik Feather',
         Head = 'Blistering Sallet +1',
-        Ear1 = 'Mache Earring +1',
         Ear2 = 'Moonshade Earring',
-        Body = 'Rev. Surcoat +1',
-        Hands = 'Flam. Manopolas +2',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Begrudging Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Hands = 'Flam. Manopolas +1',
         Feet = 'Thereoid Greaves',
     },
     Chant_Hybrid = {
@@ -262,11 +248,7 @@ sets = T{
     Savage_Default = {
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Thrud Earring',
         Ear2 = 'Moonshade Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Sakpata\'s Gauntlets',
-        Ring2 = 'Karieyh Ring +1',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',

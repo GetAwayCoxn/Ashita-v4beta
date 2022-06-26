@@ -7,7 +7,7 @@ local manager = T{ -- functions for data management
     guilditemsgil = 0;
     plasm = 0;
     pointsmap = {50, 80, 120, 170, 220, 280, 340, 410, 480, 560, 650, 750, 860, 980};
-    expmap = {2500,5550,8721,11919,15122,18327,21532,24737,27942,31147,41205,48130,53677,58618,63292,67848,72353,76835,81307,85775,109112,127014,141329,153277,163663,173018,181692,189917,197845,205578,258409};
+    expmap = {2500,5550,8721,11919,15122,18327,21532,24737,27942,31147,41205,48130,53677,58618,63292,67848,72353,76835,81307,85775,109112,127014,141329,153277,163663,173018,181692,189917,197845,205578,258409,307400,353012,395691,435673,473392,509085,542995,575336,606296,769426};
 };
 
 function manager.UpdateJobs()  
@@ -54,7 +54,7 @@ function manager.DisplayJobs()
             imgui.TableNextColumn();
             if (interface.defaults.jobs[n] ~= nil) then
                 t:merge(interface.defaults.jobs[n], true);
-                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 30)) or ((x == 4) and (t[x] == 500)) then
+                if ((x == 1) and (t[x] == 99)) or ((x == 2) and (t[x] == 2100)) or ((x == 3) and (t[x] == 40)) or ((x == 4) and (t[x] == 500)) then
                     imgui.TextColored(interface.colors.text1, tostring(t[x]));
                 else
                     imgui.Text(tostring(t[x]));
@@ -2591,6 +2591,19 @@ function manager.UpdateScaleGear()
                 interface.data.progress.gear.unm.scale[x][3] = true;
             end
             --update Mats
+            local points = 0;
+            for w = 1, #interface.data.progress.gear.unm.scale do
+                if interface.data.progress.gear.unm.scale[w][5] == 0 then
+                    for i = interface.data.progress.gear.unm.scale[w][5] + 1, #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                else
+                    for i = interface.data.progress.gear.unm.scale[w][5], #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                end
+            end
+            interface.data.progress.gear.unm.scaleneeds[6] = (points / 5) - manager.CountItemId(itemcountsIDs[4086]);
             --update gil
         end
     end

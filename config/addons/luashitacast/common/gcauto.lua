@@ -54,7 +54,7 @@ gcauto.WeaponSkills = T{
 	['RNG'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Last Stand', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
-	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane'},
+	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane', [4] = 'Impulse Drive'},
 	['SMN'] = {[1] = 'None', [2] = 'Cataclysm'},
 	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
 	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
@@ -130,7 +130,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('Yonin', false);
 		gcdisplay.CreateToggle('Innin', false);
 	elseif (player.MainJob == 'DRG') then
-		gcdisplay.CreateToggle('Jumps', false);
+		gcdisplay.CreateToggle('Jumps', true);
 	elseif (player.MainJob == 'RUN') then
 		gcdisplay.CreateToggle('Val', true);
 		gcdisplay.CreateToggle('Foil', false);
@@ -379,8 +379,11 @@ function gcauto.DoJobStuff()
 	local zone = gData.GetEnvironment();
 	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
 	local player = gData.GetPlayer();
+	local playermem = AshitaCore:GetMemoryManager():GetPlayer();
 	local pet = gData.GetPet();
 	local target = gData.GetTarget();
+
+	if (player.IsMoving == true) then return end;
 
 	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
@@ -395,7 +398,11 @@ function gcauto.DoJobStuff()
 			local haste = gData.GetBuffCount('Haste');
 
 			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
-				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
+				if (playermem:GetJobPointsSpent(7) > 100) then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
+				else
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight" <me>');
+				end
 			end
 			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (haste >= 1) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Reprisal" <me>');
@@ -461,11 +468,10 @@ function gcauto.DoJobStuff()
 			end
 		end
 	elseif (player.MainJob == 'BST') then
-		if pet == nil then return end
-		if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
-		elseif (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
-			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
+		if pet ~= nil then
+			if (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
+				AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
+			end
 		end
 	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then
 		local endark = gData.GetBuffCount('Endark');
@@ -476,9 +482,11 @@ function gcauto.DoJobStuff()
 	elseif (player.MainJob == 'DRG') and (gcdisplay.GetToggle('AUTO') == true) then
 		local pet = gData.GetPet();
 
-		if (gcauto.CheckAbilityRecast('Spirit Link') <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (((pet.HPP < 75) and (player.HPP > 85)) or ((pet.TP > 1500) and (player.TP < 600))) then
+		if (pet == nil) and (gcauto.CheckAbilityRecast('Call Wyvern') <= 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Call Wyvern" <me>');	
+		elseif (pet ~= nil) and (gcauto.CheckAbilityRecast('Spirit Link') <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (((pet.HPP < 75) and (player.HPP > 85)) or ((pet.TP > 1500) and (player.TP < 600))) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Spirit Link" <me>');
-		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 600) then
+		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 800) then
 			if (gcauto.CheckAbilityRecast('Jump') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Jump" <t>');
 			elseif (gcauto.CheckAbilityRecast('High Jump') <= 0) then
@@ -595,7 +603,15 @@ function gcauto.DoJobStuff()
 		if (temp ~= 'None') then
 			local buff = gData.GetBuffCount(temp);
 
-			if (buff <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+			if temp == 'Drain Samba' then
+				if (player.MainJob == 'DNC') then
+					temp = 'Drain Samba III';
+				elseif (player.SubJobLevel >= 35) then
+					temp = 'Drain Samba II';
+				end
+			end
+
+			if (buff <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 350) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
 			end
 		end

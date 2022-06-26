@@ -39,7 +39,7 @@ sets = T{
 
     Tp_Default = {
         Head = 'Mummu Bonnet +1',
-        Neck = 'Asperity Necklace',
+        Neck = 'Anu Torque',
         Ear1 = 'Bladeborn Earring',
         Ear2 = 'Sherida Earring',
         Body = 'Mummu Jacket +1',

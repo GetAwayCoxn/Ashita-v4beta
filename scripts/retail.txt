@@ -32,6 +32,7 @@
 /load stylist
 /load uberwarp
 /load packer
+/load packetflow
 
 /load vnm
 
@@ -78,6 +79,8 @@
 /addon load porter
 /addon load oseem
 /addon load ja0wait
+/addon load omen
+/addon load simplelog
 
 ##########################################################################
 #
@@ -104,6 +107,7 @@
 /bind !F6 /input /ta <a25>
 
 /alias //uw /uw ad
+/alias //rem /item "Remedy" <me>
 /alias //fa /fa search
 /alias //sparks /bh sellall TYPE:sparks
 /alias //trash /bh sellall TYPE:trash
@@ -120,14 +124,15 @@
 /alias //boulder /bh tradenpcall "Riftborn Boulder"
 /alias //silver /bh tradenpcall "Silver Voucher"
 /alias //copper /bh tradenpcall "Copper Voucher"
-/alias //mhaura /uw hp Mhaura
-/alias //rabao /uw hp Rabao
-/alias //nashmau /uw hp Nashmau
-/alias //selbina /uw hp Selbina
-/alias //norg /uw hp Norg
-/alias //wwguild /uw hp Northern San d'Oria4
-/alias //pj /uw hp Port Jeuno
-/alias //lj /uw hp Lower Jeuno
+/alias //mhaura /uw ad Mhaura
+/alias //rabao /uw ad Rabao
+/alias //nashmau /uw ad Nashmau
+/alias //selbina /uw ad Selbina
+/alias //norg /uw ad Norg
+/alias //wwguild /uw ad Northern San d'Oria4
+/alias //cn /uw sg Crawler's Nest [S]
+/alias //pj /uw ad Port Jeuno
+/alias //lj /uw ad Lower Jeuno
 /alias //slips /bh putall storage* satchel
 /alias //pack /exec lacpack
 /alias //unpack /exec lacunpack

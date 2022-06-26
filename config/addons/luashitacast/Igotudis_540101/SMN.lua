@@ -97,6 +97,8 @@ sets = T{
 	},
 	
 	Tp_Default = {
+        Main = 'Marin Staff +1',
+        Sub = 'Enki Strap',
         Head = 'Nyame Helm',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Mache Earring +1',
@@ -105,6 +107,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Chirich Ring +1',
         Ring2 = 'Petrov Ring',
+        Back = 'Aurist\'s Cape +1',
         Waist = 'Eschan Stone',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -269,7 +272,7 @@ sets = T{
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = 'Astute Cape',
+        Back = 'Campestres\'s Cape',
         Legs = 'Beck. Spats +1',
         Feet = 'Beck. Pigaches +1',
     },
@@ -305,7 +308,7 @@ sets = T{
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = 'Astute Cape',
+        Back = 'Campestres\'s Cape',
         Legs = 'Beck. Spats +1',
     },
     SmnAttributes = {--mostly for Wind's Blessing'
@@ -316,7 +319,7 @@ sets = T{
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = 'Astute Cape',
+        Back = 'Campestres\'s Cape',
         Legs = 'Assid. Pants +1',--need to Augment
     },
     SmnHealing = {--avatar HP+
@@ -366,7 +369,7 @@ end
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
 	gcinclude.Initialize:once(3);
-
+    gcinclude.settings.RegenGearHPP = 50;
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

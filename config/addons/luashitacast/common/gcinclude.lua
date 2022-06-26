@@ -48,9 +48,9 @@ gcinclude.sets = T{
 };
 gcinclude.settings = {
 	AutoGear = true; --set to false if you dont want DT/Regen/Refresh/PetDT gear to come on automatically at the defined %'s here
-	RegenGearHPP = 75; -- set HPP to have your idle regen set to come on
+	RegenGearHPP = 70; -- set HPP to have your idle regen set to come on
 	RefreshGearMPP = 70; -- set MPP to have your idle refresh set to come on
-	DTGearHPP = 50; -- set HPP to have your DT set to come on
+	DTGearHPP = 40; -- set HPP to have your DT set to come on
 	PetDTGearHPP = 50; -- set pet HPP to have your PetDT set to come on
 };
 
@@ -274,12 +274,14 @@ function gcinclude.SetCommands(args)
 			if (gcdisplay.GetToggle('Fight') == false) then
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
-				if (player.MainJob == 'RDM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range') end
+				if (player.MainJob == 'RDM') or (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range') end
+				if (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
 				gcdisplay.AdvanceToggle('Fight');
 			else
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
-				if (player.MainJob == 'RDM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range') end
+				if (player.MainJob == 'RDM') or (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range') end
+				if (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
 				gcdisplay.AdvanceToggle('Fight');
 			end
 		end
@@ -666,7 +668,7 @@ function gcinclude.Initialize()
 	gcdisplay.Initialize();
 	gcinclude.SetVariables();
 	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize:once(6) end
+	if (gcauto ~= nil) then gcauto.Initialize:once(8) end
 end
 
 return gcinclude;
