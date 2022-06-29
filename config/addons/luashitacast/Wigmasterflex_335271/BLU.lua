@@ -7,10 +7,10 @@ sets = T{
     Idle = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Aya. Zucchetto +2',
-        Neck = 'Wiglen Gorget',
+        Neck = 'Loricate Torque',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
-        Body = 'Jhakri Robe +2',
+        Body = 'Ayanmo Corazza +2',
         Hands = 'Aya. Manopolas +2',
         Ring1 = 'Defending Ring',
         Ring2 = 'Ayanmo Ring',
@@ -24,11 +24,11 @@ sets = T{
         Waist = 'Fucho-no-Obi',
     },
     Idle_Regen = {
-        Neck = 'Bathy Choker +1';
+        Neck = 'Wiglen Gorget';
     },
     Idle_Refresh = {
         Head = 'Rawhide Mask',
-        Body = 'Luhlaza Jubbah +3',
+        Body = 'Jhakri Robe +2',
         Ring2 = 'Stikini Ring +1',
         Waist = 'Fucho-no-Obi',
     },
@@ -316,7 +316,6 @@ profile.HandleDefault = function()
 	
 	
 	if (gcdisplay.GetToggle('DTset') == true) then
-         
 		gFunc.EquipSet(sets.Dt);
 	end
 	if (gcdisplay.GetToggle('Kite') == true) then

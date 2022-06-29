@@ -239,7 +239,7 @@ actionhandlers.parse_action_packet = function(act)
                 
                 -- Some messages uses the english log version of the buff
                 if not gProfileSettings.mode.simplify and log_form_messages:contains(m.message) then
-                    m.status = AshitaCore:GetResourceManager():GetString('buffs.names_log', m.param, gProfileSettings.lang.internal)
+                    m.status = AshitaCore:GetResourceManager():GetString('buffs.names_log', m.param, 2)
                 end
 
                 -- if m.message == 93 or m.message == 273 then m.status = gFuncs.ColorIt('Vanish', gProfileColor['statuscol']) end
@@ -933,7 +933,7 @@ actionhandlers.SpellParse = function (act)
                 if abil_ID < 256 then
                     spell.data = get_weapon_skill[abil_ID] -- May have to correct for charmed pets some day, but I'm not sure there are any monsters with TP moves that give no message.
                 else
-                    spell.data = get_mon_ability[abil_ID][gProfileSettings.lang.object]
+                    spell.data = get_mon_ability[abil_ID]
                 end
             elseif T{5, 9}:contains(act['category']) then
                 spell.data = get_item[abil_ID]
@@ -962,7 +962,7 @@ actionhandlers.SpellParse = function (act)
             end
         elseif fields.weapon_skill then
             if abil_ID > 256 then -- WZ_RECOVER_ALL is used by chests in Limbus
-                spell.data = get_mon_ability[abil_ID][gProfileSettings.lang.object]
+                spell.data = get_mon_ability[abil_ID]
                 if not spell.data then
                     spell.data = {Name = {1, 2}}
                     spell.data.Name[1] = 'Special Attack'

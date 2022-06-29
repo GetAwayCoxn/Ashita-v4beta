@@ -48,7 +48,7 @@ gcinclude.sets = T{
 };
 gcinclude.settings = {
 	AutoGear = true; --set to false if you dont want DT/Regen/Refresh/PetDT gear to come on automatically at the defined %'s here
-	RegenGearHPP = 70; -- set HPP to have your idle regen set to come on
+	RegenGearHPP = 60; -- set HPP to have your idle regen set to come on
 	RefreshGearMPP = 70; -- set MPP to have your idle refresh set to come on
 	DTGearHPP = 40; -- set HPP to have your DT set to come on
 	PetDTGearHPP = 50; -- set pet HPP to have your PetDT set to come on

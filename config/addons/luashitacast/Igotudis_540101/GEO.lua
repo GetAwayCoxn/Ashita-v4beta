@@ -5,7 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Main = 'Idris',
-        Sub = 'Genmei Shield',
+        Sub = 'Ammurapi Shield',
         Head = 'Nyame Helm',
         Neck = 'Loricate Torque +1',
         Ear1 = 'Eabani Earring',
@@ -45,6 +45,8 @@ sets = T{
     Idle_Refresh = {
         Main = 'Bolelabunga',
         Head = 'Befouled Crown',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Bagua Mitaines +1',
         Waist = 'Fucho-no-Obi',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
@@ -112,7 +114,7 @@ sets = T{
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
-        Hands = 'Mallquis Cuffs +2',
+        Hands = 'Bagua Mitaines +1',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Mallquis Ring',
         Back = 'Swith Cape +1',
@@ -342,6 +344,7 @@ sets = T{
     Aedge_Acc = {
     },
 
+    Bolster = {Body = 'Bagua Tunic +1'},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
@@ -407,6 +410,7 @@ profile.HandleAbility = function()
     local ability = gData.GetAction();
 
     if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
+    if string.match(ability.Name, 'Bolster') then gFunc.EquipSet(sets.Bolster) end
 
     gcinclude.CheckCancels();
 end

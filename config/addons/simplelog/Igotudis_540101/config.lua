@@ -3,7 +3,7 @@ local settings = T{
 	lang = T{
 		object = 1, -- 0 = Default, 1 = English, 2 = Japanese
 		internal = 0, -- 0 = Default, 1 = Japanese, 2 = English
-		msg_text = 'en', -- 'en' = English, 'jp' = Japanese
+		msg_text = "en", -- 'en' = English, 'jp' = Japanese
 	},
 	mode = T{
 		condensedamage = true,
@@ -19,10 +19,10 @@ local settings = T{
 		tpstatuses = true,
 		simplify = true,
 		showpetownernames = false,
-		crafting = true,
-		showblocks = true,
-		showguards = true,
-		showcritws = false,
+		crafting = false,
+		showblocks = false,
+		showguards = false,
+		showcritws = true,
 		showrollinfo = false,
 	},
 	text = T{

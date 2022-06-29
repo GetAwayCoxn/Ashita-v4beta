@@ -68,7 +68,7 @@ sets = T{
     Pet_Dt = {
         Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
-        Ear1 = 'Rimeice Earring',
+        Ear1 = 'Enmerkar Earring',
         Ear2 = 'Handler\'s Earring +1',
         Body = 'Taeon Tabard',
         Hands = 'Taeon Gloves',
@@ -82,7 +82,7 @@ sets = T{
 	
     Pet_Only_Tp_Default = {
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Rimeice Earring',
+        Ear1 = 'Enmerkar Earring',
         Ear2 = 'Domes. Earring',
         Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
@@ -140,7 +140,7 @@ sets = T{
         Range = 'Neo Animator',
         Head = 'Naga Somen',
         Neck = 'Empath Necklace',
-        Ear1 = 'Rimeice Earring',
+        Ear1 = 'Enmerkar Earring',
         Ear2 = 'Burana Earring',
         Body = 'Naga Samue',
         Hands = 'Foire Dastanas +1',
