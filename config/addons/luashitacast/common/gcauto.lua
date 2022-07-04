@@ -379,11 +379,13 @@ function gcauto.DoJobStuff()
 	local zone = gData.GetEnvironment();
 	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
 	local player = gData.GetPlayer();
+	if (player.IsMoving == true) then return end;
+	
 	local playermem = AshitaCore:GetMemoryManager():GetPlayer();
 	local pet = gData.GetPet();
 	local target = gData.GetTarget();
 
-	if (player.IsMoving == true) then return end;
+	
 
 	if (player.MainJob == 'PLD') then
 		local majesty = gData.GetBuffCount('Majesty');
@@ -397,7 +399,7 @@ function gcauto.DoJobStuff()
 			local enlight = gData.GetBuffCount('Enlight');
 			local haste = gData.GetBuffCount('Haste');
 
-			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) then
 				if (playermem:GetJobPointsSpent(7) > 100) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
 				else
@@ -446,7 +448,7 @@ function gcauto.DoJobStuff()
 			local aquaveil = gData.GetBuffCount('Aquaveil');
 			local composure = gData.GetBuffCount('Composure');
 
-			if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) and (player.HPP > 75) then
+			if (composure <= 0) and (gcauto.CheckAbilityRecast('Composure') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "composure" <me>');
 			elseif (haste == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Haste II" <me>');
@@ -476,7 +478,7 @@ function gcauto.DoJobStuff()
 	elseif (player.MainJob == 'DRK') and (gcdisplay.GetToggle('AUTO') == true) then
 		local endark = gData.GetBuffCount('Endark');
 
-		if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+		if (endark == 0) and (player.Status == 'Engaged') and (target.HPP < 99) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Endark II" <me>');
 		end
 	elseif (player.MainJob == 'DRG') and (gcdisplay.GetToggle('AUTO') == true) then
@@ -486,7 +488,7 @@ function gcauto.DoJobStuff()
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Call Wyvern" <me>');	
 		elseif (pet ~= nil) and (gcauto.CheckAbilityRecast('Spirit Link') <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (((pet.HPP < 75) and (player.HPP > 85)) or ((pet.TP > 1500) and (player.TP < 600))) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Spirit Link" <me>');
-		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 800) then
+		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 950) then
 			if (gcauto.CheckAbilityRecast('Jump') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Jump" <t>');
 			elseif (gcauto.CheckAbilityRecast('High Jump') <= 0) then
@@ -569,7 +571,7 @@ function gcauto.DoJobStuff()
 		if (defender <= 0) and (gcdisplay.GetToggle('DEF') == true) and (gcauto.CheckAbilityRecast('Defender') <= 0) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "defender" <me>');
 		elseif (target == nil) then return;
-		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (target.HPP < 99) and (target.HPP > 1) then
+		elseif (player.Status == 'Engaged') and (gcdisplay.GetToggle('AUTO') == true) and (target.HPP < 99) then
 			if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) and (lr == 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
 			elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) and (lr == 0) then
@@ -611,7 +613,7 @@ function gcauto.DoJobStuff()
 				end
 			end
 
-			if (buff <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 350) and (player.Status == 'Engaged') and (target.HPP < 99) and (target.HPP > 1) then
+			if (buff <= 0) and (gcdisplay.GetToggle('AUTO') == true) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 350) and (player.Status == 'Engaged') and (target.HPP < 99) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
 			end
 		end
@@ -643,7 +645,7 @@ function gcauto.Default()
 
 	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.Status == 'Dead') then return end
 
-	if ((zone.Area == nil) or (gcauto.Towns:contains(zone.Area))) and (gcdisplay.GetToggle('AUTO') == true) then
+	if ((zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) or (weak >= 1)) and (gcdisplay.GetToggle('AUTO') == true) then
 		gcdisplay.AdvanceToggle('AUTO');
 	end
 

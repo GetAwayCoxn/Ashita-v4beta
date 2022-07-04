@@ -29,6 +29,24 @@ gcinclude.sets = T{
 		Ring1 = 'Artificer\'s Ring',
 		Ring2 = 'Craftmaster\'s Ring',
     },
+	Zeni = { -- this set is meant as a default set for pictures, equip using /zeniset
+		Main = 'Excalipoor',
+		Sub = 'Genmei Shield',
+		Range = 'Soultrapper 2000',
+		Ammo = 'Blank Soulplate',
+		Head = 'Malignance Chapeau',
+        Neck = 'Bathy Choker +1';
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Domes. Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Vengeful Ring',
+        Ring2 = 'Ilabrat Ring',
+		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Evasion+15' } },
+        Waist = 'Kasiri Belt',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
 	Fishing = { -- this set is meant as a default set for fishing, equip using /fishset
 		Range = 'Halcyon Rod',
 		Ring2 = 'Pelican Ring',
@@ -97,6 +115,7 @@ gcinclude.Rolls = T{{'Fighter\'s Roll',5,9}, {'Monk\'s Roll',3,7}, {'Healer\'s R
 	{'Companion\'s Roll',2,10},{'Avenger\'s Roll',4,8},}; -- {name,lucky,unlucky}
 gcinclude.RRSET = false;
 gcinclude.CraftSet = false;
+gcinclude.ZeniSet = false;
 gcinclude.FishSet = false;
 gcinclude.CORmsg = true;
 
@@ -113,6 +132,7 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /telering /lac fwd telering');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /rrset /lac fwd rrset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /craftset /lac fwd craftset');
+	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /zeniset /lac fwd zeniset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /fishset /lac fwd fishset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cormsg /lac fwd cormsg');
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
@@ -228,6 +248,12 @@ function gcinclude.SetCommands(args)
 			gcinclude.CraftSet = false;
 		else
 			gcinclude.CraftSet = true;
+		end
+	elseif (args[1] == 'zeniset') then
+		if gcinclude.ZeniSet == true then
+			gcinclude.ZeniSet = false;
+		else
+			gcinclude.ZeniSet = true;
 		end
 	elseif (args[1] == 'fishset') then
 		if gcinclude.FishSet == true then
@@ -656,6 +682,7 @@ function gcinclude.CheckDefault()
     gcinclude.CheckCommonDebuffs();
 	gcinclude.CheckLockingRings();
 	if (gcinclude.CraftSet == true) then gFunc.EquipSet(gcinclude.sets.Crafting) end
+	if (gcinclude.ZeniSet == true) then gFunc.EquipSet(gcinclude.sets.Zeni) end
 	if (gcinclude.FishSet == true) then gFunc.EquipSet(gcinclude.sets.Fishing) end
 	if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
 end

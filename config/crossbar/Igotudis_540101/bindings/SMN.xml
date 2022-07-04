@@ -12,14 +12,18 @@
         <bothtriggerslt>
             <buttonup>
                 <type>Command</type>
-                <command>/exec smn</command>
-                <text>EXEC SMN</text>
+                <command>/macro set 1</command>
+                <text>SET 1</text>
             </buttonup>
             <buttonright>
                 <type>Command</type>
                 <command>/siphon</command>
                 <text>SIPHON</text>
             </buttonright>
+            <buttonleft>
+                <type>Spell</type>
+                <resource>109</resource> <!--Refresh-->
+            </buttonleft>
         </bothtriggerslt>
         
         <!--These bindings are for RT>LT, and will not be used if allowpriority is disabled.-->

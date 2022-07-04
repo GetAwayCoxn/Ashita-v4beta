@@ -1,20 +1,20 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = { Name = 'Masamune', AugPath='A' },
-        Sub = 'Utu Grip',
+        Main = 'Excalibur',
+        Sub = { Name = 'Aegis', AugTrial=4453 },
         Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
-        Neck = 'Bathy Choker +1',
+        Head = { Name = 'Jumalik Helm', Augment = { [1] = 'Magic burst dmg.+10%', [2] = '"Refresh"+1', [3] = 'MND+10', [4] = '"Mag. Atk. Bns."+15' } },
+        Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
-        Ear2 = 'Eabani Earring',
-        Hands = 'Nyame Gauntlets',
-        Ring1 = 'Defending Ring',
+        Ear2 = 'Etiolation Earring',
+        Body = { Name = 'Found. Breastplate', Augment = { [1] = 'Accuracy+7', [2] = 'Attack+11', [3] = 'Mag. Acc.+11' } },
+        Hands = 'Volte Moufles',
+        Ring1 = 'Moonbeam Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Flume Belt +1',
-        Legs = 'Mpaca\'s Hose',
-        Feet = 'Danzo Sune-Ate',
+        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
     },
 };
 

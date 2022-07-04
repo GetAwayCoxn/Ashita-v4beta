@@ -93,7 +93,7 @@ sets = T{
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Ethereal Earring',
         Body = 'Inyanga Jubbah +2',
-        Hands = { Name = 'Gende. Gages +1', Augment = { [1] = 'Phys. dmg. taken -4%', [2] = 'Song spellcasting time -5%' } },
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',
         Back = 'Swith Cape',

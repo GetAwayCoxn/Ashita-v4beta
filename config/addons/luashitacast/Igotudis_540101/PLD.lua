@@ -14,7 +14,7 @@ sets = T{
         Hands = 'Volte Moufles',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Flume Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
@@ -52,7 +52,7 @@ sets = T{
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Flume Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
@@ -104,7 +104,7 @@ sets = T{
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
@@ -119,7 +119,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Purity Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Asklepian Belt',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -134,7 +134,7 @@ sets = T{
         Body = 'Rev. Surcoat +2',--5
         Hands = 'Leyline Gloves',--6
         Ring2 = 'Kishar Ring',--4
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Creed Baudrier',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
@@ -164,7 +164,7 @@ sets = T{
         Ring2 = 'Supershear Ring',--5
         Ear1 = 'Friomisi Earring',--2
         Ear2 = 'Cryptic Earring',--4
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Creed Baudrier',--5
         Feet = 'Eschite Greaves',--15
     },
@@ -193,7 +193,7 @@ sets = T{
         Hands = 'Odyssean Gauntlets', --3
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Audumbla Sash',
         Legs = 'Sakpata\'s Cuisses', -- 5
         Feet = 'Odyssean Greaves',
@@ -207,7 +207,7 @@ sets = T{
         Body = 'Shab. Cuirass +1',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Eschite Greaves',
@@ -221,7 +221,7 @@ sets = T{
         Body = 'Rev. Surcoat +2',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Odyssean Greaves',
@@ -294,7 +294,7 @@ sets = T{
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -8%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Fotia Belt',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',

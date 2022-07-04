@@ -57,7 +57,7 @@ sets = T{
 	Tp_Default = {
         Ammo = 'Ginsen',
         Head = 'Meghanada Visor +1',
-        Neck = 'Clotharius Torque',
+        Neck = 'Shulmanu Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
         Body = 'Gleti\'s Cuirass',
@@ -71,7 +71,6 @@ sets = T{
     },
 	Tp_Hybrid = {
         Head = 'Emicho Coronet',
-        Neck = 'Clotharius Torque',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring2 = 'Tali\'ah Ring',
@@ -82,7 +81,7 @@ sets = T{
 	Tp_Acc = {},
     Pet_Only_Tp = {
         Head = 'Emicho Coronet',
-        Head = 'Anwig Salade',
+        Neck = 'Shulmanu Collar',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring2 = 'Tali\'ah Ring',
@@ -94,6 +93,7 @@ sets = T{
     Precast = {
         Neck = 'Voltsurge Torque',
         Body = 'Taeon Tabard',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
     },
 
@@ -128,6 +128,7 @@ sets = T{
 	},
 	PetReadyDefault = {
         Head = 'Emicho Coronet',
+        Neck = 'Shulmanu Collar',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring2 = 'Tali\'ah Ring',

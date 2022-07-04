@@ -530,7 +530,7 @@ ashita.events.register('packet_in', 'packet_in_cb', function (e)
 			e.blocked = true
 		end
 	elseif id == 0x113 then
-		print("incoming currency")
+		--print("incoming currency")
 		currSparks = struct.unpack('I',packet, 0x74 + 1)
 	end
 end)

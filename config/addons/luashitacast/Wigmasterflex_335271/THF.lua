@@ -69,6 +69,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Hands = 'Leyline Gloves',
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Legs = 'Enif Cosciales',
     },
@@ -131,6 +132,24 @@ sets = T{
     Evis_Acc_SA = {},
     Evis_Acc_TA = {},
     Evis_Acc_SATA = {},
+    Aedge_Default = {
+        Head = 'Herculean Helm', 
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Hecate\'s Earring',
+        Ear2 = 'Moldavite Earring',
+        Body = 'Rawhide Vest',
+        Hands = 'Meg. Gloves +2',
+        Ring1 = 'Dingir Ring',
+        Ring2 = 'Shiva Ring +1',
+        Back = 'Gunslinger\'s Cape',
+        Waist = 'Fotia Belt',
+        Legs = 'Mummu Kecks +1',
+        Feet = 'Adhemar Gamashes',
+    },
+    Aedge_Hybrid = {
+    },
+    Aedge_Acc = {
+    },
 
 
     SATA = {
@@ -281,6 +300,10 @@ profile.HandleWeaponskill = function()
             elseif (ta == 1) then
                 gFunc.EquipSet('Evis_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
             end
+        elseif string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

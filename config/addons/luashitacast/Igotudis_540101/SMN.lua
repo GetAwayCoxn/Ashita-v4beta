@@ -9,31 +9,31 @@ sets = T{
         Sub = 'Ammurapi Shield',
         Ammo = 'Epitaph',
         Head = 'Nyame Helm',
-        Neck = 'Empath Necklace',
+        Neck = 'Loricate Torque +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = 'Mecisto. Mantle',
+        Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
     },
-    Pet_Idle = {--only need 14, rest refresh
+    Pet_Idle = {--only need 14, rest 512|575|670 skill for favor then refresh
         Main = 'Gridarvor',--5
         Sub = 'Enki Strap',
         Ammo = 'Epitaph',
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Caller\'s Pendant',--1,
         Ear1 = 'Evans Earring',--2
-        Ear2 = 'Odnowa Earring +1',
+        Ear2 = 'Andoaa Earring',
         Body = 'Beck. Doublet +1',--6
         Hands = 'Asteria Mitts +1',
         Ring1 = 'Evoker\'s Ring',--1
         Ring2 = 'Stikini Ring +1',
-        Back = 'Mecisto. Mantle',
+        Back = 'Campestres\'s Cape',
         Waist = 'Gishdubar Sash',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
@@ -45,7 +45,7 @@ sets = T{
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
-        Head = 'Beckoner\'s Horn +1',
+        Head = 'Convoker\'s Horn',
         Body = 'Shomonjijoe +1',
         Hands = 'Asteria Mitts +1',
         Ring2 = 'Stikini Ring +1',
@@ -83,17 +83,9 @@ sets = T{
         Feet = 'Nyame Sollerets',
 	},
     Pet_Dt = {
-        Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Handler\'s Earring +1',
-        Body = 'Taeon Tabard',
-        Hands = 'Taeon Gloves',
-        Ring1 = 'Defending Ring',
-        Ring2 = 'Gelatinous Ring +1',
-        Waist = 'Incarnation Sash',
-        Legs = 'Taeon Tights',
-        Feet = 'Gleti\'s Boots',
 	},
 	
 	Tp_Default = {
@@ -132,6 +124,7 @@ sets = T{
         Hands = 'Asteria Mitts +1',
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Varar Ring +1',
+        Back = 'Campestres\'s Cape',
         Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
         Feet = 'Gleti\'s Boots',
@@ -209,7 +202,8 @@ sets = T{
 		Waist = 'Gishdubar Sash',
     },
 
-    SIR = {
+    SIR = {--77
+        Ammo = 'Staunch Tathlum',--10
         Head = 'Vanya Hood',--15
         Neck = 'Loricate Torque +1',--5
         Hands = 'Amalric Gages +1',--11
@@ -252,16 +246,16 @@ sets = T{
     Ws_Acc = {
     },
 	
-    BP = {--I/II cap at 15
+    BP = {--I/II cap at 15, the rest need 680 skill total
         Ammo = 'Epitaph',--II 5
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Evans Earring',--I 2
         Ear2 = 'Andoaa Earring',
         Body = 'Shomonjijoe +1',--I 8
+        Hands = 'Con. Bracers',--I 5
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Stikini Ring +1',
-        Back = 'Samanisi Cape',--I 3
     },
     Siphon = {
         Ammo = 'Epitaph',
@@ -279,25 +273,30 @@ sets = T{
 
 	SmnPhysical = {
         Main = 'Gridarvor',
-        Sub = 'Enki Strap',
+        Sub = 'Khonsu',
         Ammo = 'Epitaph',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Lugalbanda Earring',
-        Body = 'Beck. Doublet +1',
+        Body = 'Convo. Doublet',
         Ring2 = 'Varar Ring +1',
         Waist = 'Incarnation Sash',
         Legs = 'Enticer\'s Pants',
         Feet = 'Inyan. Crackows +2',
     },
 	SmnMagical = {
+        Main = 'Espiritus',
+        Sub = 'Khonsu',
         Ammo = 'Epitaph',
+        Head = 'Nyame Helm',
         Neck = 'Adad Amulet',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Lugalbanda Earring',
-        Body = 'Shomonjijoe +1',
+        Body = 'Convo. Doublet',
         Hands = 'Asteria Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Varar Ring +1',
+        Back = 'Campestres\'s Cape',
         Legs = 'Enticer\'s Pants',
         Feet = 'Inyan. Crackows +2',
     },
@@ -326,17 +325,49 @@ sets = T{
     },
     SmnHealing = {--avatar HP+
         Ammo = 'Epitaph',
+        Head = 'Beckoner\'s Horn +1',
+        Neck = 'Incanter\'s Torque',
+        Ear1 = 'Andoaa Earring',
+        Body = 'Beck. Doublet +1',
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',
+        Back = 'Campestres\'s Cape',
+        Legs = 'Beck. Spats +1',
     },
 	SmnEnfeebling = {
-        Ammo = 'Epitaph',
-    },
-    SmnHybrid = {--special set for flamming crush and burning strike (for now)
+        Main = 'Espiritus',
+        Sub = 'Khonsu',
         Ammo = 'Epitaph',
         Neck = 'Adad Amulet',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Lugalbanda Earring',
+        Body = 'Nyame Mail',
+        --Body = 'Convo. Doublet',--after +2
+        Hands = 'Lamassu Mitts +1',
+        Ring1 = 'Evoker\'s Ring',
+        Ring2 = 'Stikini Ring +1',--cait sith ring
+        Back = 'Campestres\'s Cape',
+        Waist = 'Incarnation Sash',--regal belt
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+        --Feet = 'Con. Pigaches',--after +2
+    },
+    SmnHybrid = {--special set for flamming crush and burning strike (for now)
+        Main = 'Gridarvor',
+        Sub = 'Khonsu',
+        Ammo = 'Epitaph',
+        Head = 'Nyame Helm',
+        Neck = 'Adad Amulet',
+        Ear1 = 'Enmerkar Earring',
+        Ear2 = 'Lugalbanda Earring',
+        Body = 'Nyame Mail',
+        --Body = 'Convo. Doublet',-- after +2
+        Hands = 'Nyame Gauntlets',
         Ring2 = 'Varar Ring +1',
+        Back = 'Campestres\'s Cape',
         Waist = 'Incarnation Sash',
+        Legs = 'Nyame Flanchard',
         Feet = 'Inyan. Crackows +2',
     },
 	
@@ -373,6 +404,8 @@ profile.OnLoad = function()
     gSettings.AllowAddSet = false;
 	gcinclude.Initialize:once(3);
     gcinclude.settings.RegenGearHPP = 50;
+    gcinclude.settings.RefreshGearMPP = 60;
+    gcinclude.settings.PetDTGearHPP = 30;
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

@@ -36,6 +36,8 @@ sets = T{
         Head = 'Rev. Coronet +1',
         Body = 'Rev. Surcoat +1',
         Hands = 'Sulev. Gauntlets +1',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Waist = 'Creed Baudrier',
         Legs = 'Carmine Cuisses',
         Feet = 'Rev. Leggings',
     },
@@ -47,19 +49,19 @@ sets = T{
         Ear1 = 'Creed Earring',
         Ear2 = 'Ethereal Earring',
         Body = 'Rev. Surcoat +1',
-        Hands = 'Sakpata\'s Gauntlets',
+        Hands = 'Rev. Gauntlets +1',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
         Back = 'Weard Mantle',
         Waist = 'Nierenschutz',
-        Legs = 'Flamma Dirs +1',
+        Legs = 'Rev. Breeches',
         Feet = 'Sulev. Leggings +1',
     },
 
     Tp_Default = {
         Ammo = 'Ginsen',
-        Head = 'Flam. Zucchetto +1',
-        Neck ='Clotharius Torque',
+        Head = 'Flam. Zucchetto +2',
+        Neck ='Agitator\'s Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
         Body = 'Found. Breastplate',
@@ -73,10 +75,10 @@ sets = T{
     },
     Tp_Hybrid = {
         Ammo = 'Coiste Bodhar',
-        Head = 'Flam. Zucchetto +1',
-        Neck ='Clotharius Torque',
-        Ear1 = 'Telos Earring',
-        Ear2 = 'Cessance Earring',
+        Head = 'Flam. Zucchetto +2',
+        Neck ='Agitator\'s Collar',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Ethereal Earring',
         Body = 'Found. Breastplate',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Sulevia\'s Ring',
@@ -94,14 +96,15 @@ sets = T{
     --These will overwrite any above TP sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
         Ammo = 'Crepuscular Pebble',
-        Head = 'Souv. Schaller +1',
+        Head = 'Sulevia\'s Mask +1',
+        Neck = 'Loricate Torque',
         Ear1 = 'Creed Earring',
         Ear2 = 'Ethereal Earring',
         Body = 'Rev. Surcoat +1',
-        Hands = 'Sakpata\'s Gauntlets',
+        Hands = 'Sulev. Gauntlets +1',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = 'Weard Mantle',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',
@@ -129,10 +132,10 @@ sets = T{
         Ear1 = 'Creed Earring',
         Ear2 = 'Loquac. Earring',--1
         Body = 'Rev. Surcoat +1',
-        Hands = 'Leyline Gloves',--6
+        Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',--4
-        Back = 'Weard Mantle',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Creed Baudrier',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
@@ -144,10 +147,11 @@ sets = T{
     Enhancing_Precast = {
         Waist = 'Siegel Sash',
     },
-    SIR = {--10 merits,106 gear
-        Ammo = 'Crepuscular Pebble', -- 10
+    SIR = {--10 merits,25 gear
+        Ammo = 'Crepuscular Pebble',
         Neck = 'Moonbeam Necklace', -- 10
         Waist = 'Creed Baudrier',
+        Legs = 'Carmine Cuisses',--15
     },
     Enmity = {
         Ammo = 'Sapience Orb',--2
@@ -226,10 +230,11 @@ sets = T{
         Ammo = 'Ginsen',
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Fotia Gorget',
+        Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
         Waist = 'Fotia Belt',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Valorous Greaves',
+        Feet = 'Flam. Gambieras +1',
     },
     Ws_Hybrid = {
     },
@@ -248,6 +253,7 @@ sets = T{
     Savage_Default = {
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Fotia Gorget',
+        Ear1 = 'Brutal Earring',
         Ear2 = 'Moonshade Earring',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
@@ -278,7 +284,7 @@ sets = T{
     },
 
     Fealty = {
-        Body = 'Cab. Surcoat +3',
+        Body = 'Cab. Surcoat',
     },
     Sentinel = {
         Feet = 'Cab. Leggings',
@@ -290,7 +296,7 @@ sets = T{
         Legs = 'Cab. Breeches',
     },
     Cover = {
-        Body = 'Cab. Surcoat +3',
+        Body = 'Cab. Surcoat',
         Head = 'Rev. Coronet +1',
     },
     Rampart = {
