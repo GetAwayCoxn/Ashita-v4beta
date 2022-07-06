@@ -56,7 +56,7 @@ gcauto.WeaponSkills = T{
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane', [4] = 'Impulse Drive'},
 	['SMN'] = {[1] = 'None', [2] = 'Cataclysm'},
-	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade'},
+	['BLU'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Expiacion'},
 	['COR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Leaden Salute', [4] = 'Aeolian Edge', [5] = 'Wildfire'},
 	['PUP'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Stringing  Pummel', [4] = 'Shijin Spiral'},
 	['DNC'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Aeolian Edge'},
@@ -294,7 +294,7 @@ function gcauto.AutoWS()
 		if target == nil then return end
 		if (gcdisplay.GetCycle('WSkill') == 'None') then return end
 
-		if (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+		if (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 70) and (target.HPP > 1) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <t>');
 		elseif (gcdisplay.GetCycle('WSkill') == 'Myrkr') and (player.TP >= wstp) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <me>');

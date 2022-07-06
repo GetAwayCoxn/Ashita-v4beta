@@ -10,7 +10,7 @@ interface = T{
     },
 };
 function interface.render()
-    if (not interface.is_open[1]) or (AshitaCore:GetMemoryManager():GetPlayer():GetIsZoning() ~= 0) then
+    if (not interface.is_open[1]) or (AshitaCore:GetMemoryManager():GetPlayer():GetIsZoning() ~= 0) or (AshitaCore:GetMemoryManager():GetPlayer() == nil) then
         return;
     end
 
