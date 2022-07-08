@@ -10,7 +10,7 @@ sets = T{
         Neck ='Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Hjarrandi Breast.',
+        Body = 'Nyame Mail',
         Hands = 'Volte Moufles',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -48,7 +48,7 @@ sets = T{
         Neck ='Loricate Torque +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
-        Body = 'Hjarrandi Breast.',
+        Body = 'Nyame Mail',
         Hands = 'Sakpata\'s Gauntlets',
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
@@ -344,7 +344,19 @@ sets = T{
 		Waist = 'Chaac Belt',
 	},
     Movement = {
+        Ammo = 'Staunch Tathlum',
+        Head = 'Nyame Helm',
+        Neck ='Bathy Choker +1',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Volte Moufles',
+        Ring1 = 'Moonbeam Ring',
+        Ring2 = 'Gelatinous Ring +1',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Waist = 'Flume Belt +1',
         Legs = 'Carmine Cuisses +1',
+        Feet = 'Nyame Sollerets',
 	},
 };
 
@@ -386,16 +398,10 @@ profile.HandleDefault = function()
 	if (cover >= 1) then
 		gFunc.EquipSet(sets.Fealty); -- same set as fealty
 	end
-	if (gcdisplay.GetToggle('DTset') == true) then
-		 
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
+	
     gcinclude.CheckDefault ();
-     
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
 end
 
 profile.HandleAbility = function()

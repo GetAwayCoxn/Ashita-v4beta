@@ -21,14 +21,14 @@
 
 addon.name      = 'simplelog';
 addon.author    = 'Created by Byrth, Ported by Spiken';
-addon.version   = '0.7.1a';
+addon.version   = '0.10.1b';
 addon.desc      = 'Combat log Parser';
 addon.link      = 'https://github.com/Spike2D/SimpleLog';
 
 require('common');
 require('lib\\constants');
 chat				= require('chat');
---encoder				= require('lib\\shift_jis')
+UTF8toSJIS			= require('lib\\shift_jis')
 
 res_actmsg			= require('lib\\res\\action_messages')
 res_igramm			= require('lib\\res\\items_grammar')

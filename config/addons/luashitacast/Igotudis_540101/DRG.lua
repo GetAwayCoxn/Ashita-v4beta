@@ -37,7 +37,7 @@ sets = T{
         Neck = 'Anu Torque',
         Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
-        Body = 'Hjarrandi Breast.',
+        Body = 'Gleti\'s Cuirass',
         Hands = 'Flam. Manopolas +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Niqmaddu Ring',
@@ -54,7 +54,7 @@ sets = T{
         Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
-        Hands = 'Volte Moufles',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
@@ -226,17 +226,9 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		 
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
     gcinclude.CheckDefault ();
-     
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
 end
 
 profile.HandleAbility = function()

@@ -45,13 +45,12 @@ sets = T{
         Head = 'Malignance Chapeau',
         Neck = 'Bathy Choker +1';
         Ear1 = 'Eabani Earring',
-        Ear2 = 'Domes. Earring',
-        --Ear2 = 'Infused Earring',--maybe send to wig
+        Ear2 = 'Infused Earring',
         Body = 'Nyame Mail',
         Hands = 'Malignance Gloves',
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Ilabrat Ring',--revisit this
-		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Evasion+15' } },
+		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },
         Waist = 'Kasiri Belt',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -115,7 +114,7 @@ sets = T{
         Hands = 'Leyline Gloves',--6
         Ring1 = 'Prolix Ring',--2
         Ring2 = 'Kishar Ring',--4
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Evasion+15' } },---10
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },---10
         Waist = 'Kasiri Belt',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
@@ -362,18 +361,11 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
     if (gcdisplay.GetToggle('CJmode') ~= true) then
         gcinclude.CheckDefault ();
     end
-
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
     --lazy equip weapons for salvage runs
     if (zone.Area == 'Silver Sea Remnants') then
         gFunc.EquipSet(sets.Salvage);

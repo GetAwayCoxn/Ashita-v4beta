@@ -294,7 +294,7 @@ function gcauto.AutoWS()
 		if target == nil then return end
 		if (gcdisplay.GetCycle('WSkill') == 'None') then return end
 
-		if (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 70) and (target.HPP > 1) then
+		if (player.Status == 'Engaged') and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <t>');
 		elseif (gcdisplay.GetCycle('WSkill') == 'Myrkr') and (player.TP >= wstp) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <me>');

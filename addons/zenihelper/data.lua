@@ -1,126 +1,67 @@
 data = T{
-	popitems = {
+	items = {
 		tinnin = {
 			t1 = {
-				['Vulpangue'] = 'Hellcage Butterfly',
-				['Chamrosh'] = 'Floral Nectar',
-				['Cheese Hoarder Gigiroon'] = 'Rodent Cheese',
+				['Vulpangue'] = {'Hellcage Butterfly', 'Vulpangue\'s Wing', false, false,},
+				['Chamrosh'] = {'Floral Nectar', 'Chamrosh\'s Beak', false, false,},
+				['Cheese Hoarder Gigiroon'] = {'Rodent Cheese', 'Gigiroon\'s Cape', false, false,},
 			},
 			t2 = {
-				['Iriz Ima'] = 'Senorita Pamamas',
-				['Lividroot Amooshah'] = 'Oily Blood',
-				['Iriri Samariri'] = 'Samariri Corpsehair',
+				['Iriz Ima'] = {'Senorita Pamama', 'Iriz Ima\'s Hide', false, false,},
+				['Lividroot Amooshah'] = {'Oily Blood', 'Amooshah\'s Tendril', false, false,},
+				['Iriri Samariri'] = {'Samariri Corpsehair', 'Iriri Samariri\'s Hat', false, false,},
 			},
 			t3 = {
-				['Armed Gears'] = 'Ferrite',
-				['Gotoh Zha the Redolent'] = 'Sheep Botfly',
-				['Dea'] = 'Olzhiryan Cactus',
+				['Armed Gears'] = {'Ferrite', 'Armed Gears\' Fragment', false, false,},
+				['Gotoh Zha the Redolent'] = {'Sheep Botfly', 'Gotoh Zha\'s Necklace', false, false,},
+				['Dea'] = {'Olzhiryan Cactus', 'Dea\'s Horn', false, false,},
 			},
 			t4 = {
-				['Tinnin'] = 'Monkey Wine',
+				['Tinnin'] = {'Monkey Wine', 'Tinnin\'s Fang', false, false,},
 			},
 		},
 		sarameya = {
 			t1 = {
-				['Brass Borer'] = 'Shadeleaf',
-				['Claret'] = 'Pectin',
-				['Ob'] = 'Cog Lubricant',
+				['Brass Borer'] = {'Shadeleaf','Brass Borer\'s Cocoon', false, false,},
+				['Claret'] = {'Pectin','Claret Globule', false, false,},
+				['Ob'] = {'Cog Lubricant','Ob\'s Arm', false, false,},
 			},
 			t2 = {
-				['Anantaboga'] = 'Raw Buffalo',
-				['Dextrose'] = 'Granulated Sugar',
-				['Reacton'] = 'Bone Charcoal',
+				['Anantaboga'] = {'Raw Buffalo','Anantaboga\'s Heart', false, false,},
+				['Dextrose'] = {'Granulated Sugar','Dextrose\'s Blubber', false, false,},
+				['Reacton'] = {'Bone Charcoal','Reacton\'s Ashes', false, false,},
 			},
 			t3 = {
-				['Achamoth'] = 'Rock Juice',
-				['Khromasoul Bhurborlor'] = 'Vinegar Pie',
-				['Nosferatu'] = 'Pure Blood',
+				['Achamoth'] = {'Rock Juice','Achamoth\'s Antenna', false, false,},
+				['Khromasoul Bhurborlor'] = {'Vinegar Pie','Bhurborlor\'s Vambrace', false, false,},
+				['Nosferatu'] = {'Pure Blood','Nosferatu\'s Claw', false, false,},
 			},
 			t4 = {
-				['Sarameya'] = 'Buffalo Corpse',
+				['Sarameya'] = {'Buffalo Corpse','Sarameya\'s Hide', false, false,},
 			},
 		},
 		tyger = {
 			t1 = {
-				['Velionis'] = 'Golden Teeth',
-				['Lil\' Apkallu'] = 'Greenling',
-				['Chigre'] = 'Spoilt Blood',
+				['Velionis'] = {'Golden Teeth','Velionis\'s Bone', false, false,},
+				['Lil\' Apkallu'] = {'Greenling','Lil\' Apkallu\'s Egg', false, false,},
+				['Chigre'] = {'Spoilt Blood','Chigre', false, false,},
 			},
 			t2 = {
-				['Verdelet'] = 'Mint Drop',
-				['Wulgaru'] = 'Opalus Gem',
-				['Zareehkl the Jubilant'] = 'Merrow No. 11 Molting',
+				['Verdelet'] = {'Mint Drop','Verdelet\'s Wing', false, false,},
+				['Wulgaru'] = {'Opalus Gem','Wulgaru\'s Head', false, false,},
+				['Zareehkl the Jubilant'] = {'Merrow No. 11 Molting','Zareehkl\'s Neckpiece', false, false,},
 			},
 			t3 = {
-				['Experimental Lamia'] = 'Myrrh',
-				['Mahjlaef the Paintorn'] = 'Exorcism Treatise',
-				['Nuhn'] = 'Rose Scampi',
+				['Experimental Lamia'] = {'Myrrh','Experimental Lamia\'s Armband', false, false,},
+				['Mahjlaef the Paintorn'] = {'Exorcism Treatise','Mahjlaef\'s Staff', false, false,},
+				['Nuhn'] = {'Rose Scampi','Nuhn\'s Esca', false, false,},
 			},
 			t4 = {
-				['Tyger'] = 'Singed Buffalo',
+				['Tyger'] = {'Singed Buffalo','Tyger\'s Tail', false, false,},
 			},
 		},
-	},
-	trophies = {
-		tinnin = {
-			t1 = {
-				['Vulpangue'] = 'Vulpangue\'s Wing',
-				['Chamrosh'] = 'Chamrosh\'s Beak',
-				['Cheese Hoarder Gigiroon'] = 'Gigiroon\'s Cape',
-			},
-			t2 = {
-				['Iriz Ima'] = 'Iriz Ima\'s Hide',
-				['Lividroot Amooshah'] = 'Amooshah\'s Tendril',
-				['Iriri Samariri'] = 'Iriri Samariri\'s Hat',
-			},
-			t3 = {
-				['Armed Gears'] = 'Armed Gears\' Fragment',
-				['Gotoh Zha the Redolent'] = 'Gotoh Zha\'s Necklace',
-				['Dea'] = 'Dea\'s Horn',
-			},
-			t4 = {
-				['Tinnin'] = 'Tinnin\'s Fang',
-			},
-		},
-		sarameya = {
-			t1 = {
-				['Brass Borer'] = 'Brass Borer\'s Cocoon',
-				['Claret'] = 'Claret Globule',
-				['Ob'] = 'Ob\'s Arm',
-			},
-			t2 = {
-				['Anantaboga'] = 'Anantaboga\'s Heart',
-				['Dextrose'] = 'Dextrose\'s Blubber',
-				['Reacton'] = 'Reacton\'s Ashes',
-			},
-			t3 = {
-				['Achamoth'] = 'Achamoth\'s Antenna',
-				['Khromasoul Bhurborlor'] = 'Bhurborlor\'s Vambrace',
-				['Nosferatu'] = 'Nosferatu\'s Claw',
-			},
-			t4 = {
-				['Sarameya'] = 'Sarameya\'s Hide',
-			},
-		},
-		tyger = {
-			t1 = {
-				['Velionis'] = 'Velionis\'s Bone',
-				['Lil\' Apkallu'] = 'Lil\' Apkallu\'s Egg',
-				['Chigre'] = 'Chigre',
-			},
-			t2 = {
-				['Verdelet'] = 'Verdelet\'s Wing',
-				['Wulgaru'] = 'Wulgaru\'s Head',
-				['Zareehkl the Jubilant'] = 'Zareehkl\'s Neckpiece',
-			},
-			t3 = {
-				['Experimental Lamia'] = 'Experimental Lamia\'s Armband',
-				['Mahjlaef the Paintorn'] = 'Mahjlaef\'s Staff',
-				['Nuhn'] = 'Nuhn\'s Esca',
-			},
-			t4 = {
-				['Tyger'] = 'Tyger\'s Tail',
-			},
+		pw = {
+			['Pandemonium Warden'] = {'Pandemonium Key', false},
 		},
 	},
 	keyitems = {
@@ -142,6 +83,42 @@ data = T{
 		['Fallow-colored Seal'] = 1012,
 		['Sienna-colored Seal'] = 1014,
 		['Lavender-colored Seal'] = 1015,
+		['Sicklemoon salt'] = 1016,
+		['Silver Sea salt'] = 1017,
+		['Cyan Deep salt'] = 1018,
+	},
+	tradeitems = {
+		[16986605] = 'Hellcage Butterfly',
+		[17043917] = 'Floral Nectar',
+		[17072279] = 'Rodent Cheese',
+		[16986606] = 'Senorita Pamama',
+		[16990563] = 'Oily Blood',
+		[17043918] = 'Samariri Corpsehair',
+		[17072280] = 'Ferrite',
+		[16986607] = 'Sheep Botfly',
+		[16990564] = 'Olzhiryan Cactus',
+		[16986608] = 'Monkey Wine',
+		[17027515] = 'Shadeleaf',
+		[17027516] = 'Pectin',
+		[17072278] = 'Cog Lubricant',
+		[17027517] = 'Raw Buffalo',
+		[17031609] = 'Granulated Sugar',
+		[17031610] = 'Bone Charcoal',
+		[17031611] = 'Rock Juice',
+		[17027518] = 'Vinegar Pie',
+		[17056369] = 'Pure Blood',
+		[17027519] = 'Buffalo Corpse',
+		[16998899] = 'Golden Teeth',
+		[16998898] = 'Greenling',
+		[17056372] = 'Spoilt Blood',
+		[17101256] = 'Mint Drop',
+		[17072281] = 'Opalus Gem',
+		[16998900] = 'Merrow No. 11 Molting',
+		[17101257] = 'Myrrh',
+		[17101258] = 'Exorcism Treatise',
+		[16998901] = 'Rose Scampi',
+		[17101259] = 'Singed Buffalo',
+		[17056370] = 'Pandemonium Key',
 	},
 };
 

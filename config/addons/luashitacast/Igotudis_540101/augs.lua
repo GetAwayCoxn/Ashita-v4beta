@@ -1,20 +1,21 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = 'Excalibur',
-        Sub = { Name = 'Aegis', AugTrial=4453 },
+        Main = { Name = 'Tizona', AugTrial=2670 },
+        Sub = { Name = 'Thibron', AugTrial=3257 },
         Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Jumalik Helm', Augment = { [1] = 'Magic burst dmg.+10%', [2] = '"Refresh"+1', [3] = 'MND+10', [4] = '"Mag. Atk. Bns."+15' } },
+        Head = 'Malignance Chapeau',
         Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
+        Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
-        Body = { Name = 'Found. Breastplate', Augment = { [1] = 'Accuracy+7', [2] = 'Attack+11', [3] = 'Mag. Acc.+11' } },
-        Hands = 'Volte Moufles',
-        Ring1 = 'Moonbeam Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Chirich Ring +1',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },
         Waist = 'Flume Belt +1',
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
+        Legs = 'Gleti\'s Breeches',
+        Feet = 'Gleti\'s Boots',
     },
 };
 

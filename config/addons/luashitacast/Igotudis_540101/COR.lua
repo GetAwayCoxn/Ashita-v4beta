@@ -42,8 +42,8 @@ sets = T{
         Head = 'Chass. Tricorne +1',
         Body = 'Laksa. Frac +2',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Ilabrat Ring',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Legs = 'Carmine Cuisses +1',
         Feet = 'Chass. Bottes +1',
     },
@@ -365,6 +365,7 @@ profile.OnLoad = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 10');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
 
+    gcinclude.settings.RefreshGearMPP = 50;
     gcinclude.CORmsg = true; -- set this to false if you do not want to see lucky/unlucky # messages, can also do /cormsg in game to change on the fly
 end
 
@@ -393,17 +394,9 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		 
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
     gcinclude.CheckDefault ();
-     
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
 end
 
 profile.HandleAbility = function()
