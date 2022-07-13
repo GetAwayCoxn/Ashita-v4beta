@@ -272,7 +272,7 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
-        Body = 'Agwu\'s Robe',
+        Body = 'Bagua Tunic +3',
         Hands = 'Amalric Gages +1',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
@@ -288,7 +288,6 @@ sets = T{
         Main = 'Bunzi\'s Rod', --10 and 0
         Sub = 'Ammurapi Shield',
         Head = 'Ea Hat', -- 6 and 6
-        --Body = 'Agwu\'s Robe', -- 10 and 0
         Body = 'Ea Houppelande', -- 8 and 8
         Hands = 'Amalric Gages +1', -- 0 and 6
         Ring1 = 'Mujin Band', -- 0 and 5
@@ -344,7 +343,7 @@ sets = T{
     Aedge_Acc = {
     },
 
-    Bolster = {Body = 'Bagua Tunic +1'},
+    Bolster = {Body = 'Bagua Tunic +3'},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},

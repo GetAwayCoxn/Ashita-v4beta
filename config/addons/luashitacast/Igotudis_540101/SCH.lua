@@ -278,7 +278,7 @@ sets = T{
         Feet = 'Amalric Nails +1',
     },
     Storm = {
-        Feet = 'Peda. Loafers +2',
+        Feet = 'Peda. Loafers +3',
     },
     Kaustra = {--need to refine this set
         Main = 'Marin Staff +1',

@@ -23,7 +23,9 @@ local fontdefaults = T{
 local count = 0;
 local weaponskill = 'Fast Blade';
 local display = {};
-
+local data = {
+    [18720] = {218,'Leaden Salute'}--quicksilver
+},
 
 ashita.events.register('load', 'load_cb', function()
 	display = fonts.new(fontdefaults);
@@ -49,7 +51,9 @@ ashita.events.register('command', 'command_cb', function (e)
 
     e.blocked = true;
 
-    if (args[2] == 'reset') then
+    if (args[2] == 'test') then
+        test();
+    elseif (args[2] == 'reset') then
         count = 0;
         print(chat.header('WScount'):append(chat.message('Reset ' .. weaponskill .. ' Count')));
     elseif (#args == 2) then
@@ -67,7 +71,50 @@ ashita.events.register('command', 'command_cb', function (e)
 end );
 
 ashita.events.register('d3d_present', 'present_cb', function ()
-	local text = 'Current ' .. weaponskill .. ' Count: ' .. count;
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
+    local main = get_equipped_item(0);
+    local range = get_equipped_item(2);--18720
+    local check = false;
+    local name = '';
+
+
+    for k,v in pairs(data) do
+        if range == k then
+            name = v[2];
+            if player:HasWeaponSkill(v[1]) then
+                check = true;
+            end
+        elseif main == k then
+            name = v[2];
+            if player:HasWeaponSkill(v[1]) then
+                check = true;
+            end
+        end
+    end
+
+	local text = 'Current ' .. weaponskill .. ' Count: ' .. count .. ' Test: ' .. name .. ' Check: ' .. tostring(check);
 	
 	display.text = text;
 end);
+
+function test()
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
+    local main = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(0);
+    local range = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(2);--18720
+
+    print(tostring(get_equipped_item(2)));
+end;
+
+function get_equipped_item(slot)
+    local inv = AshitaCore:GetMemoryManager():GetInventory();
+
+    local eitem = inv:GetEquippedItem(slot);
+    if (eitem == nil or eitem.Index == 0) then
+        return nil;
+    end
+
+    local iitem = inv:GetContainerItem(bit.band(eitem.Index, 0xFF00) / 0x0100, eitem.Index % 0x0100);
+    if(iitem == nil or T{ nil, 0, -1, 65535 }:hasval(iitem.Id)) then return nil; end
+
+    return iitem.Id;
+end

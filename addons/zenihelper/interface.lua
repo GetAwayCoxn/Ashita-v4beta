@@ -2,7 +2,7 @@ interface = T{
     is_open = {false,},
     bg_alpha = 0.9,
     colors = {
-        title = { 0.0, 1.0, 1.0, 0.9 },
+        title = { 1.0, 0.65, 0.26, 0.9 },
         name = { 1.0, 1.0, 1.0, 0.9 },
         kihas = { 1.0, 1.0, 0.0, 0.9 },
         kidonthas = { .5, 0.0, 1.0, 0.9 },
@@ -17,7 +17,7 @@ function interface.render()
         return;
     end
 
-    imgui.SetNextWindowSizeConstraints({ 1065, 615, }, { FLT_MAX, FLT_MAX, });
+    imgui.SetNextWindowSize({ 975, 615, });
     imgui.SetNextWindowBgAlpha(interface.bg_alpha);
     if imgui.IsWindowHovered(ImGuiHoveredFlags_AnyWindow) then
         if imgui.IsMouseDoubleClicked(ImGuiMouseButton_Left) then
@@ -25,8 +25,8 @@ function interface.render()
         end
     end
     if (imgui.Begin('zenihelper', interface.is_open, ImGuiWindowFlags_NoDecoration)) then
-        imgui.BeginChild('NmPane', { 1050, 560 }, true);
-            imgui.BeginChild('TinninPane', { 315, 540}, true);
+        imgui.BeginChild('NmPane', { 960, 560 }, true);
+            imgui.BeginChild('TinninPane', { 310, 540}, true);
                 imgui.Indent(100.0);
                 imgui.TextColored(interface.colors.title, 'TINNIN PATH');
                 imgui.Separator();
@@ -126,7 +126,7 @@ function interface.render()
                 imgui.Indent(-80.0);
             imgui.EndChild();
             imgui.SameLine();
-            imgui.BeginChild('SarameyaPane', { 315, 540}, true);
+            imgui.BeginChild('SarameyaPane', { 310, 540}, true);
                 imgui.Indent(95.0);
                 imgui.TextColored(interface.colors.title, 'SARAMEYA PATH');
                 imgui.Indent(-95.0);
@@ -228,7 +228,7 @@ function interface.render()
                 imgui.Indent(-85.0);
             imgui.EndChild();
             imgui.SameLine();
-            imgui.BeginChild('TygerPane', { 380, 540}, true);
+            imgui.BeginChild('TygerPane', { 310, 540}, true);
                 imgui.Indent(110);
                 imgui.TextColored(interface.colors.title, 'TYGER PATH');
                 imgui.Indent(-110);
@@ -268,12 +268,12 @@ function interface.render()
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Experimental Lamia'][1]);
                 end
-                imgui.SameLine();imgui.Indent(150);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
+                imgui.SameLine();imgui.Indent(135);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
                 if data.items.tyger.t3['Experimental Lamia'][4] then
                     imgui.TextColored(interface.colors.has, data.items.tyger.t3['Experimental Lamia'][2]);
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Experimental Lamia'][2]);
-                end;imgui.Indent(-150);
+                end;imgui.Indent(-135);
 
                 imgui.Indent(80);
                 interface.kiprint('Fallow-colored Seal');
@@ -285,12 +285,12 @@ function interface.render()
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Mahjlaef the Paintorn'][1]);
                 end
-                imgui.SameLine();imgui.Indent(150);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
+                imgui.SameLine();imgui.Indent(135);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
                 if data.items.tyger.t3['Mahjlaef the Paintorn'][4] then
                     imgui.TextColored(interface.colors.has, data.items.tyger.t3['Mahjlaef the Paintorn'][2]);
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Mahjlaef the Paintorn'][2]);
-                end;imgui.Indent(-150);
+                end;imgui.Indent(-135);
 
                 imgui.Indent(80);
                 interface.kiprint('Sienna-colored Seal');
@@ -302,12 +302,12 @@ function interface.render()
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Nuhn'][1]);
                 end
-                imgui.SameLine();imgui.Indent(150);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
+                imgui.SameLine();imgui.Indent(135);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
                 if data.items.tyger.t3['Nuhn'][4] then
                     imgui.TextColored(interface.colors.has, data.items.tyger.t3['Nuhn'][2]);
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t3['Nuhn'][2]);
-                end;imgui.Indent(-150);
+                end;imgui.Indent(-135);
 
                 imgui.Indent(70);
                 interface.kiprint('Lavender-colored Seal');
@@ -319,12 +319,12 @@ function interface.render()
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t4['Tyger'][1]);
                 end
-                imgui.SameLine();imgui.Indent(150);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
+                imgui.SameLine();imgui.Indent(135);imgui.TextColored(interface.colors.name, '|');imgui.SameLine();
                 if data.items.tyger.t4['Tyger'][4] then
                     imgui.TextColored(interface.colors.has, data.items.tyger.t4['Tyger'][2]);
                 else 
                     imgui.TextColored(interface.colors.donthas, data.items.tyger.t4['Tyger'][2]);
-                end;imgui.Indent(-150);
+                end;imgui.Indent(-135);
 
                 imgui.Indent(100);
                 interface.kiprint('Cyan Deep salt');
@@ -332,20 +332,32 @@ function interface.render()
             imgui.EndChild();
         imgui.EndChild();
 
-        imgui.BeginChild('PwPane', { 1050, 35}, true);
-            imgui.Indent(90);
-                imgui.TextColored(interface.colors.title, 'Jettons: ' .. interface.comma_value(jettons));
-            imgui.Indent(-90);imgui.SameLine();
-            imgui.Indent(420);
-                if data.items.pw['Pandemonium Warden'][2] then
-                    imgui.TextColored(interface.colors.has, data.items.pw['Pandemonium Warden'][1]);
-                else 
-                    imgui.TextColored(interface.colors.donthas, data.items.pw['Pandemonium Warden'][1]);
-                end
-            imgui.Indent(-420);imgui.SameLine();
-            imgui.Indent(730);
-                imgui.TextColored(interface.colors.title, 'Zeni: ' .. interface.comma_value(zeni));
-            imgui.Indent(-730);imgui.SameLine();
+        imgui.BeginChild('PwPane', { 960, 35}, true);
+            imgui.ShowHelp([[Basics:
+/zh       -- show/hide
+/zh trade -- with a correct ??? targeted and correct item in your 
+             main inventory will attempt to spawn your ZNM
+Colors:
+White  -- NM Name
+Grey   -- Missing Items (Pop | Trophy)
+Green  -- Items you have (Pop | Trophy)
+Purple -- Missing Key Iems
+Yellow -- Key Items you have
+
+Notes:
+-Key Items update automatically
+-Items and Jettons/Zeni amounts update each time the display is
+    refreshed with /zh
+-Double clicking anywhere will hide as well]]);
+            imgui.SameLine();imgui.Indent(110);imgui.TextColored(interface.colors.title, 'Jettons: ' .. interface.comma_value(jettons));
+            imgui.SameLine();imgui.Indent(280);
+            if data.items.pw['Pandemonium Warden'][2] then
+                imgui.TextColored(interface.colors.has, data.items.pw['Pandemonium Warden'][1]);
+            else 
+                imgui.TextColored(interface.colors.donthas, '>>> ' .. data.items.pw['Pandemonium Warden'][1] .. ' <<<');
+            end
+            
+            imgui.SameLine();imgui.Indent(360);imgui.TextColored(interface.colors.title, 'Zeni: ' .. interface.comma_value(zeni));
         imgui.EndChild();
     end
     imgui.End();
@@ -765,7 +777,7 @@ function interface.dotrade()
                 return;
                 else
                     AshitaCore:GetChatManager():QueueCommand(1, '/item "' .. v .. '" <t>');
-                    print(chat.header(addon.name) .. chat.message('Attempting trade ' .. v));
+                    print(chat.header(addon.name) .. chat.message('Trading ' .. v));
                     return;
                 end
             end

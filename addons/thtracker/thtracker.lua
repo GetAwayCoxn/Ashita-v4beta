@@ -11,11 +11,11 @@ local settings = require('settings');
 local display = {};
 local osd = {};
 local monster = '';
-local proc = '8';
+local mobs = T{};
 local defaults = T{
 	visible = true,
 	font_family = 'Arial',
-	font_height = 18,
+	font_height = 12,
 	color = 0xFFFFFFFF,
 	position_x = 500,
 	position_y = 500,
@@ -47,33 +47,24 @@ ashita.events.register('unload', 'unload_cb', function()
 end);
 
 ashita.events.register('text_in', 'text_in_cb', function(e)
-    local name, count = e.message:match('Additional effect: Treasure Hunter effectiveness against[%s%a%a%a]- (.*) increases to (%d+).')
+    local target = GetEntity(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
+    local name, count = e.message:match('Additional effect: Treasure Hunter effectiveness against[%s%a%a%a]- (.*) increases to (%d+).');
+    local count = e.message:contains('AE: TH (%d+)');
     
-    if name and count then
-        name = name.gsub(name, "the ", "")
-        monster = name
-        mob = name
-        proc = count;
+    if count then
         display.visible = true;
+        if target ~= nil then
+            mobs[target.TargetIndex] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(target.TargetIndex);
+        end
+        update();
     end
 
-    local deadmob = e.message:match('%w+ defeats[%s%a%a%a]- (.*).')
-    
-    if deadmob then
-        deadmob = deadmob.gsub(deadmob, "the ", "")
-    end
-    
-    if deadmob and deadmob == mob then
-        display.visible = false;
-        proc = '8';
-        mob = nil
-    end
 end);
 
 ashita.events.register('d3d_present', 'present_cb', function ()
-	local player = AshitaCore:GetMemoryManager():GetPlayer();
-	if player:GetMainJob() ~= 6 then return end;
     local status = AshitaCore:GetMemoryManager():GetEntity():GetStatus(AshitaCore:GetMemoryManager():GetParty():GetMemberTargetIndex(0));
+    local t = 0;
+    display.text = '';
 
     if (status == 1) then
         display.visible = true;
@@ -81,10 +72,68 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         display.visible = false;
     end
 
-    display.text = 'TH: ' .. proc .. ' on ' .. monster;
+    for k,v in pairs(mobs) do
+        t = t + 1;
+        if v == nil or v == 0 then
+            if t == 1 then t = 0 end
+        else
+            if t > 1 then
+                display.text = display.text .. '\n';
+            end
+            local mobname = GetEntity(k);
+            display.text = display.text .. mobname.Name[1] .. '(' .. tostring(k) .. '): ' .. AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
+        end
+    end
 	if display.position_x ~= osd.settings.position_x or display.position_y ~= osd.settings.position_y then
         osd.settings.position_x = display.position_x;
         osd.settings.position_y = display.position_y;
         settings.save();
     end
 end);
+
+ashita.events.register('command', 'command_cb', function (e)
+    local args = e.command:args();
+    
+    if args[1] ~= '/tht' then
+        return;
+    end
+
+    e.blocked = true;
+
+    if args[2] == 'test1' then
+        test();
+    elseif args[2] == 'test2' then
+        update();
+    end
+end);
+
+function test()
+    local target = GetEntity(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
+    local t = 0;
+    display.text = '';
+
+    if target ~= nil then
+        mobs[target.TargetIndex] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(target.TargetIndex);
+    end
+
+    for k,v in pairs(mobs) do
+        t = t + 1;
+        if v == nil or v == 0 then
+            if t == 1 then t = 0 end
+        else
+            if t > 1 then
+                display.text = display.text .. '\n';
+            end
+            local mobname = GetEntity(k);
+            display.text = display.text .. mobname.Name[1] .. '(' .. tostring(k) .. '): ' .. AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
+        end
+    end
+end
+
+function update()
+    for k,v in pairs(mobs) do
+        mobs[k] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
+    end
+
+    test();
+end

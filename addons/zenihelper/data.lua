@@ -8,12 +8,12 @@ data = T{
 			},
 			t2 = {
 				['Iriz Ima'] = {'Senorita Pamama', 'Iriz Ima\'s Hide', false, false,},
-				['Lividroot Amooshah'] = {'Oily Blood', 'Amooshah\'s Tendril', false, false,},
+				['Lividroot Amooshah'] = {'Oily Blood', 'Amoosh.\'s Tendril', false, false,},
 				['Iriri Samariri'] = {'Samariri Corpsehair', 'Iriri Samariri\'s Hat', false, false,},
 			},
 			t3 = {
-				['Armed Gears'] = {'Ferrite', 'Armed Gears\' Fragment', false, false,},
-				['Gotoh Zha the Redolent'] = {'Sheep Botfly', 'Gotoh Zha\'s Necklace', false, false,},
+				['Armed Gears'] = {'Ferrite', 'A. Gears\' Fragment', false, false,},
+				['Gotoh Zha the Redolent'] = {'Sheep Botfly', 'G. Zha\'s Necklace', false, false,},
 				['Dea'] = {'Olzhiryan Cactus', 'Dea\'s Horn', false, false,},
 			},
 			t4 = {
@@ -22,7 +22,7 @@ data = T{
 		},
 		sarameya = {
 			t1 = {
-				['Brass Borer'] = {'Shadeleaf','Brass Borer\'s Cocoon', false, false,},
+				['Brass Borer'] = {'Shadeleaf','B. Borer\'s Cocoon', false, false,},
 				['Claret'] = {'Pectin','Claret Globule', false, false,},
 				['Ob'] = {'Cog Lubricant','Ob\'s Arm', false, false,},
 			},
@@ -32,8 +32,8 @@ data = T{
 				['Reacton'] = {'Bone Charcoal','Reacton\'s Ashes', false, false,},
 			},
 			t3 = {
-				['Achamoth'] = {'Rock Juice','Achamoth\'s Antenna', false, false,},
-				['Khromasoul Bhurborlor'] = {'Vinegar Pie','Bhurborlor\'s Vambrace', false, false,},
+				['Achamoth'] = {'Rock Juice','Acham.\'s Antenna', false, false,},
+				['Khromasoul Bhurborlor'] = {'Vinegar Pie','Bblr.\'s Vambrace', false, false,},
 				['Nosferatu'] = {'Pure Blood','Nosferatu\'s Claw', false, false,},
 			},
 			t4 = {
@@ -49,10 +49,10 @@ data = T{
 			t2 = {
 				['Verdelet'] = {'Mint Drop','Verdelet\'s Wing', false, false,},
 				['Wulgaru'] = {'Opalus Gem','Wulgaru\'s Head', false, false,},
-				['Zareehkl the Jubilant'] = {'Merrow No. 11 Molting','Zareehkl\'s Neckpiece', false, false,},
+				['Zareehkl the Jubilant'] = {'M. No. 11 Molting','Zrkl.\'s Neckpiece', false, false,},
 			},
 			t3 = {
-				['Experimental Lamia'] = {'Myrrh','Experimental Lamia\'s Armband', false, false,},
+				['Experimental Lamia'] = {'Myrrh','Ex. Lamia Armband', false, false,},
 				['Mahjlaef the Paintorn'] = {'Exorcism Treatise','Mahjlaef\'s Staff', false, false,},
 				['Nuhn'] = {'Rose Scampi','Nuhn\'s Esca', false, false,},
 			},

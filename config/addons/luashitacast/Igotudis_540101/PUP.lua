@@ -35,7 +35,9 @@ sets = T{
         Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Ring2 = 'Stikini Ring +1',
+    },
 	Town = {
         Main = 'Sakpata\'s Fists',
         Range = 'Neo Animator',
@@ -43,8 +45,8 @@ sets = T{
         Head = 'Karagoz Capello +1',
         Body = 'Pitre Tobe +3',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Epona\'s Ring',
-        Ring2 = 'Niqmaddu Ring',
+        Ring1 = 'Varar Ring +1',
+        Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Moonbow Belt',
         Legs = 'Tali\'ah Sera. +2',
@@ -84,6 +86,7 @@ sets = T{
         Neck = 'Shulmanu Collar',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Domes. Earring',
+        Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
@@ -258,6 +261,8 @@ profile.OnLoad = function()
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+
+    gcinclude.settings.RefreshGearMPP = 50;
 end
 
 profile.OnUnload = function()

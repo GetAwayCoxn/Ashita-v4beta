@@ -2,7 +2,7 @@ addon.name      = 'zenihelper';
 addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
 addon.desc      = 'Track and displays what ZNM pops/trophies/KI\'s you have and assists in popping the NMs at the ???';
-addon.link      = 'https://github.com/GetAwayCoxn/';
+addon.link      = 'https://github.com/GetAwayCoxn/Zeni-Helper';
 
 require('common');
 local interface = require('interface');
@@ -10,14 +10,6 @@ imgui = require('imgui');
 data = require('data');
 chat = require('chat');
 zeni,jettons = 0,0;
-
---[[ashita.events.register('load', 'load_cb', function()
-
-end);
-
-ashita.events.register('unload', 'unload_cb', function()
-
-end);]]
 
 ashita.events.register('d3d_present', 'present_cb', interface.render);
 

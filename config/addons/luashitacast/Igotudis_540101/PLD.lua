@@ -27,7 +27,7 @@ sets = T{
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
-        Ammo = 'Homiliary',
+        --Ammo = 'Homiliary',
         Head = 'Jumalik Helm',
         Ring1 = 'Stikini Ring +1',
     },
@@ -129,12 +129,13 @@ sets = T{
         Ammo = 'Sapience Orb',--2
         Head = 'Chev. Armet +1',--7
         Neck = 'Baetyl Pendant',--4
-        Ear1 = 'Tuisto Earring',
+        --Ear1 = 'Tuisto Earring',
+        Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',--1
         Body = 'Rev. Surcoat +2',--5
         Hands = 'Leyline Gloves',--6
         Ring2 = 'Kishar Ring',--4
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Creed Baudrier',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
@@ -166,6 +167,7 @@ sets = T{
         Ear2 = 'Cryptic Earring',--4
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
         Waist = 'Creed Baudrier',--5
+        Legs = 'Cab. Breeches +1',--7
         Feet = 'Eschite Greaves',--15
     },
 
@@ -186,14 +188,11 @@ sets = T{
         Feet = 'Odyssean Greaves', -- 7
     },
     Phalanx = {
-        Neck = 'Moonlight Necklace', -- 15
-        Ear1 = 'Odnowa Earring +1',
+        Neck = 'Moonlight Necklace',
         Ear2 = 'Etiolation Earring',
         Body = 'Yorium Cuirass', -- 3
         Hands = 'Odyssean Gauntlets', --3
-        Ring1 = 'Moonbeam Ring',
-        Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
         Waist = 'Audumbla Sash',
         Legs = 'Sakpata\'s Cuisses', -- 5
         Feet = 'Odyssean Greaves',
@@ -330,7 +329,7 @@ sets = T{
         Hands = 'Cab. Gauntlets',
     },
     Invincible = {
-        Legs = 'Cab. Breeches',
+        Legs = 'Cab. Breeches +1',
     },
     Cover = {
         Body = 'Cab. Surcoat +3',
@@ -434,7 +433,9 @@ profile.HandlePrecast = function()
     local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
 
-    if (spell.Skill == 'Enhancing Magic') then
+    if string.match(spell.Name, 'Phalanx') then
+        gFunc.EquipSet(sets.Phalanx);
+    elseif (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing_Precast);
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);

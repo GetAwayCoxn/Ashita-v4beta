@@ -65,6 +65,10 @@ gcinclude.sets = T{
 	},
 };
 gcinclude.settings = {
+	--[[
+	You can also set any of these on a per job basis in the job file in the OnLoad function. See my COR job file to see how this is done
+	but as an example you can just put 'gcinclude.settings.RefreshGearMPP = 50;' in your job files OnLoad function to modify for that job only
+	]]
 	AutoGear = true; --set to false if you dont want DT/Regen/Refresh/PetDT gear to come on automatically at the defined %'s here
 	RegenGearHPP = 60; -- set HPP to have your idle regen set to come on
 	RefreshGearMPP = 70; -- set MPP to have your idle refresh set to come on
@@ -134,7 +138,7 @@ function gcinclude.SetAlias()
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /craftset /lac fwd craftset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /zeniset /lac fwd zeniset');
 	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /fishset /lac fwd fishset');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cormsg /lac fwd cormsg');
+	
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /nukeset /lac fwd nukeset');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /burst /lac fwd burst');
@@ -167,6 +171,7 @@ function gcinclude.SetAlias()
 	end
 	if (player.MainJob == 'COR') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /tpgun /lac fwd tpgun');
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cormsg /lac fwd cormsg');
 	end
 	if (player.MainJob == 'BLU') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /cjmode /lac fwd cj');
@@ -261,14 +266,6 @@ function gcinclude.SetCommands(args)
 		else
 			gcinclude.FishSet = true;
 		end
-	elseif (args[1] == 'cormsg') then
-		if gcinclude.CORmsg == true then
-			gcinclude.CORmsg = false;
-			print(chat.header('GCinclude'):append(chat.message('COR Roll message will no longer show')));
-		else
-			gcinclude.CORmsg = true;
-			print(chat.header('GCinclude'):append(chat.message('COR Roll message will now show')));
-		end
     end
 	if (player.MainJob == 'RDM') or (player.MainJob == 'BLM') or (player.MainJob == 'SCH') or (player.MainJob == 'GEO') then
 		if (args[1] == 'nukeset') then
@@ -345,6 +342,14 @@ function gcinclude.SetCommands(args)
 	if (player.MainJob == 'COR') then
 		if (args[1] == 'tpgun') then
 			gcdisplay.AdvanceToggle('TPgun');
+		elseif (args[1] == 'cormsg') then
+			if gcinclude.CORmsg == true then
+				gcinclude.CORmsg = false;
+				print(chat.header('GCinclude'):append(chat.message('COR Roll message will no longer show')));
+			else
+				gcinclude.CORmsg = true;
+				print(chat.header('GCinclude'):append(chat.message('COR Roll message will now show')));
+			end
 		end
 	end
 	if (player.MainJob == 'BLU') then

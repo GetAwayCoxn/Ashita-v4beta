@@ -68,7 +68,7 @@ sets = T{
         Hands = 'Sulev. Gauntlets +1',
         Ring1 = 'Sulevia\'s Ring',
         Ring2 = 'Flamma Ring',
-        Back = 'Bleating Mantle',
+        Back = 'Weard Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Flam. Gambieras +1',
@@ -104,7 +104,8 @@ sets = T{
         Hands = 'Sulev. Gauntlets +1',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        --Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Back = 'Weard Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',
@@ -162,7 +163,7 @@ sets = T{
         Ring2 = 'Supershear Ring',--5
         Ear1 = 'Friomisi Earring',--2
         Ear2 = 'Cryptic Earring',--4
-        Back = 'Weard Mantle',--10
+        Back = 'Rudianos\'s Mantle',--10
         Waist = 'Creed Baudrier',--5
         Feet = 'Eschite Greaves',--15
     },
@@ -188,7 +189,7 @@ sets = T{
         Hands = 'Odyssean Gauntlets', --3
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = 'Weard Mantle',--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Audumbla Sash',
         Legs = 'Flamma Dirs +1', -- 5
         Feet = 'Odyssean Greaves',
@@ -202,7 +203,7 @@ sets = T{
         Body = 'Shabti Cuirass',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = 'Weard Mantle',--10
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Eschite Greaves',
@@ -217,7 +218,7 @@ sets = T{
         Hands = 'Rev. Gauntlets +1',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
-        Back = 'Weard Mantle',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
         Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Odyssean Greaves',
@@ -282,6 +283,22 @@ sets = T{
     },
     Atone_Acc = {
     },
+    Aedge_Default = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Nyame Helm',
+        Neck = 'Eddy Necklace',
+        Ear1 = 'Moldavite Earring',
+        Ear2 = 'Hecate\'s Earring',
+        Body = 'Found. Breastplate',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Fotia Belt',
+        Legs = 'Augury Cuisses +1',
+        Feet = 'Nyame Sollerets',
+    },
+    Aedge_Hybrid = {},
+    Aedge_Acc = {},
 
     Fealty = {
         Body = 'Cab. Surcoat',
@@ -451,6 +468,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Atone_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Atone_' .. gcdisplay.GetCycle('MeleeSet')); end
+        elseif string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

@@ -202,6 +202,8 @@ profile.OnLoad = function()
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 7');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+
+    gcinclude.settings.PetDTGearHPP = 0; --remove/edit this line if you care about your wyvern, I clearly do not care about mine.
 end
 
 profile.OnUnload = function()

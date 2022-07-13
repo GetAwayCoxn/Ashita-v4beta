@@ -1,3 +1,4 @@
+
 local gcauto = {};
 wstp = 1000;
 
@@ -237,10 +238,6 @@ function gcauto.testfunc()
 	print(tostring(test.Index))
 end
 
-function gcauto.Warp()
-	gFunc.Equip('Ring1', 'Warp Ring');
-end
-
 function gcauto.CheckRemedy()
 	local player = gData.GetPlayer();
 
@@ -249,11 +246,8 @@ function gcauto.CheckRemedy()
 
 	local blind = gData.GetBuffCount('Blind');
 	local paralyze = gData.GetBuffCount('Paralyze');
-	local silence = 0;
-	if (gcauto.Spellcasters:contains(player.MainJob) or gcauto.Spellcasters:contains(player.SubJob))then
-		silence = gData.GetBuffCount('Silence');
-	end
-	if (blind+paralyze+silence >= 1) then
+	
+	if (blind+paralyze >= 1) then
 		return true;
 	else
 		return false;
@@ -361,13 +355,23 @@ function gcauto.AutoMeds()
 	local player = gData.GetPlayer();
 	local remedy = gcauto.CheckRemedy();
 	local silence = gData.GetBuffCount('Silence');
+
+	local muddle = gData.GetBuffCount('Muddle');
+	if muddle >= 1 then return end;
 	
 	if (silence >= 1) and (gcauto.Spellcasters:contains(player.MainJob) or gcauto.Spellcasters:contains(player.SubJob))then
-		local check = gcauto.CheckItemINV('Echo Drops');
-		if (check == true) then
+		local echos = gcauto.CheckItemINV('Echo Drops');
+		local check = gcauto.CheckItemINV('Remedy');
+
+		if (echos == true) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/item "Echo Drops" <me>');
+			return;
 		end
-	elseif (remedy == true) then
+		if (check == true) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/item "Remedy" <me>');
+		end
+	end
+	if (remedy == true) then
 		local check = gcauto.CheckItemINV('Remedy');
 		if (check == true) then
 			AshitaCore:GetChatManager():QueueCommand(1, '/item "Remedy" <me>');
@@ -384,31 +388,29 @@ function gcauto.DoJobStuff()
 	local playermem = AshitaCore:GetMemoryManager():GetPlayer();
 	local pet = gData.GetPet();
 	local target = gData.GetTarget();
-
 	
 
 	if (player.MainJob == 'PLD') then
-		local majesty = gData.GetBuffCount('Majesty');
-
-		if (gcdisplay.GetToggle('MAJ') == true) then	
-			if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) and (player.Status == 'Engaged') then
-				AshitaCore:GetChatManager():QueueCommand(1, '/ja "majesty" <me>')
-			end
-		end
 		if (gcdisplay.GetToggle('AUTO') == true) then
-			local enlight = gData.GetBuffCount('Enlight');
+			local enlight = 5--gData.GetBuffCount('Enlight');
 			local haste = gData.GetBuffCount('Haste');
-
-			if (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) then
+			local majesty = gData.GetBuffCount('Majesty');
+			
+			if (gcdisplay.GetToggle('MAJ') == true) then	
+				if ((majesty == 0) and (gcauto.CheckAbilityRecast('Majesty') == 0)) then--and (player.Status == 'Engaged') then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ja "majesty" <me>')
+				end
+			end
+			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (haste >= 1) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Reprisal" <me>');
+			elseif (enlight == 0) and (player.Status == 'Engaged') and (target.HPP < 99) then
 				if (playermem:GetJobPointsSpent(7) > 100) then
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight II" <me>');
 				else
 					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Enlight" <me>');
 				end
 			end
-			if (AshitaCore:GetMemoryManager():GetRecast():GetSpellTimer(97) <= 0) and (player.Status == 'Engaged') and (target.HPP < 99) and (haste >= 1) then
-				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Reprisal" <me>');
-			end
+			
 		end
 	elseif (player.MainJob == 'BLU') then
 		local natmed = gData.GetBuffCount('Attack Boost');
@@ -620,15 +622,9 @@ function gcauto.DoJobStuff()
 	end
 end
 
-function gcauto.Welcome()
-	print(chat.header('GCAUTO'):append(chat.message('gcauto file found!')));
-	print(chat.header('GCAUTO'):append(chat.message('/gcauto for commands')));
-end
-
 function gcauto.Initialize()
 	gcauto.SetVariables();
 	gcauto.SetAlias();
-	--gcauto.Welcome();
 	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
 	--AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
 end

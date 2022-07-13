@@ -1,8 +1,8 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = { Name = 'Tizona', AugTrial=2670 },
-        Sub = { Name = 'Thibron', AugTrial=3257 },
+        Main = 'Sakpata\'s Sword',
+        Sub = 'Bunzi\'s Rod',
         Ammo = 'Staunch Tathlum',
         Head = 'Malignance Chapeau',
         Neck = { Name = 'Unmoving Collar +1', AugPath='A' },
@@ -12,7 +12,7 @@ local sets = {
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
         Ring2 = 'Chirich Ring +1',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+25' } },
         Waist = 'Flume Belt +1',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',

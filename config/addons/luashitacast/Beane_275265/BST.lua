@@ -127,9 +127,10 @@ sets = T{
 		Body = 'Valorous Mail',
         Hands = 'Nukumi Manoplas',
 		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Waist = 'Incarnation Sash',
         Legs = 'Despair Cuisses',
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Pet: "Mag. Atk. Bns."+6', [2] = 'Pet: Attack+22', [3] = 'Pet: Rng.Atk.+22', [4] = 'Attack+12', [5] = 'Accuracy+12' } },
-		Waist = 'Incarnation Sash',
+		
 	},
 	PetAttack = {},
 	PetMagicAttack = {

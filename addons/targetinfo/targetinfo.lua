@@ -52,12 +52,10 @@ end);
 
 ashita.events.register('command', 'command_cb', function (e)
     local args = e.command:args();
-    if (#args == 0) then
+    if (args[1] ~= '/targetinfo') and (args[1] ~= '/ti') then
         return;
     end
     if (args[1] == '/targetinfo') and (args[1] == '/ti') then
         settings.visible = not settings.visible;
-    else
-        return;
     end
 end);

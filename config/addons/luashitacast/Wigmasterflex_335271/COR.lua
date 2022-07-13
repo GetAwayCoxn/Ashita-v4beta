@@ -5,6 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Range = 'Doomsday',
+        Ammo = 'Decimating Bullet',
         Head = 'Meghanada Visor +1',
         Neck = 'Wiglen Gorget',
         Ear1 = 'Steelflash Earring',
@@ -20,38 +21,30 @@ sets = T{
     },
     Resting = {},
     Idle_Regen = {
-        Neck = 'Bathy Choker +1',
+        Head = 'Meghanada Visor +1',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Meg. Gloves +2',
+        Ring2 = 'Meghanada Ring',
+        Feet = 'Meg. Jam. +1',
     },
     Idle_Refresh = {},
     Town = {
-        Main = 'Naegling',
-        Sub = 'Nusku Shield',
-        Head = 'Cumulus Masque',
-        Neck = 'Anu Torque',
-        Ear1 = 'Mache Earring',
-        Ear2 = 'Cessance Earring',
-        Body = 'Tanner\'s Apron',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Ilabrat Ring',
-        Waist = 'Sailfi Belt +1',
-        Legs = 'Carmine Cuisses',
-        Feet = 'Gleti\'s Boots',
     },
 
     Dt = {
-        Head = 'Nyame Helm',
-        Neck = { Name = 'Loricate Torque +1', AugPath='A' },
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
-        Ear2 = 'Etiolation Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
+        Head = 'Meghanada Visor +1',
+        Neck = 'Loricate Torque',
+        Ear1 = 'Colossus\'s Earring',
+        --Ear2 = 'Etiolation Earring',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
-        Waist = 'Flume Belt +1',
-        Legs = 'Nyame Flanchard',
-        Feet = 'Nyame Sollerets',
+        --Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Ring2 = 'Meghanada Ring',
+        Back = 'Repulse Mantle',
+        --Waist = 'Flume Belt +1',
+        --Legs = 'Nyame Flanchard',
+        Feet = 'Meg. Jam. +1',
     },
 
     Tp_Default = {
@@ -70,8 +63,6 @@ sets = T{
         Feet = 'Mummu Gamash. +1',
     },
     Tp_Hybrid = {
-        Head = 'Malignance Chapeau',
-        Hands = 'Malignance Gloves',
     },
     Tp_Acc = {
     },
@@ -80,8 +71,6 @@ sets = T{
     Precast = {
         Head = 'Herculean Helm',
         Neck = 'Voltsurge Torque',
-        Ear1 = 'Malignance Earring',
-        Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
@@ -90,42 +79,21 @@ sets = T{
 
 
     Cure = {
-        Neck = 'Incanter\'s Torque',
-        Ear1 = 'Mendi. Earring',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
         Legs = 'Carmine Cuisses',
     },
 
     Enhancing = {
-        Neck = 'Incanter\'s Torque',
-        Ear1 = 'Mendi. Earring',
-        Ear2 = 'Andoaa Earring',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
 
     Enfeebling = {
-        Neck = 'Erra Pendant',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
     Macc = {},
 
     Drain = {
-        Neck = 'Erra Pendant',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
     },
 
     Nuke = {
-        Head = 'Nyame Helm',
-        Neck = 'Baetyl Pendant',
         Ear1 = 'Hecate\'s Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
-        Ring1 = 'Shiva Ring +1',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Legs = 'Nyame Flanchard',
-        Feet = 'Nyame Sollerets',
     },
 
     Preshot = {--base preshot, no flurry
@@ -137,19 +105,10 @@ sets = T{
     Preshot_FlurryII = {--with flurry II on
     },
     Midshot = {
-        Head = 'Malignance Chapeau',
-        Neck = 'Marked Gorget',
-        Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
-        Hands = 'Malignance Gloves',
         Ring1 = 'Dingir Ring',
-        Ring2 = 'Ilabrat Ring',
         Waist = 'Aquiline Belt',
-        Legs = 'Ikenga\'s Trousers',
     },
     Midshot_Acc = {
-        Ear2 = 'Crep. Earring',
-        Legs = 'Ikenga\'s Trousers',
     },
     TripleShot = {
     },
@@ -169,25 +128,19 @@ sets = T{
     },
 
     Savage_Default = {
-        Neck = 'Fotia Gorget',
-        Ear1 = 'Telos Earring',
+        Neck = 'Light Gorget',
         Ear2 = 'Moonshade Earring',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring',
         Waist = 'Sailfi Belt +1',
-        Legs = 'Mummu Kecks +2',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Savage_Hybrid = {
     },
     Savage_Acc = {
-        Ear1 = 'Telos Earring',
     },
 
     Evisceration_Default = {
         Head = 'Adhemar Bonnet +1', 
-        Neck = 'Fotia Gorget',
+        Neck = 'Shadow Gorget',
         Ear1 = 'Odr Earring',
         Ear2 = 'Moonshade Earring',
         Body = 'Mummu Jacket +2',
