@@ -90,7 +90,7 @@ sets = T{
 
     Precast = {
         Main = { Name = 'Kali', AugPath='C' },
-        Sub = 'Culminus',
+        Sub = 'Genmei Shield',
         Range = { Name = 'Gjallarhorn', AugTrial=3591 },
         Head = 'Haruspex Hat',
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
@@ -102,7 +102,7 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Embla Sash',
-        Legs = 'Brioso Cannions +2',
+        Legs = 'Aya. Cosciales +2',
         Feet = 'Volte Gaiters',
     },
     Cure_Precast = {
@@ -118,11 +118,11 @@ sets = T{
     },
     Song_Precast = {
         Main = { Name = 'Kali', AugPath='C' },
-        Sub = 'Culminus',
+        Sub = 'Genmei Shield',
         Range = { Name = 'Gjallarhorn', AugTrial=3591 },
         Head = 'Fili Calot +1',
         Neck = { Name = 'Loricate Torque +1', AugPath='A' },
-        Ear1 = 'Eabani Earring',
+        Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Inyanga Jubbah +2',
         Hands = { Name = 'Gende. Gages +1', Augment = { [1] = 'Phys. dmg. taken -4%', [2] = 'Song spellcasting time -5%' } },
@@ -130,8 +130,8 @@ sets = T{
         Ring2 = 'Kishar Ring',
         Back = { Name = 'Intarabus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Fast Cast"+10', [3] = 'Mag. Acc.+10', [4] = 'Mag. Acc+20', [5] = 'CHR+20', [6] = 'Magic Damage +20' } },
         Waist = 'Embla Sash',
-        Legs = 'Brioso Cannions +2',
-        Feet = 'Bihu Slippers +3',
+        Legs = 'Aya. Cosciales +2',
+        Feet = 'Volte Gaiters',
     },
 
 

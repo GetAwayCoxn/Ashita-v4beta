@@ -151,7 +151,7 @@ sets = T{
         Ammo = 'Staunch Tathlum', -- 10
         Head = 'Souv. Schaller +1', --20
         Neck = 'Moonlight Necklace', -- 15
-        --Body = 'Yorium Cuirass', -- 10
+        Body = 'Yorium Cuirass', -- 10
         Waist = 'Creed Baudrier',
         Legs = 'Founder\'s Hose', -- 30
         Feet = 'Odyssean Greaves', -- 26
@@ -188,6 +188,7 @@ sets = T{
         Feet = 'Odyssean Greaves', -- 7
     },
     Phalanx = {
+        Head = 'Souv. Schaller +1',
         Neck = 'Moonlight Necklace',
         Ear2 = 'Etiolation Earring',
         Body = 'Yorium Cuirass', -- 3
@@ -433,9 +434,7 @@ profile.HandlePrecast = function()
     local spell = gData.GetAction();
     gFunc.EquipSet(sets.Precast)
 
-    if string.match(spell.Name, 'Phalanx') then
-        gFunc.EquipSet(sets.Phalanx);
-    elseif (spell.Skill == 'Enhancing Magic') then
+    if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing_Precast);
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);

@@ -2,7 +2,7 @@ addon.name      = 'blank';
 addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
 addon.desc      = 'blank';
-addon.link      = 'https://github.com/GetAwayCoxn/';
+addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
 require('common');
 
@@ -23,4 +23,6 @@ ashita.events.register('command', 'command_cb', function (e)
     if (#args == 0) or ((args[1] ~= '/blank') then --and (args[1] ~= '/ph')) then
         return;
     end
+
+    e.blocked = true;
 end);

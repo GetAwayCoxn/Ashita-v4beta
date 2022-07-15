@@ -1,8 +1,8 @@
 addon.name      = 'luopantime';
 addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
-addon.desc      = 'Very light weight count down timer for Luopans';
-addon.link      = 'https://github.com/GetAwayCoxn/';
+addon.desc      = 'Light weight count down timer for Luopans';
+addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
 require('common');
 local fonts = require('fonts');

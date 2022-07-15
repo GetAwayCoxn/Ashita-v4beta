@@ -370,7 +370,6 @@ function gcinclude.CheckCommonDebuffs()
 	local weakened = gData.GetBuffCount('Weakened');
 	local sleep = gData.GetBuffCount('Sleep');
 	local doom = (gData.GetBuffCount('Doom'))+(gData.GetBuffCount('Bane'));
-	local cover = gData.GetBuffCount('Cover');
 
 	if (sleep >= 1) then gFunc.EquipSet(gcinclude.sets.Sleeping) end
 	if (doom >= 1) then	gFunc.EquipSet(gcinclude.sets.Doomed) end
@@ -539,6 +538,23 @@ function gcinclude.DoAspir()
 	elseif (recast1 == 0) then
 		AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
 	end
+	--[[if player:HasSpell(881) then
+		if (recast3 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir III" <t>');
+		elseif (recast2 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
+		elseif (recast1 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+		end
+	elseif player:HasSpell(248) then
+		if (recast2 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
+		elseif (recast1 == 0) then
+			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+		end
+	elseif player:HasSpell(247) and (recast1 == 0) then
+		AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
+	end]]
 end
 
 function gcinclude.DoDrain()

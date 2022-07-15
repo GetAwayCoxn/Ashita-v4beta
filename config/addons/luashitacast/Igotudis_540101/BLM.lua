@@ -403,6 +403,7 @@ profile.HandleMidcast = function()
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
+    local mw = gData.GetBuffCount('Manawell');
 
     if (gcdisplay.GetToggle('Death') == true) then
         gFunc.EquipSet(sets.Death);
@@ -454,7 +455,7 @@ profile.HandleMidcast = function()
                     gFunc.EquipSet(sets.Burst);
                 end
             end
-            if (player.MPP <= 40) then
+            if (player.MPP <= 40) and (mw == 0) then
                 gFunc.EquipSet(sets.Af_Body);
             end
             if string.contains(spell.Name, 'ja') then
