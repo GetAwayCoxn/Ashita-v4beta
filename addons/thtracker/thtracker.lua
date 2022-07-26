@@ -1,17 +1,16 @@
 addon.name      = 'thtracker';
-addon.author    = 'GetAwayCoxn, based on windower addon by Krizz';
+addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
-addon.desc      = 'blank';
+addon.desc      = 'tracks TH on mobs, several TH trackers out there but this is not a port';
 addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
 local fonts = require('fonts');
 local settings = require('settings');
 
-local display = {};
-local osd = {};
-local monster = '';
-local mobs = T{};
+local display = T{};
+local osd = T{};
+local mobs = T{};-- [id] = {name,HPP,THcount}
 local defaults = T{
 	visible = true,
 	font_family = 'Arial',
@@ -27,15 +26,15 @@ local defaults = T{
 
 settings.register('settings', 'settings_update', function (s)
     if (s ~= nil) then
-        osd.settings = s;
+        osd = s;
     end
     settings.save();
 end);
 
 ashita.events.register('load', 'load_cb', function()
-	osd.settings = settings.load(defaults);
+	osd = settings.load(defaults);
     
-    display = fonts.new(osd.settings);
+    display = fonts.new(osd);
 end);
 
 ashita.events.register('unload', 'unload_cb', function()
@@ -47,93 +46,124 @@ ashita.events.register('unload', 'unload_cb', function()
 end);
 
 ashita.events.register('text_in', 'text_in_cb', function(e)
-    local target = GetEntity(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
-    local name, count = e.message:match('Additional effect: Treasure Hunter effectiveness against[%s%a%a%a]- (.*) increases to (%d+).');
-    local count = e.message:contains('AE: TH (%d+)');
-    
-    if count then
-        display.visible = true;
-        if target ~= nil then
-            mobs[target.TargetIndex] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(target.TargetIndex);
-        end
-        update();
-    end
+    local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
 
+    if e.message:contains('Treasure Hunter') or e.message:contains('AE: TH') then
+        local index = AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0);
+        if index == nil then return end;
+	    local target = GetEntity(index);
+        if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
+        local count = tonumber(string.match(e.message,'%d+'));
+        mobs[index] = {target.Name, target.HPPercent, count};
+    elseif (e.message:contains('hit') or e.message:contains('ranged attack') or e.message:contains('RA')) and e.message:contains(me) then
+        local index = AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0);
+        if index == nil then return end;
+	    local target = GetEntity(index);
+        if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
+        local count = 0;
+        if player:GetMainJob(0) == 6 then--need to add a offset for gear bonus then adjust the for checks below to 8/4
+            for k,v in pairs(mobs) do
+                if k == index then
+                    if v[3] >= 8 then return end;
+                end
+            end
+            if player:GetMainJobLevel(0) >= 90 then
+                count = 8;--assumes your wearing gear on THF main for now until i build a proper offset
+            elseif player:GetMainJobLevel(0) >= 45 then
+                count = 2;
+            else
+                count = 1;
+            end
+        elseif player:GetSubJob(0) == 6 then
+            for k,v in pairs(mobs) do
+                if k == index then
+                    if v[3] >= 2 then return end;
+                end
+            end
+            if player:GetSubJobLevel(0) >= 45 then
+                count = 2;
+            else
+                count = 1;
+            end
+        end
+        if target == nil then return end;
+        mobs[index] = {target.Name, target.HPPercent, count};
+    end
 end);
 
 ashita.events.register('d3d_present', 'present_cb', function ()
-    local status = AshitaCore:GetMemoryManager():GetEntity():GetStatus(AshitaCore:GetMemoryManager():GetParty():GetMemberTargetIndex(0));
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
+	if (player:GetIsZoning() ~= 0) then
+        mobs = T{};
+		return;
+	end
+
+    if not osd.visible then
+        return;
+    end
+
     local t = 0;
     display.text = '';
 
-    if (status == 1) then
-        display.visible = true;
-    else
-        display.visible = false;
+    for k,v in pairs(mobs) do
+        
+        t = t + 1;
+        
+        if t == 1 then
+            display.text = 'THtracker Tracking Mobs: ';
+        end
+        
+        local mob = GetEntity(k);
+        display.text = display.text .. '\n' .. v[1] .. '(' .. tostring(k) .. ')  HPP: ' .. tostring(v[2]) .. '  TH: ' .. tostring(v[3]);
+        
     end
 
-    for k,v in pairs(mobs) do
-        t = t + 1;
-        if v == nil or v == 0 then
-            if t == 1 then t = 0 end
-        else
-            if t > 1 then
-                display.text = display.text .. '\n';
-            end
-            local mobname = GetEntity(k);
-            display.text = display.text .. mobname.Name[1] .. '(' .. tostring(k) .. '): ' .. AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
-        end
-    end
-	if display.position_x ~= osd.settings.position_x or display.position_y ~= osd.settings.position_y then
-        osd.settings.position_x = display.position_x;
-        osd.settings.position_y = display.position_y;
+	if display.position_x ~= osd.position_x or display.position_y ~= osd.position_y then
+        osd.position_x = display.position_x;
+        osd.position_y = display.position_y;
         settings.save();
     end
+    update();
 end);
 
 ashita.events.register('command', 'command_cb', function (e)
     local args = e.command:args();
     
-    if args[1] ~= '/tht' then
+    if args[1] ~= '/thtracker' and args[1] ~= '/tht' then
         return;
     end
 
     e.blocked = true;
 
-    if args[2] == 'test1' then
-        test();
-    elseif args[2] == 'test2' then
+    if args[2] == 'test' then
+        test(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
+    elseif args[2] == 'update' then
         update();
     end
 end);
 
-function test()
-    local target = GetEntity(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
-    local t = 0;
-    display.text = '';
-
-    if target ~= nil then
-        mobs[target.TargetIndex] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(target.TargetIndex);
-    end
-
-    for k,v in pairs(mobs) do
-        t = t + 1;
-        if v == nil or v == 0 then
-            if t == 1 then t = 0 end
-        else
-            if t > 1 then
-                display.text = display.text .. '\n';
-            end
-            local mobname = GetEntity(k);
-            display.text = display.text .. mobname.Name[1] .. '(' .. tostring(k) .. '): ' .. AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
-        end
-    end
+function test(index)
+    if index == nil then return end;
+	local target = GetEntity(index);
+	if target == nil then return end;
+    local item = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(1);
+    local item2 = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(item.Index);
+    print(tostring(item2.Id))
 end
 
 function update()
     for k,v in pairs(mobs) do
-        mobs[k] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
-    end
+        v[2] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
+        
+        if tonumber(('%2i'):fmt(math.sqrt(AshitaCore:GetMemoryManager():GetEntity():GetDistance(k)))) > 50 then v[2] = 0 end;
+        
+        for m = 0, 17 do
+            if AshitaCore:GetMemoryManager():GetParty():GetMemberName(m) == v[1] then
+                mobs[k] = nil
+            end
+        end
 
-    test();
+        if v[2] == 0 then mobs[k] = nil end
+    end
 end

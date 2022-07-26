@@ -188,7 +188,7 @@ sets = T{
         Ammo = 'Knobkierrie',
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
-        Ear1 = 'Moonshade Earring',
+        Ear1 = 'Telos Earring',
         Ear2 = 'Thrud Earring',
         Body = 'Hjarrandi Breast.', -- af+3
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },

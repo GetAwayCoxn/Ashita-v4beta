@@ -22,6 +22,7 @@
 -------------------------------------------------------------------------------
 local d3d8 = require('d3d8');
 local ffi = require('ffi');
+local compat = require('compat');
 -------------------------------------------------------------------------------
 -- local state
 -------------------------------------------------------------------------------
@@ -31,25 +32,50 @@ local d3d8_device = d3d8.get_device();
 -------------------------------------------------------------------------------
 local icon_cache = T{
 };
+
+-- this table implements overrides for certain icons to handle
+-- local buffs_table = nil;
+local id_overrides = T{
+};
 -------------------------------------------------------------------------------
 -- local functions
 -------------------------------------------------------------------------------
+
+-- load a dummy icon placeholder for a missing status and return a texture pointer
+---@return ffi.cdata* texture_ptr the loaded texture object or nil on error
+local function load_dummy_icon()
+    local icon_path = ('%s\\addons\\%s\\ladybug.png'):fmt(AshitaCore:GetInstallPath(), 'statustimers');
+    local dx_texture_ptr = ffi.new('IDirect3DTexture8*[1]');
+
+    if (ffi.C.D3DXCreateTextureFromFileA(d3d8_device, icon_path, dx_texture_ptr) == ffi.C.S_OK) then
+        return d3d8.gc_safe_release(ffi.cast('IDirect3DTexture8*', dx_texture_ptr[0]));
+    end
+
+    return nil;
+end
+
 -- load a status icon from the games own resources and return a texture pointer
 ---@param status_id number the status id to load the icon for
 ---@return ffi.cdata* texture_ptr the loaded texture object or nil on error
 local function load_status_icon_from_resource(status_id)
-    if (status_id < 0 or status_id > 0x3FF) then
+    if (status_id == nil or status_id < 0 or status_id > 0x3FF) then
+        print(('attempting to display status effect "%d" which is out of range 0...1023 - crashing.'):fmt(status_id));
         return nil;
     end
 
-    local icon = AshitaCore:GetResourceManager():GetStatusIconById(status_id);
+    local id_key = ("_%d"):fmt(status_id);
+    if (id_overrides:haskey(id_key)) then
+        status_id = id_overrides[id_key];
+    end
+
+    local icon = AshitaCore:GetResourceManager():GetStatusIconByIndex(status_id);
     if (icon ~= nil) then
         local dx_texture_ptr = ffi.new('IDirect3DTexture8*[1]');
-        if (ffi.C.D3DXCreateTextureFromFileInMemoryEx(d3d8_device, icon.Bitmap, icon.ImageSize, 0xFFFFFFFF, 0xFFFFFFFF, 1, 0, ffi.C.D3DFMT_A8R8G8B8, ffi.C.D3DPOOL_MANAGED, ffi.C.D3DX_DEFAULT, ffi.C.D3DX_DEFAULT, 0xFF000000, nil, nil, dx_texture_ptr) == ffi.C.S_OK) then
+        if (ffi.C.D3DXCreateTextureFromFileInMemoryEx(d3d8_device, icon.Bitmap, compat.icon_size(icon), 0xFFFFFFFF, 0xFFFFFFFF, 1, 0, ffi.C.D3DFMT_A8R8G8B8, ffi.C.D3DPOOL_MANAGED, ffi.C.D3DX_DEFAULT, ffi.C.D3DX_DEFAULT, 0xFF000000, nil, nil, dx_texture_ptr) == ffi.C.S_OK) then
             return d3d8.gc_safe_release(ffi.cast('IDirect3DTexture8*', dx_texture_ptr[0]));
         end
     end
-    return nil;
+    return load_dummy_icon();
 end
 
 -- load a status icon from a theme pack and return a texture pointer
@@ -58,6 +84,7 @@ end
 ---@return ffi.cdata* texture_ptr the loaded texture object or nil on error
 local function load_status_icon_from_theme(theme, status_id)
     if (status_id == nil or status_id < 0 or status_id > 0x3FF) then
+        print(('attempting to display status effect "%d" which is out of range 0...1023 - crashing.'):fmt(status_id));
         return nil;
     end
 
@@ -96,7 +123,7 @@ local function load_status_icon_from_theme(theme, status_id)
         end
     end
 
-    return nil;
+    return load_dummy_icon();
 end
 -------------------------------------------------------------------------------
 -- exported functions
@@ -166,7 +193,7 @@ end;
 ---@return boolean can_cancel true if the status can be cancelled
 module.status_can_be_cancelled = function(status_id)
     if (status_id ~= nil and status_id > 0 and status_id < 0x400 and status_id ~= 255) then
-        return AshitaCore:GetResourceManager():GetStatusIconById(status_id).CanCancel ~= 0;
+        return AshitaCore:GetResourceManager():GetStatusIconByIndex(status_id).CanCancel ~= 0;
     end
     return false;
 end
@@ -176,7 +203,7 @@ end
 ---@return boolean force_hide true if the timer should be hidden
 module.status_timer_hidden = function(status_id)
     if (status_id ~= nil and status_id > 0 and status_id < 0x400 and status_id ~= 255) then
-        return AshitaCore:GetResourceManager():GetStatusIconById(status_id).HideTimer ~= 0;
+        return AshitaCore:GetResourceManager():GetStatusIconByIndex(status_id).HideTimer ~= 0;
     end
     return true;
 end
@@ -201,6 +228,13 @@ module.status_has_visual_aid = function(status_id, settings)
     end
     -- random bonkers event and not sure..
     return false;
+end
+
+-- return the name for a status index from the resource table
+---@param status_id number the status id to look up
+---@return string
+module.get_status_name = function(status_id)
+    return AshitaCore:GetResourceManager():GetString(compat.buffs_table(), status_id);
 end
 
 return module;

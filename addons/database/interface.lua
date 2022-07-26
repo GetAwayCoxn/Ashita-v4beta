@@ -199,16 +199,12 @@ function interface.RenderGearTab()
                         end
 
                         if (imgui.BeginTabItem('HIDE', nil)) then
-                            imgui.BeginTable('hide gear has', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayHideGear();
-                            imgui.EndTable();
+                            interface.manager.DisplayHideGear();
                         imgui.EndTabItem();
                         end
 
                         if (imgui.BeginTabItem('WING', nil)) then
-                            imgui.BeginTable('wing gear has', 5, ImGuiTableFlags_Borders);
-                                interface.manager.DisplayWingGear();
-                            imgui.EndTable();
+                            interface.manager.DisplayWingGear();
                         imgui.EndTabItem();
                         end
                     imgui.EndTabBar();
@@ -250,27 +246,45 @@ function interface.RenderAMBUPointsTab()
 end
 
 function interface.RenderPricesTab()
-    --[[imgui.TextColored(interface.colors.header,'Bynes                           Bronze                         Shells');
-    imgui.InputInt3('dyna1', interface.data.prices.dyna1);
-    imgui.TextColored(interface.colors.header,'Plutons                         Boulders                       Beitetsu');
-    imgui.InputInt3(' ', interface.data.prices.rocks);
-    imgui.TextColored(interface.colors.header,'Marrows                         Scorias                        HMP');
-    imgui.InputInt3('  ', interface.data.prices.misc1);
-    imgui.TextColored(interface.colors.header,'Rift Cinders                                    Rift Dross');
-    imgui.InputInt2('    ', interface.data.prices.rifts);
-    imgui.TextColored(interface.colors.header,'H-P Bayld                                       Sad Crystals');
-    imgui.InputInt2('     ', interface.data.prices.misc2);]]
-    -- Left Side (Many whelps, handle it!!)
     imgui.BeginGroup();
-        imgui.BeginChild('leftpane', { 230, -imgui.GetFrameHeightWithSpacing(), }, true);
-        imgui.EndChild();
-    imgui.EndGroup();
-    imgui.SameLine();
-
-    imgui.BeginGroup();
-        imgui.BeginChild('rightpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-            imgui.BeginChild('rightpane_items', {0,150}, true);
-            imgui.EndChild();
+        imgui.BeginChild('prices_mainpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+            if (imgui.BeginTabBar('prices', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+                if (imgui.BeginTabItem('COMMON', nil)) then
+                    imgui.InputInt('Pluton', interface.data.prices['Pluton']);
+                    imgui.InputInt('Beitetsu', interface.data.prices['Beitetsu']);
+                    imgui.InputInt('Riftborn Boulder', interface.data.prices['Riftborn Boulder']);
+                    imgui.InputInt('Sad. Crystals', interface.data.prices['Sad. Crystals']);
+                imgui.EndTabItem();
+                end
+                if (imgui.BeginTabItem('DYNA CURRENCY', nil)) then
+                    imgui.InputInt('Byne Bills', interface.data.prices['Byne Bills']);
+                    imgui.InputInt('Bronze Pieces', interface.data.prices['Bronze Pieces']);
+                    imgui.InputInt('T. Whiteshells', interface.data.prices['T. Whiteshells']);
+                imgui.EndTabItem();
+                end
+                if (imgui.BeginTabItem('MYTHIC CURRENCY', nil)) then
+                    imgui.InputInt('Alexandrite', interface.data.prices['Alexandrite']);
+                    imgui.InputInt('Mulcibar\'s Scoria', interface.data.prices['Mulcibar\'s Scoria']);
+                imgui.EndTabItem();
+                end
+                if (imgui.BeginTabItem('EMPYREAN CURRENCY', nil)) then
+                    imgui.InputInt('Riftcinder', interface.data.prices['Riftcinder']);
+                    imgui.InputInt('Riftdross', interface.data.prices['Riftdross']);
+                    imgui.InputInt('Heavy Metal Plates', interface.data.prices['Heavy Metal Plates']);
+                imgui.EndTabItem();
+                end
+                if (imgui.BeginTabItem('ERGON CURRENCY', nil)) then
+                    imgui.InputInt('H-P Bayld', interface.data.prices['H-P Bayld']);
+                imgui.EndTabItem();
+                end
+                if (imgui.BeginTabItem('ODY ITEMS', nil)) then
+                    imgui.InputInt('Lustreless Scales', interface.data.prices['Lustreless Scales']);
+                    imgui.InputInt('Lustreless Hides', interface.data.prices['Lustreless Hides']);
+                    imgui.InputInt('Lustreless Wings', interface.data.prices['Lustreless Wings']);
+                imgui.EndTabItem();
+                end
+            imgui.EndTabBar();
+            end
         imgui.EndChild();
     imgui.EndGroup();
 end

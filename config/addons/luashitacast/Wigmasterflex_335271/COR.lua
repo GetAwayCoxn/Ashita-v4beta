@@ -71,6 +71,7 @@ sets = T{
     Precast = {
         Head = 'Herculean Helm',
         Neck = 'Voltsurge Torque',
+        Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
@@ -257,6 +258,7 @@ sets = T{
     },
     Rolls = {
         Range = 'Compensator',
+        Ring2 = 'Barataria Ring',
     },
     WildCard = {Feet = 'Lanun Bottes +2'},
     TH = {--/th will force this set to equip for 10 seconds

@@ -43,7 +43,7 @@ gcinclude.sets = T{
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Ilabrat Ring',
 		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },
-        Waist = 'Kasiri Belt',
+        Waist = 'Svelt. Gouriz +1',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -74,6 +74,7 @@ gcinclude.settings = {
 	RefreshGearMPP = 70; -- set MPP to have your idle refresh set to come on
 	DTGearHPP = 40; -- set HPP to have your DT set to come on
 	PetDTGearHPP = 50; -- set pet HPP to have your PetDT set to come on
+	MoonshadeTP = 2250; -- this to the TP amount you want to equip EAR2 with moonshade earring, set to 0 if you dont want to use at all
 };
 
 --[[
@@ -538,23 +539,6 @@ function gcinclude.DoAspir()
 	elseif (recast1 == 0) then
 		AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
 	end
-	--[[if player:HasSpell(881) then
-		if (recast3 == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir III" <t>');
-		elseif (recast2 == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
-		elseif (recast1 == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
-		end
-	elseif player:HasSpell(248) then
-		if (recast2 == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir II" <t>');
-		elseif (recast1 == 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
-		end
-	elseif player:HasSpell(247) and (recast1 == 0) then
-		AshitaCore:GetChatManager():QueueCommand(1, '/ma "Aspir" <t>');
-	end]]
 end
 
 function gcinclude.DoDrain()
@@ -663,7 +647,15 @@ function gcinclude.DoSiphon()
 	end
 end
 
-function gcinclude.CheckCancels()
+function gcinclude.DoMoonshade()
+	local player = gData.GetPlayer();
+
+	if player.TP < gcinclude.settings.MoonshadeTP then
+		gFunc.Equip('Ear2', 'Moonshade Earring');
+	end
+end
+
+function gcinclude.CheckCancels()--tossed Stoneskin in here too
 	local action = gData.GetAction();
 	local sneak = gData.GetBuffCount('Sneak');
 	local stoneskin = gData.GetBuffCount('Stoneskin');
@@ -683,7 +675,7 @@ function gcinclude.CheckCancels()
 	if (action.Name == 'Spectral Jig' and sneak ~=0) then
 		gFunc.CancelAction();
 		AshitaCore:GetChatManager():QueueCommand(1, '/cancel Sneak');
-		do_jig:once(1);
+		do_jig:once(2);
 	elseif (action.Name == 'Sneak' and sneak ~= 0 and target.Name == me) then
 		gFunc.CancelAction();
 		AshitaCore:GetChatManager():QueueCommand(1, '/cancel Sneak');

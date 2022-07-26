@@ -5,7 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Ammo = 'Voluspa Tathlum',
+        Ammo = 'Crepuscular Pebble',
         Head = 'Skormoth Mask',
         Neck = 'Empath Necklace',
         Ear1 = 'Genmei Earring',
@@ -25,6 +25,7 @@ sets = T{
 	Town = {},
 	
 	Dt = {
+        Ammo = 'Crepuscular Pebble',
 		Head = 'Meghanada Visor +1',
         Neck = 'Diemer Gorget',
         Ear1 = 'Genmei Earring',
@@ -40,11 +41,11 @@ sets = T{
         Ammo = 'Crepuscular Pebble',
         --Head = 'Anwig Salade',
         Neck = 'Empath Necklace',
-        --Ear1 = 'Rimeice Earring',
+        Ear1 = 'Rimeice Earring',
         --Ear2 = 'Handler\'s Earring +1',
         --Body = 'Taeon Tabard',
         Hands = 'Ankusa Gloves',
-        Ring1 = 'Defending Ring',
+        Ring2 = 'Defending Ring',
         --Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         --Waist = 'Gishdubar Sash',
@@ -56,7 +57,7 @@ sets = T{
         Ammo = 'Voluspa Tathlum',
         Head = 'Emicho Coronet',
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Steelflash Earring',
+        Ear1 = 'Rimeice Earring',
         Ear2 = 'Sherida Earring',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
@@ -76,16 +77,41 @@ sets = T{
     },
 	Tp_Acc = {},
     Pet_Only_Tp = {
+        Ammo = 'Voluspa Tathlum',
         Head = 'Emicho Coronet',
         Neck = 'Shulmanu Collar',
+        Ear1 = 'Rimeice Earring',
         Ear2 = 'Gelai Earring',
-        Hands = 'Valorous Mitts',
-        Legs = 'Tali\'ah Sera. +2',
+        Body = 'Valorous Mail',
+        Hands = 'Skd. Bazubands +1',
+        Ring1 = 'Tali\'ah Ring',
+        Ring2 = 'Defending Ring',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Hurch\'lan Sash',
+        Legs = 'Tali\'ah Sera. +2',
+        Feet = 'Tali\'ah Crackows +1',
     },
 
     Precast = {
+        Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
+        Legs = 'Limbo Trousers',
+    },
+
+    Enhancing = {
+    },
+    Phalanx = {
+    },
+    Stoneskin = {
+    },
+    Refresh = {
+    },
+
+    Cure = {
+        Hands = 'Macabre Gaunt.',
+    },
+
+    Enfeebling = {
     },
 
 	Ws_Default = {
@@ -117,7 +143,6 @@ sets = T{
 		Ear1 = 'Ferine Earring'
 	},
     Ready = {
-		Legs = 'Gleti\'s Breeches',
 	},
 	PetReadyDefault = {
 		Ammo = 'Voluspa Tathlum',
@@ -258,6 +283,24 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
+    local spell = gData.GetAction();
+
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing);
+
+        if string.match(spell.Name, 'Phalanx') then
+            gFunc.EquipSet(sets.Phalanx);
+        elseif string.match(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin);
+        elseif string.contains(spell.Name, 'Refresh') then
+            gFunc.EquipSet(sets.Refresh);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure);
+    elseif (spell.Skill == 'Enfeebling Magic') then
+        gFunc.EquipSet(sets.Enfeebling);
+    end
 end
 
 profile.HandlePreshot = function()

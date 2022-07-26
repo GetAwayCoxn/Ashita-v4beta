@@ -23,7 +23,7 @@ local settings = T{
 		showblocks = false,
 		showguards = false,
 		showcritws = true,
-		showrollinfo = false,
+		showrollinfo = true,
 	},
 	text = T{
 		line_aoe		= 'AOE ${numb} '..string.char(129,168)..' ${target}',

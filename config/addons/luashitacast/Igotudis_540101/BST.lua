@@ -15,7 +15,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Gishdubar Sash',
+        Waist = 'Isa Belt',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
@@ -73,7 +73,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Incarnation Sash',
+        Waist = 'Isa Belt',
         Legs = 'Taeon Tights',
         Feet = 'Gleti\'s Boots',
 	},
@@ -123,12 +123,27 @@ sets = T{
         Ring2 = 'Prolix Ring',
     },
 
+    Enhancing = {
+    },
+    Phalanx = {
+    },
+    Stoneskin = {
+    },
+    Refresh = {
+    },
+
+    Cure = {
+    },
+
+    Enfeebling = {
+    },
+
 	Ws_Default = {
         Ammo = 'Coiste Bodhar',
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Karieyh Ring +1',
@@ -306,6 +321,24 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
+    local spell = gData.GetAction();
+
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing);
+
+        if string.match(spell.Name, 'Phalanx') then
+            gFunc.EquipSet(sets.Phalanx);
+        elseif string.match(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin);
+        elseif string.contains(spell.Name, 'Refresh') then
+            gFunc.EquipSet(sets.Refresh);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure);
+    elseif (spell.Skill == 'Enfeebling Magic') then
+        gFunc.EquipSet(sets.Enfeebling);
+    end
 end
 
 profile.HandlePreshot = function()

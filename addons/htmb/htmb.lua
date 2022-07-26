@@ -1,25 +1,25 @@
-_addon.name = 'HTMB Ashita'
+addon.name      = 'HTMB Ashita';
+addon.author    = 'towbes, ported to Ashita v4 by GetAwayCoxn';
+addon.version   = '1.0';
+addon.desc      = 'blank';
+addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
-_addon.author = 'towbes'
+require('common');
+--require 'ffxi.recast'
+--require 'logging'
+--require 'timer'
 
-_addon.version = '0.1'
-
-require 'common'
-require 'ffxi.recast'
-require 'logging'
-require 'timer'
-
-buyQueue = { };  -- Table to hold commands queued for sending
-objDelay        = 0.65; -- The delay to prevent spamming packets.
-objTimer        = 0;    -- The current time used for delaying packets.
-busy = false
-insideMenu = false
-pkt = {};
-__debug = false
+local buyQueue = { };  -- Table to hold commands queued for sending
+local objDelay        = 0.65; -- The delay to prevent spamming packets.
+local objTimer        = 0;    -- The current time used for delaying packets.
+local busy = false
+local insideMenu = false
+local pkt = {};
+local __debug = false
 
 
 
-htmb_map = {
+local htmb_map = {
      [0] = {name = 'Shadow Lord phantom gem',      cost = 10},
      [1] = {name = 'Stellar Fulcrum phantom gem',  cost = 10},
      [2] = {name = 'Celestial Nexus phantom gem',  cost = 10},
@@ -47,7 +47,7 @@ htmb_map = {
     [23] = {name = 'Maiden phantom gem',           cost = 10},
 }
 
-valid_zones = {
+local valid_zones = {
 
 	[231] = {npc="Trisvain", menu=892}, -- Northern San d'Oria
 
@@ -57,8 +57,8 @@ valid_zones = {
 
 }
 
-menu_options = 0
-merit_points = 34
+local menu_options = 0
+local merit_points = 34
 
 ----------------------------------------------------------------------------------------------------
 -- func: print_help
@@ -66,11 +66,11 @@ merit_points = 34
 ----------------------------------------------------------------------------------------------------
 local function print_help(cmd, help)
     -- Print the invalid format header..
-    print('\31\200[\31\05' .. _addon.name .. '\31\200]\30\01 ' .. '\30\68Invalid format for command:\30\02 ' .. cmd .. '\30\01'); 
+    print('\31\200[\31\05' .. addon.name .. '\31\200]\30\01 ' .. '\30\68Invalid format for command:\30\02 ' .. cmd .. '\30\01'); 
 
     -- Loop and print the help commands..
     for k, v in pairs(help) do
-        print('\31\200[\31\05' .. _addon.name .. '\31\200]\30\01 ' .. '\30\68Syntax:\30\02 ' .. v[1] .. '\30\71 ' .. v[2]);
+        print('\31\200[\31\05' .. addon.name .. '\31\200]\30\01 ' .. '\30\68Syntax:\30\02 ' .. v[1] .. '\30\71 ' .. v[2]);
     end
 end
 
@@ -94,13 +94,16 @@ function get_option_index(item)
 	end
 end	
 	
-ashita.register_event('command', function(cmd, nType)
+ashita.events.register('command', 'command_cb', function (e)
 	-- Get the command arguments..
-    local args = cmd:args();
+    local args = e.command:args();
 
     if (args[1] ~= '/htmb') then
         return false;
     end
+
+	e.blocked = true; 
+
 
 	if (#args >=2 and args[1] == '/htmb') then
 
@@ -135,19 +138,19 @@ end);
 -- desc: Getting pup information from packets for subsequent equipment changes.
 ----------------------------------------------------------------------------------------------------
 
-ashita.register_event('incoming_packet', function(id, size, packet)
+ashita.events.register('packet_in', 'packet_in_callback1', function (e)
 	-- Party Member's Status
-	if (id == 0x034) and busy and pkt then
-		menu_options = struct.unpack('I4', packet, 0x0C + 1)
-		merit_points = struct.unpack('b', packet, 0x10 + 1)
+	if (e.id == 0x034) and busy and pkt then
+		menu_options = struct.unpack('I4', e.data, 0x0C + 1)
+		merit_points = struct.unpack('b', e.data, 0x10 + 1)
 		insideMenu = true
 		pkt['Option Index'] = get_option_index(pkt['MapId'])
 		if pkt['Option Index'] then
 			DebugMessage("Option index: " .. pkt['Option Index'])
 			--Get from 034: Zone, Menu ID, 
 			DebugMessage("Got 0x034 packet, Buying the KI")
-			local startPacket = struct.pack('I2I2', 0x0416, 0x0000, GetPlayerEntity().TargetIndex, 0):totable();		
-			AddOutgoingPacket(0x016, startPacket)		
+			local startPacket = struct.pack('I2I2', 0x0416, 0x0000, AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0), 0):totable();		
+			AshitaCore:GetPacketManager():AddOutgoingPacket(0x016, startPacket)		
 			local buyPacket = struct.pack('I2I2I4bbI2I2bbI2I2', 0x0A5B, 0x0000, pkt['Target'], 0x02, pkt['Option Index'], 0x0000, pkt['Target Index'], 0x00, 0x00, pkt['Zone'], pkt['Menu ID']):totable();
 			table.insert(buyQueue, { 0x05B, buyPacket});
 		else
@@ -167,7 +170,7 @@ end);
 -- desc: Event called when the addon is being rendered.
 ----------------------------------------------------------------------------------------------------
 
-ashita.register_event('render', function()
+ashita.events.register('d3d_present', 'present_cb', function ()
     -- Process the objectives packet queue..
     process_queue();
 end);
@@ -186,23 +189,23 @@ function process_queue()
             -- Obtain the first queue entry..
             local data = table.remove(buyQueue, 1);
             -- Send the queued object..
-            AddOutgoingPacket(data[1], data[2]);
---		elseif busy and (#buyQueue < 1) then
---			DebugMessage("Done buying, closing menu")
---			AshitaCore:GetChatManager():QueueCommand('/sendkey escape down', 1)
---			ashita.timer.once(0.1, escape_up)
---			busy = false
---			insideMenu = false
+            AshitaCore:GetPacketManager():AddOutgoingPacket(data[1], data[2]);
+		--[[elseif busy and (#buyQueue < 1) then
+			DebugMessage("Done buying, closing menu")
+			AshitaCore:GetChatManager():QueueCommand('/sendkey escape down', 1)
+			ashita.timer.once(0.1, escape_up)
+			busy = false
+			insideMenu = false]]
         end
     end
 end
 
-function escape_up ()
+--[[function escape_up ()
 	AshitaCore:GetChatManager():QueueCommand('/sendkey escape up', 1)	
-end
+end]]
 
 function validate(item)
-	local zone = AshitaCore:GetDataManager():GetParty():GetMemberZone(0);
+	local zone = AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0);
 	local me,target_index,target_id,distance;
 	local result = {};
 	DebugMessage("Checking item #" .. item)

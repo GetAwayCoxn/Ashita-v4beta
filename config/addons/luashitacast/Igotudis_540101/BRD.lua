@@ -305,7 +305,6 @@ sets = T{
     },
 
     Savage_Default = {
-        Ear1 = 'Moonshade Earring',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },

@@ -22,11 +22,12 @@
 -------------------------------------------------------------------------------
 require('common');
 
-local imgui = require('imgui');
+local imgui = require('compat').require_imgui();
 -- local modules
 local helpers = require('helpers');
-local resources = require('resources')
+local resources = require('resources');
 local filters_ui = require('conf_filters_ui');
+local compat = require('compat');
 -------------------------------------------------------------------------------
 -- local state
 -------------------------------------------------------------------------------
@@ -57,9 +58,9 @@ module.render_config_ui = function(settings, toggle)
     local c = { 0, 0, 0, 0 };
     local header_color = { 1.0, 0.75, 0.55, 1.0 };
 
-    imgui.SetNextWindowContentSize({ 400, 525 });
+    imgui.SetNextWindowContentSize({ 400, 580 });
 
-    if (imgui.Begin(('Statustimers v%s'):fmt(addon.version), ui.is_open, ImGuiWindowFlags_AlwaysAutoResize)) then
+    if (imgui.Begin(('Statustimers v%s %s'):fmt(addon.version, compat.state()), ui.is_open, ImGuiWindowFlags_AlwaysAutoResize)) then
         imgui.BeginGroup();
             -- icon sizes and theme
             imgui.TextColored(header_color, 'Icon Settings');
@@ -72,7 +73,7 @@ module.render_config_ui = function(settings, toggle)
                 imgui.SliderInt('\xef\x81\x9b Icons', target_size, 14, 256, '%dpx');
                 imgui.ShowHelp('Size for target status icons.', true);
 
-                local combo_flags = bit.bor(ImGuiComboFlags_None);
+                local combo_flags = ImGuiComboFlags_None;
                 local theme_paths = resources.get_theme_paths();
 
                 if (imgui.BeginCombo('\xef\x97\x83 Theme', theme_paths[ui.theme_index[1] ], combo_flags)) then
@@ -181,6 +182,16 @@ module.render_config_ui = function(settings, toggle)
                 imgui.ShowHelp('Setup black- or whitelist filters to define which effects receive visual aid.', true);
 
             imgui.EndChild();
+
+            -- miscelanious settings
+            imgui.TextColored(header_color, 'Misc.');
+            imgui.BeginChild('conf_misc', { 0, 38 }, true)
+                if (imgui.Checkbox('Movable target/subtarget bars?', { settings.split_bars.enabled })) then
+                    settings.split_bars.enabled = not settings.split_bars.enabled;
+                end
+                imgui.ShowHelp('Detach target, subtarget and locked target from the main UI.');
+            imgui.EndChild();
+
             imgui.TextDisabled(('\xef\x87\xb9 2022 by %s - %s'):fmt(addon.author, addon.link));
         imgui.EndGroup();
     end

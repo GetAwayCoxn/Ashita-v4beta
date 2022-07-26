@@ -40,8 +40,8 @@ sets = T{
     },
 
     Evasion = {--this set will be my idle set when in /cj mode for evasion pulling
-        Main = 'Sakpata\'s Sword',
-        Sub = 'Bunzi\'s Rod',
+        Main = 'Shamshir +2',
+        Sub = 'Shamshir +2',
         Ammo = 'Staunch Tathlum',
         --Ammo = 'Amar Cluster',--this is on wig atm
         Head = 'Malignance Chapeau',
@@ -53,7 +53,7 @@ sets = T{
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Ilabrat Ring',--revisit this
 		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+25' } },
-        Waist = 'Kasiri Belt',
+        Waist = 'Svelt. Gouriz +1',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -74,6 +74,8 @@ sets = T{
 	},
 	
 	Tp_Default = {
+        Main = 'Tizona',
+        Sub = 'Sakpata\'s Sword',
         Ammo = 'Coiste Bodhar',
         Head = 'Adhemar Bonnet +1',
         Neck = 'Sanctity Necklace',
@@ -189,6 +191,24 @@ sets = T{
         Legs = 'Jhakri Slops +2',--AF+2/3
         Feet = 'Jhakri Pigaches +2',
     },
+    CJmid = {
+        Main = 'Sakpata\'s Sword',
+        Sub = 'Bunzi\'s Rod',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Jhakri Coronal +2',--af +2/3
+        Neck = 'Erra Pendant',--JSE neck +1/2
+        Ear1 = 'Crep. Earring',
+        --Ear2 = 'Regal Earring',--use this after getting AF legs +2/3
+        Ear2 = 'Digni. Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Metamor. Ring +1',
+        Back = 'Aurist\'s Cape +1',
+        Waist = 'Acuity Belt +1',
+        Legs = 'Jhakri Slops +2',--AF+2/3
+        Feet = 'Jhakri Pigaches +2',
+    },
     BluStun = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Jhakri Coronal +2',
@@ -244,7 +264,7 @@ sets = T{
         Head = 'Adhemar Bonnet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Jhakri Cuffs +2',
         Ring2 = 'Karieyh Ring +1',
@@ -267,7 +287,7 @@ sets = T{
         Ammo = 'Jukukik Feather',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Adhemar Wrist. +1',
         Ring1 = 'Petrov Ring',
@@ -286,7 +306,7 @@ sets = T{
         Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
@@ -420,6 +440,10 @@ profile.HandleMidcast = function()
     if (ba>=1) then gFunc.EquipSet(sets.Ba) end
     if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
     
+    if (gcdisplay.GetToggle('CJmode') == true) then
+        gFunc.EquipSet(sets.CJmid);
+    end
+
     if (gcinclude.BluMagTH:contains(spell.Name)) and (gcdisplay.GetToggle('TH') == true) then
         gFunc.EquipSet(sets.TH);
     end

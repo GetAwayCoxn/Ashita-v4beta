@@ -64,7 +64,7 @@ sets = T{
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Epona\'s Ring',
         Ring2 = 'Meghanada Ring',
-        Back = 'Bleating Mantle',
+        Back = 'Pastoralist\'s Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
@@ -92,9 +92,25 @@ sets = T{
 
     Precast = {
         Neck = 'Voltsurge Torque',
+        Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
+    },
+
+    Enhancing = {
+    },
+    Phalanx = {
+    },
+    Stoneskin = {
+    },
+    Refresh = {
+    },
+
+    Cure = {
+    },
+
+    Enfeebling = {
     },
 
 	Ws_Default = {
@@ -262,6 +278,24 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
+    local spell = gData.GetAction();
+
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing);
+
+        if string.match(spell.Name, 'Phalanx') then
+            gFunc.EquipSet(sets.Phalanx);
+        elseif string.match(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin);
+        elseif string.contains(spell.Name, 'Refresh') then
+            gFunc.EquipSet(sets.Refresh);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure);
+    elseif (spell.Skill == 'Enfeebling Magic') then
+        gFunc.EquipSet(sets.Enfeebling);
+    end
 end
 
 profile.HandlePreshot = function()

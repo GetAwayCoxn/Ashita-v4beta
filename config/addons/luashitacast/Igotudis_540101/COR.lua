@@ -148,7 +148,7 @@ sets = T{
         Head = 'Chass. Tricorne +1',
         Neck = 'Comm. Charm +1',
         Body = 'Laksa. Frac +2',
-        Hands = 'Lanun Gants +2',--11
+        Hands = 'Lanun Gants +3',--13
         Back = { Name = 'Camulus\'s Mantle', Augment = '"Snapshot"+10' },--10
         Waist = 'Impulse Belt',--3
         Legs = 'Ikenga\'s Trousers',--8
@@ -157,7 +157,7 @@ sets = T{
     Preshot_FlurryI = {--with flurry I on, gives 15
     },
     Preshot_FlurryII = {--with flurry II on, gives 30
-        Hands = 'Carmine Fin. Ga. +1',
+        Hands = 'Carmine Fin. Ga. +1',--8
     },
     Midshot = {
         Ammo = 'Decimating Bullet',
@@ -182,7 +182,7 @@ sets = T{
     TripleShot = {
         Ammo = 'Decimating Bullet',
         Body = 'Chasseur\'s Frac +1',
-        Hands = 'Lanun Gants +2',
+        Hands = 'Lanun Gants +3',
     },
 
     Ws_Default = {
@@ -205,7 +205,7 @@ sets = T{
     Savage_Default = {
         Neck = 'Fotia Gorget',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Mache Earring +1',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
@@ -223,7 +223,7 @@ sets = T{
         Head = 'Adhemar Bonnet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Odr Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Mache Earring +1',
         Body = 'Laksa. Frac +2',
         Hands = 'Mummu Wrists +2',
         Ring1 = 'Petrov Ring',
@@ -242,7 +242,7 @@ sets = T{
         Head = 'Nyame Helm',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Friomisi Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Laksa. Frac +2',
         Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Dingir Ring',
@@ -299,7 +299,7 @@ sets = T{
         Head = 'Pixie Hairpin +1',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Friomisi Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Laksa. Frac +2',
         Hands = 'Carmine Fin. Ga. +1',
         Ring1 = 'Dingir Ring',
@@ -323,7 +323,7 @@ sets = T{
         Ear2 = 'Crematio Earring',
         Body = 'Samnuha Coat',
         Ring1 = 'Dingir Ring',
-        Ring2 = 'Shiva Ring +1',
+        Ring2 = 'Metamor. Ring +1',
         Back = { Name = 'Camulus\'s Mantle', Augment = { [1] = 'Weapon skill damage +10%', [2] = 'Mag. Acc+20', [3] = 'AGI+30', [4] = 'Magic Damage +20' } },
         Waist = 'Eschan Stone',
         Legs = 'Ikenga\'s Trousers',
@@ -346,7 +346,6 @@ sets = T{
         Head = 'Lanun Tricorne +2',
         Hands = 'Chasseur\'s Gants +1',
         Back = 'Camulus\'s Mantle',
-        Ring2 = 'Barataria Ring',
     },
     Fold = {Hands = 'Lanun Gants +2'},
     WildCard = {Feet = 'Lanun Bottes +2'}, 
@@ -505,6 +504,7 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade();
         elseif string.match(ws.Name, 'Last Stand') then
             gFunc.EquipSet(sets.Laststand_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
@@ -513,10 +513,12 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Wildfire_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Wildfire_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade();
         elseif string.match(ws.Name, 'Leaden Salute') then
             gFunc.EquipSet(sets.Leaden_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Leaden_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade();
         end
     end
 end

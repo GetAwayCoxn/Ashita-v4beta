@@ -190,18 +190,33 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
 
             unm = {
                 scale = {{'Buramgh',false,false,false,0,0,0},{'Emeici',false,false,false,0,0,0},{'Kunimune',false,false,false,0,0,0},{'Tancho',false,false,false,0,0,0},{'Pouwhenua',false,false,false,0,0,0},{'Mengado',false,false,false,0,0,0},{'Wingcutter',false,false,false,0,0,0},{'Evalach',false,false,false,0,0,0},{'Refined Grip',false,false,false,0,0,0},{'Imperial Wing Hairpin',false,false,false,0,0,0},{'Agony Jerkin',false,false,false,0,0,0},{'Lugra Cloak',false,false,false,0,0,0},{'Rosette Jaseran',false,false,false,0,0,0},{'Macabre Gauntlets',false,false,false,0,0,0},{'Shigure Tekko',false,false,false,0,0,0},{'Assiduity Pants',false,false,false,0,0,0},{'Augury Cuisses',false,false,false,0,0,0},{'Zoar Subligar',false,false,false,0,0,0},{'Hippomenes Socks',false,false,false,0,0,0},{'Regal Pumps',false,false,false,0,0,0},{'Acuity Belt',false,false,false,0,0,0},{'Apeile Ring',false,false,false,0,0,0},{'Arete del Luna',false,false,false,0,0,0},{'Canto Necklace',false,false,false,0,0,0},{'Gelatinous Ring',false,false,false,0,0,0},{'Handler\'s Earring',false,false,false,0,0,0},{'Lugra Earring',false,false,false,0,0,0},{'Metamorph Ring',false,false,false,0,0,0},{'Nourishing Earring',false,false,false,0,0,0},{'Sailfi Belt',false,false,false,0,0,0},{'Shinjutsu-no-Obi',false,false,false,0,0,0},{'Unmoving Collar',false,false,false,0,0,0},},--{Name,tracked,completed,HQhas,rank,needed mats, gil est}
-                hide = {{'Hide',false,false,false,0,0,0},},
-                wing = {{'Wing',false,false,false,0,0,0},},
+                hide = {{'Aizkora',false,false,false,0,0,0},{'Anathema Harpe',false,false,false,0,0,0},{'Beheader',false,false,false,0,0,0},{'Demersal Degen',false,false,false,0,0,0},{'Fists of Fury',false,false,false,0,0,0},{'Gae Derg',false,false,false,0,0,0},{'Jugo Kukri',false,false,false,0,0,0},{'Kladenets',false,false,false,0,0,0},{'Kustawi',false,false,false,0,0,0},{'Loxotic Mace',false,false,false,0,0,0},{'Mdomo Axe',false,false,false,0,0,0},{'Norifusa',false,false,false,0,0,0},{'Perun',false,false,false,0,0,0},{'Pixquizpan',false,false,false,0,0,0},{'Pukulatmuj',false,false,false,0,0,0},{'Raicho',false,false,false,0,0,0},{'Sangarius',false,false,false,0,0,0},{'Ternion Dagger',false,false,false,0,0,0},{'Triska Scythe',false,false,false,0,0,0},{'Ushenzi',false,false,false,0,0,0},{'Ababinili',false,false,false,0,0,0},{'Magesmasher',false,false,false,0,0,0},{'Marin Staff',false,false,false,0,0,0},{'Imati',false,false,false,0,0,0},{'Paloma',false,false,false,0,0,0},{'Ajax',false,false,false,0,0,0},{'Deliverance',false,false,false,0,0,0},{'Rigorous Grip',false,false,false,0,0,0},{'Adorned Helm',false,false,false,0,0,0},{'Alhazen Hat',false,false,false,0,0,0},{'Blistering Sallet',false,false,false,0,0,0},{'Hike Khat',false,false,false,0,0,0},{'Stinger Helm',false,false,false,0,0,0},{'Cohort Cloak',false,false,false,0,0,0},{'Emet Harness',false,false,false,0,0,0},{'Hime Domaru',false,false,false,0,0,0},{'Shomonjijoe',false,false,false,0,0,0},{'Asteria Mitts',false,false,false,0,0,0},{'Gazu Bracelet',false,false,false,0,0,0},{'Kachimusha Kote',false,false,false,0,0,0},{'Lamassu Mitts',false,false,false,0,0,0},{'Hygieia Clogs',false,false,false,0,0,0},{'Jute Boots',false,false,false,0,0,0},{'Aurist\'s Cape',false,false,false,0,0,0},{'Bathy Choker',false,false,false,0,0,0},{'Cacoethic Ring',false,false,false,0,0,0},{'Fi Follet Cape',false,false,false,0,0,0},{'Ghastly Tathlum',false,false,false,0,0,0},{'Grounded Mantle',false,false,false,0,0,0},{'Kentarch Belt',false,false,false,0,0,0},{'Mephitas\'s Ring',false,false,false,0,0,0},{'Odnowa Earring',false,false,false,0,0,0},{'Seething Bomblet',false,false,false,0,0,0},{'Warder\'s Charm',false,false,false,0,0,0},{'Zwazo Earring',false,false,false,0,0,0},},
+                wing = {{'Combuster',false,false,false,0,0,0},{'Comeuppances',false,false,false,0,0,0},{'Flyssa',false,false,false,0,0,0},{'Habilitator',false,false,false,0,0,0},{'Montante',false,false,false,0,0,0},{'Nullis',false,false,false,0,0,0},{'Tanmogayi',false,false,false,0,0,0},{'Contemplator',false,false,false,0,0,0},{'Septoptic',false,false,false,0,0,0},{'Antitail',false,false,false,0,0,0},{'Malison',false,false,false,0,0,0},{'Forfend',false,false,false,0,0,0},{'Loess Barbuta',false,false,false,0,0,0},{'Obviation Cuirass',false,false,false,0,0,0},{'Tatenashi Haramaki',false,false,false,0,0,0},{'Tatenashi Gote',false,false,false,0,0,0},{'Tatenashi Haidate',false,false,false,0,0,0},{'Tatenashi Sune-Ate',false,false,false,0,0,0},{'Dominance Earring',false,false,false,0,0,0},{'Loricate Torque',false,false,false,0,0,0},{'Vim Torque',false,false,false,0,0,0},},
+                scaleneeds = {0,}, --
+                hideneeds = {0,}, --
+                wingneeds = {0,}, --
             },
         },
     },
     
     prices = {
-        dyna1 = {0,0,0}, -- Bynes, Bronze, Shells
-        rocks = {0,0,0}, --Pluton, Boulders, Beitetsu
-        misc1 = {0,0,0}, --Marrow, scoria, HMP
-        rifts = {0,0}, --Cinders,Dross
-        misc2 = {0,0}, --HP Bayld, Sad Crystals
+        ['Lustreless Scales'] = {0,},
+        ['Lustreless Hides'] = {0,},
+        ['Lustreless Wings'] = {0,},
+        ['Byne Bills'] = {0,},
+        ['Bronze Pieces'] = {0,},
+        ['T. Whiteshells'] = {0,},
+        ['Umbral Marrow'] = {0,},
+        ['Sad. Crystals'] = {0,},
+        ['Alexandrite'] = {0,},
+        ['Mulcibar\'s Scoria'] = {0,},
+        ['H-P Bayld'] = {0,},
+        ['Beitetsu'] = {0,},
+        ['Riftborn Boulder'] = {0,},
+        ['Pluton'] = {0,},
+        ['Riftcinder'] = {0,},
+        ['Riftdross'] = {0,},
+        ['Heavy Metal Plates'] = {0,},
     },
 
     points = {

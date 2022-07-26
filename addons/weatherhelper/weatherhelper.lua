@@ -12,6 +12,10 @@ local vars = {
     bad_call = 5;--the call number to play when your weather drops
 };
 local weathers = {
+    [0] = 'Clear',
+    [1] = 'Sunshine',
+    [2] = 'Clouds',
+    [3] = 'Fog',
     [4] = 'Fire',
     [5] = 'Fire',
     [6] = 'Water',
@@ -71,13 +75,13 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     end
 
     local t = os.clock() - vars.base;
-    if t > 15 then
+    if t > 5 then
         vars.new = GetWeather();
     end
     if vars.old ~= vars.new then
         if weathers[vars.new] ~= nil and (string.lower(weathers[vars.new]) == vars.check) then
             AshitaCore:GetChatManager():QueueCommand(1, '/p <call' .. vars.good_call .. '>');
-        elseif string.lower(weathers[vars.old]) == vars.check then
+        elseif weathers[vars.old] ~= nil and string.lower(weathers[vars.old]) == vars.check then
             AshitaCore:GetChatManager():QueueCommand(1, '/p <call' .. vars.bad_call .. '>');
         end
         vars.old = vars.new;

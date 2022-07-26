@@ -29,15 +29,15 @@ sets = T{
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
-        Head = 'Befouled Crown',
+        Head = 'Viti. Chapeau +2',
         Body = 'Atrophy Tabard +2',
         Feet = 'Volte Gaiters',
     },
     Town = {
         Main = 'Excalibur',
         Sub = 'Genmei Shield',
-        Ammo = 'Staunch Tathlum',
-        Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
+        Range = 'Kaja Bow',
+        Head = { Name = 'Viti. Chapeau +2', AugTrial=5250 },
         Neck = 'Bathy Choker +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
@@ -187,8 +187,8 @@ sets = T{
     Enfeebling = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
-        Ammo = 'Pemphredo Tathlum',
-        Head = 'Viti. Chapeau +1',
+        Range = 'Kaja Bow',
+        Head = 'Viti. Chapeau +2',
         Neck = 'Erra Pendant',
         Ear1 = 'Snotra Earring',
         Ear2 = 'Malignance Earring',
@@ -217,8 +217,8 @@ sets = T{
     Drain = {
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
-        Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Viti. Chapeau +1', AugTrial=5250 },
+        Range = 'Kaja Bow',
+        Head = { Name = 'Viti. Chapeau +2', AugTrial=5250 },
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
@@ -271,7 +271,7 @@ sets = T{
 
     Ws_Default = {
         Ammo = 'Voluspa Tathlum',
-        Head = 'Nyame Helm',
+        Head = 'Viti. Chapeau +2',
         Neck = 'Fotia Gorget',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
@@ -291,10 +291,10 @@ sets = T{
 
     Savage_Default = {
         Ammo = 'Voluspa Tathlum',
-        Head = 'Nyame Helm',
+        Head = 'Viti. Chapeau +2',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Moonshade Earring',
-        Ear2 = 'Telos Earring',
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Nyame Mail',
         Hands = 'Atrophy Gloves +2',
         Ring1 = 'Petrov Ring',

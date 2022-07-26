@@ -10,10 +10,8 @@ local settings = require('settings');
 
 local display = {};
 local osd = {};
-local forceshow = false;
 local newpet = true;
 local casttime = nil;
-local guesscasttime = 0;
 local defaults = T{
 	visible = true,
 	font_family = 'Arial',
@@ -26,13 +24,6 @@ local defaults = T{
 		color = 0xFF000000,
 	}
 };
-
-settings.register('settings', 'settings_update', function (s)
-    if (s ~= nil) then
-        osd.settings = s;
-    end
-    settings.save();
-end);
 
 ashita.events.register('load', 'load_cb', function()
     osd.settings = settings.load(defaults);

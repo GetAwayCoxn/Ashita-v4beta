@@ -67,10 +67,9 @@ sets = T{
         Head = 'Herculean Helm',
         Neck = 'Voltsurge Torque',
         Ear2 = 'Etiolation Earring',
-        Body = 'Taeon Tabard',
-        Hands = 'Leyline Gloves',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
+        Back = 'Swith Cape',
         Legs = 'Enif Cosciales',
     },
 

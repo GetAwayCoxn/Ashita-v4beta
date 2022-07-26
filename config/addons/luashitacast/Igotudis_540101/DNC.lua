@@ -99,7 +99,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Fotia Gorget',
         Ear1 = 'Odr Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Ilabrat Ring',

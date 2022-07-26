@@ -29,6 +29,11 @@ ashita.events.register('command', 'command_cb', function (e)
     if (#args == 1 or (#args >= 2 and args[2]:any('interface'))) then
         interface.is_open[1] = not interface.is_open[1];
         return;
+    elseif (args[2] == 'reset') then
+        interface.settings.reset();
+        interface.data = interface.settings.load(interface.progress_defaults);
+    elseif (args[2] == 'test') then
+        manager.Test();
     end
 
 end);

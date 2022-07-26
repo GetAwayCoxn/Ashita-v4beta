@@ -91,7 +91,7 @@ sets = T{
         Head = 'Nahtirah Hat',
         Neck = 'Voltsurge Torque',
         Ear1 = 'Loquac. Earring',
-        Ear2 = 'Ethereal Earring',
+        Ear2 = 'Etiolation Earring',
         Body = 'Inyanga Jubbah +2',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
@@ -99,7 +99,7 @@ sets = T{
         Back = 'Swith Cape',
         Waist = 'Channeler\'s Stone',
         Legs = 'Brioso Cannions',
-        Feet = 'Volte Gaiters',
+        Feet = 'Chelona Boots',
     },
     Cure_Precast = {
         Ear1 = 'Mendi. Earring',

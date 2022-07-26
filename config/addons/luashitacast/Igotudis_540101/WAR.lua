@@ -25,7 +25,9 @@ sets = T{
         Hands = 'Volte Moufles',
         Ring2 = 'Chirich Ring +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Ring1 = 'Stikini Ring +1',
+    },
     Town = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Hjarrandi Helm',
@@ -34,8 +36,8 @@ sets = T{
         Ear2 = 'Cessance Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Volte Moufles',
-        Ring1 = 'Defending Ring',
-        Ring2 = 'Gelatinous Ring +1',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Back = 'Cichol\'s Mantle',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
@@ -151,7 +153,7 @@ sets = T{
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Schere Earring',
         Body = 'Hjarrandi Breast.',
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
         Ring1 = 'Petrov Ring',
@@ -171,8 +173,8 @@ sets = T{
         Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
         --Head = 'Nyame Helm',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Friomisi Earring',
+        Ear1 = 'Friomisi Earring',
+        Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
@@ -297,6 +299,7 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade();
         end
     end
 end

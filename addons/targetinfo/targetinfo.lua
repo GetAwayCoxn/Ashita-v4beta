@@ -55,7 +55,7 @@ ashita.events.register('command', 'command_cb', function (e)
     if (args[1] ~= '/targetinfo') and (args[1] ~= '/ti') then
         return;
     end
-    if (args[1] == '/targetinfo') and (args[1] == '/ti') then
+    if (args[1] == '/targetinfo') or (args[1] == '/ti') then
         settings.visible = not settings.visible;
     end
 end);

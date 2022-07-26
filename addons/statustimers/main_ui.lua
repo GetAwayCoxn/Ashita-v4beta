@@ -57,6 +57,12 @@ local ui = T {
         inactive = bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_NoBackground, ImGuiWindowFlags_AlwaysAutoResize),
         active   = bit.bor(ImGuiWindowFlags_NoTitleBar, ImGuiWindowFlags_NoCollapse, ImGuiWindowFlags_AlwaysAutoResize),
     },
+    split_bars = T{
+        active = { true, },
+        flags_ltarget = bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_AlwaysAutoResize),
+        flags_mtarget = bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_AlwaysAutoResize),
+        flags_starget = bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_AlwaysAutoResize),
+    },
 };
 
 -------------------------------------------------------------------------------
@@ -131,6 +137,14 @@ local function get_window_size()
     local ltarget_size = target_status_size(party.get_member_name(ui.locked_target), party.get_member_status(ui.locked_target));
     local spacing = 0;
 
+    if (settings.split_bars.enabled == true) then
+        -- split bars cuts the size of the main bar down considerably
+        return {
+            player_size[1],
+            player_size[2] + ITEM_SPACING;
+        };
+    end
+
     if (mtarget_size[1] ~= 0) then spacing = spacing + ITEM_SPACING; end
     if (starget_size[1] ~= 0) then spacing = spacing + ITEM_SPACING; end
     if (ltarget_size[1] ~= 0) then spacing = spacing + ITEM_SPACING; end
@@ -179,6 +193,10 @@ local function track_id_state(status, duration)
             if (ui.id_states[status].alpha < 0.01 or ui.id_states[status].alpha > 1.0) then
                 ui.id_states[status].alpha_step = -ui.id_states[status].alpha_step;
             end
+        else
+            -- otherwise pin the alpha to opaque to account for refreshes etc.
+            ui.id_states[status].alpha = 1.0;
+            ui.id_states[status].alpha_step = -0.05;
         end
     end
 end
@@ -207,8 +225,8 @@ local function render_tooltip(status, is_target)
         return;
     end
 
-    local info = AshitaCore:GetResourceManager():GetStatusIconById(status);
-    local name = AshitaCore:GetResourceManager():GetString('buffs.names', status);
+    local info = AshitaCore:GetResourceManager():GetStatusIconByIndex(status);
+    local name = resources.get_status_name(status);
     if (name ~= nil and info ~= nil) then
         imgui.BeginTooltip();
             imgui.Text(('%s (#%d)'):fmt(name, status));
@@ -267,7 +285,7 @@ local function render_target_status(name, status_list, is_locked)
         for i = 1,#status_list,1 do
 
             local icon = resources.get_icon_from_theme(settings.icons.theme, status_list[i]);
-            imgui.Image(icon, { settings.icons.size.target, settings.icons.size.target });
+            imgui.Image(icon, { settings.icons.size.target, settings.icons.size.target }, { 0, 0 }, { 1, 1 }, { 1, 1, 1, 1 }, { 0, 0, 0, 0 });
 
             if (imgui.IsItemHovered()) then
                 -- show a tooltip even for the targets status effects
@@ -317,6 +335,36 @@ local function render_visual_aid_swatch(status, duration, size)
     return true;
 end
 
+-- renders a detached target status bar in a separate window
+---@param split_bar_id string an identifier for this bar, also used as key into ui.split_bars
+---@param name string the target name tag or nil
+---@param status_list table a list of status ids for the target or nil
+---@param is_locked boolean if true, render the target bar in the "lock on" style
+local function render_split_bar(split_bar_id, name, status_list, is_locked)
+    if (name == nil) then
+        return;
+    end
+
+    local window_size = target_status_size(name, status_list);
+    if (not is_locked) then
+        -- windows form target and subtarget are slightly wider to accomodate
+        -- for the hover-lock icon
+        lock_dim = { imgui.CalcTextSize('\xef\x8f\x81'); };
+        window_size = { window_size[1] + lock_dim[1] + ITEM_SPACING, window_size[2] }
+    end
+
+    imgui.PushStyleVar(ImGuiStyleVar_ItemSpacing, {ITEM_SPACING, ITEM_SPACING});
+    imgui.SetNextWindowBgAlpha(0.45);
+    imgui.SetNextWindowContentSize(window_size);
+    if (imgui.Begin('st_' + split_bar_id, ui.is_open, ui.split_bars[split_bar_id])) then
+        render_target_status(name, status_list, is_locked);
+        -- update the window state for the next draw
+        ui.split_bars[split_bar_id] = imgui.IsWindowHovered() and ui.window_flags.active or ui.window_flags.inactive;
+    end
+    imgui.End();
+    imgui.PopStyleVar(1);
+end
+
 -------------------------------------------------------------------------------
 -- exported functions
 -------------------------------------------------------------------------------
@@ -363,7 +411,7 @@ module.render_main_ui = function(s, status_clicked, settings_clicked)
 
                 -- respect hidden timers
                 if (resources.status_timer_hidden(player_status[i].id)) then
-                    label = '???';
+                    label = '--';
                 end
 
                 text_dim = { imgui.CalcTextSize(label) };
@@ -373,7 +421,7 @@ module.render_main_ui = function(s, status_clicked, settings_clicked)
                     local icon_tint = { 1.0, 1.0, 1.0, ui.id_states[player_status[i].id].alpha }
 
                     imgui.SetCursorPosX(imgui.GetCursorPosX() + ((item_width - settings.icons.size.main) * 0.5));
-                    imgui.Image(icon, { settings.icons.size.main, settings.icons.size.main }, { 0, 0 }, { 1, 1 }, icon_tint);
+                    imgui.Image(icon, { settings.icons.size.main, settings.icons.size.main }, { 0, 0 }, { 1, 1 }, icon_tint, { 0, 0, 0, 0});
 
                     if (imgui.IsItemHovered()) then
                         render_tooltip(player_status[i].id, false);
@@ -418,19 +466,20 @@ module.render_main_ui = function(s, status_clicked, settings_clicked)
             end
         end
 
-        -- render the locked target (if any)
-        if (ui.locked_target ~= 0) then
-            render_target_status(party.get_member_name(ui.locked_target), party.get_member_status(ui.locked_target), true);
+        if (settings.split_bars.enabled == false) then
+            -- render the locked target (if any)
+            if (ui.locked_target ~= 0) then
+                render_target_status(party.get_member_name(ui.locked_target), party.get_member_status(ui.locked_target), true);
+            end
+            -- render the player's target
+            if (not is_lock_target(party.get_target_name())) then
+                render_target_status(party.get_target_name(), party.get_target_status());
+            end
+            -- render the player's subtarget
+            if (not is_lock_target(party.get_subtarget_name())) then
+                render_target_status(party.get_subtarget_name(), party.get_subtarget_status());
+            end
         end
-        -- render the player's target
-        if (not is_lock_target(party.get_target_name())) then
-            render_target_status(party.get_target_name(), party.get_target_status());
-        end
-        -- render the player's subtarget
-        if (not is_lock_target(party.get_subtarget_name())) then
-            render_target_status(party.get_subtarget_name(), party.get_subtarget_status());
-        end
-
 
         -- add the settings button if the window is being hovered
         if (imgui.IsWindowHovered() and settings_clicked ~= nil) then
@@ -445,6 +494,23 @@ module.render_main_ui = function(s, status_clicked, settings_clicked)
         ui.window_flags.current = imgui.IsWindowHovered() and ui.window_flags.active or ui.window_flags.inactive;
     end
     imgui.End();
+    imgui.PopStyleVar(1);
+
+    -- if split bars are active render them after the main window
+    if (settings.split_bars.enabled == true) then
+        -- render the locked target (if any)
+        if (ui.locked_target ~= 0) then
+            render_split_bar('flags_ltarget', party.get_member_name(ui.locked_target), party.get_member_status(ui.locked_target), true);
+        end
+        -- render the player's target
+        if (not is_lock_target(party.get_target_name())) then
+            render_split_bar('flags_mtarget', party.get_target_name(), party.get_target_status());
+        end
+        -- render the player's subtarget
+        if (not is_lock_target(party.get_subtarget_name())) then
+            render_split_bar('flags_starget', party.get_subtarget_name(), party.get_subtarget_status());
+        end
+    end
 end
 
 -- set the lock-on target to a named party member
@@ -459,6 +525,22 @@ end
 -- clear the lock-on target
 module.unlock_target = function()
     ui.locked_target = 0;
+end
+
+-- dump the current status effects for the player and party to chat
+module.dump_status = function()
+    local player_status = party.get_player_status();
+
+    -- render the player status
+    if (player_status ~= nil) then
+        print(chat.header(addon.name):append(('player: %d active effects:'):fmt(#player_status)));
+
+        for i = 1,#player_status,1 do
+            print(chat.header(addon.name):append('-- id: %d, duration: %d'):fmt(player_status[i].id, player_status[i].duration));
+        end
+    else
+        print(chat.header(addon.name):append('player: no active effects'));
+    end
 end
 
 return module;

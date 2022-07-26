@@ -568,7 +568,7 @@ function manager.UpdateMythics()
             end
         end
     end
-    interface.data.progress.weapons.mythicsneeds[4] = (points / 10) - manager.CountItemId(itemcountsIDs[9875]);
+    interface.data.progress.weapons.mythicsneeds[4] = (points / 10) - manager.CountItemId(9875);
 end
 
 function manager.DisplayMythics()
@@ -2454,6 +2454,8 @@ function manager.DisplayAmbuGearNeed()
 end
 
 function manager.DisplayScaleGear()
+    local estmats = 0;
+    local estgil = 0;
     imgui.BeginGroup();
         if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
             if (imgui.BeginTabItem('Scale Working', nil)) then
@@ -2474,18 +2476,26 @@ function manager.DisplayScaleGear()
                                 imgui.Checkbox(interface.data.progress.gear.unm.scale[i][1], track);imgui.TableNextColumn();
                                 interface.data.progress.gear.unm.scale[i][2] = track[1];
                                 if (own == true) then
-                                    local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.scale[i][5]);
-                                    imgui.TextColored(interface.colors.warning, display);
+                                    imgui.TextColored(interface.colors.warning, 'Rank: ' .. tostring(interface.data.progress.gear.unm.scale[i][5]));
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    if interface.data.progress.gear.unm.scale[i][5] == 0 then
+                                    estmats = estmats + interface.data.progress.gear.unm.scale[i][6] - manager.CountItemId(4086) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6] - manager.CountItemId(4086) +1));
+                                    else
+                                    estmats = estmats + interface.data.progress.gear.unm.scale[i][6] - manager.CountItemId(4086);
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6] - manager.CountItemId(4086)));
+                                    end
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][7]));
+                                    estgil = estgil + interface.data.progress.gear.unm.scale[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.scale[i][7])));
                                 else
                                     imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    estmats = estmats + interface.data.progress.gear.unm.scale[i][6] - manager.CountItemId(4086) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]- manager.CountItemId(4086) +1));
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][7]));
+                                    estgil = estgil + interface.data.progress.gear.unm.scale[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.scale[i][7])));
                                 end
                             end
                         end
@@ -2493,7 +2503,14 @@ function manager.DisplayScaleGear()
                 imgui.EndChild();
 
                 imgui.BeginChild('bottomscaleworking', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
-                    
+                    imgui.Spacing();imgui.Spacing();imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('scale gear working totals', 5, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, '      Working Totals');imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'Scales:  ' .. tostring(manager.comma_value(estmats)));imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'Gil:  ' .. tostring(manager.comma_value(estgil)));
+                    imgui.EndTable();
                 imgui.EndChild();
             imgui.EndTabItem();
             end
@@ -2518,11 +2535,12 @@ function manager.DisplayScaleGear()
                                     local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.scale[i][5]);
                                     imgui.TextColored(interface.colors.warning, display);
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]- manager.CountItemId(4086)));
                                 else
                                     imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    interface.data.progress.gear.unm.scale[i][6] = 1191;
                                     imgui.TableNextColumn();
-                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]));
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.scale[i][6]- manager.CountItemId(4086)));
                                 end
                             end
                         end
@@ -2575,8 +2593,8 @@ function manager.UpdateScaleGear()
         interface.data.progress.gear.unm.scale[x][3] = temptracked[x][2];
 
         if interface.data.progress.gear.unm.scale[x][3] == true then
-            
-        elseif interface.data.progress.gear.unm.scale[x][4] == false then
+            --temp
+        elseif interface.data.progress.gear.unm.scale[x][4] == false then--force update if HQ not owned
             interface.data.progress.gear.unm.scale[x][4] = manager.CheckItemId(interface.defaults.gear.unm.scale[x][2]);
             if interface.data.progress.gear.unm.scale[x][4] == true then
                 interface.data.progress.gear.unm.scale[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[x][2]);
@@ -2589,40 +2607,375 @@ function manager.UpdateScaleGear()
             interface.data.progress.gear.unm.scale[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.scale[x][2]);
             if interface.data.progress.gear.unm.scale[x][5] == 15 then
                 interface.data.progress.gear.unm.scale[x][3] = true;
-            end
+                interface.data.progress.gear.unm.scale[x][6] = 0;
+            else
             --update Mats
             local points = 0;
-            for w = 1, #interface.data.progress.gear.unm.scale do
-                if interface.data.progress.gear.unm.scale[w][5] == 0 then
-                    for i = interface.data.progress.gear.unm.scale[w][5] + 1, #manager.pointsmap do
+                if interface.data.progress.gear.unm.scale[x][5] == 0 then
+                    for i = interface.data.progress.gear.unm.scale[x][5] + 1, #manager.pointsmap do
                         points = points + manager.pointsmap[i];
                     end
                 else
-                    for i = interface.data.progress.gear.unm.scale[w][5], #manager.pointsmap do
+                    for i = interface.data.progress.gear.unm.scale[x][5], #manager.pointsmap do
                         points = points + manager.pointsmap[i];
                     end
                 end
+            interface.data.progress.gear.unm.scale[x][6] = (points / 5);
             end
-            interface.data.progress.gear.unm.scaleneeds[6] = (points / 5) - manager.CountItemId(itemcountsIDs[4086]);
             --update gil
+            interface.data.progress.gear.unm.scale[x][7] = interface.data.prices['Lustreless Scales'][1] * interface.data.progress.gear.unm.scale[x][6];
         end
     end
 end
 
 function manager.DisplayHideGear()
-    imgui.Spacing();imgui.Spacing();
+    local estmats = 0;
+    local estgil = 0;
+    imgui.BeginGroup();
+        if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+            if (imgui.BeginTabItem('Hide Working', nil)) then
+                imgui.BeginChild('tophideworking', { 0, 400, }, true);
+                    imgui.BeginTable('hide gear working', 4, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'List of Tracked Items');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Mats');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Gil');
+                        for i = 1, #interface.data.progress.gear.unm.hide do
+                            local track = {interface.data.progress.gear.unm.hide[i][2]};
+                            local done = interface.data.progress.gear.unm.hide[i][3];
+                            local own = interface.data.progress.gear.unm.hide[i][4];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == true then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.hide[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.hide[i][2] = track[1];
+                                if (own == true) then
+                                    imgui.TextColored(interface.colors.warning, 'Rank: ' .. tostring(interface.data.progress.gear.unm.hide[i][5]));
+                                    imgui.TableNextColumn();
+                                    if interface.data.progress.gear.unm.hide[i][5] == 0 then
+                                    estmats = estmats + interface.data.progress.gear.unm.hide[i][6] - manager.CountItemId(4087) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.hide[i][6] - manager.CountItemId(4087) +1));
+                                    else
+                                    estmats = estmats + interface.data.progress.gear.unm.hide[i][6] - manager.CountItemId(4087);
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.hide[i][6] - manager.CountItemId(4087)));
+                                    end
+                                    imgui.TableNextColumn();
+                                    estgil = estgil + interface.data.progress.gear.unm.hide[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.hide[i][7])));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    imgui.TableNextColumn();
+                                    estmats = estmats + interface.data.progress.gear.unm.hide[i][6] - manager.CountItemId(4087) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.hide[i][6]- manager.CountItemId(4087) +1));
+                                    imgui.TableNextColumn();
+                                    estgil = estgil + interface.data.progress.gear.unm.hide[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.hide[i][7])));
+                                end
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+
+                imgui.BeginChild('bottomhideworking', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    imgui.Spacing();imgui.Spacing();imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('hide gear working totals', 5, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, '      Working Totals');imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'Hides:  ' .. tostring(manager.comma_value(estmats)));imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'Gil:  ' .. tostring(manager.comma_value(estgil)));
+                    imgui.EndTable();
+                imgui.EndChild();
+            imgui.EndTabItem();
+            end
+
+            if (imgui.BeginTabItem('Hide Other', nil)) then
+                imgui.BeginChild('tophideother', { 0, 300, }, true);
+                    imgui.BeginTable('hide gear other', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Click to Track');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Mats');
+                        for i = 1, #interface.data.progress.gear.unm.hide do
+                            local track = {interface.data.progress.gear.unm.hide[i][2]};
+                            local done = interface.data.progress.gear.unm.hide[i][3];
+                            local own = interface.data.progress.gear.unm.hide[i][4];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == false then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.hide[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.hide[i][2] = track[1];
+                                if (own == true) then
+                                    local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.hide[i][5]);
+                                    imgui.TextColored(interface.colors.warning, display);
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.hide[i][6]- manager.CountItemId(4087)));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    interface.data.progress.gear.unm.hide[i][6] = 1191;
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.hide[i][6]- manager.CountItemId(4087)));
+                                end
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+
+                imgui.BeginChild('bottomhideother', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    imgui.BeginTable('hide gear completed', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Completed Gears');
+                        imgui.TableNextColumn();imgui.TableNextColumn();
+                        for i = 1, #interface.data.progress.gear.unm.hide do
+                            local track = {interface.data.progress.gear.unm.hide[i][2]};
+                            local done = interface.data.progress.gear.unm.hide[i][3];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == true then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.hide[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.hide[i][2] = track[1];
+                                imgui.TextColored(interface.colors.text1, 'COMPLETED');
+                                imgui.TableNextColumn();
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+            imgui.EndTabItem();
+            end
+        imgui.EndTabBar();
+        end
+    imgui.EndGroup();
+    if (imgui.Button('Update Hide Gear')) then
+        manager.UpdateHideGear();
+    end
 end
 
 function manager.UpdateHideGear()
-    
+    local temptracked = {};
+
+    for t = 1, #interface.data.progress.gear.unm.hide do
+        temptracked[t] = {interface.data.progress.gear.unm.hide[t][2],interface.data.progress.gear.unm.hide[t][3]};
+    end
+
+    for l = 1, #interface.defaults.gear.unm.hide do
+        interface.data.progress.gear.unm.hide[l]:merge(interface.defaults.gear.unm.hide[l], true);
+    end
+
+    for x = 1, #interface.defaults.gear.unm.hide do
+        interface.data.progress.gear.unm.hide[x][1] = interface.defaults.gear.unm.hide[x][1];
+        interface.data.progress.gear.unm.hide[x][2] = temptracked[x][1];
+        interface.data.progress.gear.unm.hide[x][3] = temptracked[x][2];
+
+        if interface.data.progress.gear.unm.hide[x][3] == true then
+            --temp
+        elseif interface.data.progress.gear.unm.hide[x][4] == false then--force update if HQ not owned
+            interface.data.progress.gear.unm.hide[x][4] = manager.CheckItemId(interface.defaults.gear.unm.hide[x][2]);
+            if interface.data.progress.gear.unm.hide[x][4] == true then
+                interface.data.progress.gear.unm.hide[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.hide[x][2]);
+                if interface.data.progress.gear.unm.hide[x][5] == 15 then
+                    interface.data.progress.gear.unm.hide[x][3] = true;
+                end
+            end
+        else
+            --update Rank
+            interface.data.progress.gear.unm.hide[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.hide[x][2]);
+            if interface.data.progress.gear.unm.hide[x][5] == 15 then
+                interface.data.progress.gear.unm.hide[x][3] = true;
+                interface.data.progress.gear.unm.hide[x][6] = 0;
+            else
+            --update Mats
+            local points = 0;
+                if interface.data.progress.gear.unm.hide[x][5] == 0 then
+                    for i = interface.data.progress.gear.unm.hide[x][5] + 1, #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                else
+                    for i = interface.data.progress.gear.unm.hide[x][5], #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                end
+            interface.data.progress.gear.unm.hide[x][6] = (points / 5);
+            end
+            --update gil
+            interface.data.progress.gear.unm.hide[x][7] = interface.data.prices['Lustreless Hides'][1] * interface.data.progress.gear.unm.hide[x][6];
+        end
+    end
 end
 
 function manager.DisplayWingGear()
-    imgui.Spacing();imgui.Spacing();
+    local estmats = 0;
+    local estgil = 0;
+    imgui.BeginGroup();
+        if (imgui.BeginTabBar('gear_tabbar', ImGuiTabBarFlags_NoCloseWithMiddleMouseButton)) then
+            if (imgui.BeginTabItem('Wing Working', nil)) then
+                imgui.BeginChild('topwingworking', { 0, 400, }, true);
+                    imgui.BeginTable('wing gear working', 4, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'List of Tracked Items');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Mats');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Gil');
+                        for i = 1, #interface.data.progress.gear.unm.wing do
+                            local track = {interface.data.progress.gear.unm.wing[i][2]};
+                            local done = interface.data.progress.gear.unm.wing[i][3];
+                            local own = interface.data.progress.gear.unm.wing[i][4];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == true then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.wing[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.wing[i][2] = track[1];
+                                if (own == true) then
+                                    imgui.TextColored(interface.colors.warning, 'Rank: ' .. tostring(interface.data.progress.gear.unm.wing[i][5]));
+                                    imgui.TableNextColumn();
+                                    if interface.data.progress.gear.unm.wing[i][5] == 0 then
+                                    estmats = estmats + interface.data.progress.gear.unm.wing[i][6] - manager.CountItemId(4088) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.wing[i][6] - manager.CountItemId(4088) +1));
+                                    else
+                                    estmats = estmats + interface.data.progress.gear.unm.wing[i][6] - manager.CountItemId(4088);
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.wing[i][6] - manager.CountItemId(4088)));
+                                    end
+                                    imgui.TableNextColumn();
+                                    estgil = estgil + interface.data.progress.gear.unm.wing[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.wing[i][7])));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    imgui.TableNextColumn();
+                                    estmats = estmats + interface.data.progress.gear.unm.wing[i][6] - manager.CountItemId(4088) +1;
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.wing[i][6]- manager.CountItemId(4088) +1));
+                                    imgui.TableNextColumn();
+                                    estgil = estgil + interface.data.progress.gear.unm.wing[i][7];
+                                    imgui.TextColored(interface.colors.warning, tostring(manager.comma_value(interface.data.progress.gear.unm.wing[i][7])));
+                                end
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+
+                imgui.BeginChild('bottomwingworking', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    imgui.Spacing();imgui.Spacing();imgui.Spacing();imgui.Spacing();
+                    imgui.BeginTable('wing gear working totals', 5, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, '      Working Totals');imgui.TableNextColumn();
+                        imgui.TableNextColumn();imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'wings:  ' .. tostring(manager.comma_value(estmats)));imgui.TableNextColumn();imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.warning, 'Gil:  ' .. tostring(manager.comma_value(estgil)));
+                    imgui.EndTable();
+                imgui.EndChild();
+            imgui.EndTabItem();
+            end
+
+            if (imgui.BeginTabItem('Wing Other', nil)) then
+                imgui.BeginChild('topwingother', { 0, 300, }, true);
+                    imgui.BeginTable('wing gear other', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Click to Track');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Status');imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Est. Mats');
+                        for i = 1, #interface.data.progress.gear.unm.wing do
+                            local track = {interface.data.progress.gear.unm.wing[i][2]};
+                            local done = interface.data.progress.gear.unm.wing[i][3];
+                            local own = interface.data.progress.gear.unm.wing[i][4];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == false then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.wing[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.wing[i][2] = track[1];
+                                if (own == true) then
+                                    local display = 'Rank: ' .. tostring(interface.data.progress.gear.unm.wing[i][5]);
+                                    imgui.TextColored(interface.colors.warning, display);
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.wing[i][6]- manager.CountItemId(4088)));
+                                else
+                                    imgui.TextColored(interface.colors.error, 'HQ NOT OWNED');
+                                    interface.data.progress.gear.unm.wing[i][6] = 1191;
+                                    imgui.TableNextColumn();
+                                    imgui.TextColored(interface.colors.warning, tostring(interface.data.progress.gear.unm.wing[i][6]- manager.CountItemId(4088)));
+                                end
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+
+                imgui.BeginChild('bottomwingother', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);
+                    imgui.BeginTable('wing gear completed', 3, ImGuiTableFlags_Borders);
+                        imgui.TableNextRow(ImGuiTableRowFlags_Headers);imgui.TableNextColumn();
+                        imgui.TextColored(interface.colors.header, 'Completed Gears');
+                        imgui.TableNextColumn();imgui.TableNextColumn();
+                        for i = 1, #interface.data.progress.gear.unm.wing do
+                            local track = {interface.data.progress.gear.unm.wing[i][2]};
+                            local done = interface.data.progress.gear.unm.wing[i][3];
+                            if done == true then track[1] = false end;--dont allow tracking of completed gears
+                            if track[1] == false and done == true then
+                                imgui.TableNextColumn();
+                                imgui.Checkbox(interface.data.progress.gear.unm.wing[i][1], track);imgui.TableNextColumn();
+                                interface.data.progress.gear.unm.wing[i][2] = track[1];
+                                imgui.TextColored(interface.colors.text1, 'COMPLETED');
+                                imgui.TableNextColumn();
+                            end
+                        end
+                    imgui.EndTable();
+                imgui.EndChild();
+            imgui.EndTabItem();
+            end
+        imgui.EndTabBar();
+        end
+    imgui.EndGroup();
+    if (imgui.Button('Update Wing Gear')) then
+        manager.UpdateWingGear();
+    end
 end
 
 function manager.UpdateWingGear()
-    
+    local temptracked = {};
+
+    for t = 1, #interface.data.progress.gear.unm.wing do
+        temptracked[t] = {interface.data.progress.gear.unm.wing[t][2],interface.data.progress.gear.unm.wing[t][3]};
+    end
+
+    for l = 1, #interface.defaults.gear.unm.wing do
+        interface.data.progress.gear.unm.wing[l]:merge(interface.defaults.gear.unm.wing[l], true);
+    end
+
+    for x = 1, #interface.defaults.gear.unm.wing do
+        interface.data.progress.gear.unm.wing[x][1] = interface.defaults.gear.unm.wing[x][1];
+        interface.data.progress.gear.unm.wing[x][2] = temptracked[x][1];
+        interface.data.progress.gear.unm.wing[x][3] = temptracked[x][2];
+
+        if interface.data.progress.gear.unm.wing[x][3] == true then
+            --temp
+        elseif interface.data.progress.gear.unm.wing[x][4] == false then--force update if HQ not owned
+            interface.data.progress.gear.unm.wing[x][4] = manager.CheckItemId(interface.defaults.gear.unm.wing[x][2]);
+            if interface.data.progress.gear.unm.wing[x][4] == true then
+                interface.data.progress.gear.unm.wing[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.wing[x][2]);
+                if interface.data.progress.gear.unm.wing[x][5] == 15 then
+                    interface.data.progress.gear.unm.wing[x][3] = true;
+                end
+            end
+        else
+            --update Rank
+            interface.data.progress.gear.unm.wing[x][5] = manager.CheckItemRankInfo(interface.defaults.gear.unm.wing[x][2]);
+            if interface.data.progress.gear.unm.wing[x][5] == 15 then
+                interface.data.progress.gear.unm.wing[x][3] = true;
+                interface.data.progress.gear.unm.wing[x][6] = 0;
+            else
+            --update Mats
+            local points = 0;
+                if interface.data.progress.gear.unm.wing[x][5] == 0 then
+                    for i = interface.data.progress.gear.unm.wing[x][5] + 1, #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                else
+                    for i = interface.data.progress.gear.unm.wing[x][5], #manager.pointsmap do
+                        points = points + manager.pointsmap[i];
+                    end
+                end
+            interface.data.progress.gear.unm.wing[x][6] = (points / 5);
+            end
+            --update gil
+            interface.data.progress.gear.unm.wing[x][7] = interface.data.prices['Lustreless wings'][1] * interface.data.progress.gear.unm.wing[x][6];
+        end
+    end
 end
 
 function manager.UpdateGear()

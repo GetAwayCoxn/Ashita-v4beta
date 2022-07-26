@@ -26,31 +26,37 @@ sets = T{
         Body = 'Taeon Tabard',
         Hands = 'Taeon Gloves',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Ukko Sash',
+        Waist = 'Isa Belt',
         Legs = 'Taeon Tights',
     },
 	Resting = {},
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
+        Hands = 'Rao Kote',
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
+        Head = 'Rawhide Mask',
         Ring2 = 'Stikini Ring +1',
+        Waist = 'Fucho-no-Obi',
+        Legs = 'Assid.  Pants +1',
     },
 	Town = {
         Main = 'Sakpata\'s Fists',
         Range = 'Neo Animator',
         Ammo = 'Automat. Oil +3',
         Head = 'Karagoz Capello +1',
-        Body = 'Pitre Tobe +3',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Varar Ring +1',
-        Ring2 = 'Varar Ring +1',
+        Neck = 'Bathy Choker +1',
+        Body = 'Mpaca\'s Doublet',
+        Hands = 'Mpaca\'s Gloves',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Moonbow Belt',
-        Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Hermes\' Sandals',
+        Legs = 'Mpaca\'s Hose',
+        Feet = 'Mpaca\'s Boots',
+        --Feet = 'Hermes\' Sandals',
     },
 	
 	Dt = {
@@ -63,7 +69,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Gishdubar Sash',
+        Waist = 'Isa Belt',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
 	},
@@ -77,7 +83,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Incarnation Sash',
+        Waist = 'Isa Belt',
         Legs = 'Taeon Tights',
         Feet = 'Mpaca\'s Boots',
 	},
@@ -164,13 +170,27 @@ sets = T{
         Ring2 = 'Prolix Ring',
     },
 
+    Enhancing = {
+    },
+    Phalanx = {
+    },
+    Stoneskin = {
+    },
+    Refresh = {
+    },
+
+    Cure = {
+    },
+
+    Enfeebling = {
+    },
+
 	Ws_Default = {
         Head = 'Blistering Sallet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Schere Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Telos Earring',
         Body = 'Mpaca\'s Doublet',
-        Body = 'Herculean Vest',
         Hands = 'Ryuo Tekko',
         Ring2 = 'Karieyh Ring +1',
         Ring1 = 'Petrov Ring',
@@ -193,7 +213,6 @@ sets = T{
         Hands = 'Malignance Gloves',
         Ring1 = 'Karieyh Ring +1',
         Ring2 = 'Niqmaddu Ring',
-        Back = '',
         Waist = 'Moonbow Belt',
         Legs = 'Samnuha Tights',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
@@ -210,7 +229,7 @@ sets = T{
         Ear2 = 'Domes. Earring',
         Body = 'Pitre Tobe +3',
         Hands = 'Mpaca\'s Gloves',
-        Ring1 = 'Overbearing Ring',--get second varar
+        Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
         Waist = 'Incarnation Sash',
         Legs = 'Mpaca\'s Hose',
@@ -237,13 +256,27 @@ sets = T{
 	},
     Maneuver = {
         Ear1 = 'Burana Earring',
+        Body = 'Kara. Farsetto +1',
         Hands = 'Foire Dastanas +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
 	},
-    Overdrive = {
+    Overdrive = {-- this set will force on the ability AND stay on for the duration of OD, dont change the body out because of that
+        Range = 'Animator P +1',
+        Ammo = 'Automat. Oil +3',
+        Head = 'Karagoz Capello +1',
+        Neck = 'Shulmanu Collar',
+        Ear1 = 'Enmerkar Earring',
+        Ear2 = 'Domes. Earring',
         Body = 'Pitre Tobe +3',
+        Hands = 'Mpaca\'s Gloves',
+        Ring1 = 'Varar Ring +1',
+        Ring2 = 'Varar Ring +1',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
+        Waist = 'Incarnation Sash',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Mpaca\'s Boots',
     },
-	
+
 	TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
@@ -276,6 +309,7 @@ end
 profile.HandleDefault = function()
     local player = gData.GetPlayer();
     local pet = gData.GetPet();
+    local OD = gData.GetBuffCount('Overdrive');
 	
     gFunc.EquipSet(sets.Idle);
     if (pet ~= nil) then
@@ -309,6 +343,10 @@ profile.HandleDefault = function()
         gFunc.EquipSet(sets.Dt);
 	end
     if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
+
+    if OD > 0 then
+        gFunc.EquipSet(sets.Overdrive);
+    end
 end
 
 profile.HandleAbility = function()
@@ -338,6 +376,24 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
+    local player = gData.GetPlayer();
+    local spell = gData.GetAction();
+
+    if (spell.Skill == 'Enhancing Magic') then
+        gFunc.EquipSet(sets.Enhancing);
+
+        if string.match(spell.Name, 'Phalanx') then
+            gFunc.EquipSet(sets.Phalanx);
+        elseif string.match(spell.Name, 'Stoneskin') then
+            gFunc.EquipSet(sets.Stoneskin);
+        elseif string.contains(spell.Name, 'Refresh') then
+            gFunc.EquipSet(sets.Refresh);
+        end
+    elseif (spell.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.Cure);
+    elseif (spell.Skill == 'Enfeebling Magic') then
+        gFunc.EquipSet(sets.Enfeebling);
+    end
 end
 
 profile.HandlePreshot = function()

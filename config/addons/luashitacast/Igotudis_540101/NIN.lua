@@ -167,7 +167,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
         Ear1 = 'Telos Earring',
-        Ear2 = 'Moonshade Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',

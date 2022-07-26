@@ -22,7 +22,7 @@
 -------------------------------------------------------------------------------
 require('common');
 
-local imgui = require('imgui');
+local imgui = require('compat').require_imgui();
 -- local modules
 local helpers = require('helpers');
 local resources = require('resources')
@@ -72,8 +72,8 @@ local function render_active_id_table(settings)
             elseif (sort_specs.Specs.ColumnIndex == 2) then
                 -- sort by Name
                 settings.visual_aid.filters.ids:sort(function(a, b)
-                    local na = AshitaCore:GetResourceManager():GetString('buffs.names', a);
-                    local nb = AshitaCore:GetResourceManager():GetString('buffs.names', b);
+                    local na = resources.get_status_name(a);
+                    local nb = resources.get_status_name(b);
 
                     if (sort_specs.Specs.SortDirection == ImGuiSortDirection_Ascending) then
                         return na < nb;
@@ -97,7 +97,7 @@ local function render_active_id_table(settings)
 
             local id = settings.visual_aid.filters.ids[i];
             local icon = resources.get_icon_from_theme(settings.icons.theme, id);
-            local label = AshitaCore:GetResourceManager():GetString('buffs.names', id) or '???';
+            local label = resources.get_status_name(id) or '???';
 
             imgui.TableNextColumn();
             imgui.Text(('#%d'):fmt(id));
@@ -155,13 +155,15 @@ local function render_available_id_table(settings)
         for i = 1,#ui.status_id_list,1 do
             local status = ui.status_id_list[i];
 
-            if (ui.search_filter[1] ~= '') then
-                local name_match = status.name:contains(ui.search_filter[1]);
-                local id_match = ('#%d'):format(status.id):contains(ui.search_filter[1]);
+            if (not imgui._CompatMode) then
+                if (ui.search_filter[1] ~= '') then
+                    local name_match = status.name:contains(ui.search_filter[1]);
+                    local id_match = ('#%d'):format(status.id):contains(ui.search_filter[1]);
 
-                if (not name_match and not id_match) then
-                    -- text doesn't match the current filter
-                    goto skip_to_next;
+                    if (not name_match and not id_match) then
+                        -- text doesn't match the current filter
+                        goto skip_to_next;
+                    end
                 end
             end
 
@@ -182,7 +184,7 @@ local function render_available_id_table(settings)
                 local icon = resources.get_icon_from_theme(settings.icons.theme, status.id);
 
                 if (icon ~= nil) then
-                    imgui.Image(icon, { 14, 14 });
+                    imgui.Image(icon, { 14, 14 }, { 0, 0 }, { 1, 1 }, { 1, 1, 1, 1 }, { 0, 0, 0, 0 });
                     imgui.SameLine();
                 end
 
@@ -209,7 +211,7 @@ module.render_config_filter_ui = function(settings, is_open)
     if (not next(ui.status_id_list)) then
         -- first time init
         for i = 0,1023,1 do
-            local status_name = AshitaCore:GetResourceManager():GetString('buffs.names', i);
+            local status_name = resources.get_status_name(i);
             if (status_name ~= nil and status_name[1] ~= '(') then
                 ui.status_id_list[#ui.status_id_list+1] = T{ id = i, name = ('%s (#%d)'):fmt(status_name, i) };
             end
@@ -267,8 +269,10 @@ module.render_config_filter_ui = function(settings, is_open)
 
         imgui.Spacing();
 
-        imgui.InputTextWithHint('', 'Search effects below by name or #id', ui.search_filter, 256);
-        imgui.ShowHelp('Enter an effect name to filter the list below.', true);
+        if (not imgui._CompatMode) then
+            imgui.InputTextWithHint('', 'Search effects below by name or #id', ui.search_filter, 256);
+            imgui.ShowHelp('Enter an effect name to filter the list below.', true);
+        end
 
         render_available_id_table(settings);
     end
