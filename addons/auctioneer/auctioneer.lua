@@ -12,6 +12,7 @@ local chat = require('chat');
 local zones = T{'Bastok Mines', 'Bastok Markets', 'Norg', 'Southern San d\'Oria', 'Port San d\'Oria', 'Rabao', 'Windurst Woods', 'Windurst Walls', 'Kazham', 'Lower Jeuno', 'Ru\'Lude Gardens', 'Port Jeuno', 'Upper Jeuno', 'Aht Urhgan Whitegate', 'Al Zahbi', 'Nashmau', 'Tavnazian Safehold', 'Western Adoulin', 'Eastern Adoulin'};
 local display = {};
 local osd = {};
+local esc_check = false;
 local defaults = T{
 	visible = true,
 	font_family = 'Futura',
@@ -45,6 +46,14 @@ ashita.events.register('unload', 'unload_cb', function()
     if (display ~= nil) then
 		display:destroy();
 	end
+end);
+
+ashita.events.register('key_data', 'key_data_callback1', function (e)
+    --hides display on ESC press only after calling /ah first
+    if e.key == 1 and e.down == true and display.visible then
+        display.visible = false;
+        esc_check = false;
+    end
 end);
 
 ashita.events.register('packet_in', 'packet_in_callback1', function (e)
@@ -135,6 +144,7 @@ ashita.events.register('command', 'command_cb', function (e)
         elseif (#args == 1 or string.lower(args[2]) == 'menu') then
             lclock = now+3;
             AshitaCore:GetPacketManager():AddIncomingPacket(0x4C, struct.pack("bbbbbbbi32i21", 0x4C,0x1E,0x00,0x00,0x02,0x00,0x01,0x00,0x00):totable());
+            esc_check = true;
             local s = function()
                 display.auction_list.visibility = true;
                 display.visible = true;

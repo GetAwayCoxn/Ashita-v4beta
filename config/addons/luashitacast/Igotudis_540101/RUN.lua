@@ -5,6 +5,8 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Epeolatry',
+        Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
         Neck ='Unmoving Collar +1',
@@ -15,7 +17,7 @@ sets = T{
         Ring1 = 'Moonbeam Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Waist = 'Gishdubar Sash',
+        Waist = 'Carrier\'s Sash',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -105,11 +107,12 @@ sets = T{
     --These will overwrite any above TP sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
         Main = 'Epeolatry',
-        Sub = 'Refined Grip +1',--3
+        --Sub = 'Refined Grip +1',--3
         Ammo = 'Staunch Tathlum',--2
         Head ='Nyame Helm',--7
-        --Neck = 'Unmoving Collar +1',
-        Neck = 'Loricate Torque +1',
+        Neck = 'Unmoving Collar +1',
+        --Neck = 'Loricate Torque +1',
+        --Neck = 'Futhark Torque +1',
         Ear1 = 'Odnowa Earring +1',--2
         Ear2 = 'Ethereal Earring',--3kinda
         --Ear2 = 'Hermodr Earring',--dragon points, 10 parry skill
@@ -122,7 +125,9 @@ sets = T{
         Legs = 'Eri. Leg Guards +1',-- PDT 7
         Feet = 'Turms Leggings',--7
         },
-    Tank_MEVA = {},
+    Tank_MEVA = {
+        Waist = 'Carrier\'s Sash',
+    },
 
 
     Precast = {
@@ -135,7 +140,7 @@ sets = T{
         Hands = 'Leyline Gloves', -- 6
         Ring1 = 'Prolix Ring', -- 2
         Ring2 = 'Kishar Ring', -- 4
-        Waist = 'Kasiri Belt',
+        Waist = 'Audumbla Sash',
         Legs = 'Aya. Cosciales +2', -- 6
         Feet = 'Carmine Greaves +1',--7
     },
@@ -149,7 +154,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Waist = 'Kasiri Belt',
+        Waist = 'Audumbla Sash',
         Legs = 'Futhark Trousers +1',
         Feet = 'Agwu\'s Pigaches',
     },
@@ -177,7 +182,6 @@ sets = T{
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Waist = 'Kasiri Belt',
         Legs = 'Eri. Leg Guards +1',
         Feet = 'Erilaz Greaves +1',
     },
@@ -224,7 +228,7 @@ sets = T{
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Andoaa Earring',
         Ring1 = 'Stikini Ring +1',
-        Back = 'Merciful Cape',
+        --Back = 'Merciful Cape',
         Legs = 'Carmine Cuisses +1',
     },
 
@@ -250,7 +254,7 @@ sets = T{
     },
     Dimi_Default = {
         Ammo = 'Knobkierrie',
-        Head = 'Adhemar Bonnet +1',
+        Head = 'Blistering Sallet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Sherida Earring',
         Ear2 = 'Telos Earring',
@@ -311,7 +315,6 @@ sets = T{
         Ammo = 'Seeth. Bomblet +1',
         Head = 'Agwu\'s Cap',
         Neck = 'Baetyl Pendant',
-        Ear1 = 'Crematio Earring',
         Ear2 = 'Crematio Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
@@ -341,9 +344,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

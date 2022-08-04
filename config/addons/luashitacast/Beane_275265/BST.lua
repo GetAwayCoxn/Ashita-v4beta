@@ -22,7 +22,10 @@ sets = T{
 	Resting = {},
     Idle_Regen = {},
     Idle_Refresh = {},
-	Town = {},
+	Town = {
+        Main = 'Kaja Axe',
+        Sub = 'Adapa Shield',
+    },
 	
 	Dt = {
         Ammo = 'Crepuscular Pebble',
@@ -139,7 +142,7 @@ sets = T{
 	Reward = {
 		Ammo = 'Pet Food Theta',
 		Body = 'Monster Jackcoat',
-		Feet = 'Monster Gaiters',
+		Feet = 'Mst. Gaiters +2',
 		Ear1 = 'Ferine Earring'
 	},
     Ready = {
@@ -149,8 +152,10 @@ sets = T{
 		Head = 'Emicho Coronet',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Ferine Earring',
+        Ear2 = 'Sabong Earring',
 		Body = 'Valorous Mail',
         Hands = 'Nukumi Manoplas',
+        Ring1 = 'Tali\'ah Ring',
 		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         Legs = 'Despair Cuisses',
@@ -159,30 +164,47 @@ sets = T{
 	},
 	PetAttack = {},
 	PetMagicAttack = {
+        Head = 'Tali\'ah Turban +2',
         Neck = 'Adad Amulet',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Tali\'ah Ring',
         Waist = 'Incarnation Sash',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Pet: "Mag. Atk. Bns."+6', [2] = 'Pet: Attack+22', [3] = 'Pet: Rng.Atk.+22', [4] = 'Attack+12', [5] = 'Accuracy+12' } },
     },
 	PetMagicAccuracy = {
+        Head = 'Tali\'ah Turban +2',
         Neck = 'Adad Amulet',
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Tali\'ah Ring',
         Waist = 'Incarnation Sash',
+        Legs = 'Tali\'ah Sera. +2',
+        Feet = 'Tali\'ah Crackows +1',
     },
 	
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
 	Movement = {
-		Feet = 'Meg. Jam. +1',
 	},
 };
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+
+profile.Packer = {
+    {Name = 'Pet Food Theta', Quantity = 'all'},
+    {Name = 'Meaty Broth', Quantity = 'all'},
+    {Name = 'Spicy Broth', Quantity = 'all'},
+    {Name = 'Spumante Broth', Quantity = 'all'},
+    {Name = 'Feculent Broth', Quantity = 'all'},
+    {Name = 'Venomous Broth', Quantity = 'all'},
+    {Name = 'Tant. Broth', Quantity = 'all'},
+    {Name = 'Crackling Broth', Quantity = 'all'},
+    {Name = 'Dire Broth', Quantity = 'all'},
+    {Name = 'Bubbly Broth', Quantity = 'all'},
+};
 
 local function HandlePetAction(PetAction)
     gFunc.EquipSet(sets.PetReadyDefault);
@@ -198,7 +220,7 @@ end
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');

@@ -42,7 +42,7 @@ gcinclude.sets = T{
         Hands = 'Malignance Gloves',
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Ilabrat Ring',
-		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+20' } },
+		Back = 'Solemnity Cape',
         Waist = 'Svelt. Gouriz +1',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -103,7 +103,7 @@ gcinclude.SmnHealing = T{'Healing Ruby','Healing Ruby II','Whispering Wind','Spr
 gcinclude.SmnHybrid = T{'Flamming Crush','Burning Strike'};
 gcinclude.SmnEnfeebling = T{'Diamond Storm','Sleepga','Shock Squall','Slowga','Tidal Roar','Pavor Nocturnus','Ultimate Terror','Nightmare','Mewing Lullaby','Eerie Eye'};
 gcinclude.BluMagPhys = T{'Foot Kick','Sprout Smack','Wild Oats','Power Attack','Queasyshroom','Battle Dance','Feather Storm','Helldive','Bludgeon','Claw Cyclone','Screwdriver','Grand Slam','Smite of Rage','Pinecone Bomb','Jet Stream','Uppercut','Terror Touch','Mandibular Bite','Sickle Slash','Dimensional Death','Spiral Spin','Death Scissors','Seedspray','Body Slam','Hydro Shot','Frenetic Rip','Spinal Cleave','Hysteric Barrage','Asuran Claws','Cannonball','Disseverment','Ram Charge','Vertical Cleave','Final Sting','Goblin Rush','Vanity Dive','Whirl of Rage','Benthic Typhoon','Quad. Continuum','Empty Thrash','Delta Thrust','Heavy Strike','Quadrastrike','Tourbillion','Amorphic Spikes','Barbed Crescent','Bilgestorm','Bloodrake','Glutinous Dart','Paralyzing Triad','Thrashing Assault','Sinker Drill','Sweeping Gouge','Saurian Slide'};
-gcinclude.BluMagDebuff = T{'Filamented Hold','Cimicine Discharge','Demoralizing Roar','Venom Shell','Light of Penance','Sandspray','Auroral Drape','Frightful Roar','Enervation','Infrasonics','Lowing','CMain Wave','Awful Eye','Voracious Trunk','Sheep Song','Soporific','Yawn','Dream Flower','Chaotic Eye','Sound Blast','Blank Gaze','Stinking Gas','Geist Wall','Feather Tickle','Reaving Wind','Mortal Ray','Absolute Terror','Blistering Roar'};
+gcinclude.BluMagDebuff = T{'Filamented Hold','Cimicine Discharge','Demoralizing Roar','Venom Shell','Light of Penance','Sandspray','Auroral Drape','Frightful Roar','Enervation','Infrasonics','Lowing','CMain Wave','Awful Eye','Voracious Trunk','Sheep Song','Soporific','Yawn','Dream Flower','Chaotic Eye','Sound Blast','Blank Gaze','Stinking Gas','Geist Wall','Feather Tickle','Reaving Wind','Mortal Ray','Absolute Terror','Blistering Roar','Cruel Joke'};
 gcinclude.BluMagStun = T{'Head Butt','Frypan','Tail Slap','Sub-zero Smash','Sudden Lunge'};
 gcinclude.BluMagBuff = T{'Cocoon','Refueling','Feather Barrier','Memento Mori','Zephyr Mantle','Warm-Up','Amplification','Triumphant Roar','Saline Coat','Reactor Cool','Plasma Charge','Regeneration','Animating Wail','Battery Charge','Winds of Promy.','Barrier Tusk','Orcish Counterstance','Pyric Bulwark','Nat. Meditation','Restoral','Erratic Flutter','Carcharian Verve','Harden Shell','Mighty Guard'};
 gcinclude.BluMagSkill = T{'Metallic Body','Diamondhide','Magic Barrier','Occultation','Atra. Libations'};
@@ -328,6 +328,13 @@ function gcinclude.SetCommands(args)
 	if (player.MainJob == 'SAM') or (player.MainJob == 'NIN') then
 		if (args[1] == 'proc') then
 			gcdisplay.AdvanceToggle('PROC');
+			if (player.MainJob == 'NIN') then
+				if gcdisplay.GetToggle('PROC') == true then
+					AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable ammo');
+				else
+					AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable ammo');
+				end
+			end
 		end
 	end
 	if (player.MainJob == 'PUP') then
@@ -410,7 +417,6 @@ end
 
 function gcinclude.SetTownGear()
 	local zone = gData.GetEnvironment();
-	local rings = gData.GetEquipment();
 
 	if (zone.Area ~= nil) and (gcinclude.Towns:contains(zone.Area)) then
 		gFunc.EquipSet(sets.Town);
@@ -449,8 +455,9 @@ function gcinclude.CheckWsBailout()
 	local stun = gData.GetBuffCount('Stun');
 	local terror = gData.GetBuffCount('Terror');
 	local amnesia = gData.GetBuffCount('Amnesia');
+	local charm = gData.GetBuffCount('Charm');
 
-	if (sleep+petrify+stun+terror+amnesia >= 1) or (player.TP <= 999) then
+	if (sleep+petrify+stun+terror+amnesia+charm >= 1) or (player.TP <= 999) then
 		return false;
 	else
 		return true;
@@ -463,8 +470,9 @@ function gcinclude.CheckSpellBailout()
 	local stun = gData.GetBuffCount('Stun');
 	local terror = gData.GetBuffCount('Terror');
 	local silence = gData.GetBuffCount('Silence');
+	local charm = gData.GetBuffCount('Charm');
 
-	if (sleep+petrify+stun+terror+silence >= 1) then
+	if (sleep+petrify+stun+terror+silence+charm >= 1) then
 		return false;
 	else
 		return true;
@@ -698,6 +706,7 @@ function gcinclude.CheckDefault()
 	if (gcinclude.ZeniSet == true) then gFunc.EquipSet(gcinclude.sets.Zeni) end
 	if (gcinclude.FishSet == true) then gFunc.EquipSet(gcinclude.sets.Fishing) end
 	if (gcinclude.RRSET == true) then gFunc.EquipSet(gcinclude.sets.Reraise) end
+	gcdisplay.Update();
 end
 
 function gcinclude.Unload()
@@ -705,10 +714,18 @@ function gcinclude.Unload()
 end
 
 function gcinclude.Initialize()
-	gcdisplay.Initialize();
-	gcinclude.SetVariables();
-	gcinclude.SetAlias();
-	if (gcauto ~= nil) then gcauto.Initialize:once(8) end
+	local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
+    if inv_flags == nil or inv_flags < 26143 then 
+        gcdisplay.Initialize:once(8);
+		gcinclude.SetVariables:once(8);
+		gcinclude.SetAlias:once(8);
+		if (gcauto ~= nil) then gcauto.Initialize:once(8) end
+    else
+        gcdisplay.Initialize:once(1);
+		gcinclude.SetVariables:once(1);
+		gcinclude.SetAlias:once(1);
+		if (gcauto ~= nil) then gcauto.Initialize:once(1) end
+    end
 end
 
 return gcinclude;

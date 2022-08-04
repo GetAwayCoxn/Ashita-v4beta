@@ -29,6 +29,9 @@ sets = T{
     },
     Idle_Refresh = {},
     Town = {
+        Main = 'Tauret',
+        Sub = 'Shijo',
+        Range = 'Wingcutter +1',
         Feet = 'Skulk. Poulaines +1',
     },
 
@@ -195,13 +198,35 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Lustreless Wing', Quantity = 'all'},
+    {Name = 'Lustreless Hide', Quantity = 'all'},
+    {Name = 'Lustreless Scale', Quantity = 'all'},
+    {Name = 'Skeleton Key', Quantity = 'all'},
+    'Odious Blood',
+    'Odious Pen',
+    'Odious Skull',
+    'Odious Horn',
+    'Forgotten Hope',
+    'Frgtn. Thought',
+    'Shrouded Bijou',
+    {Name = 'T. Whiteshell', Quantity = 'all'},
+    {Name = 'L. Jadeshell', Quantity = 'all'},
+    {Name = 'O. Bronzepiece', Quantity = 'all'},
+    {Name = 'M. Silverpiece', Quantity = 'all'},
+    {Name = '1 Byne Bill', Quantity = 'all'},
+    {Name = '100 Byne Bill', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+
+    gcinclude.settings.RegenGearHPP = 75;
 end
 
 profile.OnUnload = function()

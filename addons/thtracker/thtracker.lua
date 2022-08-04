@@ -62,33 +62,22 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
 	    local target = GetEntity(index);
         if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
         local count = 0;
+        if mobs[index] == nil or mobs[index][3] >=4 then return end;--kick out if already at TH4 or above
         if player:GetMainJob(0) == 6 then--need to add a offset for gear bonus then adjust the for checks below to 8/4
-            for k,v in pairs(mobs) do
-                if k == index then
-                    if v[3] >= 8 then return end;
-                end
-            end
             if player:GetMainJobLevel(0) >= 90 then
-                count = 8;--assumes your wearing gear on THF main for now until i build a proper offset
+                count = 8;
             elseif player:GetMainJobLevel(0) >= 45 then
-                count = 2;
+                count = 3;
             else
-                count = 1;
+                count = 2;
             end
         elseif player:GetSubJob(0) == 6 then
-            for k,v in pairs(mobs) do
-                if k == index then
-                    if v[3] >= 2 then return end;
-                end
-            end
-            if player:GetSubJobLevel(0) >= 45 then
-                count = 2;
-            else
-                count = 1;
-            end
+            count = 2;
         end
         if target == nil then return end;
-        mobs[index] = {target.Name, target.HPPercent, count};
+        if count > mobs[index][3] then
+            mobs[index] = {target.Name, target.HPPercent, count};
+        end
     end
 end);
 

@@ -135,7 +135,7 @@ function manager.CheckItemRankInfo(id)
         for slot = 1,80 do
             local item = inv:GetContainerItem(bag, slot);
             if item and item.Id == id then
-                if id == 16191 or id == 18573 then
+                if id == 16191 or id == 18573 then--empy shield/harp early stages
                     local extData = item.Extra;
                     local augType = struct.unpack('B', extData, 1);
                     if augType == 0 then
@@ -158,7 +158,6 @@ function manager.CheckItemRankInfo(id)
                             local path = path_map[extData:byte(3)%4];
                             --print(tostring(path));
                         end
-                
                     end
                 end
                 return 0;
@@ -573,10 +572,14 @@ end
 
 function manager.DisplayMythics()
     imgui.Spacing();
-    imgui.BeginTable('mythics table', 6, ImGuiTableFlags_Borders);
+    imgui.BeginTable('mythics table', 10, ImGuiTableFlags_Borders);
     imgui.TableNextRow(ImGuiTableRowFlags_Headers);
     imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'WEAPONS');
     imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 75');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 80');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 85');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 90');
+    imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 95');
     imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv. 99');
     imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv.119 I');
     imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Lv.119 III');
@@ -584,7 +587,7 @@ function manager.DisplayMythics()
     imgui.TableNextRow();
 
     for w = 1, #interface.defaults.weapons.mythics, 1 do
-        for i = 1, 5 do
+        for i = 1, 9 do
             if i == 1 then
                 imgui.TableNextColumn();
                 imgui.TextColored(interface.colors.header, interface.data.progress.weapons.mythics[w][1]);
@@ -594,7 +597,7 @@ function manager.DisplayMythics()
                 else
                     imgui.TextColored(interface.colors.error,'Nupe');
                 end
-            elseif i <= 4 then
+            elseif i <= 8 then
                 imgui.TableNextColumn();
                 if interface.data.progress.weapons.mythics[w][2] >= i then
                     imgui.TextColored(interface.colors.text1,'Yup');
@@ -1852,7 +1855,7 @@ function manager.CountEmpyBaseGear()
             if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
                 interface.data.progress.gear.empyneed[1][1][1] = interface.data.progress.gear.empyneed[1][1][1] + 6;
             end
-        elseif (j == 2) or (j == 7) or (j == 12) or (j == 17) or (j == 18) then
+        elseif (j == 2) or (j == 5) or (j == 12) or (j == 17) or (j == 18) then
             if (interface.data.progress.gear.empyrean[j][1][1] <= 2) then
                 interface.data.progress.gear.empyneed[1][1][2] = interface.data.progress.gear.empyneed[1][1][2] + 6;
             end
@@ -3408,7 +3411,10 @@ end
 
 function manager.ResetAMBU()
     interface.manager.UpdateAmbuWeps();
+    local function delay()
     interface.data.points = interface.data.points:merge(interface.defaults.points, true);
+    end;
+    delay:once(3);--add delay to give time for weapons to update to correctly display/not display needed weapon upgrade items
 end
 
 function manager.comma_value(n) --credit--http://richard.warburton.it

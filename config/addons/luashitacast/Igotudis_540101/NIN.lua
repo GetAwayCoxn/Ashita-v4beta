@@ -16,7 +16,7 @@ sets = T{
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Mpaca\'s Hose',
-        Feet = 'Danzo Sune-Ate',
+        Feet = 'Mpaca\'s Boots',
     },
     Resting = {},
     Idle_Regen = {
@@ -37,7 +37,7 @@ sets = T{
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Mpaca\'s Hose',
-        Feet = 'Mpaca\'s Boots',
+        Feet = 'Danzo Sune-Ate',
     },
 
     Dt = {
@@ -130,7 +130,7 @@ sets = T{
         Neck = 'Sanctity Necklace',
         Ear1 = 'Crematio Earring',
         Ear2 = 'Lugra Earring +1',
-        Body = 'Samnuha Coat',
+        Body = 'Nyame Mail',
         Hands = 'Hattori Tekko +1',
         Ring1 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Ring2 = 'Dingir Ring',
@@ -143,8 +143,8 @@ sets = T{
         Ammo = 'Staunch Tathlum',
         Head = 'Mochi. Hatsuburi +2',
         Neck = 'Sanctity Necklace',
-        Ear1 = 'Eabani Earring',
-        Ear2 = 'Gwati Earring',
+        Ear1 = 'Crep. Earring',
+        Ear2 = 'Digni. Earring',
         Body = 'Mummu Jacket +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Mummu Ring',
@@ -264,17 +264,31 @@ sets = T{
     Movement_Night = {
         Feet = 'Hachi. Kyahan +1',
 	},
-    Extra = {
+    Extra = {--weapons that are for procing that are in storage slips
         Main = 'Levin',
-        Sub = 'Burrower\'s Wand',
+        Main = 'Burrower\'s Wand',
+        Main = 'Qutrub Knife',
     },
 };
 
-sets = sets:merge(gcinclude.sets, false);sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+
+profile.Packer = {
+    {Name = 'Toolbag (Ino)', Quantity = 'all'},
+    {Name = 'Toolbag (Shika)', Quantity = 'all'},
+    {Name = 'Toolbag (Cho)', Quantity = 'all'},
+    {Name = 'Toolbag (Shihe)', Quantity = 'all'},
+    {Name = 'Shihei', Quantity = 'all'},
+    {Name = 'Inoshishinofuda', Quantity = 'all'},
+    {Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Shikanofuda', Quantity = 'all'},
+    {Name = 'Forbidden Key', Quantity = 'all'},
+    {Name = 'Date Shuriken', Quantity = 'all'}
+};
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 4');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 3');

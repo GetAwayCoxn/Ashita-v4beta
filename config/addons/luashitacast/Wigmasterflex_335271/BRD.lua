@@ -330,9 +330,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

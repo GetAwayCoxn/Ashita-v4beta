@@ -120,33 +120,9 @@ sets = T{
 
 
     Cure = {
-        Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Vanya Hood', AugPath='C' },
-        Neck = 'Incanter\'s Torque',
-        Ear1 = 'Mendi. Earring',
-        Ear2 = 'Regal Earring',
-        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
-        Hands = 'Weath. Cuffs +1',
-        Ring1 = 'Stikini Ring +1',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
-        Waist = 'Gishdubar Sash',
-        Legs = 'Atrophy Tights',
-        Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
 
     Enhancing = {
-        Ammo = 'Pemphredo Tathlum',
-        Head = 'Befouled Crown',
-        Neck = 'Incanter\'s Torque',
-        Ear1 = 'Mendi. Earring',
-        Ear2 = 'Andoaa Earring',
-        Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = { Name = 'Sucellos\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+20', [3] = 'DEX+20' } },
-        Waist = 'Embla Sash',
-        Legs = { Name = 'Telchine Braconi', Augment = { [1] = 'Enh. Mag. eff. dur. +8', [2] = '"Conserve MP"+4' } },
     },
 
     Preshot = {
@@ -288,6 +264,15 @@ sets = T{
     ThirdEye = {
         Legs = 'Sakonji Haidate +1',
     },
+    Seigan = {
+        Head = 'Kasuga Kabuto +1',
+    },
+    Sekkanoki = {
+        Hands = 'Kasuga Kote +1',
+    },
+    Sengikori = {
+        Feet = 'Kas. Sune-Ate +1',
+    },
     Meditate = {
         Head = 'Wakido Kabuto +2',
         Hands = 'Sakonji Kote +1',
@@ -311,9 +296,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 4');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 8');
@@ -331,6 +320,7 @@ profile.HandleDefault = function()
     gFunc.EquipSet(sets.Idle);
     local hasso = gData.GetBuffCount('Hasso');
     local thirdeye = gData.GetBuffCount('Third Eye');
+    local seigan = gData.GetBuffCount('Seigan');
 	local player = gData.GetPlayer();
 
     if (player.Status == 'Engaged') then
@@ -338,7 +328,11 @@ profile.HandleDefault = function()
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
         if (hasso >= 1) then gFunc.EquipSet(sets.Hasso) end
-        if (thirdeye >= 1) then gFunc.EquipSet(sets.ThirdEye) end
+        if (thirdeye >= 1) and (seigan >= 1) then 
+            gFunc.EquipSet(sets.ThirdEye);
+        elseif (seigan >= 1) then
+            gFunc.EquipSet(sets.Seigan);
+        end
         if (gcdisplay.GetToggle('PROC') == true) then
             gFunc.EquipSet(sets.Tp_Proc); end
     elseif (player.Status == 'Resting') then
@@ -357,6 +351,8 @@ profile.HandleAbility = function()
 
     if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity);
     elseif string.match(ability.Name, 'Meditate') then gFunc.EquipSet(sets.Meditate);
+    elseif string.match(ability.Name, 'Third Eye') then gFunc.EquipSet(sets.ThirdEye);
+    elseif string.match(ability.Name, 'Sengikori') then gFunc.EquipSet(sets.Sengikori);
     elseif string.contains(ability.Name, 'Meikyo') then gFunc.EquipSet(sets.Meikyo) end
 
     gcinclude.CheckCancels();
@@ -395,6 +391,7 @@ end
 
 profile.HandleWeaponskill = function()
     local meikyo = gData.GetBuffCount('Meikyo Shisui');
+    local sekkanoki = gData.GetBuffCount('Sekkanoki');
     local canWS = gcinclude.CheckWsBailout();
     if (canWS == false) then gFunc.CancelAction() return;
     elseif (gcdisplay.GetToggle('PROC') == true) then
@@ -425,6 +422,7 @@ profile.HandleWeaponskill = function()
         end
 
         if (meikyo >= 1) then gFunc.EquipSet(sets.Meikyo) end
+        if (sekkanoki >= 1) then gFunc.EquipSet(sets.Sekkanoki) end
     end
 end
 

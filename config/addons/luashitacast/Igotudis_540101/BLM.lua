@@ -148,7 +148,7 @@ sets = T{
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
         Waist = 'Embla Sash',
-        Legs = { Name = 'Telchine Braconi', Augment = { [1] = 'Enh. Mag. eff. dur. +8', [2] = '"Conserve MP"+4' } },
+        Legs = 'Telchine Braconi',
         Feet = 'Telchine Pigaches',
     },
     Self_Enhancing = {},
@@ -315,9 +315,14 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Tropical Crepe', Quantity = 'all'},
+    {Name = 'Rolan. Daifuku', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 1');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 5');

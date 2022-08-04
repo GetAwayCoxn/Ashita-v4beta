@@ -5,14 +5,20 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Emeici +1',
+        Range = 'Animator P',
+        Ammo = 'Automat. Oil +3',
         Neck = 'Wiglen Gorget',
+        Ear1 = 'Ethereal Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Heka\'s Kalasiris',
+        Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Defending Ring',
         Ring2 = 'Sheltered Ring',
         Back = 'Repulse Mantle',
-        Waist = 'Incarnation Sash',
+        Waist = 'Isa Belt',
         Legs = 'Tali\'ah Sera. +1',
+        Feet = 'Tali\'ah Crackows +1',
     },
     Idle_Pet = {
         Head = 'Anwig Salade',
@@ -33,6 +39,7 @@ sets = T{
         Neck = 'Wiglen Gorget',
         Ring1 = 'Paguroidea Ring',
         Ring2 = 'Sheltered Ring',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Legs = 'Tali\'ah Sera. +1',
         Feet = 'Hermes\' Sandals',
     },
@@ -44,6 +51,7 @@ sets = T{
     Pet_Dt = {
         Head = 'Anwig Salade',
         Ring1 = 'Defending Ring',
+        Waist = 'Isa Belt',
 	},
 	
     Pet_Only_Tp_Default = {
@@ -58,7 +66,7 @@ sets = T{
         Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Tali\'ah Ring',
         Ring2 = 'Sheltered Ring',
-        Back = 'Shadow Mantle',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         Legs = 'Tali\'ah Sera. +1',
         Feet = 'Tali\'ah Crackows +1',
@@ -74,7 +82,8 @@ sets = T{
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
         Ring1 = 'Epona\'s Ring',
-        Ring2 = 'Rajas Ring',
+        Ring2 = 'Hizamaru Ring',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Kuku Stone',
     },
 	Tp_Hybrid = {
@@ -193,9 +202,14 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Automat. Oil +3', Quantity = 'all'},
+    {Name = 'Bean Daifuku', Quantity = 12},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');

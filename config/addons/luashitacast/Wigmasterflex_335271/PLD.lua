@@ -5,7 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Wiglen Gorget',
         Ear1 = 'Creed Earring',
@@ -14,7 +14,7 @@ sets = T{
         Hands = 'Sulev. Gauntlets +1',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = 'Weard Mantle',
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Nierenschutz',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',
@@ -32,7 +32,7 @@ sets = T{
     Town = {
         Main = 'Tanmogayi',
         Sub = 'Ochain',
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Rev. Coronet +1',
         Body = 'Rev. Surcoat +1',
         Hands = 'Sulev. Gauntlets +1',
@@ -43,7 +43,7 @@ sets = T{
     },
 
     Dt = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Sulevia\'s Mask +1',
         Neck ='Loricate Torque +1',
         Ear1 = 'Creed Earring',
@@ -95,7 +95,7 @@ sets = T{
 
     --These will overwrite any above TP sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Loricate Torque',
         Ear1 = 'Creed Earring',
@@ -105,13 +105,13 @@ sets = T{
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
         --Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
-        Back = 'Weard Mantle',
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',
         },
     Tank_MEVA = {
-        Ammo = 'Crepuscular Pebble',
+        Ammo = 'Staunch Tathlum',
         Head = 'Sulevia\'s Mask +1',
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Eabani Earring',
@@ -120,7 +120,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Purity Ring',
-        Back = 'Weard Mantle',
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Asklepian Belt',
         Legs = 'Nyame Flanchard',
         Feet = 'Sulev. Leggings +1',
@@ -136,7 +136,7 @@ sets = T{
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
         Ring2 = 'Kishar Ring',--4
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Creed Baudrier',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
@@ -148,15 +148,16 @@ sets = T{
     Enhancing_Precast = {
         Waist = 'Siegel Sash',
     },
-    SIR = {--10 merits,25 gear
-        Ammo = 'Crepuscular Pebble',
-        Neck = 'Moonbeam Necklace', -- 10
+    SIR = {--10 merits,45 gear
+        Ammo = 'Staunch Tathlum',--10
+        Head = 'Yorium Barbuta',--9
+        Neck = 'Moonbeam Necklace',--10
+        Back = 'Rudianos\'s Mantle',--10
         Waist = 'Rumination Sash',--10
         Legs = 'Carmine Cuisses',--15
     },
     Enmity = {
         Ammo = 'Sapience Orb',--2
-        Head = 'Souv. Schaller +1',--9
         Neck = 'Moonbeam Necklace',--10
         Body = 'Cab. Surcoat +3',--10
         Ring1 = 'Eihwaz Ring',--5
@@ -169,7 +170,6 @@ sets = T{
     },
 
     Cure = {
-        Head = 'Souv. Schaller +1', --15
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Tuisto Earring',
         Ear2 = 'Nourish. Earring +1', -- 6
@@ -182,35 +182,33 @@ sets = T{
         Feet = 'Odyssean Greaves', -- 7
     },
     Phalanx = {
-        Body = 'Yorium Cuirass', -- 3
+        Head = 'Yorium Barbuta',--2
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Creed Earring',
         Ear2 = 'Ethereal Earring',
+        Body = 'Yorium Cuirass', -- 3
         Hands = 'Odyssean Gauntlets', --3
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Audumbla Sash',
         Legs = 'Flamma Dirs +1', -- 5
         Feet = 'Odyssean Greaves',
     },
     Reprisal = {
-        Ammo = 'Sapience Orb',
-        Head = 'Souv. Schaller +1',
+        Ammo = 'Staunch Tathlum',
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Creed Earring',
         Ear2 = 'Cryptic Earring',
         Body = 'Shabti Cuirass',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Audumbla Sash',
-        Legs = 'Founder\'s Hose',
         Feet = 'Eschite Greaves',
     },
     Flash = {
-        Ammo = 'Crepuscular Pebble',
-        Head = 'Souv. Schaller +1',
+        Ammo = 'Sapience Orb',
         Neck = 'Moonbeam Necklace',
         Ear1 = 'Creed Earring',
         Ear2 = 'Cryptic Earring',
@@ -218,7 +216,7 @@ sets = T{
         Hands = 'Rev. Gauntlets +1',
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
+        Back = 'Rudianos\'s Mantle',
         Waist = 'Audumbla Sash',
         Legs = 'Founder\'s Hose',
         Feet = 'Odyssean Greaves',
@@ -330,9 +328,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 7');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

@@ -29,6 +29,8 @@ sets = T{
         Ring1 = 'Stikini Ring +1',
     },
     Town = {
+        Main = 'Naegling',
+        Sub = 'Blurred Shield +1',
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Hjarrandi Helm',
         Neck = 'Bathy Choker +1',
@@ -41,7 +43,7 @@ sets = T{
         Back = 'Cichol\'s Mantle',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Hermes\'s Sandals',
+        Feet = 'Hermes\' Sandals',
     },
 
     Dt = {
@@ -189,6 +191,9 @@ sets = T{
     Aedge_Acc = {
     },
 
+    Tomahawk = {
+        Ammo = 'Thr. Tomahawk',
+	},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
@@ -199,12 +204,19 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
+
+    gcinclude.settings.RegenGearHPP = 65;
+    gcinclude.settings.RefreshGearMPP = 40;
 end
 
 profile.OnUnload = function()
@@ -236,6 +248,8 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if ability.Name == 'Tomahawk' then gFunc.EquipSet(sets.Tomahawk) end;
 
     gcinclude.CheckCancels();
 end
@@ -299,7 +313,7 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
-            gcinclude.DoMoonshade();
+            if (gcdisplay.GetCycle('MeleeSet') == 'Default') then gcinclude.DoMoonshade() end;
         end
     end
 end

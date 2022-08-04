@@ -24,6 +24,12 @@ sets = T{
         Hands = 'Meg. Gloves +2',
     },
     Idle_Refresh = {},
+    Town = {
+        Main = 'Izhiikoh',
+        Sub = 'Tokko Knife',
+        Range = 'Raider\'s Bmrng.',
+        Feet = 'Fajin Boots',
+    },
 
     Dt = {
         Head = 'Meghanada Visor +1',
@@ -56,18 +62,12 @@ sets = T{
     Tp_Acc = {
         Neck = 'Sanctity Necklace',
         Ear2 = 'Steelflash Earring',
-        Waist = 'Hurch\'lan Sach',
+        Waist = 'Hurch\'lan Sash',
     },
 
 
     Precast = {
-        Head = 'Haruspex Hat',
-        Neck = 'Baetyl Pendant',
         Ear2 = 'Etiolation Earring',
-        Body = 'Taeon Tabard',
-        Hands = 'Leyline Gloves',
-        Ring1 = 'Prolix Ring',
-        Legs = 'Enif Cosciales',
     },
 
     Preshot = {
@@ -106,6 +106,7 @@ sets = T{
         Neck = 'Sanctity Necklace',
         Body = 'Mummu Jacket +1',
         Hands = 'Mummu Wrists +1',
+        Waist = 'Shadow Belt',
         Legs = 'Mummu Kecks +1',
         Feet = 'Mummu Gamash. +1',
     },
@@ -126,7 +127,24 @@ sets = T{
     Evis_Acc_SA = {},
     Evis_Acc_TA = {},
     Evis_Acc_SATA = {},
-
+    Aedge_Default = {
+        Head = 'Herculean Helm', 
+        Neck = 'Baetyl Pendant',
+        Ear1 = 'Hecate\'s Earring',
+        Ear2 = 'Moldavite Earring',
+        Body = 'Rawhide Vest',
+        Hands = 'Meg. Gloves +2',
+        Ring1 = 'Dingir Ring',
+        Ring2 = 'Shiva Ring +1',
+        Back = 'Gunslinger\'s Cape',
+        Waist = 'Fotia Belt',
+        Legs = 'Mummu Kecks +1',
+        Feet = 'Adhemar Gamashes',
+    },
+    Aedge_Hybrid = {
+    },
+    Aedge_Acc = {
+    },
 
     SATA = {
         
@@ -150,9 +168,16 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Lustreless Wing', Quantity = 'all'},
+    {Name = 'Lustreless Hide', Quantity = 'all'},
+    {Name = 'Lustreless Scale', Quantity = 'all'},
+    {Name = 'Skeleton Key', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');
@@ -275,6 +300,10 @@ profile.HandleWeaponskill = function()
             elseif (ta == 1) then
                 gFunc.EquipSet('Evis_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
             end
+        elseif string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

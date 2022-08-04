@@ -14,7 +14,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
+        Back = 'Mecisto. Mantle',
         Waist = 'Isa Belt',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
@@ -221,6 +221,10 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 local function HandlePetAction(PetAction)
     gFunc.EquipSet(sets.PetReadyDefault);
 
@@ -235,7 +239,7 @@ end
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');

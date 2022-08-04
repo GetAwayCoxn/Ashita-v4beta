@@ -166,13 +166,29 @@ ashita.events.register('load', 'load_cb', function()
     skill_props:SetPositionY(sc.config.display.pos.y);
     --skill_props:SetVisibility(sc.config.visibility);
     skill_props:SetColor(sc.config.display.color);
-
+    
     local player = AshitaCore:GetMemoryManager():GetPlayer();
     info.job = jobs[player:GetMainJob()];
     info.player = AshitaCore:GetMemoryManager():GetParty():GetMemberServerId(0);
     initialize();
+
+    local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
+    if inv_flags == nil or inv_flags < 26143 then 
+        load_delay:once(5);
+    else
+        load_delay:once(1);
+    end
+end);
+
+function load_delay()--lazy way to prevent crash on load
+    local player = AshitaCore:GetMemoryManager():GetPlayer();
+        
     if setting.weapon then
-        local equip = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(0).Index;
+        local equip = 0;
+        --local equip = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(0).Index or 0;
+        if AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(0).Index ~= nil then
+            equip = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(0).Index;
+        end
         info.main_bag = math.floor(equip/256);
         info.main =  math.floor(equip%256);
         update_weapon();
@@ -183,24 +199,19 @@ ashita.events.register('load', 'load_cb', function()
             end
         end
     end
-end);
+end;
 
 function update_weapon()
-	if (AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id == nil) then 
-		update_weapon:once(1);
-	end
-	
+    local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
+    if inv_flags == nil or inv_flags < 26143 then 
+        load_delay:once(5);
+        return;
+    end;
     local main_weapon = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id;
     if main_weapon ~= 0 then
         info.aeonic = aeonic_weapon[main_weapon] or
             info.range and aeonic_weapon[AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.range_bag, info.range).Id];
         return;
-    end
-    if not check_weapon then
-        check_weapon = ashita.tasks.once(10, function()
-            check_weapon = nil;
-            update_weapon();
-        end);
     end
 end
 
@@ -422,7 +433,7 @@ ashita.events.register('packet_in', 'packet_in_cb', function(e)
         info.main_bag = e.data:byte(7);
         update_weapon();
     -- Equip - Range
-    elseif e.id == 0x50 and e.data:byte(6) == 2 then
+    elseif e.id == 0x50  and setting.weapon and e.data:byte(6) == 2 then --this keeps crashing addon on first log in/load
         --print('packet_in - 0x50.2'); --debug
         info.range = e.data:byte(5);
         info.range_bag = e.data:byte(7);
@@ -516,6 +527,9 @@ ashita.events.register('command', 'command_cb', function(e)
         end
     elseif commands[2] == 'save' then
         settings.save();
+    elseif commands[2] == 'test' then
+        local inv = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
+        print(tostring(inv))
     elseif commands[2] == 'pos' then
         skill_props:SetPositionX(commands[3]:tonumber());
         skill_props:SetPositionY(commands[4]:tonumber());

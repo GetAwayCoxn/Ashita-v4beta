@@ -133,7 +133,7 @@ function pack:SendTrade()
             if slipNumber then
                 if (not self.Include:contains(item.Id)) and (not gSettings.ExcludePack:contains(item.Id)) then
                     local slip = playerSlips[slipNumber];
-                    if slip and slip.Container == 0 and not gData:CheckSlipItem(slip, storageIndex) then
+                    if slip and slip.Container == 0 and not gData:CheckSlipItem(slip, storageIndex) and gData:CheckAugment(slipNumber, item.Extra) then
                         local slipId = slip.Item.Id;
                         if not slippableItems[slipId] then
                             slippableItems[slipId] = T{ slip.Item.Index, index };

@@ -4,18 +4,18 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Head = 'Flam. Zucchetto +2',
+        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
-        Body = 'Gleti\'s Cuirass',
-        Hands = 'Flam. Manopolas +2',
+        Body = 'Herculean Vest',
+        Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Ring2 = 'Epona\'s Ring',
+        Back = { Name = 'Mecisto. Mantle', Augment = { [1] = 'Cap. Point+41%', [2] = 'Attack+1', [3] = 'DEF+10' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots',
+        Legs = { Name = 'Samnuha Tights', Augment = { [1] = 'STR+9', [2] = '"Dbl.Atk."+2', [3] = '"Triple Atk."+2', [4] = 'DEX+8' } },
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Resting = {},
     Idle_Regen = {
@@ -27,18 +27,19 @@ sets = T{
     Town = {
         Main = 'Naegling',
         Sub = 'Nusku Shield',
-        Head = 'Flam. Zucchetto +2',
+        Range = 'Kaja Bow',
+        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
-        Body = 'Hjarrandi Breast.',
-        Hands = 'Flam. Manopolas +2',
+        Body = 'Herculean Vest',
+        Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
-        Ring2 = 'Niqmaddu Ring',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Ring2 = 'Epona\'s Ring',
+        Back = { Name = 'Mecisto. Mantle', Augment = { [1] = 'Cap. Point+41%', [2] = 'Attack+1', [3] = 'DEF+10' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Gleti\'s Breeches',
-        Feet = 'Gleti\'s Boots',
+        Legs = 'Carmine Cuisses +1',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
 
     Dt = {
@@ -57,16 +58,17 @@ sets = T{
     },
 
     Tp_Default = {
-        Head = 'Adhemar Bonnet +1',
+        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
-        Ear1 = 'Sherida Earring',
+        Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
         Body = 'Herculean Vest',
-        Hands = 'Adhemar Wrist. +1',
+        Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Petrov Ring',
         Ring2 = 'Epona\'s Ring',
+        Back = { Name = 'Mecisto. Mantle', Augment = { [1] = 'Cap. Point+41%', [2] = 'Attack+1', [3] = 'DEF+10' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = { Name = 'Tatena. Haidate +1', AugPath='A' },
+        Legs = { Name = 'Samnuha Tights', Augment = { [1] = 'STR+9', [2] = '"Dbl.Atk."+2', [3] = '"Triple Atk."+2', [4] = 'DEX+8' } },
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Tp_Hybrid = {
@@ -170,9 +172,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 10');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

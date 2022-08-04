@@ -33,14 +33,14 @@ sets = T{
         Main = 'Shining One',
         Sub = 'Utu Grip',
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
-        Head = 'Flam. Zucchetto +2',
-        Neck = 'Anu Torque',
-        Ear1 = 'Mache Earring +1',
+        Head = 'Crepuscular Helm',
+        Neck = 'Bathy Choker +1',
+        Ear1 = 'Infused Earring',
         Ear2 = 'Telos Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Flam. Manopolas +2',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Niqmaddu Ring',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Gleti\'s Breeches',
@@ -196,9 +196,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 7');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');

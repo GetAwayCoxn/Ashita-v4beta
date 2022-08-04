@@ -40,8 +40,8 @@ sets = T{
     },
 
     Evasion = {--this set will be my idle set when in /cj mode for evasion pulling
-        Main = 'Shamshir +2',
-        Sub = 'Shamshir +2',
+        Main = 'Shikargar',
+        Sub = 'Shikargar',
         Ammo = 'Staunch Tathlum',
         --Ammo = 'Amar Cluster',--this is on wig atm
         Head = 'Malignance Chapeau',
@@ -98,7 +98,7 @@ sets = T{
         Feet = 'Gleti\'s Boots'
     },
 	Tp_Acc = {
-        Ammo = 'Ginsen',
+        Ammo = 'Jukukik Feather',
         Head = 'Blistering Sallet +1',
         Neck = 'Sanctity Necklace',
         Ear1 = 'Mache Earring +1',
@@ -119,7 +119,7 @@ sets = T{
         Ring1 = 'Prolix Ring',--2
         Ring2 = 'Kishar Ring',--4
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+25' } },---10
-        Waist = 'Kasiri Belt',
+        Waist = 'Rumination Sash',
         Legs = 'Enif Cosciales',--8
         Feet = 'Carmine Greaves +1',--7
     },
@@ -173,6 +173,7 @@ sets = T{
         Feet = 'Amalric Nails +1',
     },
     BluDark = {
+        Head = 'Pixie Hairpin +1',
         Ring2 = 'Archon Ring',
     },
     BluMagicAccuracy = {
@@ -191,7 +192,7 @@ sets = T{
         Legs = 'Jhakri Slops +2',--AF+2/3
         Feet = 'Jhakri Pigaches +2',
     },
-    CJmid = {
+    CJmid = {--same as macc set but with weapons since in CJmode we idle in eva swords
         Main = 'Sakpata\'s Sword',
         Sub = 'Bunzi\'s Rod',
         Ammo = 'Pemphredo Tathlum',
@@ -241,7 +242,7 @@ sets = T{
     },
     CMP = {
         Ammo = 'Pemphredo Tathlum',
-        Head = 'Ipoca Beret',--in storage probably
+        --Head = 'Ipoca Beret',--in storage probably
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',
         Ring1 = 'Metamor. Ring +1',
@@ -260,15 +261,15 @@ sets = T{
     },
 
     Ws_Default = {
-        Ammo = 'Ginsen',
+        Ammo = 'Coiste Bodhar',
         Head = 'Adhemar Bonnet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Jhakri Cuffs +2',
-        Ring2 = 'Karieyh Ring +1',
         Ring1 = 'Petrov Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
@@ -303,24 +304,45 @@ sets = T{
     Chant_Acc = {
     },
     Savage_Default = {
-        Ammo = 'Ginsen',
         Head = 'Adhemar Bonnet +1',
         Ear1 = 'Telos Earring',
         Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
-        Feet = 'Herculean Boots',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Savage_Hybrid = {
         Ammo = 'Staunch Tathlum',
     },
     Savage_Acc = {
     },
+    Expiacion_Default = {
+        Ammo = 'Ghastly Tathlum +1',--crep pebble
+        Head = 'Nyame Helm',
+        Neck = 'Sanctity Necklace',--jse neck
+        Ear1 = 'Regal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Assim. Jubbah +2',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Gleti\'s Breeches',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+    },
+    Expiacion_Hybrid = {
+        Ammo = 'Staunch Tathlum',
+    },
+    Expiacion_Acc = {
+    },
 	
     Ca = {
-        Feet = 'Assim. Charuqs +1',
+        Feet = 'Assim. Charuqs',
     },
     Ba = {
         Feet = 'Hashi. Basmak +1',
@@ -350,9 +372,14 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Tropical Crepe', Quantity = 'all'},
+    {Name = 'Rolan. Daifuku', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
@@ -477,6 +504,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Savage_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')) end
+        elseif string.match(ws.Name, 'Expiacion') then
+            gFunc.EquipSet(sets.Expiacion_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Expiacion_' .. gcdisplay.GetCycle('MeleeSet')) end
         end
     end
 end

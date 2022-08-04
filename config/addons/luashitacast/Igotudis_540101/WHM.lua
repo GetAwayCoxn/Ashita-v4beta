@@ -78,13 +78,11 @@ sets = T{
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
-        --Body = '',
         Hands = 'Gende. Gages +1',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Prolix Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
-        Legs = 'Lengo Pants',
         Feet = 'Volte Gaiters',
     },
     Cure_Precast = {
@@ -258,9 +256,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 8');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 2');

@@ -115,8 +115,8 @@ function interface.RenderWeaponsTab()
             end
         imgui.EndChild();
 
-        if (imgui.Button('Test')) then
-            interface.manager.Test();
+        if (imgui.Button('Update All Weapons')) then
+            interface.manager.UpdateWeapons();
         end
     imgui.EndGroup();
 end
@@ -260,6 +260,7 @@ function interface.RenderPricesTab()
                     imgui.InputInt('Byne Bills', interface.data.prices['Byne Bills']);
                     imgui.InputInt('Bronze Pieces', interface.data.prices['Bronze Pieces']);
                     imgui.InputInt('T. Whiteshells', interface.data.prices['T. Whiteshells']);
+                    imgui.InputInt('Umbral Marrow', interface.data.prices['Umbral Marrow']);
                 imgui.EndTabItem();
                 end
                 if (imgui.BeginTabItem('MYTHIC CURRENCY', nil)) then

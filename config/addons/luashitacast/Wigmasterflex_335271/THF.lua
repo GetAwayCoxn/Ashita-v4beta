@@ -14,7 +14,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
         Back = 'Repulse Mantle',
-        Waist = 'Hurch\'lan Sash',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Mummu Kecks +1',
         Feet = 'Meg. Jam. +1',
     },
@@ -24,6 +24,9 @@ sets = T{
     },
     Idle_Refresh = {},
     Town = {
+        Main = 'Odium',
+        Sub = 'Sandung',
+        Range = 'Wingcutter',
         Feet = 'Pillager\'s Poulaines',
     },
 
@@ -174,9 +177,16 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Lustreless Wing', Quantity = 'all'},
+    {Name = 'Lustreless Hide', Quantity = 'all'},
+    {Name = 'Lustreless Scale', Quantity = 'all'},
+    {Name = 'Skeleton Key', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-    gcinclude.Initialize:once(3);
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');

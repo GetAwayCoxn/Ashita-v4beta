@@ -1,10 +1,11 @@
-addon.name      = 'HTMB Ashita';
+addon.name      = 'htmb';
 addon.author    = 'towbes, ported to Ashita v4 by GetAwayCoxn';
 addon.version   = '1.0';
-addon.desc      = 'blank';
+addon.desc      = 'htmb';
 addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
 require('common');
+local chat = require('chat')
 --require 'ffxi.recast'
 --require 'logging'
 --require 'timer'
@@ -15,7 +16,7 @@ local objTimer        = 0;    -- The current time used for delaying packets.
 local busy = false
 local insideMenu = false
 local pkt = {};
-local __debug = false
+local __debug = true
 
 
 
@@ -49,7 +50,7 @@ local htmb_map = {
 
 local valid_zones = {
 
-	[231] = {npc="Trisvain", menu=892}, -- Northern San d'Oria
+	[231] = {npc="Trisvain", menu=892, Index =427}, -- Northern San d'Oria
 
 	[236] = {npc="Raving Opossum", menu=429}, -- Port Bastok
 
@@ -66,11 +67,11 @@ local merit_points = 34
 ----------------------------------------------------------------------------------------------------
 local function print_help(cmd, help)
     -- Print the invalid format header..
-    print('\31\200[\31\05' .. addon.name .. '\31\200]\30\01 ' .. '\30\68Invalid format for command:\30\02 ' .. cmd .. '\30\01'); 
+    Message('Invalid format for command: ' .. cmd); 
 
     -- Loop and print the help commands..
     for k, v in pairs(help) do
-        print('\31\200[\31\05' .. addon.name .. '\31\200]\30\01 ' .. '\30\68Syntax:\30\02 ' .. v[1] .. '\30\71 ' .. v[2]);
+        Message('Syntax: ' .. v[1] .. ' ' .. v[2]);
     end
 end
 
@@ -82,7 +83,7 @@ end
 function get_option_index(item)
 	local option = item
 	if htmb_map[option] and htmb_map[option].cost > merit_points then
-		print("\30\68[HTMB]You don't have enough merits");
+		Message("You don't have enough merits");
 		DebugMessage("Merit points: " .. merit_points)
 		return false
 	elseif htmb_map[option] and has_bit(menu_options, option) then
@@ -104,24 +105,22 @@ ashita.events.register('command', 'command_cb', function (e)
 
 	e.blocked = true; 
 
-
 	if (#args >=2 and args[1] == '/htmb') then
 
 		local item = args[3]:lower();
 		-- /htmb buy #    <--- the index number of desired item on htmb_map *0-23
 		if args[2] == 'buy' and args[3] ~= nil then
-
 			if not busy then
 				pkt = validate(item)
-				if pkt then
-					print("\30\68[HTMB]Poking NPC");	
+				if pkt ~= nil then
+					Message("Poking NPC");
 					busy = true
 					local pokeNpcPacket = struct.pack('I2I2I4I2I2', 0x0E1A, 0x0000, pkt['Target'], pkt['Target Index'], 0x0000):totable();
 					table.insert(buyQueue, { 0x01A, pokeNpcPacket});
 				end
 				return true
 			else
-				print("\30\68[HTMB]Stuck in a menu sorry");
+				Message("Stuck in a menu sorry");
 				return true
 			end;
 		end
@@ -140,7 +139,7 @@ end);
 
 ashita.events.register('packet_in', 'packet_in_callback1', function (e)
 	-- Party Member's Status
-	if (e.id == 0x034) and busy and pkt then
+	if (e.id == 0x034) and busy and pkt ~= nil then
 		menu_options = struct.unpack('I4', e.data, 0x0C + 1)
 		merit_points = struct.unpack('b', e.data, 0x10 + 1)
 		insideMenu = true
@@ -150,11 +149,11 @@ ashita.events.register('packet_in', 'packet_in_callback1', function (e)
 			--Get from 034: Zone, Menu ID, 
 			DebugMessage("Got 0x034 packet, Buying the KI")
 			local startPacket = struct.pack('I2I2', 0x0416, 0x0000, AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0), 0):totable();		
-			AshitaCore:GetPacketManager():AddOutgoingPacket(0x016, startPacket)		
+			AshitaCore:GetPacketManager():AddOutgoingPacket(0x016, startPacket)--HERE
 			local buyPacket = struct.pack('I2I2I4bbI2I2bbI2I2', 0x0A5B, 0x0000, pkt['Target'], 0x02, pkt['Option Index'], 0x0000, pkt['Target Index'], 0x00, 0x00, pkt['Zone'], pkt['Menu ID']):totable();
 			table.insert(buyQueue, { 0x05B, buyPacket});
 		else
-			print("\30\68[HTMB]Not enough merits or already have KI");
+			Message("Not enough merits or already have KI");
 			local closePacket = struct.pack('I2I2I4I2I2I2bbI2I2', 0x0A5B, 0x0000, pkt['Target'], 0x0000, 0x0000, pkt['Target Index'], 0x00, 0x00, pkt['Zone'], pkt['Menu ID']):totable();
 			table.insert(buyQueue, { 0x05B, closePacket});
 		end
@@ -187,15 +186,16 @@ function process_queue()
         -- Ensure the queue has something to process..
         if (#buyQueue > 0) then
             -- Obtain the first queue entry..
-            local data = table.remove(buyQueue, 1);
+            local data = table.remove(/l2 , 1);
             -- Send the queued object..
-            AshitaCore:GetPacketManager():AddOutgoingPacket(data[1], data[2]);
-		--[[elseif busy and (#buyQueue < 1) then
+            DebugMessage("Adding process_queue outgoing")
+			AshitaCore:GetPacketManager():AddOutgoingPacket(data[1], data[2]);--HERE
+		elseif busy and (#buyQueue < 1) then
 			DebugMessage("Done buying, closing menu")
-			AshitaCore:GetChatManager():QueueCommand('/sendkey escape down', 1)
-			ashita.timer.once(0.1, escape_up)
-			busy = false
-			insideMenu = false]]
+			--AshitaCore:GetChatManager():QueueCommand('/sendkey escape down', 1)
+			--ashita.timer.once(0.1, escape_up)
+			--busy = false
+			--insideMenu = false
         end
     end
 end
@@ -215,14 +215,14 @@ function validate(item)
 			if (e ~= nil and e.WarpPointer ~= 0) then
 				if (e.Name == GetPlayerEntity().Name) then
 					DebugMessage("Found me")
-					result['me'] = i;
-				elseif e.Name == valid_zones[zone].npc then
+					result['me'] = e;
+				elseif e.TargetIndex == valid_zones[zone].Index then
 					DebugMessage("Found the zone")
 					target_index = e.TargetIndex;
 					target_id = e.ServerId;
 					result['Menu ID'] = valid_zones[zone].menu;	
 					DebugMessage("Menu ID: " .. result['Menu ID'])
-					npc_name = e.Name;			
+					npc_name = e.Name;--not used?
 					distance = e.Distance;
 				end;
 			end
@@ -231,7 +231,11 @@ function validate(item)
 		if math.sqrt(distance) < 15 then
 			DebugMessage("NPC Found, searching for item")
 			local ite = htmb_map[tonumber(item)]
+			if ite then
 			DebugMessage("Item is " .. ite.name)
+			else
+			DebugMessage("Item is NIL")
+			end
 			if ite then
 				result['MapId'] = tonumber(item)
 				result['Target'] = target_id;
@@ -245,16 +249,20 @@ function validate(item)
 				DebugMessage("Zone: " .. result['Zone'])
 			end;
 		else
-			print("\30\68[Sparks]Too far from npc");
+			Message("Too far from npc");
 		end
 	else
-		print("\30\68[Sparks]Not in a zone with a htmb npc");
+		Message("Not in a zone with a htmb npc");
 	end;
 
 	if result['Zone'] == nil then result = nil end;
 	return result;
 end
 
+function Message(m)
+	local str = tostring(m);
+	print(chat.header(addon.name) .. chat.message(str));
+end
 
 function DebugMessage(message)
   if __debug then

@@ -5,6 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Sakpata\'s Fists',
         Head = 'Mpaca\'s Cap',
         Neck = 'Empath Necklace',
         Ear1 = 'Odnowa Earring +1',
@@ -19,6 +20,7 @@ sets = T{
         Feet = 'Mpaca\'s Boots',
     },
     Idle_Pet = {
+        Main = 'Sakpata\'s Fists',
         Head = 'Taeon Chapeau',
         Neck = 'Empath Necklace',
         Ear1 = 'Burana Earring',
@@ -40,7 +42,7 @@ sets = T{
         Head = 'Rawhide Mask',
         Ring2 = 'Stikini Ring +1',
         Waist = 'Fucho-no-Obi',
-        Legs = 'Assid.  Pants +1',
+        Legs = 'Assid. Pants +1',
     },
 	Town = {
         Main = 'Sakpata\'s Fists',
@@ -287,9 +289,14 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    {Name = 'Automat. Oil +3', Quantity = 'all'},
+    {Name = 'Bean Daifuku', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');

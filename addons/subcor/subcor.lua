@@ -8,6 +8,7 @@ require('common');
 local toggle = false;
 local roll = 12;
 local Player = AshitaCore:GetMemoryManager():GetPlayer();
+local Party = AshitaCore:GetMemoryManager():GetParty();
 local me = AshitaCore:GetMemoryManager():GetParty();
 
 
@@ -30,7 +31,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     local Area = AshitaCore:GetResourceManager():GetString("zones.names", me:GetMemberZone(0));
     
     -- Force Disabled under these conditions
-    if (Player:GetIsZoning() ~= 0) or (Area == nil) or (Towns:contains(Area)) or (Player:GetSubJob() ~= 17) or (Player:GetHPPercent() <= 1) then 
+    if (Player:GetIsZoning() ~= 0) or (Area == nil) or (Towns:contains(Area)) or (Player:GetSubJob() ~= 17) or (Party:GetMemberHPPercent(0) <= 1) then 
 		toggle = false;
         print('SubCor Auto Rolling is: ' .. tostring(toggle));
         return;

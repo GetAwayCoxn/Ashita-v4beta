@@ -141,7 +141,6 @@ sets = T{
         Ring1 = 'Kishar Ring',
         Ring2 = 'Prolix Ring',
         Waist = 'Embla Sash',
-        Legs = 'Lengo Pants',
         Feet = 'Amalric Nails +1',
     },
     Cure_Precast = {
@@ -209,7 +208,6 @@ sets = T{
         Neck = 'Loricate Torque +1',--5
         Hands = 'Amalric Gages +1',--11
         Waist = 'Rumination Sash',--10
-        Legs ='Lengo Pants',--10
         Feet = 'Amalric Nails +1',--16
     },
 
@@ -389,6 +387,10 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 local function HandlePetAction(PetAction)
 	if (gcinclude.SmnSkill:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.SmnSkill);
@@ -410,7 +412,7 @@ end
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
     gcinclude.settings.RegenGearHPP = 50;
     gcinclude.settings.RefreshGearMPP = 60;
     gcinclude.settings.PetDTGearHPP = 30;

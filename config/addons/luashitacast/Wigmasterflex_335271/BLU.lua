@@ -33,6 +33,8 @@ sets = T{
         Waist = 'Fucho-no-Obi',
     },
 	Town = {
+        Main = 'Tanmogayi +1',
+        Sub = 'Zantetsuken',
         Ammo = 'Crepuscular Pebble',
         Head = 'Psycloth Tiara',
         Neck = 'Wiglen Gorget',
@@ -46,6 +48,25 @@ sets = T{
         Waist = 'Sailfi Belt +1',
         Legs = 'Carmine Cuisses',
         Feet = 'Aya. Gambieras +2',
+    },
+
+    Evasion = {--this set will be my idle set when in /cj mode for evasion pulling
+        Main = 'Shikargar',
+        Sub = 'Shikargar',
+        Ammo = 'Staunch Tathlum',
+        --Ammo = 'Amar Cluster',--this is on wig atm
+        Head = 'Malignance Chapeau',
+        Neck = 'Bathy Choker +1';
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Infused Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Malignance Gloves',
+        Ring1 = 'Vengeful Ring',
+        Ring2 = 'Ilabrat Ring',--revisit this
+		Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = '"Fast Cast"+10', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'AGI+20', [5] = 'Evasion+25' } },
+        Waist = 'Svelt. Gouriz +1',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
     },
 	
 	Dt = {
@@ -173,6 +194,23 @@ sets = T{
         Legs = 'Jhakri Slops +2',
         Feet = 'Jhakri Pigaches +2',
     },
+    CJmid = {--same as macc set but with weapons since in CJmode we idle in eva swords
+        Main = 'Sakpata\'s Sword',
+        Sub = 'Bunzi\'s Rod',
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Eddy Necklace',
+        Ear1 = 'Lifestorm Earring',
+        Ear2 = 'Psystorm Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Sangoma Ring',
+        Ring2 = 'Ayanmo Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Sacro Cord',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Jhakri Pigaches +2',
+    },
     BluStun = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Jhakri Coronal +2',
@@ -278,6 +316,10 @@ sets = T{
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
+    Salvage = {
+		Main = 'Naegling',
+        Sub = 'Bunzi\'s Rod',
+	},
 	Movement = {
 		Legs = 'Carmine Cuisses',
 	},
@@ -285,9 +327,13 @@ sets = T{
 
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
+profile.Packer = {
+    --{Name = 'Chonofuda', Quantity = 'all'},
+};
+
 profile.OnLoad = function()
     gSettings.AllowAddSet = false;
-	gcinclude.Initialize:once(3);
+	gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
@@ -304,6 +350,7 @@ end
 profile.HandleDefault = function()
 	gFunc.EquipSet(sets.Idle);
 	
+    local zone = gData.GetEnvironment();
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
@@ -316,15 +363,15 @@ profile.HandleDefault = function()
     end
 	
 	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		gFunc.EquipSet(sets.Dt);
-	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
-    gcinclude.CheckDefault ();
-     
+	if (gcdisplay.GetToggle('CJmode') ~= true) then
+        gcinclude.CheckDefault ();
+    end
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
+    --lazy equip weapons for salvage runs
+    if (zone.Area:contains('Remnants')) then
+        gFunc.EquipSet(sets.Salvage);
+    end
 end
 
 profile.HandleAbility = function()
