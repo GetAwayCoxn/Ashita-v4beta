@@ -71,8 +71,9 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 		local mob = GetEntity(k);
 		if mob == nil then 
 			v[2] = false;
-			v[3] = 51;
-			v[4] = 1;
+			v[3] = -1;
+			v[4] = -1;
+			v[6] = 0;
 		else
 			v[1] = mob.Name;
 			v[3] = tonumber(('%2i'):fmt(math.sqrt(mob.Distance)));

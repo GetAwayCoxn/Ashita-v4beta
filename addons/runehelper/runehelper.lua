@@ -190,5 +190,15 @@ ashita.events.register('command', 'command_cb', function (e)
         elseif (manager.enabled == 'Disabled') then
             manager.enabled = 'Enabled';
         end
+    elseif (#args >= 2 and args[2]:any('set')) then
+        local eles = {'fire','ice','wind','earth','thunder','water','light','dark'};
+        for x = 1, #eles do
+            for y = 1, #manager.menu_holders do
+                if args[y+2] == nil then
+                elseif string.lower(args[y+2]) == eles[x] then
+                    manager.menu_holders[y] = x - 1;
+                end
+            end
+        end
     end
 end);

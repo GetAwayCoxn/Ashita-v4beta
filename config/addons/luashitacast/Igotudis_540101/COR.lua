@@ -43,7 +43,9 @@ sets = T{
         Main = 'Naegling',
         Sub = 'Nusku Shield',
         Range = 'Holliday',
+        Ammo = 'Decimating Bullet',
         Head = 'Chass. Tricorne +1',
+        Neck = 'Bathy Choker +1',
         Body = 'Laksa. Frac +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Stikini Ring +1',
@@ -359,8 +361,8 @@ sets = T{
         Hands = 'Chasseur\'s Gants +1',
         Back = 'Camulus\'s Mantle',
     },
-    Fold = {Hands = 'Lanun Gants +2'},
-    WildCard = {Feet = 'Lanun Bottes +2'},
+    Fold = {Hands = 'Lanun Gants +3'},
+    WildCard = {Feet = 'Lanun Bottes +3'},
     RandomDeal = {Body = 'Lanun Frac +2'},
     SnakeEye = {Legs = 'Lanun Trews +2'},
     TH = {--/th will force this set to equip for 10 seconds
@@ -372,7 +374,10 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Decimating Bullet', Quantity = 'all'},
+    {Name = 'Dec. Bul. Pouch', Quantity = 'all'},
+    {Name = 'Trump Card', Quantity = 'all'},
+    {Name = 'Trump Card Case', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

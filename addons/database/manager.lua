@@ -632,6 +632,10 @@ function manager.DisplayMythics()
         imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythicsneeds[3])));
         imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.progress.weapons.mythicsneeds[4])));
         imgui.TableNextColumn();imgui.TextColored(interface.colors.header, 'Est. Gils:');
+        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.prices['Alexandrite'][1])));
+        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.prices['Mulcibar\'s Scoria'][1])));
+        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.prices['Beitetsu'][1])));
+        imgui.TableNextColumn();imgui.Text(tostring(interface.manager.comma_value(interface.data.prices['Sad. Crystals'][1])));
     imgui.EndTable();
 end
 
