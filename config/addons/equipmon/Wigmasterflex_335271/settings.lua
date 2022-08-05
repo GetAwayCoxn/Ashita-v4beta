@@ -12,12 +12,8 @@ settings["visible"] = T{ };
 settings["background"] = T{ };
 settings["ammo_font"] = T{ };
 settings["ammo_font"]["background"] = T{ };
-<<<<<<< Updated upstream
-=======
-settings["y"] = T{ };
->>>>>>> Stashed changes
 settings["x"] = T{ };
-settings["visible"] = T{ };
+settings["y"] = T{ };
 settings["opacity"] = T{ };
 settings["padding"][1] = 1;
 settings["scale"][1] = 1.5;
@@ -38,13 +34,9 @@ settings["ammo_font"]["visible"] = true;
 settings["ammo_font"]["background"]["visible"] = false;
 settings["ammo_font"]["draw_flags"] = 48;
 settings["ammo_font"]["italic"] = false;
-<<<<<<< Updated upstream
 settings["ammo_font"]["color_outline"] = 4278190080;
-=======
-settings["y"][1] = 593;
->>>>>>> Stashed changes
-settings["x"][1] = 1533;
-settings["visible"][1] = true;
+settings["x"][1] = 1539;
+settings["y"][1] = 592;
 settings["opacity"][1] = 1;
 
 return settings;

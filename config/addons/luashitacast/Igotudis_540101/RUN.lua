@@ -235,17 +235,22 @@ sets = T{
     Preshot = {},
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
         Ammo = 'Knobkierrie',
-        Head = 'Adhemar Bonnet +1',
+        Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
         Ear1 = 'Sherida Earring',
         Ear2 = 'Telos Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Petrov Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
+        Legs = 'Nyame Flanchard',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Ws_Hybrid = {
@@ -260,8 +265,9 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Ilabrat Ring',
+        Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Lustratio Subligar',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
@@ -335,7 +341,9 @@ sets = T{
     },
 
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
     Movement = {
         Legs = 'Carmine Cuisses +1',

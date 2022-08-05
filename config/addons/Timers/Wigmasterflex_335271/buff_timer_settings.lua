@@ -21,21 +21,12 @@ settings["padding"][3] = 5;
 settings["padding"][4] = 2;
 settings["font_bg_color"] = 0;
 settings["icon_offset_x"] = 0;
-<<<<<<< Updated upstream
 settings["font_fg_color"] = 4294967295;
-settings["colors"]["color25"] = 4294901760;
 settings["colors"]["color50"] = 4294944333;
-settings["colors"]["color100"] = 4278255360;
-settings["colors"]["color75"] = 4294967091;
-=======
-settings["font_bg_visible"] = false;
+settings["colors"]["color25"] = 4294901760;
 settings["colors"]["color75"] = 4294967091;
 settings["colors"]["color100"] = 4278255360;
-settings["colors"]["color25"] = 4294901760;
-settings["colors"]["color50"] = 4294944333;
->>>>>>> Stashed changes
 settings["bar_width"] = 200;
-settings["font_bg_visible"] = false;
 settings["background"]["width"] = 200;
 settings["background"]["border_sizes"] = "1,1,1,1";
 settings["background"]["color"] = 1073741824;
@@ -43,19 +34,12 @@ settings["background"]["visible"] = false;
 settings["background"]["can_focus"] = false;
 settings["background"]["border_visible"] = false;
 settings["background"]["border_color"] = 4278190080;
-settings["background"]["position_y"] = 433;
-settings["background"]["position_x"] = 243;
-<<<<<<< Updated upstream
 settings["background"]["height"] = 0;
+settings["background"]["position_x"] = 800;
+settings["background"]["position_y"] = 500;
 settings["background"]["locked"] = true;
 settings["background"]["border_flags"] = 15;
-=======
-settings["background"]["locked"] = true;
-settings["background"]["position_y"] = 433;
-settings["background"]["height"] = 0;
-settings["font_family"] = "Arial";
-settings["name_font_offset_x"] = 2;
->>>>>>> Stashed changes
+settings["font_bg_visible"] = false;
 settings["enable_icons"] = true;
 settings["name_font_offset_x"] = 2;
 settings["font_family"] = "Arial";

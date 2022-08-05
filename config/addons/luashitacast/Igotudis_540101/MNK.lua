@@ -97,7 +97,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -108,8 +108,8 @@ sets = T{
         Ear2 = 'Odr Earring',
         Body = 'Mummu Jacket +2',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Niqmaddu Ring',
-        Ring2 = 'Epona\'s Ring',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Segomo\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Moonbow Belt',
         Legs = 'Hiza. Hizayoroi +2',
@@ -136,7 +136,9 @@ sets = T{
     },
 
     TH = {--/th will force this set to equip for 10 seconds
+		Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
     Movement = {
         Feet = 'Herald\'s Gaiters',

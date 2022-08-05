@@ -257,7 +257,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -268,7 +268,7 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Jhakri Cuffs +2',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -291,7 +291,7 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Adhemar Wrist. +1',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
@@ -309,7 +309,7 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Adhemar Wrist. +1',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Legs = 'Gleti\'s Breeches',
@@ -328,7 +328,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Body = 'Assim. Jubbah +2',
         Hands = 'Nyame Gauntlets',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+30', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
@@ -358,6 +358,7 @@ sets = T{
     },
 
     TH = {
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},

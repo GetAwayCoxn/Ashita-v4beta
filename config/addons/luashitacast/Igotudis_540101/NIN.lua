@@ -159,7 +159,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -170,8 +170,8 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Epona\'s Ring',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Hiza. Hizayoroi +2',
@@ -210,8 +210,6 @@ sets = T{
         Ear2 = 'Odr Earring',
         Body = 'Hiza. Haramaki +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Hiza. Hizayoroi +2',
@@ -228,8 +226,6 @@ sets = T{
         Ear2 = 'Lugra Earring +1',
         Body = 'Mummu Jacket +2',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Hiza. Hizayoroi +2',
@@ -255,6 +251,7 @@ sets = T{
     },
 
     TH = {
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},

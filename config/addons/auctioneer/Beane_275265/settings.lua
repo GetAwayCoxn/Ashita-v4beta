@@ -5,7 +5,7 @@ settings["background"] = T{ };
 settings["auction_list"] = T{ };
 settings["font_height"] = 12;
 settings["font_family"] = "Arial";
-settings["visible"] = true;
+settings["position_y"] = 633;
 settings["color"] = 4294967295;
 settings["position_x"] = 695;
 settings["background"]["visible"] = true;
@@ -16,6 +16,6 @@ settings["auction_list"]["empty"] = false;
 settings["auction_list"]["date"] = true;
 settings["auction_list"]["slot"] = true;
 settings["auction_list"]["timer"] = true;
-settings["position_y"] = 633;
+settings["visible"] = true;
 
 return settings;

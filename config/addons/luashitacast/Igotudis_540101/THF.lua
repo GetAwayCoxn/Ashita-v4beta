@@ -32,7 +32,7 @@ sets = T{
         Main = 'Tauret',
         Sub = 'Shijo',
         Range = 'Wingcutter +1',
-        Feet = 'Skulk. Poulaines +1',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
     },
 
     Dt = {
@@ -100,7 +100,7 @@ sets = T{
         Head = 'Malignance Chapeau',
         Neck ='Marked Gorget',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
         Body = 'Mummu Jacket +2',
         Hands = 'Plun. Armlets +3',
         Ring2 = 'Dingir Ring',
@@ -114,7 +114,7 @@ sets = T{
         Ear2 = 'Mache Earring +1',
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -149,7 +149,7 @@ sets = T{
         Ear2 = 'Mache Earring +1',
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -186,7 +186,7 @@ sets = T{
     },
     TH = {
         Hands = 'Plun. Armlets +3',
-        Feet = 'Skulk. Poulaines +1',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
     },
     Flee = {
         Feet = 'Pill. Poulaines +2',

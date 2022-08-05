@@ -174,7 +174,7 @@ ashita.events.register('load', 'load_cb', function()
 
     local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
     if inv_flags == nil or inv_flags < 26143 then 
-        load_delay:once(5);
+        load_delay:once(4);
     else
         load_delay:once(1);
     end
@@ -204,7 +204,7 @@ end;
 function update_weapon()
     local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
     if inv_flags == nil or inv_flags < 26143 then 
-        load_delay:once(5);
+        load_delay:once(4);
         return;
     end;
     local main_weapon = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id;

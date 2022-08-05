@@ -233,7 +233,7 @@ sets = T{
     Preshot = {},
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -244,7 +244,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -262,7 +262,6 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Flam. Manopolas +2',
-        Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Feet = 'Thereoid Greaves',
@@ -278,6 +277,7 @@ sets = T{
         Ear2 = 'Digni. Earring',
         Body = 'Nyame Mail',
         Hands = 'Sakpata\'s Gauntlets',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Sailfi Belt +1',
         Legs = 'Sakpata\'s Cuisses',
@@ -344,6 +344,7 @@ sets = T{
     },
     
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {

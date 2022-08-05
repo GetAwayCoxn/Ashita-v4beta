@@ -91,7 +91,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -102,7 +102,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Ilabrat Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Fotia Belt',
         Legs = 'Nyame Flanchard',
@@ -135,7 +135,9 @@ sets = T{
     },
 
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
     Movement = {
         Feet = 'Herald\'s Gaiters',

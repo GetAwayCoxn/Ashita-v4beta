@@ -146,9 +146,8 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Meg. Gloves +2',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Ring1 = 'Petrov Ring',
-        Back = '',
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
@@ -213,6 +212,7 @@ sets = T{
 	PetMagicAccuracy = {},
 	
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
 	Movement = {

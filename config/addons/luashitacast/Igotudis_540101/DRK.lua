@@ -181,7 +181,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = { -- WSD for all scythe basically
@@ -192,7 +192,7 @@ sets = T{
         Ear2 = 'Thrud Earring',
         Body = 'Hjarrandi Breast.', -- af+3
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Petrov Ring', --regal ring
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -231,6 +231,7 @@ sets = T{
         Body = 'Fall. Cuirass +3',
     },
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {

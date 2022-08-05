@@ -144,7 +144,7 @@ sets = T{
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -155,7 +155,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
@@ -187,6 +187,7 @@ sets = T{
     },
 
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {

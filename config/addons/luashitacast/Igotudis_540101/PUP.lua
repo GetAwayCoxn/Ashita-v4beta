@@ -194,8 +194,8 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Ryuo Tekko',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Ring1 = 'Petrov Ring',
         Back = '',
         Waist = 'Fotia Belt',
         Legs = 'Mpaca\'s Hose',
@@ -213,8 +213,8 @@ sets = T{
         Ear2 = 'Mache Earring +1',
         Body = 'Herculean Vest',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Karieyh Ring +1',
-        Ring2 = 'Niqmaddu Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Ring1 = 'Niqmaddu Ring',
         Waist = 'Moonbow Belt',
         Legs = 'Samnuha Tights',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
@@ -281,6 +281,7 @@ sets = T{
 
 	TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
 	Movement = {
         Feet = 'Hermes\' Sandals',

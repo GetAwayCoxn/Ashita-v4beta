@@ -168,7 +168,7 @@ sets = T{
         Head = 'Malignance Chapeau',
         Neck = 'Comm. Charm +1',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
         Body = 'Laksa. Frac +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Dingir Ring',
@@ -367,6 +367,7 @@ sets = T{
     SnakeEye = {Legs = 'Lanun Trews +2'},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
     Movement = {Legs = 'Carmine Cuisses +1'},
 };

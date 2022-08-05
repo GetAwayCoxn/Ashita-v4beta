@@ -110,10 +110,10 @@ sets = T{
 
 
     Precast = {
-        Ammo = 'Staunch Tathlum',
+        Ammo = 'Sapience Orb',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
-        Ear2 = 'Malignance Earring',
+        Ear2 = 'Loquac. Earring',
         Hands = 'Leyline Gloves',
         Ring2 = 'Prolix Ring',
     },
@@ -126,10 +126,11 @@ sets = T{
     },
 
     Preshot = {
+        Ring1 = 'Crepuscular Ring',
     },
     Midshot = {
         Ear1 = 'Telos Earring',
-        Ear2 = 'Enervating Earring',
+        Ear2 = 'Crep. Earring',
     },
 
     Ws_Default = {
@@ -140,8 +141,8 @@ sets = T{
         Ear2 = 'Schere Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Karieyh Ring +1',
-        Ring2 = 'Niqmaddu Ring',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Hiza. Hizayoroi +2',
@@ -163,7 +164,7 @@ sets = T{
         Body = 'Kasuga Domaru +1',
         Hands = 'Wakido Kote +3',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Karieyh Ring +1',
+        Ring2 = 'Beithir Ring',
         Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
         Legs = 'Mpaca\'s Hose',
@@ -178,7 +179,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
         Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
@@ -244,7 +245,7 @@ sets = T{
         Ear2 = 'Schere Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
         Hands = 'Mpaca\'s Gloves',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
@@ -287,6 +288,7 @@ sets = T{
     },
 
     TH = {--/th will force this set to equip for 10 seconds
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {
