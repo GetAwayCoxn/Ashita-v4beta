@@ -69,6 +69,7 @@ sets = T{
     Precast = {
         Head = 'Herculean Helm',
         Neck = 'Voltsurge Torque',
+        Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
         Hands = 'Leyline Gloves',
         Ring1 = 'Prolix Ring',
