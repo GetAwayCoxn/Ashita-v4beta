@@ -14,6 +14,13 @@ settings["red"] = "|cFFFF0000|";
 settings["background"]["visible"] = true;
 settings["background"]["color"] = 4278190080;
 settings["color"] = 4294967295;
+<<<<<<< Updated upstream
+=======
+settings["visible"] = false;
+settings["position_x"] = 500;
+settings["green"] = "|cFF00FF00|";
+settings["yellow"] = "|cFFFFFF00|";
+>>>>>>> Stashed changes
 settings["font_family"] = "Arial";
 settings["yellow"] = "|cFFFFFF00|";
 settings["green"] = "|cFF00FF00|";

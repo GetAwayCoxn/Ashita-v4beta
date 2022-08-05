@@ -12,6 +12,10 @@ settings["y"] = T{ };
 settings["background"] = T{ };
 settings["ammo_font"] = T{ };
 settings["ammo_font"]["background"] = T{ };
+<<<<<<< Updated upstream
+=======
+settings["visible"] = T{ };
+>>>>>>> Stashed changes
 settings["x"] = T{ };
 settings["visible"] = T{ };
 settings["opacity"] = T{ };
@@ -34,7 +38,11 @@ settings["ammo_font"]["visible"] = true;
 settings["ammo_font"]["background"]["visible"] = false;
 settings["ammo_font"]["draw_flags"] = 48;
 settings["ammo_font"]["italic"] = false;
+<<<<<<< Updated upstream
 settings["ammo_font"]["color_outline"] = 4278190080;
+=======
+settings["visible"][1] = true;
+>>>>>>> Stashed changes
 settings["x"][1] = 1533;
 settings["visible"][1] = true;
 settings["opacity"][1] = 1;

@@ -128,11 +128,19 @@ settings["Show"]["weapon"][22] = "RUN";
 settings["aeonic"] = false;
 settings["display"]["pos"]["y"] = 550;
 settings["display"]["pos"]["x"] = 1040;
+<<<<<<< Updated upstream
 settings["display"]["size"] = 10;
 settings["display"]["color"] = -1;
 settings["display"]["bgcolor"] = 1711276032;
 settings["display"]["font"] = "Consolas";
 settings["display"]["bg"] = true;
+=======
+settings["display"]["bg"] = true;
+settings["display"]["color"] = -1;
+settings["display"]["size"] = 10;
+settings["display"]["font"] = "Consolas";
+settings["display"]["bgcolor"] = 1711276032;
+>>>>>>> Stashed changes
 settings["color"] = false;
 
 return settings;

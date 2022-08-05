@@ -5,7 +5,11 @@ settings["background"] = T{ };
 settings["auction_list"] = T{ };
 settings["font_height"] = 12;
 settings["font_family"] = "Futura";
+<<<<<<< Updated upstream
 settings["position_y"] = 700;
+=======
+settings["position_x"] = 700;
+>>>>>>> Stashed changes
 settings["color"] = 4294967295;
 settings["visible"] = true;
 settings["background"]["visible"] = true;

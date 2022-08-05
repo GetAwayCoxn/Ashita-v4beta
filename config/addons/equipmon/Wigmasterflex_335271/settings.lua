@@ -8,10 +8,14 @@ settings["slots"]["theme"] = T{ };
 settings["slots"]["show_ammo_count"] = T{ };
 settings["slots"]["show_bg"] = T{ };
 settings["slots"]["show_encumbrance"] = T{ };
-settings["y"] = T{ };
+settings["visible"] = T{ };
 settings["background"] = T{ };
 settings["ammo_font"] = T{ };
 settings["ammo_font"]["background"] = T{ };
+<<<<<<< Updated upstream
+=======
+settings["y"] = T{ };
+>>>>>>> Stashed changes
 settings["x"] = T{ };
 settings["visible"] = T{ };
 settings["opacity"] = T{ };
@@ -21,7 +25,7 @@ settings["slots"]["theme"][1] = 0;
 settings["slots"]["show_ammo_count"][1] = true;
 settings["slots"]["show_bg"][1] = false;
 settings["slots"]["show_encumbrance"][1] = true;
-settings["y"][1] = 593;
+settings["visible"][1] = true;
 settings["background"]["visible"] = false;
 settings["background"]["can_focus"] = false;
 settings["background"]["locked"] = true;
@@ -34,7 +38,11 @@ settings["ammo_font"]["visible"] = true;
 settings["ammo_font"]["background"]["visible"] = false;
 settings["ammo_font"]["draw_flags"] = 48;
 settings["ammo_font"]["italic"] = false;
+<<<<<<< Updated upstream
 settings["ammo_font"]["color_outline"] = 4278190080;
+=======
+settings["y"][1] = 593;
+>>>>>>> Stashed changes
 settings["x"][1] = 1533;
 settings["visible"][1] = true;
 settings["opacity"][1] = 1;
