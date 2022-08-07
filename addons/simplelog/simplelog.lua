@@ -27,6 +27,19 @@ addon.link      = 'https://github.com/Spike2D/SimpleLog';
 
 require('common');
 require('lib\\constants');
+
+--[[local old = T{
+    [0x00A] = {},
+    [0x28] = {},
+    [0x020] = {},
+    [0x00E] = {},
+    [0x00B] = {},
+    [0x29] = {},
+    [0x030] = {},
+    [0x06F] = {},
+    [0x01B] = {},};]]
+local old = T{};
+
 chat				= require('chat');
 UTF8toSJIS			= require('lib\\shift_jis')
 
@@ -58,7 +71,23 @@ ashita.events.register('text_in', 'text_in_cb', function (e)
 end);
 
 ashita.events.register('packet_in', 'packet_in_cb', function (e)
-	gPacketHandlers.HandleIncomingPacket(e);
+    if old[e.id] == nil then
+        --print('First')
+        old[e.id] = e;
+        gPacketHandlers.HandleIncomingPacket(e);
+        return;
+    end
+    v = old[e.id];
+    if v.data == e.data then
+        --print('packet blocked')
+        e.blocked = true;
+        return;
+    else
+        --print('packet clear')
+        old[e.id] = e;
+	    gPacketHandlers.HandleIncomingPacket(e);
+        return;
+    end
 end);
 
 ashita.events.register('packet_out', 'packet_out_cb', function (e)

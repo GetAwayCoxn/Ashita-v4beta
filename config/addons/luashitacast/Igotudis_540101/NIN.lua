@@ -265,6 +265,7 @@ sets = T{
         Main = 'Levin',
         Main = 'Burrower\'s Wand',
         Main = 'Qutrub Knife',
+        Main = 'Twinned Blade',
     },
 };
 

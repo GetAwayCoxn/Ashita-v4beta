@@ -30,8 +30,6 @@ gcinclude.sets = T{
 		Ring2 = 'Craftmaster\'s Ring',
     },
 	Zeni = { -- this set is meant as a default set for pictures, equip using /zeniset
-		Main = 'Excalipoor',
-		Sub = 'Genmei Shield',
 		Range = 'Soultrapper 2000',
 		Ammo = 'Blank Soulplate',
 		Head = 'Malignance Chapeau',

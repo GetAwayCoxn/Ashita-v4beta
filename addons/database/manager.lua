@@ -1199,7 +1199,7 @@ function manager.DisplayAFGearNeed()
         imgui.Text('Raxa');imgui.TableNextColumn();
         imgui.Text('Twill Damask');imgui.TableNextColumn();
         imgui.Text('Siren\'s Hair');imgui.TableNextColumn();
-        imgui.Text('Ori Sheet');imgui.TableNextColumn();
+        imgui.Text('Ocl. Sheet');imgui.TableNextColumn();
         imgui.Text('Durium Sheet');imgui.TableNextColumn();
         imgui.Text('Dama Ingot');imgui.TableNextColumn();
         imgui.Text('Items');imgui.TableNextColumn();

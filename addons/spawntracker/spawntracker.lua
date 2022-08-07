@@ -90,10 +90,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 			end
 		end
 		
-		if v[4] == 0 and deathCheck then 
+		if v[4] == 0 and deathCheck == true then 
 			v[6] = os.clock();
 			deathCheck = false;
-			print(tostring(v[6]) .. tostring(k))
+			--print(tostring(v[6]) .. tostring(k))
 		end
 
 		t = t + 1;
