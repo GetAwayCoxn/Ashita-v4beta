@@ -55,7 +55,7 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
 	    local target = GetEntity(index);
         if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
         local count = tonumber(string.match(e.message,'%d+'));
-        mobs[index] = {target.Name, target.HPPercent, count};
+        mobs[index] = {target.Name, target.HPPercent, count, true, os.time()};
     elseif (e.message:contains('hit') or e.message:contains('ranged attack') or e.message:contains('RA')) and e.message:contains(me) then
         local index = AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0);
         if index == nil then return end;
@@ -76,7 +76,7 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
         end
         if target == nil then return end;
         if count > mobs[index][3] then
-            mobs[index] = {target.Name, target.HPPercent, count};
+            mobs[index] = {target.Name, target.HPPercent, count, true, os.time()};
         end
     end
 end);
@@ -89,6 +89,10 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 	end
 
     if not osd.visible then
+        return;
+    end
+
+    if player:GetMainJob(0) ~= 6 and player:GetSubJob(0) ~= 6 then
         return;
     end
 
@@ -153,6 +157,11 @@ function update()
             end
         end
 
-        if v[2] == 0 then mobs[k] = nil end
+        if v[2] == 0 and v[4] then 
+            v[4] = not v[4]
+            v[5] = os.time();
+        end
+
+        if os.time() - v[5] > 15 then mobs[k] = nil end;
     end
 end

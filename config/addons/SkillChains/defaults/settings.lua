@@ -126,13 +126,13 @@ settings["Show"]["weapon"][20] = "SCH";
 settings["Show"]["weapon"][21] = "GEO";
 settings["Show"]["weapon"][22] = "RUN";
 settings["aeonic"] = false;
-settings["display"]["pos"]["y"] = 500;
-settings["display"]["pos"]["x"] = 0;
-settings["display"]["size"] = 10;
-settings["display"]["color"] = -1;
+settings["display"]["pos"]["y"] = 510;
+settings["display"]["pos"]["x"] = 1037;
 settings["display"]["bg"] = true;
-settings["display"]["bgcolor"] = 1711276032;
+settings["display"]["color"] = -1;
 settings["display"]["font"] = "Consolas";
+settings["display"]["bgcolor"] = 1711276032;
+settings["display"]["size"] = 10;
 settings["color"] = false;
 
 return settings;
