@@ -163,7 +163,7 @@ sets = T{
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Sakpata\'s Cuisses',
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Valorous Greaves',
     },
     Ws_Hybrid = {
         Body = 'Hjarrandi Breast.',

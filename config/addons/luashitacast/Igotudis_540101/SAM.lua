@@ -146,7 +146,7 @@ sets = T{
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Hiza. Hizayoroi +2',
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Valorous Greaves',
     },
     Ws_Hybrid = {
         Body = 'Nyame Mail',
@@ -184,7 +184,7 @@ sets = T{
         Back = 'Solemnity Cape',
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Mpaca\'s Hose',
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Valorous Greaves',
     },
     Savage_Hybrid = {
         Body = 'Nyame Mail',
@@ -250,7 +250,7 @@ sets = T{
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Mpaca\'s Hose',
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Valorous Greaves',
     },
     Stardiver_Hybrid = {
         Body = 'Nyame Mail',
