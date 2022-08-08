@@ -186,6 +186,11 @@ sets = T{
     Aedge_Acc = {
     },
 
+    Jumps_Default = {
+    },
+    Jumps_Hybrid = {},
+    Jumps_Acc = {},
+
     TH = {--/th will force this set to equip for 10 seconds
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -240,6 +245,12 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if (string.contains(ability.Name, 'Jump')) then
+        gFunc.EquipSet(sets.Jumps_Default);
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Jumps_' .. gcdisplay.GetCycle('MeleeSet')); end
+    end
 
     gcinclude.CheckCancels();
 end

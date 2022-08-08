@@ -71,7 +71,7 @@ ashita.events.register('text_in', 'text_in_cb', function (e)
 end);
 
 ashita.events.register('packet_in', 'packet_in_cb', function (e)
-    if old[e.id] == nil then
+    --[[if old[e.id] == nil then
         --print('First')
         old[e.id] = e;
         gPacketHandlers.HandleIncomingPacket(e);
@@ -87,7 +87,8 @@ ashita.events.register('packet_in', 'packet_in_cb', function (e)
         old[e.id] = e;
 	    gPacketHandlers.HandleIncomingPacket(e);
         return;
-    end
+    end]]
+    gPacketHandlers.HandleIncomingPacket(e);
 end);
 
 ashita.events.register('packet_out', 'packet_out_cb', function (e)

@@ -153,6 +153,7 @@ sets = T{
         Neck = 'Comm. Charm +1',
         Body = 'Laksa. Frac +2',
         Hands = 'Lanun Gants +3',--13
+        Ring1 = 'Crepuscular Ring',--3
         Back = { Name = 'Camulus\'s Mantle', Augment = '"Snapshot"+10' },--10
         Waist = 'Impulse Belt',--3
         Legs = 'Ikenga\'s Trousers',--8
@@ -486,9 +487,9 @@ profile.HandlePreshot = function()
 
     gFunc.EquipSet(sets.Preshot);
 
-    if flurryII < 0 then
+    if flurryII > 0 then
         gFunc.EquipSet(sets.Preshot_FlurryII);
-    elseif flurryI < 0 then
+    elseif flurryI > 0 then
         gFunc.EquipSet(sets.Preshot_FlurryI);
     end
 end

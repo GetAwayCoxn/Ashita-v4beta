@@ -147,7 +147,7 @@ end
 
 function update()
     for k,v in pairs(mobs) do
-        v[2] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k);
+        v[2] = AshitaCore:GetMemoryManager():GetEntity():GetHPPercent(k) or 0;
         
         if tonumber(('%2i'):fmt(math.sqrt(AshitaCore:GetMemoryManager():GetEntity():GetDistance(k)))) > 50 then v[2] = 0 end;
         

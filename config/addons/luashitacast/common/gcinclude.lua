@@ -713,7 +713,7 @@ end
 
 function gcinclude.Initialize()
 	local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
-    if inv_flags == nil or inv_flags < 26143 then 
+    if inv_flags == nil or inv_flags < 262143 then 
         gcdisplay.Initialize:once(8);
 		gcinclude.SetVariables:once(8);
 		gcinclude.SetAlias:once(8);
