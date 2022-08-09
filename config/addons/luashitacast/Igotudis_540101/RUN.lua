@@ -7,19 +7,19 @@ sets = T{
     Idle = {
         Main = 'Epeolatry',
         Sub = 'Utu Grip',
-        Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
-        Neck ='Unmoving Collar +1',
-        Ear1 = 'Odnowa Earring +1',
-        Ear2 = 'Etiolation Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
-        Ring1 = 'Moonbeam Ring',
-        Ring2 = 'Gelatinous Ring +1',
+        Ammo = 'Staunch Tathlum',--2
+        Head = 'Nyame Helm',--7
+        Neck ='Futhark Torque +1',--2 currently
+        Ear1 = 'Odnowa Earring +1',--3
+        Ear2 = 'Eabani Earring',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Nyame Gauntlets',--7
+        Ring1 = 'Moonbeam Ring',--4
+        Ring2 = 'Defending Ring',--10
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
         Waist = 'Carrier\'s Sash',
-        Legs = 'Nyame Flanchard',
-        Feet = 'Nyame Sollerets',
+        Legs = 'Nyame Flanchard',----8
+        Feet = 'Nyame Sollerets',--7
     },
     Resting = {},
     Idle_Regen = {
@@ -48,18 +48,19 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
 
-    Dt = {--43 dt, 11 pdt, 3mdt
+    Dt = {
         Ammo = 'Staunch Tathlum',--2
         Head = 'Nyame Helm',--7
-        Neck ='Loricate Torque +1',--6
-        Ear1 = 'Odnowa Earring +1',--2 currently
-        Ear2 = 'Etiolation Earring',--3mdt
-        Body = 'Agwu\'s Robe',
+        Neck ='Futhark Torque +1',--4 currently
+        Ear1 = 'Odnowa Earring +1',--3
+        Ear2 = 'Eabani Earring',
+        --Body = 'Nyame Mail',--9
+        Body = 'Agwu\'s Robe',--replace with Runeist coat +3
         Hands = 'Nyame Gauntlets',--7
         Ring1 = 'Moonbeam Ring',--4
-        Ring2 = 'Gelatinous Ring +1',--7pdt
+        Ring2 = 'Defending Ring',--10
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Waist = 'Flume Belt +1',--4pdt
+        Waist = 'Carrier\'s Sash',
         Legs = 'Nyame Flanchard',----8
         Feet = 'Nyame Sollerets',--7
     },
@@ -110,23 +111,35 @@ sets = T{
         --Sub = 'Refined Grip +1',--3
         Ammo = 'Staunch Tathlum',--2
         Head ='Nyame Helm',--7
-        Neck = 'Unmoving Collar +1',
-        --Neck = 'Loricate Torque +1',
-        --Neck = 'Futhark Torque +1',
+        Neck = 'Futhark Torque +1',
         Ear1 = 'Odnowa Earring +1',--2
         Ear2 = 'Ethereal Earring',--3kinda
         --Ear2 = 'Hermodr Earring',--dragon points, 10 parry skill
         Body = 'Futhark Coat +3',--9
         Hands = 'Turms Mittens',
         Ring1 = 'Moonbeam Ring',--4
-        Ring2 = 'Gelatinous Ring +1',--7
+        Ring2 = 'Defending Ring',--7
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
         Waist = 'Flume Belt +1',
         Legs = 'Eri. Leg Guards +1',-- PDT 7
         Feet = 'Turms Leggings',--7
         },
     Tank_MEVA = {
+        Main = 'Epeolatry',--Aettir technically better here
+        --Sub = 'Refined Grip +1',
+        Ammo = 'Staunch Tathlum',
+        Head ='Nyame Helm',
+        Neck = 'Futhark Torque +1',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Eabani Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Purity Ring',
+        Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },--want diff cape here
         Waist = 'Carrier\'s Sash',
+        Legs = 'Agwu\'s Slops',
+        Feet = 'Nyame Sollerets',
     },
 
 
@@ -214,12 +227,12 @@ sets = T{
     },
     Enhancing = {
         Head = 'Erilaz Galea +1',
-        --Neck = 'Incanter\'s Torque',--not gonna push me into next teir atm anyways
+        Neck = 'Incanter\'s Torque',
         Legs = 'Futhark Trousers +1',
     },
     Phalanx = {
         Head = 'Fu. Bandeau +1', -- 5
-        --Neck = 'Incanter\'s Torque',--not gonna push me into next teir atm anyways
+        Neck = 'Incanter\'s Torque',
     },
     Stoneskin = {
         Waist = 'Siegel Sash',
@@ -353,7 +366,8 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Om. Sandwich', Quantity = 'all'},
+    {Name = 'Black Curry Bun', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
@@ -424,14 +438,14 @@ profile.HandlePrecast = function()
     local vall = gData.GetBuffCount('Vallation');
     gFunc.EquipSet(sets.Precast)
 
+    if (val >= 1) or (vall >= 1) then
+        gFunc.EquipSet(sets.Precast_Inspiration);
+    end
+
     if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing_Precast);
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);
-    end
-
-    if (val >= 1) or (vall >= 1) then
-        gFunc.EquipSet(sets.Precast_Inspiration);
     end
 
     gcinclude.CheckCancels();

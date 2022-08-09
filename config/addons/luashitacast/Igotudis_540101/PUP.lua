@@ -196,7 +196,6 @@ sets = T{
         Hands = 'Ryuo Tekko',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = '',
         Waist = 'Fotia Belt',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',

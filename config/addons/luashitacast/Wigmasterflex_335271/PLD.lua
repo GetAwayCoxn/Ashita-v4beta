@@ -7,7 +7,7 @@ sets = T{
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Sulevia\'s Mask +1',
-        Neck = 'Wiglen Gorget',
+        Neck = 'Creed Collar',
         Ear1 = 'Creed Earring',
         Ear2 = 'Ethereal Earring',
         Body = 'Rev. Surcoat +1',
@@ -30,7 +30,7 @@ sets = T{
         Body = 'Jumalik Mail',
     },
     Town = {
-        Main = 'Tanmogayi',
+        Main = 'Tanmogayi +1',
         Sub = 'Ochain',
         Ammo = 'Staunch Tathlum',
         Head = 'Rev. Coronet +1',
@@ -105,7 +105,7 @@ sets = T{
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
         --Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Enmity+10', [2] = 'Eva.+20', [3] = 'HP+60', [4] = 'Mag. Eva.+20' } },
-        Back = 'Rudianos\'s Mantle',
+        Back = 'Repulse Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
         Feet = 'Sulev. Leggings +1',
@@ -148,13 +148,14 @@ sets = T{
     Enhancing_Precast = {
         Waist = 'Siegel Sash',
     },
-    SIR = {--10 merits,45 gear
+    SIR = {--10 merits,84 gear
         Ammo = 'Staunch Tathlum',--10
         Head = 'Yorium Barbuta',--9
         Neck = 'Moonbeam Necklace',--10
         Back = 'Rudianos\'s Mantle',--10
         Waist = 'Rumination Sash',--10
-        Legs = 'Carmine Cuisses',--15
+        Legs = 'Carmine Cuisses',--15, need founders!
+        Feet = 'Odyssean Greaves',--20
     },
     Enmity = {
         Ammo = 'Sapience Orb',--2
@@ -195,17 +196,19 @@ sets = T{
         Legs = 'Flamma Dirs +1', -- 5
         Feet = 'Odyssean Greaves',
     },
-    Reprisal = {
-        Ammo = 'Staunch Tathlum',
-        Neck = 'Moonbeam Necklace',
+    Reprisal = {--values are SIR
+        Ammo = 'Staunch Tathlum',--10
+        Head = 'Yorium Barbuta',--9
+        Neck = 'Moonbeam Necklace',--10
         Ear1 = 'Creed Earring',
         Ear2 = 'Cryptic Earring',
         Body = 'Shabti Cuirass',
         Ring1 = 'K\'ayres Ring',
         Ring2 = 'Defending Ring',
-        Back = 'Rudianos\'s Mantle',
-        Waist = 'Audumbla Sash',
-        Feet = 'Eschite Greaves',
+        Back = 'Rudianos\'s Mantle',--10
+        Waist = 'Rumination Sash',--10
+        Legs = 'Carmine Cuisses',--15, need founders!
+        Feet = 'Odyssean Greaves',--20
     },
     Flash = {
         Ammo = 'Sapience Orb',
@@ -233,7 +236,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Waist = 'Fotia Belt',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Flam. Gambieras +1',
+        Feet = 'Odyssean Greaves',--wsd6 aug
     },
     Ws_Hybrid = {
     },
@@ -256,7 +259,7 @@ sets = T{
         Ear2 = 'Moonshade Earring',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Odyssean Greaves',
     },
     Savage_Hybrid = {
     },
@@ -293,7 +296,7 @@ sets = T{
         Ring2 = 'Karieyh Ring +1',
         Waist = 'Fotia Belt',
         Legs = 'Augury Cuisses +1',
-        Feet = 'Nyame Sollerets',
+        Feet = 'Odyssean Greaves',
     },
     Aedge_Hybrid = {},
     Aedge_Acc = {},

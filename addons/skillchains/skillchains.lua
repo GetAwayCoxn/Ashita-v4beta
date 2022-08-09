@@ -173,8 +173,8 @@ ashita.events.register('load', 'load_cb', function()
     initialize();
 
     local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
-    if inv_flags == nil or inv_flags < 262143 then 
-        load_delay:once(3);
+    if inv_flags == nil or inv_flags < 26143 then 
+        load_delay:once(4);
     else
         load_delay:once(1);
     end
@@ -203,8 +203,10 @@ end;
 
 function update_weapon()
     local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
-    if inv_flags == nil or inv_flags < 262143 then 
-        load_delay:once(3);
+    if inv_flags == 0 or (inv_flags > 5000 and inv_flags < 262143) then 
+        --print(tostring(inv_flags))
+        --print('SC: delay loading')
+        load_delay:once(4);
         return;
     end;
     local main_weapon = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(info.main_bag, info.main).Id;
@@ -428,13 +430,13 @@ ashita.events.register('packet_in', 'packet_in_cb', function(e)
         end
     -- Equip - Main
     elseif e.id == 0x50 and setting.weapon and e.data:byte(6) == 0 then
-        --print('packet_in - 0x50.0'); --debug
+        --print('SC: packet_in - 0x50.0'); --debug
         info.main = e.data:byte(5);
         info.main_bag = e.data:byte(7);
         update_weapon();
     -- Equip - Range
     elseif e.id == 0x50  and setting.weapon and e.data:byte(6) == 2 then --this keeps crashing addon on first log in/load
-        --print('packet_in - 0x50.2'); --debug
+        --print('SC: packet_in - 0x50.2'); --debug
         info.range = e.data:byte(5);
         info.range_bag = e.data:byte(7);
         update_weapon();

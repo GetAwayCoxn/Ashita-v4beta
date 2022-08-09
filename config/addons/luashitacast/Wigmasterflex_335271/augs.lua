@@ -1,21 +1,17 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = 'Emeici +1',
-        Range = 'Neo Animator',
-        Ammo = 'Automat. Oil +3',
-        Head = { Name = 'Anwig Salade', Augment = { [1] = 'Accuracy+3', [2] = 'Pet: Damage taken -10%', [3] = 'Attack+3', [4] = 'Pet: Haste+5' } },
-        Neck = 'Shulmanu Collar',
-        Ear1 = 'Guignol Earring',
+        Main = { Name = 'Malevolence', Augment = { [1] = '"Mag. Atk. Bns."+7', [2] = 'INT+3', [3] = 'Mag. Acc.+5' } },
+        Sub = { Name = 'Ochain', AugTrial=4399 },
+        Ammo = 'Staunch Tathlum',
+        Neck = 'Wiglen Gorget',
         Ear2 = 'Ethereal Earring',
-        Body = 'Tali\'ah Manteel +1',
-        Hands = 'Tali\'ah Gages +1',
-        Ring1 = 'Defending Ring',
-        Ring2 = 'Facility Ring',
-        Back = 'Shadow Mantle',
-        Waist = 'Kuku Stone',
-        Legs = 'Tali\'ah Sera. +1',
-        Feet = 'Tali\'ah Crackows +1',
+        Hands = 'Sulev. Gauntlets +1',
+        Ring1 = 'K\'ayres Ring',
+        Ring2 = 'Defending Ring',
+        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Mag. Eva.+20', [2] = 'Spell interruption rate down-10%', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
+        Legs = { Name = 'Carmine Cuisses', AugPath='D' },
+        Feet = { Name = 'Odyssean Greaves', Augment = { [1] = '"Mag. Atk. Bns."+3', [2] = 'Accuracy+4', [3] = 'Rng.Acc.+8', [4] = 'Mag. Acc.+3', [5] = 'Pet: Attack+26', [6] = 'Pet: Rng.Atk.+26', [7] = 'Attack+4', [8] = 'Weapon skill damage +6%' } },
     },
 };
 
