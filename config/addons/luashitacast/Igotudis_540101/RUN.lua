@@ -168,7 +168,7 @@ sets = T{
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
         Waist = 'Audumbla Sash',
-        Legs = 'Futhark Trousers +1',
+        Legs = 'Futhark Trousers +2',
         Feet = 'Agwu\'s Pigaches',
     },
     Cure_Precast = {
@@ -176,7 +176,7 @@ sets = T{
     },
     Enhancing_Precast = {
         Waist = 'Siegel Sash', -- 8
-        Legs = 'Futhark Trousers +1', -- 13
+        Legs = 'Futhark Trousers +2', -- 13
     },
     SIR = {--10 merits + 88 
         Ammo = 'Staunch Tathlum', -- 10
@@ -223,12 +223,12 @@ sets = T{
     },
     Regen = {
         Neck = 'Sacro Gorget',
-        Legs = 'Futhark Trousers +1',
+        Legs = 'Futhark Trousers +2',
     },
     Enhancing = {
         Head = 'Erilaz Galea +1',
         Neck = 'Incanter\'s Torque',
-        Legs = 'Futhark Trousers +1',
+        Legs = 'Futhark Trousers +2',
     },
     Phalanx = {
         Head = 'Fu. Bandeau +1', -- 5
