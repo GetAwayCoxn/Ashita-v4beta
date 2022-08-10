@@ -6,13 +6,13 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Head = 'Malignance Chapeau',
-        Neck ='Unmoving Collar +1',
+        Neck = 'Bathy Choker +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
         Ring1 = 'Moonbeam Ring',
-        Ring2 = 'Gelatinous Ring +1',
+        Ring2 = 'Chirich Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Flume Belt +1',
         Legs = 'Gleti\'s Breeches',
@@ -31,8 +31,7 @@ sets = T{
     Town = {
         Main = 'Tauret',
         Sub = 'Shijo',
-        Range = 'Wingcutter +1',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
+        Ammo = 'Coiste Bodhar',
     },
 
     Dt = {
@@ -61,7 +60,7 @@ sets = T{
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = { Name = 'Samnuha Tights', Augment = { [1] = 'STR+5', [2] = '"Triple Atk."+1', [3] = 'DEX+5' } },
+        Legs = 'Samnuha Tights',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
     },
     Tp_Hybrid = {
@@ -207,8 +206,8 @@ profile.Packer = {
     'Odious Pen',
     'Odious Skull',
     'Odious Horn',
-    'Forgotten Hope',
-    'Frgtn. Thought',
+    {Name = 'Forgotten Hope', Quantity = 'all'},
+    {Name = 'Frgtn. Thought', Quantity = 'all'},
     'Shrouded Bijou',
     {Name = 'T. Whiteshell', Quantity = 'all'},
     {Name = 'L. Jadeshell', Quantity = 'all'},
@@ -225,8 +224,6 @@ profile.OnLoad = function()
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
-
-    gcinclude.settings.RegenGearHPP = 75;
 end
 
 profile.OnUnload = function()

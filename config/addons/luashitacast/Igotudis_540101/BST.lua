@@ -97,7 +97,8 @@ sets = T{
         Neck = 'Empath Necklace',
         Ear1 = 'Mache Earring +1',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Cacoethic Ring +1',
+        Ring1 = 'Varar Ring +1',
+        Ring2 = 'C. Palug Ring',
     },
 	Tp_Acc = {
         Ring1 = 'Cacoethic Ring +1',
@@ -109,6 +110,8 @@ sets = T{
         Neck = 'Shulmanu Collar',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Domes. Earring',
+        Ring1 = 'Varar Ring +1',
+        Ring2 = 'C. Palug Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
@@ -203,6 +206,8 @@ sets = T{
         Ear2 = 'Domes. Earring',
 		Body = 'Gleti\'s Cuirass',
         Hands = 'Nukumi Manoplas +1',
+        Ring1 = 'Varar Ring +1',
+        Ring2 = 'C. Palug Ring',
 		Waist = 'Incarnation Sash',
         Legs = 'Taeon Tights',
         Feet = 'Gleti\'s Boots',
@@ -222,7 +227,12 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Pet Food Theta', Quantity = 'all'},
+    {Name = 'Furious Broth', Quantity = 'all'},
+    {Name = 'Poisonous Broth', Quantity = 'all'},
+    {Name = 'Livid Broth', Quantity = 'all'},
+    {Name = 'Crackling Broth', Quantity = 'all'},
+    {Name = 'Dire Broth', Quantity = 'all'},
 };
 
 local function HandlePetAction(PetAction)
@@ -244,6 +254,8 @@ profile.OnLoad = function()
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 10');
+
+    gcinclude.settings.RefreshGearMPP = 50;
 end
 
 profile.OnUnload = function()

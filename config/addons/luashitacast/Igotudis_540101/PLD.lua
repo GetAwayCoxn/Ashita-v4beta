@@ -112,7 +112,7 @@ sets = T{
     Tank_MEVA = {
         Ammo = 'Staunch Tathlum',
         Head = 'Nyame Helm',
-        Neck = 'Moonlight Necklace', -- 15
+        Neck = 'Warder\'s Charm +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
@@ -120,7 +120,7 @@ sets = T{
         Ring1 = 'Vengeful Ring',
         Ring2 = 'Purity Ring',
         Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
-        Waist = 'Asklepian Belt',
+        Waist = 'Carrier\'s Sash',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -309,7 +309,7 @@ sets = T{
     Aedge_Default = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
-        Neck = 'Baetyl Necklace',
+        Neck = 'Baetyl Pendant',
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',

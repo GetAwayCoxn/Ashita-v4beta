@@ -342,7 +342,7 @@ sets = T{
     },
 	
     Ca = {
-        Feet = 'Assim. Charuqs',
+        Feet = 'Assim. Charuqs +1',
     },
     Ba = {
         Feet = 'Hashi. Basmak +1',

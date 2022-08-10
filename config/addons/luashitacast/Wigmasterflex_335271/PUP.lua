@@ -6,12 +6,10 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 sets = T{
     Idle = {
         Main = 'Emeici +1',
-        Range = 'Animator P',
-        Ammo = 'Automat. Oil +3',
         Neck = 'Wiglen Gorget',
         Ear1 = 'Ethereal Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Heka\'s Kalasiris',
+        Body = 'Vrikodara Jupon',
         Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Defending Ring',
         Ring2 = 'Sheltered Ring',
@@ -30,7 +28,7 @@ sets = T{
         Ring2 = 'Sheltered Ring',
     },
     Idle_Refresh = {
-        Body = 'Heka\'s Kalasiris',
+        Body = 'Vrikodara Jupon',
     },
 	Town = {
         Range = 'Neo Animator',
@@ -77,18 +75,24 @@ sets = T{
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Head = 'Herculean Helm',
+        Head = 'Karagoz Capello +1',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
-        Ring1 = 'Epona\'s Ring',
+        Body = 'Tali\'ah Manteel +1',
+        Hands = 'Tali\'ah Gages +1',
+        Ring1 = 'Tali\'ah Ring',
         Ring2 = 'Hizamaru Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Kuku Stone',
+        Legs = 'Tali\'ah Sera. +1',
+        Feet = 'Tali\'ah Crackows +1',
     },
 	Tp_Hybrid = {
     },
 	Tp_Acc = {
+        Ring1 = 'Tali\'ah Ring',
+        Ring2 = 'Hizamaru Ring',
     },
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
@@ -102,7 +106,7 @@ sets = T{
     },
     Mage = {
         Range = 'Animator P II',
-        Neck = 'Empath Necklace',
+        --Neck = 'Empath Necklace',
         Ring1 = 'Defending Ring',
     },
 
@@ -111,6 +115,7 @@ sets = T{
         Neck = 'Voltsurge Torque',
         Ear1 = 'Loquac. Earring',
         Ear2 = 'Etiolation Earring',
+        Body = 'Vrikodara Jupon',
         Ring2 = 'Prolix Ring',
         Back = 'Swith Cape',
         Waist = 'Siegel Sash',
@@ -140,7 +145,8 @@ sets = T{
         Head = 'Herculean Helm',
         Neck = 'Light Gorget',
         Body = 'Abnoba Kaftan',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Epona\'s Ring',
+        Ring2 = 'Rajas Ring',
         Waist = 'Fotia Belt',
     },
     Ws_Hybrid = {
@@ -170,9 +176,10 @@ sets = T{
         Ear1 = 'Guignol Earring',
 	},
     Maneuver = {
-        Ear1 = 'Burana Earring',
-        Body = 'Kara. Farsetto +1',
-        Hands = 'Foire Dastanas +1',
+        --Ear1 = 'Burana Earring',
+        --Body = 'Kara. Farsetto +1',
+        --Hands = 'Foire Dastanas +1',
+        Neck = 'Buffoon\'s Collar',
         Back = 'Visucius\'s Mantle',
 	},
     Overdrive = {-- this set will force on the ability AND stay on for the duration of OD, dont change the body out because of that
@@ -180,16 +187,16 @@ sets = T{
         Ammo = 'Automat. Oil +3',
         Head = 'Karagoz Capello +1',
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Domes. Earring',
-        Body = 'Pitre Tobe +3',
-        Hands = 'Mpaca\'s Gloves',
+        --Ear1 = 'Enmerkar Earring',
+        --Ear2 = 'Domes. Earring',
+        --Body = 'Pitre Tobe +3',
+        --Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
-        Legs = 'Nyame Flanchard',
-        Feet = 'Mpaca\'s Boots',
+        --Legs = 'Nyame Flanchard',
+        --Feet = 'Mpaca\'s Boots',
     },
 
 	TH = {--/th will force this set to equip for 10 seconds

@@ -82,6 +82,8 @@ function gcauto.SetAlias()
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /maj /lac fwd maj');
 	elseif (player.MainJob == 'BLU') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /natmed /lac fwd natmed');
+	elseif (player.MainJob == 'THF') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /feint /lac fwd feint');
 	elseif (player.MainJob == 'NIN') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /yonin /lac fwd yonin');
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /innin /lac fwd innin');
@@ -107,6 +109,10 @@ function gcauto.SetAlias()
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /stance /lac fwd stance');
 	end
 
+	if (player.SubJob == 'DRG') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /jumps /lac fwd jumps');
+	end
+
 	if (equip.Main == nil) then return;--this isnt working on log in
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /am3 /lac fwd am3');
@@ -130,6 +136,8 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('MAJ', true);
 	elseif (player.MainJob == 'BLU') then
 		gcdisplay.CreateToggle('NatMed', false);
+	elseif (player.MainJob == 'THF') then
+		gcdisplay.CreateToggle('Feint', false);
 	elseif (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('Yonin', false);
 		gcdisplay.CreateToggle('Innin', false);
@@ -156,6 +164,10 @@ function gcauto.SetVariables()
 		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba III',});
 	elseif (player.SubJob == 'DNC') then
 		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba II',});
+	end
+
+	if (player.SubJob == 'DRG') then
+		gcdisplay.CreateToggle('Jumps', true);
 	end
 
 	if (equip.Main == nil) then return;--this isnt working on log in
@@ -189,10 +201,11 @@ function gcauto.SetCommands(args)
 	
 
 	if (player.MainJob == 'PLD') then
-		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ')
-	end
+		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ') end
 	elseif (player.MainJob == 'BLU') then
 		if (args[1] == 'natmed') then gcdisplay.AdvanceToggle('NatMed') end
+	elseif (player.MainJob == 'THF') then
+		if (args[1] == 'feint') then gcdisplay.AdvanceToggle('Feint') end
 	elseif (player.MainJob == 'NIN') then
 		if (args[1] == 'yonin') and (gcdisplay.GetToggle('Innin') == true) then 
 			gcdisplay.AdvanceToggle('Yonin');
@@ -232,6 +245,10 @@ function gcauto.SetCommands(args)
 		end
 	end
 
+	if (player.SubJob == 'DRG') then
+		if (args[1] == 'jumps') then gcdisplay.AdvanceToggle('Jumps') end;
+	end
+
 	if (equip == nil) then return;--this isnt working on log in
 	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
 		if (args[1] == 'am3') then gcdisplay.AdvanceToggle('AM3') end
@@ -251,7 +268,7 @@ function gcauto.CheckRemedy()
 	local muddle = gData.GetBuffCount('Muddle');
 	if muddle >= 1 then return false end;
 
-	local blind = gData.GetBuffCount('Blind');
+	local blind = 0;--gData.GetBuffCount('Blind');
 	local paralyze = gData.GetBuffCount('Paralysis');
 	
 	if (blind+paralyze >= 1) then
@@ -442,6 +459,11 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Nat.Meditation" <me>')
 			end
 		end
+	elseif (player.MainJob == 'THF') then
+		local feint = gData.GetBuffCount('Feint');
+		if (feint == 0) and (gcauto.CheckAbilityRecast('Feint') <= 0) and (gcdisplay.GetToggle('Feint') == true) and (player.Status == 'Engaged') then	
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Feint" <me>')
+		end
 	elseif (player.MainJob == 'NIN') then
 		local yonin = gData.GetBuffCount('Yonin');
 		local innin = gData.GetBuffCount('Innin');
@@ -597,8 +619,7 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "aggressor" <me>');
 			end
 		end
-	end
-	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
+	elseif (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		local hasso = gData.GetBuffCount('Hasso');
 		local seigan = gData.GetBuffCount('Seigan');
 		
@@ -610,16 +631,14 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "hasso" <me>');
 			end
 		end
-	end
-	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+	elseif (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		local lr = gData.GetBuffCount('Last Resort');
 		local berserk = gData.GetBuffCount('Berserk');
 
 		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Last Resort" <me>');
 		end
-	end
-	if (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
+	elseif (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
 		local temp = gcdisplay.GetCycle('Stance');
 		if (temp ~= 'None') and (temp ~= 'Unknown') then
 			local buff = gData.GetBuffCount(temp);
@@ -634,6 +653,14 @@ function gcauto.DoJobStuff()
 			if buff == nil then return end;
 			if (buff == 0) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 500) and (player.Status == 'Engaged') and (targetHPP < 99) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
+			end
+		end
+	elseif (player.SubJob == 'DRG') then
+		if (player.Status == 'Engaged') and (gcdisplay.GetToggle('Jumps') == true) and (player.TP < 950) then
+			if (gcauto.CheckAbilityRecast('Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Jump" <t>');
+			elseif (gcauto.CheckAbilityRecast('High Jump') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "High Jump" <t>');
 			end
 		end
 	end

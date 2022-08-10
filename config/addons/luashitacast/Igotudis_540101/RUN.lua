@@ -129,7 +129,7 @@ sets = T{
         --Sub = 'Refined Grip +1',
         Ammo = 'Staunch Tathlum',
         Head ='Nyame Helm',
-        Neck = 'Futhark Torque +1',
+        Neck = 'Warder\'s Charm +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Eabani Earring',
         Body = 'Nyame Mail',
@@ -409,6 +409,10 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+    local runes = T{'Ignis','Gelus','Flabra','Tellus','Sulpor','Unda','Lux','Tenebrae',};
+    
+    if runes:contains(ability.Name) then return end
+
     gFunc.EquipSet(sets.Enmity);
 
     if string.match(ability.Name, 'Swipe') or string.match(ability.Name, 'Lunge') then
@@ -440,9 +444,7 @@ profile.HandlePrecast = function()
 
     if (val >= 1) or (vall >= 1) then
         gFunc.EquipSet(sets.Precast_Inspiration);
-    end
-
-    if (spell.Skill == 'Enhancing Magic') then
+    elseif (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing_Precast);
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure_Precast);
@@ -453,7 +455,7 @@ end
 
 profile.HandleMidcast = function()--sloppy set handling here, need to clean this up
     local spell = gData.GetAction();
-    local bat = gData.GetBuffCount('Battuta');
+
     gFunc.EquipSet(sets.SIR);
     gFunc.EquipSet(sets.Enhancing);
 
@@ -471,7 +473,7 @@ profile.HandleMidcast = function()--sloppy set handling here, need to clean this
         gFunc.EquipSet(sets.SIRenmity);
     end
 
-    if (bat == 0) and (gcdisplay.GetToggle('SIR') == true) then
+    if (gcdisplay.GetToggle('SIR') == true) then
         gFunc.EquipSet(sets.SIR);
     end
 end

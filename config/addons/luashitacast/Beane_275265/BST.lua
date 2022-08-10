@@ -96,6 +96,7 @@ sets = T{
     },
 
     Precast = {
+        Neck = 'Voltsurge Torque',
         Ear2 = 'Etiolation Earring',
         Body = 'Taeon Tabard',
         Legs = 'Limbo Trousers',

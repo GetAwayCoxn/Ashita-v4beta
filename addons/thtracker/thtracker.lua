@@ -1,7 +1,7 @@
 addon.name      = 'thtracker';
 addon.author    = 'GetAwayCoxn';
 addon.version   = '1.0';
-addon.desc      = 'tracks TH on mobs, several TH trackers out there but this is not a port';
+addon.desc      = 'tracks TH on mobs, this is not a port';
 addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
@@ -13,6 +13,8 @@ local osd = T{};
 local mobs = T{};-- [id] = {name,HPP,THcount}
 local defaults = T{
 	visible = true,
+    displayTime = 15,
+    deadColor = '|cFFFF0000|';
 	font_family = 'Arial',
 	font_height = 12,
 	color = 0xFFFFFFFF,
@@ -49,6 +51,10 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
     local player = AshitaCore:GetMemoryManager():GetPlayer();
 
+    if not (player:GetMainJob(0) == 6 or player:GetSubJob(0) == 6) then
+        return;
+    end;--kick out of not on THF or /THF
+
     if e.message:contains('Treasure Hunter') or e.message:contains('AE: TH') then
         local index = AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0);
         if index == nil then return end;
@@ -61,21 +67,23 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
         if index == nil then return end;
 	    local target = GetEntity(index);
         if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
+        if mobs[index] ~= nil and mobs[index][3] >=9 then return end;--kick out if already at TH9 or above
         local count = 0;
-        if mobs[index] == nil or mobs[index][3] >=4 then return end;--kick out if already at TH4 or above
-        if player:GetMainJob(0) == 6 then--need to add a offset for gear bonus then adjust the for checks below to 8/4
+        if player:GetMainJob(0) == 6 then--need to add a offset for gear bonus then adjust the for checks below,for now assumes max TH gear if THF main @99, and no TH gear otherwise
             if player:GetMainJobLevel(0) >= 90 then
                 count = 8;
-            elseif player:GetMainJobLevel(0) >= 45 then
-                count = 3;
             else
-                count = 2;
+                count = 4;
             end
         elseif player:GetSubJob(0) == 6 then
-            count = 2;
+            count = 4;
         end
         if target == nil then return end;
-        if count > mobs[index][3] then
+        if mobs[index] ~= nil then 
+            if count > mobs[index][3] then
+                mobs[index] = {target.Name, target.HPPercent, count, true, os.time()};
+            end
+        else
             mobs[index] = {target.Name, target.HPPercent, count, true, os.time()};
         end
     end
@@ -92,9 +100,9 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         return;
     end
 
-    if player:GetMainJob(0) ~= 6 and player:GetSubJob(0) ~= 6 then
+    if not (player:GetMainJob(0) == 6 or player:GetSubJob(0) == 6) then
         return;
-    end
+    end;--kick out of not on THF or /THF
 
     local t = 0;
     display.text = '';
@@ -108,7 +116,12 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         end
         
         local mob = GetEntity(k);
-        display.text = display.text .. '\n' .. v[1] .. '(' .. tostring(k) .. ')  HPP: ' .. tostring(v[2]) .. '  TH: ' .. tostring(v[3]);
+
+        if v[2] == 0 then
+            display.text = display.text .. osd.deadColor .. '\n' .. v[1] .. '(' .. tostring(k) .. ')  HPP: ' .. tostring(v[2]) .. '  TH: ' .. tostring(v[3]);
+        else
+            display.text = display.text .. '\n' .. v[1] .. '(' .. tostring(k) .. ')  HPP: ' .. tostring(v[2]) .. '  TH: ' .. tostring(v[3]);
+        end
         
     end
 
@@ -117,6 +130,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         osd.position_y = display.position_y;
         settings.save();
     end
+
     update();
 end);
 
@@ -129,21 +143,10 @@ ashita.events.register('command', 'command_cb', function (e)
 
     e.blocked = true;
 
-    if args[2] == 'test' then
-        test(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
-    elseif args[2] == 'update' then
-        update();
+    if args[2] == 'time' then
+        osd.displayTime = tonumber(args[3]) or defaults.displayTime;
     end
 end);
-
-function test(index)
-    if index == nil then return end;
-	local target = GetEntity(index);
-	if target == nil then return end;
-    local item = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(1);
-    local item2 = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(item.Index);
-    print(tostring(item2.Id))
-end
 
 function update()
     for k,v in pairs(mobs) do
@@ -162,6 +165,6 @@ function update()
             v[5] = os.time();
         end
 
-        if os.time() - v[5] > 15 then mobs[k] = nil end;
+        if os.time() - v[5] > osd.displayTime and v[2] == 0 then mobs[k] = nil end;
     end
 end
