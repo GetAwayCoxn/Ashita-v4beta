@@ -32,7 +32,7 @@ ashita.events.register('unload', 'unload_cb', function ()
 end);
 
 ashita.events.register('d3d_present', 'present_cb', function() 
-	if settings.visible == false then 
+	if Display.visible == false then 
 		return;
 	end
 
@@ -44,7 +44,7 @@ ashita.events.register('d3d_present', 'present_cb', function()
     local target = GetEntity(AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0));
 
     if (target ~= nil) then
-        Display.text = target.Name .. '   ' .. tostring(target.ServerId) .. '   ' .. tostring(target.TargetIndex) .. '   ' .. ('%.2f'):fmt(target.MovementSpeed);
+        Display.text = target.Name .. '   ' .. tostring(target.ServerId) .. '   ' .. tostring(target.TargetIndex)
     else
         Display.text = '';
     end
@@ -55,7 +55,10 @@ ashita.events.register('command', 'command_cb', function (e)
     if (args[1] ~= '/targetinfo') and (args[1] ~= '/ti') then
         return;
     end
+
+    e.blocked = true;
+
     if (args[1] == '/targetinfo') or (args[1] == '/ti') then
-        settings.visible = not settings.visible;
+        Display.visible = not Display.visible;
     end
 end);

@@ -1,6 +1,6 @@
 addon.name      = 'nomnom';
 addon.author    = 'GetAwayCoxn';
-addon.version   = '1.00';
+addon.version   = '1.03';
 addon.desc      = 'Eats food.';
 addon.link      = 'https://github.com/GetAwayCoxn/';
 
@@ -22,6 +22,9 @@ local settings = T{
     foods = T{},
 };
 local towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',
+};
+local exclusions = T{--array containing item names to be excluded
+    'Air Rider','Brilliant Snow','Crackler','Festive Fan','Gysahl Bomb','Kongou Inaho','Marine Bliss','Muteppo','Popper','Shisai Kaboku','Spirit Masque','Airborne','Bubble Breeze','Datechochin','Flarelet','Ichinintousen Koma','Konron Hassen','Meifu Goma','Ouka Ranman','Popstar','Slime Rocket','Spore Bomb','Angelwing','Cracker','Falling Star','Goshikitenge','Komanezumi','Little Comet','Mog Missile','Papillion','Rengedama','Sparkling Hand','Spriggan Spark','Summer Fan','Twinkle Shower',
 };
 
 ashita.events.register('load', 'load_cb', function()
@@ -49,13 +52,14 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     
     -- Do Work here if Enabled and before the is_open check
     if (settings.enabled == 'Enabled') then
-        -- Find out if full already or not
+        -- Find out if full already or not and other bad things
         local buffs = AshitaCore:GetMemoryManager():GetPlayer():GetBuffs();
         for _, buff in pairs(buffs) do
             local buffString = AshitaCore:GetResourceManager():GetString("buffs.names", buff);
-			if (buffString ~= nil) and (buffString == 'Food') then
+			if (buffString ~= nil) and (buffString == 'Food') and not full then
                 full = true;
-            elseif (buffString ~= nil) and ((buffString == 'Mounted') or (buffString == 'Weakness') or(buffString == 'Sleep') or (buffString == 'Charm') or (buffString == 'Terror') or (buffString == 'Paralysis') or (buffString == 'Stun') or (buffString == 'Petrification') or me.HPPercent <= 5) then
+            end
+            if (buffString ~= nil) and ((buffString == 'Mounted') or (buffString == 'Weakness') or (buffString == 'Sleep') or (buffString == 'Charm') or (buffString == 'Terror') or (buffString == 'Paralysis') or (buffString == 'Stun') or (buffString == 'Petrification') or me.HPPercent <= 5) then
                 return;
             end
         end
@@ -80,9 +84,13 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     end
 
     imgui.SetNextWindowSize(settings.size);
+    if imgui.IsWindowHovered(ImGuiHoveredFlags_AnyWindow) then
+        if imgui.IsMouseDoubleClicked(ImGuiMouseButton_Left) then
+            settings.is_open[1] = not settings.is_open[1];
+        end
+    end
     if (imgui.Begin('NomNom', settings.is_open, ImGuiWindowFlags_NoDecoration)) then
         imgui.Indent(100);imgui.TextColored(settings.text_color, 'Nom Nom !');
-        imgui.ShowHelp('Some fireworks will show up here for now, so just don\'t select that stuff');
         imgui.Indent(-100);
         imgui.Spacing();
         local selection = {settings.menu_holder[1] + 1};
@@ -147,7 +155,7 @@ function FindFood()
         local item = AshitaCore:GetMemoryManager():GetInventory():GetContainerItem(0, i); --0 for actual inventory only
         if (item ~= nil) then
             local check = AshitaCore:GetResourceManager():GetItemById(item.Id);
-            if check ~= nil and check.Flags == 1548 then
+            if check ~= nil and check.Flags == 1548 and NotExcluded(check) then
                 foods[#foods + 1] = {check.Name[1],CountItemId(item.Id)};
                 if not list:contains(check.Name[1]) then
                     list = list .. check.Name[1] .. '\0';
@@ -157,6 +165,13 @@ function FindFood()
     end
     settings.list = list;
     return foods;
+end
+
+function NotExcluded(item)--exclusion checks, return false if dont want in the foods list
+    if item.Name[1]:contains('Crystal') or item.Name[1]:contains('Cluster') or item.Name[1]:contains('Egg') or exclusions:contains(item.Name[1]) then
+        return false;
+    end
+    return true;
 end
 
 ashita.events.register('command', 'command_cb', function (e)

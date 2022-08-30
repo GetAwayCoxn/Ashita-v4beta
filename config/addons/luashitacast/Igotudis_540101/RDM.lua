@@ -6,9 +6,9 @@ sets = T{
     Idle = {
         Main = 'Bolelabunga',
         Sub = 'Genmei Shield',
-        Ammo = 'Staunch Tathlum',
+        Range = 'Kaja Bow',
         Head = 'Malignance Chapeau',
-        Neck = 'Loricate Torque +1',
+        Neck = 'Warder\'s Charm +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Atrophy Tabard +2',
@@ -16,7 +16,7 @@ sets = T{
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Solemnity Cape',
-        Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
+        Waist = 'Carrier\'s Sash',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
@@ -28,7 +28,6 @@ sets = T{
         Ring2 = 'Chirich Ring +1',
     },
     Idle_Refresh = {
-        Ammo = 'Homiliary',
         Head = 'Viti. Chapeau +2',
         Body = 'Atrophy Tabard +2',
         Feet = 'Volte Gaiters',
@@ -37,7 +36,7 @@ sets = T{
         Main = 'Excalibur',
         Sub = 'Genmei Shield',
         Range = 'Kaja Bow',
-        Head = { Name = 'Viti. Chapeau +2', AugTrial=5250 },
+        Head = 'Atro. Chapeau +1',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
@@ -71,7 +70,7 @@ sets = T{
     Tp_Default = {
         Main = 'Excalibur',
         Sub = 'Genmei Shield',
-        Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
+        Ammo = 'Coiste Bodhar',
         Head = 'Malignance Chapeau',
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
@@ -94,22 +93,17 @@ sets = T{
     },
 
 
-    Precast = {
-        Main = 'Sakpata\'s Sword',
-        Sub = 'Ammurapi Shield',
-        Ammo = 'Sapience Orb',
-        Head = 'Haruspex Hat',
-        Neck = 'Baetyl Pendant',
-        Ear1 = 'Etiolation Earring',
-        Ear2 = 'Malignance Earring',
-        Body = 'Viti. Tabard +3',
-        Hands = { Name = 'Gende. Gages +1', Augment = { [1] = 'Phys. dmg. taken -4%', [2] = 'Song spellcasting time -5%' } },
-        Ring1 = 'Kishar Ring',
-        Ring2 = 'Prolix Ring',
-        Back = 'Swith Cape +1',
-        Waist = 'Embla Sash',
-        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },
-        Feet = 'Volte Gaiters',
+    Precast = {--30 from traits, 53 from gear
+        Head = 'Atro. Chapeau +1',--12
+        Neck = 'Baetyl Pendant',--4
+        Ear1 = 'Etiolation Earring',--1
+        Ear2 = 'Malignance Earring',--4
+        Body = 'Viti. Tabard +3',--15
+        Ring1 = 'Kishar Ring',--4
+        Ring2 = 'Prolix Ring',--2
+        Waist = 'Embla Sash',--5
+        Legs = { Name = 'Carmine Cuisses +1', AugPath='D' },--SIR
+        Feet = 'Volte Gaiters',--6
     },
     Cure_Precast = {
         Ear1 = 'Mendi. Earring',
@@ -124,24 +118,22 @@ sets = T{
     },
 
 
-    Cure = {
-        Main = 'Bunzi\'s Rod',
+    Cure = {--I cap is 50, II cap is 30
+        Main = 'Bunzi\'s Rod',--I 30
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Vanya Hood', AugPath='C' },
-        Neck = 'Incanter\'s Torque',
-        Ear1 = 'Mendi. Earring',
+        Neck = 'Nodens Gorget',--I 5
+        Ear1 = 'Mendi. Earring',--I 5
         Ear2 = 'Regal Earring',
-        Body = { Name = 'Gende. Bliaut +1', Augment = { [1] = 'Magic dmg. taken -3%', [2] = 'Phys. dmg. taken -3%', [3] = '"Cure" potency +5%' } },
-        Hands = 'Weath. Cuffs +1',
+        Hands = 'Telchine Gloves',--I 9
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
+        Back = 'Solemnity Cape',--I 7
         Waist = 'Rumination Sash',
-        Legs = 'Atrophy Tights',
+        Legs = 'Atrophy Tights +1',--I 10 and skill
         Feet = { Name = 'Medium\'s Sabots', Augment = { [1] = 'MND+6', [2] = '"Conserve MP"+5', [3] = 'MP+40', [4] = '"Cure" potency +3%' } },
     },
-    Self_Cure = {
+    Self_Cure = {--cap 30
         Waist = 'Gishdubar Sash',
     },
     Regen = {
@@ -159,7 +151,7 @@ sets = T{
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
-        Neck = 'Incanter\'s Torque',
+        Neck = 'Dls. Torque +1',
         Ear1 = 'Mendi. Earring',
         Ear2 = 'Andoaa Earring',
         Body = 'Viti. Tabard +3',
@@ -168,7 +160,7 @@ sets = T{
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Sucellos\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+20', [3] = 'DEX+20' } },
         Waist = 'Embla Sash',
-        Legs = { Name = 'Telchine Braconi', Augment = { [1] = 'Enh. Mag. eff. dur. +8', [2] = '"Conserve MP"+4' } },
+        Legs = 'Telchine Braconi',
         Feet = 'Leth. Houseaux +1',
     },
     Self_Enhancing = {},
@@ -189,7 +181,7 @@ sets = T{
         Sub = 'Ammurapi Shield',
         Range = 'Kaja Bow',
         Head = 'Viti. Chapeau +2',
-        Neck = 'Erra Pendant',
+        Neck = 'Dls. Torque +1',
         Ear1 = 'Snotra Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Lethargy Sayon +1',
@@ -218,7 +210,7 @@ sets = T{
         Main = 'Bunzi\'s Rod',
         Sub = 'Ammurapi Shield',
         Range = 'Kaja Bow',
-        Head = { Name = 'Viti. Chapeau +2', AugTrial=5250 },
+        Head = 'Viti. Chapeau +2',
         Neck = 'Erra Pendant',
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
@@ -340,7 +332,8 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Tropical Crepe', Quantity = 'all'},
+    {Name = 'Rolan. Daifuku', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

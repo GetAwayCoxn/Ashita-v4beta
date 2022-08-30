@@ -6,13 +6,14 @@ sets = T{
     Idle = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Valorous Mask',
-        Neck = 'Loricate Torque +1',
+        Neck = 'Bathy Choker +1',
         Ear1 = 'Telos Earring',
         Ear2 = 'Cessance Earring',
         Body = 'Hjarrandi Breast.',
         Hands = 'Volte Moufles',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Defending Ring',
         Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Nyame Sollerets',
@@ -40,7 +41,7 @@ sets = T{
         Hands = 'Volte Moufles',
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Chirich Ring +1',
-        Back = 'Cichol\'s Mantle',
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Hermes\' Sandals',
@@ -65,14 +66,14 @@ sets = T{
     Tp_Default = {
         Ammo = { Name = 'Coiste Bodhar', AugPath='A' },
         Head = 'Flam. Zucchetto +2',
-        Neck = 'Sanctity Necklace',
-        Ear1 = 'Telos Earring',
+        Neck = 'War. Beads +1',
+        Ear1 = 'Brutal Earring',
         Ear2 = 'Cessance Earring',
         Body = 'Flamma Korazin +2',
-        Hands = 'Flam. Manopolas +2',
-        Ring1 = 'Petrov Ring',
-        Ring2 = 'Niqmaddu Ring',
-        Back = 'Cichol\'s Mantle',
+        Hands = 'Sulev. Gauntlets +2',
+        Ring1 = 'Niqmaddu Ring',
+        Ring2 = 'Chirich Ring +1',
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Tatena. Sune. +1',
@@ -157,10 +158,10 @@ sets = T{
         Ear1 = 'Thrud Earring',
         Ear2 = 'Schere Earring',
         Body = 'Hjarrandi Breast.',
-        Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
+        Hands = 'Valorous Mitts',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'STR+30', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Sakpata\'s Cuisses',
         Feet = 'Valorous Greaves',
@@ -181,7 +182,7 @@ sets = T{
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Shiva Ring +1',
         Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Eschan Stone',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -190,10 +191,66 @@ sets = T{
     },
     Aedge_Acc = {
     },
+    Savage_Default = {
+        Ammo = 'Knobkierrie',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
+        Neck = 'War. Beads +1',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Schere Earring',
+        Body = 'Nyame Mail',--AF+3
+        Hands = 'Valorous Mitts',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Waist = 'Fotia Belt',
+        Legs = 'Sakpata\'s Cuisses',--Valorous
+        Feet = 'Sulev. Leggings +2',
+    },
+    Savage_Hybrid = {
+    },
+    Savage_Acc = {
+    },
+    Impulse_Default = {
+        Ammo = 'Knobkierrie',
+        Head = { Name = 'Valorous Mask', Augment = { [1] = 'Attack+16', [2] = 'Weapon skill damage +10%', [3] = 'Accuracy+16', [4] = 'Pet: Mag. Acc.+1', [5] = 'Pet: STR+4' } },
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Schere Earring',
+        Body = 'Nyame Mail',--AF+3
+        Hands = 'Valorous Mitts',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Cichol\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Waist = 'Fotia Belt',
+        Legs = 'Sakpata\'s Cuisses',--Valorous
+        Feet = 'Sulev. Leggings +2',
+    },
+    Impulse_Hybrid = {
+    },
+    Impulse_Acc = {
+    },
 
     Tomahawk = {
         Ammo = 'Thr. Tomahawk',
 	},
+    Warcry = {
+        Head = 'Agoge Mask +1',
+	},
+    Aggressor = {
+        Head = 'Pumm. Mask +1',
+        Body = 'Agoge Lorica +1',
+	},
+    Defender = {
+        Hands = 'Agoge Mufflers +1',
+	},
+    Berserk = {
+        Body = 'Pumm. Lorica +1',
+        Feet = 'Agoge Calligae +1',
+	},
+    BloodRage = {
+        Body = 'Boii Lorica +1',
+	},
+
     TH = {--/th will force this set to equip for 10 seconds
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -206,7 +263,7 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Thr. Tomahawk', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
@@ -250,7 +307,12 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if ability.Name == 'Tomahawk' then gFunc.EquipSet(sets.Tomahawk) end;
+    if ability.Name == 'Tomahawk' then gFunc.EquipSet(sets.Tomahawk);
+    elseif ability.Name == 'Berserk' then gFunc.EquipSet(sets.Berserk);
+    elseif ability.Name == 'Aggressor' then gFunc.EquipSet(sets.Aggressor);
+    elseif ability.Name == 'Warcry' then gFunc.EquipSet(sets.Warcry);
+    elseif ability.Name == 'Defender' then gFunc.EquipSet(sets.Defender);
+    elseif ability.Name == 'Blood Rage' then gFunc.EquipSet(sets.BloodRage) end;
 
     gcinclude.CheckCancels();
 end
@@ -314,6 +376,16 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+            if (gcdisplay.GetCycle('MeleeSet') == 'Default') then gcinclude.DoMoonshade() end;
+        elseif string.match(ws.Name, 'Savage Blade') then
+            gFunc.EquipSet(sets.Savage_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
+            if (gcdisplay.GetCycle('MeleeSet') == 'Default') then gcinclude.DoMoonshade() end;
+        elseif string.match(ws.Name, 'Impulse Drive') then
+            gFunc.EquipSet(sets.Impulse_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Impulse_' .. gcdisplay.GetCycle('MeleeSet')); end
             if (gcdisplay.GetCycle('MeleeSet') == 'Default') then gcinclude.DoMoonshade() end;
         end
     end

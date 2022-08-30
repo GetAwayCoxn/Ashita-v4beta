@@ -24,44 +24,65 @@
 --(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 --SOFTWARE, EVEN IFIF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-_addon.name = 'Ashita Roller'
-_addon.version = '0.2'
-_addon.author = 'Selindrile, thanks to: Balloon and Lorand - Ashita port by towbes - Big thanks to matix for action parsing code'
+--_addon.name = 'Ashita Roller'
+--_addon.version = '0.2'
+--_addon.author = 'Selindrile, thanks to: Balloon and Lorand - Ashita port by towbes - Big thanks to matix for action parsing code'
 
-require 'common'
-require 'buffsmap'
-require 'job_abilities'
-require 'ffxi.recast'
-require 'logging'
-require 'timer'
+addon.name      = 'Ashita Roller'
+addon.author    = 'Selindrile, thanks to: Balloon and Lorand - Ashita port by towbes - Big thanks to matix for action parsing code'
+addon.version   = '1.0';
+addon.desc      = 'blank';
+addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
-rollDelay        = 1 -- The delay to prevent spamming rolls , 3 seconds
-rollTimer        = 0;    -- The current time used for delaying packets.
-defaults = {}
-defaults.Roll1 = 304
-defaults.Roll2 = 106
-defaults.showdisplay = true
-defaults.displayx = nil
-defaults.displayy = nil
-defaults.engaged = false
-zonedelay = 6
-stealthy = false
-was_stealthy = ''
+require('common')
+local settingsLIB = require('settings')
+--require('buffsmap')
+--require('job_abilities')
+--require('ffxi.recast')
+--require('logging')
+--require('timer')
 
-zoning_bool = false
-lastRoll = 0
-lastRollCrooked = false
-midRoll = false
-rollerTimeout = 0 -- Used to timeout if we haven't rolled in a while, will set midRoll to false
+local rollDelay        = 1 -- The delay to prevent spamming rolls , 3 seconds
+local rollTimer        = 0;    -- The current time used for delaying packets.
 
-haveRoll1 = false
-haveRoll2 = false
-haveBust = false
-canDouble = false
+local defaults = T{
+	Roll1 = 304,
+	Roll2 = 106,
+	showdisplay = true,
+	--displayx = nil,
+	--displayy = nil,
+	engaged = false,
+	visible = true,
+        
+	font_family = 'Arial',
+	font_height = 12,
+	color = 0xFFFFFFFF,
+	position_x = 700,
+	position_y = 400,
+	background = T{
+		visible = true,
+		color = 0xFF000000,
+	}
+};
 
-DebugMode = false
+local zonedelay = 6
+local stealthy = false
+local was_stealthy = ''
 
-settings = {}
+local zoning_bool = false
+local lastRoll = 0
+local lastRollCrooked = false
+local midRoll = false
+local rollerTimeout = 0 -- Used to timeout if we haven't rolled in a while, will set midRoll to false
+
+local haveRoll1 = false
+local haveRoll2 = false
+local haveBust = false
+local canDouble = false
+
+local DebugMode = false
+
+local settings = T{}
 
 --GUI Variable
 local variables =
@@ -78,8 +99,6 @@ end
 function RollerMessage(message)
    print("\31\200[\31\05Roller\31\200]\31\207 " .. message)
 end
-
-
 
 -- Returns if the key searchkey is in t.
 function table.containskey(t, searchkey)
@@ -104,7 +123,7 @@ end
 -- func: load_config
 -- desc: load roller config settings
 ---------------------------------------------------------------------------------------------------
-function load_config(file)
+--[[function load_config(file)
     local tempSettings = ashita.settings.load(_addon.path .. '/settings/' .. file .. '.json');
 	if tempSettings ~= nil then
 		RollerMessage('Config file found.');
@@ -125,11 +144,15 @@ function save_config()
 	-- Save the addon settings to a file (from the addonSettings table)
 	ashita.settings.save(_addon.path .. '/settings'  
 						 .. '/config.json' , settings);
-end;
+end;]]
 
+ashita.events.register('unload', 'unload_cb', function()
+	settingsLIB.save();
+	
+end);
 
-ashita.register_event('load', function()
-	settings = load_config('config')
+ashita.events.register('load', 'load_cb', function()
+	settings = settingsLIB.load(defaults);
 	
 	autoroll = false
 
@@ -174,14 +197,14 @@ ashita.register_event('load', function()
         [391] = {name="Runeist's Roll", buffid=600, stats={'?','?','?','?','?','?','?','?','?','?','?','?',' Magic Evasion',4, 8}},
         [390] = {name="Naturalist's Roll", buffid=339, stats={'?','?','?','?','?','?','?','?','?','?','?','?',' Enhancing Magic Duration',3, 7}}
 	}
-	buffsmap = {
+	--[[buffsmap = {
     [308] = {id=308,en="Double-Up Chance",ja="ダブルアップチャンス",enl="Double-Up Chance",jal="ダブルアップチャンス"},
     [309] = {id=309,en="Bust",ja="バスト",enl="Bust",jal="バスト"},
 	[71] = {id=71,en="Sneak",ja="スニーク",enl="Sneak",jal="スニーク"},
 	[69] = {id=69,en="Invisible",ja="インビジ",enl="Invisible",jal="インビジ"},
 	[16] = {id=16,en="amnesia",ja="アムネジア",enl="amnesic",jal="アムネジア"},
-	[261] = {id=261,en="impairment",ja="インペア",enl="impaired",jal="インペア"},
-}, {"id", "en", "ja", "enl", "jal"}
+	[261] = {id=261,en="impairment",ja="インペア",enl="impaired",jal="インペア"},]]
+}, --{"id", "en", "ja", "enl", "jal"}
     
 
 --	if settings.showdisplay then
@@ -236,7 +259,7 @@ end
 -- func: command
 -- desc: Event called when a command was entered.
 ----------------------------------------------------------------------------------------------------
-ashita.register_event('command', function(command, ntype)
+ashita.events.register('command', 'command_cb', function (e)
     -- Get the arguments of the command..
     local args = command:args();
 
@@ -524,8 +547,6 @@ ashita.register_event('command', function(command, ntype)
          end
         
     end
-	
---	update_displaybox()
 
     return true;
 
@@ -579,8 +600,8 @@ ashita.register_event('incoming_packet', function(id, size, packet, packet_modif
 				if not autoroll or haveBuff('amnesia') or haveBuff('impairment') then return end
 				
 				if mainjob == 17 then
-					local snakeRecast = ashita.ffxi.recast.get_ability_recast_by_id(197);--JAid 177 , RecastId 197
-					local foldRecast = ashita.ffxi.recast.get_ability_recast_by_id(198);-- JAid 178, RecastId 198
+					local snakeRecast = CheckAbilityRecast(197);--JAid 177 , RecastId 197
+					local foldRecast = CheckAbilityRecast(198);-- JAid 178, RecastId 198
 					if snakeRecast == 0 and rollNum == 10 then
 						midRoll = true
 						ashita.timer.once(1, function()
@@ -637,7 +658,7 @@ end);
 
 function haveBuff(buffname)
 
-	buffid  = 0
+	--[[buffid  = 0
 	for i, id in pairs(buffsmap) do
 		if buffname ~= nil and buffsmap[i].en:lower() == buffname:lower() then
 			buffid = buffsmap[i].id
@@ -656,45 +677,16 @@ function haveBuff(buffname)
 		end
 	end
 	
+	return false]]
+
+	local buffs = AshitaCore:GetMemoryManager():GetPlayer():GetBuffs();
+    for _, buff in pairs(buffs) do
+        local buffString = AshitaCore:GetResourceManager():GetString("buffs.names", buff);
+		if (buffString ~= nil) and (buffString:lower() == buffname:lower()) then
+            return true
+        end
+    end
 	return false
-end
-
-Cities = {
-    "Ru'Lude Gardens",
-    "Upper Jeuno",
-    "Lower Jeuno",
-    "Port Jeuno",
-    "Port Windurst",
-    "Windurst Waters",
-    "Windurst Woods",
-    "Windurst Walls",
-    "Heavens Tower",
-    "Port San d'Oria",
-    "Northern San d'Oria",
-    "Southern San d'Oria",
-	"Chateau d'Oraguille",
-    "Port Bastok",
-    "Bastok Markets",
-    "Bastok Mines",
-    "Metalworks",
-    "Aht Urhgan Whitegate",
-	"The Colosseum",
-    "Tavanazian Safehold",
-    "Nashmau",
-    "Selbina",
-    "Mhaura",
-	"Rabao",
-    "Norg",
-    "Kazham",
-    "Eastern Adoulin",
-    "Western Adoulin",
-	"Celennia Memorial Library",
-	"Mog Garden",
-	"Leafallia"
-}
-
-function update_displaybox()
-	return
 end
 
 function doRoll()
@@ -705,7 +697,7 @@ function doRoll()
 		if rollerTimeout > 10 then
 			midRoll = false
 		end
-		--if Cities:contains(res.zones[windower.ffxi.get_info().zone].english) then return end
+		
 		if not autoroll or midRoll or haveBuff('amnesia') or haveBuff('impairment') then 
 			return
 		end
@@ -729,12 +721,12 @@ function doRoll()
 		if not (((status == 0) and not settings.engaged) or status == 1) then return end
 
 		
-		local snakeRecast = ashita.ffxi.recast.get_ability_recast_by_id(197);--JAid 177 , RecastId 197
-		local foldRecast = ashita.ffxi.recast.get_ability_recast_by_id(198);-- JAid 178, RecastId 198
-		local phantomRecast = ashita.ffxi.recast.get_ability_recast_by_id(193);-- JAid 97, RecastId 193
-		local randomDealRecast = ashita.ffxi.recast.get_ability_recast_by_id(196);-- JAid 133, RecastId 196
-		local doubleupRecast = ashita.ffxi.recast.get_ability_recast_by_id(194);-- JAid 123, RecastId 194
-		local crookedcardsRecast = ashita.ffxi.recast.get_ability_recast_by_id(96);-- JAid 392, RecastId 96
+		local snakeRecast = CheckAbilityRecast(197);--JAid 177 , RecastId 197
+		local foldRecast = CheckAbilityRecast(198);-- JAid 178, RecastId 198
+		local phantomRecast = CheckAbilityRecast(193);-- JAid 97, RecastId 193
+		local randomDealRecast = CheckAbilityRecast(196);-- JAid 133, RecastId 196
+		local doubleupRecast = CheckAbilityRecast(194);-- JAid 123, RecastId 194
+		local crookedcardsRecast = CheckAbilityRecast(96);-- JAid 392, RecastId 96
 
 		if mainjob == 17 and foldRecast > 0 and phantomRecast == 0 and snakeRecast > 0 and doubleupRecast == 0 and randomDealRecast == 0 then 
 			DebugMessage("Starting Random Deal")
@@ -787,7 +779,6 @@ ashita.register_event('render', function()
 		autoroll = false
 		lastRoll = 0
 		lastRollCrooked = false
-		update_displaybox()
 		return;
 	end
 	
@@ -935,4 +926,22 @@ roll_ja_enums =
 	end
 	
 	return act
+end);
+
+function CheckAbilityRecast(check)--pass ability Id
+	local RecastTime = 0;
+
+	for x = 0, 31 do
+		local id = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimerId(x);
+		local timer = AshitaCore:GetMemoryManager():GetRecast():GetAbilityTimer(x);
+
+		if ((id ~= 0 or x == 0) and timer > 0) then
+			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
+            
+			if (ability ~= nil and ability.Id == check) then
+				RecastTime = timer;
+			end
+		end
+	end
+	return RecastTime;
 end

@@ -198,10 +198,6 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    {Name = 'Lustreless Wing', Quantity = 'all'},
-    {Name = 'Lustreless Hide', Quantity = 'all'},
-    {Name = 'Lustreless Scale', Quantity = 'all'},
-    {Name = 'Skeleton Key', Quantity = 'all'},
     'Odious Blood',
     'Odious Pen',
     'Odious Skull',
@@ -210,11 +206,8 @@ profile.Packer = {
     {Name = 'Frgtn. Thought', Quantity = 'all'},
     'Shrouded Bijou',
     {Name = 'T. Whiteshell', Quantity = 'all'},
-    {Name = 'L. Jadeshell', Quantity = 'all'},
     {Name = 'O. Bronzepiece', Quantity = 'all'},
-    {Name = 'M. Silverpiece', Quantity = 'all'},
     {Name = '1 Byne Bill', Quantity = 'all'},
-    {Name = '100 Byne Bill', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

@@ -24,7 +24,7 @@ sets = T{
     },
     Idle_Refresh = {},
     Town = {
-        Main = 'Odium',
+        Main = 'Naegling',
         Sub = 'Sandung',
         Range = 'Wingcutter',
         Feet = 'Pillager\'s Poulaines',
@@ -44,7 +44,7 @@ sets = T{
     },
 
     Tp_Default = {
-        Head = 'Mummu Bonnet +1',
+        Head = 'Adhemar Bonnet',
         Neck = 'Clotharius Torque',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Sherida Earring',
@@ -55,7 +55,7 @@ sets = T{
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Cetl Belt',
         Legs = 'Mummu Kecks +1',
-        Feet = 'Mummu Gamash. +1',
+        Feet = 'Herculean Boots',
     },
     Tp_Hybrid = {
     },
@@ -63,6 +63,7 @@ sets = T{
         Neck = 'Sanctity Necklace',
         Ear1 = 'Bladeborn Earring',
         Ear2 = 'Steelflash Earring',
+        Feet = 'Adhemar Gamashes',
     },
 
 
@@ -92,11 +93,16 @@ sets = T{
         Feet = 'Herculean Boots',
     },
     Ws_Default_SA = {
+        Head = 'Adhemar Bonnet',
+        Feet = 'Adhemar Gamashes',
     },
     Ws_Default_TA = {
+        Head = 'Adhemar Bonnet',
         Feet = 'Adhemar Gamashes',
     },
     Ws_Default_SATA = {
+        Head = 'Adhemar Bonnet',
+        Feet = 'Adhemar Gamashes',
     },
     Ws_Hybrid = {
     },
@@ -156,13 +162,13 @@ sets = T{
 
 
     SATA = {
-        
+        Head = 'Adhemar Bonnet',
     },
     SA = {
-        
+        Head = 'Adhemar Bonnet',
     },
     TA = {
-    
+        Head = 'Adhemar Bonnet',
     },
     TH = {
         Hands = 'Plun. Armlets +1',
@@ -183,6 +189,19 @@ profile.Packer = {
     {Name = 'Lustreless Hide', Quantity = 'all'},
     {Name = 'Lustreless Scale', Quantity = 'all'},
     {Name = 'Skeleton Key', Quantity = 'all'},
+    'Odious Blood',
+    'Odious Pen',
+    'Odious Skull',
+    'Odious Horn',
+    {Name = 'Forgotten Hope', Quantity = 'all'},
+    {Name = 'Frgtn. Thought', Quantity = 'all'},
+    'Shrouded Bijou',
+    {Name = 'T. Whiteshell', Quantity = 'all'},
+    {Name = 'L. Jadeshell', Quantity = 'all'},
+    {Name = 'O. Bronzepiece', Quantity = 'all'},
+    {Name = 'M. Silverpiece', Quantity = 'all'},
+    {Name = '1 Byne Bill', Quantity = 'all'},
+    {Name = '100 Byne Bill', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

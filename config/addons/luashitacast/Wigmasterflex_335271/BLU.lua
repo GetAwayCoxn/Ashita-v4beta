@@ -16,7 +16,7 @@ sets = T{
         Ring2 = 'Ayanmo Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Phys. dmg. taken -10%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+30', [5] = 'Magic Damage +20' } },
         Waist = 'Sailfi Belt +1',
-        Legs = 'Carmine Cuisses',
+        Legs = 'Aya. Cosciales +2',
         Feet = 'Aya. Gambieras +2',
     },
 	Resting = {
@@ -85,7 +85,7 @@ sets = T{
 	
 	Tp_Default = {
         Ammo = 'Ginsen',
-        Head = 'Aya. Zucchetto +2',
+        Head = 'Adhemar Bonnet',
         Neck = 'Clotharius Torque',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
@@ -96,7 +96,7 @@ sets = T{
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Carmine Cuisses',
-        Feet = 'Adhemar Gamashes',
+        Feet = 'Herculean Boots',
     },
 	Tp_Hybrid = {
         Head = 'Malignance Chapeau',

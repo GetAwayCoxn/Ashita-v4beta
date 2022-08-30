@@ -1,0 +1,897 @@
+08/11/2022 09:28:24.993 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : G:\Ashita-v4beta\
+08/11/2022 09:28:24.993 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+08/11/2022 09:28:24.993 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\boot\mybootsettings.ini
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   file : G:\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   args : 
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [sandbox.paths]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   common : C:\Program Files (x86)\Common Files
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   pol : G:\PlayOnline\SquareEnix\PlayOnlineViewer
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   ffxi : G:\PlayOnline\SquareEnix\Final Fantasy XI
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   tetra : G:\PlayOnline\SquareEnix\TetraMaster
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0029 : 12
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+08/11/2022 09:28:24.995 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/11/2022 09:28:24.995 | DEBUG    |                             Properties::Properties | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                           ChatManager::ChatManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                           FontManager::FontManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                             GuiManager::GuiManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                         InputManager::InputManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                       PacketManager::PacketManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                       PluginManager::PluginManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                     PointerManager::PointerManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+08/11/2022 09:28:24.995 | DEBUG    |                             Properties::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                           InputManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                         PointerManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                             MemoryManager::Release | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                            ChatManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                          PacketManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                          PluginManager::Initialize | <Begin>
+08/11/2022 09:28:24.995 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:24.995 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+08/11/2022 09:28:25.035 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'Common': C:\Program Files (x86)\Common Files
+08/11/2022 09:28:25.035 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'PlayOnline': G:\PlayOnline\SquareEnix\PlayOnlineViewer
+08/11/2022 09:28:25.035 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'FinalFantasyXI': G:\PlayOnline\SquareEnix\Final Fantasy XI
+08/11/2022 09:28:25.035 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'TetraMaster': G:\PlayOnline\SquareEnix\TetraMaster
+08/11/2022 09:28:25.036 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: Sandbox - Version: 4.06 - By: atom0s
+08/11/2022 09:28:25.066 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\pivot\pivot.ini
+08/11/2022 09:28:25.070 | INFO     |                                              pivot | m_logDebug = Discard
+08/11/2022 09:28:25.070 | INFO     |                                              pivot | m_rootPath = 'G:\DATs'
+08/11/2022 09:28:25.070 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+08/11/2022 09:28:25.074 | INFO     |                                              pivot | => success
+08/11/2022 09:28:25.074 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+08/11/2022 09:28:25.076 | WARN     |                                              pivot | WARNING:       12: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+08/11/2022 09:28:25.077 | WARN     |                                              pivot | WARNING:   119051: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+08/11/2022 09:28:25.077 | WARN     |                                              pivot | WARNING:   119057: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+08/11/2022 09:28:25.094 | WARN     |                                              pivot | WARNING:    91015: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+08/11/2022 09:28:25.109 | INFO     |                                              pivot | => success
+08/11/2022 09:28:25.109 | INFO     |                                              pivot | addOverlay: 'HD-Texture-Pack'
+08/11/2022 09:28:25.168 | INFO     |                                              pivot | => success
+08/11/2022 09:28:25.168 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+08/11/2022 09:28:25.171 | INFO     |                                              pivot | => success
+08/11/2022 09:28:25.288 | INFO     |                                              pivot | m_hooksSet = true
+08/11/2022 09:28:25.288 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.11 - By: Heals
+08/11/2022 09:28:25.288 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:25.288 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+08/11/2022 09:28:25.288 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+08/11/2022 09:28:25.288 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+08/11/2022 09:28:25.288 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+08/11/2022 09:28:25.288 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+08/11/2022 09:28:25.288 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+08/11/2022 09:28:25.288 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+08/11/2022 09:28:25.288 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+08/11/2022 09:28:25.288 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+08/11/2022 09:28:28.084 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 2561 x 1441]
+08/11/2022 09:28:28.084 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 662 x 524]
+08/11/2022 09:28:28.090 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/11/2022 09:28:32.116 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/11/2022 09:29:30.496 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+08/11/2022 09:29:30.600 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+08/11/2022 09:29:30.728 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+08/11/2022 09:29:30.728 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+08/11/2022 09:29:30.752 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+08/11/2022 09:29:30.752 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+08/11/2022 09:29:30.752 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/11/2022 09:29:30.752 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/11/2022 09:29:30.752 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+08/11/2022 09:29:30.752 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/11/2022 09:29:30.752 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/11/2022 09:29:30.775 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:30.775 | DEBUG    |                            ResourceManager::Update | <Begin>
+08/11/2022 09:29:30.778 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+08/11/2022 09:29:30.786 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+08/11/2022 09:29:30.791 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+08/11/2022 09:29:32.552 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 1777.584000ms [Status: 1]
+08/11/2022 09:29:32.552 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.552 | DEBUG    |                               InputManager::Update | <Begin>
+08/11/2022 09:29:32.552 | DEBUG    |                                       Mouse::Mouse | .ctor
+08/11/2022 09:29:32.552 | DEBUG    |                                  Mouse::Initialize | <Begin>
+08/11/2022 09:29:32.552 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:32.552 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+08/11/2022 09:29:32.552 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.552 | DEBUG    |                              OffsetManager::Update | <Begin>
+08/11/2022 09:29:32.552 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+08/11/2022 09:29:32.559 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+08/11/2022 09:29:32.563 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+08/11/2022 09:29:32.563 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.563 | DEBUG    |                             PointerManager::Update | <Begin>
+08/11/2022 09:29:32.563 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+08/11/2022 09:29:32.571 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+08/11/2022 09:29:32.576 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E81E71C) [Ok!] autofollow
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E87A7B5) [Ok!] castbar
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E9259B0) [Ok!] chat.addchatmessage
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E9B49F0) [Ok!] chat.inputtext.this
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E811622) [Ok!] chat.logfile
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E9B7C00) [Ok!] chat.parseautotranslate
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E925AA2) [Ok!] chat.parseautotranslate.this
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E880090) [Ok!] chat.parseinputtext
+08/11/2022 09:29:32.581 | DEBUG    |                             PointerManager::Update | Pointer: (1E8800B2) [Ok!] chat.parseinputtext.this
+08/11/2022 09:29:32.590 | DEBUG    |                             PointerManager::Update | Pointer: (1E8774BC) [Ok!] clientversion
+08/11/2022 09:29:32.590 | DEBUG    |                             PointerManager::Update | Pointer: (03C86533) [Ok!] config.autodisconnect
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E9B5D02) [Ok!] config.languagefilter
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8037E0) [Ok!] entitymap
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E894C6B) [Ok!] entitymap.size
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8E9A96) [Ok!] inventory
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E916C15) [Ok!] inventory.selecteditem
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E95C582) [Ok!] menu
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8DBE70) [Ok!] packets.decryptbuffer
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8DBD40) [Ok!] packets.encryptbuffer
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8FA8E0) [Ok!] packets.queuepacket1
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8DC4D0) [Ok!] packets.queuepacket2
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E9FCF8B) [Ok!] party
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E89822F) [Ok!] party.statusicons
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E94486A) [Ok!] player
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8E4580) [Ok!] player.hasability
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E897144) [Ok!] player.haskeyitem
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8EE5B0) [Ok!] player.hasspell
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8EF4C0) [Ok!] player.joblevels
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8EF500) [Ok!] player.jobmasterlevels
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E88DB7A) [Ok!] player.loginstatus
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8868DF) [Ok!] player.petmp
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E89C1DD) [Ok!] player.pettp
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1EA1E664) [Ok!] recast.abilities
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1EA25182) [Ok!] recast.spells
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E8798E7) [Ok!] target.settarget
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer: (1E887EE3) [Ok!] target.target
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 28.780500ms
+08/11/2022 09:29:32.592 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.592 | DEBUG    |                            FontManager::Initialize | <Begin>
+08/11/2022 09:29:32.592 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:32.592 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+08/11/2022 09:29:32.592 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:32.592 | DEBUG    |                             GuiManager::Initialize | <Begin>
+08/11/2022 09:29:32.601 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:32.601 | DEBUG    |                              MemoryManager::Update | <Begin>
+08/11/2022 09:29:32.602 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | <Begin>
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+08/11/2022 09:29:32.602 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+08/11/2022 09:29:32.602 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+08/11/2022 09:29:32.602 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 4
+08/11/2022 09:29:32.602 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+08/11/2022 09:29:32.602 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.602 | DEBUG    |                              PacketManager::Update | <Begin>
+08/11/2022 09:29:32.602 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+08/11/2022 09:29:32.602 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+08/11/2022 09:29:32.602 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.602 | DEBUG    |                              PluginManager::Update | <Begin>
+08/11/2022 09:29:32.602 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+08/11/2022 09:29:32.602 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+08/11/2022 09:29:32.744 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/11/2022 09:29:32.746 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+08/11/2022 09:29:32.746 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+08/11/2022 09:29:32.746 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+08/11/2022 09:29:32.746 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+08/11/2022 09:29:32.746 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/11/2022 09:29:32.752 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/addons.dll'
+08/11/2022 09:29:32.852 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 1.30 - By: Ashita Development Team
+08/11/2022 09:29:32.852 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/screenshot.dll'
+08/11/2022 09:29:32.878 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+08/11/2022 09:29:32.878 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+08/11/2022 09:29:33.986 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+08/11/2022 09:29:33.986 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/crossbar.dll'
+08/11/2022 09:29:34.036 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.20 - By: Thorny
+08/11/2022 09:29:34.036 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/findall.dll'
+08/11/2022 09:29:34.093 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.07 - By: Thorny
+08/11/2022 09:29:34.093 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+08/11/2022 09:29:34.107 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+08/11/2022 09:29:34.107 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/lootwhore.dll'
+08/11/2022 09:29:34.147 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.15 - By: Thorny
+08/11/2022 09:29:34.147 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/minimap.dll'
+08/11/2022 09:29:34.187 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\minimap.ini
+08/11/2022 09:29:34.194 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+08/11/2022 09:29:34.229 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.02 - By: atom0s
+08/11/2022 09:29:34.229 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/shorthand.dll'
+08/11/2022 09:29:34.270 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.09 - By: Thorny
+08/11/2022 09:29:34.271 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/stylist.dll'
+08/11/2022 09:29:34.331 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+08/11/2022 09:29:34.331 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/uberwarp.dll'
+08/11/2022 09:29:36.157 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+08/11/2022 09:29:36.157 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+08/11/2022 09:29:36.252 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.12 - By: Thorny
+08/11/2022 09:29:36.252 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packetflow.dll'
+08/11/2022 09:29:36.274 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+08/11/2022 09:29:36.274 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/vnm.dll'
+08/11/2022 09:29:36.297 | DEBUG    |                                PluginManager::Load | Loaded plugin: VNM - Version: 1.07 - By: Xenonsmurf
+08/11/2022 09:29:39.036 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+08/11/2022 09:29:39.038 | DEBUG    |                                PointerManager::Add | Pointer: (1E8DA812) [Ok!] statustimers:realutcstamp
+08/11/2022 09:30:12.940 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+08/11/2022 09:30:17.036 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/11/2022 09:30:26.316 | ERROR    |                                             Packer | Packet(ID 0x50)[Injected] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/11/2022 09:30:27.550 | ERROR    |                                             Packer | Packet(ID 0x1a)[Injected] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/11/2022 09:30:27.551 | ERROR    |                                             Packer | Packet(ID 0x1a)[Natural] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/11/2022 09:30:27.896 | ERROR    |                                             Packer | Packet(ID 0x1a)[Injected] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/11/2022 09:30:27.898 | ERROR    |                                             Packer | Packet(ID 0x1a)[Natural] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/11/2022 09:30:46.632 | DEBUG    |                                             Packer | createContainerInfo Time: 293100ns
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 neo animator at wardrobe[3] for wardrobe.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 isa belt at wardrobe2[20] for equipbags.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 animator P at wardrobe[28] for wardrobe.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 foire dastanas +2 at inventory[22] for equipbags.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 Shulmanu collar at wardrobe2[64] for equipbags.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 10 cans of automaton oil +3 at wardrobe[6] for wardrobe.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 foire tobe +1 at inventory[25] for equipbags.
+08/11/2022 09:30:46.643 | DEBUG    |                                             Packer | Flagged 1 tali'ah crackows +1 at wardrobe3[75] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 tali'ah seraweels +1 at wardrobe3[55] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 Visucius's mantle (Pet: R.Acc.+20, Pet: R.Atk.+20, Pet: Haste+10, Accuracy+20, Attack+20, Pet: Acc.+20, Pet: Atk.+20) at wardrobe[33] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 incarnation sash at wardrobe[66] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 karagoz capello +1 at wardrobe2[65] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 etiolation earring at wardrobe[78] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 swith cape at wardrobe2[70] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 vrikodara jupon at wardrobe3[59] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 chelona boots at wardrobe[70] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 loquacious earring at wardrobe3[6] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 siegel sash at wardrobe[10] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 prolix ring at wardrobe[56] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 voltsurge torque at wardrobe[19] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 herculean helm at wardrobe[4] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 defending ring at wardrobe3[42] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 loricate torque at wardrobe2[22] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 tali'ah gages +1 at wardrobe3[74] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 moonshade earring at wardrobe2[46] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 rajas ring at wardrobe2[56] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 abnoba kaftan at wardrobe3[34] for equipbags.
+08/11/2022 09:30:46.644 | DEBUG    |                                             Packer | Flagged 1 Epona's ring at wardrobe2[54] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 Hizamaru sune-ate +1 at wardrobe4[21] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 samnuha tights at wardrobe2[25] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 fotia belt at wardrobe[18] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 Visucius's mantle (STR+25, Crit.hit rate+10, Attack+20, Accuracy+20) at wardrobe4[32] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 light gorget at wardrobe[15] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 wiglen gorget at wardrobe[47] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 sheltered ring at wardrobe[72] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 emeici +1 at wardrobe[5] for wardrobe.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 ethereal earring at wardrobe2[50] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 repulse mantle at wardrobe2[41] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 tali'ah ring at wardrobe3[70] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 guignol earring at wardrobe[25] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 tali'ah turban +1 at wardrobe4[6] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 Sirona's ring at wardrobe2[59] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 ephedra ring at wardrobe2[60] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 anwig salade at wardrobe3[64] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 warp ring at wardrobe2[58] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 dimensional ring (Dem) at wardrobe[80] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 foire churidars +2 at inventory[21] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 foire babouches +2 at inventory[20] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 animator P II at wardrobe[1] for wardrobe.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 tali'ah manteel +1 at wardrobe3[76] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 foire taj +2 at inventory[23] for equipbags.
+08/11/2022 09:30:46.645 | DEBUG    |                                             Packer | Flagged 1 craftmaster's ring at wardrobe2[57] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 artificer's ring at wardrobe2[68] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 bladeborn earring at wardrobe[44] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 Hizamaru ring at wardrobe2[44] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 steelflash earring at wardrobe[37] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 kuku stone at wardrobe2[27] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 Hermes' sandals at wardrobe2[32] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 paguroidea ring at wardrobe[58] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 stone gorget at wardrobe[9] for equipbags.
+08/11/2022 09:30:46.646 | DEBUG    |                                             Packer | Flagged 1 vengeful ring at wardrobe3[61] for equipbags.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 sveltesse gouriz +1 at wardrobe4[47] for equipbags.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 buffoon's collar at wardrobe4[2] for equipbags.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Reflagged 1 Visucius's mantle at wardrobe[33] for equipbags.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 chaac belt at wardrobe3[40] for equipbags.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 12 bean daifuku at inventory[7] for inventory.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 02 at satchel[37] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 04 at satchel[26] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 06 at satchel[21] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 08 at satchel[3] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 09 at satchel[41] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 10 at satchel[30] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 15 at satchel[23] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 16 at satchel[22] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 17 at satchel[40] for satchel.
+08/11/2022 09:30:46.647 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 24 at satchel[35] for satchel.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 5 Abdhaljs seals at case[12] for case.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 1 Ordelle bronzepiece at case[1] for case.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 10 pinches of prism powder at inventory[11] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 11 pots of silent oil at inventory[10] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 12 flasks of holy water at inventory[1] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 11 flasks of holy water at inventory[2] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 4 flasks of echo drops at inventory[6] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 10 grape daifuku at inventory[3] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 1 hi-reraiser at inventory[13] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 21 High Kindred's crests at inventory[12] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 99 Sacred Kindred's crests at inventory[9] for inventory.
+08/11/2022 09:30:46.648 | DEBUG    |                                             Packer | Flagged 8 Sacred Kindred's crests at inventory[37] for inventory.
+08/11/2022 09:30:46.649 | DEBUG    |                                             Packer | Flagged 1 facility ring at inventory[5] for inventory.
+08/11/2022 09:30:46.649 | DEBUG    |                                             Packer | Flagged 1 echad ring at inventory[18] for inventory.
+08/11/2022 09:30:46.649 | DEBUG    |                                             Packer | Flagged 1 trizek ring at inventory[16] for inventory.
+08/11/2022 09:30:46.649 | DEBUG    |                                             Packer | Flagged 1 endorsement ring at inventory[19] for inventory.
+08/11/2022 09:30:46.649 | DEBUG    |                                             Packer | flagMoveItems(alt thread) Time: 6181300ns
+08/11/2022 09:30:46.804 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {3AD90970,08B0,11EA,80,01,44,45,53,54,00,00}
+08/11/2022 09:30:46.809 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+08/11/2022 09:30:46.809 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | verifyContainerInfo Success Time: 6600ns
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | inventory : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe4 : 4 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | inventory : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe4 : 4 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | inventory : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe4 : 4 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | [Retrieve] Moving a foire babouches +2 from inventory[20] to wardrobe4[82].
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | [Retrieve] Moving a foire churidars +2 from inventory[21] to wardrobe4[82].
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | [Retrieve] Moving a foire dastanas +2 from inventory[22] to wardrobe4[82].
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | [Retrieve] Moving a foire taj +2 from inventory[23] to wardrobe4[82].
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | inventory : 56 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:46.951 | DEBUG    |                                             Packer | [Retrieve] Moving a legshard: BST from inventory[8] to case[82].
+08/11/2022 09:30:46.952 | DEBUG    |                                             Packer | [Retrieve] Moving a headshard: SAM from inventory[14] to case[82].
+08/11/2022 09:30:46.952 | DEBUG    |                                             Packer | [Retrieve] Moving 10 bean daifuku from inventory[15] to case[82].
+08/11/2022 09:30:46.952 | DEBUG    |                                             Packer | [Retrieve] Moving a paragon summoner card from inventory[17] to case[82].
+08/11/2022 09:30:46.952 | DEBUG    |                                             Packer | [Retrieve] Moving a paragon scholar card from inventory[24] to case[82].
+08/11/2022 09:30:46.952 | DEBUG    |                                             Packer | [Retrieve] Moving 2 kidney stones from inventory[26] to case[82].
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | verifyContainerInfo Success Time: 7000ns
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | case : 46 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | case : 46 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | case : 46 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | case : 46 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:30:47.211 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:36:16.095 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 09:37:31.807 | DEBUG    |                                             Packer | waitForThread Time: 1500ns
+08/11/2022 09:38:08.294 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 09:40:13.857 | DEBUG    |                                             Packer | waitForThread Time: 2300ns
+08/11/2022 09:40:14.500 | DEBUG    |                                             Packer | createContainerInfo Time: 349100ns
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 neo animator at wardrobe[3] for wardrobe.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 isa belt at wardrobe2[20] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 animator P at wardrobe[28] for wardrobe.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 foire dastanas +2 at wardrobe4[77] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 Shulmanu collar at wardrobe2[64] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 10 cans of automaton oil +3 at wardrobe[6] for wardrobe.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 foire tobe +1 at inventory[25] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 tali'ah crackows +1 at wardrobe3[75] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 tali'ah seraweels +1 at wardrobe3[55] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 Visucius's mantle (Pet: R.Acc.+20, Pet: R.Atk.+20, Pet: Haste+10, Accuracy+20, Attack+20, Pet: Acc.+20, Pet: Atk.+20) at wardrobe[33] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 incarnation sash at wardrobe[66] for equipbags.
+08/11/2022 09:40:14.511 | DEBUG    |                                             Packer | Flagged 1 karagoz capello +1 at wardrobe2[65] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 etiolation earring at wardrobe[78] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 swith cape at wardrobe2[70] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 vrikodara jupon at wardrobe3[59] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 chelona boots at wardrobe[70] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 loquacious earring at wardrobe3[6] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 siegel sash at wardrobe[10] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 prolix ring at wardrobe[56] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 voltsurge torque at wardrobe[19] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 herculean helm at wardrobe[4] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 defending ring at wardrobe3[42] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 loricate torque at wardrobe2[22] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 tali'ah gages +1 at wardrobe3[74] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 moonshade earring at wardrobe2[46] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 rajas ring at wardrobe2[56] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 abnoba kaftan at wardrobe3[34] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 Epona's ring at wardrobe2[54] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 Hizamaru sune-ate +1 at wardrobe4[21] for equipbags.
+08/11/2022 09:40:14.512 | DEBUG    |                                             Packer | Flagged 1 samnuha tights at wardrobe2[25] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 fotia belt at wardrobe[18] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 Visucius's mantle (STR+25, Crit.hit rate+10, Attack+20, Accuracy+20) at wardrobe4[32] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 light gorget at wardrobe[15] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 wiglen gorget at wardrobe[47] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 sheltered ring at wardrobe[72] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 emeici +1 at wardrobe[5] for wardrobe.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 ethereal earring at wardrobe2[50] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 repulse mantle at wardrobe2[41] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 tali'ah ring at wardrobe3[70] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 guignol earring at wardrobe[25] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 tali'ah turban +1 at wardrobe4[6] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 Sirona's ring at wardrobe2[59] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 ephedra ring at wardrobe2[60] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 anwig salade at wardrobe3[64] for equipbags.
+08/11/2022 09:40:14.513 | DEBUG    |                                             Packer | Flagged 1 warp ring at wardrobe2[58] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 dimensional ring (Dem) at wardrobe[80] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 foire churidars +2 at wardrobe4[76] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 foire babouches +2 at wardrobe4[75] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 animator P II at wardrobe[1] for wardrobe.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 tali'ah manteel +1 at wardrobe3[76] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 foire taj +2 at wardrobe4[78] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 craftmaster's ring at wardrobe2[57] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 artificer's ring at wardrobe2[68] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 bladeborn earring at wardrobe[44] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 Hizamaru ring at wardrobe2[44] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 steelflash earring at wardrobe[37] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 kuku stone at wardrobe2[27] for equipbags.
+08/11/2022 09:40:14.514 | DEBUG    |                                             Packer | Flagged 1 Hermes' sandals at wardrobe2[32] for equipbags.
+08/11/2022 09:40:14.515 | DEBUG    |                                             Packer | Flagged 1 paguroidea ring at wardrobe[58] for equipbags.
+08/11/2022 09:40:14.515 | DEBUG    |                                             Packer | Flagged 1 stone gorget at wardrobe[9] for equipbags.
+08/11/2022 09:40:14.515 | DEBUG    |                                             Packer | Flagged 1 vengeful ring at wardrobe3[61] for equipbags.
+08/11/2022 09:40:14.515 | DEBUG    |                                             Packer | Flagged 1 sveltesse gouriz +1 at wardrobe4[47] for equipbags.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 buffoon's collar at wardrobe4[2] for equipbags.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Reflagged 1 Visucius's mantle at wardrobe[33] for equipbags.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 chaac belt at wardrobe3[40] for equipbags.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 12 bean daifuku at inventory[7] for inventory.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 02 at satchel[37] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 04 at satchel[26] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 06 at satchel[21] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 08 at satchel[3] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 09 at satchel[41] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 10 at satchel[30] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 15 at satchel[23] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 16 at satchel[22] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 17 at satchel[40] for satchel.
+08/11/2022 09:40:14.516 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 24 at satchel[35] for satchel.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 5 Abdhaljs seals at case[12] for case.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 10 pinches of prism powder at inventory[11] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 11 pots of silent oil at inventory[10] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 12 flasks of holy water at inventory[1] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 11 flasks of holy water at inventory[2] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 4 flasks of echo drops at inventory[6] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 10 grape daifuku at inventory[3] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 1 hi-reraiser at inventory[13] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 21 High Kindred's crests at inventory[12] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 99 Sacred Kindred's crests at inventory[9] for inventory.
+08/11/2022 09:40:14.517 | DEBUG    |                                             Packer | Flagged 8 Sacred Kindred's crests at inventory[37] for inventory.
+08/11/2022 09:40:14.518 | DEBUG    |                                             Packer | Flagged 1 facility ring at inventory[5] for inventory.
+08/11/2022 09:40:14.518 | DEBUG    |                                             Packer | Flagged 1 echad ring at inventory[18] for inventory.
+08/11/2022 09:40:14.518 | DEBUG    |                                             Packer | Flagged 1 trizek ring at inventory[16] for inventory.
+08/11/2022 09:40:14.518 | DEBUG    |                                             Packer | Flagged 1 endorsement ring at inventory[19] for inventory.
+08/11/2022 09:40:14.518 | DEBUG    |                                             Packer | flagMoveItems(alt thread) Time: 7749300ns
+08/11/2022 09:40:14.820 | DEBUG    |                                             Packer | verifyContainerInfo Success Time: 6400ns
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | inventory : 61 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | case : 53 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | inventory : 61 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | case : 53 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | inventory : 61 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | case : 53 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | inventory : 61 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | case : 53 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:14.821 | DEBUG    |                                             Packer | [Retrieve] Moving 2 kidney stones from inventory[4] to case[82].
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | verifyContainerInfo Success Time: 5800ns
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | inventory : 62 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe : 51 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | storage : 29 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | locker : 54 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | sack : 34 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | case : 52 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | safe2 : 63 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/11/2022 09:40:15.146 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/11/2022 09:40:56.371 | INFO     |                                            Bellhop | Entered shop.  [Rubahah]
+08/11/2022 09:41:04.008 | INFO     |                                            Bellhop | Left shop.  [Rubahah]
+08/11/2022 09:41:33.073 | DEBUG    |                                             Packer | waitForThread Time: 1700ns
+08/11/2022 09:43:19.502 | DEBUG    |                                             Packer | waitForThread Time: 1300ns
+08/11/2022 09:44:19.856 | DEBUG    |                                             Packer | waitForThread Time: 2000ns
+08/11/2022 09:45:03.229 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+08/11/2022 09:45:03.260 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+08/11/2022 09:54:11.973 | DEBUG    |                                             Packer | waitForThread Time: 1400ns
+08/11/2022 09:55:25.589 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+08/11/2022 09:55:38.791 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 09:56:41.341 | DEBUG    |                                             Packer | waitForThread Time: 1500ns
+08/11/2022 09:58:14.888 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+08/11/2022 09:58:14.889 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+08/11/2022 09:58:37.703 | DEBUG    |                                             Packer | waitForThread Time: 1500ns
+08/11/2022 09:59:51.151 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+08/11/2022 09:59:51.249 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+08/11/2022 09:59:51.250 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+08/11/2022 10:00:59.390 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+08/11/2022 10:00:59.501 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+08/11/2022 10:00:59.506 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+08/11/2022 10:17:35.298 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+08/11/2022 10:17:35.451 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+08/11/2022 10:17:35.453 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+08/11/2022 12:05:22.503 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+08/11/2022 12:05:26.160 | DEBUG    |                                             Packer | waitForThread Time: 1800ns
+08/11/2022 12:05:54.338 | DEBUG    |                                             Packer | waitForThread Time: 1500ns
+08/11/2022 12:07:19.140 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 12:08:32.179 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 12:09:52.142 | DEBUG    |                                             Packer | waitForThread Time: 1400ns
+08/11/2022 12:10:06.417 | DEBUG    |                                             Packer | waitForThread Time: 1300ns
+08/11/2022 12:19:12.642 | DEBUG    |                                             Packer | waitForThread Time: 1300ns
+08/11/2022 12:19:39.742 | DEBUG    |                                             Packer | waitForThread Time: 1400ns
+08/11/2022 12:20:03.330 | INFO     |                                            Bellhop | Entered shop.  [Defliaa]
+08/11/2022 12:20:04.635 | INFO     |                                            Bellhop | Selling 17 matching items to Defliaa.
+08/11/2022 12:20:15.671 | INFO     |                                            Bellhop | Left shop.  [Defliaa]
+08/11/2022 12:21:12.032 | DEBUG    |                                             Packer | waitForThread Time: 1300ns
+08/11/2022 12:23:52.377 | DEBUG    |                                             Packer | waitForThread Time: 1400ns
+08/11/2022 12:24:20.804 | INFO     |                                            Bellhop | Traded 143 matching items to Shami.
+08/11/2022 12:25:32.584 | DEBUG    |                                             Packer | waitForThread Time: 1600ns
+08/11/2022 12:25:58.059 | DEBUG    |                                Keyboard::~Keyboard | .dtor
+08/11/2022 12:25:58.059 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/11/2022 12:25:58.059 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+08/11/2022 12:25:58.059 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/11/2022 12:25:58.059 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+08/11/2022 12:25:58.059 | DEBUG    |                                      Mouse::~Mouse | .dtor
+08/11/2022 12:25:58.059 | DEBUG    |              newIDirectInput8A::~newIDirectInput8A | .dtor
+08/11/2022 12:25:58.197 | DEBUG    |          newIDirect3DDevice8::~newIDirect3DDevice8 | .dtor
+08/11/2022 12:25:58.197 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event invoked.
+08/11/2022 12:25:58.197 | DEBUG    |                               ChatManager::Release | <Begin>
+08/11/2022 12:25:58.197 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+08/11/2022 12:25:58.197 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+08/11/2022 12:25:58.197 | DEBUG    |                  CommandTaskPool::~CommandTaskPool | .dtor
+08/11/2022 12:25:58.197 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+08/11/2022 12:25:58.197 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+08/11/2022 12:25:58.197 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:58.197 | DEBUG    |                             PluginManager::Release | <Begin>
+08/11/2022 12:25:58.197 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+08/11/2022 12:25:59.068 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Addons
+08/11/2022 12:25:59.068 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Screenshot
+08/11/2022 12:25:59.068 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+08/11/2022 12:25:59.073 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Crossbar
+08/11/2022 12:25:59.073 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: FindAll
+08/11/2022 12:25:59.073 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: HardwareMouse
+08/11/2022 12:25:59.073 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Lootwhore
+08/11/2022 12:25:59.073 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Minimap
+08/11/2022 12:25:59.074 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Shorthand
+08/11/2022 12:25:59.074 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Stylist
+08/11/2022 12:25:59.093 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Uberwarp
+08/11/2022 12:25:59.093 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+08/11/2022 12:25:59.093 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: PacketFlow
+08/11/2022 12:25:59.093 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: VNM
+08/11/2022 12:25:59.093 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.093 | DEBUG    |                             MemoryManager::Release | <Begin>
+08/11/2022 12:25:59.093 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.093 | DEBUG    |                             PacketManager::Release | <Begin>
+08/11/2022 12:25:59.093 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.093 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+08/11/2022 12:25:59.093 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.093 | DEBUG    |                               FontManager::Release | <Begin>
+08/11/2022 12:25:59.093 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.093 | DEBUG    |                                GuiManager::Release | <Begin>
+08/11/2022 12:25:59.123 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.123 | DEBUG    |                              InputManager::Release | <Begin>
+08/11/2022 12:25:59.123 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.123 | DEBUG    |                            PointerManager::Release | <Begin>
+08/11/2022 12:25:59.123 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.123 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/11/2022 12:25:59.176 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/11/2022 12:25:59.176 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event finished.
+08/11/2022 12:25:59.176 | DEBUG    |                      newIDirect3D8::~newIDirect3D8 | .dtor
+08/11/2022 12:26:00.199 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: 0 x 0][Size: 662 x 524]
+08/11/2022 12:26:00.426 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]

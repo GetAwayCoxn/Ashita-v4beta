@@ -33,7 +33,7 @@ buffsmap = {
     [337] = {id=337,en="Companion's Roll",ja="コンパニオンロール",enl="Companion's Roll",jal="コンパニオンロール"},
     [338] = {id=338,en="Avenger's Roll",ja="カウンターロール",enl="Avenger's Roll",jal="カウンターロール"},
     [339] = {id=339,en="Naturalist's Roll",ja="ナチュラリストロール",enl="Naturalist's Roll",jal="ナチュラリストロール"},
-}, {"id", "en", "ja", "enl", "jal"}
+}, --{"id", "en", "ja", "enl", "jal"}
 
 --[[
 Copyright © 2013-2020, Windower

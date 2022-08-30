@@ -15,6 +15,8 @@ ashita.events.register('unload', 'unload_cb', interface.Unload);
 
 ashita.events.register('d3d_present', 'present_cb', interface.Render);
 
+ashita.events.register('text_in', 'text_in_cb', interface.TextIn);
+
 ashita.events.register('command', 'command_cb', function (e)
     local args = e.command:args();
     if (#args == 0) then

@@ -25,10 +25,15 @@ sets = T{
         Body = 'Meg. Cuirie +1',
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Meghanada Ring',
+        Legs = 'Meg. Chausses +1',
         Feet = 'Meg. Jam. +1',
     },
     Idle_Refresh = {},
     Town = {
+        Main = 'Naegling',
+        Sub = 'Nusku Shield',
+        Range = 'Doomsday',
+        Ammo = 'Decimating Bullet',
     },
 
     Dt = {
@@ -44,10 +49,11 @@ sets = T{
         Back = 'Repulse Mantle',
         --Waist = 'Flume Belt +1',
         --Legs = 'Nyame Flanchard',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Lanun Bottes +1',
     },
 
     Tp_Default = {
+        Main = 'Naegling',
         Range = 'Doomsday',
         Head = 'Mummu Bonnet +1',
         Neck = 'Clotharius Torque',
@@ -115,13 +121,8 @@ sets = T{
     },
 
     Ws_Default = {
-        Head = 'Nyame Helm',
-        Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
-        Ring1 = 'Rufescent Ring',
-        Ring2 = 'Karieyh Ring',
-        Legs = 'Nyame Flanchard',
-        Feet = 'Nyame Sollerets',
+        Head = 'Herculean Helm',
+        Body = 'Laksa. Frac +2',
     },
     Ws_Hybrid = {
     },
@@ -129,8 +130,10 @@ sets = T{
     },
 
     Savage_Default = {
+        Head = 'Herculean Helm',
         Neck = 'Light Gorget',
         Ear2 = 'Moonshade Earring',
+        Body = 'Laksa. Frac +2',
         Hands = 'Meg. Gloves +2',
         Waist = 'Sailfi Belt +1',
     },
@@ -158,18 +161,18 @@ sets = T{
     },
 
     Aedge_Default = {
-        Head = 'Herculean Helm', 
+        Head = 'Herculean Helm',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Hecate\'s Earring',
         Ear2 = 'Moldavite Earring',
-        Body = 'Rawhide Vest',
+        Body = 'Laksa. Frac +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
         Back = 'Gunslinger\'s Cape',
         Waist = 'Fotia Belt',
         Legs = 'Mummu Kecks +1',
-        Feet = 'Adhemar Gamashes',
+        Feet = 'Lanun Bottes +1',
     },
     Aedge_Hybrid = {
     },
@@ -177,7 +180,7 @@ sets = T{
     },
 
     Laststand_Default = {
-        Head = 'Adhemar Bonnet +1', 
+        Head = 'Adhemar Bonnet', 
         Neck = 'Fotia Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Moonshade Earring',
@@ -204,9 +207,9 @@ sets = T{
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
         Back = 'Gunslinger\'s Cape',
-        Waist = 'Fotia Belt',
+        Waist = 'Svelt. Gouriz +1',
         Legs = 'Mummu Kecks +1',
-        Feet = 'Adhemar Gamashes',
+        Feet = 'Lanun Bottes +1',
     },
     Wildfire_Hybrid = {
     },
@@ -223,9 +226,9 @@ sets = T{
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
         Back = 'Gunslinger\'s Cape',
-        Waist = 'Fotia Belt',
-        Legs = 'Mummu Kecks +1',
-        Feet = 'Adhemar Gamashes',
+        Waist = 'Svelt. Gouriz +1',
+        Legs = 'Laksa. Trews +1',
+        Feet = 'Lanun Bottes +1',
     },
     Leaden_Hybrid = {
     },
@@ -234,6 +237,7 @@ sets = T{
 
     QD = {
         Ammo = 'Animikii Bullet',
+        Head = 'Laksa. Tricorne +1',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
@@ -243,7 +247,7 @@ sets = T{
         Back = 'Gunslinger\'s Cape',
         Waist = 'Aquiline Belt',
         Legs = 'Ikenga\'s Trousers',
-        Feet = 'Adhemar Gamashes',
+        Feet = 'Laksa. Bottes +1',
     },
     QD_Acc = {
         Head = 'Malignance Chapeau',
@@ -257,10 +261,14 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
     Rolls = {
+        Main = 'Lanun Knife',
         Range = 'Compensator',
         Ring2 = 'Barataria Ring',
     },
-    WildCard = {Feet = 'Lanun Bottes +2'},
+    WildCard = {Feet = 'Lanun Bottes +1'},
+    Fold = {Hands = 'Lanun Gants +3'},
+    RandomDeal = {Body = 'Lanun Frac +2'},
+    SnakeEye = {Legs = 'Lanun Trews +2'},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
 	},
@@ -272,7 +280,10 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Decimating Bullet', Quantity = 'all'},
+    {Name = 'Dec. Bul. Pouch', Quantity = 'all'},
+    {Name = 'Trump Card', Quantity = 'all'},
+    {Name = 'Trump Card Case', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
@@ -327,9 +338,11 @@ profile.HandleAbility = function()
         gFunc.EquipSet(sets.Dt);
         gFunc.EquipSet(sets.Rolls);
         gcinclude.DoCORmsg(ability.Name);
-    elseif (ability.Name == 'Wild Card') then
-        gFunc.EquipSet(sets.WildCard);
-    elseif (ability.Name:contains('Shot')) then
+    elseif (ability.Name == 'Wild Card') then gFunc.EquipSet(sets.WildCard);
+    elseif (ability.Name == 'Fold') then gFunc.EquipSet(sets.Fold);
+    elseif (ability.Name == 'Random Deal') then gFunc.EquipSet(sets.RandomDeal);
+    elseif (ability.Name == 'Snake Eye') then gFunc.EquipSet(sets.SnakeEye);
+    elseif (ability.Name:contains('Shot')) and (ability.Name ~= 'Triple Shot') then
         gFunc.EquipSet(sets.QD);
         if (gcdisplay.GetCycle('Melee') == 'Acc') or (ability.Name == 'Dark Shot') or (ability.Name == 'Light Shot') then
             gFunc.EquipSet(sets.QD_Acc);

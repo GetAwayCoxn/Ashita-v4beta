@@ -263,7 +263,7 @@ sets = T{
     },
     Ballad = {--I dont use this
         --Legs = 'Inyanga Shalwar +1',
-        Legs = 'Aoidos\'s Rhing. +2',
+        Legs = 'Aoidos\' Rhing. +2',
     },
     Scherzo = {
         Feet = 'Aoidos\' Cothrn. +2',

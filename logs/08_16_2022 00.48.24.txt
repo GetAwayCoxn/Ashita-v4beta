@@ -1,0 +1,821 @@
+08/16/2022 00:48:24.842 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : G:\Ashita-v4beta\
+08/16/2022 00:48:24.842 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+08/16/2022 00:48:24.842 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\boot\mybootsettings.ini
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   file : G:\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   args : 
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [sandbox.paths]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   common : C:\Program Files (x86)\Common Files
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   pol : G:\PlayOnline\SquareEnix\PlayOnlineViewer
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   ffxi : G:\PlayOnline\SquareEnix\Final Fantasy XI
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   tetra : G:\PlayOnline\SquareEnix\TetraMaster
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0029 : 12
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+08/16/2022 00:48:24.845 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+08/16/2022 00:48:24.845 | DEBUG    |                             Properties::Properties | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                           ChatManager::ChatManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                           FontManager::FontManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                             GuiManager::GuiManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                         InputManager::InputManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                       PacketManager::PacketManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                       PluginManager::PluginManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                     PointerManager::PointerManager | .ctor
+08/16/2022 00:48:24.845 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+08/16/2022 00:48:24.846 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+08/16/2022 00:48:24.846 | DEBUG    |                             Properties::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                           InputManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                         PointerManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                             MemoryManager::Release | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                            ChatManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                          PacketManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                          PluginManager::Initialize | <Begin>
+08/16/2022 00:48:24.846 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:24.846 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+08/16/2022 00:48:24.888 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'Common': C:\Program Files (x86)\Common Files
+08/16/2022 00:48:24.888 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'PlayOnline': G:\PlayOnline\SquareEnix\PlayOnlineViewer
+08/16/2022 00:48:24.888 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'FinalFantasyXI': G:\PlayOnline\SquareEnix\Final Fantasy XI
+08/16/2022 00:48:24.888 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'TetraMaster': G:\PlayOnline\SquareEnix\TetraMaster
+08/16/2022 00:48:24.889 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: Sandbox - Version: 4.06 - By: atom0s
+08/16/2022 00:48:24.926 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\pivot\pivot.ini
+08/16/2022 00:48:24.930 | INFO     |                                              pivot | m_logDebug = Discard
+08/16/2022 00:48:24.930 | INFO     |                                              pivot | m_rootPath = 'G:\DATs'
+08/16/2022 00:48:24.930 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+08/16/2022 00:48:24.936 | INFO     |                                              pivot | => success
+08/16/2022 00:48:24.936 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+08/16/2022 00:48:24.938 | WARN     |                                              pivot | WARNING:       12: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+08/16/2022 00:48:24.939 | WARN     |                                              pivot | WARNING:   119051: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+08/16/2022 00:48:24.939 | WARN     |                                              pivot | WARNING:   119057: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+08/16/2022 00:48:24.962 | WARN     |                                              pivot | WARNING:    91015: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+08/16/2022 00:48:25.034 | INFO     |                                              pivot | => success
+08/16/2022 00:48:25.034 | INFO     |                                              pivot | addOverlay: 'HD-Texture-Pack'
+08/16/2022 00:48:25.060 | INFO     |                                              pivot | => success
+08/16/2022 00:48:25.060 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+08/16/2022 00:48:25.064 | INFO     |                                              pivot | => success
+08/16/2022 00:48:25.163 | INFO     |                                              pivot | m_hooksSet = true
+08/16/2022 00:48:25.163 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.11 - By: Heals
+08/16/2022 00:48:25.163 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:25.163 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+08/16/2022 00:48:25.163 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+08/16/2022 00:48:25.163 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+08/16/2022 00:48:25.163 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+08/16/2022 00:48:25.163 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+08/16/2022 00:48:25.163 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+08/16/2022 00:48:25.163 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+08/16/2022 00:48:25.163 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+08/16/2022 00:48:25.163 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+08/16/2022 00:48:28.131 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 1921 x 1081]
+08/16/2022 00:48:28.131 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 662 x 524]
+08/16/2022 00:48:28.133 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/16/2022 00:48:32.352 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/16/2022 00:49:24.635 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+08/16/2022 00:49:24.780 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+08/16/2022 00:49:26.060 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+08/16/2022 00:49:26.060 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+08/16/2022 00:49:26.074 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+08/16/2022 00:49:26.074 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+08/16/2022 00:49:26.074 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/16/2022 00:49:26.074 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/16/2022 00:49:26.074 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+08/16/2022 00:49:26.074 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/16/2022 00:49:26.074 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/16/2022 00:49:26.099 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:26.099 | DEBUG    |                            ResourceManager::Update | <Begin>
+08/16/2022 00:49:26.100 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+08/16/2022 00:49:26.109 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+08/16/2022 00:49:26.128 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+08/16/2022 00:49:27.932 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 1833.552900ms [Status: 1]
+08/16/2022 00:49:27.932 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:27.932 | DEBUG    |                               InputManager::Update | <Begin>
+08/16/2022 00:49:27.932 | DEBUG    |                                       Mouse::Mouse | .ctor
+08/16/2022 00:49:27.932 | DEBUG    |                                  Mouse::Initialize | <Begin>
+08/16/2022 00:49:27.932 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:27.932 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+08/16/2022 00:49:27.932 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:27.932 | DEBUG    |                              OffsetManager::Update | <Begin>
+08/16/2022 00:49:27.932 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+08/16/2022 00:49:27.940 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+08/16/2022 00:49:27.945 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+08/16/2022 00:49:27.945 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:27.945 | DEBUG    |                             PointerManager::Update | <Begin>
+08/16/2022 00:49:27.945 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+08/16/2022 00:49:27.953 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+08/16/2022 00:49:27.958 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+08/16/2022 00:49:27.965 | DEBUG    |                             PointerManager::Update | Pointer: (139CE71C) [Ok!] autofollow
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13A2A7B5) [Ok!] castbar
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13AD59B0) [Ok!] chat.addchatmessage
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13B649F0) [Ok!] chat.inputtext.this
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (139C1622) [Ok!] chat.logfile
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13B67C00) [Ok!] chat.parseautotranslate
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13AD5AA2) [Ok!] chat.parseautotranslate.this
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13A30090) [Ok!] chat.parseinputtext
+08/16/2022 00:49:27.966 | DEBUG    |                             PointerManager::Update | Pointer: (13A300B2) [Ok!] chat.parseinputtext.this
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A274BC) [Ok!] clientversion
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (03CF6533) [Ok!] config.autodisconnect
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13B65D02) [Ok!] config.languagefilter
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (139B37E0) [Ok!] entitymap
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A44C6B) [Ok!] entitymap.size
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A99A96) [Ok!] inventory
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13AC6C15) [Ok!] inventory.selecteditem
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13B0C582) [Ok!] menu
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A8BE70) [Ok!] packets.decryptbuffer
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A8BD40) [Ok!] packets.encryptbuffer
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13AAA8E0) [Ok!] packets.queuepacket1
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A8C4D0) [Ok!] packets.queuepacket2
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13BACF8B) [Ok!] party
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A4822F) [Ok!] party.statusicons
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13AF486A) [Ok!] player
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A94580) [Ok!] player.hasability
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A47144) [Ok!] player.haskeyitem
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A9E5B0) [Ok!] player.hasspell
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A9F4C0) [Ok!] player.joblevels
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A9F500) [Ok!] player.jobmasterlevels
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A3DB7A) [Ok!] player.loginstatus
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A368DF) [Ok!] player.petmp
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A4C1DD) [Ok!] player.pettp
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13BCE664) [Ok!] recast.abilities
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13BD5182) [Ok!] recast.spells
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A298E7) [Ok!] target.settarget
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer: (13A37EE3) [Ok!] target.target
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 50.887300ms
+08/16/2022 00:49:27.996 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:27.996 | DEBUG    |                            FontManager::Initialize | <Begin>
+08/16/2022 00:49:27.996 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:27.996 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+08/16/2022 00:49:27.996 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:27.996 | DEBUG    |                             GuiManager::Initialize | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                              MemoryManager::Update | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+08/16/2022 00:49:28.008 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+08/16/2022 00:49:28.008 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 4
+08/16/2022 00:49:28.008 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                              PacketManager::Update | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+08/16/2022 00:49:28.008 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+08/16/2022 00:49:28.008 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                              PluginManager::Update | <Begin>
+08/16/2022 00:49:28.008 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+08/16/2022 00:49:28.008 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+08/16/2022 00:49:28.160 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/16/2022 00:49:28.163 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+08/16/2022 00:49:28.163 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+08/16/2022 00:49:28.163 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+08/16/2022 00:49:28.164 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+08/16/2022 00:49:28.164 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/16/2022 00:49:28.171 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/addons.dll'
+08/16/2022 00:49:28.231 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 1.30 - By: Ashita Development Team
+08/16/2022 00:49:28.231 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/screenshot.dll'
+08/16/2022 00:49:28.260 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+08/16/2022 00:49:28.260 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+08/16/2022 00:49:29.448 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+08/16/2022 00:49:29.448 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/crossbar.dll'
+08/16/2022 00:49:29.514 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.20 - By: Thorny
+08/16/2022 00:49:29.514 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/findall.dll'
+08/16/2022 00:49:29.565 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.07 - By: Thorny
+08/16/2022 00:49:29.565 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+08/16/2022 00:49:29.586 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+08/16/2022 00:49:29.586 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/lootwhore.dll'
+08/16/2022 00:49:29.638 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.15 - By: Thorny
+08/16/2022 00:49:29.638 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/minimap.dll'
+08/16/2022 00:49:29.683 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\minimap.ini
+08/16/2022 00:49:29.691 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+08/16/2022 00:49:29.732 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.02 - By: atom0s
+08/16/2022 00:49:29.732 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/shorthand.dll'
+08/16/2022 00:49:29.780 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.09 - By: Thorny
+08/16/2022 00:49:29.780 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:29.780 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/stylist.dll'
+08/16/2022 00:49:29.873 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+08/16/2022 00:49:29.873 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:29.873 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/uberwarp.dll'
+08/16/2022 00:49:31.765 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+08/16/2022 00:49:31.765 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.765 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.765 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+08/16/2022 00:49:31.883 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.12 - By: Thorny
+08/16/2022 00:49:31.883 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.883 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.884 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packetflow.dll'
+08/16/2022 00:49:31.908 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+08/16/2022 00:49:31.908 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.908 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:31.908 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/vnm.dll'
+08/16/2022 00:49:31.932 | DEBUG    |                                PluginManager::Load | Loaded plugin: VNM - Version: 1.07 - By: Xenonsmurf
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.772 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.773 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:32.774 | ERROR    |                    ChatManager::ParseAutoTranslate | Invalid 'this' pointer; cannot auto-translate code tags!
+08/16/2022 00:49:36.807 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+08/16/2022 00:49:36.809 | DEBUG    |                                PointerManager::Add | Pointer: (13A8A812) [Ok!] statustimers:realutcstamp
+08/16/2022 00:50:11.666 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+08/16/2022 00:50:16.089 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+08/16/2022 00:50:16.361 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {291A4FF0,5DEE,11E8,80,01,44,45,53,54,00,00}
+08/16/2022 00:50:16.367 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+08/16/2022 00:50:16.367 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+08/16/2022 00:50:29.356 | ERROR    |                                             Packer | Packet(ID 0x1a)[Injected] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/16/2022 00:50:29.359 | ERROR    |                                             Packer | Packet(ID 0x1a)[Natural] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/16/2022 00:50:29.530 | ERROR    |                                             Packer | Packet(ID 0x1a)[Injected] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/16/2022 00:50:29.532 | ERROR    |                                             Packer | Packet(ID 0x1a)[Natural] blocked.  Please do not attempt to modify inventory while Packer is running.
+08/16/2022 00:50:49.818 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+08/16/2022 00:51:48.122 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+08/16/2022 00:52:12.120 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+08/16/2022 00:52:12.172 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.12 - By: Thorny
+08/16/2022 00:52:38.331 | DEBUG    |                                             Packer | createContainerInfo Time: 407500ns
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Tizona at wardrobe3[27] for wardrobe.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Sakpata's sword at wardrobe2[30] for wardrobe.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 purity ring at wardrobe2[52] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Blenmot's ring at wardrobe[20] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 leyline gloves at wardrobe4[34] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 baetyl pendant at wardrobe[53] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 sapience orb at wardrobe[10] for wardrobe.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 luhlaza jubbah +3 at inventory[67] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 carmine greaves +1 at wardrobe4[39] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 prolix ring at wardrobe2[78] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Pinga pants at inventory[23] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Rosmerta's cape ('Fast Cast'+10, Mag. Eva.+20, Eva.+20, AGI+20, Evasion+25) at wardrobe3[49] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 odnowa earring +1 at wardrobe[32] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 rumination sash at wardrobe2[45] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 Kishar ring at wardrobe3[58] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 etiolation earring at wardrobe[51] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 haruspex hat at wardrobe[72] for equipbags.
+08/16/2022 00:52:38.368 | DEBUG    |                                             Packer | Flagged 1 staunch tathlum at wardrobe[5] for wardrobe.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 crepuscular helm at wardrobe[7] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 assimilator's jubbah +2 at inventory[63] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 Rosmerta's cape (Phys. dmg. taken -10%, 'Mag. Atk. Bns.'+10, Mag. Acc+20, INT+20, Magic Damage +20) at wardrobe2[1] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 jhakri cuffs +2 at inventory[52] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 Erra pendant at inventory[59] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 pemphredo tathlum at wardrobe[12] for wardrobe.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 Nyame mail at wardrobe4[65] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 jhakri pigaches +2 at inventory[49] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 stikini ring +1 at wardrobe4[74] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 jhakri slops +2 at inventory[50] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 aurist's cape +1 at wardrobe4[77] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 crepuscular earring at wardrobe2[16] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 acuity belt +1 at wardrobe4[25] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 metamorph ring +1 at wardrobe4[14] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 dignitary's earring at wardrobe[29] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 jhakri coronal +2 at inventory[61] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 eihwaz ring at wardrobe4[56] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 unmoving collar +1 at wardrobe3[33] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 cryptic earring at wardrobe2[73] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 fucho-no-obi at wardrobe3[68] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 jhakri robe +2 at inventory[53] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 rawhide mask at wardrobe[39] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 fotia gorget at wardrobe[69] for equipbags.
+08/16/2022 00:52:38.369 | DEBUG    |                                             Packer | Flagged 1 Coiste Bodhar at wardrobe[79] for wardrobe.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 herculean boots (Accuracy+30, Weapon skill damage +8%, Attack+6, Mag. Acc.+2) at wardrobe3[14] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Beithir ring at wardrobe3[6] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Gleti's breeches at wardrobe4[3] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Rosmerta's cape (Damage taken-5%, 'Dbl.Atk.'+10, Accuracy+30, Attack+20, DEX+20) at wardrobe3[44] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 telos earring at wardrobe[1] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 fotia belt at wardrobe2[6] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Karieyh ring +1 at wardrobe3[57] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 adhemar bonnet +1 at wardrobe[49] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 malignance gloves at wardrobe4[51] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 bathy choker +1 at wardrobe[65] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Gleti's cuirass at wardrobe4[2] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Gleti's boots at wardrobe4[4] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 defending ring at wardrobe2[56] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 eabani earring at wardrobe[64] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 flume belt +1 at wardrobe3[53] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 chirich ring +1 at wardrobe2[43] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 malignance chapeau at wardrobe4[50] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 warp ring at wardrobe[17] for equipbags.
+08/16/2022 00:52:38.370 | DEBUG    |                                             Packer | Flagged 1 Shikargar at wardrobe[16] for wardrobe.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Shikargar at wardrobe4[53] for wardrobe.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Nyame sollerets at wardrobe4[57] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 malignance tabard at wardrobe3[15] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Nyame flanchard at wardrobe4[63] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 vengeful ring at wardrobe2[62] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Ilabrat ring at wardrobe2[7] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 sveltesse gouriz +1 at wardrobe3[10] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 infused earring at wardrobe[18] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 telchine gloves at wardrobe3[52] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 incanter's torque at wardrobe2[4] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 medium's sabots at wardrobe4[28] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 solemnity cape at wardrobe[50] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 mendicant's earring at wardrobe2[70] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 gishdubar sash at wardrobe2[50] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Pinga crown at wardrobe4[58] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 dimensional ring (Dem) at wardrobe[75] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 adhemar wristbands +1 at wardrobe3[19] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 jukukik feather at wardrobe3[25] for wardrobe.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 thereoid greaves at wardrobe4[40] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 Rosmerta's cape (Accuracy+20, Crit.hit rate+10, Attack+20, DEX+20) at wardrobe3[37] for equipbags.
+08/16/2022 00:52:38.371 | DEBUG    |                                             Packer | Flagged 1 begrudging ring at wardrobe2[49] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 luhlaza charuqs +1 at inventory[62] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 tanner's gloves at wardrobe3[76] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 craftmaster's ring at wardrobe2[47] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 artificer's ring at wardrobe2[48] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 tanner's apron at wardrobe3[77] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 Midras's helm +1 at wardrobe2[25] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 sanctity necklace at wardrobe[62] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 crepuscular ring at wardrobe3[38] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 pelican ring at wardrobe2[40] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 halcyon rod at wardrobe[9] for wardrobe.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 Bunzi's rod at wardrobe[15] for wardrobe.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 Naegling at wardrobe4[47] for wardrobe.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 chaac belt at wardrobe4[59] for equipbags.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 perfect lucky egg at inventory[29] for wardrobe.
+08/16/2022 00:52:38.372 | DEBUG    |                                             Packer | Flagged 1 herculean boots (Potency of 'Cure' effect received+5%, Mag. Acc.+19, Accuracy+21, 'Mag. Atk. Bns.'+19, 'Treasure Hunter'+2) at wardrobe4[69] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 herculean boots (Accuracy+20, Attack+6, AGI+1, 'Triple Atk.'+3) at wardrobe[58] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 herculean vest at wardrobe[71] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 samnuha tights at wardrobe[66] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 petrov ring at wardrobe3[69] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 Epona's ring at wardrobe[24] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 sailfi belt +1 at wardrobe4[9] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 cessance earring at wardrobe[74] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 assimilator's charuqs +1 at inventory[68] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 carmine cuisses +1 at wardrobe3[71] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 amalric gages +1 at wardrobe4[78] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 ghastly tathlum +1 at wardrobe[11] for wardrobe.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 amalric nails +1 at wardrobe3[17] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 amalric slops +1 at inventory[60] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 crematio earring at wardrobe[40] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 eschan stone at wardrobe2[44] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 Shiva ring +1 at wardrobe3[26] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 regal earring at wardrobe[22] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 hashishin basmak +1 at inventory[70] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 siegel sash at wardrobe[26] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 Nyame gauntlets at wardrobe4[62] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 mache earring +1 at wardrobe2[23] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 Odr earring at wardrobe[31] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 carrier's sash at wardrobe3[1] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 gelatinous ring +1 at wardrobe4[66] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 Nyame helm at wardrobe4[54] for equipbags.
+08/16/2022 00:52:38.373 | DEBUG    |                                             Packer | Flagged 1 moonshade earring at wardrobe2[80] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 cacoethic ring +1 at wardrobe3[60] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 blistering sallet +1 at wardrobe3[74] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 hachirin-no-obi at wardrobe3[28] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 Augury cuisses +1 at wardrobe3[55] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 archon ring at wardrobe3[50] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 pixie hairpin +1 at wardrobe2[75] for equipbags.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 3 tropical crepes at inventory[1] for inventory.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 6 rolanberry daifuku at inventory[13] for inventory.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 02 at satchel[5] for satchel.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 03 at satchel[13] for satchel.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 04 at satchel[55] for satchel.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 06 at satchel[20] for satchel.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 08 at satchel[1] for satchel.
+08/16/2022 00:52:38.374 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 09 at satchel[14] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 10 at satchel[10] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 13 at satchel[22] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 15 at satchel[63] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 16 at satchel[15] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 17 at satchel[4] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 18 at satchel[12] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 20 at satchel[18] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 21 at satchel[8] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 23 at satchel[44] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 24 at satchel[54] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 25 at satchel[11] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 26 at satchel[25] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 moogle storage slip 27 at satchel[7] for satchel.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 40 pinches of Abdhaljs dust at case[58] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 5 pots of Abdhaljs dye at case[28] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 20 bottles of Abdhaljs sap at case[55] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 1 Abdhaljs needle at case[15] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 3 Ambuscade vouchers: back at case[1] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 28 codexes of etchings at case[10] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 6 forgotten thoughts at case[3] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 28 forgotten hopes at case[17] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 21 lustreless scales at case[24] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 8 lustreless hides at case[22] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 7 vials of plovid effluvium at case[18] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 7 chunks of plovid flesh at case[8] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 8 macuil plating at case[43] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 8 macuil horns at case[13] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 11 defiant scarves at case[5] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 12 vials of defiant sweat at case[4] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 33 etched memories at case[11] for case.
+08/16/2022 00:52:38.375 | DEBUG    |                                             Packer | Flagged 9 Hades' claws at case[9] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 11 chunks of dark matter at case[14] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 10 Tartarian souls at case[2] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 3 Tartarian chains at case[21] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 66 riftborn boulders at case[53] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 8 boulder cases at case[16] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 3 Abdhaljs seals at case[12] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 78 Tukuku whiteshells at case[35] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 1 Lungo-Nango jadeshell at case[30] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 67 Ordelle bronzepieces at case[29] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 9 Montiont silverpieces at case[27] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 39 one byne bills at case[25] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 1 one hundred byne bill at case[20] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 19 rusted identification cards at case[33] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 blackened identification cards at case[34] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 11 beastmen's medals at case[32] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 9 heroism crystals at case[23] for case.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 pinches of prism powder at inventory[26] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 10 pots of silent oil at inventory[18] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 flasks of holy water at inventory[4] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 flasks of holy water at inventory[35] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 flasks of echo drops at inventory[2] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 11 flasks of echo drops at inventory[19] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 12 remedies at inventory[11] for inventory.
+08/16/2022 00:52:38.376 | DEBUG    |                                             Packer | Flagged 7 grape daifuku at inventory[3] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 1 beastmen's seal at inventory[9] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 1 Kindred's seal at inventory[14] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 2 Kindred's crests at inventory[33] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 6 High Kindred's crests at inventory[12] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 11 Sacred Kindred's crests at inventory[37] for inventory.
+08/16/2022 00:52:38.377 | DEBUG    |                                             Packer | Flagged 2 copper A.M.A.N. vouchers at inventory[15] for inventory.
+08/16/2022 00:52:38.378 | DEBUG    |                                             Packer | flagMoveItems(alt thread) Time: 35296900ns
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | verifyContainerInfo Success Time: 7300ns
+08/16/2022 00:52:38.641 | ERROR    |                                             Packer | Could not create space to store every requested item in wardrobe.  Continuing to next bag.
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | inventory : 14 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe : 10 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | storage : 19 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | locker : 7 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | sack : 4 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | case : 13 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe2 : 3 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | inventory : 14 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe : 10 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | storage : 19 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | locker : 7 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | sack : 4 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | case : 13 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe2 : 3 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | inventory : 14 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe : 10 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | storage : 19 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | locker : 7 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | sack : 4 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | case : 13 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe2 : 3 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | inventory : 14 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe : 10 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | storage : 19 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | temporary : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | locker : 7 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | satchel : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | sack : 4 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | case : 13 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | safe2 : 3 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe2 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe3 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe4 : 0 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe5 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe6 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe7 : 80 open spaces
+08/16/2022 00:52:38.641 | DEBUG    |                                             Packer | wardrobe8 : 80 open spaces
+08/16/2022 00:56:09.840 | DEBUG    |                                             Packer | waitForThread Time: 2300ns
+08/16/2022 00:57:32.084 | DEBUG    |                                             Packer | waitForThread Time: 2900ns
+08/16/2022 00:57:51.686 | DEBUG    |                                             Packer | waitForThread Time: 2100ns
+08/16/2022 01:00:25.374 | DEBUG    |                                             Packer | waitForThread Time: 3600ns
+08/16/2022 01:01:27.476 | DEBUG    |                                             Packer | waitForThread Time: 3600ns
+08/16/2022 01:01:42.144 | DEBUG    |                                             Packer | waitForThread Time: 4100ns
+08/16/2022 01:08:43.360 | DEBUG    |                                             Packer | waitForThread Time: 3200ns
+08/16/2022 01:09:41.646 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:09:44.108 | INFO     |                                            Bellhop | Selling a orb of light fewell to Gekko.
+08/16/2022 01:12:31.848 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:12:38.103 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+08/16/2022 01:12:40.104 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+08/16/2022 01:12:42.769 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+08/16/2022 01:12:47.524 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:12:50.223 | INFO     |                                            Bellhop | Selling 2 matching items to Gekko.
+08/16/2022 01:13:00.651 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:13:34.423 | DEBUG    |                                             Packer | waitForThread Time: 2200ns
+08/16/2022 01:13:54.970 | DEBUG    |                                             Packer | waitForThread Time: 2400ns
+08/16/2022 01:24:41.555 | DEBUG    |                                             Packer | waitForThread Time: 1800ns
+08/16/2022 01:25:19.602 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:25:23.011 | INFO     |                                            Bellhop | Selling 3 matching items to Gekko.
+08/16/2022 01:26:38.388 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:26:43.486 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+08/16/2022 01:26:45.478 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+08/16/2022 01:26:48.136 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+08/16/2022 01:26:50.893 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:26:54.059 | ERROR    |                                            Bellhop | No matching items found.  Term: TYPE:trash
+08/16/2022 01:27:21.114 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:27:25.120 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+08/16/2022 01:27:27.112 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+08/16/2022 01:27:29.747 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+08/16/2022 01:27:35.466 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:27:37.221 | INFO     |                                            Bellhop | Selling a agilis lance to Gekko.
+08/16/2022 01:27:41.672 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:28:56.779 | DEBUG    |                                             Packer | waitForThread Time: 3300ns
+08/16/2022 01:29:22.787 | DEBUG    |                                             Packer | waitForThread Time: 4100ns
+08/16/2022 01:35:47.474 | DEBUG    |                                             Packer | waitForThread Time: 3200ns
+08/16/2022 01:36:57.204 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:37:00.360 | ERROR    |                                            Bellhop | No matching items found.  Term: TYPE:trash
+08/16/2022 01:37:26.308 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:38:03.695 | DEBUG    |                                             Packer | waitForThread Time: 3100ns
+08/16/2022 01:38:23.212 | DEBUG    |                                             Packer | waitForThread Time: 2600ns
+08/16/2022 01:45:59.429 | DEBUG    |                                             Packer | waitForThread Time: 3200ns
+08/16/2022 01:46:38.775 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+08/16/2022 01:46:45.329 | INFO     |                                            Bellhop | Selling a orb of dark fewell to Gekko.
+08/16/2022 01:47:17.784 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+08/16/2022 01:47:39.896 | INFO     |                                            Bellhop | Traded 28 matching items to Monisette.
+08/16/2022 01:48:44.742 | DEBUG    |                                             Packer | waitForThread Time: 2400ns
+08/16/2022 01:49:11.387 | DEBUG    |                                Keyboard::~Keyboard | .dtor
+08/16/2022 01:49:11.387 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/16/2022 01:49:11.387 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+08/16/2022 01:49:11.387 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+08/16/2022 01:49:11.387 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+08/16/2022 01:49:11.387 | DEBUG    |                                      Mouse::~Mouse | .dtor
+08/16/2022 01:49:11.387 | DEBUG    |              newIDirectInput8A::~newIDirectInput8A | .dtor
+08/16/2022 01:49:11.791 | DEBUG    |          newIDirect3DDevice8::~newIDirect3DDevice8 | .dtor
+08/16/2022 01:49:11.791 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event invoked.
+08/16/2022 01:49:11.791 | DEBUG    |                               ChatManager::Release | <Begin>
+08/16/2022 01:49:11.791 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+08/16/2022 01:49:11.792 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+08/16/2022 01:49:11.792 | DEBUG    |                  CommandTaskPool::~CommandTaskPool | .dtor
+08/16/2022 01:49:11.792 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+08/16/2022 01:49:11.792 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+08/16/2022 01:49:11.792 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:11.792 | DEBUG    |                             PluginManager::Release | <Begin>
+08/16/2022 01:49:11.792 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+08/16/2022 01:49:12.813 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Addons
+08/16/2022 01:49:12.813 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Screenshot
+08/16/2022 01:49:12.817 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Crossbar
+08/16/2022 01:49:12.817 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: FindAll
+08/16/2022 01:49:12.817 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: HardwareMouse
+08/16/2022 01:49:12.817 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Lootwhore
+08/16/2022 01:49:12.818 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Minimap
+08/16/2022 01:49:12.818 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Shorthand
+08/16/2022 01:49:12.818 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Stylist
+08/16/2022 01:49:12.835 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Uberwarp
+08/16/2022 01:49:12.835 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: PacketFlow
+08/16/2022 01:49:12.835 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: VNM
+08/16/2022 01:49:12.835 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+08/16/2022 01:49:12.835 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+08/16/2022 01:49:12.835 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.835 | DEBUG    |                             MemoryManager::Release | <Begin>
+08/16/2022 01:49:12.835 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.835 | DEBUG    |                             PacketManager::Release | <Begin>
+08/16/2022 01:49:12.835 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.835 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+08/16/2022 01:49:12.835 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.835 | DEBUG    |                               FontManager::Release | <Begin>
+08/16/2022 01:49:12.835 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.835 | DEBUG    |                                GuiManager::Release | <Begin>
+08/16/2022 01:49:12.867 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.867 | DEBUG    |                              InputManager::Release | <Begin>
+08/16/2022 01:49:12.867 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.867 | DEBUG    |                            PointerManager::Release | <Begin>
+08/16/2022 01:49:12.867 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.867 | DEBUG    |                           ResourceManager::Release | <Begin>
+08/16/2022 01:49:12.927 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+08/16/2022 01:49:12.927 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event finished.
+08/16/2022 01:49:12.927 | DEBUG    |                      newIDirect3D8::~newIDirect3D8 | .dtor
+08/16/2022 01:49:13.936 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: 0 x 0][Size: 662 x 524]
+08/16/2022 01:49:14.072 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]

@@ -96,7 +96,7 @@ sets = T{
     --These will overwrite any above TP sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
         Ammo = 'Staunch Tathlum',
-        Head = 'Souv. Schaller +1',
+        Head = 'Chev. Armet +1',
         Neck = 'Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Ethereal Earring',
@@ -237,7 +237,7 @@ sets = T{
     },
 
     Ws_Default = {
-        Ammo = 'Ginsen',
+        Ammo = 'Coiste Bodhar',
         Head = 'Nyame Helm',
         Neck = 'Fotia Gorget',
         Ear1 = 'Thrud Earring',
@@ -330,7 +330,7 @@ sets = T{
         Feet = 'Cab. Leggings +1',
     },
     Bash = {
-        Hands = 'Cab. Gauntlets',
+        Hands = 'Cab. Gauntlets +2',
     },
     Invincible = {
         Legs = 'Cab. Breeches +1',
@@ -367,7 +367,8 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Om. Sandwich', Quantity = 'all'},
+    {Name = 'Black Curry Bun', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
@@ -461,6 +462,7 @@ profile.HandleMidcast = function()
         gFunc.EquipSet(sets.Phalanx);
     elseif string.match(spell.Name, 'Reprisal') then
         gFunc.EquipSet(sets.Reprisal);
+        return;--dont want to override this with SIR even with SIR toggle
     elseif string.match(spell.Name, 'Flash') then
         gFunc.EquipSet(sets.Flash);
     else

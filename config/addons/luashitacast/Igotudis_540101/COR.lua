@@ -46,7 +46,7 @@ sets = T{
         Ammo = 'Decimating Bullet',
         Head = 'Chass. Tricorne +1',
         Neck = 'Bathy Choker +1',
-        Body = 'Laksa. Frac +2',
+        Body = 'Chasseur\'s Frac +1',
         Hands = 'Malignance Gloves',
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Chirich Ring +1',
@@ -169,7 +169,7 @@ sets = T{
         Head = 'Malignance Chapeau',
         Neck = 'Comm. Charm +1',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Crep. Earring',
+        Ear2 = 'Enervating Earring',
         Body = 'Laksa. Frac +2',
         Hands = 'Malignance Gloves',
         Ring1 = 'Dingir Ring',
@@ -180,6 +180,7 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
     Midshot_Acc = {
+        Ear1 = 'Telos Earring',
         Ear2 = 'Crep. Earring',
         Body = 'Laksa. Frac +2',
         Ring2 = 'Crepuscular Ring',
@@ -539,7 +540,6 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Wildfire_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Wildfire_' .. gcdisplay.GetCycle('MeleeSet')); end
-            if (gcdisplay.GetCycle('MeleeSet') == 'Default') then gcinclude.DoMoonshade() end;
             if (weather.DayElement == 'Fire' or weather.RawWeatherElement == 'Fire') then gFunc.EquipSet(sets.WsObi) end
         elseif string.match(ws.Name, 'Leaden Salute') then
             gFunc.EquipSet(sets.Leaden_Default)

@@ -84,6 +84,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 				distancecheck = true;
 			elseif v[4] == 100 then 
 				v[2] = true;
+				distancecheck = true;
 				deathCheck = true;
 			else
 				v[2] = false;
@@ -129,7 +130,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 			end
 		else
 			display.text = display.text .. '\n';
-			display.text = display.text .. osd.red .. v[1] .. '(' .. tostring(k) .. ') ' ..  timeCalc(v[6]);
+			display.text = display.text .. osd.red .. v[1] .. '(' .. tostring(k) .. osd.yellow .. ') ' ..  timeCalc(v[6]);
 			v[5] = true;
 		end
 	end
@@ -160,7 +161,7 @@ ashita.events.register('command', 'command_cb', function (e)
 	elseif args[2] == 'clear' then
 		osd.mobs[area] = T{};
 	elseif args[2] == 'test' then
-		test(now);
+		test();
 	elseif args[2] == 'call' then
 		if args[3] ~= nil then
 			osd.callnumber = (args[3]);
@@ -187,16 +188,12 @@ end
 function timeCalc(time)
 	time = time or os.clock();
     local t =  time - os.clock();
-    local m = string.format("%02i", (1200-t)/60);
-    local s = string.format("%02i", (1200 - (60*m)) - t);
+    local m = string.format("%02i", t/60);
+    local s = string.format("%02i", (60*m) - t);
     local str = m .. ':' .. s;
     return str;
 end
 
 function test(time)
-    local t = os.clock() - time;
-    local m = string.format("%02i", (3600-t)/60);
-    local s = string.format("%02i", (3600-(60*m)) - t);
-    local str = m .. ':' .. s;
-    print(str)
+    print(struct.size("H"))
 end

@@ -9,17 +9,19 @@ sets = T{
         Neck = 'Wiglen Gorget',
         Ear1 = 'Ethereal Earring',
         Ear2 = 'Etiolation Earring',
-        Body = 'Vrikodara Jupon',
+        Body = 'Foire Tobe +2',
         Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Defending Ring',
         Ring2 = 'Sheltered Ring',
-        Back = 'Repulse Mantle',
         Waist = 'Isa Belt',
+        Back = 'Repulse Mantle',
         Legs = 'Tali\'ah Sera. +1',
         Feet = 'Tali\'ah Crackows +1',
     },
     Idle_Pet = {
-        Head = 'Anwig Salade',
+        Head = 'Foire Taj +2',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
+        Waist = 'Isa Belt',
     },
 	Resting = {},
     Idle_Regen = {
@@ -35,6 +37,7 @@ sets = T{
         Ammo = 'Automat. Oil +3',
         Head = 'Karagoz Capello +1',
         Neck = 'Wiglen Gorget',
+        Body = 'Foire Tobe +2',
         Ring1 = 'Paguroidea Ring',
         Ring2 = 'Sheltered Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
@@ -56,12 +59,12 @@ sets = T{
         Main = 'Emeici +1',
         Range = 'Neo Animator',
         Ammo = 'Automat. Oil +3',
-        Head = 'Anwig Salade',
+        Head = 'Tali\'ah Turban +1',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Guignol Earring',
         Ear2 = 'Ethereal Earring',
-        Body = 'Tali\'ah Manteel +1',
-        Hands = 'Tali\'ah Gages +1',
+        Body = 'Foire Tobe +2',
+        Hands = 'Foire Dastanas +2',
         Ring1 = 'Tali\'ah Ring',
         Ring2 = 'Sheltered Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
@@ -72,10 +75,12 @@ sets = T{
     Pet_Only_Tp_Hybrid = {
     },
     Pet_Only_Tp_Acc = {
+        Body = 'Tali\'ah Manteel +1',
+        Hands = 'Tali\'ah Gages +1',
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Head = 'Karagoz Capello +1',
+        Head = 'Tali\'ah Turban +1',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
@@ -86,7 +91,7 @@ sets = T{
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Kuku Stone',
         Legs = 'Tali\'ah Sera. +1',
-        Feet = 'Tali\'ah Crackows +1',
+        Feet = 'Herculean Boots',
     },
 	Tp_Hybrid = {
     },
@@ -97,6 +102,7 @@ sets = T{
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
         Range = 'Animator P',
+        Waist = 'Isa Belt',
     },
     Melee = {
         Range = 'Neo Animator',
@@ -108,6 +114,8 @@ sets = T{
         Range = 'Animator P II',
         --Neck = 'Empath Necklace',
         Ring1 = 'Defending Ring',
+        Legs = 'Foire Churidars +2',
+        Feet = 'Foire Babouches +2',
     },
 
     Precast = {
@@ -144,10 +152,16 @@ sets = T{
 	Ws_Default = {
         Head = 'Herculean Helm',
         Neck = 'Light Gorget',
+        Ear1 = 'Schere Earring',
+        Ear2 = 'Moonshade Earring',
         Body = 'Abnoba Kaftan',
+        Hands = 'Tali\'ah Gages +1',
         Ring1 = 'Epona\'s Ring',
         Ring2 = 'Rajas Ring',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'STR+25', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
+        Legs = 'Samnuha Tights',
+        Feet = 'Hiza. Sune-Ate +1',
     },
     Ws_Hybrid = {
     },
@@ -174,11 +188,12 @@ sets = T{
 	Repair = {
 		Ammo = 'Automat. Oil +3',
         Ear1 = 'Guignol Earring',
+        Feet = 'Foire Babouches +2',
 	},
     Maneuver = {
         --Ear1 = 'Burana Earring',
         --Body = 'Kara. Farsetto +1',
-        --Hands = 'Foire Dastanas +1',
+        Hands = 'Foire Dastanas +2',
         Neck = 'Buffoon\'s Collar',
         Back = 'Visucius\'s Mantle',
 	},
@@ -191,12 +206,16 @@ sets = T{
         --Ear2 = 'Domes. Earring',
         --Body = 'Pitre Tobe +3',
         --Hands = 'Mpaca\'s Gloves',
+        Body = 'Foire Tobe +2',
+        Hands = 'Foire Dastanas +2',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
         --Legs = 'Nyame Flanchard',
         --Feet = 'Mpaca\'s Boots',
+        Legs = 'Tali\'ah Sera. +1',
+        Feet = 'Tali\'ah Crackows +1',
     },
 
 	TH = {--/th will force this set to equip for 10 seconds
@@ -211,7 +230,7 @@ sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Automat. Oil +3', Quantity = 'all'},
-    {Name = 'Bean Daifuku', Quantity = 12},
+    {Name = 'Bean Daifuku', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

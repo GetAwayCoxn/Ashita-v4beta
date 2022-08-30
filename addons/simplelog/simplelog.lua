@@ -29,15 +29,16 @@ require('common');
 require('lib\\constants');
 
 local inc = T{
-    [0x00A] = {},
+    --[0x00A] = {},
     [0x28] = {},
     [0x020] = {},
     [0x00E] = {},
-    [0x00B] = {},
+    --[0x00B] = {},
     [0x29] = {},
     [0x030] = {},
     [0x06F] = {},
-    [0x01B] = {},};
+    --[0x01B] = {},
+    };
 local old = T{};
 local towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',
 };
@@ -73,9 +74,9 @@ ashita.events.register('text_in', 'text_in_cb', function (e)
 end);
 
 ashita.events.register('packet_in', 'packet_in_cb', function (e)
+    if inc:haskey(e.id) then
     local area = AshitaCore:GetResourceManager():GetString("zones.names", AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0));
     if (area == nil) or (towns:contains(area)) then return end
-    if inc:haskey(e.id) then
         if old[e.id] == nil then
             --print('First')
             old[e.id] = e;

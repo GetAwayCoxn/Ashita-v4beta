@@ -1,17 +1,21 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = { Name = 'Malevolence', Augment = { [1] = '"Mag. Atk. Bns."+7', [2] = 'INT+3', [3] = 'Mag. Acc.+5' } },
-        Sub = { Name = 'Ochain', AugTrial=4399 },
-        Ammo = 'Staunch Tathlum',
+        Main = { Name = 'Emeici +1', AugPath='A' },
+        Range = 'Neo Animator',
+        Ammo = 'Automat. Oil +3',
+        Head = 'Karagoz Capello +1',
         Neck = 'Wiglen Gorget',
-        Ear2 = 'Ethereal Earring',
-        Hands = 'Sulev. Gauntlets +1',
-        Ring1 = 'K\'ayres Ring',
-        Ring2 = 'Defending Ring',
-        Back = { Name = 'Rudianos\'s Mantle', Augment = { [1] = 'Mag. Eva.+20', [2] = 'Spell interruption rate down-10%', [3] = 'Eva.+20', [4] = 'HP+60', [5] = 'Enmity+10' } },
-        Legs = { Name = 'Carmine Cuisses', AugPath='D' },
-        Feet = { Name = 'Odyssean Greaves', Augment = { [1] = '"Mag. Atk. Bns."+3', [2] = 'Accuracy+4', [3] = 'Rng.Acc.+8', [4] = 'Mag. Acc.+3', [5] = 'Pet: Attack+26', [6] = 'Pet: Rng.Atk.+26', [7] = 'Attack+4', [8] = 'Weapon skill damage +6%' } },
+        Ear1 = 'Ethereal Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Vrikodara Jupon',
+        Hands = 'Tali\'ah Gages +1',
+        Ring1 = 'Paguroidea Ring',
+        Ring2 = 'Sheltered Ring',
+        Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'STR+25', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Waist = 'Isa Belt',
+        Legs = 'Tali\'ah Sera. +1',
+        Feet = 'Hermes\' Sandals',
     },
 };
 

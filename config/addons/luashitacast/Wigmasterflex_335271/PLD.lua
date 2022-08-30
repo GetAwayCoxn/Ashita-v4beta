@@ -432,6 +432,7 @@ profile.HandleMidcast = function()
         gFunc.EquipSet(sets.Phalanx);
     elseif string.match(spell.Name, 'Reprisal') then
         gFunc.EquipSet(sets.Reprisal);
+        return;--dont want to override this with SIR even with SIR toggle
     elseif string.match(spell.Name, 'Flash') then
         gFunc.EquipSet(sets.Flash);
     else

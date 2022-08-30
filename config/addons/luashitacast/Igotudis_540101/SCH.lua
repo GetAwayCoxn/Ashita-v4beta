@@ -103,7 +103,7 @@ sets = T{
         Ring2 = 'Mallquis Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
-        Legs = 'Agwu\'s Slops',
+        Legs = 'Pinga Pants',--11
         Feet = 'Acad. Loafers +2',
     },
     Cure_Precast = {
@@ -120,30 +120,28 @@ sets = T{
     },
 
 
-    Cure = {
-        Main = 'Bunzi\'s Rod',
+    Cure = {--I cap is 50, II cap is 30
+        Main = 'Bunzi\'s Rod',--I 30
         Sub = 'Ammurapi Shield',
         Ammo = 'Pemphredo Tathlum',
-        Head = { Name = 'Vanya Hood', AugPath='C' },
-        Neck = 'Nodens Gorget',
-        Ear1 = 'Mendi. Earring',
+        Neck = 'Nodens Gorget',--I 5
+        Ear1 = 'Mendi. Earring',--I 5
         Ear2 = 'Regal Earring',
-        Body = 'Gende. Bliaut +1',
-        Hands = 'Peda. Bracers +2',
+        Hands = 'Peda. Bracers +2',--II 2 and skill
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
+        Back = 'Solemnity Cape',--I 7
         Waist = 'Rumination Sash',
-        Legs = 'Vanya Slops',
-        Feet = 'Vanya Clogs',
+        Legs = 'Pinga Pants',--11
+        Feet = 'Vanya Clogs',--I 10
     },
-    Self_Cure = {
+    Self_Cure = {--cap 30
         Waist = 'Gishdubar Sash',
     },
     Regen = {
         Main = 'Bolelabunga',
         Sub = 'Ammurapi Shield',
-        Head = 'Arbatel Bonnet +1',
+        Head = 'Arbatel Bonnet +2',
         Body = 'Telchine Chas.',
         Hands = 'Arbatel Bracers +1',
         Back = 'Lugh\'s Cape',
@@ -246,7 +244,7 @@ sets = T{
         Main = 'Bunzi\'s Rod', -- 10 and 0
         Sub = 'Ammurapi Shield',
         Ammo = 'Ghastly Tathlum +1',
-        Head = 'Peda. M.Board +3', -- 0 and 2
+        Head = 'Peda. M.Board +3', -- 0 and 4
         Neck = 'Argute Stole +1', -- 7 and 0
         Body = 'Agwu\'s Robe', -- 10 and 0
         Hands = 'Amalric Gages +1', -- 0 and 6
@@ -261,7 +259,7 @@ sets = T{
         Ammo = 'Ghastly Tathlum +1',
         Head = 'Agwu\'s Cap',
         Neck = 'Argute Stole +1',
-        Ear1 = 'Regal Earring',
+        Ear1 = 'Crematio Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
         Hands = 'Amalric Gages +1',
@@ -273,9 +271,8 @@ sets = T{
         Feet = 'Amalric Nails +1',
     },
     HelixBurst = {
-        Ear1 = 'Crematio Earring',
         Ring1 = 'Mujin Band',
-        Feet = 'Amalric Nails +1',
+        Feet = 'Agwu\'s Pigaches', -- 6 and 0
     },
     Storm = {
         Feet = 'Peda. Loafers +3',
@@ -360,6 +357,17 @@ sets = T{
     Cataclysm_Acc = {
     },
 
+    Sublimation = {
+        Head = 'Acad. Mortar. +2',
+        Body = 'Peda. Gown +3',
+        Waist = 'Embla Sash',
+    },
+    Power = {--rapture/ebullience
+        Head = 'Arbatel Bonnet +2',
+	},
+    Klimaform = {--klimaform dmg boost
+        Feet = 'Arbatel Loafers +1',
+	},
     TH = {--/th will force this set to equip for 10 seconds
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -394,7 +402,7 @@ end
 
 profile.HandleDefault = function()
     local player = gData.GetPlayer();
-
+    local sub = gData.GetBuffCount('Sublimation: Activated');
     gFunc.EquipSet(sets.Idle);
 
     if (player.Status == 'Engaged') then
@@ -411,6 +419,9 @@ profile.HandleDefault = function()
     gcinclude.CheckDefault ();
     if (gcdisplay.GetCycle('Weapon') == 'Staff') then
         gFunc.EquipSet(sets.Idle_Staff);
+    end
+    if (sub > 0) then
+        gFunc.EquipSet(sets.Sublimation);
     end
     if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
     if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
@@ -455,6 +466,8 @@ profile.HandleMidcast = function()
     local spell = gData.GetAction();
     local target = gData.GetActionTarget();
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
+    local power = gData.GetBuffCount('Ebullience') +  gData.GetBuffCount('Rapture');
+    local klimaform = gData.GetBuffCount('Klimaform');
 
     if (spell.Skill == 'Enhancing Magic') then
         gFunc.EquipSet(sets.Enhancing);
@@ -468,6 +481,8 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Stoneskin);
         elseif string.contains(spell.Name, 'Regen') then
             gFunc.EquipSet(sets.Regen);
+        elseif string.contains(spell.Name, 'storm') then
+            gFunc.EquipSet(sets.Storm);
         elseif string.contains(spell.Name, 'Refresh') then
             gFunc.EquipSet(sets.Refresh);
             if (target.Name == me) then
@@ -491,8 +506,16 @@ profile.HandleMidcast = function()
         if (gcdisplay.GetToggle('Burst') == true) then
             gFunc.EquipSet(sets.Burst);
         end
-        if (spell.Element == weather.WeatherElement) or (spell.Element == weather.DayElement) then
+        if (spell.Element == weather.WeatherElement) then
             gFunc.Equip('Waist', 'Hachirin-no-Obi');
+            if klimaform > 0 then
+                gFunc.EquipSet(sets.Klimaform);
+            end
+        elseif (spell.Element == weather.DayElement) then
+            gFunc.Equip('Waist', 'Hachirin-no-Obi');
+        end
+        if (player.MPP <= 40) then
+            gFunc.EquipSet(sets.Mp_Body);
         end
         if string.contains(spell.Name, 'helix') then
             gFunc.EquipSet(sets.Helix);
@@ -502,9 +525,6 @@ profile.HandleMidcast = function()
             if string.contains(spell.Name, 'Nocto') then
                 gFunc.Equip('Head', 'Pixie Hairpin +1');
             end
-        end
-        if (player.MPP <= 40) then
-            gFunc.EquipSet(sets.Mp_Body);
         end
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
@@ -517,6 +537,9 @@ profile.HandleMidcast = function()
         end
     end
 
+    if (power > 0) then
+        gFunc.EquipSet(sets.Power);
+    end
     if (gcdisplay.GetCycle('Weapon') == 'Staff') then
         gFunc.EquipSet(sets.Idle_Staff);
     end

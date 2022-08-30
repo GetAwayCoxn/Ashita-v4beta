@@ -173,6 +173,19 @@ profile.Packer = {
     {Name = 'Lustreless Hide', Quantity = 'all'},
     {Name = 'Lustreless Scale', Quantity = 'all'},
     {Name = 'Skeleton Key', Quantity = 'all'},
+    'Odious Blood',
+    'Odious Pen',
+    'Odious Skull',
+    'Odious Horn',
+    {Name = 'Forgotten Hope', Quantity = 'all'},
+    {Name = 'Frgtn. Thought', Quantity = 'all'},
+    'Shrouded Bijou',
+    {Name = 'T. Whiteshell', Quantity = 'all'},
+    {Name = 'L. Jadeshell', Quantity = 'all'},
+    {Name = 'O. Bronzepiece', Quantity = 'all'},
+    {Name = 'M. Silverpiece', Quantity = 'all'},
+    {Name = '1 Byne Bill', Quantity = 'all'},
+    {Name = '100 Byne Bill', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

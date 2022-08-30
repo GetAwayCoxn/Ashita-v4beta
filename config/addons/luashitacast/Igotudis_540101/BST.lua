@@ -5,16 +5,18 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
-        Ammo = 'Staunch Tathlum',
+        Main = 'Naegling',
+        Sub = 'Adapa Shield',
+        Ammo = 'Voluspa Tathlum',
         Head = 'Malignance Chapeau',
-        Neck = 'Empath Necklace',
+        Neck = 'Bathy Choker +1',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = 'Mecisto. Mantle',
+        Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Isa Belt',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',

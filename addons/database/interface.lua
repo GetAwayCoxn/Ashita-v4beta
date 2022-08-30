@@ -28,6 +28,10 @@ function interface.Unload()
     interface.settings.save();
 end
 
+function interface.TextIn()
+    --Paparoon : Yooo find Paparoon 20738 more shinies, yes?
+end
+
 function interface.RenderJobPointsTab()
     imgui.BeginGroup();
         imgui.BeginChild('JPpane', { 0, -imgui.GetFrameHeightWithSpacing(), }, true);

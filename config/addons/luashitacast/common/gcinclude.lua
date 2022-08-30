@@ -201,7 +201,7 @@ function gcinclude.SetVariables()
 		gcdisplay.CreateToggle('Fight', false);
 	end
 	if (player.MainJob == 'PLD') or (player.MainJob == 'RUN') then
-		gcdisplay.CreateToggle('SIR', false);
+		gcdisplay.CreateToggle('SIR', true);
 		gcdisplay.CreateCycle('TankSet', {[1] = 'Main', [2] = 'MEVA', [3] = 'None'});
 	end
 	if (player.MainJob == 'THF') or (player.MainJob == 'BLU') or (player.MainJob == 'NIN') then
@@ -713,7 +713,7 @@ end
 
 function gcinclude.Initialize()
 	local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
-    if inv_flags == nil or inv_flags < 262143 then
+    if inv_flags == nil or inv_flags < 26143 then
 		gcdisplay.Initialize:once(10);
 		gcinclude.SetVariables:once(10);
 		gcinclude.SetAlias:once(10);

@@ -21,15 +21,18 @@ sets = T{
     },
     Idle_Pet = {
         Main = 'Sakpata\'s Fists',
-        Head = 'Taeon Chapeau',
+        Head = 'Rawhide Mask',
         Neck = 'Empath Necklace',
         Ear1 = 'Burana Earring',
-        Ear2 = 'Handler\'s Earring +1',
+        Ear2 = 'Kara. Earring +1',
         Body = 'Taeon Tabard',
         Hands = 'Taeon Gloves',
+        Ring1 = 'Chirich Ring +1',
+        Ring2 = 'Stikini Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Isa Belt',
         Legs = 'Taeon Tights',
+        Feet = 'Mpaca\'s Boots',
     },
 	Resting = {},
     Idle_Regen = {
@@ -50,6 +53,8 @@ sets = T{
         Ammo = 'Automat. Oil +3',
         Head = 'Karagoz Capello +1',
         Neck = 'Bathy Choker +1',
+        Ear1 = 'Burana Earring',
+        Ear2 = 'Kara. Earring +1',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Stikini Ring +1',
@@ -75,24 +80,27 @@ sets = T{
         Feet = 'Nyame Sollerets',
 	},
     Pet_Dt = {
-        Head = 'Anwig Salade',
+        Head = 'Anwig Salade',--10pt
         Neck = 'Empath Necklace',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Handler\'s Earring +1',
-        Body = 'Taeon Tabard',
-        Hands = 'Taeon Gloves',
+        Ear1 = 'Enmerkar Earring',--3dt
+        Ear2 = 'Handler\'s Earring +1',--4pt
+        --Ear2 = 'Kara. Earring +1',
+        Body = 'Taeon Tabard',--4dt
+        Hands = 'Taeon Gloves',--4dt
         Ring1 = 'Defending Ring',
         Ring2 = 'C. Palug Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Isa Belt',
+        Waist = 'Isa Belt',--3dt
         Legs = 'Taeon Tights',
         Feet = 'Mpaca\'s Boots',
 	},
 	
     Pet_Only_Tp_Default = {
+        Ammo = 'Automat. Oil +3',
+        Head = 'Taeon Chapeau',
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Domes. Earring',
+        Ear1 = 'Domes. Earring',
+        Ear2 = 'Kara. Earring +1',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'C. Palug Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
@@ -103,14 +111,16 @@ sets = T{
     Pet_Only_Tp_Hybrid = {
     },
     Pet_Only_Tp_Acc = {
+        Legs = 'Heyoka Subligar',
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
         Main = 'Sakpata\'s Fists',
         Head = 'Malignance Chapeau',
+        Ammo = 'Automat. Oil +3',
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Telos Earring',
-        Ear2 = 'Cessance Earring',
+        Ear1 = 'Cessance Earring',
+        Ear2 = 'Kara. Earring +1',
         Body = 'Pitre Tobe +3',
         Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Epona\'s Ring',
@@ -129,6 +139,8 @@ sets = T{
         Feet = 'Mpaca\'s Boots',
     },
 	Tp_Acc = {
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Cessance Earring',
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
     },
@@ -137,6 +149,7 @@ sets = T{
         Range = 'Animator P +1',
         Ring1 = 'Overbearing Ring',
         Ring2 = 'C. Palug Ring',
+        Legs = 'Heyoka Subligar',
     },
     Melee = {
         Range = 'Neo Animator',
@@ -256,6 +269,7 @@ sets = T{
         Body = 'Foire Tobe +2',
         Hands = 'Rao Kote',
         Ring1 = 'Overbearing Ring',
+        Feet = 'Foire Babouches',
 	},
     Maneuver = {
         Ear1 = 'Burana Earring',
@@ -276,7 +290,7 @@ sets = T{
         Ring2 = 'C. Palug Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
-        Legs = 'Nyame Flanchard',
+        Legs = 'Heyoka Subligar',
         Feet = 'Mpaca\'s Boots',
     },
 
@@ -304,7 +318,7 @@ profile.OnLoad = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 
-    gcinclude.settings.RefreshGearMPP = 50;
+    gcinclude.settings.RefreshGearMPP = 30;
 end
 
 profile.OnUnload = function()

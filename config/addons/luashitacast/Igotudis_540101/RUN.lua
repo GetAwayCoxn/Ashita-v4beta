@@ -178,14 +178,14 @@ sets = T{
         Waist = 'Siegel Sash', -- 8
         Legs = 'Futhark Trousers +2', -- 13
     },
-    SIR = {--10 merits + 88 
+    SIR = {--10 merits + 90
         Ammo = 'Staunch Tathlum', -- 10
         Head = 'Agwu\'s Cap', -- 10
         Neck = 'Moonlight Necklace', -- 15
         Hands = 'Rawhide Gloves', -- 15
         Waist = 'Audumbla Sash', -- 10
         Legs = 'Carmine Cuisses +1', -- 20
-        Feet = 'Taeon Boots', -- 8
+        Feet = 'Taeon Boots', -- 10
     },
     Enmity = {
         Neck = 'Unmoving Collar +1',
@@ -217,7 +217,6 @@ sets = T{
     Cure = {
         Neck = 'Sacro Gorget', -- 10
         Ear1 = 'Mendi. Earring', -- 5
-        Hands = 'Weath. Cuffs +1', -- 9
         Back = 'Solemnity Cape', -- 7
         Waist = 'Gishdubar Sash', --10rec
     },
@@ -278,7 +277,7 @@ sets = T{
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Petrov Ring',
+        Ring1 = 'Ilabrat Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -500,10 +499,12 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Dimi_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Dimi_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade()
 	    elseif string.match(ws.Name, 'Resolution') then
             gFunc.EquipSet(sets.Reso_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Reso_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gcinclude.DoMoonshade()
         elseif string.match(ws.Name, 'Shockwave') then
             gFunc.EquipSet(sets.Shockwave_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then

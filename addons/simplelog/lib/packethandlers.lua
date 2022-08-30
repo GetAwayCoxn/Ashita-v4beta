@@ -1,11 +1,90 @@
 local ffi = require("ffi");
+local chat = require("chat");
+
 ffi.cdef[[
     int32_t memcmp(const void* buff1, const void* buff2, size_t count);
 ]];
 
 local packethandlers = {};
+local cross_checks = 0
+local packetbuffer = {};
+
+function table_print (tt, indent, done)
+    done = done or {}
+    indent = indent or 0
+    if type(tt) == "table" then
+        local sb = {}
+        for key, value in pairs (tt) do
+        table.insert(sb, string.rep (" ", indent)) -- indent it
+        if type (value) == "table" and not done [value] then
+            done [value] = true
+            table.insert(sb, key .. " = {\n");
+            table.insert(sb, table_print (value, indent + 2, done))
+            table.insert(sb, string.rep (" ", indent)) -- indent it
+            table.insert(sb, "}\n");
+        elseif "number" == type(key) then
+            table.insert(sb, string.format("\"%s\"\n", tostring(value)))
+        else
+            table.insert(sb, string.format(
+                "%s = \"%s\"\n", tostring (key), tostring(value)))
+            end
+        end
+        return table.concat(sb)
+    else
+        return tt .. "\n"
+    end
+end
+  
+function to_string( tbl )
+    if  "nil"       == type( tbl ) then
+        return tostring(nil)
+    elseif  "table" == type( tbl ) then
+        return table_print(tbl)
+    elseif  "string" == type( tbl ) then
+        return tbl
+    else
+        return tostring(tbl)
+    end
+end
+
+-- trying to identify possible dupes
+local last_chunk_buffer;
+local reference_buffer = T{};
+function check_duplicates(e)
+    if ffi.C.memcmp(e.data_raw, e.chunk_data_raw, e.size) == 0 then
+        if #reference_buffer > 2 then
+            reference_buffer[#reference_buffer] = nil
+        end
+
+        if last_chunk_buffer then
+            table.insert(reference_buffer, 1, last_chunk_buffer)
+        end
+
+        last_chunk_buffer = T{};
+        local offset = 0;
+    
+        while (offset < e.chunk_size) do
+            local size = ashita.bits.unpack_be(e.chunk_data_raw, offset, 9, 7) * 4;
+            local chunk_packet = struct.unpack('c' .. size, e.chunk_data, offset + 1);
+            last_chunk_buffer:append(chunk_packet)
+            offset = offset + size;
+        end
+    end
+
+    local packet = struct.unpack('c' .. e.size, e.data, 1)
+    for _, chunk in ipairs(reference_buffer) do
+        for _, bufferEntry in ipairs(chunk) do
+            if packet == bufferEntry then
+                e.blocked = true
+                return true
+            end
+        end
+    end
+    return false
+end
 
 packethandlers.HandleIncoming0x00A = function(e)
+
     local id = struct.unpack('L', e.data, 0x04 + 1);
     local name = struct.unpack('c16', e.data, 0x84 + 1);
     local i,j = string.find(name, '\0');
@@ -41,17 +120,24 @@ packethandlers.DelayedSelfAssign = function ()
 end
 
 packethandlers.HandleIncoming0x28 = function(e)
+
 	local act_org = gActionHandlers.StringToAct(e.data)
 	act_org.size = e.data:byte(5)
 	local act_mod = gActionHandlers.StringToAct(e.data_modified)
 	act_mod.size = e.data_modified:byte(5)
 
-	return gActionHandlers.ActToString(e.data, gActionHandlers.parse_action_packet(act_org, act_mod))
+    local packet = gActionHandlers.ActToString(e.data, gActionHandlers.parse_action_packet(act_org, act_mod))
+
+	return packet
 end
 
 packethandlers.HandleIncomingPacket = function(e)
+    
+    if check_duplicates(e) then return end
+
 	if (e.id == 0x00A) then
 		gPacketHandlers.HandleIncoming0x00A(e);
+
     elseif (e.id == 0x28) then
         e.data_modified = gPacketHandlers.HandleIncoming0x28(e);
     end

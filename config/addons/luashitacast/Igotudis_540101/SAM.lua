@@ -4,6 +4,8 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Masamune',
+        Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
         Head = 'Wakido Kabuto +2',
         Neck = 'Loricate Torque +1',
@@ -12,11 +14,11 @@ sets = T{
         Body = 'Mpaca\'s Doublet',
         Hands = 'Macabre Gaunt. +1',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = 'Accuracy+30', [3] = 'Attack+20', [4] = '"Store TP"+10', [5] = 'DEX+20' } },
         Waist = 'Flume Belt +1',
         Legs = 'Mpaca\'s Hose',
-        Feet = 'Flam. Gambieras +2',
+        Feet = 'Mpaca\'s Boots',
     },
     Resting = {},
     Idle_Regen = {
@@ -140,10 +142,10 @@ sets = T{
         Ear1 = 'Thrud Earring',
         Ear2 = 'Schere Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
+        Hands = 'Valorous Mitts',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Hiza. Hizayoroi +2',
         Feet = 'Valorous Greaves',
@@ -178,10 +180,10 @@ sets = T{
         Ear1 = 'Schere Earring',
         Ear2 = 'Telos Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
+        Hands = 'Valorous Mitts',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
         Legs = 'Mpaca\'s Hose',
         Feet = 'Valorous Greaves',
@@ -200,10 +202,10 @@ sets = T{
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = { Name = 'Valorous Mitts', Augment = { [1] = '"Mag. Atk. Bns."+1', [2] = 'Attack+9', [3] = 'Mag. Acc.+1', [4] = 'STR+5', [5] = 'Weapon skill damage +5%', [6] = 'AGI+2', [7] = 'Accuracy+9' } },
+        Hands = 'Valorous Mitts',
         Ring2 = 'Karieyh Ring +1',
         Ring1 = 'Metamor. Ring +1',
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Eschan Stone',
         Legs = 'Hiza. Hizayoroi +2',
         Feet = 'Nyame Sollerets',
@@ -225,7 +227,7 @@ sets = T{
         Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Eschan Stone',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Nyame Sollerets',
@@ -247,7 +249,7 @@ sets = T{
         Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
         Waist = 'Fotia Belt',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Valorous Greaves',
@@ -299,7 +301,7 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    {Name = 'Chonofuda', Quantity = 'all'},
+    {Name = 'Red Curry Bun', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

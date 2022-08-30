@@ -11,7 +11,7 @@ local chat = require('chat')
 --require 'timer'
 
 local buyQueue = { };  -- Table to hold commands queued for sending
-local objDelay        = 0.65; -- The delay to prevent spamming packets.
+local objDelay        = 1.0; -- The delay to prevent spamming packets.
 local objTimer        = 0;    -- The current time used for delaying packets.
 local busy = false
 local insideMenu = false
@@ -149,7 +149,7 @@ ashita.events.register('packet_in', 'packet_in_callback1', function (e)
 			--Get from 034: Zone, Menu ID, 
 			DebugMessage("Got 0x034 packet, Buying the KI")
 			local startPacket = struct.pack('I2I2', 0x0416, 0x0000, AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0), 0):totable();		
-			AshitaCore:GetPacketManager():AddOutgoingPacket(0x016, startPacket)--HERE
+			AshitaCore:GetPacketManager():AddOutgoingPacket(0x016, startPacket)
 			local buyPacket = struct.pack('I2I2I4bbI2I2bbI2I2', 0x0A5B, 0x0000, pkt['Target'], 0x02, pkt['Option Index'], 0x0000, pkt['Target Index'], 0x00, 0x00, pkt['Zone'], pkt['Menu ID']):totable();
 			table.insert(buyQueue, { 0x05B, buyPacket});
 		else
@@ -186,16 +186,16 @@ function process_queue()
         -- Ensure the queue has something to process..
         if (#buyQueue > 0) then
             -- Obtain the first queue entry..
-            local data = table.remove(/l2 , 1);
+            local data = table.remove(buyQueue , 1);
             -- Send the queued object..
             DebugMessage("Adding process_queue outgoing")
-			AshitaCore:GetPacketManager():AddOutgoingPacket(data[1], data[2]);--HERE
+			AshitaCore:GetPacketManager():AddOutgoingPacket(data[1], data[2]);
 		elseif busy and (#buyQueue < 1) then
 			DebugMessage("Done buying, closing menu")
 			--AshitaCore:GetChatManager():QueueCommand('/sendkey escape down', 1)
 			--ashita.timer.once(0.1, escape_up)
-			--busy = false
-			--insideMenu = false
+			busy = false
+			insideMenu = false
         end
     end
 end

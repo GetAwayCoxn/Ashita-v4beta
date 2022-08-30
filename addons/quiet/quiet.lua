@@ -6,7 +6,10 @@ addon.link      = 'https://github.com/ThornyFFXI/';
 require('common');
 
 ashita.events.register('packet_in', 'packetdata_cb', function (e)
-    if (e.id == 0x028) then
+    -- Packet: Zone Exit
+    if (e.id == 0x000B) then
+        AshitaCore:GetChatManager():QueueCommand(1, '/addon unload quiet');
+    elseif (e.id == 0x028) then
         local userId = struct.unpack('L', e.data, 0x05 + 1);
         local userIndex = bit.band(userId, 0x7FF);
         

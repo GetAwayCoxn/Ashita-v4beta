@@ -15,7 +15,7 @@ sets = T{
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        Waist = 'Hurch\'lan Sash',
+        Waist = 'Isa Belt',
         Legs = 'Tali\'ah Sera. +2',
         Feet = 'Meg. Jam. +1',
     },
@@ -25,6 +25,10 @@ sets = T{
 	Town = {
         Main = 'Kaja Axe',
         Sub = 'Adapa Shield',
+        Body = 'Argent Coat',
+        Hands = '',
+        Legs = 'Argent Hose',
+        Feet = '',
     },
 	
 	Dt = {
@@ -51,7 +55,7 @@ sets = T{
         Ring2 = 'Defending Ring',
         --Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
-        --Waist = 'Gishdubar Sash',
+        Waist = 'Isa Belt',
         Legs = 'Tali\'ah Sera. +2',
         --Feet = 'Gleti\'s Boots',
 	},
