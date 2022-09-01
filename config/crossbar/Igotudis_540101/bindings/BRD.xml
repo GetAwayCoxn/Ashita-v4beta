@@ -1,0 +1,76 @@
+<crossbarbindings>
+    <default>
+        <!--These bindings are for left trigger only.-->
+        <lefttrigger>
+            <dpaddown>
+                <type>Weaponskill</type>
+                <resource>42</resource> <!--Savage Blade-->
+            </dpaddown>
+        </lefttrigger>
+        
+        <!--These bindings are for right trigger only.-->
+        <righttrigger>
+        </righttrigger>
+        
+        <!--These bindings are for LT>RT, but also used for LT+RT if allowpriority is disabled.-->
+        <bothtriggerslt>
+            <buttonup>
+                <type>Weaponskill</type>
+                <resource>42</resource> <!--Savage Blade-->
+            </buttonup>
+            <buttonright>
+                <type>Command</type>
+                <command>/forcestring</command>
+                <text>STRING</text>
+            </buttonright>
+            <buttondown>
+                <type>Spell</type>
+                <resource>465</resource> <!--Chocobo Mazurka-->
+            </buttondown>
+            <buttonleft>
+                <type>Command</type>
+                <command>/fight</command>
+                <text>FIGHT</text>
+            </buttonleft>
+        </bothtriggerslt>
+        
+        <!--These bindings are for RT>LT, and will not be used if allowpriority is disabled.-->
+        <bothtriggersrt>
+        </bothtriggersrt>
+        
+        <!--These bindings are for left trigger double tap and will not be used if allowdoubletap is disabled.-->
+        <lefttriggerdt>
+        </lefttriggerdt>
+        
+        <!--These bindings are for right trigger double tap and will not be used if allowdoubletap is disabled.-->
+        <righttriggerdt>
+        </righttriggerdt>
+        
+    </default>
+    <palette name="BRD_1">
+        <!--These bindings are for left trigger only.-->
+        <lefttrigger>
+        </lefttrigger>
+        
+        <!--These bindings are for right trigger only.-->
+        <righttrigger>
+        </righttrigger>
+        
+        <!--These bindings are for LT>RT, but also used for LT+RT if allowpriority is disabled.-->
+        <bothtriggerslt>
+        </bothtriggerslt>
+        
+        <!--These bindings are for RT>LT, and will not be used if allowpriority is disabled.-->
+        <bothtriggersrt>
+        </bothtriggersrt>
+        
+        <!--These bindings are for left trigger double tap and will not be used if allowdoubletap is disabled.-->
+        <lefttriggerdt>
+        </lefttriggerdt>
+        
+        <!--These bindings are for right trigger double tap and will not be used if allowdoubletap is disabled.-->
+        <righttriggerdt>
+        </righttriggerdt>
+        
+    </palette>
+</crossbarbindings>

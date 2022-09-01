@@ -1,0 +1,344 @@
+<!-- Automatically converted file for use with Ashitacast For Ashita4. -->
+<!-- Prior to using, please ctrl-f for '<!-- ATTN:' and review all notes. -->
+
+<ashitacast>
+
+	<sets>
+		<set name="Idle">
+			<ammo>Automat. Oil +3</ammo>
+			<head>Malignance Chapeau</head>
+			<body>Hiza. Haramaki +2</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Mpaca's Boots</feet>
+			<waist>Moonbow Belt</waist>
+			<neck>Loricate Torque +1</neck>
+			<ear1>Odnowa Earring +1</ear1>
+			<ear2>Burana Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Accuracy+20,Attack+20,Pet: Haste+10">Visucius's Mantle</back>
+		</set>
+		<set name="Town">
+			<range>Neo Animator</range>
+			<ammo>Automat. Oil +3</ammo>
+			<head>Karagoz Capello +1</head>
+			<body>Pitre Tobe +3</body>
+			<hands>Mpaca's Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Hermes' Sandals</feet>
+			<waist>Moonbow Belt</waist>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Burana Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Accuracy+20,Attack+20,Pet: Haste+10">Visucius's Mantle</back>
+		</set>
+		<set name="PetTP-Melee">
+			<ammo>Automat. Oil +3</ammo>
+			<head>Mpaca's Cap</head>
+			<body>Foire Tobe +2</body>
+			<hands>Foire Dastanas</hands>
+			<legs>Taeon Tights</legs>
+			<feet>Mpaca's Boots</feet>
+			<neck>Empath Necklace</neck>
+			<waist>Incarnation Sash</waist>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Domes. Earring</ear2>
+			<ring1>Defending Ring</ring1>
+			<ring2>Gelatinous Ring +1</ring2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Accuracy+20,Attack+20,Pet: Haste+10">Visucius's Mantle</back>
+		</set>
+		<set name="PetTP-Ranged" baseset="PetTP-Melee">
+			<body>Pitre Tobe +3</body>
+		</set>
+		<set name="PetTP-Tank" baseset="PetTP-Melee">
+			<hands>Rao Kote</hands>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Domes. Earring</ear2>
+		</set>
+		<set name="PetTP-Mage" baseset="PetTP-Melee">
+		</set>
+		<!-- ATTN: The node used to construct the following set node had variables in the baseset attribute.  Ashitacast4 doesn't support variables in this attribute, so they will not be resolved. -->
+		<set name="Hybrid" baseset="PetTP-$Mode">
+			<head>Malignance Chapeau</head>
+			<neck>Empath Necklace</neck>
+			<body>Pitre Tobe +3</body>
+			<hands>Malignance Gloves</hands>
+			<legs>Mpaca's Hose</legs>
+			<feet>Mpaca's Boots</feet>
+			<waist>Moonbow Belt</waist>
+			<ear2>Cessance Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<!-- ATTN: The node used to construct the following set node had variables in the baseset attribute.  Ashitacast4 doesn't support variables in this attribute, so they will not be resolved. -->
+		<set name="OD" baseset="PetTP-$Mode">
+			<head>Karagoz Capello +1</head>
+			<feet>Mpaca's Boots</feet>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Domes. Earring</ear2>
+		</set>
+		<set name="TP" baseset="Hybrid">
+		</set>
+		<!-- ATTN: The node used to construct the following set node had variables in the baseset attribute.  Ashitacast4 doesn't support variables in this attribute, so they will not be resolved. -->
+		<set name="PetDT" baseset="PetTP-$Mode">
+			<ammo>Automat. Oil +3</ammo>
+			<head>Anwig Salade</head>
+			<neck>Empath Necklace</neck>
+			<body>Taeon Tabard</body>
+			<hands>Rao Kote</hands>
+			<legs>Tali'ah Sera. +2</legs>
+			<ear1>Rimeice Earring</ear1>
+			<ear2>Handler's Earring +1</ear2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Accuracy+20,Attack+20,Pet: Haste+10">Visucius's Mantle</back>
+		</set>
+		<set name="PetDTHaste" baseset="PetDT">
+			<head>Taeon Chapeau</head>
+			<hands>Taeon Gloves</hands>
+			<ear2>Burana Earring</ear2>
+		</set>
+		<set name="Precast">
+			<ear2>Loquac. Earring</ear2>
+			<ear1>Etiolation Earring</ear1>
+			<ring1>Prolix Ring</ring1>
+			<back>Swith Cape +1</back>
+			<neck>Baetyl Pendant</neck>
+		</set>
+		<set name="WS-Melee">
+			<head>Karagoz Capello +1</head>
+			<hands>Mpaca's Gloves</hands>
+			<ear1>Burana Earring</ear1>
+		</set>
+		<set name="WS-Tank" baseset="WS-Melee">
+			<ear1>Burana Earring</ear1>
+		</set>
+		<set name="WS-Ranged" baseset="WS-Melee">
+			<ear1>Burana Earring</ear1>
+		</set>
+		<set name="WS-Mage" baseset="WS-Melee">
+		</set>
+		<set name="WS">
+			<neck>Fotia Gorget</neck>
+			<waist>Fotia Belt</waist>
+			<ear1>Moonshade Earring</ear1>
+			<ear2>Mache Earring</ear2>
+			<ring1>Epona's Ring</ring1>
+			<ring2>Petrov Ring</ring2>
+		</set>
+		<set name="Victory" baseset="WS">
+			<head>Blistering Sallet +1</head>
+			<body>Herculean Vest</body>
+			<legs>Hiza. Hizayoroi +2</legs>
+			<feet augment="Accuracy+30,Mag. Acc.+2,Weapon skill damage +8%,Attack+6">Herculean Boots</feet>
+		</set>
+		<set name="Pummel" baseset="Victory">
+			<legs>Hiza. Hizayoroi +2</legs>
+		</set>
+		<set name="Maneuver">
+			<hands>Foire Dastanas</hands>
+			<ear2>Burana Earring</ear2>
+			<back augment="Pet: Acc.+20,Pet: R.Acc.+20,Pet: Atk.+20,Pet: R.Atk.+20,Accuracy+20,Attack+20,Pet: Haste+10">Visucius's Mantle</back>
+		</set>
+		<set name="Movement">
+			<feet>Hermes' Sandals</feet>
+		</set>
+	</sets>
+
+	<commands>
+		<command input="/status">
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/mode">
+			<if advanced="$u_Mode=Melee">
+				<setvar name="Mode" value="Ranged" />
+			</if>
+			<elseif advanced="$u_Mode=Ranged">
+				<setvar name="Mode" value="Tank" />
+			</elseif>
+			<elseif advanced="$u_Mode=Tank">
+				<setvar name="Mode" value="Mage" />
+			</elseif>
+			<elseif>
+				<setvar name="Mode" value="Melee" />
+			</elseif>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/dt">
+			<if advanced="$u_DT=Off">
+				<setvar name="DT" value="On" />
+			</if>
+			<else>
+				<setvar name="DT" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/auto">
+			<if advanced="$u_Auto=Off">
+				<setvar name="Auto" value="On" />
+			</if>
+			<else>
+				<setvar name="Auto" value="Off" />
+			</else>
+			<setvar name="Status" value="0" />
+		</command>
+		<command input="/tp">
+			<if advanced="$u_TP!=1000">
+				<setvar name="TP" value="1000" />
+				<echo mode="4">AUTO TP SET TO 1000</echo>
+			</if>
+			<elseif advanced="$u_TP=1000">
+				<setvar name="TP" value="1850" />
+				<echo mode="4">AUTO TP SET TO 1850</echo>
+			</elseif>
+		</command>
+		<command input="/wskill">
+			<if advanced="$u_WS=0">
+				<setvar name="WS" value="1" />
+				<setvar name="WSname" value="Victory Smite" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</if>
+			<elseif advanced="$u_WS=1">
+				<setvar name="WS" value="2" />
+				<setvar name="WSname" value="Stringing Pummel" />
+				<echo mode="4">Auto $u_WSname Enabled!</echo>
+			</elseif>
+			<elseif advanced="$u_WS=2">
+				<setvar name="WS" value="0" />
+				<setvar name="WSname" value="None" />
+				<echo mode="4">Auto WS Disabled!</echo>
+			</elseif>
+		</command>
+		<command input="/dad">
+			<if pet_active="false">
+				<echo mode="4">DAD aborted no pet found</echo>
+			</if>
+			<elseif pet_hpp=">80">
+				<command>/ja "deactivate" me</command>
+				<command delay="2000">/ja "activate" me</command>
+				<command delay="5000">/ja "deploy" t</command>
+			</elseif>
+			<else>
+				<echo mode="4">DAD aborted pet HP too low</echo>
+			</else>
+		</command>
+		<command input="/id">
+			<echo mode="4">$t_id</echo>
+			<echo mode="4">$t_index</echo>
+		</command>
+	</commands>
+
+	<load>
+		<setvar name="Status" value="0" />
+		<setvar name="Mode" value="Tank" />
+		<setvar name="DT" value="Off" />
+		<setvar name="Ring" value="None" />
+		<setvar name="Auto" value="Off" />
+		<setvar name="WS" value="1" />
+		<setvar name="WSname" value="Victory Smite" />
+		<setvar name="TP" value="1000" />
+		<command>/macro book 9</command>
+		<command delay="500">/macro set 1</command>
+	</load>
+
+	<default>
+		<if advanced="$u_Status=0">
+			<setvar name="Status" value="1" />
+			<echo mode="4">$p_mainjob/$p_subjob STATUS:  Mode [$u_Mode]   DT [$u_DT]   AUTO [$u_Auto]   PET TP [$pet_tp $]</echo>
+		</if>
+		<if advanced="$u_DT=On">
+			<equip set="PetDT" />
+		</if>
+		<elseif pet_status="engaged">
+			<if p_status="engaged">
+				<equip set="Hybrid" />
+			</if>
+			<else>
+				<equip set="PetTP-$u_Mode" />
+			</else>
+			<if pet_tp=">950">
+				<equip set="WS-$u_Mode" />
+			</if>
+			<if b_166=">=1">
+				<equip set="OD" />
+			</if>
+		</elseif>
+		<elseif p_status="engaged">
+			<equip set="TP" />
+		</elseif>
+		<elseif pet_status="idle">
+			<if p_status="idle">
+				<equip set="Idle" />
+				<if p_ismoving="True">
+					<equip set="Movement" />
+				</if>
+			</if>
+			<else>
+				<equip set="TP" />
+			</else>
+		</elseif>
+		<else>
+			<equip set="Idle" />
+			<if p_ismoving="True">
+				<equip set="Movement" />
+			</if>
+		</else>
+		<if pet_active="true">
+			<if advanced="$pet_hpp<62">
+				<equip set="PetDT" />
+			</if>
+			<elseif advanced="$pet_hpp<82">
+				<equip set="PetDTHaste" />
+			</elseif>
+		</if>
+		<if e_area="Ru'Lude*|Nashmau|Tavnazian Safehold|Port*|Bastok*|Windurst*|*San d'Oria|*Jeuno|*Whitegate|*Adoulin|Selbina|Mhaura|Norg|Rabao|Mog*">
+			<equip set="Town" />
+		</if>
+		<if eq_rring="Trizek*|Capacity*|Endorsement*|Facility*|Dim. Ring*|Echad*|Warp*">
+			<setvar name="Ring" value="%eq_rring" />
+			<equip>
+				<ring2>$u_Ring</ring2>
+			</equip>
+		</if>
+		<if advanced="$u_Auto=On">
+			<if p_status="engaged">
+				<if pet_status="idle">
+					<command>//Deploy</command>
+				</if>
+				<elseif advanced="$u_WS!=0">
+					<if p_tp=">$u_TP">
+						<command>/ws "$u_WSname"</command>
+					</if>
+				</elseif>
+			</if>
+		</if>
+	</default>
+
+	<precast>
+		<equip set="Precast" />
+	</precast>
+
+	<ability>
+		<if ad_name="Overdrive">
+			<equip>
+				<body>Pitre Tobe +3</body>
+			</equip>
+		</if>
+		<elseif ad_name="*Maneuver">
+			<equip set="Maneuver" />
+		</elseif>
+	</ability>
+
+	<weaponskill>
+		<if ad_name="Victory Smite">
+			<equip set="Victory" />
+		</if>
+		<elseif ad_name="Stringing Pummel">
+			<equip set="Pummel" />
+		</elseif>
+		<else>
+			<equip set="WS" />
+		</else>
+	</weaponskill>
+
+</ashitacast>

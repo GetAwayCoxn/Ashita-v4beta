@@ -1,0 +1,205 @@
+<packer>
+
+	<settings>
+		<equipbags>8,10,11,12,13,14,15,16,0</equipbags> <!-- List of container indices you can equip items from.  Should only be changed when on a private server that allows players to equip from non-standard containers. -->
+		<forceenablebags></forceenablebags> <!-- List of bags that will always be treated as accessible.  Primarily for private server usage.-->
+		<forcedisablebags></forcedisablebags> <!-- List of bags that will always be treated as inaccessible.  Primarily for private server usage.-->
+		<threading>true</threading> <!--When enabled, initial move lists will be created in a background thread.  Disabling this will cause client stutter when parsing or reparsing inventories.  You may still want to disable it on computers with very few cores or very high single core performance.-->
+		<weaponpriority>true</weaponpriority> <!--If this is enabled, all weapons will be stored in your first equipment bag.  This makes it easier to swap weapons from the menu without searching bags.  Since default first bag is 8(wardrobe), that is where they will be unless modified.-->
+		<dirtypackets>false</dirtypackets> <!--When enabled, packer will use item move packets to directly combine stacks and bypass inventory.  This is not possible with the legitimate game client and may be a ban risk, but will increase speed.-->
+		<defrag>true</defrag> <!--When enabled, packer will combine like stacks after organizing.  Requires a movelimit of 4 or higher, or dirtypackets enabled.-->
+		<benchmark>true</benchmark> <!--When enabled, packer will print the amount of time various steps take to ashita log for troubleshooting.-->
+		<debug>true</debug> <!--When enabled, packer will print a large amount of information to ashita log for troubleshooting.-->
+		<nomadstorage>false</nomadstorage> <!--When enabled, Packer will access storage bag at nomad moogles despite the menu not directly allowing it.  This is not possible with the legitimate game client and may be a ban risk.-->
+		<validateaftergear>true</validateaftergear> <!--When enabled, Packer will automatically do a validate after you use /ac gear or /packer gear to show which items are missing.-->
+		<movelimit>200</movelimit> <!--Limits the amount of items moved per packet interval.  Packet size makes for a maximum of 166 when using dirty packets, or 83 without, so any value higher than this is effectively unlimited.-->
+  <naked>true</naked>
+	</settings>
+
+	<priority> <!--Set which containers will have items stored in them, and which item types can be stored in them.-->
+	<!--List all your bags, in the order you want them filled.
+	If a bag is not listed at all, it will be as if it does not exist and items will never be added to or removed from it.
+	Packer will only store equipment in bags with 'equip="true"' and will only store non-equipment in bags with 'other="true"' attributes.
+	If an item is listed in an item node, it will always go in that bag regardless of attributes, unless a GEAR command requires it and the bag is not equippable.  So, you can list equipment in item nodes even if the bag does not allow equipment, for example.
+	By default, Packer will move items from later bags to earlier bags to make more space in your later bags.
+	If you set 'compress="false"', Packer will not remove items from a bag to make space, only if the items are required to be elsewhere.
+	If you do not enable dirtypackets, it is highly recommended that you set inventory as last bag.
+	Otherwise, your inventory is likely to fill up, and since items have to travel through inventory to reach other bags you will reach a jam.
+	Besides, who wants a full inventory in this game?  Why?  Just don't do it. -->
+    <!--<safe equip="true" />
+		<storage equip="true" />
+		<locker equip="true" />
+		<safe2 equip="true" />-->
+		<wardrobe equip="true" />
+		<wardrobe2 equip="true" />
+		<wardrobe3 equip="true" />
+		<wardrobe4 equip="true" />
+    <!--<wardrobe5 equip="true" />
+		<wardrobe6 equip="true" />
+		<wardrobe7 equip="true" />
+		<wardrobe8 equip="true" />-->
+		<satchel other="true" />
+		<!--<sack other="true" />-->
+		<case other="true" />
+		<inventory compress="false" />
+	</priority>
+
+	<!--List bags at the same level as priority/settings if you want to specify items that always belong in those bags.-->
+  <case>
+    <item quantity="all">Abdhaljs Dust</item>
+    <item quantity="all">Abdhaljs Dye</item>
+    <item quantity="all">Abdhaljs Sap</item>
+    <item quantity="all">Abdhaljs Needle</item>
+    <item quantity="all">A. Voucher: Back</item>
+    <item quantity="all">Codex of Etchings</item>
+    <item quantity="all">Frgtn. Thought</item>
+    <item quantity="all">Forgotten Hope</item>
+    <item quantity="all">Lustreless Scale</item>
+    <item quantity="all">Lustreless Hide</item>
+    <item quantity="all">Lustreless Wing</item>
+    <item quantity="all">Plovid Effluvium</item>
+    <item quantity="all">Plovid Flesh</item>
+    <item quantity="all">Macuil Plating</item>
+    <item quantity="all">Macuil Horn</item>
+    <item quantity="all">Defiant Scarf</item>
+    <item quantity="all">Defiant Sweat</item>
+    <item quantity="all">Etched Memory</item>
+    <item quantity="all">Hades' Claw</item>
+    <item quantity="all">Dark Matter</item>
+    <item quantity="all">Tartarian Soul</item>
+    <item quantity="all">Tartarian Chain</item>
+    <item quantity="all">Riftborn Boulder</item>
+    <item quantity="all">Pluton</item>
+    <item quantity="all">Beitetsu</item>
+    <item quantity="all">Boulder Box</item>
+    <item quantity="all">Pluton Box</item>
+    <item quantity="all">Beitetsu Box</item>
+    <item quantity="all">Boulder Case</item>
+    <item quantity="all">Pluton Case</item>
+    <item quantity="all">Beitetsu Parcel</item>
+    <item quantity="all">Abdhaljs Seal</item>
+    <item quantity="all">T. Whiteshell</item>
+    <item quantity="all">L. Jadeshell</item>
+    <item quantity="all">O. Bronzepiece</item>
+    <item quantity="all">M. Silverpiece</item>
+    <item quantity="all">1 Byne Bill</item>
+    <item quantity="all">100 Byne Bill</item>
+    <item quantity="all">Rusted I. Card</item>
+    <item quantity="all">Black. I. Card</item>
+    <item quantity="all">Beastmen's Medal</item>
+    <item quantity="all">Kindred's Medal</item>
+    <item quantity="all">Heroism Crystal</item>
+    <item quantity="all">Heroism Aggregate</item>
+    <item quantity="all">Ra'Kaz. Sapphire</item>
+  </case>
+
+  <satchel>
+    <item quantity="all">Storage Slip 02</item>
+    <item quantity="all">Storage Slip 03</item>
+    <item quantity="all">Storage Slip 04</item>
+    <item quantity="all">Storage Slip 06</item>
+    <item quantity="all">Storage Slip 08</item>
+    <item quantity="all">Storage Slip 09</item>
+    <item quantity="all">Storage Slip 10</item>
+    <item quantity="all">Storage Slip 13</item>
+    <item quantity="all">Storage Slip 15</item>
+    <item quantity="all">Storage Slip 16</item>
+    <item quantity="all">Storage Slip 17</item>
+    <item quantity="all">Storage Slip 18</item>
+    <item quantity="all">Storage Slip 20</item>
+    <item quantity="all">Storage Slip 21</item>
+    <item quantity="all">Storage Slip 23</item>
+    <item quantity="all">Storage Slip 24</item>
+    <item quantity="all">Storage Slip 25</item>
+    <item quantity="all">Storage Slip 26</item>
+    <item quantity="all">Storage Slip 27</item>
+  </satchel>
+
+  <inventory>
+    <item quantity="12">Prism Powder</item>
+    <item quantity="12">Silent Oil</item>
+    <item quantity="24">Holy Water</item>
+    <item quantity="24">Echo Drops</item>
+    <item quantity="24">Remedy</item>
+    <item quantity="all">Grape Daifuku</item>
+    <item quantity="all">Reraiser</item>
+    <item quantity="all">Hi-Reraiser</item>
+    <item quantity="all">Instant Reraise</item>
+    <item quantity="all">Instant Warp</item>
+    <item quantity="all">SP Gobbie Key</item>
+    <item quantity="all">Beastmen's Seal</item>
+    <item quantity="all">Kindred's Seal</item>
+    <item quantity="all">Kindred's Crest</item>
+    <item quantity="all">H. Kindred Crest</item>
+    <item quantity="all">S. Kindred Crest</item>
+    <item quantity="all">Copper Voucher</item>
+    <item quantity="all">Silver Voucher</item>
+    <item quantity="all">Water Crystal</item>
+    <item quantity="all">Fire Crystal</item>
+    <item quantity="all">Wind Crystal</item>
+    <item quantity="all">Earth Crystal</item>
+    <item quantity="all">Lightng. Crystal</item>
+    <item quantity="all">Light Crystal</item>
+    <item quantity="all">Dark Crystal</item>
+    <item quantity="all">Ice Crystal</item>
+    <item quantity="all">Water Cluster</item>
+    <item quantity="all">Fire Cluster</item>
+    <item quantity="all">Wind Cluster</item>
+    <item quantity="all">Earth Cluster</item>
+    <item quantity="all">Lightning Cluster</item>
+    <item quantity="all">Light Cluster</item>
+    <item quantity="all">Dark Cluster</item>
+    <item quantity="all">Ice Cluster</item>
+    <item quantity="all">Rem's Tale Ch.1</item>
+    <item quantity="all">Rem's Tale Ch.2</item>
+    <item quantity="all">Rem's Tale Ch.3</item>
+    <item quantity="all">Rem's Tale Ch.4</item>
+    <item quantity="all">Rem's Tale Ch.5</item>
+    <item quantity="all">Rem's Tale Ch.6</item>
+    <item quantity="all">Rem's Tale Ch.7</item>
+    <item quantity="all">Rem's Tale Ch.8</item>
+    <item quantity="all">Rem's Tale Ch.9</item>
+    <item quantity="all">Rem's Tale Ch.10</item>
+    <item quantity="all">S. Astral Detritus</item>
+    <item quantity="all">Facility Ring</item>
+    <item quantity="all">Echad Ring</item>
+    <item quantity="all">Trizek Ring</item>
+    <item quantity="all">Capacity Ring</item>
+    <item quantity="all">Endorsement Ring</item>
+    <item quantity="all">Caliber Ring</item>
+    <item quantity="all">Shadow Geode</item>
+    <item quantity="all">Fenrite</item>
+    <item quantity="all">Snow Geode</item>
+    <item quantity="all">Shivite</item>
+    <item quantity="all">Flame Geode</item>
+    <item quantity="all">Ifritite</item>
+    <item quantity="all">Soil Geode</item>
+    <item quantity="all">Titanite</item>
+    <item quantity="all">Aqua Geode</item>
+    <item quantity="all">Leviatite</item>
+    <item quantity="all">Light Geode</item>
+    <item quantity="all">Carbite</item>
+    <item quantity="all">Thunder Geode</item>
+    <item quantity="all">Ramuite</item>
+    <item quantity="all">Breeze Geode</item>
+    <item quantity="all">Garudite</item>
+    <item quantity="all">Eschalixir</item>
+    <item quantity="all">Eschalixir +1</item>
+    <item quantity="all">Airlixir</item>
+    <item quantity="all">Airlixir +1</item>
+    <item quantity="all">Airlixir +2</item>
+  </inventory>
+
+	<wardrobe>
+	</wardrobe>
+
+	<wardrobe2>
+	</wardrobe2>
+
+	<wardrobe3>
+	</wardrobe3>
+
+	<wardrobe4>
+	</wardrobe4>
+
+</packer>

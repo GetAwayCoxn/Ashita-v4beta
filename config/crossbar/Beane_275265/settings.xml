@@ -1,0 +1,71 @@
+<crossbarsettings>
+    <!--Themes should be in ashita/resources/crossbar/themes.-->
+    <theme>xinput.xml</theme>
+    
+    <!--If enabled, you will have seperate palettes for L2>R2 and R2>L2 based on the order buttons were depressed.  This adds 8 bindings.-->
+    <allowpriority>false</allowpriority>
+    
+    <!--If enabled, hitting L2 or R2 twice and holding it the second time will open a secondary palette.  This adds 16 bindings.-->
+    <allowdoubletap>false</allowdoubletap>
+    
+    <!--The length of time, in milliseconds, you are allotted to second-tap L2 or R2 when allowdoubletap is enabled.-->
+    <taptimeout>300</taptimeout>
+    
+    <!--The length of time, in milliseconds, you have to hold L1+L2+R1+R2 to open/close binding menu.-->
+    <menuduration>500</menuduration>
+    
+    <!--If enabled, allows xinput hook to occur.-->
+    <enablexinput>true</enablexinput>
+    
+    <!--If enabled, allows directinput hook to occur.-->
+    <enabledinput>true</enabledinput>
+    
+    <!--Location for single trigger panel.  -1 in x will center.  Negative value in y will leave that value as a gap at bottom.-->
+    <mainpanelx>-1</mainpanelx>
+    <mainpanely>2080</mainpanely>
+    
+    <!--Location for dual trigger panel.  -1 in x will center.  Negative value in y will leave that value as a gap at bottom.-->
+    <subpanelx>-1</subpanelx>
+    <subpanely>80</subpanely>
+     
+    <!--Location for menu.  -1 in x will center.  Negative value in y will leave that value as a gap at bottom.-->
+    <bindmenux>-1</bindmenux>
+    <bindmenuy>80</bindmenuy>
+    
+    <!--Enable or disable components of crossbar macros.-->
+    <enablecost>true</enablecost>
+    <enablecross>true</enablecross>
+    <enablefade>true</enablefade>
+    <enablename>true</enablename>
+    <enablerecast>true</enablerecast>
+    <enableskillchain>true</enableskillchain>
+    <enableskillchainanimation>true</enableskillchainanimation>
+    <enabletrigger>true</enabletrigger>
+    
+    <!--Alpha setting to be used when crossbar macros are faded.-->
+    <fadealpha>140</fadealpha>
+    
+    <!--Duration in milliseconds to flash crossbar macros when triggered.-->
+    <triggerduration>400</triggerduration>
+    
+    <!--If enabled, will swap bottom and right buttons in binding menu.-->
+    <useplaystationconfirm>false</useplaystationconfirm>
+    
+    <!--If enabled, binding menu will populate actions based on your synced level instead of real level.-->
+    <uselevelsync>false</uselevelsync>
+    
+    <!--If enabled, controller input will be sent directly to game while game has a menu open.-->
+    <allowbuttonsinmenu>false</allowbuttonsinmenu>
+    
+    <!--If enabled, will not render unbound button panels.-->
+    <hideunboundbuttons>false</hideunboundbuttons>
+    
+    <!--If enabled, will hide crossbar while zoning.-->
+    <hidewhilezoning>true</hidewhilezoning>
+    
+    <!--If enabled, will hide crossbar while in cutscenes.-->
+    <hidewhilecutscene>true</hidewhilecutscene>
+    
+    <!--If enabled, will hide crossbar while in map.-->
+    <hidewhilemap>true</hidewhilemap>
+</crossbarsettings>

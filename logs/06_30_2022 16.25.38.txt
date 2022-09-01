@@ -1,0 +1,477 @@
+06/30/2022 16:25:38.902 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : C:\Ashita-v4beta\
+06/30/2022 16:25:38.902 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+06/30/2022 16:25:38.902 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\boot\mybootsettings.ini
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   file : C:\Program Files (x86)\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   args : 
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0029 : 12
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+06/30/2022 16:25:38.904 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/30/2022 16:25:38.904 | DEBUG    |                             Properties::Properties | .ctor
+06/30/2022 16:25:38.904 | DEBUG    |                           ChatManager::ChatManager | .ctor
+06/30/2022 16:25:38.904 | DEBUG    |                           FontManager::FontManager | .ctor
+06/30/2022 16:25:38.904 | DEBUG    |                             GuiManager::GuiManager | .ctor
+06/30/2022 16:25:38.904 | DEBUG    |                         InputManager::InputManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                       PacketManager::PacketManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                       PluginManager::PluginManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                     PointerManager::PointerManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+06/30/2022 16:25:38.905 | DEBUG    |                             Properties::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                           InputManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                         PointerManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                             MemoryManager::Release | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                            ChatManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                          PacketManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                          PluginManager::Initialize | <Begin>
+06/30/2022 16:25:38.905 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.905 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+06/30/2022 16:25:38.906 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\pivot\pivot.ini
+06/30/2022 16:25:38.906 | INFO     |                                              pivot | m_logDebug = Discard
+06/30/2022 16:25:38.906 | INFO     |                                              pivot | m_rootPath = 'C:\Ashita-v4beta\polplugins\DATs'
+06/30/2022 16:25:38.906 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+06/30/2022 16:25:38.907 | INFO     |                                              pivot | => success
+06/30/2022 16:25:38.907 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+06/30/2022 16:25:38.907 | WARN     |                                              pivot | WARNING:       12: ignoring 'C:\ASHITA-V4BETA\POLPLUGINS\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+06/30/2022 16:25:38.907 | WARN     |                                              pivot | WARNING:   119051: ignoring 'C:\ASHITA-V4BETA\POLPLUGINS\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+06/30/2022 16:25:38.907 | WARN     |                                              pivot | WARNING:   119057: ignoring 'C:\ASHITA-V4BETA\POLPLUGINS\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+06/30/2022 16:25:38.909 | WARN     |                                              pivot | WARNING:    91015: ignoring 'C:\ASHITA-V4BETA\POLPLUGINS\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+06/30/2022 16:25:38.911 | INFO     |                                              pivot | => success
+06/30/2022 16:25:38.911 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+06/30/2022 16:25:38.911 | INFO     |                                              pivot | => success
+06/30/2022 16:25:38.913 | INFO     |                                              pivot | m_hooksSet = true
+06/30/2022 16:25:38.913 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.11 - By: Heals
+06/30/2022 16:25:38.913 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.913 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+06/30/2022 16:25:38.913 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+06/30/2022 16:25:38.914 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+06/30/2022 16:25:38.914 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+06/30/2022 16:25:38.914 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+06/30/2022 16:25:38.914 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+06/30/2022 16:25:38.914 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+06/30/2022 16:25:38.914 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+06/30/2022 16:25:38.914 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+06/30/2022 16:25:41.068 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 656 x 519]
+06/30/2022 16:25:41.070 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 2561 x 1441]
+06/30/2022 16:25:41.076 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/30/2022 16:26:38.681 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+06/30/2022 16:26:38.796 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+06/30/2022 16:26:38.949 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+06/30/2022 16:26:38.949 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+06/30/2022 16:26:38.973 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+06/30/2022 16:26:38.973 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+06/30/2022 16:26:38.973 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/30/2022 16:26:38.973 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/30/2022 16:26:38.973 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+06/30/2022 16:26:38.973 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/30/2022 16:26:38.973 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/30/2022 16:26:38.998 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:38.998 | DEBUG    |                            ResourceManager::Update | <Begin>
+06/30/2022 16:26:38.998 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+06/30/2022 16:26:39.003 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+06/30/2022 16:26:39.003 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: C:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+06/30/2022 16:26:39.314 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 315.732400ms [Status: 1]
+06/30/2022 16:26:39.314 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.314 | DEBUG    |                               InputManager::Update | <Begin>
+06/30/2022 16:26:39.314 | DEBUG    |                                       Mouse::Mouse | .ctor
+06/30/2022 16:26:39.314 | DEBUG    |                                  Mouse::Initialize | <Begin>
+06/30/2022 16:26:39.314 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:39.314 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+06/30/2022 16:26:39.314 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.314 | DEBUG    |                              OffsetManager::Update | <Begin>
+06/30/2022 16:26:39.314 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+06/30/2022 16:26:39.316 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+06/30/2022 16:26:39.316 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: C:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+06/30/2022 16:26:39.316 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.316 | DEBUG    |                             PointerManager::Update | <Begin>
+06/30/2022 16:26:39.316 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+06/30/2022 16:26:39.319 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+06/30/2022 16:26:39.320 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: C:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+06/30/2022 16:26:39.325 | DEBUG    |                             PointerManager::Update | Pointer: (16D9E71C) [Ok!] autofollow
+06/30/2022 16:26:39.325 | DEBUG    |                             PointerManager::Update | Pointer: (16DFA7B5) [Ok!] castbar
+06/30/2022 16:26:39.325 | DEBUG    |                             PointerManager::Update | Pointer: (16EA5910) [Ok!] chat.addchatmessage
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16F34950) [Ok!] chat.inputtext.this
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16D91622) [Ok!] chat.logfile
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16F37B60) [Ok!] chat.parseautotranslate
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16EA5A02) [Ok!] chat.parseautotranslate.this
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16E00090) [Ok!] chat.parseinputtext
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16E000B2) [Ok!] chat.parseinputtext.this
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (16DF74BC) [Ok!] clientversion
+06/30/2022 16:26:39.333 | DEBUG    |                             PointerManager::Update | Pointer: (03D76533) [Ok!] config.autodisconnect
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16F35C62) [Ok!] config.languagefilter
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16D837E0) [Ok!] entitymap
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E14C6B) [Ok!] entitymap.size
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E69A26) [Ok!] inventory
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E96B75) [Ok!] inventory.selecteditem
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16EDC4E2) [Ok!] menu
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E5BE00) [Ok!] packets.decryptbuffer
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E5BCD0) [Ok!] packets.encryptbuffer
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E7A870) [Ok!] packets.queuepacket1
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E5C460) [Ok!] packets.queuepacket2
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16F7CEEB) [Ok!] party
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E1822F) [Ok!] party.statusicons
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16EC47CA) [Ok!] player
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E64510) [Ok!] player.hasability
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E17144) [Ok!] player.haskeyitem
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E6E540) [Ok!] player.hasspell
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E6F450) [Ok!] player.joblevels
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E6F490) [Ok!] player.jobmasterlevels
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E0DB7A) [Ok!] player.loginstatus
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E068DF) [Ok!] player.petmp
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E1C1DD) [Ok!] player.pettp
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16F9E5C4) [Ok!] recast.abilities
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16FA5092) [Ok!] recast.spells
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16DF98E7) [Ok!] target.settarget
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer: (16E07EE3) [Ok!] target.target
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 18.107200ms
+06/30/2022 16:26:39.334 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.334 | DEBUG    |                            FontManager::Initialize | <Begin>
+06/30/2022 16:26:39.334 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:39.334 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+06/30/2022 16:26:39.334 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:39.334 | DEBUG    |                             GuiManager::Initialize | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                              MemoryManager::Update | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+06/30/2022 16:26:39.344 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+06/30/2022 16:26:39.344 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 4
+06/30/2022 16:26:39.344 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                              PacketManager::Update | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+06/30/2022 16:26:39.344 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+06/30/2022 16:26:39.344 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                              PluginManager::Update | <Begin>
+06/30/2022 16:26:39.344 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+06/30/2022 16:26:39.344 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+06/30/2022 16:26:39.461 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/30/2022 16:26:39.461 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+06/30/2022 16:26:39.461 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+06/30/2022 16:26:39.461 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+06/30/2022 16:26:39.461 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+06/30/2022 16:26:39.461 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+06/30/2022 16:26:39.462 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/addons.dll'
+06/30/2022 16:26:39.466 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 1.30 - By: Ashita Development Team
+06/30/2022 16:26:39.466 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/screenshot.dll'
+06/30/2022 16:26:39.519 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+06/30/2022 16:26:39.519 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/bellhop.dll'
+06/30/2022 16:26:40.468 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+06/30/2022 16:26:40.469 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/crossbar.dll'
+06/30/2022 16:26:40.475 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.20 - By: Thorny
+06/30/2022 16:26:40.475 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/findall.dll'
+06/30/2022 16:26:40.478 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.07 - By: Thorny
+06/30/2022 16:26:40.479 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+06/30/2022 16:26:40.480 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+06/30/2022 16:26:40.480 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/lootwhore.dll'
+06/30/2022 16:26:40.485 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.15 - By: Thorny
+06/30/2022 16:26:40.485 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/minimap.dll'
+06/30/2022 16:26:40.495 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\minimap\minimap.ini
+06/30/2022 16:26:40.496 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: C:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+06/30/2022 16:26:40.504 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.02 - By: atom0s
+06/30/2022 16:26:40.504 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/shorthand.dll'
+06/30/2022 16:26:40.515 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.09 - By: Thorny
+06/30/2022 16:26:40.515 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/stylist.dll'
+06/30/2022 16:26:40.523 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+06/30/2022 16:26:40.523 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/uberwarp.dll'
+06/30/2022 16:26:40.804 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+06/30/2022 16:26:40.804 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/packer.dll'
+06/30/2022 16:26:40.812 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.10 - By: Thorny
+06/30/2022 16:26:40.812 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/packetflow.dll'
+06/30/2022 16:26:40.815 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+06/30/2022 16:26:40.815 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'C:\Ashita-v4beta\/plugins/vnm.dll'
+06/30/2022 16:26:40.816 | DEBUG    |                                PluginManager::Load | Loaded plugin: VNM - Version: 1.07 - By: Xenonsmurf
+06/30/2022 16:26:41.634 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+06/30/2022 16:26:41.635 | DEBUG    |                                PointerManager::Add | Pointer: (16E5A7A2) [Ok!] statustimers:realutcstamp
+06/30/2022 16:27:11.146 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/30/2022 16:27:14.488 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/30/2022 16:27:14.493 | ERROR    |                                             Packer | Default profile could not be created. [C:\Ashita-v4beta\config\Packer\default.xml]
+06/30/2022 16:27:14.604 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {3AD90970,08B0,11EA,80,01,44,45,53,54,00,00}
+06/30/2022 16:27:14.604 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+06/30/2022 16:27:14.604 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+06/30/2022 16:28:05.308 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/30/2022 16:28:07.152 | ERROR    |                                             Packer | Default profile could not be created. [C:\Ashita-v4beta\config\Packer\default.xml]
+06/30/2022 16:29:32.239 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/30/2022 16:29:34.464 | ERROR    |                                             Packer | Default profile could not be created. [C:\Ashita-v4beta\config\Packer\default.xml]
+06/30/2022 16:31:58.009 | INFO     |                                            Bellhop | Entered shop.  [Lucretia]
+06/30/2022 16:32:17.004 | INFO     |                                            Bellhop | Left shop.  [Lucretia]
+06/30/2022 16:51:05.484 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 16:51:16.585 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 17:00:27.372 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 17:01:54.613 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 17:02:00.315 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 17:04:09.778 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 17:04:12.766 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 17:04:24.230 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 17:04:42.909 | ERROR    |                                            FindAll | Could not find any items matching the term: darkst.
+06/30/2022 17:06:24.789 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/30/2022 17:06:27.174 | ERROR    |                                             Packer | Default profile could not be created. [C:\Ashita-v4beta\config\Packer\default.xml]
+06/30/2022 17:07:44.995 | INFO     |                                            Bellhop | Entered shop.  [Lucretia]
+06/30/2022 17:08:16.320 | INFO     |                                            Bellhop | Left shop.  [Lucretia]
+06/30/2022 17:10:36.015 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 17:10:38.419 | INFO     |                                            Bellhop | Selling 26 matching items to Curio Vendor Moogle.
+06/30/2022 17:10:45.741 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 17:11:41.691 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/30/2022 17:11:43.991 | ERROR    |                                             Packer | Default profile could not be created. [C:\Ashita-v4beta\config\Packer\default.xml]
+06/30/2022 17:30:04.456 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 17:30:41.823 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 18:30:47.280 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 18:30:55.895 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 18:39:34.506 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+06/30/2022 18:39:44.357 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+06/30/2022 18:40:53.733 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/30/2022 18:41:06.971 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/30/2022 18:55:31.069 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/30/2022 20:03:46.514 | INFO     |                                            Bellhop | Entered shop.  [Runito-Monito]
+06/30/2022 20:03:48.273 | INFO     |                                            Bellhop | Selling 3 matching items to Runito-Monito.
+06/30/2022 20:03:51.085 | INFO     |                                            Bellhop | Left shop.  [Runito-Monito]
+06/30/2022 20:12:38.690 | INFO     |                                            Bellhop | Storing 10 matching items.
+06/30/2022 21:09:44.414 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/30/2022 23:11:50.629 | INFO     |                                            Bellhop | Storing 8 matching items.
+06/30/2022 23:50:50.611 | INFO     |                                            Bellhop | Entered shop.  [Shiny Teeth]
+06/30/2022 23:50:52.521 | INFO     |                                            Bellhop | Selling a fenrite to Shiny Teeth.
+06/30/2022 23:50:54.827 | INFO     |                                            Bellhop | Left shop.  [Shiny Teeth]
+06/30/2022 23:52:48.643 | DEBUG    |                                Keyboard::~Keyboard | .dtor
+06/30/2022 23:52:48.643 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+06/30/2022 23:52:48.643 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+06/30/2022 23:52:48.643 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+06/30/2022 23:52:48.643 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+06/30/2022 23:52:48.643 | DEBUG    |                                      Mouse::~Mouse | .dtor
+06/30/2022 23:52:48.643 | DEBUG    |              newIDirectInput8A::~newIDirectInput8A | .dtor
+06/30/2022 23:52:48.908 | DEBUG    |          newIDirect3DDevice8::~newIDirect3DDevice8 | .dtor
+06/30/2022 23:52:48.908 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event invoked.
+06/30/2022 23:52:48.908 | DEBUG    |                               ChatManager::Release | <Begin>
+06/30/2022 23:52:48.908 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+06/30/2022 23:52:48.909 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+06/30/2022 23:52:48.909 | DEBUG    |                  CommandTaskPool::~CommandTaskPool | .dtor
+06/30/2022 23:52:48.909 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+06/30/2022 23:52:48.909 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+06/30/2022 23:52:48.909 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:48.909 | DEBUG    |                             PluginManager::Release | <Begin>
+06/30/2022 23:52:48.909 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+06/30/2022 23:52:49.263 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Addons
+06/30/2022 23:52:49.263 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Screenshot
+06/30/2022 23:52:49.263 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+06/30/2022 23:52:49.265 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Crossbar
+06/30/2022 23:52:49.265 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: FindAll
+06/30/2022 23:52:49.265 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: HardwareMouse
+06/30/2022 23:52:49.265 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Lootwhore
+06/30/2022 23:52:49.266 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Minimap
+06/30/2022 23:52:49.266 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Shorthand
+06/30/2022 23:52:49.267 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Stylist
+06/30/2022 23:52:49.296 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Uberwarp
+06/30/2022 23:52:49.296 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+06/30/2022 23:52:49.297 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: PacketFlow
+06/30/2022 23:52:49.297 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: VNM
+06/30/2022 23:52:49.297 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.297 | DEBUG    |                             MemoryManager::Release | <Begin>
+06/30/2022 23:52:49.297 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.297 | DEBUG    |                             PacketManager::Release | <Begin>
+06/30/2022 23:52:49.297 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.297 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+06/30/2022 23:52:49.297 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.297 | DEBUG    |                               FontManager::Release | <Begin>
+06/30/2022 23:52:49.297 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.297 | DEBUG    |                                GuiManager::Release | <Begin>
+06/30/2022 23:52:49.302 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.302 | DEBUG    |                              InputManager::Release | <Begin>
+06/30/2022 23:52:49.302 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.302 | DEBUG    |                            PointerManager::Release | <Begin>
+06/30/2022 23:52:49.302 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.302 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/30/2022 23:52:49.459 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:49.459 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event finished.
+06/30/2022 23:52:49.459 | DEBUG    |                      newIDirect3D8::~newIDirect3D8 | .dtor
+06/30/2022 23:52:50.479 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: 456 x 184][Size: 656 x 519]
+06/30/2022 23:52:52.671 | DEBUG    |                                    UninstallAshita | Uninstalling Ashita from the current process. (2632)
+06/30/2022 23:52:52.671 | DEBUG    |                                AshitaCore::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                          PolPluginManager::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                        PolPluginManager::UnloadAll | Unloading all POL plugins.
+06/30/2022 23:52:52.671 | INFO     |                                              pivot | m_hooksSet = false
+06/30/2022 23:52:52.671 | DEBUG    |                             PolPluginManager::Tick | Unloaded POL plugin: pivot
+06/30/2022 23:52:52.671 | DEBUG    |                          PolPluginManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.671 | DEBUG    |                PolPluginManager::~PolPluginManager | .dtor
+06/30/2022 23:52:52.671 | DEBUG    |                             PluginManager::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+06/30/2022 23:52:52.671 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.671 | DEBUG    |                      PluginManager::~PluginManager | .dtor
+06/30/2022 23:52:52.671 | DEBUG    |                              InputManager::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.671 | DEBUG    |                        InputManager::~InputManager | .dtor
+06/30/2022 23:52:52.671 | DEBUG    |                             MemoryManager::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.671 | DEBUG    |                      MemoryManager::~MemoryManager | .dtor
+06/30/2022 23:52:52.671 | DEBUG    |                            PointerManager::Release | <Begin>
+06/30/2022 23:52:52.671 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.671 | DEBUG    |                    PointerManager::~PointerManager | .dtor
+06/30/2022 23:52:52.671 | DEBUG    |                             OffsetManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                             OffsetManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                      OffsetManager::~OffsetManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                             PacketManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                      PacketManager::~PacketManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                PrimitiveManager::~PrimitiveManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                               FontManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                          FontManager::~FontManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                               FontManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                  ResourceManager::~ResourceManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                                GuiManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                            GuiManager::~GuiManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                                Properties::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                                Properties::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                            Properties::~Properties | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                               ChatManager::Release | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                          ChatManager::~ChatManager | .dtor
+06/30/2022 23:52:52.672 | DEBUG    |                                AshitaCore::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                  Ashita::Hooks::DirectX::Uninstall | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                  Ashita::Hooks::DirectX::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                    Ashita::Hooks::Mutex::Uninstall | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                    Ashita::Hooks::Mutex::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                 Ashita::Hooks::Registry::Uninstall | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                 Ashita::Hooks::Registry::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.672 | DEBUG    |                   Ashita::Hooks::Window::Uninstall | <Begin>
+06/30/2022 23:52:52.672 | DEBUG    |                   Ashita::Hooks::Window::Uninstall | <End>
+06/30/2022 23:52:52.672 | DEBUG    |                                    UninstallAshita | Finished!
+06/30/2022 23:52:52.745 | DEBUG    |                                    UninstallAshita | Uninstalling Ashita from the current process. (2632)
+06/30/2022 23:52:52.745 | DEBUG    |                                AshitaCore::Release | <Begin>
+06/30/2022 23:52:52.745 | DEBUG    |                                AshitaCore::Release | <End> [Status: Ok!]
+06/30/2022 23:52:52.745 | DEBUG    |                  Ashita::Hooks::DirectX::Uninstall | <Begin>
+06/30/2022 23:52:52.745 | DEBUG    |                  Ashita::Hooks::DirectX::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.745 | DEBUG    |                    Ashita::Hooks::Mutex::Uninstall | <Begin>
+06/30/2022 23:52:52.745 | DEBUG    |                    Ashita::Hooks::Mutex::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.745 | DEBUG    |                 Ashita::Hooks::Registry::Uninstall | <Begin>
+06/30/2022 23:52:52.745 | DEBUG    |                 Ashita::Hooks::Registry::Uninstall | <End> [Status: Ok!]
+06/30/2022 23:52:52.745 | DEBUG    |                   Ashita::Hooks::Window::Uninstall | <Begin>
+06/30/2022 23:52:52.745 | DEBUG    |                   Ashita::Hooks::Window::Uninstall | <End>
+06/30/2022 23:52:52.745 | DEBUG    |                                    UninstallAshita | Finished!
