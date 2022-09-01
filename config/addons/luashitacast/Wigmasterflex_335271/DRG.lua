@@ -171,16 +171,15 @@ sets = T{
         Back = { Name = 'Brigantia\'s Mantle', Augment = { [1] = 'Accuracy+30', [2] = 'Magic dmg. taken -10%', [3] = 'Attack+20', [4] = '"Store TP"+10' } },
         Waist = 'Fotia Belt',
         Legs = 'Gleti\'s Breeches',
-        Feet = { Name = 'Valorous Greaves', Augment = { [1] = 'Weapon skill damage +5%', [2] = 'Accuracy+8' } },
+        Feet = 'Sulev. Leggings +2',
     },
     Ws_Hybrid = {
-        Body = 'Hjarrandi Breast.',
     },
     Ws_Acc = {
     },
 
     Movement = {
-        Legs = 'Carmine Cuisses +1',
+        Legs = 'Carmine Cuisses',
 	},
 };
 

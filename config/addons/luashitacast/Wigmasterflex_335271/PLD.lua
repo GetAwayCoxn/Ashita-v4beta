@@ -17,7 +17,7 @@ sets = T{
         Back = 'Rudianos\'s Mantle',
         Waist = 'Nierenschutz',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Sulev. Leggings +2',
     },
     Resting = {},
     Idle_Regen = {
@@ -55,7 +55,7 @@ sets = T{
         Back = 'Weard Mantle',
         Waist = 'Nierenschutz',
         Legs = 'Rev. Breeches',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Sulev. Leggings +2',
     },
 
     Tp_Default = {
@@ -108,7 +108,7 @@ sets = T{
         Back = 'Repulse Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Sulev. Leggings +2',
         },
     Tank_MEVA = {
         Ammo = 'Staunch Tathlum',
@@ -123,7 +123,7 @@ sets = T{
         Back = 'Rudianos\'s Mantle',
         Waist = 'Asklepian Belt',
         Legs = 'Nyame Flanchard',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Sulev. Leggings +2',
     },
 
     Precast = {
@@ -278,7 +278,7 @@ sets = T{
         Back = 'Weard Mantle',
         Waist = 'Fotia Belt',
         Legs = 'Flamma Dirs +1',
-        Feet = 'Sulev. Leggings +1',
+        Feet = 'Sulev. Leggings +2',
     },
     Atone_Hybrid = {
     },
@@ -390,7 +390,7 @@ profile.HandleAbility = function()
 		gFunc.EquipSet(sets.Fealty);
     elseif string.match(ability.Name, 'Sentinel') then
 		gFunc.EquipSet(sets.Sentinel);
-    elseif string.match(ability.Name, 'Sheild Bash') or string.match(ability.Name, 'Chivalry') then
+    elseif string.match(ability.Name, 'Shield Bash') or string.match(ability.Name, 'Chivalry') then
 		gFunc.EquipSet(sets.Bash);
     elseif string.match(ability.Name, 'Invincible') then
 		gFunc.EquipSet(sets.Invincible);

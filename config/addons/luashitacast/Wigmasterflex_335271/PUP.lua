@@ -15,7 +15,7 @@ sets = T{
         Ring2 = 'Sheltered Ring',
         Waist = 'Isa Belt',
         Back = 'Repulse Mantle',
-        Legs = 'Tali\'ah Sera. +1',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
     Idle_Pet = {
@@ -41,7 +41,7 @@ sets = T{
         Ring1 = 'Paguroidea Ring',
         Ring2 = 'Sheltered Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Legs = 'Tali\'ah Sera. +1',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = 'Hermes\' Sandals',
     },
 	
@@ -69,7 +69,7 @@ sets = T{
         Ring2 = 'Sheltered Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Incarnation Sash',
-        Legs = 'Tali\'ah Sera. +1',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
     Pet_Only_Tp_Hybrid = {
@@ -90,7 +90,7 @@ sets = T{
         Ring2 = 'Hizamaru Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
         Waist = 'Kuku Stone',
-        Legs = 'Tali\'ah Sera. +1',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = 'Herculean Boots',
     },
 	Tp_Hybrid = {
@@ -214,7 +214,7 @@ sets = T{
         Waist = 'Incarnation Sash',
         --Legs = 'Nyame Flanchard',
         --Feet = 'Mpaca\'s Boots',
-        Legs = 'Tali\'ah Sera. +1',
+        Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
 

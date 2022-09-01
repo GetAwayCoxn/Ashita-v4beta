@@ -38,7 +38,7 @@ sets = T{
         Body = 'Meg. Cuirie +1',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Patricius Ring',
+        Ring2 = 'Meghanada Ring',
         Legs = 'Meg. Chausses +2',
         Feet = 'Meg. Jam. +1',
     },
@@ -58,6 +58,11 @@ sets = T{
         Feet = 'Mummu Gamash. +1',
     },
     Tp_Hybrid = {
+        Head = 'Meghanada Visor +1',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Meg. Gloves +2',
+        Legs = 'Meg. Chausses +2',
+        Feet = 'Meg. Jam. +1',
     },
     Tp_Acc = {
         Neck = 'Sanctity Necklace',

@@ -420,7 +420,7 @@ profile.HandleAbility = function()
 		gFunc.EquipSet(sets.Fealty);
     elseif string.match(ability.Name, 'Sentinel') then
 		gFunc.EquipSet(sets.Sentinel);
-    elseif string.match(ability.Name, 'Sheild Bash') or string.match(ability.Name, 'Chivalry') then
+    elseif string.match(ability.Name, 'Shield Bash') or string.match(ability.Name, 'Chivalry') then
 		gFunc.EquipSet(sets.Bash);
     elseif string.match(ability.Name, 'Invincible') then
 		gFunc.EquipSet(sets.Invincible);

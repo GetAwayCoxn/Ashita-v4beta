@@ -166,6 +166,7 @@ sets = T{
     Preshot = {
     },
     Midshot = {
+        Neck = 'Iskur Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Crep. Earring',
     },

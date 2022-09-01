@@ -97,7 +97,7 @@ sets = T{
     },
     Midshot = {
         Head = 'Malignance Chapeau',
-        Neck ='Marked Gorget',
+        Neck = 'Iskur Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Crep. Earring',
         Body = 'Mummu Jacket +2',

@@ -35,7 +35,7 @@ sets = T{
         Range = 'Holliday',
         Ammo = 'Decimating Bullet',
         Head = 'Rawhide Mask',
-        Neck = 'Anu Torque',
+        Neck = 'Iskur Gorget',
         Ear1 = 'Mache Earring +1',
         Ear2 = 'Telos Earring',
         Body = 'Herculean Vest',
@@ -161,7 +161,7 @@ sets = T{
     },
     Midshot = {
         Head = 'Malignance Chapeau',
-        Neck = 'Sanctity Necklace',
+        Neck = 'Iskur Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Enervating Earring',
         Body = 'Malignance Tabard',
@@ -176,7 +176,7 @@ sets = T{
     },
     Midshot_Acc = {--will be over written by barrage set still 
         Head = 'Malignance Chapeau',
-        Neck = 'Sanctity Necklace',
+        Neck = 'Iskur Gorget',
         Ear1 = 'Telos Earring',
         Ear2 = 'Crep. Earring',
         Body = 'Malignance Tabard',
@@ -284,7 +284,7 @@ profile.OnLoad = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 10');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 
-    gcinclude.settings.RefreshGearMPP = 50;
+    gcinclude.settings.RefreshGearMPP = 35;
 end
 
 profile.OnUnload = function()
