@@ -147,6 +147,7 @@ sets = T{
     -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
         Range = 'Animator P +1',
+        Ear1 = 'Domes. Earring',
         Ring1 = 'Overbearing Ring',
         Ring2 = 'C. Palug Ring',
         Legs = 'Heyoka Subligar',
@@ -160,6 +161,7 @@ sets = T{
         Range = 'Animator P +1',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'C. Palug Ring',
+        -- Waist = 'Klouskap Sash +1', -- do this after getting +1
     },
     Mage = {
         Range = 'Neo Animator',
@@ -259,7 +261,7 @@ sets = T{
         Hands = 'Mpaca\'s Gloves',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'C. Palug Ring',
-        Waist = 'Incarnation Sash',
+        Waist = 'Klouskap Sash',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
 	},
@@ -289,7 +291,7 @@ sets = T{
         Ring1 = 'Varar Ring +1',
         Ring2 = 'C. Palug Ring',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Incarnation Sash',
+        Waist = 'Klouskap Sash',
         Legs = 'Heyoka Subligar',
         Feet = 'Mpaca\'s Boots',
     },

@@ -168,10 +168,8 @@ function gcauto.SetVariables()
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		gcdisplay.CreateToggle('LR', false);
 	end
-	if (player.MainJob == 'DNC') then
-		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba III',});
-	elseif (player.SubJob == 'DNC') then
-		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba II',});
+	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba',});
 	end
 
 	if (player.SubJob == 'DRG') then
@@ -299,8 +297,8 @@ function gcauto.CheckAbilityRecast(check)
 
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
-			if ability == nil then return end
-			if (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
+			--if ability == nil then return end
+			if (ability.Name[1] ~= nil) and (ability.Name[1] == check) then and (ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end
@@ -483,7 +481,7 @@ function gcauto.DoJobStuff()
 		end
 	elseif (player.MainJob == 'THF') then
 		local feint = gData.GetBuffCount('Feint');
-		if (feint == 0) and (gcauto.CheckAbilityRecast('Feint') <= 0) and (gcdisplay.GetToggle('Feint') == true) and (player.Status == 'Engaged') then	
+		if (feint == 0) and (gcauto.CheckAbilityRecast('Feint') <= 0) and (gcdisplay.GetToggle('Feint') == true) and (targetHPP < 99) and (player.Status == 'Engaged') then	
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Feint" <me>')
 		end
 	elseif (player.MainJob == 'NIN') then

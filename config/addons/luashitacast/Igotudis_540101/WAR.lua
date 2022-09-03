@@ -264,6 +264,7 @@ sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Thr. Tomahawk', Quantity = 'all'},
+    {Name = 'Red Curry Bun', Quantity = 'all'},
 };
 
 profile.OnLoad = function()

@@ -110,27 +110,27 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 		if v[2] then
 			if not distancecheck then
 			display.text = display.text .. '\n';
-			display.text = display.text .. osd.green .. v[1] .. '(' .. tostring(k) .. ')  HPP:' .. tostring(v[4]) .. '%  Distance:' .. tostring(v[3]);
+			display.text = display.text .. osd.green .. tostring(v[1]) .. '(' .. tostring(k) .. ')  HPP:' .. tostring(v[4]) .. '%  Distance:' .. tostring(v[3]);
 				if osd.call and (v[5] == nil or v[5]) then
 					local str = '/p <call' .. osd.callnumber .. '>';
 					AshitaCore:GetChatManager():QueueCommand(1, str);
 					v[5] = false;
 					local function mobpop()
-						AshitaCore:GetChatManager():QueueCommand(1, '/p ' .. v[1] .. ' Pop!')
+						AshitaCore:GetChatManager():QueueCommand(1, '/p ' .. tostring(v[1]) .. ' Pop!')
 					end
 					mobpop:once(1);
 				end
 			elseif v[4] ~= 0 then
 				display.text = display.text .. '\n';
-				display.text = display.text .. osd.yellow .. v[1] .. '(' .. tostring(k) .. ')  HPP:' .. tostring(v[4]) .. '%  Distance:' .. tostring(v[3]);
+				display.text = display.text .. osd.yellow .. tostring(v[1]) .. '(' .. tostring(k) .. ')  HPP:' .. tostring(v[4]) .. '%  Distance:' .. tostring(v[3]);
 			else
 				display.text = display.text .. '\n';
-				display.text = display.text .. osd.red .. v[1] .. '(' .. tostring(k) .. ') ' .. timeCalc(v[6]);
+				display.text = display.text .. osd.red .. tostring(v[1]) .. '(' .. tostring(k) .. ') ' .. timeCalc(v[6]);
 				v[5] = true;
 			end
 		else
 			display.text = display.text .. '\n';
-			display.text = display.text .. osd.red .. v[1] .. '(' .. tostring(k) .. osd.yellow .. ') ' ..  timeCalc(v[6]);
+			display.text = display.text .. osd.red .. tostring(v[1]) .. '(' .. tostring(k) .. osd.yellow .. ') ' ..  timeCalc(v[6]);
 			v[5] = true;
 		end
 	end

@@ -109,6 +109,7 @@ sets = T{
     },
     Ranger = {
         Range = 'Animator P II',
+        -- Waist = 'Klouskap Sash +1', -- do this after getting +1
     },
     Mage = {
         Range = 'Animator P II',
@@ -183,6 +184,7 @@ sets = T{
     Pet_RNGWS = {
         Head = 'Karagoz Capello +1',
         Neck = 'Shulmanu Collar',
+        Waist = 'Klouskap Sash',
 	},
 	
 	Repair = {
@@ -211,7 +213,7 @@ sets = T{
         Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
         Back = { Name = 'Visucius\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: Haste+10', [4] = 'Accuracy+20', [5] = 'Attack+20', [6] = 'Pet: Acc.+20', [7] = 'Pet: Atk.+20' } },
-        Waist = 'Incarnation Sash',
+        Waist = 'Klouskap Sash',
         --Legs = 'Nyame Flanchard',
         --Feet = 'Mpaca\'s Boots',
         Legs = 'Tali\'ah Sera. +2',
