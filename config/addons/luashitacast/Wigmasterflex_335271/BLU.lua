@@ -91,8 +91,8 @@ sets = T{
         Ear2 = 'Bladeborn Earring',
         Body = 'Ayanmo Corazza +2',
         Hands = 'Aya. Manopolas +2',
-        Ring2 = 'Ayanmo Ring',
         Ring1 = 'Epona\'s Ring',
+        Ring2 = 'Ayanmo Ring',
         Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
         Legs = 'Carmine Cuisses',
@@ -107,11 +107,7 @@ sets = T{
     },
 	Tp_Acc = {
         Ammo = 'Ginsen',
-        Head = 'Blistering Sallet +1',
         Neck = 'Sanctity Necklace',
-        Ear1 = 'Mache Earring',
-        Body = 'Luhlaza Jubbah +3',
-        Hands = 'Malignance Gloves',
         Ring1 = 'Cacoethic Ring'
     },
 	
@@ -287,7 +283,7 @@ sets = T{
         Hands = 'Jhakri Cuffs +2',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Begrudging Ring',
-        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+25' } },
         Legs = 'Aya. Cosciales +2',
         Feet = 'Thereoid Greaves',
     },
@@ -303,6 +299,25 @@ sets = T{
     Savage_Hybrid = {
     },
     Savage_Acc = {
+    },
+    Requiescat_Default = {
+        Ammo = 'Ginsen',
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Shadow Gorget',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Epona\'s Ring',
+        Ring2 = 'Jhakri Ring',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'MND+20', [4] = 'Attack+20' } },
+        Waist = 'Fotia Belt',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Jhakri Pigaches +2',
+    },
+    Requiescat_Hybrid = {
+    },
+    Requiescat_Acc = {
     },
 	
     Diffusion = {
@@ -447,6 +462,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Savage_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')) end
+        elseif string.match(ws.Name, 'Requiescat') then
+            gFunc.EquipSet(sets.Requiescat_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Requiescat_' .. gcdisplay.GetCycle('MeleeSet')) end
         end
     end
 end

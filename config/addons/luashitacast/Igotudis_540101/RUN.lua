@@ -41,7 +41,7 @@ sets = T{
         Main = 'Epeolatry',
         Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',
-        Head = 'Erilaz Galea +1',
+        Head = 'Erilaz Galea +2',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
         Legs = 'Carmine Cuisses +1',
@@ -180,7 +180,7 @@ sets = T{
     },
     SIR = {--10 merits + 90
         Ammo = 'Staunch Tathlum', -- 10
-        Head = 'Agwu\'s Cap', -- 10
+        Head = 'Erilaz Galea +2', -- 15
         Neck = 'Moonlight Necklace', -- 15
         Hands = 'Rawhide Gloves', -- 15
         Waist = 'Audumbla Sash', -- 10
@@ -200,7 +200,7 @@ sets = T{
     },
     SIRenmity = { -- Foil and blue spells mostly
         Ammo = 'Staunch Tathlum', -- 10
-        Head = 'Agwu\'s Cap', -- 10
+        Head = 'Erilaz Galea +2', -- 15
         Neck = 'Moonlight Necklace', -- 15
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Cryptic Earring',
@@ -225,7 +225,7 @@ sets = T{
         Legs = 'Futhark Trousers +2',
     },
     Enhancing = {
-        Head = 'Erilaz Galea +1',
+        Head = 'Erilaz Galea +2',
         Neck = 'Incanter\'s Torque',
         Legs = 'Futhark Trousers +2',
     },
@@ -343,7 +343,7 @@ sets = T{
         Feet = 'Agwu\'s Pigaches',
     },
     Pulse = {
-        Head = 'Erilaz Galea +1',
+        Head = 'Erilaz Galea +2',
     },
     Vallation = {
         Body = 'Runeist Coat +1',

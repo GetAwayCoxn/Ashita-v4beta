@@ -156,7 +156,8 @@ sets = T{
         Ring1 = 'Crepuscular Ring',--3
         Back = { Name = 'Camulus\'s Mantle', Augment = '"Snapshot"+10' },--10
         Waist = 'Impulse Belt',--3
-        Legs = 'Ikenga\'s Trousers',--8
+        -- Legs = 'Ikenga\'s Trousers',--8
+        Legs = 'Lanun Trews +3',--10
         Feet = 'Meg. Jam. +2',--10
     },
     Preshot_FlurryI = {--with flurry I on, gives 15
@@ -366,7 +367,7 @@ sets = T{
     Fold = {Hands = 'Lanun Gants +3'},
     WildCard = {Feet = 'Lanun Bottes +3'},
     RandomDeal = {Body = 'Lanun Frac +2'},
-    SnakeEye = {Legs = 'Lanun Trews +2'},
+    SnakeEye = {Legs = 'Lanun Trews +3'},
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },

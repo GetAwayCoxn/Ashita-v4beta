@@ -48,7 +48,7 @@ gcauto.WeaponSkills = T{
 	['BLM'] = {[1] = 'None', [2] = 'Myrkr'},
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
-	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement', [6] = 'Aeolian Edge'},
+	['PLD'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round', [5] = 'Atonement', [6] = 'Aeolian Edge', [7] = 'Hard Slash', [8] = 'Spinning Slash'},
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus', [5] = 'Aeolian Edge'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
@@ -109,8 +109,11 @@ function gcauto.SetAlias()
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /lr /lac fwd lr');
 	end
-	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') or (player.MainJob == 'WHM') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /stance /lac fwd stance');
+	end
+	if (player.MainJob == 'WHM') then
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /caress /lac fwd caress');
 	end
 
 	if (player.SubJob == 'DRG') then
@@ -170,6 +173,10 @@ function gcauto.SetVariables()
 	end
 	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
 		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba',});
+	end
+	if (player.MainJob == 'WHM') then
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Solace', [3] = 'Misery',});
+		gcdisplay.CreateToggle('Caress', false);
 	end
 
 	if (player.SubJob == 'DRG') then
@@ -248,10 +255,15 @@ function gcauto.SetCommands(args)
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		if (args[1] == 'lr') then gcdisplay.AdvanceToggle('LR') end
 	end
-	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') or (player.MainJob == 'WHM') then
 		if (args[1] == 'stance') then
 			gcdisplay.AdvanceCycle('Stance');
 			if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
+		end
+	end
+	if (player.MainJob == 'WHM') then
+		if (args[1] == 'caress') then
+			gcdisplay.AdvanceToggle('Caress');
 		end
 	end
 
@@ -298,7 +310,7 @@ function gcauto.CheckAbilityRecast(check)
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
 			--if ability == nil then return end
-			if (ability.Name[1] ~= nil) and (ability.Name[1] == check) then and (ability.Name[1] ~= 'Unknown') then
+			if (ability.Name[1] ~= nil) and (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end
@@ -484,6 +496,22 @@ function gcauto.DoJobStuff()
 		if (feint == 0) and (gcauto.CheckAbilityRecast('Feint') <= 0) and (gcdisplay.GetToggle('Feint') == true) and (targetHPP < 99) and (player.Status == 'Engaged') then	
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Feint" <me>')
 		end
+	elseif (player.MainJob == 'WHM') then
+		if (gcdisplay.GetCycle('Stance') ~= 'None') then
+			local solace = gData.GetBuffCount('Afflatus Solace');
+			local misery = gData.GetBuffCount('Afflatus Misery');
+			if (solace == 0) and (gcauto.CheckAbilityRecast('Afflatus Solace') <= 0) and (gcdisplay.GetCycle('Stance') == 'Solace') then	
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Afflatus Solace" <me>')
+			elseif (misery == 0) and (gcauto.CheckAbilityRecast('Afflatus Misery') <= 0) and (gcdisplay.GetCycle('Stance') == 'Misery') then	
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Afflatus Misery" <me>')
+			end
+		end
+		if (gcdisplay.GetToggle('Caress')) then
+			local caress = gData.GetBuffCount('Divine Caress');
+			if (caress == 0) and (gcauto.CheckAbilityRecast('Divine Caress') <= 0) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Divine Caress" <me>')
+			end
+		end
 	elseif (player.MainJob == 'NIN') then
 		local yonin = gData.GetBuffCount('Yonin');
 		local innin = gData.GetBuffCount('Innin');
@@ -533,10 +561,10 @@ function gcauto.DoJobStuff()
 			end
 		end
 	elseif (player.MainJob == 'BST') then
-		if pet ~= nil then
-			if (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') then
-				AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
-			end
+		if pet == nil then return end;
+
+		if (gcauto.CheckAbilityRecast('Spur') <= 0) and (pet.Status == 'Engaged') and targetHPP < 99 then
+			AshitaCore:GetChatManager():QueueCommand(1, '/pet "Spur" <me>');
 		end
 	elseif (player.MainJob == 'DRK') then
 		local endark = gData.GetBuffCount('Endark');

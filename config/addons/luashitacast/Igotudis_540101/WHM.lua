@@ -217,6 +217,25 @@ sets = T{
     },
     Ws_Acc = {
     },
+    Cataclysm_Default = {
+        Ammo = 'Pemphredo Tathlum',
+        Head = 'Pixie Hairpin +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Malignance Earring',
+        Ear2 = 'Crematio Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Shiva Ring +1',
+        Ring2 = 'Karieyh Ring +1',
+        Back = 'Lugh\'s Cape',
+        Waist = 'Eschan Stone',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
+    },
+    Cataclysm_Hybrid = {
+    },
+    Cataclysm_Acc = {
+    },
 
     TH = {--/th will force this set to equip for 10 seconds
         Ammo = 'Per. Lucky Egg',
@@ -230,7 +249,7 @@ sets = T{
 sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
 
 profile.Packer = {
-    --{Name = 'Chonofuda', Quantity = 'all'},
+    
 };
 
 profile.OnLoad = function()
@@ -238,7 +257,7 @@ profile.OnLoad = function()
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 8');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 2');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 9');
 end
 
 profile.OnUnload = function()
@@ -369,6 +388,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
+
+        if string.match(ws.Name, 'Cataclysm') then
+            gFunc.EquipSet(sets.Cataclysm_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Cataclysm_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 

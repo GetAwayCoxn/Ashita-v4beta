@@ -152,7 +152,7 @@ function gcinclude.SetAlias()
 			end
 		end
 	end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') or (player.MainJob == 'WHM') then
 		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /fight /lac fwd fight');
 	end
 	if (player.MainJob == 'PLD') or (player.MainJob == 'RUN') then
@@ -197,7 +197,7 @@ function gcinclude.SetVariables()
 			end
 		end
 	end
-	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') then
+	if (player.MainJob == 'RDM') or (player.MainJob == 'BRD') or (player.MainJob == 'GEO') or (player.MainJob == 'WHM') then
 		gcdisplay.CreateToggle('Fight', false);
 	end
 	if (player.MainJob == 'PLD') or (player.MainJob == 'RUN') then
@@ -297,13 +297,13 @@ function gcinclude.SetCommands(args)
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Sub');
 				if (player.MainJob == 'RDM') or (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Range') end
-				if (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
+				if (player.MainJob == 'GEO') or (player.MainJob == 'WHM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
 				gcdisplay.AdvanceToggle('Fight');
 			else
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Main');
 				AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Sub');
 				if (player.MainJob == 'RDM') or (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac enable Range') end
-				if (player.MainJob == 'GEO') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
+				if (player.MainJob == 'GEO') or (player.MainJob == 'WHM') then AshitaCore:GetChatManager():QueueCommand(-1, '/lac disable Ammo') end
 				gcdisplay.AdvanceToggle('Fight');
 			end
 		end
@@ -714,15 +714,15 @@ end
 function gcinclude.Initialize()
 	local inv_flags = AshitaCore:GetMemoryManager():GetInventory():GetContainerUpdateFlags();
     if inv_flags == nil or inv_flags < 26143 then
-		gcdisplay.Initialize:once(10);
-		gcinclude.SetVariables:once(10);
-		gcinclude.SetAlias:once(10);
-		if (gcauto ~= nil) then gcauto.Initialize:once(10) end
+		gcdisplay.Initialize:once(2);
+		gcinclude.SetVariables:once(2);
+		gcinclude.SetAlias:once(2);
+		if (gcauto ~= nil) then gcauto.Initialize:once(12) end
     else
-		gcdisplay.Initialize:once(1);
-		gcinclude.SetVariables:once(1);
-		gcinclude.SetAlias:once(1);
-		if (gcauto ~= nil) then gcauto.Initialize:once(1) end
+		gcdisplay.Initialize:once(2);
+		gcinclude.SetVariables:once(2);
+		gcinclude.SetAlias:once(2);
+		if (gcauto ~= nil) then gcauto.Initialize:once(3) end
     end
 end
 

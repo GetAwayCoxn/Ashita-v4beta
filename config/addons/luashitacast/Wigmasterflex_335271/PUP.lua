@@ -35,7 +35,7 @@ sets = T{
 	Town = {
         Range = 'Neo Animator',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +1',
+        Head = 'Karagoz Capello +2',
         Neck = 'Wiglen Gorget',
         Body = 'Foire Tobe +2',
         Ring1 = 'Paguroidea Ring',
@@ -80,7 +80,7 @@ sets = T{
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Head = 'Tali\'ah Turban +1',
+        Head = 'Karagoz Capello +2',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
@@ -178,11 +178,11 @@ sets = T{
     },
 
     Pet_WS = {
-        Head = 'Karagoz Capello +1',
+        Head = 'Karagoz Capello +2',
         Neck = 'Shulmanu Collar',
 	},
     Pet_RNGWS = {
-        Head = 'Karagoz Capello +1',
+        Head = 'Karagoz Capello +2',
         Neck = 'Shulmanu Collar',
         Waist = 'Klouskap Sash',
 	},
@@ -202,7 +202,7 @@ sets = T{
     Overdrive = {-- this set will force on the ability AND stay on for the duration of OD, dont change the body out because of that
         Range = 'Animator P',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +1',
+        Head = 'Karagoz Capello +2',
         Neck = 'Shulmanu Collar',
         --Ear1 = 'Enmerkar Earring',
         --Ear2 = 'Domes. Earring',

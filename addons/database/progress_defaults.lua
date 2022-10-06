@@ -28,7 +28,7 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
                 {'Terpsichore',0,0},
                 {'Tupsimati',0,0},
             },
-            mythicsneeds = {0,0,0,0}, --alex,scoria,Beitetsu,crystals
+            mythicsneeds = {0,0,0,0,0}, --alex,scoria,Beitetsu,crystals, beitetsu (current)
             empyreans = {--name,level pointer, augment rank
                 {'Verethragna',0,0},
                 {'Twashtar',0,0},
@@ -217,6 +217,24 @@ progress_defaults = T{ --[[ Default Table and Array values, NO TOUCHY!!! ]]
         ['Riftcinder'] = {0,},
         ['Riftdross'] = {0,},
         ['Heavy Metal Plates'] = {0,},
+    },
+
+    current = {--remaining items
+        ['Temp Sads'] = {596,},--temp holder for sad crystals to display properly
+        ['Temp Beit'] = {10000},--temp holder for beitetsu to display properly
+        ['Sad. Crystals'] = {596,596,596,596},--relic,mythic,empy,ergon
+        ['Alexandrite'] = {30000,},
+        ['H-P Bayld'] = {0,},
+        ['Beitetsu'] = {10000,10000},--mythic,ergon
+        ['Riftborn Boulder'] = {10000,},
+        ['Pluton'] = {10000,},
+        ['Relic'] = {'relic',},
+        ['Mythic'] = {'paparoon', 'oboro'},
+        ['Empyrean'] = {'empyrean',},
+        ['Ergon'] = {'ergon',},
+        ['Plasm'] = {0,},
+        ['Tokens'] = {0,},
+        ['Ichor'] = {0,},
     },
 
     points = {

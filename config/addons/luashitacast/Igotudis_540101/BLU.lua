@@ -114,7 +114,7 @@ sets = T{
         Neck = 'Baetyl Pendant',--4
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',--1
-        Body = 'Luhlaza Jubbah +3',--9
+        Body = 'Pinga Tunic',--13
         Hands = 'Leyline Gloves',--6
         Ring1 = 'Prolix Ring',--2
         Ring2 = 'Kishar Ring',--4
@@ -133,7 +133,8 @@ sets = T{
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Mendi. Earring',--5
         Ear2 = 'Etiolation Earring',
-        Hands = 'Telchine Gloves',--9
+        Body = 'Pinga Tunic',--13
+        Hands = 'Telchine Gloves',--16
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Metamor. Ring +1',
         Back = 'Solemnity Cape',--7
@@ -146,9 +147,9 @@ sets = T{
         Head = 'Pinga Crown',--8
         Neck = 'Unmoving Collar +1',
         Ear1 = 'Odnowa Earring +1',
-        Ear2 = 'Mendi. Earring',--5
+        Ear2 = 'Etiolation Earring',
         Body = 'Nyame Mail',
-        Hands = 'Telchine Gloves',--9
+        Hands = 'Telchine Gloves',--16
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Gelatinous Ring +1',
         Back = 'Solemnity Cape',--7
@@ -343,6 +344,23 @@ sets = T{
     },
     Expiacion_Acc = {
     },
+    Requiescat_Default = {
+        Head = 'Jhakri Coronal +2',
+        Neck = 'Shadow Gorget',
+        Ear1 = 'Brutal Earring',
+        Ear2 = 'Moonshade Earring',
+        Body = 'Jhakri Robe +2',
+        Hands = 'Jhakri Cuffs +2',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Fotia Belt',
+        Legs = 'Jhakri Slops +2',
+        Feet = 'Jhakri Pigaches +2',
+    },
+    Requiescat_Hybrid = {
+    },
+    Requiescat_Acc = {
+    },
 	
     Ca = {
         Feet = 'Assim. Charuqs +1',
@@ -512,6 +530,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Expiacion_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Expiacion_' .. gcdisplay.GetCycle('MeleeSet')) end
+        elseif string.match(ws.Name, 'Requiescat') then
+            gFunc.EquipSet(sets.Requiescat_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Requiescat_' .. gcdisplay.GetCycle('MeleeSet')) end
         end
     end
 end

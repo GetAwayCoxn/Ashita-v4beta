@@ -38,7 +38,7 @@ sets = T{
     },
     Town = {
         Main = 'Lilith\'s Rod',
-        Sub = 'Morbol Shield',
+        Sub = 'Leafkin Shield',
         Range = 'Dunna',
         Head = '',
         Body = 'Morbol Apron',

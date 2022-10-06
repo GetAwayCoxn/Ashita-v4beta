@@ -5,6 +5,9 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 sets = T{
     Idle = {
+        Main = 'Naegling',
+        Sub = 'Sandung',
+        Range = 'Raider\'s Bmrng.',
         Head = 'Meghanada Visor +1',
         Neck = 'Loricate Torque',
         Ear1 = 'Ethereal Earring',
@@ -16,7 +19,7 @@ sets = T{
         Back = 'Repulse Mantle',
         Waist = 'Sailfi Belt +1',
         Legs = 'Mummu Kecks +1',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Skulk. Poulaines +2',
     },
     Resting = {},
     Idle_Regen = {
@@ -40,7 +43,7 @@ sets = T{
         Ring2 = 'Patricius Ring',
         Back = 'Repulse Mantle',
         Legs = 'Mummu Kecks +1',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Skulk. Poulaines +2',
     },
 
     Tp_Default = {
@@ -159,6 +162,24 @@ sets = T{
     },
     Aedge_Acc = {
     },
+    Savage_Default = {
+        Head = 'Herculean Helm',
+        Neck = 'Light Gorget',
+        Ear1 = 'Moonshade Earring',
+        Ear2 = 'Sherida Earring',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Meg. Gloves +2',
+        Ring1 = 'Rajas Ring',
+        Ring2 = 'Epona\'s Ring',
+        Back = 'Atheling Mantle',
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Meg. Chausses +1',
+        Feet = 'Skulk. Poulaines +2',
+    },
+    Savage_Hybrid = {
+    },
+    Savage_Acc = {
+    },
 
 
     SATA = {
@@ -171,8 +192,8 @@ sets = T{
         Head = 'Adhemar Bonnet',
     },
     TH = {
-        Hands = 'Plun. Armlets +1',
-        Feet = 'Skulk. Poulaines +1',
+        -- Hands = 'Plun. Armlets +1',
+        Feet = 'Skulk. Poulaines +2',
     },
     Flee = {
         Feet = 'Pillager\'s Poulaines',
@@ -333,6 +354,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Aedge_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+        elseif string.match(ws.Name, 'Savage Blade') then
+            gFunc.EquipSet(sets.Savage_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

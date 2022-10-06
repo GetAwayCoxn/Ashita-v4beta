@@ -6,6 +6,7 @@ sets = T{
     Idle = {
         Main = 'Idris',
         Sub = 'Ammurapi Shield',
+        Range = 'Dunna',
         Head = 'Nyame Helm',
         Neck = 'Loricate Torque +1',
         Ear1 = 'Eabani Earring',
@@ -23,7 +24,7 @@ sets = T{
         Main = 'Idris',
         Sub = 'Genmei Shield',
         Range = 'Dunna',
-        Head = 'Azimuth Hood +1',
+        Head = 'Azimuth Hood +2',
         Neck = 'Loricate Torque +1',
         Ear1 = 'Ethereal Earring',
         Ear2 = 'Etiolation Earring',
@@ -203,13 +204,13 @@ sets = T{
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Waist = 'Hachirin-no-Obi',
         Legs = 'Assid. Pants +1',
-        Feet = 'Medium\'s Sabots',--5
+        Feet = 'Medium\'s Sabots',
     },
     Indi = {
         Main = 'Solstice',
         Back = 'Nantosuelta\'s Cape',
         Legs = 'Bagua Pants +1',
-        Feet = 'Azimuth Gaiters +1',
+        Feet = 'Azimuth Gaiters +2',
     },
 
     Enfeebling = {

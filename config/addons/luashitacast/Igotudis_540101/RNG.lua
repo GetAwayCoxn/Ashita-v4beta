@@ -173,6 +173,7 @@ sets = T{
         Feet = 'Nyame Sollerets',
     },
     Barrage = {
+        Hands = 'Orion Bracers',
     },
     Midshot_Acc = {--will be over written by barrage set still 
         Head = 'Malignance Chapeau',
@@ -261,6 +262,12 @@ sets = T{
     TrueFlight_Acc = {
     },
 
+    Scavenge = {
+        Feet = 'Orion Socks',
+    },
+    Sharpshot = {
+        Legs = 'Orion Braccae',
+    },
     TH = {--/th will force this set to equip for 10 seconds
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
@@ -316,6 +323,9 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if string.match(ability.Name, 'Scavenge') then gFunc.EquipSet(sets.Scavenge);
+    elseif string.match(ability.Name, 'Sharpshot') then gFunc.EquipSet(sets.Sharpshot) end
 
     gcinclude.CheckCancels();
 end

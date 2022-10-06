@@ -228,7 +228,7 @@ sets = T{
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = 'Taranus\'s Cape',
         Waist = 'Eschan Stone',
-        Legs = 'Amalric Slops +1',
+        Legs = 'Wicce Chausses +2',
         Feet = 'Amalric Nails +1',
     },
     NukeACC = {
@@ -276,7 +276,7 @@ sets = T{
         Feet = 'Agwu\'s Pigaches',
     },
     Af_Body = {Body = 'Spaekona\'s Coat +2'},
-    EmpyLegs = {Legs ='Wicce Chausses +1'},
+    EmpyLegs = {Legs ='Wicce Chausses +2'},
 
     Preshot = {
     },
@@ -297,7 +297,7 @@ sets = T{
         Ring2 = 'Metamor. Ring +1',
         Back = 'Aurist\'s Cape +1',
         Waist = 'Shinjutsu-no-Obi +1',
-        Legs = 'Amalric Slops +1',
+        Legs = 'Wicce Chausses +2',
         Feet = 'Nyame Sollerets',
     },
     Ws_Hybrid = {
