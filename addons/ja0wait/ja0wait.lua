@@ -2,7 +2,7 @@ addon.name      = 'ja0wait';
 addon.author    = 'zechs6437 (ported for v4 by GetAwayCoxn)';
 addon.version   = '1.0';
 addon.desc      = 'Ported from zechs ashita v3.';
-addon.link      = 'https://github.com/GetAwayCoxn/ja0wait';
+addon.link      = 'https://github.com/GetAwayCoxn/';
 -- zechs6437's' v3 repo link: https://github.com/zechs6437/ja0wait-ashita
 
 require('common');
