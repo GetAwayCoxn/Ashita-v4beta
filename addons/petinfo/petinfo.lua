@@ -21,7 +21,7 @@
 
 addon.name      = 'petinfo';
 addon.author    = 'atom0s & Tornac';
-addon.version   = '1.0';
+addon.version   = '1.1';
 addon.desc      = 'Displays information about the players pet.';
 addon.link      = 'https://ashitaxi.com/';
 
@@ -32,7 +32,6 @@ local imgui = require('imgui');
 local petinfo = T{
     is_open = { true, },
     target  = nil,
-    pos = {700,640,},
 };
 
 --[[
@@ -120,7 +119,6 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         return;
     end
 
-    imgui.SetNextWindowPos(petinfo.pos, ImGuiCond_Always);
     imgui.SetNextWindowBgAlpha(0.8);
     imgui.SetNextWindowSize({ 250, -1, }, ImGuiCond_Always);
     if (imgui.Begin('PetInfo', petinfo.is_open, bit.bor(ImGuiWindowFlags_NoDecoration, ImGuiWindowFlags_AlwaysAutoResize, ImGuiWindowFlags_NoSavedSettings, ImGuiWindowFlags_NoFocusOnAppearing, ImGuiWindowFlags_NoNav))) then
@@ -153,14 +151,19 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         -- Display the pets target information..
         if (petinfo.target ~= nil) then
             local target = GetEntityByServerId(petinfo.target);
-            if (target == nil or target.WarpPointer == 0 or target.HPPercent == 0 or target == pet) then
+            if (target == nil or target.WarpPointer == 0 or target.HPPercent == 0) then
                 petinfo.target = nil;
             else
                 dist = ('%.1f'):fmt(math.sqrt(target.Distance));
                 x, _ = imgui.CalcTextSize(dist);
 
+                local tname = target.Name;
+                if (tname == nil) then
+                    tname = '';
+                end
+
                 imgui.Separator();
-                imgui.Text(target.Name);
+                imgui.Text(tname);
                 imgui.SameLine();
                 imgui.SetCursorPosX(imgui.GetCursorPosX() + imgui.GetColumnWidth() - x - imgui.GetStyle().FramePadding.x);
                 imgui.Text(dist);

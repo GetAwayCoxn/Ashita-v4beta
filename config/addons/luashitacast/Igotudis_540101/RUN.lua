@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Epeolatry',
         Sub = 'Utu Grip',
@@ -105,7 +105,7 @@ sets = T{
         Waist = 'Ioskeha Belt +1',
     },
 
-    --These will overwrite any above TP sets if /tankset is used
+    --These will overwrite any above TP profile.Sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
         Main = 'Epeolatry',
         --Sub = 'Refined Grip +1',--3
@@ -145,7 +145,7 @@ sets = T{
 
     Precast = {
         Ammo = 'Sapience Orb', -- 2
-        Head = 'Haruspex Hat', -- 8
+        Head = 'Rune. Bandeau +2', -- 12
         Neck = 'Baetyl Pendant', -- 4
         Ear1 = 'Loquac. Earring', -- 2
         Ear2 = 'Etiolation Earring', -- 1
@@ -221,6 +221,7 @@ sets = T{
         Waist = 'Gishdubar Sash', --10rec
     },
     Regen = {
+        Head = 'Rune. Bandeau +2',
         Neck = 'Sacro Gorget',
         Legs = 'Futhark Trousers +2',
     },
@@ -257,7 +258,7 @@ sets = T{
         Ear1 = 'Sherida Earring',
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
+        Hands = 'Futhark Mitons +3',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
@@ -351,8 +352,11 @@ sets = T{
     Battuta = {
         Head = 'Fu. Bandeau +1',
     },
+    Swordplay = {
+        Hands = 'Futhark Mitons +3',
+    },
 
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
@@ -361,8 +365,7 @@ sets = T{
         Legs = 'Carmine Cuisses +1',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Om. Sandwich', Quantity = 'all'},
@@ -370,7 +373,7 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11');
@@ -392,9 +395,10 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
         if (gcdisplay.GetCycle('TankSet') ~= 'None') then
-        gFunc.EquipSet('Tank_' .. gcdisplay.GetCycle('TankSet')); end
+			gFunc.EquipSet('Tank_' .. gcdisplay.GetCycle('TankSet')) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -420,6 +424,8 @@ profile.HandleAbility = function()
 		gFunc.EquipSet(sets.Vallation);
     elseif string.contains(ability.Name, 'Pulse') then
 		gFunc.EquipSet(sets.Pulse);
+    elseif string.contains(ability.Name, 'Swordplay') then
+		gFunc.EquipSet(sets.Swordplay);
     elseif string.contains(ability.Name, 'Sforzo') then
 		gFunc.EquipSet(sets.Sforzo);
     elseif string.match(ability.Name, 'Battuta') then
@@ -475,6 +481,7 @@ profile.HandleMidcast = function()--sloppy set handling here, need to clean this
     if (gcdisplay.GetToggle('SIR') == true) then
         gFunc.EquipSet(sets.SIR);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -483,6 +490,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

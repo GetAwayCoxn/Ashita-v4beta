@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Emeici +1',
         Neck = 'Wiglen Gorget',
@@ -35,7 +35,7 @@ sets = T{
 	Town = {
         Range = 'Neo Animator',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +2',
+        Head = 'Kara. Cappello +2',
         Neck = 'Wiglen Gorget',
         Body = 'Foire Tobe +2',
         Ring1 = 'Paguroidea Ring',
@@ -80,7 +80,7 @@ sets = T{
     },
     -- These sets will be for when both you and your pet are engaged
 	Tp_Default = {
-        Head = 'Karagoz Capello +2',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
@@ -178,11 +178,11 @@ sets = T{
     },
 
     Pet_WS = {
-        Head = 'Karagoz Capello +2',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
 	},
     Pet_RNGWS = {
-        Head = 'Karagoz Capello +2',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         Waist = 'Klouskap Sash',
 	},
@@ -202,7 +202,7 @@ sets = T{
     Overdrive = {-- this set will force on the ability AND stay on for the duration of OD, dont change the body out because of that
         Range = 'Animator P',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +2',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         --Ear1 = 'Enmerkar Earring',
         --Ear2 = 'Domes. Earring',
@@ -227,8 +227,7 @@ sets = T{
         Feet = 'Hermes\' Sandals',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Automat. Oil +3', Quantity = 'all'},
@@ -236,14 +235,14 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gSettings.AllowAddSet = true;
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 
-    gcinclude.settings.RefreshGearMPP = 50;
+    gcinclude.settings.RefreshGearMPP = 30;
 end
 
 profile.OnUnload = function()
@@ -268,8 +267,8 @@ profile.HandleDefault = function()
         gFunc.EquipSet('Pet_Only_Tp_' .. gcdisplay.GetCycle('MeleeSet'));
         gFunc.EquipSet(gcdisplay.GetCycle('PupMode'));
         if (player.Status == 'Engaged') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
-        end
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -342,6 +341,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -350,6 +350,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

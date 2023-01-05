@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Sakpata\'s Fists',
         Head = 'Mpaca\'s Cap',
@@ -51,7 +51,7 @@ sets = T{
         Main = 'Sakpata\'s Fists',
         Range = 'Neo Animator',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +1',
+        Head = 'Kara. Cappello +2',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Burana Earring',
         Ear2 = 'Kara. Earring +1',
@@ -113,7 +113,7 @@ sets = T{
     Pet_Only_Tp_Acc = {
         Legs = 'Heyoka Subligar',
     },
-    -- These sets will be for when both you and your pet are engaged
+    -- These profile.Sets will be for when both you and your pet are engaged
 	Tp_Default = {
         Main = 'Sakpata\'s Fists',
         Head = 'Malignance Chapeau',
@@ -144,7 +144,7 @@ sets = T{
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
     },
-    -- These following sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
+    -- These following profile.Sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
         Range = 'Animator P +1',
         Ear1 = 'Domes. Earring',
@@ -207,11 +207,11 @@ sets = T{
         Head = 'Blistering Sallet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Schere Earring',
-        Ear2 = 'Telos Earring',
+        Ear2 = 'Mache Earring +1',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Ryuo Tekko',
-        Ring1 = 'Beithir Ring',
-        Ring2 = 'Karieyh Ring +1',
+        Ring1 = 'Niqmaddu Ring',
+        Ring2 = 'Gere Ring',
         Waist = 'Fotia Belt',
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
@@ -228,8 +228,8 @@ sets = T{
         Ear2 = 'Mache Earring +1',
         Body = 'Herculean Vest',
         Hands = 'Malignance Gloves',
-        Ring2 = 'Karieyh Ring +1',
         Ring1 = 'Niqmaddu Ring',
+        Ring2 = 'Gere Ring',
         Waist = 'Moonbow Belt',
         Legs = 'Samnuha Tights',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+20', [2] = 'Attack+6', [3] = 'AGI+1', [4] = '"Triple Atk."+3' } },
@@ -240,7 +240,7 @@ sets = T{
     },
 
     Pet_WS = {
-        Head = 'Karagoz Capello +1',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Burana Earring',
         Ear2 = 'Domes. Earring',
@@ -253,7 +253,7 @@ sets = T{
         Feet = 'Mpaca\'s Boots',
 	},
     Pet_RNGWS = {
-        Head = 'Karagoz Capello +1',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Burana Earring',
         Ear2 = 'Crep. Earring',
@@ -282,7 +282,7 @@ sets = T{
     Overdrive = {-- this set will force on the ability AND stay on for the duration of OD, dont change the body out because of that
         Range = 'Animator P +1',
         Ammo = 'Automat. Oil +3',
-        Head = 'Karagoz Capello +1',
+        Head = 'Kara. Cappello +2',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Enmerkar Earring',
         Ear2 = 'Domes. Earring',
@@ -296,7 +296,7 @@ sets = T{
         Feet = 'Mpaca\'s Boots',
     },
 
-	TH = {--/th will force this set to equip for 10 seconds
+	TH = {
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
@@ -304,8 +304,7 @@ sets = T{
         Feet = 'Hermes\' Sandals',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Automat. Oil +3', Quantity = 'all'},
@@ -313,8 +312,8 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gSettings.AllowAddSet = true;
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
@@ -345,8 +344,8 @@ profile.HandleDefault = function()
         gFunc.EquipSet('Pet_Only_Tp_' .. gcdisplay.GetCycle('MeleeSet'));
         gFunc.EquipSet(gcdisplay.GetCycle('PupMode'));
         if (player.Status == 'Engaged') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
-        end
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -419,6 +418,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -427,6 +427,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

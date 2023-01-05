@@ -2,20 +2,16 @@ local gcauto = {};
 wstp = 1000;
 local useTime = os.time();
 
-gcauto.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',
-};
-
+gcauto.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',};
 gcauto.Spellcasters = T{'WHM','BLM','RDM','PLD','DRK','BRD','NIN','SMN','BLU','SCH','GEO','RUN',};
-
+gcauto.AliasList = T{'tesetfunc','auto','meds','wskill','wstp','maj','natmed','feint','sawskill','yonin','innin','jumps','hbreath','val','foil','zerk','def','ret','res','hasso','lr','stance','caress','jumps','am3'};
 gcauto.AMWeapons = T{
 	empyrean = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon'},
 	relic = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator'},
 	mythic = T{'Conqueror', 'Glanzfaust', 'Yagrush', 'Laevateinn', 'Murgleis', 'Vajra', 'Burtgang', 'Liberator', 'Aymur', 'Carnwenhan', 'Gastraphetes', 'Kogarasumaru', 'Nagi', 'Ryunohige', 'Nirvana', 'Tizona', 'Death Penalty', 'Kenkonken', 'Terpsichore', 'Tupsimati', 'Idris', 'Epeolatry'},
 	aeonic = T{'Godhands', 'Aeneas', 'Sequence', 'Lionheart', 'Tri-edge', 'Chango', 'Anguta', 'Trishula', 'Heishi Shorinken', 'Dojikiri Yasutsuna', 'Tishtrya', 'Khatvanga', 'Fail-Not', 'Fomalhaut'},
 };
-
 gcauto.DistanceWS = T{'Flamming Arrow','Piercing Arrow','Dulling Arrow','Sidewinder','Blast Arrow','Arching Arrow','Empyreal Arrow','Refulgent Arrow','Apex Arrow','Namas Arrow','Jishnu\'s Randiance','Hot Shot','Split Shot','Sniper Shot','Slug Shot','Blast Shot','Heavy Shot','Detonator','Numbing Shot','Last Stand','Coronach','Wildfire','Trueflight','Leaden Salute','Myrkr','Dagan','Moonlight','Starlight',};
-
 gcauto.AMWeaponSkills = T{
 	['WAR'] = {relic = 'Scourge', empyrean = 'Ukko\'s Fury', mythic = 'King\'s Justice', aeonic = 'Upheaval'},
 	['MNK'] = {relic = 'Final Heaven', empyrean = 'Victory Smite', mythic = 'Ascetic\'s Fury', aeonic = 'Shijin Spiral'},
@@ -40,11 +36,10 @@ gcauto.AMWeaponSkills = T{
 	['GEO'] = {relic = '', empyrean = '', mythic = 'Exudation', aeonic = 'Realmrazer'},
 	['RUN'] = {relic = '', empyrean = '', mythic = 'Dimidiation', aeonic = 'Resolution'},
 };
-
 gcauto.WeaponSkills = T{
 	['WAR'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Impulse Drive'},
 	['MNK'] = {[1] = 'None', [2] = 'Victory Smite', [3] = 'Shijin Spiral'},
-	['WHM'] = {[1] = 'None', [2] = 'Shell Crusher', [3] = 'Hexa Strike'},
+	['WHM'] = {[1] = 'None', [2] = 'Shell Crusher', [3] = 'Hexa Strike', [4] = 'Black Halo'},
 	['BLM'] = {[1] = 'None', [2] = 'Myrkr'},
 	['RDM'] = {[1] = 'None', [2] = 'Chant du Cygne', [3] = 'Savage Blade', [4] = 'Knights of Round'},
 	['THF'] = {[1] = 'None', [2] = 'Evisceration', [3] = 'Rudra\'s Storm', [4] = 'Savage Blade'},
@@ -53,7 +48,7 @@ gcauto.WeaponSkills = T{
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
 	['RNG'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Last Stand', [4] = 'True Flight', [5] = 'Wildfire'},
-	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu'},
+	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu', [5] = 'Impulse Drive', [6] = 'Stardiver'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane', [4] = 'Impulse Drive'},
 	['SMN'] = {[1] = 'None', [2] = 'Cataclysm'},
@@ -65,64 +60,17 @@ gcauto.WeaponSkills = T{
 	['GEO'] = {[1] = 'None', [2] = 'Shell Crusher', [3] = 'Hexa Strike'},
 	['RUN'] = {[1] = 'None', [2] = 'Dimidiation', [3] = 'Resolution', [4] = 'Shockwave'},
 };
+gcauto.SAWeaponSkills = T{[1] = 'None', [2] = 'Shark Bite', [3] = 'Rudra\'s Storm',};
 
 function gcauto.SetAlias()
-	local player = gData.GetPlayer();
-	local equip = gData.GetEquipment();
+	for _, v in ipairs(gcauto.AliasList) do
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /' .. v .. ' /lac fwd ' .. v);
+	end
+end
 
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /testfunc /lac fwd testfunc');
-
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /auto /lac fwd auto');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /meds /lac fwd meds');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wskill /lac fwd wskill');
-	AshitaCore:GetChatManager():QueueCommand(-1, '/alias /wstp /lac fwd wstp');
-
-	
-	if (player.MainJob == 'PLD') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /maj /lac fwd maj');
-	elseif (player.MainJob == 'BLU') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /natmed /lac fwd natmed');
-	elseif (player.MainJob == 'THF') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /feint /lac fwd feint');
-	elseif (player.MainJob == 'NIN') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /yonin /lac fwd yonin');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /innin /lac fwd innin');
-	elseif (player.MainJob == 'DRG') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /jumps /lac fwd jumps');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /hbreath /lac fwd hbreath');
-	elseif (player.MainJob == 'RUN') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /val /lac fwd val');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /foil /lac fwd foil');
-	end
-
-	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /zerk /lac fwd zerk');
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /def /lac fwd def');
-		if (player.MainJob == 'WAR') then
-			AshitaCore:GetChatManager():QueueCommand(-1, '/alias /ret /lac fwd ret');
-			AshitaCore:GetChatManager():QueueCommand(-1, '/alias /res /lac fwd res');
-		end
-	end
-	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /hasso /lac fwd hasso');
-	end
-	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /lr /lac fwd lr');
-	end
-	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') or (player.MainJob == 'WHM') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /stance /lac fwd stance');
-	end
-	if (player.MainJob == 'WHM') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /caress /lac fwd caress');
-	end
-
-	if (player.SubJob == 'DRG') then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /jumps /lac fwd jumps');
-	end
-
-	if (equip.Main == nil) then return;--this isnt working on log in
-	elseif (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) or (gcauto.AMWeapons.relic:contains(equip.Main.Name)) or (gcauto.AMWeapons.mythic:contains(equip.Main.Name)) or (gcauto.AMWeapons.aeonic:contains(equip.Main.Name)) then
-		AshitaCore:GetChatManager():QueueCommand(-1, '/alias /am3 /lac fwd am3');
+function gcauto.ClearAlias()
+	for _, v in ipairs(gcauto.AliasList) do
+		AshitaCore:GetChatManager():QueueCommand(-1, '/alias del /' .. v);
 	end
 end
 
@@ -145,6 +93,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('NatMed', false);
 	elseif (player.MainJob == 'THF') then
 		gcdisplay.CreateToggle('Feint', false);
+		gcdisplay.CreateCycle('SAWSkill', gcauto.SAWeaponSkills);
 	elseif (player.MainJob == 'NIN') then
 		gcdisplay.CreateToggle('Yonin', false);
 		gcdisplay.CreateToggle('Innin', false);
@@ -171,7 +120,9 @@ function gcauto.SetVariables()
 	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		gcdisplay.CreateToggle('LR', false);
 	end
-	if (player.MainJob == 'DNC') or (player.SubJob == 'DNC') then
+	if (player.MainJob == 'DNC') then
+		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Saber Dance', [4] = 'Fan Dance', [5] = 'Drain Samba'});
+	elseif (player.SubJob == 'DNC') then
 		gcdisplay.CreateCycle('Stance', {[1] = 'None', [2] = 'Haste Samba', [3] = 'Drain Samba',});
 	end
 	if (player.MainJob == 'WHM') then
@@ -218,7 +169,11 @@ function gcauto.SetCommands(args)
 	elseif (player.MainJob == 'BLU') then
 		if (args[1] == 'natmed') then gcdisplay.AdvanceToggle('NatMed') end
 	elseif (player.MainJob == 'THF') then
-		if (args[1] == 'feint') then gcdisplay.AdvanceToggle('Feint') end
+		if (args[1] == 'feint') then gcdisplay.AdvanceToggle('Feint');
+		elseif (args[1] == 'sawskill') then
+			gcdisplay.AdvanceCycle('SAWSkill');
+			if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
+		end
 	elseif (player.MainJob == 'NIN') then
 		if (args[1] == 'yonin') and (gcdisplay.GetToggle('Innin') == true) then 
 			gcdisplay.AdvanceToggle('Yonin');
@@ -310,13 +265,19 @@ function gcauto.CheckAbilityRecast(check)
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
 			--if ability == nil then return end
-			if (ability.Name[1] ~= nil) and (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
+			if (ability ~= nil) and (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end
 	end
 
 	return RecastTime;
+end
+
+function gcauto.DoWS(ws, t)
+	if not ws or not t then return end
+
+	AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" ' .. t);
 end
 
 function gcauto.AutoWS()
@@ -333,16 +294,33 @@ function gcauto.AutoWS()
 	end
 
 	local am = (gData.GetBuffCount('Aftermath: Lv.3')) + (gData.GetBuffCount('Aftermath'));
+	local ws = gcdisplay.GetCycle('WSkill');
 	
 	if (gcdisplay.GetToggle('AM3') == true) and (am == 0) then 
 		gcauto.DoAM3(player.MainJob);
+	elseif (player.MainJob == 'THF') then
+		local sa = gData.GetBuffCount('Sneak Attack');
+		local saws = gcdisplay.GetCycle('SAWSkill');
+		local sacount = gcauto.CheckAbilityRecast('Sneak Attack');
+		if (not (saws == 'None')) and (sacount <= 0) and (player.TP >= wstp) and can and (target.HPP < 99) and (target.HPP > 1) and (sa <= 0) then 
+			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Sneak Attack" <me>'):once(1);
+			gcauto.DoWS(saws, '<t>'):once(3);
+		-- elseif (not (gcdisplay.GetCycle('SAWSkill') == 'None')) and (sa > 0) and can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+		-- 	AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('SAWSkill') .. '" <t>');
+		elseif (not (ws == 'None')) and (sa <= 0) then
+			if can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+				gcauto.DoWS(ws, '<t>')
+			end
+		end
 	else
-		if (gcdisplay.GetCycle('WSkill') == 'None') then return end
+		if (ws == 'None') then return end
 
-		if (gcdisplay.GetCycle('WSkill') == 'Myrkr') and (player.TP >= wstp) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <me>');
+		if (ws == 'Myrkr') and (player.TP >= wstp) then
+			-- AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" <me>');
+			gcauto.DoWS(ws, '<me>')
 		elseif can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('WSkill') .. '" <t>');
+			-- AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" <t>');
+			gcauto.DoWS(ws, '<t>')
 		end
 	end
 end
@@ -672,7 +650,8 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "restraint" <me>');
 			end
 		end
-	elseif (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
+	end
+	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		local hasso = gData.GetBuffCount('Hasso');
 		local seigan = gData.GetBuffCount('Seigan');
 		
@@ -684,14 +663,16 @@ function gcauto.DoJobStuff()
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "hasso" <me>');
 			end
 		end
-	elseif (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
+	end
+	if (player.SubJob == 'DRK') or (player.MainJob == 'DRK') then
 		local lr = gData.GetBuffCount('Last Resort');
 		local berserk = gData.GetBuffCount('Berserk');
 
 		if (lr <= 0) and (gcdisplay.GetToggle('LR') == true) and (gcauto.CheckAbilityRecast('Last Resort') <= 0) and (berserk == 0) and (player.Status == 'Engaged') then
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Last Resort" <me>');
 		end
-	elseif (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
+	end
+	if (player.SubJob == 'DNC') or (player.MainJob == 'DNC') then
 		local temp = gcdisplay.GetCycle('Stance');
 		if (temp ~= 'None') and (temp ~= 'Unknown') then
 			local buff = gData.GetBuffCount(temp);
@@ -704,7 +685,9 @@ function gcauto.DoJobStuff()
 				end
 			end
 			if buff == nil then return end;
-			if (buff == 0) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 500) and (player.Status == 'Engaged') and (targetHPP < 99) then
+			if (temp == 'Fan Dance' or temp == 'Saber Dance') and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.Status == 'Engaged') and (targetHPP < 99) then
+				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
+			elseif (buff <= 0) and (gcauto.CheckAbilityRecast(temp) <= 0) and (player.TP > 500) and (player.Status == 'Engaged') and (targetHPP < 99) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "' .. temp .. '" <me>');
 			end
 		end
@@ -725,8 +708,8 @@ function gcauto.Initialize()
 	gcauto.SetVariables();
 	gcauto.SetAlias();
 	AshitaCore:GetChatManager():QueueCommand(1, '/sl blink');
-	--AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
-	AshitaCore:GetChatManager():QueueCommand(1, '/lac gear');
+	-- AshitaCore:GetChatManager():QueueCommand(1, '/lockstyle on');
+	-- AshitaCore:GetChatManager():QueueCommand(1, '/lac gear');
 end
 
 function gcauto.Default()

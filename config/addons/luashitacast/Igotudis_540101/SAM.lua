@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Masamune',
         Sub = 'Utu Grip',
@@ -142,7 +142,7 @@ sets = T{
         Ear1 = 'Thrud Earring',
         Ear2 = 'Schere Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = 'Valorous Mitts',
+        Hands = 'Kasuga Kote +2',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
@@ -180,7 +180,7 @@ sets = T{
         Ear1 = 'Schere Earring',
         Ear2 = 'Telos Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = 'Valorous Mitts',
+        Hands = 'Kasuga Kote +2',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
@@ -202,7 +202,7 @@ sets = T{
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
         Body = { Name = 'Sakonji Domaru +3', AugTrial=5483 },
-        Hands = 'Valorous Mitts',
+        Hands = 'Kasuga Kote +2',
         Ring2 = 'Karieyh Ring +1',
         Ring1 = 'Metamor. Ring +1',
         Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
@@ -289,7 +289,7 @@ sets = T{
         Ring1 = 'Petrov Ring',
     },
 
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
@@ -297,15 +297,14 @@ sets = T{
         Feet = 'Danzo Sune-Ate',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Red Curry Bun', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 4');
@@ -330,13 +329,14 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
         if (hasso >= 1) then gFunc.EquipSet(sets.Hasso) end
         if (thirdeye >= 1) and (seigan >= 1) then 
             gFunc.EquipSet(sets.ThirdEye);
         elseif (seigan >= 1) then
             gFunc.EquipSet(sets.Seigan);
         end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
         if (gcdisplay.GetToggle('PROC') == true) then
             gFunc.EquipSet(sets.Tp_Proc); end
     elseif (player.Status == 'Resting') then
@@ -383,6 +383,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Healing Magic') then
         gFunc.EquipSet(sets.Cure);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -391,6 +392,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

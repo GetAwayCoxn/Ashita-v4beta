@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = T{
+local sets = {
     Idle = {
         Ammo = 'Yamarang',
         Head = 'Mpaca\'s Cap',
@@ -80,8 +80,8 @@ sets = T{
     },
     Tp_Acc = {
         Head = 'Malignance Chapeau',
-        Ear1 = 'Odr Earring',
-        Ear2 = 'Telos Earring',
+        Ear1 = 'Telos Earring',
+        Ear2 = 'Hattori Earring',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Malignance Gloves',
         Ring1 = 'Cacoethic Ring +1',
@@ -168,7 +168,7 @@ sets = T{
     Midshot = {
         Neck = 'Iskur Gorget',
         Ear1 = 'Telos Earring',
-        Ear2 = 'Crep. Earring',
+        Ear2 = 'Hattori Earring',
     },
 
     Ws_Default = {
@@ -269,16 +269,19 @@ sets = T{
     Movement_Night = {
         Feet = 'Hachi. Kyahan +1',
 	},
-    Extra = {--weapons that are for procing that are in storage slips
+    Extra1 = {--weapons that are for procing that are in storage slips
         Main = 'Levin',
-        Main = 'Burrower\'s Wand',
+        Sub = 'Burrower\'s Wand',
+    },
+    Extra2 = {--weapons that are for procing that are in storage slips
         Main = 'Qutrub Knife',
-        Main = 'Twinned Blade',
+        Sub = 'Twinned Blade',
+    },
+    Extra3 = {--weapons that are for procing that are in storage slips
         Main = 'Iapetus',
     },
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Toolbag (Ino)', Quantity = 'all'},
@@ -294,7 +297,7 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 4');
@@ -317,9 +320,10 @@ profile.HandleDefault = function()
     
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
-        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-        if (gcdisplay.GetToggle('PROC') == true) then gFunc.EquipSet(sets.Tp_Proc); end
-        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH); end
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then 
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
+        if (gcdisplay.GetToggle('PROC') == true) then gFunc.EquipSet(sets.Tp_Proc) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -375,9 +379,7 @@ profile.HandleMidcast = function()
         end
     end
 
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -386,6 +388,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

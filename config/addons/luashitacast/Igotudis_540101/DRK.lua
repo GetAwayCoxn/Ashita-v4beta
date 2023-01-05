@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = T{
+local sets = {
     Idle = {
         Ammo = 'Staunch Tathlum',
         Head = 'Jumalik Helm',
@@ -191,7 +191,7 @@ sets = T{
         Ear1 = 'Telos Earring',
         Ear2 = 'Thrud Earring',
         Body = 'Hjarrandi Breast.', -- af+3
-        Hands = 'Valorous Mitts',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Beithir Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ankou\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = '"Dbl.Atk."+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
@@ -230,7 +230,7 @@ sets = T{
     BloodWeapon = {
         Body = 'Fall. Cuirass +3',
     },
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
@@ -238,15 +238,14 @@ sets = T{
         Legs = 'Carmine Cuisses +1',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     --{Name = 'Chonofuda', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 7');
@@ -269,7 +268,8 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -330,6 +330,7 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Dread_Spikes);
         end
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -338,6 +339,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

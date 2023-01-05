@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Aya. Zucchetto +2',
@@ -321,7 +321,7 @@ sets = T{
     },
 	
     Diffusion = {
-        Feet = 'Luhlaza Charuqs +1'
+        Feet = 'Luhlaza Charuqs +1',
     },
     Enmity = {
         Neck = 'Unmoving Collar +1',
@@ -339,15 +339,14 @@ sets = T{
 		Legs = 'Carmine Cuisses',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     --{Name = 'Chonofuda', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+    gSettings.AllowAddSet = true;
 	gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
@@ -370,15 +369,17 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
+    elseif (gcdisplay.GetToggle('CJmode') == true) then
+		gFunc.EquipSet(sets.Evasion);
     elseif (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('CJmode') ~= true) then
+    if (gcdisplay.GetToggle('CJmode') ~= true) then
         gcinclude.CheckDefault ();
     end
     if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
@@ -431,9 +432,17 @@ profile.HandleMidcast = function()
     elseif string.match(spell.Name, 'Evryone. Grudge') or string.match(spell.Name, 'Tenebral Crush') then gFunc.EquipSet(sets.BluDark);
     end
 
-    if (ca>=1) then gFunc.Equip('Feet','Assim. Charuqs +1') end
-    if (ba>=1) then gFunc.Equip('Feet','Hashi. Basmak +1') end
+    if (ca>=1) then gFunc.EquipSet(sets.Ca) end
+    if (ba>=1) then gFunc.EquipSet(sets.Ba) end
     if (diff>=1) then gFunc.EquipSet(sets.Diffusion) end
+    
+    if (gcdisplay.GetToggle('CJmode') == true) then
+        gFunc.EquipSet(sets.CJmid);
+    end
+
+    if (gcinclude.BluMagTH:contains(spell.Name)) and (gcdisplay.GetToggle('TH') == true) then
+        gFunc.EquipSet(sets.TH);
+    end
 end
 
 profile.HandlePreshot = function()
@@ -442,6 +451,8 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
@@ -462,6 +473,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Savage_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')) end
+        elseif string.match(ws.Name, 'Expiacion') then
+            gFunc.EquipSet(sets.Expiacion_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Expiacion_' .. gcdisplay.GetCycle('MeleeSet')) end
         elseif string.match(ws.Name, 'Requiescat') then
             gFunc.EquipSet(sets.Requiescat_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then

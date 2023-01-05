@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Bolelabunga',
         Sub = 'Ammurapi Shield',
@@ -28,7 +28,7 @@ sets = T{
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Caller\'s Pendant',--1,
         Ear1 = 'Evans Earring',--2
-        Ear2 = 'Andoaa Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Beck. Doublet +1',--6
         Hands = 'Asteria Mitts +1',
         Ring1 = 'Evoker\'s Ring',--1
@@ -46,6 +46,8 @@ sets = T{
     },
     Idle_Refresh = {
         Head = 'Convoker\'s Horn',
+        Ear1 = 'C. Palug Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Shomonjijoe +1',
         Hands = 'Asteria Mitts +1',
         Ring2 = 'Stikini Ring +1',
@@ -121,7 +123,7 @@ sets = T{
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Lugalbanda Earring',
+        Ear2 = 'Beck. Earring',
         Hands = 'Asteria Mitts +1',
         Ring1 = 'Evoker\'s Ring',
         Ring2 = 'Varar Ring +1',
@@ -206,7 +208,7 @@ sets = T{
 		Waist = 'Gishdubar Sash',
     },
 
-    SIR = {--77
+    SIR = {
         Ammo = 'Staunch Tathlum',--10
         Neck = 'Loricate Torque +1',--5
         Hands = 'Amalric Gages +1',--11
@@ -265,6 +267,7 @@ sets = T{
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Andoaa Earring',
+        Ear2 = 'C. Palug Earring',
         Body = 'Beck. Doublet +1',
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
@@ -280,8 +283,8 @@ sets = T{
         Ammo = 'Epitaph',
         Head ='Helios Band',
         Neck = 'Shulmanu Collar',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Lugalbanda Earring',
+        Ear1 = 'Lugalbanda Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Con. Doublet +2',
         Ring1 = 'Varar Ring +1',
         Ring2 = 'Varar Ring +1',
@@ -295,8 +298,8 @@ sets = T{
         Ammo = 'Epitaph',
         Head = 'Nyame Helm',--cait head
         Neck = 'Adad Amulet',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Lugalbanda Earring',
+        Ear1 = 'Lugalbanda Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Con. Doublet +2',
         Hands = 'Asteria Mitts +1',
         Ring1 = 'Varar Ring +1',
@@ -311,6 +314,7 @@ sets = T{
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Andoaa Earring',
+        Ear2 = 'C. Palug Earring',
         Body = 'Beck. Doublet +1',
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
@@ -323,6 +327,7 @@ sets = T{
         Ammo = 'Epitaph',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Andoaa Earring',
+        Ear2 = 'C. Palug Earring',
         Body = 'Shomonjijoe +1',--need to Augment
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
@@ -336,6 +341,7 @@ sets = T{
         Head = 'Beckoner\'s Horn +1',
         Neck = 'Incanter\'s Torque',
         Ear1 = 'Andoaa Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Beck. Doublet +1',
         Hands = 'Lamassu Mitts +1',
         Ring1 = 'Evoker\'s Ring',
@@ -349,8 +355,8 @@ sets = T{
         Ammo = 'Epitaph',
         Head = 'Nyame Helm',
         Neck = 'Adad Amulet',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Lugalbanda Earring',
+        Ear1 = 'Lugalbanda Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Nyame Mail',
         --Body = 'Con. Doublet +2',--after +2
         Hands = 'Lamassu Mitts +1',
@@ -368,8 +374,8 @@ sets = T{
         Ammo = 'Epitaph',
         Head ='Helios Band',--replace this
         Neck = 'Adad Amulet',
-        Ear1 = 'Enmerkar Earring',
-        Ear2 = 'Lugalbanda Earring',
+        Ear1 = 'Lugalbanda Earring',
+        Ear2 = 'Beck. Earring',
         Body = 'Con. Doublet +2',
         --Body = 'Con. Doublet +2',-- after +2
         Hands = 'Nyame Gauntlets',
@@ -381,7 +387,7 @@ sets = T{
         Feet = 'Helios Boots',
     },
 	
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
@@ -389,8 +395,7 @@ sets = T{
         Feet = 'Herald\'s Gaiters',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     --{Name = 'Chonofuda', Quantity = 'all'},
@@ -416,8 +421,8 @@ local function HandlePetAction(PetAction)
 end
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gSettings.AllowAddSet = true;
+    gcinclude.Initialize();
     gcinclude.settings.RegenGearHPP = 50;
     gcinclude.settings.RefreshGearMPP = 60;
     gcinclude.settings.PetDTGearHPP = 30;
@@ -446,7 +451,8 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -537,6 +543,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Dark Magic') then
         gFunc.EquipSet(sets.Drain);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -545,6 +552,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

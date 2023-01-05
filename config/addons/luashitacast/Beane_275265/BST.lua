@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Skormoth Mask',
@@ -22,7 +22,7 @@ sets = T{
 	Resting = {},
     Idle_Regen = {
         Head = 'Meghanada Visor +1',
-        Body = 'Meg. Cuirie +1',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Meghanada Ring',
         Legs = 'Meg. Chausses +2',
@@ -43,13 +43,14 @@ sets = T{
 		Head = 'Meghanada Visor +1',
         Neck = 'Diemer Gorget',
         Ear1 = 'Genmei Earring',
+        Ear2 = 'Etiolation Earring',
 		Body = 'Tartarus Platemail',
 		Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
+        Back = 'Impassive Mantle',
 		Legs = 'Meg. Chausses +2',
-		Feet = 'Diama. Sollerets',
-		Back = 'Impassive Mantle',
+		Feet = 'Meg. Jam. +1',
 	},
     Pet_Dt = {
         Ammo = 'Crepuscular Pebble',
@@ -135,7 +136,7 @@ sets = T{
         Neck ='Sanctity Necklace',
         Ear1 = 'Steelflash Earring',
         Ear2 = 'Bladeborn Earring',
-        Body = 'Meg. Cuirie +1',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Flame Ring',
         Ring2 = 'Meghanada Ring',
@@ -202,8 +203,7 @@ sets = T{
 	Movement = {
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Pet Food Theta', Quantity = 'all'},
@@ -221,22 +221,24 @@ profile.Packer = {
 local function HandlePetAction(PetAction)
     gFunc.EquipSet(sets.PetReadyDefault);
 
-	if (PetAction.Name == BstPetAttack) then
+	if (gcinclude.BstPetAttack:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetAttack);
-	elseif (PetAction.Name == BstMagicAttack) then
+	elseif (gcinclude.BstPetMagicAttack:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetMagicAttack);
-	elseif (PetAction.Name == BstMagicAccuracy) then
+	elseif (gcinclude.BstPetMagicAccuracy:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetMagicAccuracy);
     end
 end
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gSettings.AllowAddSet = true;
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+
+    gcinclude.settings.RefreshGearMPP = 50;
 end
 
 profile.OnUnload = function()
@@ -258,8 +260,10 @@ profile.HandleDefault = function()
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (pet ~= nil) and (player.Status == 'Engaged') and (pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Hybrid);
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -271,23 +275,20 @@ profile.HandleDefault = function()
 	if (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
 	end
-	if (gcdisplay.GetToggle('DTset') == true) then
-         
+	
+	gcinclude.CheckDefault ();
+    if (gcdisplay.GetToggle('DTset') == true) then
 		gFunc.EquipSet(sets.Dt);
-        if (pet ~= nil) and (pet.HPP < 80) then
+        if (pet ~= nil) and (pet.HPP < 60) then
             gFunc.EquipSet(sets.Pet_Dt);
 		end
 	end
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-	gcinclude.CheckDefault ();
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
     if (pet ~= nil) then 
         if (player.Status == 'Engaged') and (pet.Status ~= 'Engaged') then
             AshitaCore:GetChatManager():QueueCommand(1, '/ja "Fight" <t>');
         end
     end
-     
 end
 
 profile.HandleAbility = function()
@@ -296,6 +297,10 @@ profile.HandleAbility = function()
 		gFunc.EquipSet(sets.Call);
 	elseif string.match(ability.Name, 'Reward') then
 		gFunc.EquipSet(sets.Reward);
+    elseif string.match(ability.Type, 'Killer Instinct') then
+		gFunc.EquipSet(sets.Killer);
+    elseif string.match(ability.Type, 'Spur') then
+		gFunc.EquipSet(sets.Spur);
     elseif string.match(ability.Type, 'Ready') then
 		gFunc.EquipSet(sets.Ready);
 	end
@@ -335,6 +340,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -343,6 +349,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
@@ -354,6 +361,12 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
+
+        if string.match(ws.Name, 'Aeolian Edge') then
+            gFunc.EquipSet(sets.Aedge_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
+        end
     end
 end
 

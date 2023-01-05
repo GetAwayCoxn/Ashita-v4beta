@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Head = 'Malignance Chapeau',
         Neck = 'Bathy Choker +1',
@@ -53,7 +53,7 @@ sets = T{
         Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
-        Ear2 = 'Telos Earring',
+        Ear2 = 'Skulker\'s Earring',
         Body = { Name = 'Plunderer\'s Vest +3', AugTrial=5477 },
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Gere Ring',
@@ -194,8 +194,7 @@ sets = T{
         Feet = 'Pill. Poulaines +2',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     'Odious Blood',
@@ -211,7 +210,7 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
@@ -236,8 +235,8 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -280,9 +279,7 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -292,9 +289,7 @@ end
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
     
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

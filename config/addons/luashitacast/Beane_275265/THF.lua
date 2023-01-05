@@ -3,30 +3,35 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Head = 'Meghanada Visor +1',
         Neck = 'Twilight Torque',
         Ear1 = 'Genmei Earring',
         Ear2 = 'Sherida Earring',
-        Body = 'Meg. Cuirie +1',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Patricius Ring',
-        Back = 'Bleating Mantle',
+        Ring2 = 'Meghanada Ring',
+        Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Hurch\'lan Sash',
         Legs = 'Meg. Chausses +2',
         Feet = 'Meg. Jam. +1',
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Meghanada Visor +1',
         Neck = 'Sanctity Necklace',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
+        Ring2 = 'Meghanada Ring',
+        Legs = 'Meg. Chausses +2',
+        Feet = 'Meg. Jam. +1',
     },
     Idle_Refresh = {},
     Town = {
         Main = 'Izhiikoh',
-        Sub = 'Tokko Knife',
+        Sub = 'Shijo',
         Range = 'Raider\'s Bmrng.',
         Feet = 'Fajin Boots',
     },
@@ -35,7 +40,7 @@ sets = T{
         Head = 'Meghanada Visor +1',
         Neck ='Twilight Torque',
         Ear1 = 'Genmei Earring',
-        Body = 'Meg. Cuirie +1',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
@@ -49,17 +54,17 @@ sets = T{
         Ear1 = 'Bladeborn Earring',
         Ear2 = 'Sherida Earring',
         Body = 'Mummu Jacket +1',
-        Hands = 'Mummu Wrists +1',
+        Hands = 'Mummu Wrists +2',
         Ring1 = 'Mummu Ring',
         Ring2 = 'Meghanada Ring',
-        Back = 'Bleating Mantle',
+        Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sarissapho. Belt',
         Legs = 'Meg. Chausses +2',
         Feet = 'Mummu Gamash. +1',
     },
     Tp_Hybrid = {
         Head = 'Meghanada Visor +1',
-        Body = 'Meg. Cuirie +1',
+        Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Legs = 'Meg. Chausses +2',
         Feet = 'Meg. Jam. +1',
@@ -110,7 +115,8 @@ sets = T{
         Head = 'Mummu Bonnet +1',
         Neck = 'Sanctity Necklace',
         Body = 'Mummu Jacket +1',
-        Hands = 'Mummu Wrists +1',
+        Hands = 'Mummu Wrists +2',
+        Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Shadow Belt',
         Legs = 'Mummu Kecks +1',
         Feet = 'Mummu Gamash. +1',
@@ -170,8 +176,7 @@ sets = T{
         Feet = 'Fajin Boots',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Lustreless Wing', Quantity = 'all'},
@@ -194,7 +199,7 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
@@ -219,19 +224,14 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		 
-		gFunc.EquipSet(sets.Dt);
-	end
     if (sa == 1) and (ta == 1) then
         gFunc.EquipSet('SATA');
     elseif (sa == 1) then
@@ -240,12 +240,9 @@ profile.HandleDefault = function()
         gFunc.EquipSet('TA');
     end
     
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
     gcinclude.CheckDefault ();
-     
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
 end
 
 profile.HandleAbility = function()
@@ -271,9 +268,7 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -283,9 +278,7 @@ end
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
     
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
@@ -318,10 +311,6 @@ profile.HandleWeaponskill = function()
             elseif (ta == 1) then
                 gFunc.EquipSet('Evis_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
             end
-        elseif string.match(ws.Name, 'Aeolian Edge') then
-            gFunc.EquipSet(sets.Aedge_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

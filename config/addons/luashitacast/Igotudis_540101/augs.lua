@@ -1,19 +1,21 @@
 local profile = {};
 local sets = {
     augs = {
-        Main = { Name = 'Masamune', AugPath='A' },
-        Sub = 'Utu Grip',
-        Ammo = 'Staunch Tathlum',
-        Neck = { Name = 'Bathy Choker +1', AugPath='A' },
-        Ear1 = { Name = 'Odnowa Earring +1', AugPath='A' },
-        Ear2 = 'Eabani Earring',
-        Hands = 'Nyame Gauntlets',
+        Main = 'Tauret',
+        Sub = { Name = 'Acrontica', AugPath='A' },
+        Ammo = 'Yamarang',
+        Head = 'Malignance Chapeau',
+        Neck = { Name = 'Loricate Torque +1', AugPath='A' },
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Gleti\'s Cuirass',
+        Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
-        Back = { Name = 'Smertrios\'s Mantle', Augment = { [1] = 'STR+30', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
-        Waist = 'Flume Belt +1',
-        Legs = 'Mpaca\'s Hose',
-        Feet = 'Danzo Sune-Ate',
+        Ring2 = 'Karieyh Ring +1',
+        Back = 'Solemnity Cape',
+        Waist = 'Gishdubar Sash',
+        Legs = 'Gleti\'s Breeches',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
 };
 

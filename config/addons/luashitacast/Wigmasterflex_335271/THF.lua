@@ -2,8 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-
-sets = T{
+local sets = {
     Idle = {
         Main = 'Naegling',
         Sub = 'Sandung',
@@ -56,7 +55,7 @@ sets = T{
         Ring1 = 'Mummu Ring',
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = 'Cetl Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Mummu Kecks +1',
         Feet = 'Herculean Boots',
     },
@@ -153,7 +152,7 @@ sets = T{
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
-        Back = 'Gunslinger\'s Cape',
+        Back = 'Toro Cape',
         Waist = 'Fotia Belt',
         Legs = 'Mummu Kecks +1',
         Feet = 'Adhemar Gamashes',
@@ -202,8 +201,7 @@ sets = T{
         Feet = 'Pillager\'s Poulaines',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Lustreless Wing', Quantity = 'all'},
@@ -226,7 +224,7 @@ profile.Packer = {
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+    gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
@@ -251,19 +249,14 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')); end
-        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH); end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+        if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
 		gFunc.EquipSet(sets.Movement);
     end
 	
-	
-	if (gcdisplay.GetToggle('DTset') == true) then
-		 
-		gFunc.EquipSet(sets.Dt);
-	end
     if (sa == 1) and (ta == 1) then
         gFunc.EquipSet('SATA');
     elseif (sa == 1) then
@@ -272,12 +265,9 @@ profile.HandleDefault = function()
         gFunc.EquipSet('TA');
     end
     
-	if (gcdisplay.GetToggle('Kite') == true) then
-		gFunc.EquipSet(sets.Movement);
-	end
-
     gcinclude.CheckDefault ();
-     
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
 end
 
 profile.HandleAbility = function()
@@ -303,9 +293,7 @@ profile.HandlePrecast = function()
 end
 
 profile.HandleMidcast = function()
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -315,9 +303,7 @@ end
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
     
-    if (gcdisplay.GetToggle('TH') == true) then
-		gFunc.EquipSet(sets.TH);
-	end
+    if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
@@ -350,14 +336,10 @@ profile.HandleWeaponskill = function()
             elseif (ta == 1) then
                 gFunc.EquipSet('Evis_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
             end
-        elseif string.match(ws.Name, 'Aeolian Edge') then
-            gFunc.EquipSet(sets.Aedge_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Aedge_' .. gcdisplay.GetCycle('MeleeSet')); end
         elseif string.match(ws.Name, 'Savage Blade') then
             gFunc.EquipSet(sets.Savage_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')) end
         end
     end
 end

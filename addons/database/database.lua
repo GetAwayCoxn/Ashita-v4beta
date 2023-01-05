@@ -17,9 +17,9 @@ ashita.events.register('unload', 'unload_cb', interface.Unload);
 ashita.events.register('d3d_present', 'present_cb', interface.Render);
 
 ashita.events.register('text_in', 'text_in_cb', function(e)
-    if e.message:contains('Paparoon') and e.message:contains('more shinies') then
+    if not e.injected and e.message:contains('Paparoon') then
         interface.manager.HandlePaparoon(e)
-    elseif e.message:contains('Oboro') then
+    elseif not e.injected and e.message:contains('Oboro') then
         interface.manager.HandleOboro(e)
     end
 end);

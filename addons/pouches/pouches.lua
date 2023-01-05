@@ -52,6 +52,15 @@ ashita.events.register('command', 'command_cb', function (e)
     end
 end);
 
+ashita.events.register('text_in', 'text_in_callback1', function (e)
+    if not active then return; end
+
+    if e.message:contains('obtains 0 escha beads.') then
+        active = false;
+        print(chat.header(addon.name) .. chat.message('Pouches stopped due to beads being full.'));
+    end
+end);
+
 function count_pouches()
     silt_total = 0;
     bead_total = 0;
@@ -77,7 +86,7 @@ function count_pouches()
 end
 
 function use_pouches()
-    if active ~= true then return end
+    if not active then return; end
 
     if (silt_total > 0) then
         AshitaCore:GetChatManager():QueueCommand(1, '/item "Silt Pouch" <me>');

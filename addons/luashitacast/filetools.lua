@@ -62,6 +62,7 @@ local ParseTable = function(wholeFile, startIndex)
     local singleQuote = string.byte('\'');
     local doubleQuote = string.byte('\"');
     local lineBreak = string.byte('\n');
+    local underscore = string.byte('_');
     local function isLetter(byte)
         if ((byte >= 65) and (byte <= 90)) then
             return true;
@@ -244,7 +245,10 @@ local SaveSet = function(name, set)
     local matchStrings = {
         'local sets = {',
         'local Sets = {',
-        'profile.Sets = {'
+        'profile.Sets = {',
+        'local sets = T{',
+        'local Sets = T{',
+        'profile.Sets = T{'
     };
 
     local setsStart, setsEnd;

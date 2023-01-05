@@ -3,7 +3,7 @@ gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Naegling',
         Sub = 'Adapa Shield',
@@ -192,10 +192,10 @@ sets = T{
 		Ammo = 'Pet Food Theta',
 	},
     Killer = {
-		Body = 'Nukumi Gausape',
+		Body = 'Nukumi Gausape +1',
 	},
     Spur = {
-		Feet = 'Nukumi Ocreae',
+		Feet = 'Nukumi Ocreae +1',
 	},
     Ready = {
 		Legs = 'Gleti\'s Breeches',
@@ -218,15 +218,14 @@ sets = T{
 	PetMagicAttack = {},
 	PetMagicAccuracy = {},
 	
-    TH = {--/th will force this set to equip for 10 seconds
+    TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
 	Movement = {
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Pet Food Theta', Quantity = 'all'},
@@ -250,8 +249,8 @@ local function HandlePetAction(PetAction)
 end
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
-	gcinclude.Initialize();
+	gSettings.AllowAddSet = true;
+    gcinclude.Initialize();
 
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
@@ -279,8 +278,10 @@ profile.HandleDefault = function()
 	local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
         gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (pet ~= nil) and (player.Status == 'Engaged') and (pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Hybrid);
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (pet ~= nil and pet.Status == 'Engaged') then
         gFunc.EquipSet(sets.Pet_Only_Tp);
     elseif (player.Status == 'Resting') then
@@ -357,6 +358,7 @@ profile.HandleMidcast = function()
     elseif (spell.Skill == 'Enfeebling Magic') then
         gFunc.EquipSet(sets.Enfeebling);
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -365,6 +367,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

@@ -1,0 +1,180 @@
+##########################################################################
+#
+# Ashita v4 Default Script
+#
+# This script is executed at the start of the game to allow for the user
+# to configure their game instance automatically. Use this script to load 
+# plugins, addons or adjust different settings as you see fit.
+#
+# File Syntax:
+#
+#  - Comments start with '#'.
+#  - Commands start with '/'.
+#
+##########################################################################
+
+##########################################################################
+#
+# Load Plugins and Addons
+#
+##########################################################################
+
+/load addons
+/load screenshot
+
+#/load thirdparty
+/load bellhop
+/load crossbar
+/load findall
+/load hardwaremouse
+/load lootwhore
+/load minimap
+/load shorthand
+/load stylist
+/load uberwarp
+/load packer
+/load packetflow
+/load vnm
+
+/addon load distance
+/addon load fps
+/addon load move
+/addon load timestamp
+/addon load tparty
+
+/addon load allmaps
+/addon load blucheck
+/addon load blumon
+/addon load blusets
+/addon load cfhblock
+/addon load chatmon
+/addon load checker
+/addon load clock
+/addon load craftmon
+/addon load debuff
+/addon load drawdistance
+/addon load equipmon
+/addon load itemwatch
+/addon load luashitacast
+/addon load macrofix
+/addon load mapdot
+/addon load onevent
+/addon load petinfo
+#/addon load recast
+/addon load repeater
+#/addon load stfu
+
+/addon load pouches
+/addon load points
+/addon load pupsets
+/addon load runehelper
+/addon load puphelper
+/addon load database
+/addon load find
+/addon load skillchains
+/addon load timers
+#/addon load quiet
+/addon load inventorycounter
+/addon load instantchat
+/addon load porter
+#/addon load oseem
+/addon load ja0wait
+/addon load omen
+/addon load simplelog
+/addon load sparks
+/addon load luopantime
+/addon load zenihelper
+/addon load auctioneer
+/addon load spawntracker
+/addon load thtracker
+/addon load nomnom
+/addon load targetinfo
+/addon load aman
+/addon load subcor
+/addon load mobdb
+
+##########################################################################
+#
+# Set Keybinds and Alias
+#
+##########################################################################
+
+/bind insert /ashita
+/bind SYSRQ /screenshot hide
+/bind ^v /paste
+/bind F11 /ambient
+/bind F12 /fps
+/bind ^F1 /input /ta <a10>
+/bind ^F2 /input /ta <a11>
+/bind ^F3 /input /ta <a12>
+/bind ^F4 /input /ta <a13>
+/bind ^F5 /input /ta <a14>
+/bind ^F6 /input /ta <a15>
+/bind !F1 /input /ta <a20>
+/bind !F2 /input /ta <a21>
+/bind !F3 /input /ta <a22>
+/bind !F4 /input /ta <a23>
+/bind !F5 /input /ta <a24>
+/bind !F6 /input /ta <a25>
+
+/alias //uw /uw ad
+/alias //rem /item "Remedy" <me>
+/alias //fa /fa search
+/alias //get /bh getall
+/alias //put /bh putall
+/alias //sort /bh sort
+/alias //sparks /bh sellall TYPE:sparks
+/alias //trash /bh sellall TYPE:trash
+/alias //fishies /bh sellall TYPE:fish
+/alias //crystals /bh sellall TYPE:crystals
+/alias //tradecrystals /bh tradenpcall TYPE:crystals
+/alias //chapters /bh tradenpcall TYPE:chapters
+/alias //seals /bh tradenpcall TYPE:seals
+/alias //junk /bh tradenpcall TYPE:junk
+/alias //bayld /bh tradenpcall "H-P Bayld"
+/alias //alex /bh tradenpcall "Alexandrite"
+/alias //pluton /bh tradenpcall "Pluton"
+/alias //beitetsu /bh tradenpcall "Beitetsu"
+/alias //boulder /bh tradenpcall "Riftborn Boulder"
+/alias //silver /bh tradenpcall "Silver Voucher"
+/alias //copper /bh tradenpcall "Copper Voucher"
+/alias //mhaura /uw ad Mhaura
+/alias //rabao /uw ad Rabao
+/alias //nashmau /uw ad Nashmau
+/alias //selbina /uw ad Selbina
+/alias //norg /uw ad Norg
+/alias //wwguild /uw ad Northern San d'Oria4
+/alias //cn /uw sg Crawler's Nest [S]
+/alias //pj /uw ad Port Jeuno
+/alias //lj /uw ad Lower Jeuno
+/alias //aw /uw ad Aht Urhgan Whitegate
+/alias //wa /uw ad Western Adoulin
+/alias //ea /uw ad Eastern Adoulin
+/alias //slips /bh putall storage* satchel
+/alias //pack /exec lacpack
+/alias //unpack /exec lacunpack
+/alias //fin /exec fin
+/alias //gear /exec gear
+/alias //pics /exec pics
+/alias //shields /sparks buyall "Acheron Shield"
+
+##########################################################################
+#
+# Plugin and Addon Configurations
+#
+# Use this section to configure loaded plugins, addons and Ashita.
+#
+# Important: The wait here is required! If you remove it, addons will not
+# see any commands inside of this file!
+#
+##########################################################################
+/wait 4
+##########################################################################
+
+/ambient
+/drawdistance setworld 10
+/drawdistance setmob 10
+/fps 1
+/blusets delay 1.5
+/pupsets delay 1.5
+/vnm SetLineHeight 2

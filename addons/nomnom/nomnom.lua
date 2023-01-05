@@ -38,12 +38,8 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     -- Force Disabled under these conditions
     if (player:GetIsZoning() ~= 0) then
 		settings.enabled = 'Disabled';
-	end
-
-    -- Also force gui hide when zoning
-    if (player:GetIsZoning() ~= 0) then
         return;
-    end
+	end
     
     -- Do Work here if Enabled and before the is_open check
     if (settings.enabled == 'Enabled') then
@@ -86,7 +82,6 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     if (imgui.Begin('NomNom', settings.is_open, ImGuiWindowFlags_NoDecoration)) then
         imgui.Indent(100);imgui.TextColored(settings.text_color, 'Nom Nom !');
         imgui.Indent(-100);
-        imgui.Spacing();
         local selection = {settings.menu_holder[1] + 1};
         local name = ' Quantity: 0';
         if settings.food[settings.menu_holder[1]+1] then
@@ -98,7 +93,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
                 currentFood = settings.food[settings.menu_holder[1] + 1][1];
             end
         end
-        imgui.Spacing();imgui.Spacing();
+        imgui.NewLine();
         if (imgui.Button(settings.update)) then
             if (settings.update == 'Update Foods') then
                 settings.update = 'Update Foods';

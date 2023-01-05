@@ -2,7 +2,7 @@ local profile = {};
 gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-sets = T{
+local sets = {
     Idle = {
         Main = 'Malignance Pole',
         Sub = 'Niobid Strap',
@@ -73,6 +73,7 @@ sets = T{
         Ear2 = 'Etiolation Earring',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Mallquis Ring',
+        Back = 'Lifestream Cape',
         Waist = 'Rumination Sash',
         Feet = 'Merlinic Crackows',
     },
@@ -122,6 +123,7 @@ sets = T{
     Geomancy = { --900 skill, then indi duration, then CMP
         Range = 'Dunna',
         Body = 'Telchine Chas.',
+        Back = 'Lifestream Cape',
     },
     Indi = {
         -- Main = 'Solstice',
@@ -129,7 +131,7 @@ sets = T{
 
     Enfeebling = {
         Head = 'Merlinic Hood',
-        Neck = 'Sanctity Necklace',
+        Neck = 'Erra Pendant',
         Back = 'Merciful Cape',
         Waist = 'Sacro Cord',
         Legs = 'Psycloth Lappas',
@@ -144,7 +146,7 @@ sets = T{
 
     Drain = {
         Head = 'Merlinic Hood',
-        Neck = 'Sanctity Necklace',
+        Neck = 'Erra Pendant',
         Ring1 = 'Kishar Ring',
         Back = 'Merciful Cape',
         Waist = 'Sacro Cord',
@@ -200,17 +202,15 @@ sets = T{
         Feet = 'Herald\'s Gaiters',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Tropical Crepe', Quantity = 'all'},
     {Name = 'Rolan. Daifuku', Quantity = 'all'},
-    {Name = 'Fruit Parfait', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
-    gSettings.AllowAddSet = false;
+	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6');
@@ -234,11 +234,9 @@ profile.HandleDefault = function()
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'));
-        end
-        if (gcdisplay.GetToggle('Fight') == false) then
-            AshitaCore:GetChatManager():QueueCommand(1, '/fight');
-        end
+			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
+        if (gcdisplay.GetToggle('Fight') == false) then AshitaCore:GetChatManager():QueueCommand(1, '/fight') end
     elseif (player.Status == 'Resting') then
         gFunc.EquipSet(sets.Resting);
     elseif (player.IsMoving == true) then
@@ -344,6 +342,7 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Indi);
         end
     end
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
@@ -352,6 +351,7 @@ end
 
 profile.HandleMidshot = function()
     gFunc.EquipSet(sets.Midshot);
+	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()

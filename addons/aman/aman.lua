@@ -11,6 +11,8 @@ local settings = require('settingsTest');
 local display = T{};
 local osd = T{};
 local lasttarget = T{};
+local zone_bool = false;
+local thwack_bool = true;
 local defaults = T{
 	visible = true,
 	font_family = 'Arial',
@@ -50,12 +52,24 @@ ashita.events.register('unload', 'unload_cb', function()
 	end
 end);
 
+ashita.events.register('packet_in', '__settings_packet_in_cb', function (e)
+    -- Packet: Zone Exit
+    if (e.id == 0x000B) and zone_bool then
+        settings.save();
+        zone_bool = false;
+        thwack_bool = true;
+    end
+end);
+
 ashita.events.register('d3d_present', 'present_cb', function ()
     display.text = '';
     local area = AshitaCore:GetResourceManager():GetString("zones.names", AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0));
     if not osd.zones:hasval(area) then return end;
 
-    display.text = 'AMAN Zone: ' .. area;
+    local lasttargetID = lasttarget.ServerId or '0';
+
+    display.text = 'AMAN Zone (lastID: ' .. lasttargetID .. '): ' .. area;
+    zone_bool = true;
 
     if display.position_x ~= osd.position_x or display.position_y ~= osd.position_y then--force settings save when dragging the text box
         osd.position_x = display.position_x;
@@ -87,7 +101,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     for x = 1, #osd.chests[lasttarget.Name][lasttarget.ServerId] do
         avg = avg + osd.chests[lasttarget.Name][lasttarget.ServerId][x]
     end
-    avg = string.format('%2i',(avg/#osd.chests[lasttarget.Name][lasttarget.ServerId])*100)
+    avg = string.format('%2i',(avg/#osd.chests[lasttarget.Name][lasttarget.ServerId])*100);
 
     display.text = display.text .. '(' .. tostring(lasttarget.ServerId) .. ') Mimic: ' .. avg .. '%  Records: ' .. tostring(#osd.chests[lasttarget.Name][lasttarget.ServerId])
 end);
@@ -100,9 +114,18 @@ ashita.events.register('text_in', 'text_in_callback1', function (e)
     end
 
     local str = string.lower(e.message)
-    if str:contains('ka-thwack') or str:contains('mimic') then
-        osd.chests[lasttarget.Name][lasttarget.ServerId][#osd.chests[lasttarget.Name][lasttarget.ServerId]+1] = 1;
+    if thwack_bool and (str:contains('ka-thwack') or str:contains('chest') or str:contains('coffer') or str:contains('defeated by')) then
+        if #osd.chests[lasttarget.Name][lasttarget.ServerId] == 1 then
+            osd.chests[lasttarget.Name][lasttarget.ServerId][1] = 1;
+        else
+            osd.chests[lasttarget.Name][lasttarget.ServerId][#osd.chests[lasttarget.Name][lasttarget.ServerId]+1] = 1;
+        end
+        thwack_bool = false;--preventing multiple adds of mimics, resets on zone out and on first load
     elseif str:contains('thud') or str:contains('noise') then
-        osd.chests[lasttarget.Name][lasttarget.ServerId][#osd.chests[lasttarget.Name][lasttarget.ServerId]+1] = 0;
+        if #osd.chests[lasttarget.Name][lasttarget.ServerId] == 1 then
+            osd.chests[lasttarget.Name][lasttarget.ServerId][1] = 0;
+        else
+            osd.chests[lasttarget.Name][lasttarget.ServerId][#osd.chests[lasttarget.Name][lasttarget.ServerId]+1] = 0;
+        end
     end
 end);

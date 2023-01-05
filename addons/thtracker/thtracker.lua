@@ -1,13 +1,12 @@
 addon.name      = 'thtracker';
 addon.author    = 'GetAwayCoxn';
-addon.version   = '1.03';
-addon.desc      = 'Tracks TH on mobs, this is not a port';
+addon.version   = '1.05';
+addon.desc      = 'Tracks TH on multiple mobs, this is not a port';
 addon.link      = 'https://github.com/GetAwayCoxn/';
 
 require('common');
 local fonts = require('fonts');
 local settings = require('settings');
-local newStr = ''
 local display = T{};
 local osd = T{};
 local mobs = T{};-- [id] = {name,HPP,THcount}
@@ -30,9 +29,8 @@ local defaults = T{
 		color = 0xFF000000,
 	}
 };
-local Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',
-};
-local  area = '';
+local Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin'};
+local area = '';
 local gear = T{--keys are slot id's from enums, then itemId:THvalue
     [0] = T{--copy to [1] for sub slot
         [16480] = 1,
@@ -77,6 +75,7 @@ local gear = T{--keys are slot id's from enums, then itemId:THvalue
         [27421] = 2,
         [27422] = 3,
         [23358] = 4,
+        [23693] = 5,
     },
     [9] = T{},
     [10] = T{
@@ -118,7 +117,6 @@ ashita.events.register('unload', 'unload_cb', function()
 end);
 
 ashita.events.register('text_in', 'text_in_cb', function(e)
-    newStr = ''
     local me = AshitaCore:GetMemoryManager():GetParty():GetMemberName(0);
     local player = AshitaCore:GetMemoryManager():GetPlayer();
     area = AshitaCore:GetResourceManager():GetString("zones.names", AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0));
@@ -133,14 +131,8 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
         if AshitaCore:GetMemoryManager():GetEntity():GetType(index) ~= 2 then return end;
         local count = tonumber(string.match(e.message,'%d+'));
         mobs[index] = {target.Name, target.HPPercent, count, true, os.time()};
-        display.mobcolor = display.green;
-    elseif e.message:contains(me .. ' hit') or (e.message:contains('[' .. me .. ']') and e.message:contains('hit')) or e.message:contains(me .. '\'s ranged attack') or (e.message:contains('[' .. me .. ']') and e.message:contains('RA')) then--and e.message:contains(me) then
-    --elseif e.message:contains(me) then
-        --local start,stop = string.find(e.message, me)
-        --newStr = string.sub(e.message, 1, -1);
-        
-        --if string.match(newStr, '%d+') == nil then return end;--trying to kick out of the mob hits us instead of us hitting the mob
-        --print(start .. ' then ' .. stop)
+        display.mobcolor = display.yellow;
+    elseif e.message:contains(me .. ' hits') or e.message:contains(me .. ' scores a critical') or (e.message:contains('[' .. me .. ']') and e.message:contains('hit')) or e.message:contains(me .. '\'s ranged attack') or (e.message:contains('[' .. me .. ']') and e.message:contains('RA')) then
         local index = AshitaCore:GetMemoryManager():GetTarget():GetTargetIndex(0);
         if index == nil then return end;
 	    local target = GetEntity(index);
@@ -165,6 +157,7 @@ ashita.events.register('text_in', 'text_in_cb', function(e)
         end
         
         count = count + countGear(player);
+        if not count or count == 0 then return; end
 
         if target == nil then return end;
         if mobs[index] ~= nil then 
@@ -193,11 +186,6 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     if not osd.visibleJob[player:GetMainJob(0)] then
         return;
     end
-    
-    --[[if newStr ~= '' then
-        print(newStr) 
-        newStr = ''
-    end]]
 
     for k,v in pairs(mobs) do
         t = t + 1;
@@ -214,7 +202,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         end
     end
 
-	if display.position_x ~= osd.position_x or display.position_y ~= osd.position_y then--force settings save when dragging the text box
+	if display.position_x ~= osd.position_x or display.position_y ~= osd.position_y then--force settings save when simply dragging the text box
         osd.position_x = display.position_x;
         osd.position_y = display.position_y;
         settings.save();
@@ -303,8 +291,9 @@ end
 function checkAugment(item)
     local augType = struct.unpack('B', item.Extra, 1);
 
-    if (augType ~= 2) and (augType ~= 3) then
-        return 0;--kick out if gear not aug'd at all
+    --kick out if gear not aug'd at all
+    if (augType ~= 2) and (augType ~= 3) then 
+        return 0;
     end
 
     local itemTable = item.Extra:totable();

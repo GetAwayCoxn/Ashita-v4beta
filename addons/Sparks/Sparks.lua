@@ -1,21 +1,14 @@
 addon.name = 'Sparks'
-
 addon.author = 'Brax(orig) - Sammeh Modified - v 2.0.0.2 - Towbes modified v2.0.0.3 - Winter Solstice v4.0.0.0 for Ashita v4'
-
 addon.version = '4.0.0.0'
 
 -- 2.0.0.2  Added version for my plugin.  Added in //sparks reset  and cleaned up some output 
 
 require('common')
 --require('timer')
-db = require('map')
+local db = require('map')
 
-npc_name = ""
-pkt = {}
-all_temp_items = {}
-current_temp_items = {}
-
-valid_zones = T{"Western Adoulin","Southern San d'Oria","Windurst Woods","Bastok Markets","Escha - Ru'Aun","Escha - Zi'Tah","Reisinjima"}
+-- valid_zones = T{"Western Adoulin","Southern San d'Oria","Windurst Woods","Bastok Markets","Escha - Ru'Aun","Escha - Zi'Tah","Reisinjima"}
 
 --unity npc reference
 --Npcs.Values[17739961] = { id = 17739961, en = 'Igsli',            zone = 235 }
@@ -24,43 +17,38 @@ valid_zones = T{"Western Adoulin","Southern San d'Oria","Windurst Woods","Bastok
 --Npcs.Values[17764612] = { id = 17764612, en = 'Yonolala',         zone = 241 }
 --Npcs.Values[17826181] = { id = 17826181, en = 'Nunaarl Bthtrogg', zone = 256 }
 
-
-valid_zones = {
-
+local valid_zones = {
 	[256] = {npc="Eternal Flame", menu=5081}, -- Western Adoulin
-
 	[230] = {npc="Rolandienne", menu=995}, -- Southern San d'Oria
-
 	[235] = {npc="Isakoth", menu=26}, -- Bastok Markets
-
 	[241] = {npc="Fhelm Jobeizat", menu=850}, -- Windurst Woods
-	
 	[288] = {npc="Affi", menu=9701},  -- Escha Zitah
-	
 	[289] = {npc="Dremi", menu=9701},  -- Escha RuAun
-	
 	[291] = {npc="Shiftrix", menu=9701},  -- Reisinjima
-	
-	}
+}
 
-defaults = {}
-settings = defaults
-busy = false
-receivedItem = true
-currSparks = 0
-freeslots = 0
-
+-- local defaults = {}
+-- local settings = defaults
+local busy = false
+local receivedItem = true
+local currSparks = 0
+local freeslots = 0
+local npc_name = ""
+local pkt = {}
+local all_temp_items = {}
+local current_temp_items = {}
 local buyQueue = {}
 local packetQueue = {}
 local totalBuy = 0
 local buyTimer = 0
-local buyDelay = 1.5
+local buyDelay = 2.0
 local __lclock, __sendclock = 0,0
 local __cycle = .65
-insideMenu = false
-
+local insideMenu = false
 local busyTimer = 0
 local busyDelay = 1
+local ki = 0
+
 ashita.events.register('command', 'command_cb', function (e)
 	-- Get the command arguments..
     local args = e.command:args()
@@ -68,6 +56,8 @@ ashita.events.register('command', 'command_cb', function (e)
 	if #args == 0 or args[1] ~= '/sparks' then
 		return
 	end
+
+	e.blocked = true;
 
 	if #args >=2 then
 		table.remove(args, 1)
@@ -78,8 +68,6 @@ ashita.events.register('command', 'command_cb', function (e)
 		end
 
 		local item = table.concat(args, " "):lower()
-
-		ki = 0
 		
 		if cmd == 'buy' then
 			if shouldAbort() then
@@ -274,11 +262,7 @@ ashita.events.register('command', 'command_cb', function (e)
 		elseif cmd == 'reset' then
 			reset_me()
 		end
-		
-		return true
 	end
-	
-	return false
 end)
 
 function buy_all(item)
@@ -336,6 +320,7 @@ function processQueue(exitPacket)
 	pkt = {}
 	insideMenu = false
 end
+
 function validate(item)
 	local zone = AshitaCore:GetMemoryManager():GetParty():GetMemberZone(0)
 	local me,target_index,target_id,distance
