@@ -86,7 +86,7 @@ ashita.events.register('packet_in', 'packet_in_cb', function (e)
         v = old[e.id];
         if v.data == e.data then
             --print('packet blocked')
-            e.blocked = true;
+            -- e.blocked = true;
             return;
         else
             --print('packet clear')

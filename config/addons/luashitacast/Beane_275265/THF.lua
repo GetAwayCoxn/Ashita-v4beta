@@ -30,7 +30,7 @@ local sets = {
     },
     Idle_Refresh = {},
     Town = {
-        Main = 'Izhiikoh',
+        Main = 'Kaja Sword',
         Sub = 'Shijo',
         Range = 'Raider\'s Bmrng.',
         Feet = 'Fajin Boots',
@@ -155,6 +155,23 @@ local sets = {
     Aedge_Hybrid = {
     },
     Aedge_Acc = {
+    },
+    Savage_Default = {
+        Head = 'Nyame Helm',
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Thrud Earring',
+        Ear2 = 'Digni. Earring',
+        Body = 'Nyame Mail',
+        Hands = 'Sakpata\'s Gauntlets',
+        Ring1 = 'Beithir Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Waist = 'Sailfi Belt +1',
+        Legs = 'Sakpata\'s Cuisses',
+        Feet = 'Nyame Sollerets',
+    },
+    Savage_Hybrid = {
+    },
+    Savage_Acc = {
     },
 
     SATA = {
@@ -311,6 +328,10 @@ profile.HandleWeaponskill = function()
             elseif (ta == 1) then
                 gFunc.EquipSet('Evis_' .. gcdisplay.GetCycle('MeleeSet') .. '_TA');
             end
+        elseif string.match(ws.Name, 'Savage Blade') then
+            gFunc.EquipSet(sets.Savage_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Savage_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

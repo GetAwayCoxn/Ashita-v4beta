@@ -4,7 +4,7 @@ local useTime = os.time();
 
 gcauto.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',};
 gcauto.Spellcasters = T{'WHM','BLM','RDM','PLD','DRK','BRD','NIN','SMN','BLU','SCH','GEO','RUN',};
-gcauto.AliasList = T{'tesetfunc','auto','meds','wskill','wstp','maj','natmed','feint','sawskill','yonin','innin','jumps','hbreath','val','foil','zerk','def','ret','res','hasso','lr','stance','caress','jumps','am3'};
+gcauto.AliasList = T{'tesetfunc','auto','meds','wskill','wstp','maj','natmed','feint','sawskill','jumps','hbreath','val','foil','zerk','def','ret','res','hasso','lr','stance','caress','jumps','am3'};
 gcauto.AMWeapons = T{
 	empyrean = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon'},
 	relic = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator'},
@@ -85,7 +85,6 @@ function gcauto.SetVariables()
 	gcdisplay.CreateToggle('AUTO', false);
 	gcdisplay.CreateToggle('MEDS', false);
 	gcdisplay.CreateCycle('WSkill', gcauto.WeaponSkills[player.MainJob]);
-	
 
 	if (player.MainJob == 'PLD') then
 		gcdisplay.CreateToggle('MAJ', true);
@@ -94,9 +93,6 @@ function gcauto.SetVariables()
 	elseif (player.MainJob == 'THF') then
 		gcdisplay.CreateToggle('Feint', false);
 		gcdisplay.CreateCycle('SAWSkill', gcauto.SAWeaponSkills);
-	elseif (player.MainJob == 'NIN') then
-		gcdisplay.CreateToggle('Yonin', false);
-		gcdisplay.CreateToggle('Innin', false);
 	elseif (player.MainJob == 'DRG') then
 		gcdisplay.CreateToggle('Jumps', true);
 		gcdisplay.CreateToggle('HBreath', true);
@@ -104,7 +100,6 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('Val', true);
 		gcdisplay.CreateToggle('Foil', false);
 	end
-
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		gcdisplay.CreateToggle('ZERK', false);
@@ -174,19 +169,6 @@ function gcauto.SetCommands(args)
 			gcdisplay.AdvanceCycle('SAWSkill');
 			if (gcdisplay.GetToggle('AUTO') == true) then gcdisplay.AdvanceToggle('AUTO') end
 		end
-	elseif (player.MainJob == 'NIN') then
-		if (args[1] == 'yonin') and (gcdisplay.GetToggle('Innin') == true) then 
-			gcdisplay.AdvanceToggle('Yonin');
-			gcdisplay.AdvanceToggle('Innin');
-		elseif (args[1] == 'yonin') then
-			gcdisplay.AdvanceToggle('Yonin');
-		end
-		if (args[1] == 'innin') and (gcdisplay.GetToggle('Yonin') == true) then 
-			gcdisplay.AdvanceToggle('Innin');
-			gcdisplay.AdvanceToggle('Yonin');
-		elseif (args[1] == 'innin') then
-			gcdisplay.AdvanceToggle('Innin');
-		end
 	elseif (player.MainJob == 'DRG') then
 		if (args[1] == 'jumps') then gcdisplay.AdvanceToggle('Jumps');
 		elseif (args[1] == 'hbreath') then gcdisplay.AdvanceToggle('HBreath') end
@@ -240,11 +222,6 @@ function gcauto.testfunc()
 end
 
 function gcauto.CheckRemedy()
-	local player = gData.GetPlayer();
-
-	local muddle = gData.GetBuffCount('Muddle');
-	if muddle >= 1 then return false end;
-
 	local blind = 0;--gData.GetBuffCount('Blind');
 	local paralyze = gData.GetBuffCount('Paralysis');
 	
@@ -264,8 +241,7 @@ function gcauto.CheckAbilityRecast(check)
 
 		if ((id ~= 0 or x == 0) and timer > 0) then
 			local ability = AshitaCore:GetResourceManager():GetAbilityByTimerId(id);
-			--if ability == nil then return end
-			if (ability ~= nil) and (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
+			if ability and (ability.Name[1] == check) and (ability.Name[1] ~= 'Unknown') then
 				RecastTime = timer;
 			end
 		end
@@ -280,10 +256,7 @@ function gcauto.DoWS(ws, t)
 	AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" ' .. t);
 end
 
-function gcauto.AutoWS()
-	local target = gData.GetTarget();
-	local player = gData.GetPlayer();
-	local zone = gData.GetEnvironment();
+function gcauto.AutoWS(player,zone,target)
 	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
 	if target == nil then return end
 	if (gcdisplay.GetToggle('AUTO') ~= true) then return end
@@ -316,10 +289,8 @@ function gcauto.AutoWS()
 		if (ws == 'None') then return end
 
 		if (ws == 'Myrkr') and (player.TP >= wstp) then
-			-- AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" <me>');
 			gcauto.DoWS(ws, '<me>')
 		elseif can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
-			-- AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. ws .. '" <t>');
 			gcauto.DoWS(ws, '<t>')
 		end
 	end
@@ -385,15 +356,15 @@ function gcauto.CheckItemINV(name)
     else return false end
 end
 
-function gcauto.AutoMeds()--add DOOM/holy waters, put TOGGLE back too
+function gcauto.AutoMeds(player)--add DOOM/holy waters, put TOGGLE back too
 	if not gcdisplay.GetToggle('MEDS') then return end;
-	local player = gData.GetPlayer();
-	local remedy = gcauto.CheckRemedy();
+	if gData.GetBuffCount('Muddle') >= 1 then return end;
+	
+	local remedy = gcauto.CheckRemedy(player);
 	local silence = gData.GetBuffCount('Silence');
 	local doom = gData.GetBuffCount('Doom');
 	local timeCheck = true;
-	local muddle = gData.GetBuffCount('Muddle');
-	if muddle >= 1 then return end;
+	
 
 	if (os.time() - useTime < 4) then timeCheck = not timeCheck end;
 	
@@ -426,17 +397,14 @@ function gcauto.AutoMeds()--add DOOM/holy waters, put TOGGLE back too
 	end
 end
 
-function gcauto.DoJobStuff()
+function gcauto.DoJobStuff(player,zone,target)
 	--Kick outs
 	if (gcdisplay.GetToggle('AUTO') == false) then return end;
-	local zone = gData.GetEnvironment();
 	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
-	local player = gData.GetPlayer();
 	if (player.IsMoving == true) then return end;
 	
 	local playermem = AshitaCore:GetMemoryManager():GetPlayer();
 	local pet = gData.GetPet();
-	local target = gData.GetTarget();
 	local targetHPP = 100;
 
 	if target ~= nil then targetHPP = target.HPP end;
@@ -489,14 +457,6 @@ function gcauto.DoJobStuff()
 			if (caress == 0) and (gcauto.CheckAbilityRecast('Divine Caress') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "Divine Caress" <me>')
 			end
-		end
-	elseif (player.MainJob == 'NIN') then
-		local yonin = gData.GetBuffCount('Yonin');
-		local innin = gData.GetBuffCount('Innin');
-		if (gcdisplay.GetToggle('Innin') == true) and (gcauto.CheckAbilityRecast('Innin') <= 0) and (innin <= 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Innin" <me>')
-		elseif (gcdisplay.GetToggle('Yonin') == true) and (gcauto.CheckAbilityRecast('Yonin') <= 0) and (yonin <= 0) then
-			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Yonin" <me>')
 		end
 	elseif (player.MainJob == 'MNK') then
 		local impetus = gData.GetBuffCount('Impetus');
@@ -713,8 +673,9 @@ function gcauto.Initialize()
 end
 
 function gcauto.Default()
-	local zone = gData.GetEnvironment();
 	local player = gData.GetPlayer();
+	local zone = gData.GetEnvironment();
+	local target = gData.GetTarget();
 	local sleep = gData.GetBuffCount('Sleep');
 	local petrify = gData.GetBuffCount('Petrification');
 	local stun = gData.GetBuffCount('Stun');
@@ -732,9 +693,9 @@ function gcauto.Default()
 	end
 
 	gcdisplay.Update();
-	gcauto.AutoMeds();
-	gcauto.DoJobStuff();
-	gcauto.AutoWS();
+	gcauto.AutoMeds(player);
+	gcauto.DoJobStuff(player,zone,target);
+	gcauto.AutoWS(player,zone,target);
 end
 
 return gcauto;
