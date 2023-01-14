@@ -356,7 +356,7 @@ function gcauto.CheckItemINV(name)
     else return false end
 end
 
-function gcauto.AutoMeds(player)--add DOOM/holy waters, put TOGGLE back too
+function gcauto.AutoMeds(player)
 	if not gcdisplay.GetToggle('MEDS') then return end;
 	if gData.GetBuffCount('Muddle') >= 1 then return end;
 	

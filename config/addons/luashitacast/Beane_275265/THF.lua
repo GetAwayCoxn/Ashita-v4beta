@@ -5,7 +5,7 @@ gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
-        Head = 'Meghanada Visor +1',
+        Head = 'Meghanada Visor +2',
         Neck = 'Twilight Torque',
         Ear1 = 'Genmei Earring',
         Ear2 = 'Sherida Earring',
@@ -20,7 +20,7 @@ local sets = {
     },
     Resting = {},
     Idle_Regen = {
-        Head = 'Meghanada Visor +1',
+        Head = 'Meghanada Visor +2',
         Neck = 'Sanctity Necklace',
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
@@ -37,7 +37,7 @@ local sets = {
     },
 
     Dt = {
-        Head = 'Meghanada Visor +1',
+        Head = 'Meghanada Visor +2',
         Neck ='Twilight Torque',
         Ear1 = 'Genmei Earring',
         Body = 'Meg. Cuirie +2',
@@ -53,7 +53,7 @@ local sets = {
         Neck = 'Anu Torque',
         Ear1 = 'Bladeborn Earring',
         Ear2 = 'Sherida Earring',
-        Body = 'Mummu Jacket +1',
+        Body = 'Mummu Jacket +2',
         Hands = 'Mummu Wrists +2',
         Ring1 = 'Mummu Ring',
         Ring2 = 'Meghanada Ring',
@@ -63,7 +63,7 @@ local sets = {
         Feet = 'Mummu Gamash. +1',
     },
     Tp_Hybrid = {
-        Head = 'Meghanada Visor +1',
+        Head = 'Meghanada Visor +2',
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Legs = 'Meg. Chausses +2',
@@ -83,13 +83,13 @@ local sets = {
     Preshot = {
     },
     Midshot = {
-        Body = 'Mummu Jacket +1',
+        Body = 'Mummu Jacket +2',
     },
 
     Ws_Default = {
         Head = 'Mummu Bonnet +1',
         Neck = 'Sanctity Necklace',
-        Body = 'Mummu Jacket +1',
+        Body = 'Mummu Jacket +2',
         Hands = 'Meg. Gloves +2',
         Legs = 'Mummu Kecks +1',
         Feet = 'Mummu Gamash. +1',
@@ -114,7 +114,7 @@ local sets = {
     Evis_Default = {
         Head = 'Mummu Bonnet +1',
         Neck = 'Sanctity Necklace',
-        Body = 'Mummu Jacket +1',
+        Body = 'Mummu Jacket +2',
         Hands = 'Mummu Wrists +2',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = 'Crit.hit rate+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Shadow Belt',
@@ -157,17 +157,12 @@ local sets = {
     Aedge_Acc = {
     },
     Savage_Default = {
-        Head = 'Nyame Helm',
-        Neck = 'Fotia Gorget',
-        Ear1 = 'Thrud Earring',
-        Ear2 = 'Digni. Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Sakpata\'s Gauntlets',
-        Ring1 = 'Beithir Ring',
-        Ring2 = 'Karieyh Ring +1',
-        Waist = 'Sailfi Belt +1',
-        Legs = 'Sakpata\'s Cuisses',
-        Feet = 'Nyame Sollerets',
+        Head = 'Meghanada Visor +2',
+        Body = 'Meg. Cuirie +2',
+        Hands = 'Meg. Gloves +2',
+        Ring1 = 'Flame Ring',
+        Legs = 'Meg. Chausses +2',
+        Feet = 'Meg. Jam. +1',
     },
     Savage_Hybrid = {
     },

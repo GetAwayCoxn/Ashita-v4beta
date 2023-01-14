@@ -21,7 +21,7 @@ local sets = {
     },
 	Resting = {},
     Idle_Regen = {
-        Head = 'Meghanada Visor +1',
+        Head = 'Meghanada Visor +2',
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Meghanada Ring',
@@ -40,7 +40,7 @@ local sets = {
 	
 	Dt = {
         Ammo = 'Crepuscular Pebble',
-		Head = 'Meghanada Visor +1',
+		Head = 'Meghanada Visor +2',
         Neck = 'Diemer Gorget',
         Ear1 = 'Genmei Earring',
         Ear2 = 'Etiolation Earring',
