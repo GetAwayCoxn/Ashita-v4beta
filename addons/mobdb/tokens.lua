@@ -10,10 +10,15 @@ gTokenState = {
     DrawImage = function(this, fileName)
         this:ProcessSameLines();
         imgui.Image(tonumber(ffi.cast("uint32_t", gTextures.Cache[fileName])), {13 * gSettings.Scale, 13 * gSettings.Scale }, { 0, 0 }, { 1, 1 }, { 1, 1, 1, 1 }, { 0, 0, 0, 0 });
+        if imgui.IsItemHovered() then
+            imgui.SetTooltip(fileName);
+        end
     end,
     DrawText = function(this, text)
-        this:ProcessSameLines();
-        imgui.Text(text);
+        if (text ~= nil) then
+            this:ProcessSameLines();
+            imgui.Text(text);
+        end
     end,
     ProcessSameLines = function(this)
         if this.FirstElement then
@@ -183,7 +188,10 @@ return {
         if resource and resource.Name then
             gTokenState:DrawText(resource.Name);
         else
-            gTokenState:DrawText(entMgr:GetName(mob));
+            local name = entMgr:GetName(mob);
+            if (name ~= nil) then
+                gTokenState:DrawText();
+            end
         end
     end,
     ['$hexindex'] = function(mob)
