@@ -1,4 +1,6 @@
 local profile = {};
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+
 local sets = {
     Fish = {
         Main = 'Bolelabunga',
@@ -33,6 +35,8 @@ profile.Packer = {
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = true;
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 8');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 end
 
 profile.OnUnload = function()

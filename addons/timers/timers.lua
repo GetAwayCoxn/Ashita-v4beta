@@ -306,15 +306,15 @@ ashita.events.register('mouse', 'mouse_cb', function (e)
         end):cond(is_dragging),
 
         -- Event: Mouse Wheel Scroll
-        [522] = (function ()
-            if (e.delta < 0) then
-                panel.settings.opacity[1] = panel.settings.opacity[1] - 0.125;
-            else
-                panel.settings.opacity[1] = panel.settings.opacity[1] + 0.125;
-            end
-            panel.settings.opacity[1] = panel.settings.opacity[1]:clamp(0.125, 1);
+        -- [522] = (function ()
+        --     if (e.delta < 0) then
+        --         panel.settings.opacity[1] = panel.settings.opacity[1] - 0.125;
+        --     else
+        --         panel.settings.opacity[1] = panel.settings.opacity[1] + 0.125;
+        --     end
+        --     panel.settings.opacity[1] = panel.settings.opacity[1]:clamp(0.125, 1);
 
-            e.blocked = true;
-        end):cond(HitTest:bindn(panel, e.x, e.y)),
+        --     e.blocked = true;
+        -- end):cond(HitTest:bindn(panel, e.x, e.y)),
     })
 end)

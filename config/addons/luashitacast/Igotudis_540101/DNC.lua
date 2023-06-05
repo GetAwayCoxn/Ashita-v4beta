@@ -1,17 +1,16 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
         Ammo = 'Yamarang',
         Head = 'Malignance Chapeau',
-        Neck = 'Loricate Torque +1',
+        Neck = 'Bathy Choker +1',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Eabani Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
-        Ring1 = 'Defending Ring',
+        Ring1 = 'Chirich Ring +1',
         Ring2 = 'Karieyh Ring +1',
         Back = 'Solemnity Cape',
         Waist = 'Gishdubar Sash',
@@ -23,14 +22,18 @@ local sets = {
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
         Ring2 = 'Chirich Ring +1',
-        Feet = 'Turms Leggings',
+        Feet = 'Turms Leggings +1',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Rawhide Mask',
+        Ring1 = 'Stikini Ring +1',
+    },
     Town = {
         Main = 'Tauret',
-        Sub = 'Acrontica',
+        Sub = 'Gleti\'s Knife',
         Ammo = 'Yamarang',
-        Body = 'Gleti\'s Cuirass',
+        Head = 'Maculele Tiara +1',
+        Body = 'Macu. Casaque +1',
         Hands = 'Malignance Gloves',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
@@ -85,6 +88,7 @@ local sets = {
         Hands = 'Malignance Gloves',
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
+        Waist = 'Eschan Stone',
         Legs = 'Gleti\'s Breeches',
         Feet = 'Gleti\'s Boots',
     },
@@ -126,6 +130,7 @@ local sets = {
     },
 
     Evis_Default = {
+        Ammo = 'Yetshila +1',
         Head = 'Adhemar Bonnet +1',
         Neck = 'Fotia Gorget',
         Ear1 = 'Sherida Earring',
@@ -196,15 +201,66 @@ local sets = {
     Aedge_Hybrid = {},
     Aedge_Acc = {},
 
+    Trance = {
+        Head = 'Horos Tiara +3',
+    },
     Waltz = {
         Ammo = 'Yamarang',
+        Head = 'Mummu Bonnet +2',
+        Neck = 'Unmoving Collar +1',
+        Ear2 = 'Handler\'s Earring +1',
+        Body = 'Maxixi Casaque +1',
+        Hands = 'Meg. Gloves +2',
+        Ring2 = 'Metamor. Ring +1',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Maxixi Toe Shoes +1',
     },
-
+    Steps = {
+        Ammo = 'Yamarang',
+        Head = 'Maxixi Tiara +1',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Mache Earring +1',
+        Ear2 = 'Odr Earring',
+        Body = 'Malignance Tabard',-- af with regal ring
+        Hands = 'Malignance Gloves',--af
+        Ring1 = 'Cacoethic Ring +1',
+        Ring2 = 'Chirich Ring +1',
+        Back = 'Senuna\'s Mantle',
+        Waist = 'Eschan Stone',
+        Legs = 'Gleti\'s Breeches',--af
+        Feet = 'Horos Toe Shoes',
+    },
+    Samba = {
+        Head = 'Maxixi Tiara +3',
+        Back = 'Senuna\'s Mantle',
+    },
+    Jig = {
+        Feet = 'Maxixi Toe Shoes +1',
+    },
+    Reverse = {
+        Hands = 'Macu. Bangles +1',
+    },
     Climactic = {-- on JA and while buff is active
         Head = 'Maculele Tiara +1',
     },
+    Violent = {
+        Head = 'Mummu Bonnet +2',
+        Neck = 'Sanctity Necklace',
+        Ear1 = 'Digni. Earring',
+        Ear2 = 'Crep. Earring',
+        Body = 'Horos Casaque +3',
+        Hands = 'Mummu Wrists +2',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Metamor. Ring +1',
+        Waist = 'Eschan Stone',
+        Legs = 'Horos Tights +3',
+        Feet = 'Mummu Gamash. +2',
+    },
     Striking = {-- on JA and while buff is active
         Body = 'Macu. Casaque +1',
+    },
+    Feather = {
+        Feet = 'Macu. Toe Shoes +1',
     },
 
     TH = {
@@ -228,6 +284,8 @@ profile.OnLoad = function()
 
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 3');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 7');
+
+    gcinclude.settings.RefreshGearMPP = 20
 end
 
 profile.OnUnload = function()
@@ -235,7 +293,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -264,8 +322,16 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
+    if string.contains(ability.Name, 'Step') then gFunc.EquipSet(sets.Samba) end
+
     if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity);
+    elseif string.contains(ability.Name, 'Samba') then gFunc.EquipSet(sets.Samba);
+    elseif string.contains(ability.Name, 'Jig') then gFunc.EquipSet(sets.Jig);
     elseif string.contains(ability.Name, 'Climactic') then gFunc.EquipSet(sets.Climactic);
+    elseif string.contains(ability.Name, 'Violent') then gFunc.EquipSet(sets.Violent);
+    elseif string.match(ability.Name, 'Trance') then gFunc.EquipSet(sets.Trance);
+    elseif string.match(ability.Name, 'Reverse Flourish') then gFunc.EquipSet(sets.Reverse);
+    elseif string.match(ability.Name, 'Feather Step') then gFunc.EquipSet(sets.Feather);
     elseif string.contains(ability.Name, 'Waltz') then gFunc.EquipSet(sets.Waltz) end
 
     gcinclude.CheckCancels();

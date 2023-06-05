@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
@@ -29,13 +28,13 @@ local sets = {
         Ear1 = 'Ethereal Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Telchine Chas.',
-        Hands = 'Geo. Mitaines +2',
+        Hands = 'Geo. Mitaines +3',
         Ring1 = 'Stikini Ring +1',
         Ring2 = 'Defending Ring',
         Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = 'Eva.+20', [2] = 'Pet: "Regen"+15', [3] = 'Mag. Eva.+20' } },
         Waist = 'Isa Belt',
         Legs = 'Telchine Braconi',
-        Feet = 'Telchine Pigaches',
+        Feet = 'Bagua Sandals +2',
     },
     Resting = {},
     Idle_Regen = {
@@ -47,7 +46,7 @@ local sets = {
         Main = 'Bolelabunga',
         Head = 'Befouled Crown',
         Body = 'Jhakri Robe +2',
-        Hands = 'Bagua Mitaines +1',
+        Hands = 'Bagua Mitaines +3',
         Waist = 'Fucho-no-Obi',
         Legs = 'Assid. Pants +1',
         Feet = 'Volte Gaiters',
@@ -58,9 +57,9 @@ local sets = {
         Range = 'Dunna',
         Head = 'Bagua Galero +1',
         Body = 'Agwu\'s Robe',
-        Hands = 'Geo. Mitaines +2',
+        Hands = 'Geo. Mitaines +3',
         Legs = 'Agwu\'s Slops',
-        Feet = 'Herald\'s Gaiters',
+        Feet = 'Geo. Sandals +2',
     },
 
     Dt = {
@@ -77,24 +76,39 @@ local sets = {
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
     },
-
+    Pet_Dt = {
+        Main = 'Idris',
+        Sub = 'Genmei Shield',
+        Range = 'Dunna',
+        Head = 'Azimuth Hood +2',
+        Neck = 'Loricate Torque +1',
+        Ear1 = 'Ethereal Earring',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Telchine Chas.',
+        Hands = 'Geo. Mitaines +3',
+        Ring1 = 'Stikini Ring +1',
+        Ring2 = 'Defending Ring',
+        Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = 'Eva.+20', [2] = 'Pet: "Regen"+15', [3] = 'Mag. Eva.+20' } },
+        Waist = 'Isa Belt',
+        Legs = 'Telchine Braconi',
+        Feet = 'Bagua Sandals +2',
+    },
     Tp_Default = {
         Main = 'Idris',
         Sub = 'Ammurapi Shield',
         Range = 'Dunna',
-        --Head = 'Jhakri Coronal +2',
         Head = 'Blistering Sallet +1',
         Neck = 'Sanctity Necklace',
-        Ear1 = 'Cessance Earring',
+        Ear1 = 'Crep. Earring',
         Ear2 = 'Telos Earring',
-        Body = 'Jhakri Robe +2',
-        Hands = 'Jhakri Cuffs +2',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
         Ring1 = 'Petrov Ring',
         Ring2 = 'Chirich Ring +1',
         Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = 'Eva.+20', [2] = 'Pet: "Regen"+15', [3] = 'Mag. Eva.+20' } },
-        Waist = 'Eschan Stone',
-        Legs = 'Jhakri Slops +2',
-        Feet = 'Jhakri Pigaches +2',
+        Waist = 'Eschan Stone',--add haste here
+        Legs = 'Nyame Flanchard',
+        Feet = 'Nyame Sollerets',
     },
     Tp_Hybrid = {
     },
@@ -115,12 +129,12 @@ local sets = {
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
-        Hands = 'Bagua Mitaines +1',
+        Hands = 'Bagua Mitaines +3',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Mallquis Ring',
         Back = 'Swith Cape +1',
         Waist = 'Embla Sash',
-        Legs = 'Agwu\'s Slops',
+        Legs = 'Geomancy Pants +2',
         Feet = 'Volte Gaiters',
     },
     Cure_Precast = {
@@ -199,7 +213,7 @@ local sets = {
         Neck = 'Bagua Charm',
         Ear1 = 'Mendi. Earring',
         Body = 'Telchine Chas.',
-        Hands = 'Geo. Mitaines +2',--15
+        Hands = 'Geo. Mitaines +3',--19
         Ring1 = 'Stikini Ring +1',--8
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Waist = 'Hachirin-no-Obi',
@@ -219,11 +233,10 @@ local sets = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Befouled Crown',
         Neck = 'Erra Pendant',
-        --Ear1 = 'Regal Earring',--use this when u upgrade the AF
-        Ear1 = 'Digni. Earring',
+        Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
-        Hands = 'Nyame Gauntlets',
+        Hands = 'Geo. Mitaines +3',
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
@@ -237,17 +250,16 @@ local sets = {
         Ammo = 'Pemphredo Tathlum',
         Head = 'Nyame Helm',
         Neck = 'Erra Pendant',
-        --Ear1 = 'Regal Earring',--use this when u upgrade the AF
-        Ear1 = 'Digni. Earring',
+        Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
-        Hands = 'Nyame Gauntlets',
+        Hands = 'Geo. Mitaines +3',
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Aurist\'s Cape +1', AugPath='A' },
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
-        Legs = 'Agwu\'s Slops',
-        Feet = 'Agwu\'s Pigaches',
+        Legs = 'Geomancy Pants +2',
+        Feet = 'Geo. Sandals +2',
     },
 
     Drain = {
@@ -259,6 +271,7 @@ local sets = {
         Ear1 = 'Regal Earring',
         Ear2 = 'Malignance Earring',
         Body = 'Agwu\'s Robe',
+        Hands = 'Geo. Mitaines +3',
         Ring1 = 'Kishar Ring',
         Ring2 = 'Metamor. Ring +1',
         Back = 'Aurist\'s Cape +1',
@@ -347,12 +360,19 @@ local sets = {
     },
 
     Bolster = {Body = 'Bagua Tunic +3'},
+    Full_Circle = {Head = 'Azimuth Hood +2'},
+    Mending = {Legs = 'Bagua Pants +1'},
+    Radial = {Feet = 'Bagua Sandals +2'},
+    Life_Cycle = {
+        Body = 'Geo. Tunic +1',
+        Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = '"Mag. Atk. Bns."+10', [2] = 'Mag. Acc+20', [3] = 'Magic Damage +20', [4] = 'INT+20' } },
+    },
     TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {
-        Feet = 'Herald\'s Gaiters',
+        Feet = 'Geo. Sandals +2',
 	},
 };
 profile.Sets = sets;
@@ -360,6 +380,7 @@ profile.Sets = sets;
 profile.Packer = {
     {Name = 'Tropical Crepe', Quantity = 'all'},
     {Name = 'Rolan. Daifuku', Quantity = 'all'},
+    {Name = 'Echo Drops', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
@@ -375,7 +396,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -396,7 +417,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-    gcinclude.CheckDefault ();
+    gcinclude.CheckDefault();
     if (pet ~= nil) and (player.Status ~= 'Engaged') then
         gFunc.EquipSet(sets.Idle_Pet);
     end
@@ -407,8 +428,11 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
-    if string.match(ability.Name, 'Bolster') then gFunc.EquipSet(sets.Bolster) end
+    if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Full_Circle)
+    elseif string.match(ability.Name, 'Life Cycle') then gFunc.EquipSet(sets.Life_Cycle)
+    elseif string.match(ability.Name, 'Mending Halation') then gFunc.EquipSet(sets.Mending)
+    elseif string.match(ability.Name, 'Radial Arcana') then gFunc.EquipSet(sets.Radial)
+    elseif string.match(ability.Name, 'Bolster') then gFunc.EquipSet(sets.Bolster) end
 
     gcinclude.CheckCancels();
 end
@@ -512,7 +536,7 @@ profile.HandleWeaponskill = function()
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
-    
+
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end

@@ -20,7 +20,7 @@ end);
 
 ashita.events.register('command', 'command_cb', function (e)
 	local args = e.command:args();
-    if (#args == 0) or ((args[1] ~= '/blank') then --and (args[1] ~= '/ph')) then
+    if (#args == 0) or (args[1] ~= '/blank') then --and (args[1] ~= '/ph')) then
         return;
     end
 

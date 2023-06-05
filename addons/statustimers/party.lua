@@ -29,14 +29,21 @@ local helpers = require('helpers');
 -- local constants
 -------------------------------------------------------------------------------
 local INFINITE_DURATION = 0x7FFFFFFF;
-local REALUTCSTAMP_ID = 'statustimers:realutcstamp';
+-------------------------------------------------------------------------------
+-- local state
+-------------------------------------------------------------------------------
+local real_utcstamp_pointer = nil;
 -------------------------------------------------------------------------------
 -- local functions
 -------------------------------------------------------------------------------
 -- return the utc timestamp the game is using.
 ---@return number timestamp the game's UTC timestamp
 local function get_utcstamp()
-    local ptr = AshitaCore:GetPointerManager():Get(REALUTCSTAMP_ID);
+    local ptr = real_utcstamp_pointer;
+    if (ptr == 0) then
+        return INFINITE_DURATION;
+    end
+
     -- double dereference the pointer to get the correct address
     ptr = ashita.memory.read_uint32(ptr);
     ptr = ashita.memory.read_uint32(ptr);
@@ -47,6 +54,7 @@ end
 -- check if the passed server_id is valid
 ---@return boolean is_valid
 local function valid_server_id(server_id)
+    -- TODO: test with (server_id & 0x0x1000000) == 0, anything below is not an NPC
     return server_id > 0 and server_id < 0x4000000;
 end
 -------------------------------------------------------------------------------
@@ -64,7 +72,7 @@ module.get_member_name = function(server_id)
     end
 
     -- try and find a party member with a matching server id
-    for i = 1,4,1 do
+    for i = 1,5,1 do
         if (party:GetMemberServerId(i) == server_id) then
             return party:GetMemberName(i);
         end
@@ -135,7 +143,7 @@ module.get_member_id_by_name = function(name)
     end
 
     -- try and find a party member with a matching name
-    for i = 1,4,1 do
+    for i = 1,5,1 do
         if (party:GetMemberName(i) == name) then
             return party:GetMemberServerId(i);
         end
@@ -246,21 +254,14 @@ module.get_player_status = function()
 end
 
 helpers.register_init('party_init', function()
-    local pm = AshitaCore:GetPointerManager();
-    if (pm:Get(REALUTCSTAMP_ID) == 0) then
-        pm:Add(REALUTCSTAMP_ID, 'FFXiMain.dll', '8B0D????????8B410C8B49108D04808D04808D04808D04C1C3', 2, 0);
-        if (pm:Get(REALUTCSTAMP_ID) == 0) then
-            return false;
-        end
+    real_utcstamp_pointer = ashita.memory.find('FFXiMain.dll', 0, '8B0D????????8B410C8B49108D04808D04808D04808D04C1C3', 2, 0);
+    if (real_utcstamp_pointer == 0) then
+        return false;
     end
     return true;
 end);
 
 helpers.register_cleanup('party_cleanup', function()
-    local pm = AshitaCore:GetPointerManager();
-    if (pm:Get(REALUTCSTAMP_ID) ~= 0) then
-        pm:Delete(REALUTCSTAMP_ID);
-    end
     return true;
 end);
 

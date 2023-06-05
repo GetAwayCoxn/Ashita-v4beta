@@ -1,10 +1,12 @@
 local gcauto = {};
 wstp = 1000;
+wshpp = 99;
 local useTime = os.time();
+local lastTime = os.time();
 
 gcauto.Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau','Southern San d\'Oria [S]','Bastok Markets [S]','Windurst Waters [S]','San d\'Oria-Jeuno Airship','Bastok-Jeuno Airship','Windurst-Jeuno Airship','Kazham-Jeuno Airship','Southern San d\'Oria','Northern San d\'Oria','Port San d\'Oria','Chateau d\'Oraguille','Bastok Mines','Bastok Markets','Port Bastok','Metalworks','Windurst Waters','Windurst Walls','Port Windurst','Windurst Woods','Heavens Tower','Ru\'Lude Gardens','Upper Jeuno','Lower Jeuno','Port Jeuno','Rabao','Selbina','Mhaura','Kazham','Norg','Mog Garden','Celennia Memorial Library','Western Adoulin','Eastern Adoulin',};
 gcauto.Spellcasters = T{'WHM','BLM','RDM','PLD','DRK','BRD','NIN','SMN','BLU','SCH','GEO','RUN',};
-gcauto.AliasList = T{'tesetfunc','auto','meds','wskill','wstp','maj','natmed','feint','sawskill','jumps','hbreath','val','foil','zerk','def','ret','res','hasso','lr','stance','caress','jumps','am3'};
+gcauto.AliasList = T{'tesetfunc','auto','meds','wskill','wshpp','wstp','maj','natmed','mg','feint','sawskill','jumps','hbreath','val','foil','zerk','agg','def','ret','res','hasso','lr','stance','caress','jumps','am3'};
 gcauto.AMWeapons = T{
 	empyrean = T{'Verethragna', 'Twashtar', 'Almace', 'Caladbolg', 'Farsha', 'Ukonvasara', 'Redemption', 'Rhongomiant', 'Kannagi', 'Masamune', 'Gambanteinn', 'Hvergelmir', 'Gandiva', 'Armageddon'},
 	relic = T{'Spharai', 'Mandau', 'Excalibur', 'Ragnarok', 'Guttler', 'Bravura', 'Apocalypse', 'Gungnir', 'Kikoku', 'Amanomurakumo', 'Mjollnir', 'Claustrum', 'Yoichinoyumi', 'Annihilator'},
@@ -47,7 +49,7 @@ gcauto.WeaponSkills = T{
 	['DRK'] = {[1] = 'None', [2] = 'Catastrophe', [3] = 'Cross Reaper', [4] = 'Quietus', [5] = 'Aeolian Edge'},
 	['BST'] = {[1] = 'None', [2] = 'Decimation', [3] = 'Savage Blade'},
 	['BRD'] = {[1] = 'None', [2] = 'Savage Blade'},
-	['RNG'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Last Stand', [4] = 'True Flight', [5] = 'Wildfire'},
+	['RNG'] = {[1] = 'None', [2] = 'Savage Blade', [3] = 'Last Stand', [4] = 'True Flight', [5] = 'Wildfire', [6] = 'Coronach'},
 	['SAM'] = {[1] = 'None', [2] = 'Tachi: Fudo', [3] = 'Tachi: Shoha', [4] = 'Tachi: Jinpu', [5] = 'Impulse Drive', [6] = 'Stardiver'},
 	['NIN'] = {[1] = 'None', [2] = 'Blade: Metsu', [3] = 'Blade: Hi', [4] = 'Blade: Ku'},
 	['DRG'] = {[1] = 'None', [2] = 'Camlann\'s Torment', [3] = 'Drakesbane', [4] = 'Impulse Drive'},
@@ -90,6 +92,7 @@ function gcauto.SetVariables()
 		gcdisplay.CreateToggle('MAJ', true);
 	elseif (player.MainJob == 'BLU') then
 		gcdisplay.CreateToggle('NatMed', false);
+		gcdisplay.CreateToggle('MG', false);
 	elseif (player.MainJob == 'THF') then
 		gcdisplay.CreateToggle('Feint', false);
 		gcdisplay.CreateCycle('SAWSkill', gcauto.SAWeaponSkills);
@@ -103,6 +106,7 @@ function gcauto.SetVariables()
 
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		gcdisplay.CreateToggle('ZERK', false);
+		gcdisplay.CreateToggle('AGG', false);
 		gcdisplay.CreateToggle('DEF', false);
 		if (player.MainJob == 'WAR') then
 			gcdisplay.CreateToggle('RETAL', false);
@@ -135,7 +139,8 @@ function gcauto.SetVariables()
 	end
 end
 
-function gcauto.SetCommands(args)
+function gcauto.HandleCommands(args)
+	if not gcauto.AliasList:contains(args[1]) then return end
 	local player = gData.GetPlayer();
 	local equip = gData.GetEquipment();
 
@@ -156,6 +161,16 @@ function gcauto.SetCommands(args)
 		elseif (tp > 0) and (tp < 3001) then
 			wstp = tp;
 		end
+	elseif (args[1] == 'wshpp') and (#args == 2) then
+		local hpp = tonumber(args[2]);
+		if hpp == nil then return;
+		elseif (hpp <= 0) then
+			wshpp = 1;
+		elseif (hpp >= 100) then
+			wshpp = 99;
+		else
+			wshpp = hpp;
+		end
     end
 	
 
@@ -163,6 +178,7 @@ function gcauto.SetCommands(args)
 		if (args[1] == 'maj') then gcdisplay.AdvanceToggle('MAJ') end
 	elseif (player.MainJob == 'BLU') then
 		if (args[1] == 'natmed') then gcdisplay.AdvanceToggle('NatMed') end
+		if (args[1] == 'mg') then gcdisplay.AdvanceToggle('MG') end
 	elseif (player.MainJob == 'THF') then
 		if (args[1] == 'feint') then gcdisplay.AdvanceToggle('Feint');
 		elseif (args[1] == 'sawskill') then
@@ -180,6 +196,7 @@ function gcauto.SetCommands(args)
 	
 	if (player.SubJob == 'WAR') or (player.MainJob == 'WAR') then
 		if (args[1] == 'zerk') then gcdisplay.AdvanceToggle('ZERK') end
+		if (args[1] == 'agg') then gcdisplay.AdvanceToggle('AGG') end
 		if (args[1] == 'def') then gcdisplay.AdvanceToggle('DEF') end
 		if (player.MainJob == 'WAR') then
 			if (args[1] == 'ret') then gcdisplay.AdvanceToggle('RETAL');
@@ -265,7 +282,7 @@ function gcauto.AutoWS(player,zone,target)
 	if (player.Status == 'Engaged') then
 		can = true;
 	end
-
+	lastTime = os.time()
 	local am = (gData.GetBuffCount('Aftermath: Lv.3')) + (gData.GetBuffCount('Aftermath'));
 	local ws = gcdisplay.GetCycle('WSkill');
 	
@@ -275,13 +292,13 @@ function gcauto.AutoWS(player,zone,target)
 		local sa = gData.GetBuffCount('Sneak Attack');
 		local saws = gcdisplay.GetCycle('SAWSkill');
 		local sacount = gcauto.CheckAbilityRecast('Sneak Attack');
-		if (not (saws == 'None')) and (sacount <= 0) and (player.TP >= wstp) and can and (target.HPP < 99) and (target.HPP > 1) and (sa <= 0) then 
+		if (not (saws == 'None')) and (sacount <= 0) and (player.TP >= wstp) and can and (target.HPP < wshpp) and (target.HPP > 1) and (sa <= 0) then 
 			AshitaCore:GetChatManager():QueueCommand(1, '/ja "Sneak Attack" <me>'):once(1);
 			gcauto.DoWS(saws, '<t>'):once(3);
 		-- elseif (not (gcdisplay.GetCycle('SAWSkill') == 'None')) and (sa > 0) and can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
 		-- 	AshitaCore:GetChatManager():QueueCommand(1, '/ws "' .. gcdisplay.GetCycle('SAWSkill') .. '" <t>');
 		elseif (not (ws == 'None')) and (sa <= 0) then
-			if can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+			if can and (player.TP >= wstp) and (target.HPP < wshpp) and (target.HPP > 1) then
 				gcauto.DoWS(ws, '<t>')
 			end
 		end
@@ -290,7 +307,7 @@ function gcauto.AutoWS(player,zone,target)
 
 		if (ws == 'Myrkr') and (player.TP >= wstp) then
 			gcauto.DoWS(ws, '<me>')
-		elseif can and (player.TP >= wstp) and (target.HPP < 99) and (target.HPP > 1) then
+		elseif can and (player.TP >= wstp) and (target.HPP < wshpp) and (target.HPP > 1) then
 			gcauto.DoWS(ws, '<t>')
 		end
 	end
@@ -306,7 +323,7 @@ function gcauto.DoAM3(job)
 		can = true;
 	end
 
-	if can and (player.TP == 3000) and (target.HPP < 99) and (target.HPP > 1) then
+	if can and (player.TP == 3000) and (target.HPP < wshpp) and (target.HPP > 1) then
 		if (gcauto.AMWeapons.empyrean:contains(equip.Main.Name)) then
 			if (equip.Main.Name == 'Caladbolg') then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ws "Torcleaver" <t>');
@@ -403,6 +420,7 @@ function gcauto.DoJobStuff(player,zone,target)
 	if (zone.Area == nil) or (gcauto.Towns:contains(zone.Area)) then return end
 	if (player.IsMoving == true) then return end;
 	
+	lastTime = os.time()
 	local playermem = AshitaCore:GetMemoryManager():GetPlayer();
 	local pet = gData.GetPet();
 	local targetHPP = 100;
@@ -430,10 +448,26 @@ function gcauto.DoJobStuff(player,zone,target)
 			end
 		end
 	elseif (player.MainJob == 'BLU') then
-		local natmed = gData.GetBuffCount('Attack Boost');
-		
-		if (gcdisplay.GetToggle('NatMed') == true) then	
-			if (natmed <= 0) and (player.Status == 'Engaged') then
+		local natmed = gData.GetBuffCount(91);
+
+		if (gcdisplay.GetToggle('MG')) then
+			local mg = gData.GetBuffCount('Mighty Guard')
+			if (mg < 1) and (player.Status == 'Engaged') then
+				local diff = gData.GetBuffCount('Diffusion')
+				local Rdiff = gcauto.CheckAbilityRecast('Diffusion')
+				local ul = gData.GetBuffCount('Unbridled Learning')
+				local Rul = gcauto.CheckAbilityRecast('Unbridled Learning')
+				if diff < 1 and Rdiff == 0 and ul < 1 and Rul == 0 then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ja "Diffusion" <me>')
+				elseif ul < 1 and Rul == 0 and Rdiff > 210 then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ja "Unbridled Learning" <me>')
+				elseif ul > 0 then
+					AshitaCore:GetChatManager():QueueCommand(1, '/ma "Mighty Guard" <me>')
+				end
+			end
+		end
+		if (gcdisplay.GetToggle('NatMed')) then	
+			if (natmed <= 0) and (player.Status == 'Engaged') and (targetHPP < 99) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ma "Nat.Meditation" <me>')
 			end
 		end
@@ -602,7 +636,7 @@ function gcauto.DoJobStuff(player,zone,target)
 		elseif (player.Status == 'Engaged') and (targetHPP < 99) then
 			if (berserk <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Berserk') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "berserk" <me>');
-			elseif (aggressor <= 0) and (gcdisplay.GetToggle('ZERK') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) then
+			elseif (aggressor <= 0) and (gcdisplay.GetToggle('AGG') == true) and (gcauto.CheckAbilityRecast('Aggressor') <= 0) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "aggressor" <me>');
 			elseif (player.MainJob == 'WAR') and (retaliation <= 0) and (gcauto.CheckAbilityRecast('Retaliation') <= 0) and (gcdisplay.GetToggle('RETAL') == true) then
 				AshitaCore:GetChatManager():QueueCommand(1, '/ja "retaliation" <me>');
@@ -614,8 +648,7 @@ function gcauto.DoJobStuff(player,zone,target)
 	if (player.SubJob == 'SAM') or (player.MainJob == 'SAM') then
 		local hasso = gData.GetBuffCount('Hasso');
 		local seigan = gData.GetBuffCount('Seigan');
-		
-		if (hasso <= 0) and (gcdisplay.GetToggle('HASSO') == true) and (gcauto.CheckAbilityRecast('Hasso') <= 0) then
+		if (hasso <= 0) and (gcdisplay.GetToggle('HASSO')) and (player.Status == 'Engaged') and (gcauto.CheckAbilityRecast('Hasso') <= 0) then
 			if (seigan >= 1) then
 				gcdisplay.AdvanceToggle('HASSO');
 				return;
@@ -664,6 +697,18 @@ function gcauto.DoJobStuff(player,zone,target)
 	end
 end
 
+function gcauto.DoSalvageCells(item)
+	-- -- add this to job item function to use
+	-- if gcauto and string.contains(item.Name, 'Cell') then
+    --     gcauto.DoSalvageCells(item)
+    --     return
+    -- end
+	local function addDrop()
+		AshitaCore:GetChatManager():QueueCommand(1, '/lw adddrop ' .. item.Id);
+	end
+	addDrop:once(2)
+end
+
 function gcauto.Initialize()
 	gcauto.SetVariables();
 	gcauto.SetAlias();
@@ -694,8 +739,10 @@ function gcauto.Default()
 
 	gcdisplay.Update();
 	gcauto.AutoMeds(player);
-	gcauto.DoJobStuff(player,zone,target);
-	gcauto.AutoWS(player,zone,target);
+	if os.time() - lastTime > 1.5 then
+		gcauto.AutoWS(player,zone,target);
+		gcauto.DoJobStuff(player,zone,target);
+	end
 end
 
 return gcauto;

@@ -1,11 +1,10 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
         Main = 'Naegling',
-        Sub = 'Sandung',
+        Sub = 'Shijo',
         Range = 'Raider\'s Bmrng.',
         Head = 'Meghanada Visor +1',
         Neck = 'Loricate Torque',
@@ -17,19 +16,27 @@ local sets = {
         Ring2 = 'Meghanada Ring',
         Back = 'Repulse Mantle',
         Waist = 'Sailfi Belt +1',
-        Legs = 'Mummu Kecks +1',
+        Legs = 'Skulk. Culottes +2',
         Feet = 'Skulk. Poulaines +2',
     },
     Resting = {},
     Idle_Regen = {
+        Head = 'Meghanada Visor +1',
         Neck = 'Sanctity Necklace',
+        Body = 'Meg. Cuirie +1',
+        Hands = 'Meg. Gloves +2',
+        Ring2 = 'Meghanada Ring',
+        Legs = 'Meg. Chausses +1',
+        Feet = 'Meg. Jam. +1',
     },
     Idle_Refresh = {},
     Town = {
         Main = 'Naegling',
-        Sub = 'Sandung',
+        Sub = 'Shijo',
         Range = 'Wingcutter',
-        Feet = 'Pillager\'s Poulaines',
+        Head = 'Skulker\'s Bonnet +1',
+        Body = 'Skulker\'s Vest +1',
+        Feet = 'Pill. Poulaines +1',
     },
 
     Dt = {
@@ -41,23 +48,23 @@ local sets = {
         Ring1 = 'Defending Ring',
         Ring2 = 'Patricius Ring',
         Back = 'Repulse Mantle',
-        Legs = 'Mummu Kecks +1',
+        Legs = 'Skulk. Culottes +2',
         Feet = 'Skulk. Poulaines +2',
     },
 
     Tp_Default = {
-        Head = 'Adhemar Bonnet',
+        Head = 'Skulker\'s Bonnet +1',
         Neck = 'Clotharius Torque',
         Ear1 = 'Brutal Earring',
         Ear2 = 'Sherida Earring',
-        Body = 'Mummu Jacket +1',
+        Body = 'Skulker\'s Vest +1',
         Hands = 'Mummu Wrists +1',
         Ring1 = 'Mummu Ring',
         Ring2 = 'Epona\'s Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
         Waist = 'Sailfi Belt +1',
-        Legs = 'Mummu Kecks +1',
-        Feet = 'Herculean Boots',
+        Legs = 'Skulk. Culottes +2',
+        Feet = 'Skulk. Poulaines +2',
     },
     Tp_Hybrid = {
     },
@@ -172,8 +179,17 @@ local sets = {
         Ring2 = 'Epona\'s Ring',
         Back = 'Atheling Mantle',
         Waist = 'Sailfi Belt +1',
-        Legs = 'Meg. Chausses +1',
-        Feet = 'Skulk. Poulaines +2',
+        Legs = 'Skulk. Culottes +2',
+        Feet = 'Herculean Boots',
+    },
+    Savage_Default_SA = {
+        Head = 'Adhemar Bonnet',
+    },
+    Savage_Default_TA = {
+        Head = 'Adhemar Bonnet',
+    },
+    Savage_Default_SATA = {
+        Head = 'Adhemar Bonnet',
     },
     Savage_Hybrid = {
     },
@@ -190,15 +206,16 @@ local sets = {
     TA = {
         Head = 'Adhemar Bonnet',
     },
+
     TH = {
-        -- Hands = 'Plun. Armlets +1',
+        Hands = 'Plun. Armlets +1',
         Feet = 'Skulk. Poulaines +2',
     },
     Flee = {
-        Feet = 'Pillager\'s Poulaines',
+        Feet = 'Pill. Poulaines +1',
     },
     Movement = {
-        Feet = 'Pillager\'s Poulaines',
+        Feet = 'Pill. Poulaines +1',
 	},
 };
 profile.Sets = sets;
@@ -237,7 +254,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

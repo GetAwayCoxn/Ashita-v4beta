@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
@@ -15,9 +14,9 @@ local sets = {
         Hands = 'Mallquis Cuffs +1',
         Ring1 = 'Defending Ring',
         Ring2 = 'Blood Ring',
-        Back = 'Mecisto. Mantle',
+        Back = 'Lifestream Cape',
         Waist = 'Gishdubar Sash',
-        Legs = 'Nares Trews',
+        Legs = 'Volte Brais',
         Feet = 'Mallquis Clogs +1',
     },
     Idle_Pet = {
@@ -34,7 +33,7 @@ local sets = {
     },
     Idle_Refresh = {
         Head = 'Befouled Crown',
-        Legs = 'Nares Trews',
+        Legs = 'Volte Brais',
     },
     Town = {
         Main = 'Lilith\'s Rod',
@@ -54,7 +53,8 @@ local sets = {
         Ring1 = 'Defending Ring',
         Ring2 = 'Patricius Ring',
     },
-
+    Pet_Dt = {
+    },
     Tp_Default = {
         Range = 'Dunna',
         Neck = 'Sanctity Necklace',
@@ -75,6 +75,7 @@ local sets = {
         Ring2 = 'Mallquis Ring',
         Back = 'Lifestream Cape',
         Waist = 'Rumination Sash',
+        Legs = 'Volte Brais',
         Feet = 'Merlinic Crackows',
     },
     Cure_Precast = {
@@ -162,7 +163,7 @@ local sets = {
         Ring2 = 'Mallquis Ring',
         Back = 'Merciful Cape',
         Waist = 'Sacro Cord',
-        Legs = 'Mallquis Trews',
+        Legs = 'Volte Brais',
         Feet = 'Merlinic Crackows',
     },
     NukeACC = {
@@ -194,12 +195,19 @@ local sets = {
     },
 
     Bolster = {Body = 'Bagua Tunic +3'},
-    TH = {--/th will force this set to equip for 10 seconds
-        --Ammo = 'Per. Lucky Egg',
+    Full_Circle = {Head = 'Azimuth Hood +2'},
+    Mending = {Legs = 'Bagua Pants +1'},
+    Radial = {Feet = 'Bagua Sandals +2'},
+    Life_Cycle = {
+        Body = 'Geo. Tunic +1',
+        Back = { Name = 'Nantosuelta\'s Cape', Augment = { [1] = '"Mag. Atk. Bns."+10', [2] = 'Mag. Acc+20', [3] = 'Magic Damage +20', [4] = 'INT+20' } },
+    },
+    TH = {
+        Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
 	},
     Movement = {
-        Feet = 'Herald\'s Gaiters',
+        Feet = 'Geo. Sandals +2',
 	},
 };
 profile.Sets = sets;
@@ -207,13 +215,14 @@ profile.Sets = sets;
 profile.Packer = {
     {Name = 'Tropical Crepe', Quantity = 'all'},
     {Name = 'Rolan. Daifuku', Quantity = 'all'},
+    {Name = 'Echo Drops', Quantity = 'all'},
 };
 
 profile.OnLoad = function()
 	gSettings.AllowAddSet = true;
     gcinclude.Initialize();
 
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 6');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 14');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 end
 
@@ -222,7 +231,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -243,7 +252,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
-    gcinclude.CheckDefault ();
+    gcinclude.CheckDefault();
     if (pet ~= nil) and (player.Status ~= 'Engaged') then
         gFunc.EquipSet(sets.Idle_Pet);
     end
@@ -254,8 +263,11 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Geomancy) end --lazy way to ensure the empy head piece is in on use
-    if string.match(ability.Name, 'Bolster') then gFunc.EquipSet(sets.Bolster) end
+    if string.match(ability.Name, 'Full Circle') then gFunc.EquipSet(sets.Full_Circle)
+    elseif string.match(ability.Name, 'Life Cycle') then gFunc.EquipSet(sets.Life_Cycle)
+    elseif string.match(ability.Name, 'Mending Halation') then gFunc.EquipSet(sets.Mending)
+    elseif string.match(ability.Name, 'Radial Arcana') then gFunc.EquipSet(sets.Radial)
+    elseif string.match(ability.Name, 'Bolster') then gFunc.EquipSet(sets.Bolster) end
 
     gcinclude.CheckCancels();
 end
@@ -359,7 +371,7 @@ profile.HandleWeaponskill = function()
     if (canWS == false) then gFunc.CancelAction() return;
     else
         local ws = gData.GetAction();
-    
+
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end

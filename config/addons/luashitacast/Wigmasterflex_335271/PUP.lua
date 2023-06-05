@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 local sets = {
@@ -115,6 +114,7 @@ local sets = {
         Range = 'Animator P II',
         --Neck = 'Empath Necklace',
         Ring1 = 'Defending Ring',
+        Waist = 'Ukko Sash',
         Legs = 'Foire Churidars +2',
         Feet = 'Foire Babouches +2',
     },
@@ -250,7 +250,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-	gcinclude.SetCommands(args);
+	gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

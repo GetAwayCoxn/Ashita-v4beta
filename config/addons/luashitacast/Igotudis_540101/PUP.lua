@@ -1,6 +1,5 @@
-local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local profile = {}
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua')
 
 
 local sets = {
@@ -21,7 +20,7 @@ local sets = {
     },
     Idle_Pet = {
         Main = 'Sakpata\'s Fists',
-        Head = 'Rawhide Mask',
+        Head = 'Taeon Chapeau',
         Neck = 'Empath Necklace',
         Ear1 = 'Burana Earring',
         Ear2 = 'Kara. Earring +1',
@@ -34,7 +33,9 @@ local sets = {
         Legs = 'Taeon Tights',
         Feet = 'Mpaca\'s Boots',
     },
-	Resting = {},
+	Resting = {
+        Head = 'Foire Taj +1',
+    },
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
@@ -97,7 +98,7 @@ local sets = {
 	
     Pet_Only_Tp_Default = {
         Ammo = 'Automat. Oil +3',
-        Head = 'Taeon Chapeau',
+        Head = 'Foire Taj +1',
         Neck = 'Shulmanu Collar',
         Ear1 = 'Domes. Earring',
         Ear2 = 'Kara. Earring +1',
@@ -144,9 +145,10 @@ local sets = {
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
     },
-    -- These following profile.Sets are intended for one off items to equip while the pet is engaged (or both of you) based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
+    -- These following profile.Sets are intended for one off items to equip while the pet is engaged based on the PupMode. An example would be Pet HP+ pieces for Tank mode. Can be empty but do not delete.
     Tank = {
         Range = 'Animator P +1',
+        Head = 'Taeon Chapeau',
         Ear1 = 'Domes. Earring',
         Ring1 = 'Overbearing Ring',
         Ring2 = 'C. Palug Ring',
@@ -265,13 +267,14 @@ local sets = {
         Legs = 'Mpaca\'s Hose',
         Feet = 'Mpaca\'s Boots',
 	},
-	
+
 	Repair = {
 		Ammo = 'Automat. Oil +3',
+        Ear1 = 'Guignol Earring',
         Body = 'Foire Tobe +2',
         Hands = 'Rao Kote',
         Ring1 = 'Overbearing Ring',
-        Feet = 'Foire Babouches',
+        Feet = 'Foire Bab. +1',
 	},
     Maneuver = {
         Ear1 = 'Burana Earring',
@@ -303,138 +306,138 @@ local sets = {
 	Movement = {
         Feet = 'Hermes\' Sandals',
 	},
-};
-profile.Sets = sets;
+}
+profile.Sets = sets
 
 profile.Packer = {
     {Name = 'Automat. Oil +3', Quantity = 'all'},
     {Name = 'Bean Daifuku', Quantity = 'all'},
-};
+}
 
 profile.OnLoad = function()
-	gSettings.AllowAddSet = true;
-    gcinclude.Initialize();
+	gSettings.AllowAddSet = true
+    if gcinclude then gcinclude.Initialize() end
 
     --[[ Set you job macro defaults here]]
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 9')
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1')
 
-    gcinclude.settings.RefreshGearMPP = 30;
+    gcinclude.settings.RefreshGearMPP = 20
 end
 
 profile.OnUnload = function()
-    gcinclude.Unload();
+    if gcinclude then gcinclude.Unload() end
 end
 
 profile.HandleCommand = function(args)
-	gcinclude.SetCommands(args);
+	gcinclude.HandleCommands(args)
 end
 
 profile.HandleDefault = function()
-    local player = gData.GetPlayer();
-    local pet = gData.GetPet();
-    local OD = gData.GetBuffCount('Overdrive');
+    local player = gData.GetPlayer()
+    local pet = gData.GetPet()
+    local OD = gData.GetBuffCount('Overdrive')
 	
-    gFunc.EquipSet(sets.Idle);
+    gFunc.EquipSet(sets.Idle)
     if (pet ~= nil) then
-        gFunc.EquipSet(sets.Idle_Pet);
+        gFunc.EquipSet(sets.Idle_Pet)
     end
 	
     if (pet ~= nil and pet.Status == 'Engaged') then
-        gFunc.EquipSet('Pet_Only_Tp_' .. gcdisplay.GetCycle('MeleeSet'));
-        gFunc.EquipSet(gcdisplay.GetCycle('PupMode'));
-        if (player.Status == 'Engaged') then
-            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+        gFunc.EquipSet('Pet_Only_Tp_' .. gcdisplay.GetCycle('MeleeSet'))
+        gFunc.EquipSet(gcdisplay.GetCycle('PupMode')) end
+    if (player.Status == 'Engaged') then
+            gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet'))
 		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
     elseif (player.Status == 'Resting') then
-        gFunc.EquipSet(sets.Resting);
+        gFunc.EquipSet(sets.Resting)
     elseif (player.IsMoving == true) then
-		gFunc.EquipSet(sets.Movement);
+		gFunc.EquipSet(sets.Movement)
 	end
 
-    gcinclude.CheckDefault ();
-    if (pet ~= nil) and (pet.TP > 950) and (pet.Status == 'Engaged') then 
+    gcinclude.CheckDefault()
+    if (pet ~= nil) and (pet.TP > 950) and (pet.Status == 'Engaged') then
         if (gcdisplay.GetCycle('PupMode') == 'Ranger') then
-            gFunc.EquipSet(sets.Pet_RNGWS);
+            gFunc.EquipSet(sets.Pet_RNGWS)
         elseif (gcdisplay.GetCycle('PupMode') == 'Melee') then
-            gFunc.EquipSet(sets.Pet_WS);
+            gFunc.EquipSet(sets.Pet_WS)
         end
     end
     if (gcdisplay.GetToggle('DTset') == true) then
         if (pet ~= nil) then
-            gFunc.EquipSet(sets.Pet_Dt);
+            gFunc.EquipSet(sets.Pet_Dt)
 		end
-        gFunc.EquipSet(sets.Dt);
+        gFunc.EquipSet(sets.Dt)
 	end
-    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
+    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end
 
     if OD > 0 then
-        gFunc.EquipSet(sets.Overdrive);
+        gFunc.EquipSet(sets.Overdrive)
     end
 end
 
 profile.HandleAbility = function()
-	local ability = gData.GetAction();
+	local ability = gData.GetAction()
 	if (string.match(ability.Name, 'Repair')) or (string.match(ability.Name, 'Maintenance')) then
-		gFunc.EquipSet(sets.Repair);
+		gFunc.EquipSet(sets.Repair)
     elseif (string.contains(ability.Name, 'Maneuver')) then
-        gFunc.EquipSet(sets.Maneuver);
+        gFunc.EquipSet(sets.Maneuver)
     elseif (string.match(ability.Name, 'Overdrive')) then
-        gFunc.EquipSet(sets.Overdrive);
+        gFunc.EquipSet(sets.Overdrive)
 	end
 
-    gcinclude.CheckCancels();
+    gcinclude.CheckCancels()
 end
 
 profile.HandleItem = function()
-	local item = gData.GetAction();
+	local item = gData.GetAction()
 
 	if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
 end
 
 profile.HandlePrecast = function()
-    local spell = gData.GetAction();
-    gFunc.EquipSet(sets.Precast);
+    local spell = gData.GetAction()
+    gFunc.EquipSet(sets.Precast)
 
-    gcinclude.CheckCancels();
+    gcinclude.CheckCancels()
 end
 
 profile.HandleMidcast = function()
-    local player = gData.GetPlayer();
-    local spell = gData.GetAction();
+    local player = gData.GetPlayer()
+    local spell = gData.GetAction()
 
     if (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Enhancing);
+        gFunc.EquipSet(sets.Enhancing)
 
         if string.match(spell.Name, 'Phalanx') then
-            gFunc.EquipSet(sets.Phalanx);
+            gFunc.EquipSet(sets.Phalanx)
         elseif string.match(spell.Name, 'Stoneskin') then
-            gFunc.EquipSet(sets.Stoneskin);
+            gFunc.EquipSet(sets.Stoneskin)
         elseif string.contains(spell.Name, 'Refresh') then
-            gFunc.EquipSet(sets.Refresh);
+            gFunc.EquipSet(sets.Refresh)
         end
     elseif (spell.Skill == 'Healing Magic') then
-        gFunc.EquipSet(sets.Cure);
+        gFunc.EquipSet(sets.Cure)
     elseif (spell.Skill == 'Enfeebling Magic') then
-        gFunc.EquipSet(sets.Enfeebling);
+        gFunc.EquipSet(sets.Enfeebling)
     end
 	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
-    gFunc.EquipSet(sets.Preshot);
+    gFunc.EquipSet(sets.Preshot)
 end
 
 profile.HandleMidshot = function()
-    gFunc.EquipSet(sets.Midshot);
+    gFunc.EquipSet(sets.Midshot)
 	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
-	local canWS = gcinclude.CheckWsBailout();
-    if (canWS == false) then gFunc.CancelAction() return;
+	local canWS = gcinclude.CheckWsBailout()
+    if (canWS == false) then gFunc.CancelAction() return
     else
-        local ws = gData.GetAction();
+        local ws = gData.GetAction()
     
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
@@ -443,9 +446,9 @@ profile.HandleWeaponskill = function()
         if string.match(ws.Name, 'Shijin Spiral') then
             gFunc.EquipSet(sets.Shijin_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Shijin_' .. gcdisplay.GetCycle('MeleeSet')); end
+            gFunc.EquipSet('Shijin_' .. gcdisplay.GetCycle('MeleeSet')) end
         end
     end
 end
 
-return profile;
+return profile

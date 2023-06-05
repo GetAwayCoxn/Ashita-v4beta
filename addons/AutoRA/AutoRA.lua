@@ -186,7 +186,7 @@ local reload = function()
         local message = '*** AutoRA: equipped ' .. s.job_settings[s.player_mjob].Ammo .. ' from inventory.'
         addToChat(17, message)
         ashita.tasks.once(s.job_settings[s.player_mjob].Delay + 0.5, check)
-    elseif bag_count > 0 then
+    elseif bag_count and bag_count > 0 then
         ashita.tasks.once(s.job_settings[s.player_mjob].Delay:num(), useAmmoBag)
         local message = '*** AutoRA: Used ' .. s.job_settings[s.player_mjob].AmmoBag .. '. You have ' .. bag_count - 1 .. ' left.'
         addToChat(17, message)
@@ -276,7 +276,7 @@ ashita.events.register('packet_in', 'packet_in_cb', function(e)
             ashita.tasks.once(s.job_settings[s.player_mjob].Delay * 3, check)
         elseif category == ActionCategory.FinishedRangedAttack then
             local equip = AshitaCore:GetMemoryManager():GetInventory():GetEquippedItem(3) -- 3 == EquipmentSlots.Ammo in v3
-            if equip  == nil or equip.Index <= 0 then
+            if equip == nil or equip.Index <= 0 then
                 reload()
             else
                 ashita.tasks.once(s.job_settings[s.player_mjob].Delay, check)

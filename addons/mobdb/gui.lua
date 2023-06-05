@@ -20,6 +20,7 @@ local TokenHelpData = {
     { Token='$hexindex', Explanation='The zone-specific index of your current target, in hex notation.'},
     { Token='$hexid', Explanation='The game-specific id of your current target, in hex notation.'},
     { Token='$id', Explanation='The game-specific id of your current target.'},
+    { Token='$status', Explanation='The status your current target.'},
     { Token='$zone', Explanation='Your current zone\'s name.'},
     { Token='$job', Explanation='Your current target\'s job if available, ??? if not.'},
     { Token='$level', Explanation='Your current target\'s level if available, ??? if not.'},

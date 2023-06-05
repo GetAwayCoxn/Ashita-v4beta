@@ -1,9 +1,7 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-
-sets = T{
+local sets = {
     Idle = {
         Ammo = 'Crepuscular Pebble',
         Head = 'Meghanada Visor +1',
@@ -176,8 +174,7 @@ sets = T{
 		Feet = 'Meg. Jam. +1',
 	},
 };
-
-sets = sets:merge(gcinclude.sets, false);profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     --{Name = 'Chonofuda', Quantity = 'all'},
@@ -186,11 +183,11 @@ profile.Packer = {
 local function HandlePetAction(PetAction)
     gFunc.EquipSet(sets.PetReadyDefault);
 
-	if (PetAction.Name == BstPetAttack) then
+	if (gcinclude.BstPetAttack:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetAttack);
-	elseif (PetAction.Name == BstMagicAttack) then
+	elseif (gcinclude.BstPetMagicAttack:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetMagicAttack);
-	elseif (PetAction.Name == BstMagicAccuracy) then
+	elseif (gcinclude.BstPetMagicAccuracy:contains(PetAction.Name)) then
         gFunc.EquipSet(sets.PetMagicAccuracy);
     end
 end
@@ -209,7 +206,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-	gcinclude.SetCommands(args);
+	gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

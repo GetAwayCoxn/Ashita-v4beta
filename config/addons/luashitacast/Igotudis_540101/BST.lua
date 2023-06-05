@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 local sets = {
@@ -183,22 +182,33 @@ local sets = {
     },
     Aedge_Acc = {
     },
-	
+
 	Call = {
 		Hands = 'Ankusa Gloves +1',
         Feet = 'Gleti\'s Boots',
 	},
 	Reward = {
-		Ammo = 'Pet Food Theta',
+        Ammo = 'Pet Food Theta',
+        Body = 'An. Jackcoat +1',
+        Legs = 'Tot. Trousers +1',
+        Feet = 'Ankusa Gaiters +1',
 	},
+    Charm = {
+        Body = 'An. Jackcoat +1',
+        Feet = 'Ankusa Gaiters +1',
+    },
     Killer = {
-		Body = 'Nukumi Gausape +1',
-	},
+        Body = 'Nukumi Gausape +1',
+        Legs = 'Tot. Trousers +1',
+    },
     Spur = {
 		Feet = 'Nukumi Ocreae +1',
 	},
     Ready = {
 		Legs = 'Gleti\'s Breeches',
+	},
+    Familiar = {
+		Legs = 'Ankusa Trousers +1',
 	},
 	PetReadyDefault = {
 		Ammo = 'Voluspa Tathlum',
@@ -217,7 +227,7 @@ local sets = {
 	PetAttack = {},
 	PetMagicAttack = {},
 	PetMagicAccuracy = {},
-	
+
     TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -264,7 +274,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-	gcinclude.SetCommands(args);
+	gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -315,12 +325,16 @@ profile.HandleAbility = function()
 		gFunc.EquipSet(sets.Call);
 	elseif string.match(ability.Name, 'Reward') then
 		gFunc.EquipSet(sets.Reward);
+	elseif string.match(ability.Name, 'Charm') then
+		gFunc.EquipSet(sets.Charm);
     elseif string.match(ability.Type, 'Killer Instinct') then
 		gFunc.EquipSet(sets.Killer);
     elseif string.match(ability.Type, 'Spur') then
 		gFunc.EquipSet(sets.Spur);
     elseif string.match(ability.Type, 'Ready') then
 		gFunc.EquipSet(sets.Ready);
+    elseif string.match(ability.Type, 'Familiar') then
+		gFunc.EquipSet(sets.Familiar);
 	end
 
     gcinclude.CheckCancels();

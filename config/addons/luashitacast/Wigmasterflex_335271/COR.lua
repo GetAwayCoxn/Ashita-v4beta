@@ -1,8 +1,7 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
-profile.Sets = {
+local sets = {
     Idle = {
         Range = 'Doomsday',
         Ammo = 'Decimating Bullet',
@@ -207,7 +206,7 @@ profile.Sets = {
         Ring1 = 'Dingir Ring',
         Ring2 = 'Shiva Ring +1',
         Back = 'Gunslinger\'s Cape',
-        Waist = 'Svelt. Gouriz +1',
+        Waist = 'Ponente Sash',
         Legs = 'Mummu Kecks +1',
         Feet = 'Lanun Bottes +1',
     },
@@ -224,9 +223,9 @@ profile.Sets = {
         Body = 'Rawhide Vest',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Dingir Ring',
-        Ring2 = 'Shiva Ring +1',
+        Ring2 = 'Archon Ring',
         Back = 'Gunslinger\'s Cape',
-        Waist = 'Svelt. Gouriz +1',
+        Waist = 'Ponente Sash',
         Legs = 'Laksa. Trews +1',
         Feet = 'Lanun Bottes +1',
     },
@@ -294,8 +293,7 @@ profile.Sets = {
         Feet = 'Meg. Jam. +1',
     },
 };
-local sets = profile.Sets;
--- profile.Sets = sets;
+profile.Sets = sets;
 
 profile.Packer = {
     {Name = 'Decimating Bullet', Quantity = 'all'},
@@ -311,7 +309,7 @@ profile.OnLoad = function()
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 5');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
 
-    gcinclude.CORmsg = true; -- set this to false if you do not want to see lucky/unlucky # messages, can also do /cormsg in game to change on the fly
+    gcinclude.CORmsg = false; -- set this to false if you do not want to see lucky/unlucky # messages, can also do /cormsg in game to change on the fly
 end
 
 profile.OnUnload = function()
@@ -319,7 +317,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

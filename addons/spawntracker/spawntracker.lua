@@ -57,6 +57,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 	local player = AshitaCore:GetMemoryManager():GetPlayer();
 	display.text = '';
 	if (player:GetIsZoning() ~= 0) or not osd.visible then
+		now = os.clock()
 		return;
 	end
 	

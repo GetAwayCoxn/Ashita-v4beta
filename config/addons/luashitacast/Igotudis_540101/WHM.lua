@@ -1,5 +1,4 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
@@ -84,7 +83,7 @@ local sets = {
         Neck = 'Baetyl Pendant',
         Ear1 = 'Etiolation Earring',
         Ear2 = 'Malignance Earring',
-        Hands = 'Gende. Gages +1',
+        Hands = 'Leyline Gloves', --6
         Ring1 = 'Kishar Ring',--4
         Ring2 = 'Prolix Ring',--2
         Back = 'Swith Cape +1',
@@ -281,7 +280,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

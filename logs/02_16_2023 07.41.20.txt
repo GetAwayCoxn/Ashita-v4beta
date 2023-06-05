@@ -1,0 +1,536 @@
+02/16/2023 07:41:20.049 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : G:\Ashita-v4beta\
+02/16/2023 07:41:20.049 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+02/16/2023 07:41:20.049 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\boot\mybootsettings.ini
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   file : G:\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   args : 
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [sandbox.paths]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   common : C:\Program Files (x86)\Common Files
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   pol : G:\PlayOnline\SquareEnix\PlayOnlineViewer
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   ffxi : G:\PlayOnline\SquareEnix\Final Fantasy XI
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   tetra : G:\PlayOnline\SquareEnix\TetraMaster
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0029 : 20
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+02/16/2023 07:41:20.051 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+02/16/2023 07:41:20.051 | DEBUG    |                             Properties::Properties | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                           ChatManager::ChatManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                           FontManager::FontManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                             GuiManager::GuiManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                             Controller::Controller | null.ctor
+02/16/2023 07:41:20.051 | DEBUG    |                                     XInput::XInput | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                         InputManager::InputManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                       PacketManager::PacketManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                       PluginManager::PluginManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                     PointerManager::PointerManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+02/16/2023 07:41:20.051 | DEBUG    |                             Properties::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                           InputManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                         PointerManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                             MemoryManager::Release | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                            ChatManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                          PacketManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                          PluginManager::Initialize | <Begin>
+02/16/2023 07:41:20.051 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.051 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+02/16/2023 07:41:20.091 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'Common': C:\Program Files (x86)\Common Files
+02/16/2023 07:41:20.091 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'PlayOnline': G:\PlayOnline\SquareEnix\PlayOnlineViewer
+02/16/2023 07:41:20.091 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'FinalFantasyXI': G:\PlayOnline\SquareEnix\Final Fantasy XI
+02/16/2023 07:41:20.091 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'TetraMaster': G:\PlayOnline\SquareEnix\TetraMaster
+02/16/2023 07:41:20.092 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: Sandbox - Version: 4.08 - By: atom0s
+02/16/2023 07:41:20.097 | INFO     |                                              pivot | Using config file: 'G:\Ashita-v4beta\config\pivot\pivot.ini'
+02/16/2023 07:41:20.099 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\pivot\pivot.ini
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | >> pivot settings <<
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | root_path G:\DATs
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | debug_log false
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | redirect_cfw false
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | overlays:
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | [00] XI-View-Icons
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | [01] XI-Vision-Maps
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | [02] HD-Texture-Pack
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | [03] HD-Music-Pack
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | cache: false
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | cache_size: 0
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | cache_max_age: 600
+02/16/2023 07:41:20.104 | DEBUG    |                                              pivot | 
+02/16/2023 07:41:20.104 | INFO     |                                              pivot | m_logDebug = Discard
+02/16/2023 07:41:20.104 | INFO     |                                              pivot | m_rootPath = 'G:\DATs'
+02/16/2023 07:41:20.104 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+02/16/2023 07:41:20.106 | INFO     |                                              pivot | => success
+02/16/2023 07:41:20.106 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+02/16/2023 07:41:20.107 | WARN     |                                              pivot | WARNING:       12: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+02/16/2023 07:41:20.108 | WARN     |                                              pivot | WARNING:   119051: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+02/16/2023 07:41:20.108 | WARN     |                                              pivot | WARNING:   119057: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+02/16/2023 07:41:20.127 | WARN     |                                              pivot | WARNING:    91015: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+02/16/2023 07:41:20.140 | INFO     |                                              pivot | => success
+02/16/2023 07:41:20.140 | INFO     |                                              pivot | addOverlay: 'HD-Texture-Pack'
+02/16/2023 07:41:20.153 | INFO     |                                              pivot | => success
+02/16/2023 07:41:20.153 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+02/16/2023 07:41:20.153 | INFO     |                                              pivot | => success
+02/16/2023 07:41:20.335 | INFO     |                                              pivot | m_hooksSet = true
+02/16/2023 07:41:20.335 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.15 - By: Heals
+02/16/2023 07:41:20.335 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.335 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+02/16/2023 07:41:20.335 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+02/16/2023 07:41:20.336 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+02/16/2023 07:41:20.336 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+02/16/2023 07:41:20.336 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+02/16/2023 07:41:20.336 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+02/16/2023 07:41:20.336 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+02/16/2023 07:41:20.336 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+02/16/2023 07:41:20.336 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+02/16/2023 07:41:20.336 | DEBUG    |                     Ashita::Hooks::XInput::Install | <Begin>
+02/16/2023 07:41:20.337 | DEBUG    |                     Ashita::Hooks::XInput::Install | <End> [Status: Ok!]
+02/16/2023 07:41:23.044 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 2561 x 1441]
+02/16/2023 07:41:23.045 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 662 x 524]
+02/16/2023 07:41:23.055 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+02/16/2023 07:41:27.570 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+02/16/2023 07:42:30.270 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+02/16/2023 07:42:30.345 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+02/16/2023 07:42:30.947 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+02/16/2023 07:42:30.947 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+02/16/2023 07:42:30.974 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+02/16/2023 07:42:30.974 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+02/16/2023 07:42:30.974 | DEBUG    |                           ResourceManager::Release | <Begin>
+02/16/2023 07:42:30.974 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+02/16/2023 07:42:30.974 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+02/16/2023 07:42:30.974 | DEBUG    |                           ResourceManager::Release | <Begin>
+02/16/2023 07:42:30.974 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+02/16/2023 07:42:31.030 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:31.030 | DEBUG    |                            ResourceManager::Update | <Begin>
+02/16/2023 07:42:31.032 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+02/16/2023 07:42:31.065 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+02/16/2023 07:42:31.071 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+02/16/2023 07:42:32.860 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 1829.843700ms [Status: 1]
+02/16/2023 07:42:32.860 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.860 | DEBUG    |                               InputManager::Update | <Begin>
+02/16/2023 07:42:32.860 | DEBUG    |                                       Mouse::Mouse | .ctor
+02/16/2023 07:42:32.860 | DEBUG    |                                  Mouse::Initialize | <Begin>
+02/16/2023 07:42:32.860 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:32.860 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+02/16/2023 07:42:32.860 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.860 | DEBUG    |                              OffsetManager::Update | <Begin>
+02/16/2023 07:42:32.860 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+02/16/2023 07:42:32.870 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+02/16/2023 07:42:32.876 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+02/16/2023 07:42:32.876 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.876 | DEBUG    |                             PointerManager::Update | <Begin>
+02/16/2023 07:42:32.876 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+02/16/2023 07:42:32.884 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+02/16/2023 07:42:32.890 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F5FE77C) [Ok!] autofollow
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F65A815) [Ok!] castbar
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F706390) [Ok!] chat.addchatmessage
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F7959E0) [Ok!] chat.inputtext.this
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F5F1682) [Ok!] chat.logfile
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F798BF0) [Ok!] chat.parseautotranslate
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F6B93D5) [Ok!] chat.parseautotranslate.this
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F6600F0) [Ok!] chat.parseinputtext
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F660112) [Ok!] chat.parseinputtext.this
+02/16/2023 07:42:32.903 | DEBUG    |                             PointerManager::Update | Pointer: (1F65751C) [Ok!] clientversion
+02/16/2023 07:42:32.905 | DEBUG    |                             PointerManager::Update | Pointer: (03CF6533) [Ok!] config.autodisconnect
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F796CF2) [Ok!] config.languagefilter
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F5E3840) [Ok!] entitymap
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F674CCB) [Ok!] entitymap.size
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6CA1A6) [Ok!] inventory
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6F7325) [Ok!] inventory.selecteditem
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F73D332) [Ok!] menu
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6BC470) [Ok!] packets.decryptbuffer
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6BC340) [Ok!] packets.encryptbuffer
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6DAFF0) [Ok!] packets.queuepacket1
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6BCAD0) [Ok!] packets.queuepacket2
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F7DE50B) [Ok!] party
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F67828F) [Ok!] party.statusicons
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F72561A) [Ok!] player
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6C4C90) [Ok!] player.hasability
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6771A4) [Ok!] player.haskeyitem
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6CECC0) [Ok!] player.hasspell
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6CFBD0) [Ok!] player.joblevels
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F6CFC10) [Ok!] player.jobmasterlevels
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F66DBDA) [Ok!] player.loginstatus
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F66693F) [Ok!] player.petmp
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F67C23D) [Ok!] player.pettp
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F7FFBE4) [Ok!] recast.abilities
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F806702) [Ok!] recast.spells
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F659947) [Ok!] target.settarget
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer: (1F667F43) [Ok!] target.target
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 30.163400ms
+02/16/2023 07:42:32.906 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.906 | DEBUG    |                            FontManager::Initialize | <Begin>
+02/16/2023 07:42:32.906 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:32.906 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+02/16/2023 07:42:32.906 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:32.906 | DEBUG    |                             GuiManager::Initialize | <Begin>
+02/16/2023 07:42:32.936 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:32.936 | DEBUG    |                              MemoryManager::Update | <Begin>
+02/16/2023 07:42:32.936 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.936 | DEBUG    |                                ChatManager::Update | <Begin>
+02/16/2023 07:42:32.936 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+02/16/2023 07:42:32.936 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+02/16/2023 07:42:32.937 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+02/16/2023 07:42:32.937 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+02/16/2023 07:42:32.937 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+02/16/2023 07:42:32.937 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+02/16/2023 07:42:32.937 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 4
+02/16/2023 07:42:32.937 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+02/16/2023 07:42:32.937 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.937 | DEBUG    |                              PacketManager::Update | <Begin>
+02/16/2023 07:42:32.937 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+02/16/2023 07:42:32.937 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+02/16/2023 07:42:32.937 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.937 | DEBUG    |                              PluginManager::Update | <Begin>
+02/16/2023 07:42:32.937 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+02/16/2023 07:42:32.937 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+02/16/2023 07:42:33.102 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+02/16/2023 07:42:33.105 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+02/16/2023 07:42:33.105 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+02/16/2023 07:42:33.105 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+02/16/2023 07:42:33.105 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+02/16/2023 07:42:33.106 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+02/16/2023 07:42:33.113 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/addons.dll'
+02/16/2023 07:42:33.314 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 2.10 - By: Ashita Development Team
+02/16/2023 07:42:33.314 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/screenshot.dll'
+02/16/2023 07:42:33.351 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+02/16/2023 07:42:33.351 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+02/16/2023 07:42:34.576 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+02/16/2023 07:42:34.576 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/crossbar.dll'
+02/16/2023 07:42:34.721 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.25 - By: Thorny
+02/16/2023 07:42:34.721 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/findall.dll'
+02/16/2023 07:42:34.817 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.12 - By: Thorny
+02/16/2023 07:42:34.817 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+02/16/2023 07:42:34.848 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+02/16/2023 07:42:34.848 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/lootwhore.dll'
+02/16/2023 07:42:34.929 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.18 - By: Thorny
+02/16/2023 07:42:34.930 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/minimap.dll'
+02/16/2023 07:42:34.993 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\minimap.ini
+02/16/2023 07:42:35.002 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+02/16/2023 07:42:35.061 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.04 - By: atom0s
+02/16/2023 07:42:35.061 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/shorthand.dll'
+02/16/2023 07:42:35.118 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.10 - By: Thorny
+02/16/2023 07:42:35.118 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/stylist.dll'
+02/16/2023 07:42:35.214 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+02/16/2023 07:42:35.214 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/uberwarp.dll'
+02/16/2023 07:42:37.397 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+02/16/2023 07:42:37.397 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+02/16/2023 07:42:37.511 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.14 - By: Thorny
+02/16/2023 07:42:37.512 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packetflow.dll'
+02/16/2023 07:42:37.545 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+02/16/2023 07:42:37.546 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/vnm.dll'
+02/16/2023 07:42:37.589 | ERROR    |                                PluginManager::Load | Failed to load plugin 'vnm'; plugin is compiled with a different interface version than expected. (Plugin: 4.14)(Expected: 4.15)
+02/16/2023 07:42:37.589 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/weatherreporter.dll'
+02/16/2023 07:42:37.639 | DEBUG    |                                PluginManager::Load | Loaded plugin: WeatherReporter - Version: 1.00 - By: zach2good
+02/16/2023 07:42:41.559 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+02/16/2023 07:42:41.561 | DEBUG    |                                PointerManager::Add | Pointer: (1F6BAE12) [Ok!] statustimers:realutcstamp
+02/16/2023 07:43:28.399 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+02/16/2023 07:43:33.221 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,2,1676551413
+02/16/2023 07:45:01.994 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+02/16/2023 07:45:07.982 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,0,1676551507
+02/16/2023 07:47:00.235 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,0,1676551620
+02/16/2023 07:47:55.426 | INFO     |                                            Bellhop | Traded 8 matching items to Rolandienne.
+02/16/2023 07:48:07.902 | INFO     |                                            Bellhop | Entered shop.  [Corua]
+02/16/2023 07:48:09.677 | INFO     |                                            Bellhop | Selling 12 matching items to Corua.
+02/16/2023 07:48:19.512 | INFO     |                                            Bellhop | Left shop.  [Corua]
+02/16/2023 07:48:35.498 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 50,1,1676551715
+02/16/2023 07:50:00.300 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,2,1676551800
+02/16/2023 07:52:55.207 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,2,1676551975
+02/16/2023 07:54:20.774 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,0,1676552060
+02/16/2023 07:55:13.572 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+02/16/2023 07:55:17.769 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1676552117
+02/16/2023 07:56:13.538 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,0,1676552173
+02/16/2023 07:57:30.761 | INFO     |                                            Bellhop | Traded 3 matching items to Eternal Flame.
+02/16/2023 07:57:37.990 | INFO     |                                            Bellhop | Traded 66 matching items to Waypoint.
+02/16/2023 07:57:48.366 | INFO     |                                            Bellhop | Entered shop.  [Defliaa]
+02/16/2023 07:57:50.528 | INFO     |                                            Bellhop | Selling 18 matching items to Defliaa.
+02/16/2023 07:57:52.476 | INFO     |                                            Bellhop | Left shop.  [Defliaa]
+02/16/2023 07:59:44.965 | INFO     |                                            Bellhop | Entered shop.  [Defliaa]
+02/16/2023 07:59:52.933 | INFO     |                                            Bellhop | Left shop.  [Defliaa]
+02/16/2023 08:01:08.907 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,3,1676552468
+02/16/2023 08:01:55.651 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,3,1676552515
+02/16/2023 08:02:37.722 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+02/16/2023 08:02:42.581 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 239,1,1676552562
+02/16/2023 08:03:07.397 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1676552587
+02/16/2023 08:11:33.102 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1676553093
+02/16/2023 08:12:54.618 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 50,2,1676553174
+02/16/2023 08:13:17.825 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,2,1676553197
+02/16/2023 08:13:41.079 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,8,1676553221
+02/16/2023 08:14:28.740 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1676553268
+02/16/2023 08:18:07.903 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,2,1676553487
+02/16/2023 08:19:57.011 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1676553597
+02/16/2023 08:22:24.425 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1676553744
+02/16/2023 08:23:04.017 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1676553784
+02/16/2023 08:23:59.234 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1676553839
+02/16/2023 08:24:23.547 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1676553863
+02/16/2023 08:24:51.302 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+02/16/2023 08:25:21.305 | INFO     |                                            Bellhop | Storing a moogle storage slip 15 in satchel.
+02/16/2023 08:25:51.313 | INFO     |                                            Bellhop | Storing 3 matching items.
+02/16/2023 08:29:25.613 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,1,1676554165
+02/16/2023 08:29:57.982 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1676554197
+02/16/2023 08:33:43.672 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,1,1676554423
+02/16/2023 08:34:14.456 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,0,1676554454
+02/16/2023 08:34:54.619 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,1,1676554494
+02/16/2023 08:36:08.871 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,0,1676554568
+02/16/2023 08:46:01.806 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,1,1676555161
+02/16/2023 08:57:49.884 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,8,1676555869
+02/16/2023 09:00:21.507 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1676556021
+02/16/2023 09:04:37.224 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,8,1676556277
+02/16/2023 09:05:27.832 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,0,1676556327
+02/16/2023 09:05:34.449 | INFO     |                                            Bellhop | Retrieving a Ukko sash from wardrobe3.
+02/16/2023 09:06:21.188 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 153,0,1676556381
+02/16/2023 09:06:35.482 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 202,15,1676556395
+02/16/2023 09:10:07.246 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1676556607
+02/16/2023 09:10:22.907 | INFO     |                                            Bellhop | Traded 10 matching items to Monisette.
+02/16/2023 09:11:39.665 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+02/16/2023 09:11:42.646 | INFO     |                                            Bellhop | Selling a durium sheet to Gekko.
+02/16/2023 09:12:12.587 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+02/16/2023 09:13:01.886 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1676556781
+02/16/2023 09:15:40.109 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 153,1,1676556940
+02/16/2023 09:15:50.213 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 202,15,1676556950
+02/16/2023 09:23:19.847 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676557399
+02/16/2023 09:24:53.981 | INFO     |                                            Bellhop | Traded 4 matching items to Monisette.
+02/16/2023 09:26:01.675 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+02/16/2023 09:26:11.086 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+02/16/2023 09:28:29.446 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,0,1676557709
+02/16/2023 09:28:57.620 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1676557737
+02/16/2023 09:33:10.392 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,0,1676557990
+02/16/2023 09:33:49.992 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,4,1676558029
+02/16/2023 09:34:03.595 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676558043
+02/16/2023 09:49:01.792 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1676558941
+02/16/2023 09:59:59.071 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1676559599
+02/16/2023 10:03:50.161 | INFO     |                                            Bellhop | Traded 3 matching items to Monisette.
+02/16/2023 10:13:16.342 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1676560396
+02/16/2023 10:13:58.162 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,8,1676560438
+02/16/2023 10:14:32.212 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 279,19,1676560472
+02/16/2023 10:19:53.262 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 248,0,1676560793
+02/16/2023 10:20:25.892 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1676560825
+02/16/2023 10:21:05.275 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+02/16/2023 10:21:14.144 | INFO     |                                            Bellhop | Storing a moogle storage slip 21 in satchel.
+02/16/2023 10:22:01.926 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1676560921
+02/16/2023 10:22:41.483 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,3,1676560961
+02/16/2023 10:23:20.312 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+02/16/2023 10:23:45.952 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+02/16/2023 10:23:56.428 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1676561036
+02/16/2023 10:24:51.497 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1676561091
+02/16/2023 10:24:56.982 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,0,1676561096
+02/16/2023 10:26:31.440 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676561191
+02/16/2023 10:26:45.293 | INFO     |                                            Bellhop | Traded 3 matching items to Monisette.
+02/16/2023 10:27:04.867 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,0,1676561224
+02/16/2023 10:27:20.669 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676561240
+02/16/2023 10:32:00.904 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+02/16/2023 10:32:00.983 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+02/16/2023 10:46:11.026 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676562371
+02/16/2023 11:16:56.889 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676564216
+02/16/2023 11:37:28.215 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676565448
+02/16/2023 11:46:42.244 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,2,1676566002
+02/16/2023 12:00:06.032 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676566806
+02/16/2023 12:16:50.053 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676567810
+02/16/2023 12:24:06.242 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676568246
+02/16/2023 12:29:52.144 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676568592
+02/16/2023 12:42:02.072 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676569322
+02/16/2023 12:52:50.208 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,2,1676569970
+02/16/2023 13:01:21.212 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676570481
+02/16/2023 13:14:18.041 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676571258
+02/16/2023 13:23:42.020 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676571822
+02/16/2023 13:29:45.309 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676572185
+02/16/2023 13:36:04.015 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,2,1676572564
+02/16/2023 13:47:33.206 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676573253
+02/16/2023 14:01:47.270 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676574107
+02/16/2023 14:07:54.163 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676574474
+02/16/2023 14:18:45.214 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676575125
+02/16/2023 14:40:09.398 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676576409
+02/16/2023 14:45:18.308 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676576718
+02/16/2023 14:52:16.269 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676577136
+02/16/2023 15:05:35.189 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676577935
+02/16/2023 15:17:06.279 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676578626
+02/16/2023 15:24:45.224 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676579085
+02/16/2023 15:40:52.357 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676580052
+02/16/2023 16:07:18.420 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1676581638
+02/16/2023 16:13:30.252 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1676582010
+02/16/2023 16:19:30.413 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,2,1676582370
+02/16/2023 16:29:47.232 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1676582987
+02/16/2023 16:58:13.769 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+02/16/2023 16:58:19.107 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1676584699
+02/16/2023 17:00:15.041 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+02/16/2023 17:00:16.582 | INFO     |                                            Bellhop | Selling 23 matching items to Gekko.
+02/16/2023 17:00:25.183 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+02/16/2023 17:03:05.405 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,1,1676584985
+02/16/2023 17:06:03.257 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,1,1676585163
+02/16/2023 17:07:09.729 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1676585229
+02/16/2023 17:11:40.225 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676585500
+02/16/2023 17:23:33.371 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1676586213
+02/16/2023 17:29:59.369 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1676586599
+02/16/2023 17:36:52.204 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676587012
+02/16/2023 17:48:16.324 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1676587696
+02/16/2023 17:56:38.562 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1676588198
+02/16/2023 18:05:52.745 | DEBUG    |                                Keyboard::~Keyboard | .dtor
+02/16/2023 18:05:52.745 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+02/16/2023 18:05:52.745 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+02/16/2023 18:05:52.745 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+02/16/2023 18:05:52.745 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+02/16/2023 18:05:52.745 | DEBUG    |                                      Mouse::~Mouse | .dtor
+02/16/2023 18:05:52.745 | DEBUG    |              newIDirectInput8A::~newIDirectInput8A | .dtor
+02/16/2023 18:05:53.172 | DEBUG    |          newIDirect3DDevice8::~newIDirect3DDevice8 | .dtor
+02/16/2023 18:05:53.172 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event invoked.
+02/16/2023 18:05:53.172 | DEBUG    |                               ChatManager::Release | <Begin>
+02/16/2023 18:05:53.172 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+02/16/2023 18:05:53.181 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+02/16/2023 18:05:53.181 | DEBUG    |                  CommandTaskPool::~CommandTaskPool | .dtor
+02/16/2023 18:05:53.181 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+02/16/2023 18:05:53.181 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+02/16/2023 18:05:53.181 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:53.181 | DEBUG    |                             PluginManager::Release | <Begin>
+02/16/2023 18:05:53.181 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+02/16/2023 18:05:53.234 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Shorthand
+02/16/2023 18:05:56.096 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Addons
+02/16/2023 18:05:56.097 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Screenshot
+02/16/2023 18:05:56.098 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+02/16/2023 18:05:56.472 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Crossbar
+02/16/2023 18:05:56.474 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: FindAll
+02/16/2023 18:05:56.474 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: HardwareMouse
+02/16/2023 18:05:56.475 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Lootwhore
+02/16/2023 18:05:56.520 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Minimap
+02/16/2023 18:05:56.521 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Stylist
+02/16/2023 18:05:56.916 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Uberwarp
+02/16/2023 18:05:56.916 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+02/16/2023 18:05:56.916 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: PacketFlow
+02/16/2023 18:05:57.017 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: WeatherReporter
+02/16/2023 18:05:57.017 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.017 | DEBUG    |                             MemoryManager::Release | <Begin>
+02/16/2023 18:05:57.017 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.017 | DEBUG    |                             PacketManager::Release | <Begin>
+02/16/2023 18:05:57.017 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.017 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+02/16/2023 18:05:57.017 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.017 | DEBUG    |                               FontManager::Release | <Begin>
+02/16/2023 18:05:57.017 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.017 | DEBUG    |                                GuiManager::Release | <Begin>
+02/16/2023 18:05:57.128 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.128 | DEBUG    |                              InputManager::Release | <Begin>
+02/16/2023 18:05:57.128 | DEBUG    |                            Controller::~Controller | .dtor
+02/16/2023 18:05:57.128 | DEBUG    |                        InputManager::SetController | Setting new controller instance..
+02/16/2023 18:05:57.128 | DEBUG    |                            Controller::~Controller | <End> [Status: Ok!]
+02/16/2023 18:05:57.128 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+02/16/2023 18:05:57.128 | DEBUG    |                                    XInput::~XInput | .dtor
+02/16/2023 18:05:57.128 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.128 | DEBUG    |                            PointerManager::Release | <Begin>
+02/16/2023 18:05:57.128 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+02/16/2023 18:05:57.128 | DEBUG    |                           ResourceManager::Release | <Begin>
+02/16/2023 18:06:04.012 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+02/16/2023 18:06:04.012 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event finished.
+02/16/2023 18:06:04.012 | DEBUG    |                      newIDirect3D8::~newIDirect3D8 | .dtor
+02/16/2023 18:06:05.024 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: 0 x 0][Size: 662 x 524]
+02/16/2023 18:06:06.731 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]

@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
 local sets = {
@@ -30,6 +29,7 @@ local sets = {
         --Ammo = 'Homiliary',
         Head = 'Jumalik Helm',
         Ring1 = 'Stikini Ring +1',
+        Feet = { Name = 'Odyssean Greaves', Augment = { [1] = 'Damage taken-1%', [2] = 'Mag. Acc.+16', [3] = '"Refresh"+2', [4] = 'Attack+16', [5] = '"Mag. Atk. Bns."+16' } },
     },
     Town = {
         Main = 'Excalibur',
@@ -383,7 +383,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

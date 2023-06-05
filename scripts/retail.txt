@@ -36,6 +36,8 @@
 /load packetflow
 /load vnm
 
+/load weatherreporter
+
 /addon load distance
 /addon load fps
 /addon load move
@@ -63,6 +65,7 @@
 /addon load petinfo
 #/addon load recast
 /addon load repeater
+#/addon load noname
 #/addon load stfu
 
 /addon load pouches
@@ -72,26 +75,32 @@
 /addon load puphelper
 /addon load database
 /addon load find
-/addon load skillchains
+/addon load chains
 /addon load timers
 #/addon load quiet
-/addon load inventorycounter
+#/addon load inventorycounter
 /addon load instantchat
 #/addon load oseem
 /addon load ja0wait
 /addon load omen
 /addon load simplelog
 #/addon load sparks
-/addon load luopantime
+/addon load geohelper
 /addon load zenihelper
 /addon load auctioneer
 /addon load spawntracker
 /addon load thtracker
 /addon load nomnom
-#/addon load targetinfo
-/addon load aman
+#/addon load aman
 #/addon load subcor
 /addon load mobdb
+/addon load ichorhelper
+/addon load partybuffs
+/addon load rolltracker
+/addon load wskiller
+/addon load mipmap
+/addon load kistatus
+/addon load nocombat
 
 ##########################################################################
 #
@@ -174,7 +183,7 @@
 /ambient
 /drawdistance setworld 10
 /drawdistance setmob 10
-/fps 1
-/blusets delay 1.5
-/pupsets delay 1.5
+/fps 2
+/blusets delay 2
+/pupsets delay 2
 #/vnm SetLineHeight 2

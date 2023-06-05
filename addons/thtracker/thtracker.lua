@@ -223,6 +223,11 @@ ashita.events.register('command', 'command_cb', function (e)
     if #args == 1 then
         local playerJob = AshitaCore:GetMemoryManager():GetPlayer():GetMainJob(0);
         osd.visibleJob[playerJob] = not osd.visibleJob[playerJob];
+        -- if osd.visibleJob[playerJob] then
+        --     print('visible')
+        -- else
+        --     print('hidden')
+        -- end
     elseif args[2] == 'time' then
         osd.displayTime = tonumber(args[3]) or defaults.displayTime;
     elseif args[2] == 'test' then

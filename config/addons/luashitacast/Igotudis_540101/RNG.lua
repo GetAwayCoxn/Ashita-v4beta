@@ -1,11 +1,11 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+
 
 local sets = {
     Idle = {
-        Range = 'Holliday',
-        Ammo = 'Decimating Bullet',
+        Range = 'Annihilator',
+        Ammo = 'Eradicating Bullet',
         Head = 'Malignance Chapeau',
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
@@ -32,8 +32,8 @@ local sets = {
     Town = {
         Main = 'Naegling',
         Sub = 'Nusku Shield',
-        Range = 'Holliday',
-        Ammo = 'Decimating Bullet',
+        Range = 'Annihilator',
+        Ammo = 'Eradicating Bullet',
         Head = 'Rawhide Mask',
         Neck = 'Iskur Gorget',
         Ear1 = 'Mache Earring +1',
@@ -140,6 +140,7 @@ local sets = {
     },
 
     Preshot = {--base preshot, no flurry, 70cap, 10 from gifts
+        Body = 'Arc. Jerkin +1',
         Hands = 'Carmine Fin. Ga. +1',--8
         Ring1 = 'Crepuscular Ring',--3
         Waist = 'Impulse Belt',--3
@@ -147,6 +148,7 @@ local sets = {
         Feet = 'Meg. Jam. +2',--10
     },
     Preshot_FlurryI = {--with flurry I on, gives 15, 10 from gifts
+        Body = 'Arc. Jerkin +1',
         Hands = 'Carmine Fin. Ga. +1',--8
         Ring1 = 'Crepuscular Ring',--3
         Waist = 'Impulse Belt',--3
@@ -154,6 +156,7 @@ local sets = {
         Feet = 'Meg. Jam. +2',--10
     },
     Preshot_FlurryII = {--with flurry II on, gives 30, 10 from gifts
+        Body = 'Arc. Jerkin +1',    
         Hands = 'Carmine Fin. Ga. +1',--8
         Waist = 'Impulse Belt',--3
         Legs = 'Ikenga\'s Trousers',--8
@@ -172,8 +175,8 @@ local sets = {
         Legs = 'Ikenga\'s Trousers',
         Feet = 'Nyame Sollerets',
     },
-    Barrage = {
-        Hands = 'Orion Bracers',
+    Barrage = {--will put Midshot_Acc on first and then this whenever barrage is up
+        Hands = 'Orion Bracers +1',
     },
     Midshot_Acc = {--will be over written by barrage set still 
         Head = 'Malignance Chapeau',
@@ -189,6 +192,7 @@ local sets = {
         Feet = 'Nyame Sollerets',
     },
     DoubleShot = {
+        Body = 'Arc. Jerkin +1',
     },
 
     Ws_Default = {
@@ -263,10 +267,10 @@ local sets = {
     },
 
     Scavenge = {
-        Feet = 'Orion Socks',
+        Feet = 'Orion Socks +1',
     },
     Sharpshot = {
-        Legs = 'Orion Braccae',
+        Legs = 'Orion Braccae +1',
     },
     TH = {
 		Waist = 'Chaac Belt',
@@ -279,7 +283,7 @@ local sets = {
 profile.Sets = sets;
 
 profile.Packer = {
-    {Name = 'Decimating Bullet', Quantity = 'all'},
+    {Name = 'Eradicating Bullet', Quantity = 'all'},
     {Name = 'Dec. Bul. Pouch', Quantity = 'all'},
 };
 
@@ -298,7 +302,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

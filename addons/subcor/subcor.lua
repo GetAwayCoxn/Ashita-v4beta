@@ -6,6 +6,7 @@ addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
 require('common');
 local toggle = false;
+local checkString = true;
 local roll = 12;
 local Player = AshitaCore:GetMemoryManager():GetPlayer();
 local Party = AshitaCore:GetMemoryManager():GetParty();
@@ -16,9 +17,16 @@ local Towns = T{'Tavnazian Safehold','Al Zahbi','Aht Urhgan Whitegate','Nashmau'
 };
 
 ashita.events.register('text_in', 'text_in_cb', function (e)
-    if toggle then
+    if toggle and checkString then
+        -- if e.injected then return; end
         if e.message:contains('Corsair\'s Roll') and e.message:contains(me:GetMemberName(0)) then
-            roll = tonumber(string.match(e.message,'%d+')) or 12;
+            if e.message:contains('wears off.') then return end
+            for w in string.gmatch(e.message, "%d+") do
+                roll = tonumber(w)
+                -- TEST()
+                checkString = false
+                return;
+            end
         end
     end
 end);
@@ -55,9 +63,14 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     end
 
     if corbuff == 0 and (CheckAbilityRecast('Phantom Roll') == 0) then
+        checkString = true;
         AshitaCore:GetChatManager():QueueCommand(1, '/ja "Corsair\'s Roll" <me>');
         return;
-    elseif corbuff > 0 and (roll < 6 and roll ~= 5) and (CheckAbilityRecast('Double-Up') == 0) then
+    elseif roll == 5 then
+        checkString = true;
+        return;
+    elseif corbuff > 0 and roll < 6 and (CheckAbilityRecast('Double-Up') == 0) then
+        checkString = true;
         AshitaCore:GetChatManager():QueueCommand(1, '/ja "Double-Up" <me>');
         return;
     end
@@ -69,6 +82,12 @@ ashita.events.register('command', 'command_cb', function (e)
         toggle = not toggle;
         print('SubCor Auto Rolling is: ' .. tostring(toggle));
         return;
+    elseif #args > 1 and args[1] == '/subcor' then
+        e.blocked = true;
+    end
+
+    if #args == 2 and args[2]:any('test') then
+        TEST()
     end
 end);
 
@@ -88,4 +107,8 @@ function CheckAbilityRecast(check)
 		end
 	end
 	return RecastTime;
+end
+
+function TEST()
+    print(roll)
 end

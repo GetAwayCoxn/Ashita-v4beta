@@ -1,0 +1,1023 @@
+06/01/2023 07:55:11.890 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : G:\Ashita-v4beta\
+06/01/2023 07:55:11.890 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+06/01/2023 07:55:11.890 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\boot\mybootsettings.ini
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   file : G:\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   args : 
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [sandbox.paths]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   common : C:\Program Files (x86)\Common Files
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   pol : G:\PlayOnline\SquareEnix\PlayOnlineViewer
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   ffxi : G:\PlayOnline\SquareEnix\Final Fantasy XI
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   tetra : G:\PlayOnline\SquareEnix\TetraMaster
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0029 : 20
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+06/01/2023 07:55:11.891 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+06/01/2023 07:55:11.891 | DEBUG    |                             Properties::Properties | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                           ChatManager::ChatManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                           FontManager::FontManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                             GuiManager::GuiManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                             Controller::Controller | null.ctor
+06/01/2023 07:55:11.891 | DEBUG    |                                     XInput::XInput | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                         InputManager::InputManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                       PacketManager::PacketManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                       PluginManager::PluginManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                     PointerManager::PointerManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+06/01/2023 07:55:11.891 | DEBUG    |                             Properties::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                           InputManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                         PointerManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                             MemoryManager::Release | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                            ChatManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                          PacketManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                          PluginManager::Initialize | <Begin>
+06/01/2023 07:55:11.891 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:11.891 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+06/01/2023 07:55:11.970 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'Common': C:\Program Files (x86)\Common Files
+06/01/2023 07:55:11.970 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'PlayOnline': G:\PlayOnline\SquareEnix\PlayOnlineViewer
+06/01/2023 07:55:11.970 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'FinalFantasyXI': G:\PlayOnline\SquareEnix\Final Fantasy XI
+06/01/2023 07:55:11.970 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'TetraMaster': G:\PlayOnline\SquareEnix\TetraMaster
+06/01/2023 07:55:11.971 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: Sandbox - Version: 4.08 - By: atom0s
+06/01/2023 07:55:12.068 | INFO     |                                              pivot | Using config file: 'G:\Ashita-v4beta\config\pivot\pivot.ini'
+06/01/2023 07:55:12.068 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\pivot\pivot.ini
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | >> pivot settings <<
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | root_path G:\DATs
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | debug_log false
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | redirect_fopens true
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | overlays:
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | [00] XI-View-Icons
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | [01] XI-Vision-Maps
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | [02] HD-Texture-Pack
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | [03] HD-Music-Pack
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | cache: false
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | cache_size: 0
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | cache_max_age: 600
+06/01/2023 07:55:12.072 | DEBUG    |                                              pivot | 
+06/01/2023 07:55:12.072 | INFO     |                                              pivot | m_logDebug = Discard
+06/01/2023 07:55:12.072 | INFO     |                                              pivot | m_rootPath = 'G:\DATs'
+06/01/2023 07:55:12.072 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+06/01/2023 07:55:12.072 | INFO     |                                              pivot | => success
+06/01/2023 07:55:12.072 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+06/01/2023 07:55:12.073 | WARN     |                                              pivot | WARNING:       12: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+06/01/2023 07:55:12.073 | WARN     |                                              pivot | WARNING:   119051: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+06/01/2023 07:55:12.073 | WARN     |                                              pivot | WARNING:   119057: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+06/01/2023 07:55:12.074 | WARN     |                                              pivot | WARNING:    91015: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+06/01/2023 07:55:12.076 | INFO     |                                              pivot | => success
+06/01/2023 07:55:12.076 | INFO     |                                              pivot | addOverlay: 'HD-Texture-Pack'
+06/01/2023 07:55:12.078 | INFO     |                                              pivot | => success
+06/01/2023 07:55:12.078 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+06/01/2023 07:55:12.078 | INFO     |                                              pivot | => success
+06/01/2023 07:55:12.215 | INFO     |                                              pivot | enabling fopen_s hook
+06/01/2023 07:55:12.215 | INFO     |                                              pivot | m_hooksSet = true
+06/01/2023 07:55:12.215 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.15 - By: Heals
+06/01/2023 07:55:12.215 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+06/01/2023 07:55:12.215 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+06/01/2023 07:55:12.215 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+06/01/2023 07:55:12.215 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+06/01/2023 07:55:12.215 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+06/01/2023 07:55:12.215 | DEBUG    |                     Ashita::Hooks::XInput::Install | <Begin>
+06/01/2023 07:55:12.216 | DEBUG    |                     Ashita::Hooks::XInput::Install | <End> [Status: Ok!]
+06/01/2023 07:55:16.037 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 2561 x 1441]
+06/01/2023 07:55:16.038 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 662 x 524]
+06/01/2023 07:55:16.042 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/01/2023 07:55:19.973 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/01/2023 07:56:09.551 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+06/01/2023 07:56:09.714 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+06/01/2023 07:56:09.807 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+06/01/2023 07:56:09.807 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+06/01/2023 07:56:09.826 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+06/01/2023 07:56:09.826 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+06/01/2023 07:56:09.826 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/01/2023 07:56:09.826 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/01/2023 07:56:09.826 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+06/01/2023 07:56:09.826 | DEBUG    |                           ResourceManager::Release | <Begin>
+06/01/2023 07:56:09.826 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+06/01/2023 07:56:09.841 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:09.841 | DEBUG    |                            ResourceManager::Update | <Begin>
+06/01/2023 07:56:09.841 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+06/01/2023 07:56:09.850 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+06/01/2023 07:56:09.855 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+06/01/2023 07:56:11.458 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 1617.036800ms [Status: 1]
+06/01/2023 07:56:11.458 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.458 | DEBUG    |                               InputManager::Update | <Begin>
+06/01/2023 07:56:11.458 | DEBUG    |                                       Mouse::Mouse | .ctor
+06/01/2023 07:56:11.458 | DEBUG    |                                  Mouse::Initialize | <Begin>
+06/01/2023 07:56:11.458 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:11.458 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+06/01/2023 07:56:11.458 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.458 | DEBUG    |                              OffsetManager::Update | <Begin>
+06/01/2023 07:56:11.458 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+06/01/2023 07:56:11.464 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+06/01/2023 07:56:11.468 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+06/01/2023 07:56:11.468 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.468 | DEBUG    |                             PointerManager::Update | <Begin>
+06/01/2023 07:56:11.468 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+06/01/2023 07:56:11.474 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+06/01/2023 07:56:11.477 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+06/01/2023 07:56:11.479 | DEBUG    |                             PointerManager::Update | Pointer: (0DADE77C) [Ok!] autofollow
+06/01/2023 07:56:11.479 | DEBUG    |                             PointerManager::Update | Pointer: (0DB3A855) [Ok!] castbar
+06/01/2023 07:56:11.479 | DEBUG    |                             PointerManager::Update | Pointer: (0DBE6410) [Ok!] chat.addchatmessage
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DC75A60) [Ok!] chat.inputtext.this
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DAD1682) [Ok!] chat.logfile
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DC78C70) [Ok!] chat.parseautotranslate
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DB99455) [Ok!] chat.parseautotranslate.this
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DB40130) [Ok!] chat.parseinputtext
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DB40152) [Ok!] chat.parseinputtext.this
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (0DB3751C) [Ok!] clientversion
+06/01/2023 07:56:11.481 | DEBUG    |                             PointerManager::Update | Pointer: (03F36533) [Ok!] config.autodisconnect
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DC76D72) [Ok!] config.languagefilter
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DAC3840) [Ok!] entitymap
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB54D0B) [Ok!] entitymap.size
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBAA226) [Ok!] inventory
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBD73A5) [Ok!] inventory.selecteditem
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DC1D3B2) [Ok!] menu
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB9C4F0) [Ok!] packets.decryptbuffer
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB9C3C0) [Ok!] packets.encryptbuffer
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBBB070) [Ok!] packets.queuepacket1
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB9CB50) [Ok!] packets.queuepacket2
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DCBF3FB) [Ok!] party
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB582CF) [Ok!] party.statusicons
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DC0569A) [Ok!] player
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBA4D10) [Ok!] player.hasability
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB571E4) [Ok!] player.haskeyitem
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBAED40) [Ok!] player.hasspell
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBAFC50) [Ok!] player.joblevels
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DBAFC90) [Ok!] player.jobmasterlevels
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB4DC1A) [Ok!] player.loginstatus
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB4697F) [Ok!] player.petmp
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB5C27D) [Ok!] player.pettp
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DCE0AD4) [Ok!] recast.abilities
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DCE75F2) [Ok!] recast.spells
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB39987) [Ok!] target.settarget
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer: (0DB47F83) [Ok!] target.target
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 14.717600ms
+06/01/2023 07:56:11.482 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.482 | DEBUG    |                            FontManager::Initialize | <Begin>
+06/01/2023 07:56:11.482 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:11.482 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+06/01/2023 07:56:11.482 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:11.482 | DEBUG    |                             GuiManager::Initialize | <Begin>
+06/01/2023 07:56:11.488 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:11.488 | DEBUG    |                              MemoryManager::Update | <Begin>
+06/01/2023 07:56:11.488 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.488 | DEBUG    |                                ChatManager::Update | <Begin>
+06/01/2023 07:56:11.488 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+06/01/2023 07:56:11.488 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+06/01/2023 07:56:11.488 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+06/01/2023 07:56:11.488 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+06/01/2023 07:56:11.488 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+06/01/2023 07:56:11.488 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+06/01/2023 07:56:11.488 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 24
+06/01/2023 07:56:11.489 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+06/01/2023 07:56:11.489 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.489 | DEBUG    |                              PacketManager::Update | <Begin>
+06/01/2023 07:56:11.489 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+06/01/2023 07:56:11.489 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+06/01/2023 07:56:11.489 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.489 | DEBUG    |                              PluginManager::Update | <Begin>
+06/01/2023 07:56:11.489 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+06/01/2023 07:56:11.489 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+06/01/2023 07:56:11.601 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+06/01/2023 07:56:11.603 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+06/01/2023 07:56:11.603 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+06/01/2023 07:56:11.603 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+06/01/2023 07:56:11.603 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+06/01/2023 07:56:11.603 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+06/01/2023 07:56:11.607 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/addons.dll'
+06/01/2023 07:56:11.665 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 2.10 - By: Ashita Development Team
+06/01/2023 07:56:11.665 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/screenshot.dll'
+06/01/2023 07:56:11.718 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+06/01/2023 07:56:11.718 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+06/01/2023 07:56:12.219 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+06/01/2023 07:56:12.219 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/crossbar.dll'
+06/01/2023 07:56:12.294 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.25 - By: Thorny
+06/01/2023 07:56:12.294 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/findall.dll'
+06/01/2023 07:56:12.361 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.15 - By: Thorny
+06/01/2023 07:56:12.362 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+06/01/2023 07:56:12.405 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+06/01/2023 07:56:12.405 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/lootwhore.dll'
+06/01/2023 07:56:12.473 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.18 - By: Thorny
+06/01/2023 07:56:12.473 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/minimap.dll'
+06/01/2023 07:56:12.533 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\minimap.ini
+06/01/2023 07:56:12.539 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+06/01/2023 07:56:12.567 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.04 - By: atom0s
+06/01/2023 07:56:12.567 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/shorthand.dll'
+06/01/2023 07:56:12.637 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.14 - By: Thorny
+06/01/2023 07:56:12.637 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/stylist.dll'
+06/01/2023 07:56:12.722 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+06/01/2023 07:56:12.722 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/uberwarp.dll'
+06/01/2023 07:56:13.948 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+06/01/2023 07:56:13.948 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+06/01/2023 07:56:14.048 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.14 - By: Thorny
+06/01/2023 07:56:14.048 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packetflow.dll'
+06/01/2023 07:56:14.139 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+06/01/2023 07:56:14.139 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/vnm.dll'
+06/01/2023 07:56:14.188 | ERROR    |                                PluginManager::Load | Failed to load plugin 'vnm'; plugin is compiled with a different interface version than expected. (Plugin: 4.14)(Expected: 4.15)
+06/01/2023 07:56:14.188 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/weatherreporter.dll'
+06/01/2023 07:56:14.235 | DEBUG    |                                PluginManager::Load | Loaded plugin: WeatherReporter - Version: 1.00 - By: zach2good
+06/01/2023 07:56:16.275 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+06/01/2023 07:56:16.276 | DEBUG    |                                PointerManager::Add | Pointer: (0DB9AE92) [Ok!] statustimers:realutcstamp
+06/01/2023 07:56:53.962 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/01/2023 07:56:57.030 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685620617
+06/01/2023 07:57:35.498 | INFO     |                                            Bellhop | Entered shop.  [Runito-Monito]
+06/01/2023 07:57:36.927 | INFO     |                                            Bellhop | Selling 12 matching items to Runito-Monito.
+06/01/2023 07:57:42.704 | INFO     |                                            Bellhop | Left shop.  [Runito-Monito]
+06/01/2023 08:00:53.401 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/01/2023 08:00:56.427 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685620856
+06/01/2023 08:02:06.312 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 280,1,1685620926
+06/01/2023 08:02:32.070 | INFO     |                                            Bellhop | Entered shop.  [Green Thumb Moogle]
+06/01/2023 08:02:35.143 | INFO     |                                            Bellhop | Selling 18 matching items to Green Thumb Moogle.
+06/01/2023 08:02:48.513 | INFO     |                                            Bellhop | Selling 86 jars of acuex poison to Green Thumb Moogle.
+06/01/2023 08:02:53.012 | INFO     |                                            Bellhop | Left shop.  [Green Thumb Moogle]
+06/01/2023 08:02:59.052 | INFO     |                                            Bellhop | Traded 12 matching items to Ephemeral Moogle.
+06/01/2023 08:03:34.376 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685621014
+06/01/2023 08:05:49.472 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,3,1685621149
+06/01/2023 08:10:35.645 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685621435
+06/01/2023 08:15:51.479 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,1,1685621751
+06/01/2023 08:22:32.550 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,3,1685622152
+06/01/2023 08:25:35.437 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685622335
+06/01/2023 08:35:01.827 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,0,1685622901
+06/01/2023 08:35:28.846 | INFO     |                                            Bellhop | Traded 81 matching items to Ephemeral Moogle.
+06/01/2023 08:35:37.778 | ERROR    |                                            Bellhop | No matching items found.
+06/01/2023 08:36:14.634 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685622974
+06/01/2023 08:39:00.395 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+06/01/2023 08:39:00.438 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+06/01/2023 08:47:15.507 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685623635
+06/01/2023 09:02:08.492 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685624528
+06/01/2023 09:03:32.018 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+06/01/2023 09:03:36.168 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+06/01/2023 09:03:36.169 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+06/01/2023 09:11:47.140 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+06/01/2023 09:14:16.808 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685625256
+06/01/2023 09:14:49.269 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685625289
+06/01/2023 09:15:10.612 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685625310
+06/01/2023 09:16:22.210 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 265,12,1685625382
+06/01/2023 09:17:14.080 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685625434
+06/01/2023 09:22:19.032 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/01/2023 09:22:22.447 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 234,2,1685625742
+06/01/2023 09:22:30.260 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 234,0,1685625750
+06/01/2023 09:25:36.815 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685625936
+06/01/2023 09:26:16.196 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/01/2023 09:26:46.195 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/01/2023 09:27:16.200 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/01/2023 09:30:25.030 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,1,1685626225
+06/01/2023 09:30:38.335 | INFO     |                                            Bellhop | Traded 1 matching items to Rolandienne.
+06/01/2023 09:30:57.951 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1685626257
+06/01/2023 09:33:43.225 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 279,19,1685626423
+06/01/2023 10:03:58.481 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685628238
+06/01/2023 10:04:57.874 | INFO     |                                            Bellhop | Entered shop.  [Shiny Teeth]
+06/01/2023 10:04:58.947 | INFO     |                                            Bellhop | Selling 2 matching items to Shiny Teeth.
+06/01/2023 10:05:00.962 | INFO     |                                            Bellhop | Left shop.  [Shiny Teeth]
+06/01/2023 10:05:57.476 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/01/2023 10:07:15.998 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/01/2023 10:07:43.759 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/01/2023 10:08:10.876 | INFO     |                                            Bellhop | Storing 5 matching items.
+06/01/2023 10:08:34.425 | INFO     |                                            Bellhop | Storing a moogle storage slip 18 in satchel.
+06/01/2023 10:12:49.946 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 108,2,1685628769
+06/01/2023 10:13:56.822 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685628836
+06/01/2023 10:15:23.497 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/01/2023 10:15:26.308 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685628926
+06/01/2023 10:15:46.252 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+06/01/2023 10:15:46.253 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+06/01/2023 10:30:59.501 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685629859
+06/01/2023 10:43:27.342 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685630607
+06/01/2023 10:59:35.381 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685631575
+06/01/2023 11:11:32.342 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,10,1685632292
+06/01/2023 11:16:08.450 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685632568
+06/01/2023 11:27:15.283 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685633235
+06/01/2023 11:32:11.491 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685633531
+06/01/2023 11:45:20.356 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685634320
+06/01/2023 11:49:13.548 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685634553
+06/01/2023 12:04:08.290 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685635448
+06/01/2023 12:08:49.314 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,10,1685635729
+06/01/2023 12:14:35.350 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685636075
+06/01/2023 12:20:06.241 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685636406
+06/01/2023 12:24:32.281 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685636672
+06/01/2023 12:33:20.481 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685637200
+06/01/2023 12:38:39.417 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685637519
+06/01/2023 12:43:20.492 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685637800
+06/01/2023 12:51:42.461 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685638302
+06/01/2023 12:54:23.587 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685638463
+06/01/2023 12:54:25.207 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+06/01/2023 12:54:28.923 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685638468
+06/01/2023 13:02:01.430 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685638921
+06/01/2023 13:11:15.273 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685639475
+06/01/2023 13:17:33.561 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685639853
+06/01/2023 13:20:31.226 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/01/2023 13:20:34.903 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685640034
+06/01/2023 13:23:47.389 | INFO     |                                            Bellhop | Storing 792 pieces of alexandrite in case.
+06/01/2023 13:24:32.307 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685640272
+06/01/2023 13:33:21.274 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/01/2023 13:33:24.370 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,3,1685640804
+06/01/2023 13:34:04.432 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,3,1685640844
+06/01/2023 13:37:27.484 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685641047
+06/01/2023 13:37:27.687 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685641047
+06/01/2023 13:41:18.377 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,2,1685641278
+06/01/2023 13:41:18.689 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,2,1685641278
+06/01/2023 13:47:59.436 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685641679
+06/01/2023 13:47:59.643 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685641679
+06/01/2023 13:52:35.513 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685641955
+06/01/2023 13:52:35.753 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685641955
+06/01/2023 13:54:52.235 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,1,1685642092
+06/01/2023 13:58:15.286 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,0,1685642295
+06/01/2023 14:08:06.312 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,3,1685642886
+06/01/2023 14:10:35.359 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,1,1685643035
+06/01/2023 14:17:11.457 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,0,1685643431
+06/01/2023 14:19:47.234 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685643587
+06/01/2023 14:23:54.258 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,0,1685643834
+06/01/2023 14:29:47.467 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685644187
+06/01/2023 14:32:32.141 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,0,1685644352
+06/01/2023 14:35:15.180 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685644515
+06/01/2023 14:42:30.446 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,14,1685644950
+06/01/2023 14:47:11.158 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685645231
+06/01/2023 14:51:37.235 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,6,1685645497
+06/01/2023 14:54:48.550 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,6,1685645688
+06/01/2023 14:56:56.370 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,3,1685645816
+06/01/2023 14:56:56.686 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,3,1685645816
+06/01/2023 15:13:51.108 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,3,1685646831
+06/01/2023 15:14:20.230 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,0,1685646860
+06/01/2023 15:15:01.329 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,1,1685646901
+06/01/2023 15:16:18.227 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685646978
+06/01/2023 15:20:20.066 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,0,1685647220
+06/01/2023 15:20:44.166 | ERROR    |                                            Bellhop | No matching items found.  Term: tartarian soul
+06/01/2023 15:20:59.876 | INFO     |                                            Bellhop | Entered shop.  [Cauzeriste]
+06/01/2023 15:21:08.579 | INFO     |                                            Bellhop | Retrieving a Tartarian soul from case.
+06/01/2023 15:21:09.907 | INFO     |                                            Bellhop | Left shop.  [Cauzeriste]
+06/01/2023 15:21:40.896 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1685647300
+06/01/2023 15:22:16.383 | INFO     |                                            Bellhop | Storing a moogle storage slip 18 in satchel.
+06/01/2023 15:22:20.263 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,1,1685647340
+06/01/2023 15:22:52.191 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685647372
+06/01/2023 15:23:58.189 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1685647438
+06/01/2023 15:46:44.379 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1685648804
+06/01/2023 15:59:37.126 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1685649577
+06/01/2023 16:11:49.151 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1685650309
+06/01/2023 16:21:03.243 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1685650863
+06/01/2023 16:22:51.702 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,9,1685650971
+06/01/2023 16:32:11.354 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685651531
+06/01/2023 16:34:37.568 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,1,1685651677
+06/01/2023 16:34:55.518 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/01/2023 16:35:01.218 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,3,1685651701
+06/01/2023 16:35:10.088 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/01/2023 16:35:20.230 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685651720
+06/01/2023 16:36:38.372 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1685651798
+06/01/2023 16:52:36.288 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/01/2023 16:52:56.244 | INFO     |                                            Bellhop | Storing 6 matching items.
+06/01/2023 16:53:12.484 | INFO     |                                            Bellhop | Storing 3 matching items.
+06/01/2023 16:53:41.672 | INFO     |                                            Bellhop | Storing 8 matching items.
+06/01/2023 16:53:56.781 | INFO     |                                            Bellhop | Storing 2 matching items.
+06/01/2023 17:09:42.009 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/01/2023 17:10:16.841 | INFO     |                                            Bellhop | Storing 6 matching items.
+06/01/2023 17:10:26.662 | INFO     |                                            Bellhop | Storing a moogle storage slip 27 in satchel.
+06/01/2023 17:10:56.696 | INFO     |                                            Bellhop | Storing 5 matching items.
+06/01/2023 17:11:12.546 | INFO     |                                            Bellhop | Storing a moogle storage slip 16 in satchel.
+06/01/2023 17:27:58.714 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,9,1685654878
+06/01/2023 17:33:23.228 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/01/2023 17:33:26.122 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685655206
+06/01/2023 17:40:42.134 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685655642
+06/01/2023 17:48:27.043 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685656107
+06/01/2023 17:55:01.087 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685656501
+06/01/2023 18:03:32.182 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685657012
+06/01/2023 18:16:35.219 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685657795
+06/01/2023 18:27:58.952 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685658478
+06/01/2023 18:33:37.115 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685658817
+06/01/2023 18:36:36.966 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685658996
+06/01/2023 18:43:34.984 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685659414
+06/01/2023 19:03:54.219 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685660634
+06/01/2023 19:13:25.052 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685661205
+06/01/2023 19:28:56.284 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685662136
+06/01/2023 19:37:24.961 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685662644
+06/01/2023 19:44:48.946 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685663088
+06/01/2023 19:51:12.988 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685663472
+06/01/2023 19:56:44.314 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685663804
+06/01/2023 20:09:00.982 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685664540
+06/01/2023 20:18:03.036 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685665083
+06/01/2023 20:24:03.001 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685665443
+06/01/2023 20:33:32.113 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685666012
+06/01/2023 20:50:50.855 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685667050
+06/01/2023 20:58:36.956 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685667516
+06/01/2023 21:08:35.135 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685668115
+06/01/2023 21:15:38.992 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685668538
+06/01/2023 21:28:58.756 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685669338
+06/01/2023 21:34:49.005 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685669689
+06/01/2023 21:38:43.858 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685669923
+06/01/2023 21:50:25.106 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685670625
+06/01/2023 21:56:38.994 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685670998
+06/01/2023 21:59:02.938 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685671142
+06/01/2023 22:11:01.003 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685671861
+06/01/2023 22:19:44.091 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685672384
+06/01/2023 22:28:59.128 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685672939
+06/01/2023 22:36:35.035 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685673395
+06/01/2023 22:59:10.795 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685674750
+06/01/2023 23:07:25.022 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685675245
+06/01/2023 23:12:53.815 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685675573
+06/01/2023 23:17:55.840 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685675875
+06/01/2023 23:26:46.826 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685676406
+06/01/2023 23:31:58.913 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685676718
+06/01/2023 23:41:19.940 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685677279
+06/01/2023 23:50:22.871 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685677822
+06/01/2023 23:54:38.970 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685678078
+06/02/2023 00:11:41.947 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685679101
+06/02/2023 00:19:51.038 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685679591
+06/02/2023 00:25:26.953 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685679926
+06/02/2023 00:30:41.786 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685680241
+06/02/2023 00:36:00.985 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685680560
+06/02/2023 00:39:29.991 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685680769
+06/02/2023 00:48:31.730 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685681311
+06/02/2023 00:55:00.716 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685681700
+06/02/2023 01:02:46.987 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685682166
+06/02/2023 01:17:15.092 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685683035
+06/02/2023 01:22:31.670 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685683351
+06/02/2023 01:42:25.091 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685684545
+06/02/2023 01:53:19.800 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685685199
+06/02/2023 01:58:54.074 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685685534
+06/02/2023 02:04:07.817 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685685847
+06/02/2023 02:16:19.734 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685686579
+06/02/2023 02:23:38.941 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685687018
+06/02/2023 02:49:22.881 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685688562
+06/02/2023 03:09:50.726 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685689790
+06/02/2023 03:20:46.698 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685690446
+06/02/2023 03:28:22.650 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685690902
+06/02/2023 03:38:19.861 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685691499
+06/02/2023 03:49:12.813 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685692152
+06/02/2023 03:56:14.775 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685692574
+06/02/2023 04:05:50.764 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685693150
+06/02/2023 04:19:46.697 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685693986
+06/02/2023 04:30:31.935 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685694631
+06/02/2023 04:35:36.753 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685694936
+06/02/2023 04:41:29.567 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685695289
+06/02/2023 04:44:36.925 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685695476
+06/02/2023 05:18:50.530 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685697530
+06/02/2023 05:26:14.592 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685697974
+06/02/2023 05:33:14.724 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685698394
+06/02/2023 05:39:19.809 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685698759
+06/02/2023 05:47:17.585 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685699237
+06/02/2023 05:55:41.673 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685699741
+06/02/2023 06:06:36.485 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685700396
+06/02/2023 06:14:17.681 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685700857
+06/02/2023 06:26:58.691 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685701618
+06/02/2023 06:35:00.888 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685702100
+06/02/2023 06:43:55.692 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685702635
+06/02/2023 06:50:50.622 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685703050
+06/02/2023 06:56:29.805 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685703389
+06/02/2023 07:00:41.707 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685703641
+06/02/2023 07:04:00.848 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685703840
+06/02/2023 07:23:00.495 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685704980
+06/02/2023 07:33:58.357 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685705638
+06/02/2023 07:36:36.609 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685705796
+06/02/2023 07:45:26.674 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685706326
+06/02/2023 07:53:38.444 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685706818
+06/02/2023 07:56:36.607 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685706996
+06/02/2023 08:07:12.576 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685707632
+06/02/2023 08:18:41.623 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685708321
+06/02/2023 08:26:41.535 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685708801
+06/02/2023 08:33:29.574 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685709209
+06/02/2023 08:39:26.697 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685709566
+06/02/2023 08:46:41.543 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685710001
+06/02/2023 08:54:26.609 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685710466
+06/02/2023 09:00:31.439 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685710831
+06/02/2023 09:11:29.466 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685711489
+06/02/2023 09:14:38.602 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685711678
+06/02/2023 09:25:10.547 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685712310
+06/02/2023 09:38:58.647 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685713138
+06/02/2023 09:45:00.537 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685713500
+06/02/2023 10:02:26.359 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685714546
+06/02/2023 10:10:02.355 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685715002
+06/02/2023 10:11:23.469 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/02/2023 10:11:26.535 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1685715086
+06/02/2023 10:12:51.132 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/02/2023 10:12:54.347 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685715174
+06/02/2023 10:13:37.385 | ERROR    |                                            Bellhop | No matching items found.  Term: lustle*
+06/02/2023 10:16:00.180 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,1,1685715360
+06/02/2023 10:16:22.287 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/02/2023 10:16:28.069 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/02/2023 10:16:38.843 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685715398
+06/02/2023 10:17:34.735 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 10:17:45.559 | INFO     |                                            Bellhop | Storing 2 matching items.
+06/02/2023 10:18:01.787 | INFO     |                                            Bellhop | Storing 4 matching items.
+06/02/2023 10:18:09.119 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 10:18:31.273 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/02/2023 10:18:53.797 | INFO     |                                            Bellhop | Storing 4 matching items.
+06/02/2023 10:23:05.635 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685715785
+06/02/2023 10:32:22.731 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1685716342
+06/02/2023 10:48:40.070 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 10:49:03.796 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/02/2023 10:49:15.331 | INFO     |                                            Bellhop | Storing 2 matching items.
+06/02/2023 10:49:37.431 | INFO     |                                            Bellhop | Storing 5 matching items.
+06/02/2023 10:49:43.671 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 10:50:21.764 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 10:50:52.490 | INFO     |                                            Bellhop | Storing 2 matching items.
+06/02/2023 11:06:43.029 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 11:07:14.647 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/02/2023 11:07:22.101 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 11:08:05.411 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/02/2023 11:14:23.438 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,9,1685718863
+06/02/2023 11:17:48.480 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685719068
+06/02/2023 11:25:10.325 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1685719510
+06/02/2023 11:41:06.623 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685720466
+06/02/2023 11:42:30.358 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/02/2023 11:42:33.131 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685720553
+06/02/2023 11:43:35.390 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685720615
+06/02/2023 11:44:00.823 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/02/2023 11:44:03.787 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685720643
+06/02/2023 11:45:04.882 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/02/2023 11:45:08.020 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685720708
+06/02/2023 11:53:32.293 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685721212
+06/02/2023 12:03:51.382 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685721831
+06/02/2023 12:22:51.681 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,3,1685722971
+06/02/2023 12:23:02.776 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/02/2023 12:23:18.812 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/02/2023 12:23:20.940 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/02/2023 12:23:30.382 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/02/2023 12:24:17.196 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1685723057
+06/02/2023 12:29:16.479 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1685723356
+06/02/2023 12:59:27.946 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,9,1685725167
+06/02/2023 12:59:44.879 | INFO     |                                            Bellhop | Entered shop.  [Shiny Teeth]
+06/02/2023 12:59:46.544 | INFO     |                                            Bellhop | Selling 4 matching items to Shiny Teeth.
+06/02/2023 13:00:02.313 | INFO     |                                            Bellhop | Left shop.  [Shiny Teeth]
+06/02/2023 13:03:37.175 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 13:04:07.178 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/02/2023 13:04:37.181 | INFO     |                                            Bellhop | Storing 9 matching items.
+06/02/2023 13:06:30.659 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1685725590
+06/02/2023 13:10:25.299 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 13:15:06.464 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,4,1685726106
+06/02/2023 13:17:31.162 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1685726251
+06/02/2023 13:17:57.191 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 103,0,1685726277
+06/02/2023 13:19:59.462 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 103,2,1685726399
+06/02/2023 13:23:56.498 | INFO     |                                            Bellhop | Storing a moogle storage slip 23 in satchel.
+06/02/2023 13:24:26.884 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,1,1685726666
+06/02/2023 13:24:49.003 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,1,1685726689
+06/02/2023 13:25:28.347 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 109,6,1685726728
+06/02/2023 13:32:29.430 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 121,2,1685727149
+06/02/2023 13:39:26.862 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 108,3,1685727566
+06/02/2023 13:40:56.348 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,2,1685727656
+06/02/2023 13:42:20.596 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,2,1685727740
+06/02/2023 13:42:42.486 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685727762
+06/02/2023 13:42:42.790 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,0,1685727762
+06/02/2023 13:45:25.370 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685727925
+06/02/2023 13:45:25.611 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685727925
+06/02/2023 13:52:35.367 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,3,1685728355
+06/02/2023 13:52:35.708 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,3,1685728355
+06/02/2023 13:55:03.316 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685728503
+06/02/2023 13:55:03.626 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 292,1,1685728503
+06/02/2023 14:00:03.187 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 291,1,1685728803
+06/02/2023 14:01:10.938 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1685728870
+06/02/2023 14:01:29.458 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685728889
+06/02/2023 14:04:36.553 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685729076
+06/02/2023 14:05:22.531 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/02/2023 14:05:25.595 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685729125
+06/02/2023 14:06:00.381 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685729160
+06/02/2023 14:06:26.084 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685729186
+06/02/2023 14:07:09.337 | INFO     |                                            Bellhop | Entered shop.  [Bernegeois]
+06/02/2023 14:07:11.732 | INFO     |                                            Bellhop | Selling 16 matching items to Bernegeois.
+06/02/2023 14:07:12.677 | INFO     |                                            Bellhop | Left shop.  [Bernegeois]
+06/02/2023 14:07:48.112 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 265,1,1685729268
+06/02/2023 14:08:43.452 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,10,1685729323
+06/02/2023 14:10:51.464 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+06/02/2023 14:10:51.537 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+06/02/2023 14:11:32.318 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685729492
+06/02/2023 14:16:39.295 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685729799
+06/02/2023 14:24:23.266 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685730263
+06/02/2023 14:27:27.424 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,4,1685730447
+06/02/2023 14:34:30.362 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685730870
+06/02/2023 14:37:30.442 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685731050
+06/02/2023 14:50:37.168 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685731837
+06/02/2023 14:53:06.322 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,10,1685731986
+06/02/2023 14:57:08.261 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685732228
+06/02/2023 15:00:15.471 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685732415
+06/02/2023 15:13:03.272 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685733183
+06/02/2023 15:17:49.358 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685733469
+06/02/2023 15:55:49.402 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,10,1685735749
+06/02/2023 15:59:25.135 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685735965
+06/02/2023 16:08:47.311 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685736527
+06/02/2023 16:13:32.230 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685736812
+06/02/2023 16:20:44.201 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,2,1685737244
+06/02/2023 16:25:11.207 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685737511
+06/02/2023 16:25:11.410 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,0,1685737511
+06/02/2023 16:31:11.111 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 269,1,1685737871
+06/02/2023 16:47:21.279 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+06/02/2023 16:47:25.089 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1685738845
+06/02/2023 16:47:46.964 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1685738866
+06/02/2023 16:52:11.161 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685739131
+06/02/2023 16:57:33.908 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,2,1685739453
+06/02/2023 16:58:09.766 | INFO     |                                            Bellhop | Traded 83 matching items to Synthesis Focuser II.
+06/02/2023 16:58:11.757 | ERROR    |                                            Bellhop | No matching items found.
+06/02/2023 16:58:49.186 | INFO     |                                            Bellhop | Traded 189 matching items to Shami.
+06/02/2023 16:59:53.492 | INFO     |                                            Bellhop | Entered shop.  [Gekko]
+06/02/2023 16:59:55.160 | INFO     |                                            Bellhop | Selling 9 matching items to Gekko.
+06/02/2023 17:00:08.810 | INFO     |                                            Bellhop | Selling 55 jars of acuex poison to Gekko.
+06/02/2023 17:00:18.193 | INFO     |                                            Bellhop | Left shop.  [Gekko]
+06/02/2023 17:04:25.200 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685739865
+06/02/2023 17:05:04.967 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,1,1685739904
+06/02/2023 17:05:54.966 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1685739954
+06/02/2023 17:06:07.289 | INFO     |                                            Bellhop | Traded 4 matching items to Rolandienne.
+06/02/2023 17:07:21.903 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,3,1685740041
+06/02/2023 17:11:35.376 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,1,1685740295
+06/02/2023 17:17:11.150 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,2,1685740631
+06/02/2023 17:25:27.287 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685741127
+06/02/2023 17:37:35.303 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,1,1685741855
+06/02/2023 17:42:51.118 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685742171
+06/02/2023 17:48:32.146 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,2,1685742512
+06/02/2023 17:53:20.096 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,1,1685742800
+06/02/2023 17:58:53.461 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,3,1685743133
+06/02/2023 18:02:13.214 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685743333
+06/02/2023 18:06:19.789 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+06/02/2023 18:06:19.853 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+06/02/2023 18:11:20.120 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1685743880
+06/02/2023 18:36:08.186 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685745368
+06/02/2023 18:38:17.234 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685745497
+06/02/2023 18:39:11.127 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/02/2023 18:39:14.698 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685745554
+06/02/2023 18:40:34.367 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1685745634
+06/02/2023 18:41:12.817 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+06/02/2023 18:41:21.461 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685745681
+06/02/2023 18:45:08.201 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,0,1685745908
+06/02/2023 18:48:23.227 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/02/2023 18:48:42.376 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/02/2023 18:48:44.547 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+06/02/2023 18:49:15.708 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+06/02/2023 18:50:47.106 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 232,3,1685746247
+06/02/2023 19:00:57.243 | INFO     |                                            Bellhop | Storing a headshard: MNK in sack.
+06/02/2023 19:01:30.063 | INFO     |                                            Bellhop | Storing 2 pieces of void legwear: SMN in sack.
+06/02/2023 19:02:07.005 | ERROR    |                                            Bellhop | No available space to store items.
+06/02/2023 19:02:10.026 | INFO     |                                            Bellhop | Storing 2 pieces of void legwear: DNC in case.
+06/02/2023 19:03:02.435 | INFO     |                                            Bellhop | Storing 5 legshards: DNC in case.
+06/02/2023 19:04:30.646 | INFO     |                                            Bellhop | Retrieving a headshard: MNK from sack.
+06/02/2023 19:04:42.945 | INFO     |                                            Bellhop | Storing 2 headshards: MNK in sack.
+06/02/2023 19:06:58.570 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685747218
+06/02/2023 19:07:37.613 | INFO     |                                            Bellhop | Retrieving 3 headshards: MNK from safe2.
+06/02/2023 19:07:48.856 | INFO     |                                            Bellhop | Storing 3 headshards: MNK in safe2.
+06/02/2023 19:12:35.151 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,1,1685747555
+06/02/2023 19:41:06.507 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685749266
+06/02/2023 19:41:39.192 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 183,1,1685749299
+06/02/2023 19:50:20.109 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685749820
+06/02/2023 19:51:48.707 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1685749908
+06/02/2023 19:52:08.631 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 82,1,1685749928
+06/02/2023 19:52:58.037 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1685749978
+06/02/2023 19:53:13.265 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685749993
+06/02/2023 19:54:02.305 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 287,1,1685750042
+06/02/2023 19:57:31.919 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1685750251
+06/02/2023 20:05:23.048 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685750723
+06/02/2023 20:15:33.169 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 20:15:55.270 | INFO     |                                            Bellhop | Storing 7 matching items.
+06/02/2023 20:16:06.753 | INFO     |                                            Bellhop | Storing 2 matching items.
+06/02/2023 20:16:30.088 | INFO     |                                            Bellhop | Storing 5 matching items.
+06/02/2023 20:16:36.622 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+06/02/2023 20:17:10.367 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,1,1685751430
+06/02/2023 20:19:17.302 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,8,1685751557
+06/02/2023 20:19:18.962 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,2,1685751558
+06/02/2023 20:23:45.010 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685751825
+06/02/2023 20:28:39.029 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,8,1685752119
+06/02/2023 20:28:39.233 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,8,1685752119
+06/02/2023 20:31:06.180 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,3,1685752266
+06/02/2023 20:31:06.420 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,3,1685752266
+06/02/2023 20:34:44.128 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685752484
+06/02/2023 20:34:44.366 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685752484
+06/02/2023 20:37:40.919 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,2,1685752660
+06/02/2023 20:39:06.266 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685752746
+06/02/2023 20:54:48.941 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1685753688
+06/02/2023 20:55:02.602 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 257,0,1685753702
+06/02/2023 20:55:58.468 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,2,1685753758
+06/02/2023 21:01:12.226 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685754072
+06/02/2023 21:17:16.138 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,2,1685755036
+06/02/2023 21:28:09.737 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685755689
+06/02/2023 21:43:54.075 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,3,1685756634
+06/02/2023 21:43:54.420 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,3,1685756634
+06/02/2023 21:44:48.808 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,3,1685756688
+06/02/2023 21:46:33.484 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,3,1685756793
+06/02/2023 21:49:32.134 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685756972
+06/02/2023 21:49:32.347 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 264,2,1685756972
+06/02/2023 21:59:49.661 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,2,1685757589
+06/02/2023 22:02:34.849 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1685757754
+06/02/2023 22:06:31.190 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/02/2023 22:06:34.242 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685757994
+06/02/2023 22:22:36.877 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685758956
+06/02/2023 22:32:03.134 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685759523
+06/02/2023 22:39:39.012 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685759979
+06/02/2023 22:53:14.938 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685760794
+06/02/2023 22:59:23.138 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685761163
+06/02/2023 23:10:37.086 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685761837
+06/02/2023 23:35:30.108 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685763330
+06/02/2023 23:41:06.062 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685763666
+06/03/2023 00:07:07.978 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685765227
+06/03/2023 00:18:11.107 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685765891
+06/03/2023 00:25:00.948 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685766300
+06/03/2023 00:30:53.862 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685766653
+06/03/2023 00:39:51.157 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685767191
+06/03/2023 00:47:35.020 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685767655
+06/03/2023 00:58:48.966 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685768328
+06/03/2023 01:10:24.833 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685769024
+06/03/2023 01:24:10.775 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685769850
+06/03/2023 01:27:14.707 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685770034
+06/03/2023 01:37:17.860 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685770637
+06/03/2023 01:48:19.956 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685771299
+06/03/2023 01:54:02.817 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685771642
+06/03/2023 02:04:14.854 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685772254
+06/03/2023 02:15:58.845 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685772958
+06/03/2023 02:20:34.731 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685773234
+06/03/2023 02:32:19.917 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685773939
+06/03/2023 02:43:41.896 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685774621
+06/03/2023 02:52:22.726 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685775142
+06/03/2023 03:00:12.884 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685775612
+06/03/2023 03:07:41.696 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685776061
+06/03/2023 03:15:19.954 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685776519
+06/03/2023 03:22:50.852 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685776970
+06/03/2023 03:30:55.701 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685777455
+06/03/2023 03:43:31.642 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685778211
+06/03/2023 03:54:02.817 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685778842
+06/03/2023 04:04:00.507 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685779440
+06/03/2023 04:12:22.857 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685779942
+06/03/2023 04:24:07.778 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685780647
+06/03/2023 04:31:12.699 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685781072
+06/03/2023 04:38:41.676 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685781521
+06/03/2023 04:41:43.798 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685781703
+06/03/2023 04:46:36.772 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685781996
+06/03/2023 05:02:50.804 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685782970
+06/03/2023 05:06:24.661 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685783184
+06/03/2023 05:13:26.877 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685783606
+06/03/2023 05:24:55.572 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685784295
+06/03/2023 05:39:07.767 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685785147
+06/03/2023 05:44:53.636 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685785493
+06/03/2023 05:52:31.621 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685785951
+06/03/2023 06:14:00.744 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685787240
+06/03/2023 06:19:55.661 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685787595
+06/03/2023 06:28:34.530 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685788114
+06/03/2023 06:33:24.760 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685788404
+06/03/2023 06:40:05.800 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685788805
+06/03/2023 06:53:26.524 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685789606
+06/03/2023 07:04:14.836 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685790254
+06/03/2023 07:08:50.846 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685790530
+06/03/2023 07:17:53.515 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685791073
+06/03/2023 07:26:05.824 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685791565
+06/03/2023 07:37:02.889 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685792222
+06/03/2023 07:44:10.738 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685792650
+06/03/2023 07:53:12.496 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685793192
+06/03/2023 07:57:14.798 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685793434
+06/03/2023 08:02:17.633 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685793737
+06/03/2023 08:13:46.693 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685794426
+06/03/2023 08:19:07.676 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685794747
+06/03/2023 08:26:48.546 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685795208
+06/03/2023 08:42:02.657 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685796122
+06/03/2023 09:15:24.417 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685798124
+06/03/2023 09:24:17.374 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685798657
+06/03/2023 09:28:02.569 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685798882
+06/03/2023 09:35:46.469 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685799346
+06/03/2023 10:01:24.381 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685800884
+06/03/2023 10:04:44.318 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+06/03/2023 10:04:47.625 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,1,1685801087
+06/03/2023 10:06:42.505 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+06/03/2023 10:06:45.445 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685801205
+06/03/2023 10:07:23.518 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685801243
+06/03/2023 10:09:00.007 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1685801340
+06/03/2023 10:09:47.411 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+06/03/2023 10:09:50.221 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685801390
+06/03/2023 10:10:10.397 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685801410
+06/03/2023 10:15:36.594 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685801736
+06/03/2023 10:24:58.337 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685802298
+06/03/2023 10:28:00.669 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685802480
+06/03/2023 10:35:46.569 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685802946
+06/03/2023 10:46:31.544 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685803591
+06/03/2023 10:54:10.426 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685804050
+06/03/2023 11:07:05.599 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685804825
+06/03/2023 11:52:17.459 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685807537
+06/03/2023 11:56:58.472 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685807818
+06/03/2023 12:23:38.278 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685809418
+06/03/2023 12:28:29.559 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685809709
+06/03/2023 12:57:22.370 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685811442
+06/03/2023 13:08:41.245 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685812121
+06/03/2023 13:11:19.448 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685812279
+06/03/2023 13:16:14.449 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685812574
+06/03/2023 13:19:19.388 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685812759
+06/03/2023 13:23:43.400 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685813023
+06/03/2023 13:44:55.361 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685814295
+06/03/2023 13:48:46.193 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685814526
+06/03/2023 13:59:22.452 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685815162
+06/03/2023 14:08:07.283 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685815687
+06/03/2023 14:11:14.251 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685815874
+06/03/2023 14:17:48.354 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685816268
+06/03/2023 14:30:31.292 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685817031
+06/03/2023 14:37:02.362 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685817422
+06/03/2023 14:46:26.446 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685817986
+06/03/2023 14:55:12.262 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685818512
+06/03/2023 15:04:12.376 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685819052
+06/03/2023 15:18:31.447 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685819911
+06/03/2023 15:31:02.346 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685820662
+06/03/2023 15:35:17.231 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685820917
+06/03/2023 15:39:38.509 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685821178
+06/03/2023 15:44:48.319 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685821488
+06/03/2023 15:56:26.247 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685822186
+06/03/2023 16:03:19.228 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685822599
+06/03/2023 16:16:05.187 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685823365
+06/03/2023 16:27:58.261 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685824078
+06/03/2023 16:33:00.097 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685824380
+06/03/2023 16:37:55.232 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685824675
+06/03/2023 16:45:34.359 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685825134
+06/03/2023 16:56:38.141 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685825798
+06/03/2023 16:59:43.052 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685825983
+06/03/2023 17:09:53.182 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685826593
+06/03/2023 17:18:02.174 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685827082
+06/03/2023 17:23:43.283 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685827423
+06/03/2023 17:36:19.080 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685828179
+06/03/2023 17:43:10.255 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685828590
+06/03/2023 18:12:38.124 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685830358
+06/03/2023 18:26:00.074 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685831160
+06/03/2023 18:29:12.125 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685831352
+06/03/2023 18:45:53.076 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685832353
+06/03/2023 18:55:00.123 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685832900
+06/03/2023 19:02:17.101 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685833337
+06/03/2023 19:08:55.107 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685833735
+06/03/2023 19:16:14.164 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685834174
+06/03/2023 19:24:19.370 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685834659
+06/03/2023 19:31:46.161 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685835106
+06/03/2023 19:39:57.986 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685835597
+06/03/2023 19:52:50.244 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685836370
+06/03/2023 19:57:00.100 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685836620
+06/03/2023 20:01:41.147 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685836901
+06/03/2023 20:07:14.237 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685837234
+06/03/2023 20:30:48.047 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685838648
+06/03/2023 20:42:43.193 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685839363
+06/03/2023 20:52:31.221 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685839951
+06/03/2023 21:03:24.019 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685840604
+06/03/2023 21:12:13.912 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685841133
+06/03/2023 21:25:59.878 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685841959
+06/03/2023 21:34:31.096 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685842471
+06/03/2023 21:37:05.088 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685842625
+06/03/2023 21:50:47.925 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685843447
+06/03/2023 22:04:04.981 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685844244
+06/03/2023 22:13:28.828 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685844808
+06/03/2023 22:27:28.813 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685845648
+06/03/2023 22:35:18.813 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685846118
+06/03/2023 22:49:42.819 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685846982
+06/03/2023 23:09:25.964 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685848165
+06/03/2023 23:21:59.980 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685848919
+06/03/2023 23:32:53.010 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685849573
+06/03/2023 23:39:24.094 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685849964
+06/03/2023 23:49:06.977 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685850546
+06/03/2023 23:57:52.902 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685851072
+06/04/2023 00:10:04.749 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685851804
+06/04/2023 00:16:34.147 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685852194
+06/04/2023 00:22:18.885 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685852538
+06/04/2023 00:32:45.906 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685853165
+06/04/2023 00:41:06.941 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685853666
+06/04/2023 00:55:47.935 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685854547
+06/04/2023 01:05:59.937 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685855159
+06/04/2023 01:10:54.996 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685855454
+06/04/2023 01:22:25.885 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685856145
+06/04/2023 01:33:45.734 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685856825
+06/04/2023 01:45:11.953 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685857511
+06/04/2023 02:04:47.907 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685858687
+06/04/2023 02:12:28.860 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685859148
+06/04/2023 02:20:41.048 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685859641
+06/04/2023 02:27:49.677 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685860069
+06/04/2023 02:47:01.723 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685861221
+06/04/2023 03:04:35.779 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685862275
+06/04/2023 03:15:23.821 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685862923
+06/04/2023 03:25:30.781 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685863530
+06/04/2023 03:36:47.673 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685864207
+06/04/2023 03:46:42.848 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685864802
+06/04/2023 03:58:30.916 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685865510
+06/04/2023 04:04:16.672 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685865856
+06/04/2023 04:19:23.686 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685866763
+06/04/2023 04:23:04.803 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685866984
+06/04/2023 04:33:04.653 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685867584
+06/04/2023 04:43:11.606 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685868191
+06/04/2023 04:49:45.633 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685868585
+06/04/2023 04:56:23.720 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685868983
+06/04/2023 05:05:45.799 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685869545
+06/04/2023 05:14:47.579 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685870087
+06/04/2023 05:33:11.627 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685871191
+06/04/2023 06:01:06.727 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685872866
+06/04/2023 06:04:57.666 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685873097
+06/04/2023 06:13:04.852 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685873584
+06/04/2023 06:16:45.586 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685873805
+06/04/2023 06:34:45.747 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1685874885
+06/04/2023 06:38:13.588 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685875093
+06/04/2023 06:46:35.566 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685875595
+06/04/2023 06:55:40.621 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685876140
+06/04/2023 07:07:30.513 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685876850
+06/04/2023 07:18:18.737 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1685877498
+06/04/2023 07:40:54.514 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685878854
+06/04/2023 07:46:21.636 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685879181
+06/04/2023 07:58:49.681 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1685879929
+06/04/2023 08:06:06.597 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1685880366
+06/04/2023 08:13:35.558 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1685880815
+06/04/2023 08:22:59.602 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1685881379

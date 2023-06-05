@@ -300,6 +300,7 @@ local function EvaluateItem(item, level)
 end
 
 local EvaluateLevels = function(baseTable, level)
+    local buffer = {};
     for name,set in pairs(baseTable) do
         if (#name > 9) and (string.sub(name, -9) == '_Priority') then
             local newSet = {};
@@ -322,8 +323,11 @@ local EvaluateLevels = function(baseTable, level)
                 end
             end
             local newKey = string.sub(name, 1, -10);
-            baseTable[newKey] = newSet;
+            buffer[newKey] = newSet;
         end
+    end
+    for key,val in pairs(buffer) do
+        baseTable[key] = val;
     end
 end
 
@@ -382,26 +386,78 @@ local ForceEquipSet = function(set)
     gEquip.EquipSet(newTable, 'auto');
 end
 
+local InterimEquip = function(slot, item)
+    local equipSlot = gData.GetEquipSlot(slot);
+    if (equipSlot == 0) then
+        print(chat.header('LuAshitacast') .. chat.error("Invalid slot specified: ") .. chat.color1(2, slot));
+        return;
+    end
+
+    local table = gEquip.MakeItemTable(item);
+    if (table == nil) or (type(table.Name) ~= 'string') then
+        return;
+    end    
+    gEquip.EquipItemToBuffer(equipSlot, table, true);
+end
+
+local InterimEquipSet = function(set)
+    if (type(set) == 'string') then
+        if (gProfile == nil) then
+            print(chat.header('LuAshitacast') .. chat.error('You must have a profile loaded to use InterimEquipSet(string).'));
+            return;
+        end
+        
+        if (gProfile.Sets == nil) then
+            print(chat.header('LuAshitacast') .. chat.error('Your profile must have a sets table to use InterimEquipSet(string).'));
+            return;
+        end
+        
+        local setTable = StringToSet(set);
+        if (type(setTable) == 'table') then
+            for k, v in pairs(setTable) do
+                Equip(k, v);
+            end
+            return;
+        end
+        
+        print(chat.header('LuAshitacast') .. chat.error('Set not found: ' .. set));
+    elseif (type(set) == 'table') then
+        for k, v in pairs(set) do
+            InterimEquip(k, v);
+        end
+    end
+end
+
 local Message = function(text)
     print(chat.header('LuAshitacast') .. chat.message(text));
 end
 
 local LoadFile = function(path)
-    if not string.match(path, '.lua') then
-        path = path .. '.lua';
+    local paths = T{
+        path,
+        string.format('%s.lua', path),
+        string.format('%sconfig\\addons\\luashitacast\\%s_%u\\%s', AshitaCore:GetInstallPath(), gState.PlayerName, gState.PlayerId, path),
+        string.format('%sconfig\\addons\\luashitacast\\%s_%u\\%s.lua', AshitaCore:GetInstallPath(), gState.PlayerName, gState.PlayerId, path),
+        string.format('%sconfig\\addons\\luashitacast\\%s', AshitaCore:GetInstallPath(), path),
+        string.format('%sconfig\\addons\\luashitacast\\%s.lua', AshitaCore:GetInstallPath(), path),
+    };
+    for token in string.gmatch(package.path, "[^;]+") do
+        paths:append(string.gsub(token, '?', path));
     end
-    local filePath = path;
-    if (not ashita.fs.exists(filePath)) then
-        filePath = ('%sconfig\\addons\\luashitacast\\%s_%u\\%s'):fmt(AshitaCore:GetInstallPath(), gState.PlayerName, gState.PlayerId, path);
-        if (not ashita.fs.exists(filePath)) then
-            filePath = ('%sconfig\\addons\\luashitacast\\%s'):fmt(AshitaCore:GetInstallPath(), path);
-            if (not ashita.fs.exists(filePath)) then
-                print(chat.header('LuAshitacast') .. chat.error('File not found matching: ') .. chat.color1(2, path));
-                return nil;
-            end
+
+    local filePath;
+    for _,path in ipairs(paths) do
+        if (ashita.fs.exists(path)) then
+            filePath = path;
+            break;
         end
     end
-	
+
+    if (filePath == nil) then
+        print(chat.header('LuAshitacast') .. chat.error('File not found matching: ') .. chat.color1(2, path));
+        return nil;
+    end
+
     local func, loadError = loadfile(filePath);
     if (not func) then
         print (chat.header('LuAshitacast') .. chat.error('Failed to load file: ') .. chat.color1(2,filePath));
@@ -482,6 +538,10 @@ local LockStyle = function(set)
     gEquip.LockStyle(reducedSet);
 end
 
+local SetMidDelay = function(delay)
+    gState.DelayedEquip.Timer = os.clock() + delay;
+end
+
 local exports = {
     AddSet = AddSet,
     ApplyBaseSets = ApplyBaseSets,
@@ -499,10 +559,13 @@ local exports = {
     EvaluateLevels = EvaluateLevels,
     ForceEquip = ForceEquip,
     ForceEquipSet = ForceEquipSet,
+    InterimEquip = InterimEquip,
+    InterimEquipSet = InterimEquipSet,
     Message = Message,
     LoadFile = LoadFile,
     LockSet = LockSet,
-    LockStyle = LockStyle
+    LockStyle = LockStyle,
+    SetMidDelay = SetMidDelay,
 };
 
 return exports;

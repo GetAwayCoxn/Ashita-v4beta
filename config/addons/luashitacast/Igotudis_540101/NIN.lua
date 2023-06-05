@@ -1,18 +1,17 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
         Ammo = 'Yamarang',
-        Head = 'Mpaca\'s Cap',
+        Head = 'Malignance Chapeau',
         Neck = 'Warder\'s Charm +1',
         Ear1 = 'Eabani Earring',
         Ear2 = 'Infused Earring',
         Body = 'Malignance Tabard',
         Hands = 'Macabre Gaunt. +1',
         Ring1 = 'Defending Ring',
-        Ring2 = { Name = 'Gelatinous Ring +1', AugPath='A' },
+        Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Carrier\'s Sash',
         Legs = 'Mpaca\'s Hose',
@@ -132,15 +131,15 @@ local sets = {
         Legs = 'Nyame Flanchard',
         Feet = 'Hattori Kyahan +1',
     },
-    Nuke = {
+    Nuke = { -- I only nuke when bursting so ... yeah.
         Ammo = 'Ghastly Tathlum +1',
         Head = 'Mochi. Hatsuburi +3',
-        Neck = 'Baetyl Pendant',
+        Neck = 'Sibyl Scarf',
         Ear1 = 'Friomisi Earring',
         Ear2 = 'Crematio Earring',
         Body = 'Nyame Mail',
         Hands = 'Hattori Tekko +1',
-        Ring1 = 'Dingir Ring',
+        Ring1 = 'Mujin Band',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Magic Damage +20', [2] = 'Mag. Acc+20', [3] = '"Fast Cast"+10', [4] = 'INT+20' } },
         Waist = 'Eschan Stone',
@@ -172,18 +171,18 @@ local sets = {
     },
 
     Ws_Default = {
-        Ammo = 'Date Shuriken',
-        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
-        Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
-        Ear1 = 'Telos Earring',
+        Ammo = 'Coiste Bodhar',
+        Head = 'Mpaca\'s Cap',
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Lugra Earring +1',
         Ear2 = 'Digni. Earring',
-        Body = 'Hiza. Haramaki +2',
+        Body = 'Malignance Tabard',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Ring1 = 'Beithir Ring',
+        Ring1 = 'Gere Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
         Waist = 'Fotia Belt',
-        Legs = 'Hiza. Hizayoroi +2',
+        Legs = 'Mochi. Hakama +3',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Ws_Hybrid = {
@@ -197,8 +196,8 @@ local sets = {
         Ammo = 'Voluspa Tathlum',
         Head = 'Adhemar Bonnet +1',
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
-        Ear1 = 'Telos Earring',
-        Ear2 = 'Odr Earring',
+        Ear1 = 'Odr Earring',
+        Ear2 = 'Lugra Earring +1',
         Body = 'Mpaca\'s Doublet',
         Hands = 'Ryuo Tekko',
         Ring1 = 'Begrudging Ring',
@@ -212,38 +211,60 @@ local sets = {
     Hi_Acc = {},
 
     Metsu_Default = {
-        Ammo = 'Voluspa Tathlum',
+        Ammo = 'Coiste Bodhar',
         Head = 'Nyame Helm',
         Neck = { Name = 'Ninja Nodowa +1', AugPath='A' },
         Ear1 = 'Odr Earring',
-        Ear2 = 'Telos Earring',
+        Ear2 = 'Lugra Earring +1',
         Body = 'Nyame Mail',
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Gere Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
         Waist = { Name = 'Sailfi Belt +1', AugPath='A' },
-        Legs = 'Hiza. Hizayoroi +2',
+        Legs = 'Mochi. Hakama +3',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
     Metsu_Hybrid = {},
     Metsu_Acc = {},
 
     Shun_Default = {
-        Ammo = 'Date Shuriken',
-        Head = { Name = 'Adhemar Bonnet +1', AugPath='B' },
+        Ammo = 'Coiste Bodhar',
+        Head = 'Mpaca\'s Cap',
         Neck = 'Fotia Gorget',
-        Ear1 = 'Odr Earring',
-        Ear2 = 'Lugra Earring +1',
-        Body = 'Nyame Mail',
+        Ear1 = 'Lugra Earring +1',
+        Ear2 = 'Hattori Earring',
+        Body = 'Malignance Tabard',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
-        Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
+        Ring1 = 'Gere Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Damage taken-5%', [2] = '"Dbl.Atk."+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
-        Legs = 'Hiza. Hizayoroi +2',
+        Legs = 'Mpaca\'s Hose',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
     },
-    Shun_Hybrid = {},
+    Shun_Hybrid = {
+        Hands = 'Malignance Gloves',
+    },
     Shun_Acc = {},
+
+    Chi_Default = {
+        Ammo = 'Seeth. Bomblet +1',
+        Head = 'Mochi. Hatsuburi +3',
+        Neck = 'Fotia Gorget',
+        Ear1 = 'Moonshade Earring',
+        Ear2 = 'Lugra Earring +1',
+        Body = 'Nyame Mail',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Gere Ring',
+        Ring2 = 'Karieyh Ring +1',
+        Back = { Name = 'Andartia\'s Mantle', Augment = { [1] = 'Accuracy+20', [2] = 'Weapon skill damage +10%', [3] = 'AGI+20', [4] = 'Attack+20' } },
+        Waist = 'Fotia Belt',
+        Legs = 'Nyame Flanchard',
+        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+    },
+    Chi_Hybrid = {},
+    Chi_Acc = {},
 
     Enmity = {
         Ammo = 'Date Shuriken',
@@ -260,6 +281,21 @@ local sets = {
         Feet = 'Danzo Sune-Ate',
     },
 
+    Futae = {
+        Hands = 'Hattori Tekko +1',
+    },
+    Yonin = {
+        Legs = 'Hattori Hakama +1',
+    },
+    Innin = {
+        Head = 'Hattori Zukin +1',
+    },
+    Migawari = {
+        Body = 'Hattori Ningi +1',
+    },
+    Mijin = {
+        Legs = 'Mochi. Hakama +3',
+    },
     TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -311,19 +347,23 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
     gFunc.EquipSet(sets.Idle);
     local game = gData.GetEnvironment();
-	
 	local player = gData.GetPlayer();
+    local yonin = gData.GetBuffCount('Yonin')
+    local innin = gData.GetBuffCount('Innin')
+    local migawari = gData.GetBuffCount('Migawari')
     
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default);
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then 
 			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
+		if (yonin > 0) then gFunc.EquipSet(sets.Yonin)
+        elseif (innin > 0) then gFunc.EquipSet(sets.Innin) end
 		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
         if (gcdisplay.GetToggle('PROC') == true) then gFunc.EquipSet(sets.Tp_Proc) end
     elseif (player.Status == 'Resting') then
@@ -337,7 +377,8 @@ profile.HandleDefault = function()
     end
 	
     gcinclude.CheckDefault ();
-    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
+    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end
+    if (migawari > 0) then gFunc.EquipSet(sets.Migawari) end
     if (gcdisplay.GetToggle('Kite') == true) then
         if (game.Time < 6.00) or (game.Time > 18.00) then
 		    gFunc.EquipSet(sets.Movement_Night);
@@ -350,7 +391,8 @@ end
 profile.HandleAbility = function()
     local ability = gData.GetAction();
 
-    if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity) end
+    if string.match(ability.Name, 'Provoke') then gFunc.EquipSet(sets.Enmity)
+    elseif string.match(ability.Name, 'Mijin Gakure') then gFunc.EquipSet(sets.Mijin) end
 
     gcinclude.CheckCancels();
 end
@@ -363,24 +405,27 @@ end
 
 profile.HandlePrecast = function()
     local spell = gData.GetAction();
+    gcinclude.DoShadows(spell);
+    
     gFunc.EquipSet(sets.Precast);
-
     gcinclude.CheckCancels();
 end
 
 profile.HandleMidcast = function()
     local spell = gData.GetAction();
+    local futae = gData.GetBuffCount('Futae')
 
     if (spell.Skill == 'Ninjutsu') then
         if string.contains(spell.Name, 'Utsusemi') then
             gFunc.EquipSet(sets.Utsu);
         elseif (gcinclude.NinNukes:contains(spell.Name)) then
             gFunc.EquipSet(sets.Nuke);
+            if (futae > 0) then gFunc.EquipSet(sets.futae) end
         else
             gFunc.EquipSet(sets.Macc);
         end
     end
-
+    
     if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
 end
 
@@ -404,7 +449,7 @@ profile.HandleWeaponskill = function()
         gFunc.EquipSet(sets.Ws_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
         gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-
+        
 	    if string.match(ws.Name, 'Blade: Hi') then
             gFunc.EquipSet(sets.Hi_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
@@ -417,6 +462,10 @@ profile.HandleWeaponskill = function()
             gFunc.EquipSet(sets.Shun_Default)
             if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
             gFunc.EquipSet('Shun_' .. gcdisplay.GetCycle('MeleeSet')); end
+        elseif string.match(ws.Name, 'Blade: Chi') or string.match(ws.Name, 'Blade: Teki') or string.match(ws.Name, 'Blade: To') then
+            gFunc.EquipSet(sets.Chi_Default)
+            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+            gFunc.EquipSet('Chi_' .. gcdisplay.GetCycle('MeleeSet')); end
         end
     end
 end

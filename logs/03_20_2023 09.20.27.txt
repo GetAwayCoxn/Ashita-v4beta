@@ -1,0 +1,802 @@
+03/20/2023 09:20:27.851 | DEBUG    |                                      InstallAshita | Installing Ashita into the current process.
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::AshitaCore | .ctor
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize | <Begin>
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize | Starting initialization...
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Install Path : G:\Ashita-v4beta\
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize |  - Ashita Config Script: \boot\mybootsettings.ini
+03/20/2023 09:20:27.851 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\boot\mybootsettings.ini
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+03/20/2023 09:20:27.851 | DEBUG    |                             AshitaCore::Initialize | >> BOOT CONFIGURATION DUMP <<
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.launcher]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   autoclose : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   name : Example Configuration
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.boot]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   file : G:\PlayOnline\SquareEnix\PlayOnlineViewer\pol.exe
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   gamemodule : ffximain.dll
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   script : retail.txt
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   args : 
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.language]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   playonline : 2
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   ashita : 2
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.logging]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   level : 5
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   crashdumps : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.taskpool]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   threadcount : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.resources]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   offsets.use_overrides : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   pointers.use_overrides : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   resources.use_overrides : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.window.startpos]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   x : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   y : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.input]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   gamepad.allowbackground : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   gamepad.disableenumeration : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockinput : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   keyboard.blockbindsduringinput : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   keyboard.silentbinds : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   keyboard.windowskeyenabled : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   mouse.blockinput : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   mouse.unhook : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.misc]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   addons.silent : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   aliases.silent : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   plugins.silent : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ashita.polplugins]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   sandbox : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   pivot : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [sandbox.paths]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   common : C:\Program Files (x86)\Common Files
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   pol : G:\PlayOnline\SquareEnix\PlayOnlineViewer
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   ffxi : G:\PlayOnline\SquareEnix\Final Fantasy XI
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   tetra : G:\PlayOnline\SquareEnix\TetraMaster
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ffxi.direct3d8]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbufferformat : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.backbuffercount : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.multisampletype : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.swapeffect : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.enableautodepthstencil : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.autodepthstencilformat : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.flags : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_refreshrateinhz : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   presentparams.fullscreen_presentationinterval : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   behaviorflags.fpu_preserve : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | [ffxi.registry]
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0000 : 6
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0001 : 1920
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0002 : 1080
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0003 : 4096
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0004 : 4096
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0005 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0006 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0007 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0008 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0009 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0010 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0011 : 2
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0012 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0013 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0014 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0015 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0016 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0017 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0018 : 2
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0019 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0020 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0021 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0022 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0023 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0024 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0025 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0026 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0027 : -1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0028 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0029 : 20
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0030 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0031 : 1002740646
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0032 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0033 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0034 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0035 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0036 : 2
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0037 : 1920
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0038 : 1080
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0039 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0040 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0041 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0042 : C:\Program Files (x86)\SquareEnix\FINAL FANTASY XI
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0043 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0044 : 1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   0045 : 0
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   padmode000 : 1,0,0,0,1,1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize |   padsin000 : 10,8,16,11,13,0,1,3,2,15,-1,-1,-1,-33,-33,32,32,36,36,-35,-35,6,7,5,4,-1,-1
+03/20/2023 09:20:27.852 | DEBUG    |                             AshitaCore::Initialize | ----------------------------------------------------------------------------------------------------
+03/20/2023 09:20:27.852 | DEBUG    |                             Properties::Properties | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                           ChatManager::ChatManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                           FontManager::FontManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                             GuiManager::GuiManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                             Controller::Controller | null.ctor
+03/20/2023 09:20:27.852 | DEBUG    |                                     XInput::XInput | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                         InputManager::InputManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                       MemoryManager::MemoryManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                       OffsetManager::OffsetManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                       PacketManager::PacketManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                       PluginManager::PluginManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                 PolPluginManager::PolPluginManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                     PointerManager::PointerManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                 PrimitiveManager::PrimitiveManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                   ResourceManager::ResourceManager | .ctor
+03/20/2023 09:20:27.852 | DEBUG    |                             Properties::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                             Properties::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                           InputManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                           InputManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                          OffsetManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                          OffsetManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                         PointerManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                         PointerManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                          MemoryManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                             MemoryManager::Release | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                          MemoryManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                            ChatManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                            ChatManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                          PacketManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                          PacketManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                          PluginManager::Initialize | <Begin>
+03/20/2023 09:20:27.852 | DEBUG    |                          PluginManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:27.852 | DEBUG    |                       PolPluginManager::Initialize | <Begin>
+03/20/2023 09:20:27.885 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'Common': C:\Program Files (x86)\Common Files
+03/20/2023 09:20:27.885 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'PlayOnline': G:\PlayOnline\SquareEnix\PlayOnlineViewer
+03/20/2023 09:20:27.885 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'FinalFantasyXI': G:\PlayOnline\SquareEnix\Final Fantasy XI
+03/20/2023 09:20:27.885 | DEBUG    |                 Sandbox::SandboxPlugin::Initialize | Sandbox using the following path for 'TetraMaster': G:\PlayOnline\SquareEnix\TetraMaster
+03/20/2023 09:20:27.885 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: Sandbox - Version: 4.08 - By: atom0s
+03/20/2023 09:20:27.910 | INFO     |                                              pivot | Using config file: 'G:\Ashita-v4beta\config\pivot\pivot.ini'
+03/20/2023 09:20:27.912 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\pivot\pivot.ini
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | >> pivot settings <<
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | root_path G:\DATs
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | debug_log false
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | redirect_cfw false
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | overlays:
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | [00] XI-View-Icons
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | [01] XI-Vision-Maps
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | [02] HD-Texture-Pack
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | [03] HD-Music-Pack
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | cache: false
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | cache_size: 0
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | cache_max_age: 600
+03/20/2023 09:20:27.916 | DEBUG    |                                              pivot | 
+03/20/2023 09:20:27.916 | INFO     |                                              pivot | m_logDebug = Discard
+03/20/2023 09:20:27.916 | INFO     |                                              pivot | m_rootPath = 'G:\DATs'
+03/20/2023 09:20:27.916 | INFO     |                                              pivot | addOverlay: 'XI-View-Icons'
+03/20/2023 09:20:27.919 | INFO     |                                              pivot | => success
+03/20/2023 09:20:27.919 | INFO     |                                              pivot | addOverlay: 'XI-Vision-Maps'
+03/20/2023 09:20:27.922 | WARN     |                                              pivot | WARNING:       12: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/0/12.DAT'
+03/20/2023 09:20:27.922 | WARN     |                                              pivot | WARNING:   119051: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/51.DAT'
+03/20/2023 09:20:27.922 | WARN     |                                              pivot | WARNING:   119057: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/119/57.DAT'
+03/20/2023 09:20:27.939 | WARN     |                                              pivot | WARNING:    91015: ignoring 'G:\DATS/XI-VISION-MAPS//ROM/91/15.DAT'
+03/20/2023 09:20:27.953 | INFO     |                                              pivot | => success
+03/20/2023 09:20:27.953 | INFO     |                                              pivot | addOverlay: 'HD-Texture-Pack'
+03/20/2023 09:20:27.969 | INFO     |                                              pivot | => success
+03/20/2023 09:20:27.969 | INFO     |                                              pivot | addOverlay: 'HD-Music-Pack'
+03/20/2023 09:20:27.973 | INFO     |                                              pivot | => success
+03/20/2023 09:20:28.130 | INFO     |                                              pivot | m_hooksSet = true
+03/20/2023 09:20:28.130 | DEBUG    |                             PolPluginManager::Load | Loaded POL plugin: pivot - Version: 4.15 - By: Heals
+03/20/2023 09:20:28.130 | DEBUG    |                       PolPluginManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                             AshitaCore::Initialize | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <Begin>
+03/20/2023 09:20:28.130 | DEBUG    |                    Ashita::Hooks::DirectX::Install | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <Begin>
+03/20/2023 09:20:28.130 | DEBUG    |                      Ashita::Hooks::Mutex::Install | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                   Ashita::Hooks::Registry::Install | <Begin>
+03/20/2023 09:20:28.130 | DEBUG    |                   Ashita::Hooks::Registry::Install | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                     Ashita::Hooks::Window::Install | <Begin>
+03/20/2023 09:20:28.130 | DEBUG    |                     Ashita::Hooks::Window::Install | <End> [Status: Ok!]
+03/20/2023 09:20:28.130 | DEBUG    |                     Ashita::Hooks::XInput::Install | <Begin>
+03/20/2023 09:20:28.131 | DEBUG    |                     Ashita::Hooks::XInput::Install | <End> [Status: Ok!]
+03/20/2023 09:20:31.052 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline Mask window. [dwExStyle: 8][dwStyle: -2130706432][Pos: -1 x -1][Size: 2561 x 1441]
+03/20/2023 09:20:31.053 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: -2147483648 x -2147483648][Size: 662 x 524]
+03/20/2023 09:20:31.055 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+03/20/2023 09:20:34.968 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+03/20/2023 09:22:12.514 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExA | CreateWindowExA - Creating Final Fantasy XI window. [dwExStyle: 768][dwStyle: 13565952][Pos: -2147483648 x -2147483648][Size: 1940 x 1123]
+03/20/2023 09:22:12.651 | DEBUG    |       Ashita::Hooks::DirectX::Mine_Direct3DCreate8 | Direct3DCreate8 - Creating new Direct3D instance. [SDKVersion: 220]
+03/20/2023 09:22:12.773 | DEBUG    |                       newIDirect3D8::newIDirect3D8 | .ctor
+03/20/2023 09:22:12.773 | DEBUG    |                        newIDirect3D8::CreateDevice | Creating a new graphics device..
+03/20/2023 09:22:12.795 | DEBUG    |           newIDirect3DDevice8::newIDirect3DDevice8 | .ctor
+03/20/2023 09:22:12.795 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event invoked.
+03/20/2023 09:22:12.795 | DEBUG    |                           ResourceManager::Release | <Begin>
+03/20/2023 09:22:12.795 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+03/20/2023 09:22:12.795 | DEBUG    |                        ResourceManager::Initialize | <Begin>
+03/20/2023 09:22:12.795 | DEBUG    |                           ResourceManager::Release | <Begin>
+03/20/2023 09:22:12.795 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+03/20/2023 09:22:12.808 | DEBUG    |                        ResourceManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:12.808 | DEBUG    |                            ResourceManager::Update | <Begin>
+03/20/2023 09:22:12.811 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.datmap.ini
+03/20/2023 09:22:12.817 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+03/20/2023 09:22:12.821 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.datmap.ini
+03/20/2023 09:22:14.484 | DEBUG    |                            ResourceManager::Update | Resource parsing completed in: 1675.285100ms [Status: 1]
+03/20/2023 09:22:14.484 | DEBUG    |                            ResourceManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.484 | DEBUG    |                               InputManager::Update | <Begin>
+03/20/2023 09:22:14.484 | DEBUG    |                                       Mouse::Mouse | .ctor
+03/20/2023 09:22:14.484 | DEBUG    |                                  Mouse::Initialize | <Begin>
+03/20/2023 09:22:14.484 | DEBUG    |                                  Mouse::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:14.484 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+03/20/2023 09:22:14.484 | DEBUG    |                               InputManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.484 | DEBUG    |                              OffsetManager::Update | <Begin>
+03/20/2023 09:22:14.484 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.offsets.ini
+03/20/2023 09:22:14.503 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+03/20/2023 09:22:14.507 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.offsets.ini
+03/20/2023 09:22:14.507 | DEBUG    |                              OffsetManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.507 | DEBUG    |                             PointerManager::Update | <Begin>
+03/20/2023 09:22:14.507 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\ashita.pointers.ini
+03/20/2023 09:22:14.512 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+03/20/2023 09:22:14.515 | WARN     |                         ConfigurationManager::Load | Configuration file has invalid section names or no data: G:\Ashita-v4beta\\config\\ashita\custom.pointers.ini
+03/20/2023 09:22:14.517 | DEBUG    |                             PointerManager::Update | Pointer: (0D9BE77C) [Ok!] autofollow
+03/20/2023 09:22:14.517 | DEBUG    |                             PointerManager::Update | Pointer: (0DA1A815) [Ok!] castbar
+03/20/2023 09:22:14.517 | DEBUG    |                             PointerManager::Update | Pointer: (0DAC6390) [Ok!] chat.addchatmessage
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DB559E0) [Ok!] chat.inputtext.this
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0D9B1682) [Ok!] chat.logfile
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DB58BF0) [Ok!] chat.parseautotranslate
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA793D5) [Ok!] chat.parseautotranslate.this
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA200F0) [Ok!] chat.parseinputtext
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA20112) [Ok!] chat.parseinputtext.this
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA1751C) [Ok!] clientversion
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (03E36533) [Ok!] config.autodisconnect
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DB56CF2) [Ok!] config.languagefilter
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0D9A3840) [Ok!] entitymap
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA34CCB) [Ok!] entitymap.size
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA8A1A6) [Ok!] inventory
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DAB7325) [Ok!] inventory.selecteditem
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DAFD332) [Ok!] menu
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA7C470) [Ok!] packets.decryptbuffer
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA7C340) [Ok!] packets.encryptbuffer
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA9AFF0) [Ok!] packets.queuepacket1
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA7CAD0) [Ok!] packets.queuepacket2
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DB9E99B) [Ok!] party
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA3828F) [Ok!] party.statusicons
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DAE561A) [Ok!] player
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA84C90) [Ok!] player.hasability
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA371A4) [Ok!] player.haskeyitem
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA8ECC0) [Ok!] player.hasspell
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA8FBD0) [Ok!] player.joblevels
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA8FC10) [Ok!] player.jobmasterlevels
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA2DBDA) [Ok!] player.loginstatus
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA2693F) [Ok!] player.petmp
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA3C23D) [Ok!] player.pettp
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DBC0074) [Ok!] recast.abilities
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DBC6B92) [Ok!] recast.spells
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA19947) [Ok!] target.settarget
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer: (0DA27F43) [Ok!] target.target
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | Pointer scan completed in: 18.731000ms
+03/20/2023 09:22:14.525 | DEBUG    |                             PointerManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.525 | DEBUG    |                            FontManager::Initialize | <Begin>
+03/20/2023 09:22:14.525 | DEBUG    |                            FontManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:14.525 | DEBUG    |                       PrimitiveManager::Initialize | <Begin>
+03/20/2023 09:22:14.525 | DEBUG    |                       PrimitiveManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:14.525 | DEBUG    |                             GuiManager::Initialize | <Begin>
+03/20/2023 09:22:14.531 | DEBUG    |                             GuiManager::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:14.531 | DEBUG    |                              MemoryManager::Update | <Begin>
+03/20/2023 09:22:14.531 | DEBUG    |                              MemoryManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.531 | DEBUG    |                                ChatManager::Update | <Begin>
+03/20/2023 09:22:14.531 | DEBUG    |                                ChatManager::Update | Hooking game function: AddChatMessage
+03/20/2023 09:22:14.531 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseAutoTranslate
+03/20/2023 09:22:14.531 | DEBUG    |                                ChatManager::Update | Hooking game function: ParseInputText
+03/20/2023 09:22:14.531 | DEBUG    |                                ChatManager::Update | Detour transaction result: 0 [Success]
+03/20/2023 09:22:14.531 | DEBUG    |                   CommandTaskPool::CommandTaskPool | .ctor
+03/20/2023 09:22:14.531 | DEBUG    |                        CommandTaskPool::Initialize | <Begin>
+03/20/2023 09:22:14.531 | DEBUG    |                     CommandTaskPool::CreateThreads | Creating task pool; thread count: 24
+03/20/2023 09:22:14.532 | DEBUG    |                        CommandTaskPool::Initialize | <End> [Status: Ok!]
+03/20/2023 09:22:14.532 | DEBUG    |                                ChatManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.532 | DEBUG    |                              PacketManager::Update | <Begin>
+03/20/2023 09:22:14.532 | DEBUG    |                              PacketManager::Update | Hooking game function: DecryptBuffer
+03/20/2023 09:22:14.532 | DEBUG    |                              PacketManager::Update | Hooking game function: EncryptBuffer
+03/20/2023 09:22:14.532 | DEBUG    |                              PacketManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.532 | DEBUG    |                              PluginManager::Update | <Begin>
+03/20/2023 09:22:14.532 | DEBUG    |                              PluginManager::Update | <End> [Status: Ok!]
+03/20/2023 09:22:14.532 | DEBUG    |                             AshitaCore::GameLoaded | GameLoaded event finished.
+03/20/2023 09:22:14.635 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]
+03/20/2023 09:22:14.636 | DEBUG    |               newIDirectInput8A::newIDirectInput8A | .ctor
+03/20/2023 09:22:14.636 | DEBUG    |                    newIDirectInput8A::CreateDevice | Creating input device: {6F1D2B61,D5A0,11CF,BF,C7,44,45,53,54,00,00}
+03/20/2023 09:22:14.636 | DEBUG    |   newIDirectInputDevice8A::newIDirectInputDevice8A | .ctor
+03/20/2023 09:22:14.636 | DEBUG    |                                 Keyboard::Keyboard | .ctor
+03/20/2023 09:22:14.636 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+03/20/2023 09:22:14.643 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/addons.dll'
+03/20/2023 09:22:14.707 | DEBUG    |                                PluginManager::Load | Loaded plugin: Addons - Version: 2.10 - By: Ashita Development Team
+03/20/2023 09:22:14.707 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/screenshot.dll'
+03/20/2023 09:22:14.739 | DEBUG    |                                PluginManager::Load | Loaded plugin: Screenshot - Version: 1.00 - By: Ashita Development Team
+03/20/2023 09:22:14.739 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/bellhop.dll'
+03/20/2023 09:22:15.201 | DEBUG    |                                PluginManager::Load | Loaded plugin: Bellhop - Version: 1.19 - By: Thorny
+03/20/2023 09:22:15.201 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/crossbar.dll'
+03/20/2023 09:22:15.241 | DEBUG    |                                PluginManager::Load | Loaded plugin: Crossbar - Version: 1.25 - By: Thorny
+03/20/2023 09:22:15.241 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/findall.dll'
+03/20/2023 09:22:15.303 | DEBUG    |                                PluginManager::Load | Loaded plugin: FindAll - Version: 1.15 - By: Thorny
+03/20/2023 09:22:15.304 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/hardwaremouse.dll'
+03/20/2023 09:22:15.318 | DEBUG    |                                PluginManager::Load | Loaded plugin: HardwareMouse - Version: 1.00 - By: Ashita Development Team
+03/20/2023 09:22:15.318 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/lootwhore.dll'
+03/20/2023 09:22:15.351 | DEBUG    |                                PluginManager::Load | Loaded plugin: Lootwhore - Version: 1.18 - By: Thorny
+03/20/2023 09:22:15.351 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/minimap.dll'
+03/20/2023 09:22:15.393 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\minimap.ini
+03/20/2023 09:22:15.398 | DEBUG    |                         ConfigurationManager::Load | Loading configuration file: G:\Ashita-v4beta\\config\\minimap\themes\circle\theme.ini
+03/20/2023 09:22:15.424 | DEBUG    |                                PluginManager::Load | Loaded plugin: Minimap - Version: 1.04 - By: atom0s
+03/20/2023 09:22:15.425 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/shorthand.dll'
+03/20/2023 09:22:15.462 | DEBUG    |                                PluginManager::Load | Loaded plugin: Shorthand - Version: 1.10 - By: Thorny
+03/20/2023 09:22:15.462 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/stylist.dll'
+03/20/2023 09:22:15.523 | DEBUG    |                                PluginManager::Load | Loaded plugin: Stylist - Version: 1.15 - By: Thorny
+03/20/2023 09:22:15.523 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/uberwarp.dll'
+03/20/2023 09:22:16.775 | DEBUG    |                                PluginManager::Load | Loaded plugin: Uberwarp - Version: 2.07 - By: Thorny
+03/20/2023 09:22:16.775 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packer.dll'
+03/20/2023 09:22:16.856 | DEBUG    |                                PluginManager::Load | Loaded plugin: Packer - Version: 1.14 - By: Thorny
+03/20/2023 09:22:16.856 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/packetflow.dll'
+03/20/2023 09:22:16.875 | DEBUG    |                                PluginManager::Load | Loaded plugin: PacketFlow - Version: 1.00 - By: Thorny (Concept by Byrth)
+03/20/2023 09:22:16.875 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/vnm.dll'
+03/20/2023 09:22:16.895 | ERROR    |                                PluginManager::Load | Failed to load plugin 'vnm'; plugin is compiled with a different interface version than expected. (Plugin: 4.14)(Expected: 4.15)
+03/20/2023 09:22:16.895 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/weatherreporter.dll'
+03/20/2023 09:22:16.919 | DEBUG    |                                PluginManager::Load | Loaded plugin: WeatherReporter - Version: 1.00 - By: zach2good
+03/20/2023 09:22:19.250 | DEBUG    |                                PointerManager::Get | Failed to locate pointer for given name: statustimers:realutcstamp
+03/20/2023 09:22:19.251 | DEBUG    |                                PointerManager::Add | Pointer: (0DA7AE12) [Ok!] statustimers:realutcstamp
+03/20/2023 09:22:50.146 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+03/20/2023 09:22:53.581 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679318573
+03/20/2023 09:42:26.692 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679319746
+03/20/2023 09:43:28.440 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,3,1679319808
+03/20/2023 09:44:29.772 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+03/20/2023 09:44:59.776 | INFO     |                                            Bellhop | Storing 7 matching items.
+03/20/2023 09:45:25.236 | INFO     |                                            Bellhop | Storing 8 matching items.
+03/20/2023 09:45:29.780 | INFO     |                                            Bellhop | Storing 2 matching items.
+03/20/2023 09:45:36.971 | INFO     |                                            Bellhop | Storing a moogle storage slip 02 in satchel.
+03/20/2023 09:45:48.775 | INFO     |                                            Bellhop | Storing a moogle storage slip 03 in satchel.
+03/20/2023 09:51:23.637 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 53,2,1679320283
+03/20/2023 09:54:17.770 | INFO     |                                            Bellhop | Entered shop.  [Poporoon]
+03/20/2023 09:54:27.593 | INFO     |                                            Bellhop | Left shop.  [Poporoon]
+03/20/2023 10:07:16.352 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,1,1679321236
+03/20/2023 10:15:25.700 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,1,1679321725
+03/20/2023 10:15:40.117 | ERROR    |                                            FindAll | Could not find any items matching the term: linos*.
+03/20/2023 10:15:55.790 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 263,3,1679321755
+03/20/2023 10:16:50.404 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679321810
+03/20/2023 10:17:06.095 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,1,1679321826
+03/20/2023 10:20:49.809 | INFO     |                                            Bellhop | Traded 0 matching items to Divainy-Gamainy.
+03/20/2023 10:20:59.008 | INFO     |                                            Bellhop | Traded 0 matching items to Divainy-Gamainy.
+03/20/2023 10:21:06.809 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Linos, Snowslit Stone +2.
+03/20/2023 10:21:21.866 | ERROR    |                                            Bellhop | Only found 0/2 items matching the term Stone.
+03/20/2023 10:22:12.841 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:22:22.194 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:22:28.957 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:22:36.874 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:23:32.570 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:23:38.394 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:23:43.486 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:23:47.709 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:23:52.584 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:04.753 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:09.052 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:13.069 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:20.795 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:24.853 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:30.707 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:34.977 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:39.969 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:44.144 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:48.122 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:55.362 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:24:59.315 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:03.663 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:08.207 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:15.104 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:20.214 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:26.921 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:31.171 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:34.982 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:25:38.775 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Snowslit Stone +2.
+03/20/2023 10:26:28.969 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:26:33.905 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:26:38.615 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:26:42.622 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:26:50.780 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:26:56.831 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:27:00.886 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:27:05.415 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:27:10.081 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Leafslit Stone +2.
+03/20/2023 10:27:13.396 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:27:48.990 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:27:59.373 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:02.818 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:06.415 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:11.094 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:15.259 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:19.712 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:23.593 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:29.802 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:34.317 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:38.064 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:28:41.503 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:32.848 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:36.523 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:39.743 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:42.948 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:46.874 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:49.998 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:29:53.343 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:19.443 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Darkslit Stone +2.
+03/20/2023 10:30:33.894 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:42.131 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:46.402 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:52.071 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:56.073 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:30:59.622 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:06.602 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:12.893 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:19.566 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,3,1679322679
+03/20/2023 10:31:21.395 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:24.923 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:29.987 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:33.709 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:37.111 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:40.213 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:43.730 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:31:56.701 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:32:00.297 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:32:03.928 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:32:07.538 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:32:10.860 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:33:43.118 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:33:48.638 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:33:51.925 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:33:52.615 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,1,1679322832
+03/20/2023 10:33:55.151 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:33:58.685 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:34:02.265 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Leaftip Stone +2.
+03/20/2023 10:34:17.944 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:34:53.668 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:34:57.946 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:02.547 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:05.557 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:08.779 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:12.325 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:15.455 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:18.747 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:22.142 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:25.167 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:28.290 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:31.958 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:36.411 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:39.883 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:44.403 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:47.614 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:50.846 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:35:55.563 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:01.141 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:24.861 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:28.405 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:32.156 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:35.457 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:38.620 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:41.685 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:45.485 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:49.211 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:52.340 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:55.672 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:36:59.438 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:19.759 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:23.869 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:27.541 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:31.232 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:34.350 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:37.705 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:41.157 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:44.442 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:47.579 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:50.985 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:54.138 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:38:57.618 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:00.768 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:04.903 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:08.672 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:12.023 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:15.920 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:19.431 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:23.309 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:26.771 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:31.087 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:34.678 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:37.571 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:40.664 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:43.831 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:47.468 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:50.710 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:53.869 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:39:57.073 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:00.289 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:03.397 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Duskslit Stone +1.
+03/20/2023 10:40:33.905 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:37.776 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:41.244 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:44.616 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:48.479 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:51.553 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:54.331 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:40:57.267 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:00.147 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:03.363 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:06.414 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:09.622 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:12.873 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:16.894 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:19.765 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:22.909 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:25.615 | INFO     |                                            Bellhop | Traded 2 matching items to Divainy-Gamainy.
+03/20/2023 10:41:29.008 | ERROR    |                                            Bellhop | Only found 0/1 items matching the term Duskslit Stone +2.
+03/20/2023 10:45:23.401 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,2,1679323523
+03/20/2023 10:49:31.591 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 256,0,1679323771
+03/20/2023 10:52:53.673 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679323973
+03/20/2023 10:55:11.398 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679324111
+03/20/2023 10:58:52.403 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679324332
+03/20/2023 11:19:52.539 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679325592
+03/20/2023 11:29:28.516 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679326168
+03/20/2023 11:33:02.567 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679326382
+03/20/2023 11:35:28.544 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679326528
+03/20/2023 11:43:31.596 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679327011
+03/20/2023 11:46:07.590 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679327167
+03/20/2023 11:49:44.063 | ERROR    |                                            FindAll | Could not find any items matching the term: chant*.
+03/20/2023 11:49:49.516 | ERROR    |                                            FindAll | Could not find any items matching the term: chat*.
+03/20/2023 11:50:39.273 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679327439
+03/20/2023 11:52:14.866 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+03/20/2023 11:52:17.530 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679327537
+03/20/2023 11:53:58.550 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+03/20/2023 11:54:01.122 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1679327641
+03/20/2023 11:55:28.894 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+03/20/2023 11:55:31.936 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679327731
+03/20/2023 12:11:23.576 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679328683
+03/20/2023 12:23:07.456 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679329387
+03/20/2023 12:33:09.478 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679329989
+03/20/2023 12:44:40.287 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679330680
+03/20/2023 13:14:04.557 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679332444
+03/20/2023 13:22:28.468 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679332948
+03/20/2023 13:36:40.638 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679333800
+03/20/2023 14:26:26.343 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679336786
+03/20/2023 14:35:45.474 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679337345
+03/20/2023 14:43:09.435 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679337789
+03/20/2023 14:51:11.228 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679338271
+03/20/2023 15:02:40.583 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1679338960
+03/20/2023 15:11:40.247 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679339500
+03/20/2023 15:20:09.214 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679340009
+03/20/2023 15:27:40.534 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679340460
+03/20/2023 15:35:33.313 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679340933
+03/20/2023 15:55:04.142 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1679342104
+03/20/2023 16:04:38.241 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679342678
+03/20/2023 16:11:11.149 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679343071
+03/20/2023 16:23:52.122 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679343832
+03/20/2023 16:30:45.398 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679344245
+03/20/2023 16:38:38.489 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679344718
+03/20/2023 16:49:19.144 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1679345359
+03/20/2023 16:57:26.244 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679345846
+03/20/2023 17:20:35.317 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679347235
+03/20/2023 17:37:55.348 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1679348275
+03/20/2023 17:44:07.035 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679348647
+03/20/2023 18:16:57.021 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679350617
+03/20/2023 18:23:50.058 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,2,1679351030
+03/20/2023 18:36:21.357 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,1,1679351781
+03/20/2023 18:46:14.356 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,3,1679352374
+03/20/2023 18:49:34.701 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+03/20/2023 18:49:37.511 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1679352577
+03/20/2023 18:50:28.263 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+03/20/2023 18:50:30.695 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679352630
+03/20/2023 18:52:11.013 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679352731
+03/20/2023 18:52:54.106 | ERROR    |                                            Bellhop | No matching items found.  Term: skeleton*
+03/20/2023 18:53:20.823 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 236,3,1679352800
+03/20/2023 18:53:48.096 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+03/20/2023 18:53:49.968 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 236,0,1679352829
+03/20/2023 18:53:58.561 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+03/20/2023 18:54:00.756 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+03/20/2023 18:54:03.994 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+03/20/2023 18:54:18.341 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679352858
+03/20/2023 18:54:40.122 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1679352880
+03/20/2023 19:24:08.664 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679354648
+03/20/2023 19:25:43.040 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679354743
+03/20/2023 19:28:05.209 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+03/20/2023 19:28:08.149 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679354888
+03/20/2023 19:31:49.616 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679355109
+03/20/2023 19:36:29.021 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 243,0,1679355389
+03/20/2023 19:36:44.588 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679355404
+03/20/2023 19:37:12.525 | INFO     |                                            Bellhop | Entered shop.  [???]
+03/20/2023 19:38:19.317 | INFO     |                                            Bellhop | Left shop.  [???]
+03/20/2023 19:38:37.110 | INFO     |                                            Bellhop | Entered shop.  [Shiny Teeth]
+03/20/2023 19:38:40.809 | ERROR    |                                            Bellhop | No matching items found.  Term: TYPE:trash
+03/20/2023 19:38:42.381 | INFO     |                                            Bellhop | Left shop.  [Shiny Teeth]
+03/20/2023 19:46:26.052 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679355986
+03/20/2023 19:57:14.162 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679356634
+03/20/2023 20:02:40.191 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,4,1679356960
+03/20/2023 20:05:47.085 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,5,1679357147
+03/20/2023 20:09:02.205 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679357342
+03/20/2023 20:15:09.486 | INFO     |                                            Bellhop | Retrieving a moogle storage slip 21 from satchel.
+03/20/2023 20:15:11.446 | INFO     |                                            Bellhop | Retrieving a moogle storage slip 29 from satchel.
+03/20/2023 20:18:09.102 | INFO     |                                            Bellhop | Storing 2 matching items.
+03/20/2023 20:57:03.892 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,4,1679360223
+03/20/2023 21:00:37.950 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,5,1679360437
+03/20/2023 21:00:38.278 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,5,1679360438
+03/20/2023 21:07:33.203 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679360853
+03/20/2023 21:14:37.916 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679361277
+03/20/2023 21:30:36.985 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+03/20/2023 21:30:39.505 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679362239
+03/20/2023 21:31:26.358 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679362286
+03/20/2023 21:49:10.837 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679363350
+03/20/2023 22:00:06.906 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679364006
+03/20/2023 22:10:52.070 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679364652
+03/20/2023 22:27:59.037 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679365679
+03/20/2023 22:54:39.830 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679367279
+03/20/2023 22:57:30.819 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679367450
+03/20/2023 23:21:13.961 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679368873
+03/20/2023 23:29:27.876 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679369367
+03/20/2023 23:36:15.745 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679369775
+03/20/2023 23:54:27.897 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679370867
+03/21/2023 00:00:21.134 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679371221
+03/21/2023 00:14:23.002 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679372063
+03/21/2023 00:25:20.846 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679372720
+03/21/2023 00:34:13.940 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679373253
+03/21/2023 00:45:10.769 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679373910
+03/21/2023 00:50:57.062 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679374257
+03/21/2023 01:09:54.635 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679375394
+03/21/2023 01:19:10.855 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679375950
+03/21/2023 01:25:25.677 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679376325
+03/21/2023 01:37:06.967 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679377026
+03/21/2023 01:42:58.702 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679377378
+03/21/2023 01:56:56.675 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679378216
+03/21/2023 02:15:58.943 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679379358
+03/21/2023 02:28:42.859 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679380122
+03/21/2023 02:42:49.986 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679380969
+03/21/2023 02:53:25.636 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679381605
+03/21/2023 03:05:56.670 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679382356
+03/21/2023 03:13:42.813 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679382822
+03/21/2023 03:25:56.785 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679383556
+03/21/2023 03:37:01.621 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679384221
+03/21/2023 03:46:20.556 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679384780
+03/21/2023 03:55:51.926 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679385351
+03/21/2023 04:08:44.670 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679386124
+03/21/2023 04:19:20.717 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679386760
+03/21/2023 04:37:06.649 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679387826
+03/21/2023 04:46:13.608 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679388373
+03/21/2023 04:59:54.840 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679389194
+03/21/2023 05:16:37.525 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679390197
+03/21/2023 05:24:13.578 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679390653
+03/21/2023 05:27:30.533 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679390850
+03/21/2023 05:40:13.459 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679391613
+03/21/2023 05:47:42.634 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679392062
+03/21/2023 05:53:08.554 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679392388
+03/21/2023 06:04:42.419 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679393082
+03/21/2023 06:29:56.449 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679394596
+03/21/2023 06:42:39.538 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679395359
+03/21/2023 06:45:18.440 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679395518
+03/21/2023 07:08:34.396 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679396914
+03/21/2023 07:21:49.528 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679397709
+03/21/2023 07:30:58.652 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,6,1679398258
+03/21/2023 07:36:39.435 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679398599
+03/21/2023 07:50:06.447 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679399406
+03/21/2023 07:55:10.556 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,2,1679399710
+03/21/2023 08:02:42.467 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679400162
+03/21/2023 08:13:32.726 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,3,1679400812
+03/21/2023 08:27:27.363 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,0,1679401647
+03/21/2023 08:40:56.309 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679402456
+03/21/2023 08:53:12.694 | ERROR    |                                            FindAll | Could not find any items matching the term: yets*.
+03/21/2023 08:54:24.546 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+03/21/2023 08:54:27.331 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,1,1679403267
+03/21/2023 08:55:08.462 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+03/21/2023 08:55:11.402 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679403311
+03/21/2023 08:59:01.338 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679403541
+03/21/2023 09:02:50.332 | ERROR    |                                            Bellhop | No matching items found.  Term: storage*
+03/21/2023 09:03:20.334 | INFO     |                                            Bellhop | Storing 6 matching items.
+03/21/2023 09:03:50.341 | INFO     |                                            Bellhop | Storing 8 matching items.
+03/21/2023 09:05:19.560 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 231,3,1679403919
+03/21/2023 09:06:12.399 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1679403972
+03/21/2023 09:09:24.784 | DEBUG    |                                PluginManager::Load | Calling LoadLibraryA on: 'G:\Ashita-v4beta\/plugins/thirdparty.dll'
+03/21/2023 09:09:24.840 | DEBUG    |                                PluginManager::Load | Loaded plugin: Thirdparty - Version: 1.00 - By: Ashita Development Team
+03/21/2023 09:34:25.283 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1679405665
+03/21/2023 10:12:15.213 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1679407935
+03/21/2023 10:18:44.441 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1679408324
+03/21/2023 10:36:56.218 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1679409416
+03/21/2023 10:45:30.346 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,2,1679409930
+03/21/2023 10:51:20.499 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1679410280
+03/21/2023 10:58:15.332 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1679410695
+03/21/2023 11:03:51.179 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1679411031
+03/21/2023 11:34:39.312 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,0,1679412879
+03/21/2023 12:03:06.169 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,3,1679414586
+03/21/2023 12:29:32.131 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 190,1,1679416172
+03/21/2023 12:34:05.352 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Thirdparty
+03/21/2023 12:34:08.835 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,10,1679416448
+03/21/2023 12:34:25.199 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1679416465
+03/21/2023 12:35:07.547 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1679416507
+03/21/2023 12:35:48.415 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Wigmasterflex]
+03/21/2023 12:35:51.334 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,1,1679416551
+03/21/2023 12:36:01.283 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,2,1679416561
+03/21/2023 12:36:48.890 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+03/21/2023 12:36:51.542 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 249,1,1679416611
+03/21/2023 12:38:07.655 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679416687
+03/21/2023 12:38:35.668 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 236,1,1679416715
+03/21/2023 12:38:51.724 | INFO     |                                            Bellhop | Entered shop.  [Curio Vendor Moogle]
+03/21/2023 12:39:02.625 | INFO     |                                            Bellhop | Left shop.  [Curio Vendor Moogle]
+03/21/2023 12:39:18.266 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679416758
+03/21/2023 12:41:13.770 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 298,19,1679416873
+03/21/2023 13:11:15.985 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679418675
+03/21/2023 13:11:41.711 | INFO     |                                            Bellhop | Entered shop.  [Shiny Teeth]
+03/21/2023 13:11:43.319 | INFO     |                                            Bellhop | Selling 5 matching items to Shiny Teeth.
+03/21/2023 13:11:47.562 | INFO     |                                            Bellhop | Left shop.  [Shiny Teeth]
+03/21/2023 13:13:32.258 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679418812
+03/21/2023 13:14:20.639 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Igotudis]
+03/21/2023 13:14:23.684 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1679418863
+03/21/2023 13:14:53.018 | INFO     |                                            Bellhop | Storing 3 grape daifuku in case.
+03/21/2023 13:15:07.172 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 246,0,1679418907
+03/21/2023 13:15:27.208 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,3,1679418927
+03/21/2023 13:16:10.296 | INFO     |                                            Bellhop | Traded 2 matching items to Rolandienne.
+03/21/2023 13:17:03.797 | INFO     |                                            Bellhop | Entered shop.  [Corua]
+03/21/2023 13:17:05.639 | INFO     |                                            Bellhop | Selling 7 matching items to Corua.
+03/21/2023 13:17:07.992 | INFO     |                                            Bellhop | Left shop.  [Corua]
+03/21/2023 13:17:22.161 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 230,0,1679419042
+03/21/2023 13:17:27.358 | INFO     |                                            Bellhop | Retrieving 24 bat fangs from case.
+03/21/2023 13:18:40.838 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,0,1679419120
+03/21/2023 13:19:01.292 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 245,1,1679419141
+03/21/2023 13:19:56.486 | DEBUG    |                    PacketManager::PatchLogFilePath | Patched log file path! [Path: TEMP/Beane]
+03/21/2023 13:19:59.140 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679419199
+03/21/2023 13:36:58.139 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679420218
+03/21/2023 13:53:39.013 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679421219
+03/21/2023 14:00:20.065 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679421620
+03/21/2023 14:26:34.154 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,1,1679423194
+03/21/2023 14:55:51.157 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,0,1679424951
+03/21/2023 15:01:38.957 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,9,1679425298
+03/21/2023 15:47:44.103 | INFO     |                                    WeatherReporter | http://35.209.198.215/weather :: 247,8,1679428064
+03/21/2023 16:00:56.834 | DEBUG    |                                Keyboard::~Keyboard | .dtor
+03/21/2023 16:00:56.834 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+03/21/2023 16:00:56.834 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+03/21/2023 16:00:56.834 | DEBUG    |                          InputManager::SetKeyboard | Setting new keyboard instance..
+03/21/2023 16:00:56.834 | DEBUG    |                             InputManager::SetMouse | Setting new mouse instance..
+03/21/2023 16:00:56.834 | DEBUG    |                                      Mouse::~Mouse | .dtor
+03/21/2023 16:00:56.834 | DEBUG    |              newIDirectInput8A::~newIDirectInput8A | .dtor
+03/21/2023 16:00:57.197 | DEBUG    |          newIDirect3DDevice8::~newIDirect3DDevice8 | .dtor
+03/21/2023 16:00:57.197 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event invoked.
+03/21/2023 16:00:57.197 | DEBUG    |                               ChatManager::Release | <Begin>
+03/21/2023 16:00:57.197 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+03/21/2023 16:00:57.200 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+03/21/2023 16:00:57.200 | DEBUG    |                  CommandTaskPool::~CommandTaskPool | .dtor
+03/21/2023 16:00:57.200 | DEBUG    |                           CommandTaskPool::Release | <Begin>
+03/21/2023 16:00:57.200 | DEBUG    |                           CommandTaskPool::Release | <End> [Status: Ok!]
+03/21/2023 16:00:57.200 | DEBUG    |                               ChatManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:57.200 | DEBUG    |                             PluginManager::Release | <Begin>
+03/21/2023 16:00:57.200 | DEBUG    |                           PluginManager::UnloadAll | Unloading all plugins.
+03/21/2023 16:00:57.201 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Shorthand
+03/21/2023 16:00:58.007 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Addons
+03/21/2023 16:00:58.007 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Screenshot
+03/21/2023 16:00:58.008 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Bellhop
+03/21/2023 16:00:58.013 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Crossbar
+03/21/2023 16:00:58.014 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: FindAll
+03/21/2023 16:00:58.014 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: HardwareMouse
+03/21/2023 16:00:58.015 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Lootwhore
+03/21/2023 16:00:58.016 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Minimap
+03/21/2023 16:00:58.017 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Stylist
+03/21/2023 16:00:58.067 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Uberwarp
+03/21/2023 16:00:58.069 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: Packer
+03/21/2023 16:00:58.069 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: PacketFlow
+03/21/2023 16:00:58.181 | DEBUG    |                      PluginManager::ProcessPlugins | Unloaded plugin: WeatherReporter
+03/21/2023 16:00:58.181 | DEBUG    |                             PluginManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.181 | DEBUG    |                             MemoryManager::Release | <Begin>
+03/21/2023 16:00:58.181 | DEBUG    |                             MemoryManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.181 | DEBUG    |                             PacketManager::Release | <Begin>
+03/21/2023 16:00:58.181 | DEBUG    |                             PacketManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.181 | DEBUG    |                          PrimitiveManager::Release | <Begin>
+03/21/2023 16:00:58.181 | DEBUG    |                          PrimitiveManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.181 | DEBUG    |                               FontManager::Release | <Begin>
+03/21/2023 16:00:58.181 | DEBUG    |                               FontManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.181 | DEBUG    |                                GuiManager::Release | <Begin>
+03/21/2023 16:00:58.199 | DEBUG    |                                GuiManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.199 | DEBUG    |                              InputManager::Release | <Begin>
+03/21/2023 16:00:58.199 | DEBUG    |                            Controller::~Controller | .dtor
+03/21/2023 16:00:58.199 | DEBUG    |                        InputManager::SetController | Setting new controller instance..
+03/21/2023 16:00:58.199 | DEBUG    |                            Controller::~Controller | <End> [Status: Ok!]
+03/21/2023 16:00:58.199 | DEBUG    |  newIDirectInputDevice8A::~newIDirectInputDevice8A | .dtor
+03/21/2023 16:00:58.199 | DEBUG    |                                    XInput::~XInput | .dtor
+03/21/2023 16:00:58.199 | DEBUG    |                              InputManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.199 | DEBUG    |                            PointerManager::Release | <Begin>
+03/21/2023 16:00:58.199 | DEBUG    |                            PointerManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.199 | DEBUG    |                           ResourceManager::Release | <Begin>
+03/21/2023 16:00:58.358 | DEBUG    |                           ResourceManager::Release | <End> [Status: Ok!]
+03/21/2023 16:00:58.358 | DEBUG    |                           AshitaCore::GameUnloaded | GameUnloaded event finished.
+03/21/2023 16:00:58.358 | DEBUG    |                      newIDirect3D8::~newIDirect3D8 | .dtor
+03/21/2023 16:00:59.364 | DEBUG    |        Ashita::Hooks::Window::Mine_CreateWindowExW | CreateWindowExW - Creating PlayOnline window. [dwExStyle: 0][dwStyle: 13238272][Pos: 0 x 0][Size: 662 x 524]
+03/21/2023 16:00:59.737 | DEBUG    |    Ashita::Hooks::DirectX::Mine_DirectInput8Create | DirectInput8Create - Creating new DirectInput instance. [dwVersion: 2048]

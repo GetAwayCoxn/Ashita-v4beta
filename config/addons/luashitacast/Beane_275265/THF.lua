@@ -1,5 +1,4 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 
@@ -14,9 +13,9 @@ local sets = {
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = 'Hurch\'lan Sash',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
     Resting = {},
     Idle_Regen = {
@@ -26,11 +25,13 @@ local sets = {
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Meghanada Ring',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
-    Idle_Refresh = {},
+    Idle_Refresh = {
+        Head = 'Rawhide Mask',
+    },
     Town = {
-        Main = 'Kaja Sword',
+        Main = 'Naegling',
         Sub = 'Shijo',
         Range = 'Raider\'s Bmrng.',
         Feet = 'Fajin Boots',
@@ -45,7 +46,7 @@ local sets = {
         Ring1 = 'Defending Ring',
         Ring2 = 'Meghanada Ring',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
 
     Tp_Default = {
@@ -58,7 +59,7 @@ local sets = {
         Ring1 = 'Mummu Ring',
         Ring2 = 'Meghanada Ring',
         Back = { Name = 'Toutatis\'s Cape', Augment = { [1] = 'Accuracy+20', [2] = '"Store TP"+10', [3] = 'Attack+20', [4] = 'DEX+20' } },
-        Waist = 'Sarissapho. Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Meg. Chausses +2',
         Feet = 'Mummu Gamash. +1',
     },
@@ -67,7 +68,7 @@ local sets = {
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
     Tp_Acc = {
         Neck = 'Sanctity Necklace',
@@ -161,8 +162,11 @@ local sets = {
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Flame Ring',
+        Ring2 = 'Rajas Ring',
+        Back = 'Atheling Mantle',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
     Savage_Hybrid = {
     },
@@ -217,6 +221,8 @@ profile.OnLoad = function()
     --[[ Set you job macro defaults here]]
     AshitaCore:GetChatManager():QueueCommand(1, '/macro book 2');
     AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+
+    gcinclude.settings.RefreshGearMPP = 40;
 end
 
 profile.OnUnload = function()
@@ -224,7 +230,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()

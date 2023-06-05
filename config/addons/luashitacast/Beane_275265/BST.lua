@@ -1,10 +1,10 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
 gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
-
 
 local sets = {
     Idle = {
+        Main = 'Naegling',
+        Sub = 'Adapa Shield',
         Ammo = 'Crepuscular Pebble',
         Head = 'Skormoth Mask',
         Neck = 'Empath Necklace',
@@ -13,25 +13,28 @@ local sets = {
         Body = 'Tali\'ah Manteel +1',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Meghanada Ring',
+        Ring2 = 'C. Palug Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Isa Belt',
         Legs = 'Tali\'ah Sera. +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
-	Resting = {},
+    Resting = {
+        Main = "Dark Staff",
+        Sub = "ignore",
+    },
     Idle_Regen = {
         Head = 'Meghanada Visor +2',
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring2 = 'Meghanada Ring',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
     Idle_Refresh = {},
 	Town = {
-        Main = 'Kaja Axe',
-        Sub = 'Leafkin Shield',
+        Main = 'Naegling',
+        Sub = 'ignore',
         Body = 'Argent Coat',
         Hands = '',
         Legs = 'Argent Hose',
@@ -47,10 +50,10 @@ local sets = {
 		Body = 'Tartarus Platemail',
 		Hands = 'Meg. Gloves +2',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Meghanada Ring',
+        Ring2 = 'C. Palug Ring',
         Back = 'Impassive Mantle',
 		Legs = 'Meg. Chausses +2',
-		Feet = 'Meg. Jam. +1',
+		Feet = 'Meg. Jam. +2',
 	},
     Pet_Dt = {
         Ammo = 'Crepuscular Pebble',
@@ -60,7 +63,7 @@ local sets = {
         --Ear2 = 'Handler\'s Earring +1',
         --Body = 'Taeon Tabard',
         Hands = 'Ankusa Gloves',
-        Ring2 = 'Defending Ring',
+        Ring2 = 'C. Palug Ring',
         --Ring2 = 'Gelatinous Ring +1',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Isa Belt',
@@ -79,7 +82,7 @@ local sets = {
         Ring1 = 'Tali\'ah Ring',
         Ring2 = 'Meghanada Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: Rng. Acc.+6', [2] = '"Store TP"+10', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'Pet: Accuracy+6', [6] = 'DEX+20' } },
-        Waist = 'Sarissapho. Belt',
+        Waist = 'Sailfi Belt +1',
         Legs = 'Tali\'ah Sera. +2',
         Feet = 'Tali\'ah Crackows +1',
     },
@@ -97,10 +100,10 @@ local sets = {
         Neck = 'Shulmanu Collar',
         Ear1 = 'Rimeice Earring',
         Ear2 = 'Gelai Earring',
-        Body = 'Valorous Mail',
+        Body = 'Rawhide Vest',
         Hands = 'Skd. Bazubands +1',
         Ring1 = 'Tali\'ah Ring',
-        Ring2 = 'Defending Ring',
+        Ring2 = 'C. Palug Ring',
         Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
         Waist = 'Hurch\'lan Sash',
         Legs = 'Tali\'ah Sera. +2',
@@ -139,10 +142,10 @@ local sets = {
         Body = 'Meg. Cuirie +2',
         Hands = 'Meg. Gloves +2',
         Ring1 = 'Flame Ring',
-        Ring2 = 'Meghanada Ring',
+        Ring2 = 'Rajas Ring',
         Back = 'Bleating Mantle',
         Legs = 'Meg. Chausses +2',
-        Feet = 'Meg. Jam. +1',
+        Feet = 'Meg. Jam. +2',
     },
     Ws_Hybrid = {
     },
@@ -166,7 +169,7 @@ local sets = {
         Neck = 'Shulmanu Collar',
         Ear1 = 'Ferine Earring',
         Ear2 = 'Sabong Earring',
-		Body = 'Valorous Mail',
+		Body = 'Rawhide Vest',
         Hands = 'Nukumi Manoplas',
         Ring1 = 'Tali\'ah Ring',
 		Back = { Name = 'Artio\'s Mantle', Augment = { [1] = 'Pet: R.Acc.+20', [2] = 'Pet: R.Atk.+20', [3] = 'Pet: "Regen"+10', [4] = 'Pet: Acc.+20', [5] = 'Pet: Atk.+20' } },
@@ -246,7 +249,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-	gcinclude.SetCommands(args);
+	gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -276,7 +279,7 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
 	end
 	
-	gcinclude.CheckDefault ();
+	gcinclude.CheckDefault();
     if (gcdisplay.GetToggle('DTset') == true) then
 		gFunc.EquipSet(sets.Dt);
         if (pet ~= nil) and (pet.HPP < 60) then

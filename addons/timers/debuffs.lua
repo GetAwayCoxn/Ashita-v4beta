@@ -200,8 +200,10 @@ local function UpdateDebuffs(timers)
                     local e = AshitaCore:GetMemoryManager():GetEntity()
                     if bit.band(e:GetRenderFlags0(effect.t_index), 0x200) == 0x200 then
                         local remains = effect.duration - diff
-                        table.insert(bars, { name=timer_name, duration=effect.duration, 
+                        if remains > 0 then
+                            table.insert(bars, { name=timer_name, duration=effect.duration, 
                                              remains=remains, key=target, icon_id=id })
+                        end
                     end
                 end
             end

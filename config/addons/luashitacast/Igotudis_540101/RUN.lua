@@ -1,12 +1,12 @@
-local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+---@diagnostic disable: undefined-field
+local profile = {}
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua')
 
 
 local sets = {
     Idle = {
-        Main = 'Epeolatry',
-        Sub = 'Utu Grip',
+        -- Main = 'Epeolatry',
+        -- Sub = 'Utu Grip',
         Ammo = 'Staunch Tathlum',--2
         Head = 'Nyame Helm',--7
         Neck ='Futhark Torque +1',--2 currently
@@ -17,7 +17,7 @@ local sets = {
         Ring1 = 'Moonbeam Ring',--4
         Ring2 = 'Defending Ring',--10
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Waist = 'Carrier\'s Sash',
+        Waist = 'Plat. Mog. Belt',  
         Legs = 'Nyame Flanchard',----8
         Feet = 'Nyame Sollerets',--7
     },
@@ -28,7 +28,7 @@ local sets = {
         Body = 'Futhark Coat +3',
         Hands = 'Turms Mittens',
         Ring2 = 'Chirich Ring +1',
-        Feet = 'Turms Leggings',
+        Feet = 'Turms Leggings +1',
     },
     Idle_Refresh = {
         Ammo = 'Homiliary',
@@ -44,8 +44,9 @@ local sets = {
         Head = 'Erilaz Galea +2',
         Body = 'Agwu\'s Robe',
         Hands = 'Nyame Gauntlets',
+        Waist = 'Plat. Mog. Belt',
         Legs = 'Carmine Cuisses +1',
-        Feet = 'Nyame Sollerets',
+        Feet = 'Turms Leggings +1',
     },
 
     Dt = {
@@ -105,41 +106,43 @@ local sets = {
         Waist = 'Ioskeha Belt +1',
     },
 
-    --These will overwrite any above TP profile.Sets if /tankset is used
+    --These will overwrite any above TP sets if /tankset is used
     Tank_Main = {--Default Tanking,  dt 
         Main = 'Epeolatry',
-        --Sub = 'Refined Grip +1',--3
+        Sub = 'Refined Grip +1',--3
         Ammo = 'Staunch Tathlum',--2
-        Head ='Nyame Helm',--7
-        Neck = 'Futhark Torque +1',
-        Ear1 = 'Odnowa Earring +1',--2
-        Ear2 = 'Ethereal Earring',--3kinda
+        Head = 'Erilaz Galea +2',
+        -- Head ='Nyame Helm',--7
+        Neck = 'Futhark Torque +1',--5atm
+        Ear1 = 'Odnowa Earring +1',--3
+        Ear2 = 'Etiolation Earring',
+        -- Ear2 = 'Ethereal Earring',--3kinda
         --Ear2 = 'Hermodr Earring',--dragon points, 10 parry skill
         Body = 'Futhark Coat +3',--9
         Hands = 'Turms Mittens',
         Ring1 = 'Moonbeam Ring',--4
-        Ring2 = 'Defending Ring',--7
+        Ring2 = 'Defending Ring',--10
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Waist = 'Flume Belt +1',
-        Legs = 'Eri. Leg Guards +1',-- PDT 7
-        Feet = 'Turms Leggings',--7
+        Waist = 'Plat. Mog. Belt',--3
+        Legs = 'Eri. Leg Guards +2',-- 12
+        Feet = 'Turms Leggings +1',
         },
     Tank_MEVA = {
-        Main = 'Epeolatry',--Aettir technically better here
-        --Sub = 'Refined Grip +1',
-        Ammo = 'Staunch Tathlum',
-        Head ='Nyame Helm',
+        Main = 'Epeolatry',
+        Sub = 'Refined Grip +1',--3
+        Ammo = 'Staunch Tathlum',--2
+        Head ='Nyame Helm',--7
         Neck = 'Warder\'s Charm +1',
-        Ear1 = 'Odnowa Earring +1',
-        Ear2 = 'Eabani Earring',
-        Body = 'Nyame Mail',
-        Hands = 'Nyame Gauntlets',
-        Ring1 = 'Defending Ring',
+        Ear1 = 'Eabani Earring',
+        Ear2 = 'Erilaz Earring',
+        Body = 'Nyame Mail',--9
+        Hands = 'Nyame Gauntlets',--7
+        Ring1 = 'Moonbeam Ring',--4
         Ring2 = 'Purity Ring',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },--want diff cape here
         Waist = 'Carrier\'s Sash',
-        Legs = 'Agwu\'s Slops',
-        Feet = 'Nyame Sollerets',
+        Legs = 'Eri. Leg Guards +2',-- 12
+        Feet = 'Nyame Sollerets',--7
     },
 
 
@@ -157,9 +160,9 @@ local sets = {
         Legs = 'Aya. Cosciales +2', -- 6
         Feet = 'Carmine Greaves +1',--7
     },
-    Precast_Inspiration = {--this set I use for when my 5/5 inspire merits kicking in with val/vall up
+    Precast_Inspiration = {--this set I use for when my inspire merits kicking in with val/vall up
         Ammo = 'Staunch Tathlum',
-        Head = 'Nyame Helm',
+        Head = 'Rune. Bandeau +2',
         Neck = 'Baetyl Pendant',
         Ear1 = 'Odnowa Earring +1',
         Ear2 = 'Etiolation Earring',
@@ -176,9 +179,9 @@ local sets = {
     },
     Enhancing_Precast = {
         Waist = 'Siegel Sash', -- 8
-        Legs = 'Futhark Trousers +2', -- 13
+        Legs = 'Futhark Trousers +2', -- 14
     },
-    SIR = {--10 merits + 90
+    SIR = {--10 merits + 95
         Ammo = 'Staunch Tathlum', -- 10
         Head = 'Erilaz Galea +2', -- 15
         Neck = 'Moonlight Necklace', -- 15
@@ -195,7 +198,7 @@ local sets = {
         Ring1 = 'Eihwaz Ring',
         Ring2 = 'Supershear Ring',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = 'Parrying rate+5%', [2] = 'Mag. Eva.+20', [3] = 'Eva.+20', [4] = 'HP+80', [5] = 'Enmity+10' } },
-        Legs = 'Eri. Leg Guards +1',
+        Legs = 'Eri. Leg Guards +2',
         Feet = 'Erilaz Greaves +1',
     },
     SIRenmity = { -- Foil and blue spells mostly
@@ -220,9 +223,13 @@ local sets = {
         Back = 'Solemnity Cape', -- 7
         Waist = 'Gishdubar Sash', --10rec
     },
+    Refresh = {
+        Head = 'Erilaz Galea +2',
+    },
     Regen = {
         Head = 'Rune. Bandeau +2',
         Neck = 'Sacro Gorget',
+        Ear2 = 'Erilaz Earring',
         Legs = 'Futhark Trousers +2',
     },
     Enhancing = {
@@ -231,7 +238,7 @@ local sets = {
         Legs = 'Futhark Trousers +2',
     },
     Phalanx = {
-        Head = 'Fu. Bandeau +1', -- 5
+        Head = 'Fu. Bandeau +3', -- 6
         Neck = 'Incanter\'s Torque',
     },
     Stoneskin = {
@@ -278,7 +285,7 @@ local sets = {
         Ear2 = 'Telos Earring',
         Body = 'Nyame Mail',
         Hands = 'Meg. Gloves +2',
-        Ring1 = 'Ilabrat Ring',
+        Ring1 = 'Cornelia\'s Ring',
         Ring2 = 'Karieyh Ring +1',
         Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
         Waist = 'Fotia Belt',
@@ -308,7 +315,7 @@ local sets = {
     },
     Reso_Acc = {
     },
-    Shockwave_Default = {
+    Shockwave_Default = { -- STR/MND 30%
         Ammo = 'Seeth. Bomblet +1',
         Head = 'Nyame Helm',
         Neck = 'Sanctity Necklace',
@@ -348,177 +355,207 @@ local sets = {
     },
     Vallation = {
         Body = 'Runeist Coat +1',
+        Back = { Name = 'Ogma\'s Cape', Augment = { [1] = '"Dbl.Atk."+10', [2] = 'Phys. dmg. taken -10%', [3] = 'Accuracy+20', [4] = 'Attack+20', [5] = 'DEX+20' } },
     },
     Battuta = {
-        Head = 'Fu. Bandeau +1',
+        Head = 'Fu. Bandeau +3',
     },
     Swordplay = {
         Hands = 'Futhark Mitons +3',
     },
+    Pflug = { -- not for JA use, have to keep it on
+        Feet = 'Runeist Bottes +1',
+    },
+    Gambit = {
+        Hands = 'Runeist Mitons +1',
+    },
+    Rayke = {
+        Feet = 'Futhark Boots +1',
+    },
+    Liement = {
+        Body = 'Futhark Coat +3',
+    },
 
     TH = {
-        Ammo = 'Per. Lucky Egg',
+        -- Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
         Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Potency of "Cure" effect received+5%', [2] = 'Mag. Acc.+19', [3] = 'Accuracy+21', [4] = '"Mag. Atk. Bns."+19', [5] = '"Treasure Hunter"+2' } },
 	},
     Movement = {
         Legs = 'Carmine Cuisses +1',
 	},
-};
-profile.Sets = sets;
+}
+profile.Sets = sets
 
 profile.Packer = {
     {Name = 'Om. Sandwich', Quantity = 'all'},
     {Name = 'Black Curry Bun', Quantity = 'all'},
-};
+    {Name = 'Miso Ramen', Quantity = 'all'},
+}
 
 profile.OnLoad = function()
-	gSettings.AllowAddSet = true;
-    gcinclude.Initialize();
+	gSettings.AllowAddSet = true
+    if gcinclude then gcinclude.Initialize() end
 
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11');
-    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1');
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro book 11')
+    AshitaCore:GetChatManager():QueueCommand(1, '/macro set 1')
 end
 
 profile.OnUnload = function()
-    gcinclude.Unload();
+    if gcinclude then gcinclude.Unload() end
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    if gcinclude then gcinclude.HandleCommands(args) end
 end
 
 profile.HandleDefault = function()
-    gFunc.EquipSet(sets.Idle);
+    gFunc.EquipSet(sets.Idle)
 	
-	local player = gData.GetPlayer();
+    local player = gData.GetPlayer()
+    local pflug = gData.GetBuffCount('Pflug')
     if (player.Status == 'Engaged') then
         gFunc.EquipSet(sets.Tp_Default)
         if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
 			gFunc.EquipSet('Tp_' .. gcdisplay.GetCycle('MeleeSet')) end
-		if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
+		if gcdisplay.GetToggle('TH') then gFunc.EquipSet(sets.TH) end
         if (gcdisplay.GetCycle('TankSet') ~= 'None') then
 			gFunc.EquipSet('Tank_' .. gcdisplay.GetCycle('TankSet')) end
     elseif (player.Status == 'Resting') then
-        gFunc.EquipSet(sets.Resting);
-    elseif (player.IsMoving == true) then
-		gFunc.EquipSet(sets.Movement);
+        gFunc.EquipSet(sets.Resting)
+    elseif player.IsMoving then
+		gFunc.EquipSet(sets.Movement)
     end
 	
-    gcinclude.CheckDefault ();
-    if (gcdisplay.GetToggle('DTset') == true) then gFunc.EquipSet(sets.Dt) end;
-    if (gcdisplay.GetToggle('Kite') == true) then gFunc.EquipSet(sets.Movement) end;
+    if gcinclude then gcinclude.CheckDefault() end
+    if pflug > 0 then gFunc.EquipSet(sets.Pflug) end
+    if gcdisplay.GetToggle('DTset') then gFunc.EquipSet(sets.Dt) end
+    if gcdisplay.GetToggle('Kite') then gFunc.EquipSet(sets.Movement) end
 end
 
 profile.HandleAbility = function()
-    local ability = gData.GetAction();
-    local runes = T{'Ignis','Gelus','Flabra','Tellus','Sulpor','Unda','Lux','Tenebrae',};
+    local ability = gData.GetAction()
+    local runes = T{'Ignis','Gelus','Flabra','Tellus','Sulpor','Unda','Lux','Tenebrae',}
     
     if runes:contains(ability.Name) then return end
 
-    gFunc.EquipSet(sets.Enmity);
+    gFunc.EquipSet(sets.Enmity)
 
     if string.match(ability.Name, 'Swipe') or string.match(ability.Name, 'Lunge') then
-		gFunc.EquipSet(sets.Swipe);
+		gFunc.EquipSet(sets.Swipe)
     elseif string.match(ability.Name, 'Vallation') or string.match(ability.Name, 'Valiance') then
-		gFunc.EquipSet(sets.Vallation);
+		gFunc.EquipSet(sets.Vallation)
     elseif string.contains(ability.Name, 'Pulse') then
-		gFunc.EquipSet(sets.Pulse);
+		gFunc.EquipSet(sets.Pulse)
     elseif string.contains(ability.Name, 'Swordplay') then
-		gFunc.EquipSet(sets.Swordplay);
+		gFunc.EquipSet(sets.Swordplay)
     elseif string.contains(ability.Name, 'Sforzo') then
-		gFunc.EquipSet(sets.Sforzo);
+		gFunc.EquipSet(sets.Sforzo)
     elseif string.match(ability.Name, 'Battuta') then
-		gFunc.EquipSet(sets.Battuta);
+        gFunc.EquipSet(sets.Battuta)
+    elseif string.match(ability.Name, 'Gambit') then
+		gFunc.EquipSet(sets.Gambit)
+    elseif string.match(ability.Name, 'Rayke') then
+		gFunc.EquipSet(sets.Rayke)
+    elseif string.match(ability.Name, 'Liement') then
+		gFunc.EquipSet(sets.Liement)
 	end
 
-    gcinclude.CheckCancels();
+    if gcinclude then gcinclude.CheckCancels() end
 end
 
 profile.HandleItem = function()
-    local item = gData.GetAction();
+    local item = gData.GetAction()
 
-	if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
+    if gcinclude then
+	    if string.match(item.Name, 'Holy Water') then gFunc.EquipSet(gcinclude.sets.Holy_Water) end
+    end
 end
 
 profile.HandlePrecast = function()
-    local spell = gData.GetAction();
-    local val = gData.GetBuffCount('Valiance');
-    local vall = gData.GetBuffCount('Vallation');
+    local spell = gData.GetAction()
+    local val = gData.GetBuffCount('Valiance')
+    local vall = gData.GetBuffCount('Vallation')
     gFunc.EquipSet(sets.Precast)
 
     if (val >= 1) or (vall >= 1) then
-        gFunc.EquipSet(sets.Precast_Inspiration);
+        gFunc.EquipSet(sets.Precast_Inspiration)
     elseif (spell.Skill == 'Enhancing Magic') then
-        gFunc.EquipSet(sets.Enhancing_Precast);
+        gFunc.EquipSet(sets.Enhancing_Precast)
     elseif (spell.Skill == 'Healing Magic') then
-        gFunc.EquipSet(sets.Cure_Precast);
+        gFunc.EquipSet(sets.Cure_Precast)
     end
 
-    gcinclude.CheckCancels();
+    if gcinclude then gcinclude.CheckCancels() end
 end
 
 profile.HandleMidcast = function()--sloppy set handling here, need to clean this up
-    local spell = gData.GetAction();
+    local spell = gData.GetAction()
 
-    gFunc.EquipSet(sets.SIR);
-    gFunc.EquipSet(sets.Enhancing);
+    gFunc.EquipSet(sets.SIR)
+    gFunc.EquipSet(sets.Enhancing)
 
     if string.contains(spell.Name, 'Cur') or string.contains(spell.Name, 'Carrot') then
-        gFunc.EquipSet(sets.Cure);
+        gFunc.EquipSet(sets.Cure)
+    elseif string.contains(spell.Name, 'Refresh') then
+        gFunc.EquipSet(sets.Refresh)
     elseif string.contains(spell.Name, 'Regen') then
-        gFunc.EquipSet(sets.Regen);
+        gFunc.EquipSet(sets.Regen)
     elseif string.match(spell.Name, 'Phalanx') then
-        gFunc.EquipSet(sets.Phalanx);
+        gFunc.EquipSet(sets.Phalanx)
     elseif string.match(spell.Name, 'Stoneskin') then
-        gFunc.EquipSet(sets.Stoneskin);
+        gFunc.EquipSet(sets.Stoneskin)
     elseif string.match(spell.Name, 'Temper') then
-        gFunc.EquipSet(sets.Temper);
+        gFunc.EquipSet(sets.Temper)
     elseif string.match(spell.Name, 'Foil') or (spell.Skill == 'Blue Magic') then
-        gFunc.EquipSet(sets.SIRenmity);
+        gFunc.EquipSet(sets.SIRenmity)
     end
 
-    if (gcdisplay.GetToggle('SIR') == true) then
-        gFunc.EquipSet(sets.SIR);
+    if gcdisplay.GetToggle('SIR') then
+        gFunc.EquipSet(sets.SIR)
     end
-	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
+	if gcdisplay.GetToggle('TH') then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandlePreshot = function()
-    gFunc.EquipSet(sets.Preshot);
+    gFunc.EquipSet(sets.Preshot)
 end
 
 profile.HandleMidshot = function()
-    gFunc.EquipSet(sets.Midshot);
-	if (gcdisplay.GetToggle('TH') == true) then gFunc.EquipSet(sets.TH) end
+    gFunc.EquipSet(sets.Midshot)
+	if gcdisplay.GetToggle('TH') then gFunc.EquipSet(sets.TH) end
 end
 
 profile.HandleWeaponskill = function()
-    local canWS = gcinclude.CheckWsBailout();
-    if (canWS == false) then gFunc.CancelAction() return;
-    else
-        local ws = gData.GetAction();
-    
-        gFunc.EquipSet(sets.Ws_Default)
-        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-        gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
-   
-        if string.match(ws.Name, 'Dimidiation') then
-            gFunc.EquipSet(sets.Dimi_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Dimi_' .. gcdisplay.GetCycle('MeleeSet')); end
-            gcinclude.DoMoonshade()
-	    elseif string.match(ws.Name, 'Resolution') then
-            gFunc.EquipSet(sets.Reso_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Reso_' .. gcdisplay.GetCycle('MeleeSet')); end
-            gcinclude.DoMoonshade()
-        elseif string.match(ws.Name, 'Shockwave') then
-            gFunc.EquipSet(sets.Shockwave_Default)
-            if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
-            gFunc.EquipSet('Shockwave_' .. gcdisplay.GetCycle('MeleeSet')); end
+    if gcinclude then
+        local canWS = gcinclude.CheckWsBailout()
+        if (canWS == false) then
+            gFunc.CancelAction()
+            return
         end
+    end
+    
+    local ws = gData.GetAction()
+
+    gFunc.EquipSet(sets.Ws_Default)
+    if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+    gFunc.EquipSet('Ws_' .. gcdisplay.GetCycle('MeleeSet')) end
+
+    if string.match(ws.Name, 'Dimidiation') then
+        gFunc.EquipSet(sets.Dimi_Default)
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Dimi_' .. gcdisplay.GetCycle('MeleeSet')) end
+        if gcinclude then gcinclude.DoMoonshade() end
+    elseif string.match(ws.Name, 'Resolution') then
+        gFunc.EquipSet(sets.Reso_Default)
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Reso_' .. gcdisplay.GetCycle('MeleeSet')) end
+        if gcinclude then gcinclude.DoMoonshade() end
+    elseif string.match(ws.Name, 'Shockwave') then
+        gFunc.EquipSet(sets.Shockwave_Default)
+        if (gcdisplay.GetCycle('MeleeSet') ~= 'Default') then
+        gFunc.EquipSet('Shockwave_' .. gcdisplay.GetCycle('MeleeSet')) end
     end
 end
 
-return profile;
+return profile

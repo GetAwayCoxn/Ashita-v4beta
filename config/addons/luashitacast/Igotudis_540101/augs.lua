@@ -1,21 +1,21 @@
 local profile = {};
 local sets = {
-    augs = {
-        Main = 'Tauret',
-        Sub = { Name = 'Acrontica', AugPath='A' },
-        Ammo = 'Yamarang',
-        Head = 'Malignance Chapeau',
-        Neck = { Name = 'Loricate Torque +1', AugPath='A' },
+    ['augs'] = {
+        Main = { Name = 'Tizona', AugPath='A' },
+        Sub = { Name = 'Thibron', AugTrial=3257 },
+        Ammo = 'Staunch Tathlum',
+        Head = 'Hashishin Kavuk +2',
+        Neck = { Name = 'Bathy Choker +1', AugPath='A' },
         Ear1 = 'Eabani Earring',
         Ear2 = 'Etiolation Earring',
         Body = 'Gleti\'s Cuirass',
         Hands = 'Malignance Gloves',
         Ring1 = 'Defending Ring',
-        Ring2 = 'Karieyh Ring +1',
-        Back = 'Solemnity Cape',
-        Waist = 'Gishdubar Sash',
+        Ring2 = 'Chirich Ring +1',
+        Back = { Name = 'Rosmerta\'s Cape', Augment = { [1] = 'STR+20', [2] = 'Weapon skill damage +10%', [3] = 'Attack+20', [4] = 'Accuracy+20' } },
+        Waist = 'Flume Belt +1',
         Legs = 'Gleti\'s Breeches',
-        Feet = { Name = 'Herculean Boots', Augment = { [1] = 'Accuracy+30', [2] = 'Weapon skill damage +8%', [3] = 'Attack+6', [4] = 'Mag. Acc.+2' } },
+        Feet = 'Gleti\'s Boots',
     },
 };
 

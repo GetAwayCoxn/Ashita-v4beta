@@ -19,7 +19,7 @@
 
 addon.name    = 'statustimers';
 addon.author  = 'heals';
-addon.version = '4.0.908';
+addon.version = '4.1.500';
 addon.desc    = 'Replacement for the default status timer display';
 addon.link    = 'https://github.com/Shirk/statustimers';
 
@@ -73,6 +73,8 @@ local default_settings = T{
     split_bars = T{
         enabled = false,
     },
+
+    ui_scale = 1.0,
 };
 
 local st = T {
@@ -96,6 +98,15 @@ end
 -------------------------------------------------------------------------------
 -- addon callbacks
 -------------------------------------------------------------------------------
+settings.register('settings', 'settings_update', function (s)
+    if (s ~= nil) then
+        st.settings = s;
+    end
+
+    -- Save the current settings..
+    settings.save();
+end);
+
 local ffi = require('ffi');
 ashita.events.register('load', 'statustimers_load', function ()
     helpers.run_init();

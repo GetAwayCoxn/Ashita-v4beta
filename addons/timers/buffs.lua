@@ -593,8 +593,10 @@ local function UpdateBuffs(timers)
                     if bit.band(e:GetRenderFlags0(v.t_index), 0x200) == 0x200 then
                         v.ttl = -1
                         local remains = v.duration - diff
-                        table.insert(bars, { name=timer_name, duration=v.duration, remains=remains,
+                        if remains > 0 then
+                            table.insert(bars, { name=timer_name, duration=v.duration, remains=remains,
                                              key=v.t_index .. id, icon_id=id })
+                        end
                     else
                         if v.ttl == -1 then v.ttl = ashita.time.clock()['s'] end
                         if ashita.time.clock()['s'] - v.ttl > 600 then

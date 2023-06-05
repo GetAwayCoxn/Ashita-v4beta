@@ -206,6 +206,9 @@ return {
     ['$id'] = function(mob)
         gTokenState:DrawText(tostring(entMgr:GetServerId(mob)));
     end,
+    ['$status'] = function(mob)
+        gTokenState:DrawText(tostring(entMgr:GetStatus(mob)));
+    end,
     ['$zone'] = function(mob)
         local zoneId = partyMgr:GetMemberZone(0);
         local string = resMgr:GetString(gCompatibility.Resource.Zone, zoneId);

@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
@@ -9,7 +8,7 @@ local sets = {
         Neck = 'Bathy Choker +1',
         Ear1 = 'Telos Earring',
         Ear2 = 'Eabani Earring',
-        Body = 'Hiza. Haramaki +2',
+        Body = 'Hes. Cyclas +3',
         Hands = 'Malignance Gloves',
         Ring1 = 'Karieyh Ring +1',
         Ring2 = 'Chirich Ring +1',
@@ -22,7 +21,7 @@ local sets = {
     Idle_Regen = {
         Neck = 'Bathy Choker +1',
         Ear1 = 'Infused Earring',
-        Body = 'Hiza. Haramaki +2',
+        Body = 'Hes. Cyclas +3',
         Hands = 'Rao Kote',
         Ring2 = 'Chirich Ring +1',
     },
@@ -30,7 +29,7 @@ local sets = {
     Town = {
         Main = 'Sakpata\'s Fists',
         Ammo = 'Staunch Tathlum',
-        Head = 'Anchorite\'s Crown',
+        Head = 'Anchor. Crown +1',
         Body = 'Bhikku Cyclas +2',
         Legs = 'Mpaca\'s Hose',
     },
@@ -56,7 +55,7 @@ local sets = {
         Neck = 'Anu Torque',
         Ear1 = 'Sherida Earring',
         Ear2 = 'Telos Earring',
-        Body = 'Malignance Tabard',
+        Body = 'Hes. Cyclas +3',
         Hands = { Name = 'Adhemar Wrist. +1', AugPath='B' },
         Ring1 = 'Niqmaddu Ring',
         Ring2 = 'Gere Ring',
@@ -75,6 +74,7 @@ local sets = {
     },
     Tp_Acc = {
         Ear1 = 'Mache Earring +1',
+        Body = 'Malignance Tabard',
         Hands = 'Tatena. Gote +1',
         Ring1 = 'Cacoethic Ring +1',
         Ring2 = 'Chirich Ring +1',
@@ -142,26 +142,29 @@ local sets = {
         Body = 'Bhikku Cyclas +2',
     },
     Focus = {
-        Head = 'Anchorite\'s Crown',
+        Head = 'Anchor. Crown +1',
+    },
+    Dodge = {
+        Feet = 'Anch. Gaiters +1',
     },
     Chakra = {
         Body = 'Anch. Cyclas +1',
-        Hands = 'Hes. Gloves',
+        Hands = 'Hes. Gloves +1',
     },
     FootworkJA = {--this is used on JA activation
-        Feet = 'Bhikku Gaiters',
+        Feet = 'Bhikku Gaiters +1',
     },
     Footwork = {--this will override your TP while footwork is active
-        Feet = 'Anch. Gaiters',
+        Feet = 'Bhikku Gaiters +1',
     },
     HundredFists = {
         Legs = 'Hes. Hose +3',
     },
     FormlessStrikes = {
-        Body = 'Hes. Cyclas',
+        Body = 'Hes. Cyclas +3',
     },
     Counterstance = {--these feet are also for Mantra
-        Feet = 'Hes. Gaiters',
+        Feet = 'Hes. Gaiters +1',
     },
 
     TH = {
@@ -192,7 +195,7 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
@@ -224,6 +227,7 @@ profile.HandleAbility = function()
     local ability = gData.GetAction();
 
     if string.match(ability.Name, 'Focus') then gFunc.EquipSet(sets.Focus);
+    elseif string.match(ability.Name, 'Dodge') then gFunc.EquipSet(sets.Dodge);
     elseif string.match(ability.Name, 'Hundred Fists') then gFunc.EquipSet(sets.HundredFists);
     elseif string.match(ability.Name, 'Chakra') then gFunc.EquipSet(sets.Chakra);
     elseif string.match(ability.Name, 'Footwork') then gFunc.EquipSet(sets.FootworkJA);

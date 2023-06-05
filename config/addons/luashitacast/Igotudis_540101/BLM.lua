@@ -1,6 +1,5 @@
 local profile = {};
-gcdisplay = gFunc.LoadFile('common\\gcdisplay.lua');
-gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
+local gcinclude = gFunc.LoadFile('common\\gcinclude.lua');
 
 local sets = {
     Idle = {
@@ -15,7 +14,7 @@ local sets = {
         Hands = 'Amalric Gages +1',
         Ring1 = 'Stikini Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Gishdubar Sash',
         Legs = 'Agwu\'s Slops',
         Feet = 'Volte Gaiters',
@@ -43,7 +42,7 @@ local sets = {
         Neck = 'Bathy Choker +1',
         Body = 'Agwu\'s Robe',
         Hands = 'Amalric Gages +1',
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Legs = 'Agwu\'s Slops',
         Feet = 'Herald\'s Gaiters',
     },
@@ -58,7 +57,7 @@ local sets = {
         Hands = 'Nyame Gauntlets',
         Ring1 = 'Defending Ring',
         Ring2 = 'Gelatinous Ring +1',
-        Back = 'Solemnity Cape',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Gishdubar Sash',
         Legs = 'Nyame Flanchard',
         Feet = 'Nyame Sollerets',
@@ -226,7 +225,7 @@ local sets = {
         Hands = 'Amalric Gages +1',
         Ring1 = 'Shiva Ring +1',
         Ring2 = { Name = 'Metamor. Ring +1', AugPath='A' },
-        Back = 'Taranus\'s Cape',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = 'Eschan Stone',
         Legs = 'Wicce Chausses +2',
         Feet = 'Amalric Nails +1',
@@ -242,7 +241,7 @@ local sets = {
         Body = 'Ea Houppelande', -- 8 and 9
         Hands = 'Amalric Gages +1', -- 0 and 6
         Ring1 = 'Mujin Band', -- 0 and 5
-        Back = 'Taranus\'s Cape', -- 5 and 0
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } }, -- 5 and 0
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops', -- 9 and 0
         Feet = 'Ea Pigaches', -- 4 and 4
@@ -255,7 +254,7 @@ local sets = {
         Ear2 = 'Wicce Earring +1',
         Body = 'Agwu\'s Robe',
         Hands = 'Amalric Gages +1',
-        Back = 'Taranus\'s Cape',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
         Waist = { Name = 'Acuity Belt +1', AugPath='A' },
         Legs = 'Agwu\'s Slops',
         Feet = 'Amalric Nails +1',
@@ -307,6 +306,25 @@ local sets = {
     Ws_Acc = {
     },
 
+    Manafont = {
+        Body = 'Arch. Coat +3',
+    },
+    Manawall = {
+        Ammo = 'Staunch Tathlum',
+        Head = 'Nyame Helm',
+        Neck = 'Loricate Torque +1',
+        Ear1 = 'Odnowa Earring +1',
+        Ear2 = 'Etiolation Earring',
+        Body = 'Agwu\'s Robe',
+        Hands = 'Nyame Gauntlets',
+        Ring1 = 'Defending Ring',
+        Ring2 = 'Gelatinous Ring +1',
+        Back = { Name = 'Taranus\'s Cape', Augment = { [1] = 'Damage taken-5%', [2] = '"Mag. Atk. Bns."+10', [3] = 'Mag. Acc+20', [4] = 'INT+20', [5] = 'Magic Damage +20' } },
+        Waist = 'Gishdubar Sash',
+        Legs = 'Nyame Flanchard',
+        Feet = 'Wicce Sabots +1',
+    },
+
     TH = {
         Ammo = 'Per. Lucky Egg',
 		Waist = 'Chaac Belt',
@@ -335,11 +353,12 @@ profile.OnUnload = function()
 end
 
 profile.HandleCommand = function(args)
-    gcinclude.SetCommands(args);
+    gcinclude.HandleCommands(args);
 end
 
 profile.HandleDefault = function()
     local player = gData.GetPlayer();
+    local manawall = gData.GetBuffCount('Manawall')
 
     if (gcdisplay.GetToggle('Death') == true) and (player.MPP > 50) then
         gFunc.EquipSet(sets.Death);
@@ -359,6 +378,8 @@ profile.HandleDefault = function()
 		gFunc.EquipSet(sets.Movement);
     end
 	
+    if manawall > 0 then gFunc.EquipSet(sets.Manawall) end
+    
     gcinclude.CheckDefault ();
     if (gcdisplay.GetCycle('Weapon') == 'Staff') then
         gFunc.EquipSet(sets.Idle_Staff);
@@ -369,6 +390,8 @@ end
 
 profile.HandleAbility = function()
     local ability = gData.GetAction();
+
+    if ability.name == 'Manafont' then gFunc.EquipSet(sets.Manafont) end
 
     gcinclude.CheckCancels();
 end

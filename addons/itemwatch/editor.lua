@@ -55,8 +55,8 @@ local editor = {
     -- Overlay (Defaults)
     overlay_defaults = T{
         is_open = { true, },
-        docking = { 0, },
-        padding = { 130.0, 152.0, },
+        docking = { -1, },
+        padding = { 350.0, 400.0, },
         opacity = { 0.6, },
         show_border = { true, },
         override_background_color = { false, },

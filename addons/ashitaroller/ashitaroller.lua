@@ -35,6 +35,7 @@ addon.desc      = 'blank';
 addon.link      = 'https://github.com/GetAwayCoxn/Ashita-v4-Addons';
 
 require('common')
+local imgui = require('imgui')
 local settingsLIB = require('settings')
 --require('buffsmap')
 --require('job_abilities')
@@ -42,7 +43,7 @@ local settingsLIB = require('settings')
 --require('logging')
 --require('timer')
 
-local rollDelay        = 1 -- The delay to prevent spamming rolls , 3 seconds
+local rollDelay        = 3 -- The delay to prevent spamming rolls , 3 seconds
 local rollTimer        = 0;    -- The current time used for delaying packets.
 
 local defaults = T{
@@ -53,7 +54,7 @@ local defaults = T{
 	--displayy = nil,
 	engaged = false,
 	visible = true,
-        
+	is_open = {true,},
 	font_family = 'Arial',
 	font_height = 12,
 	color = 0xFFFFFFFF,
@@ -204,7 +205,7 @@ ashita.events.register('load', 'load_cb', function()
 	[69] = {id=69,en="Invisible",ja="インビジ",enl="Invisible",jal="インビジ"},
 	[16] = {id=16,en="amnesia",ja="アムネジア",enl="amnesic",jal="アムネジア"},
 	[261] = {id=261,en="impairment",ja="インペア",enl="impaired",jal="インペア"},]]
-}, --{"id", "en", "ja", "enl", "jal"}
+--}, --{"id", "en", "ja", "enl", "jal"}
     
 
 --	if settings.showdisplay then
@@ -213,19 +214,19 @@ ashita.events.register('load', 'load_cb', function()
 	
 	--GUI stuff
     -- Initialize the custom variables..
-    for k, v in pairs(variables) do
-        -- Create the variable..
-        if (v[2] >= ImGuiVar_CDSTRING) then 
-            variables[k][1] = imgui.CreateVar(variables[k][2], variables[k][3]);
-        else
-            variables[k][1] = imgui.CreateVar(variables[k][2]);
-        end
+    -- for k, v in pairs(variables) do
+    --     -- Create the variable..
+    --     if (v[2] >= ImGuiVar_CDSTRING) then 
+    --         variables[k][1] = imgui.CreateVar(variables[k][2], variables[k][3]);
+    --     else
+    --         variables[k][1] = imgui.CreateVar(variables[k][2]);
+    --     end
         
-        -- Set a default value if present..
-        if (#v > 2 and v[2] < ImGuiVar_CDSTRING) then
-            imgui.SetVarValue(variables[k][1], variables[k][3]);
-        end        
-    end
+    --     -- Set a default value if present..
+    --     if (#v > 2 and v[2] < ImGuiVar_CDSTRING) then
+    --         imgui.SetVarValue(variables[k][1], variables[k][3]);
+    --     end        
+    -- end
 	
 end);
 
@@ -236,22 +237,22 @@ end);
 function rollsFixedOverlay()
 
     -- Display the pet information..
-    imgui.SetNextWindowSize(200, 100, ImGuiSetCond_Always);
-    if (imgui.Begin('AshitaRoller') == false) then
-        imgui.End();
-        return;
-    end
-
-	imgui.Text('Roll1: ' .. rollInfo[settings.Roll1].name);
-	imgui.Text('Roll2: ' .. rollInfo[settings.Roll2].name);
-	imgui.Text('Autoroll: ' .. tostring(autoroll));
-	if (settings.engaged) then
-		imgui.Text("Engaged only mode on")
+    imgui.SetNextWindowSize({200, 100}, ImGuiSetCond_Always);
+    if (imgui.Begin('AshitaRoller', settings.is_open)) then
+        -- imgui.End();
+        -- return;
+		
+		imgui.Text('Roll1: ' .. rollInfo[settings.Roll1].name);
+		imgui.Text('Roll2: ' .. rollInfo[settings.Roll2].name);
+		imgui.Text('Autoroll: ' .. tostring(autoroll));
+		if (settings.engaged) then
+			imgui.Text("Engaged only mode on")
+		end
+		if (stealthy) then
+			imgui.Text("Invis/Sneak - No rolling");
+		end
+		
 	end
-	if (stealthy) then
-		imgui.Text("Invis/Sneak - No rolling");
-	end
-
     imgui.End();
 end
 
@@ -553,19 +554,19 @@ ashita.events.register('command', 'command_cb', function (e)
 end);
 
 
-ashita.register_event('incoming_packet', function(id, size, packet, packet_modified, blocked)
+ashita.events.register('packet_in', '__settings_packet_in_cb', function (e)
 
-	if (id == 0xB) then
+	if (e.id == 0xB) then
 		DebugMessage("Currently zoning.")
 		zoning_bool = true
-	elseif (id == 0xA and zoning_bool) then
+	elseif (e.id == 0xA and zoning_bool) then
 		DebugMessage("No longer zoning.")
 		zoning_bool = false
 	end
 
    
-   if id == 0x028 then
-	   act = parse_rolls(packet)
+   if e.id == 0x028 then
+	   act = parse_rolls(e.data)
 
 	   if act.category == 6 and table.containskey(rollInfo, act.param) then
 
@@ -771,7 +772,7 @@ function doRoll()
 	end
 end
 
-ashita.register_event('render', function()
+ashita.events.register('d3d_present', 'present_cb', function ()
 
 	local player = GetPlayerEntity();
 	if (player == nil) then
@@ -791,7 +792,7 @@ ashita.register_event('render', function()
 	haveBust = false
 	
 
-	local buffs						= AshitaCore:GetDataManager():GetPlayer():GetBuffs();
+	local buffs	= AshitaCore:GetMemoryManager():GetPlayer():GetBuffs();
 	for i,v in pairs(buffs) do
 		--we're mounted
 --		if buffs[i] == 601 then -- We have crooked roll buff
@@ -814,7 +815,7 @@ end);
 function parse_rolls(packet_data)--returns roll_name, roll_value(when a roll is rolled or double-upped)
 	local r_name;
 	local r_value;
-	local my_player_id 		= AshitaCore:GetDataManager():GetParty():GetMemberServerId(0);
+	local my_player_id 		= AshitaCore:GetMemoryManager():GetParty():GetMemberServerId(0);
 	local act           = { };
 	act.actor_id        = ashita.bits.unpack_be( packet_data, 40, 32 );
 	act.target_count    = ashita.bits.unpack_be( packet_data, 72, 8 );
@@ -859,7 +860,7 @@ roll_ja_enums =
     ["Avenger's Roll"]=305,
     ["Naturalist's Roll"]=390,
     ["Runeist's Roll"]=391,
-}
+};
 	
 	local bit           = 150;
 	for i = 1, act.target_count do
@@ -926,7 +927,7 @@ roll_ja_enums =
 	end
 	
 	return act
-end);
+end
 
 function CheckAbilityRecast(check)--pass ability Id
 	local RecastTime = 0;

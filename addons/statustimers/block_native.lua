@@ -24,72 +24,52 @@ local helpers = require('helpers');
 -------------------------------------------------------------------------------
 -- local constants
 -------------------------------------------------------------------------------
-local STATUSHANDLER1_ID = 'statustimers:statushandler_1';
-local STATUSHANDLER2_ID = 'statustimers:statushandler_2';
+
 -------------------------------------------------------------------------------
 -- local state
 -------------------------------------------------------------------------------
-local handler_data = T { 0x0000, 0x0000 };
+local handler_data = T {
+    pointer = nil,
+    opcodes = nil,
+};
 -------------------------------------------------------------------------------
 -- exported functions
 -------------------------------------------------------------------------------
 local module = {};
 
 helpers.register_init('block_native_init', function()
-    local pm = AshitaCore:GetPointerManager();
-
-    if (pm:Get(STATUSHANDLER1_ID) == 0) then
-        pm:Add(STATUSHANDLER1_ID, 'FFXiMain.dll', '75??55518B0D????????E8????????85C07F??8BDE', 0, 0);
-        if (pm:Get(STATUSHANDLER1_ID) == 0) then
-            return false;
-        end
-    end
-
-    if (pm:Get(STATUSHANDLER2_ID) == 0) then
-        pm:Add(STATUSHANDLER2_ID, 'FFXiMain.dll', '75??55518B0D????????E8????????85C07F??8BDE', 0, 1);
-        if (pm:Get(STATUSHANDLER2_ID) == 0) then
-            return false;
-        end
-    end
-
-    -- this should be two different signatures, if not -> abort
-    if (pm:Get(STATUSHANDLER1_ID) == pm:Get(STATUSHANDLER2_ID)) then
-        pm:Delete(STATUSHANDLER1_ID);
-        pm:Delete(STATUSHANDLER2_ID);
+    -- Locate the client function used to render status icons..
+    handler_data.pointer = ashita.memory.find('FFXiMain.dll', 0, '8BF885FF0F84????????5368', 4, 0);
+    if (handler_data.pointer == 0) then
         return false;
     end
 
-    -- backup the original instructions
-    handler_data[1] = ashita.memory.read_uint16(pm:Get(STATUSHANDLER1_ID));
-    handler_data[2] = ashita.memory.read_uint16(pm:Get(STATUSHANDLER2_ID));
+    -- Backup the original jump opcode..
+    handler_data.opcodes = ashita.memory.read_array(handler_data.pointer, 6);
 
-    -- check if they have been modified
-    if (handler_data[1] ~= 0x9090 and handler_data[2] ~= 0x9090) then
-        -- NOP out the branch that draws the native status icons
-        ashita.memory.write_uint16(pm:Get(STATUSHANDLER1_ID), 0x9090);
-        ashita.memory.write_uint16(pm:Get(STATUSHANDLER2_ID), 0x9090);
+    -- Patch the jump if it is not already patched..
+    if (handler_data.opcodes[1] == 0x0F) then
+        -- Rebuild the jump instruction..
+        local jmp = T{ 0xE9, handler_data.opcodes[3], handler_data.opcodes[4], handler_data.opcodes[5], handler_data.opcodes[6], 0x90, };
+        jmp[2] = jmp[2] + 1;
+
+        -- Patch the client function..
+        ashita.memory.write_array(handler_data.pointer, jmp);
         return true;
     end
+
     return false;
 end);
 
 helpers.register_cleanup('block_native_cleanup', function()
-    local pm = AshitaCore:GetPointerManager();
+    -- Restore the original client function..
+    if (handler_data.pointer ~= nil and handler_data.opcodes ~= nil) then
+        ashita.memory.write_array(handler_data.pointer, handler_data.opcodes);
 
-    -- revert the NOPs to the original instructions
-    if (pm:Get(STATUSHANDLER1_ID) ~= 0) then
-        if (handler_data[1] ~= 0x0000) then
-            ashita.memory.write_uint16(pm:Get(STATUSHANDLER1_ID), handler_data[1]);
-        end
-        pm:Delete(STATUSHANDLER1_ID);
+        handler_data.pointer = nil;
+        handler_data.opcodes = nil;
     end
 
-    if (pm:Get(STATUSHANDLER2_ID) ~= 0) then
-        if (handler_data[2] ~= 0x0000) then
-            ashita.memory.write_uint16(pm:Get(STATUSHANDLER2_ID), handler_data[2]);
-        end
-        pm:Delete(STATUSHANDLER2_ID);
-    end
     return true;
 end);
 

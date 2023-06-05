@@ -20,8 +20,8 @@ settings["job_settings"]["THF"]["Delay"] = 1.3;
 settings["job_settings"]["THF"]["AmmoBag"] = "B. Bolt Quiver";
 settings["job_settings"]["THF"]["HaltOnTp"] = false;
 settings["job_settings"]["THF"]["WeaponSkill"] = "";
-settings["auto"] = true;
-settings["player_mjob"] = "MON";
 settings["language"] = 1;
+settings["player_mjob"] = "MON";
+settings["auto"] = true;
 
 return settings;

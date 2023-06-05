@@ -6,46 +6,6 @@ ffi.cdef[[
 ]];
 
 local packethandlers = {};
-local cross_checks = 0
-local packetbuffer = {};
-
-function table_print (tt, indent, done)
-    done = done or {}
-    indent = indent or 0
-    if type(tt) == "table" then
-        local sb = {}
-        for key, value in pairs (tt) do
-        table.insert(sb, string.rep (" ", indent)) -- indent it
-        if type (value) == "table" and not done [value] then
-            done [value] = true
-            table.insert(sb, key .. " = {\n");
-            table.insert(sb, table_print (value, indent + 2, done))
-            table.insert(sb, string.rep (" ", indent)) -- indent it
-            table.insert(sb, "}\n");
-        elseif "number" == type(key) then
-            table.insert(sb, string.format("\"%s\"\n", tostring(value)))
-        else
-            table.insert(sb, string.format(
-                "%s = \"%s\"\n", tostring (key), tostring(value)))
-            end
-        end
-        return table.concat(sb)
-    else
-        return tt .. "\n"
-    end
-end
-  
-function to_string( tbl )
-    if  "nil"       == type( tbl ) then
-        return tostring(nil)
-    elseif  "table" == type( tbl ) then
-        return table_print(tbl)
-    elseif  "string" == type( tbl ) then
-        return tbl
-    else
-        return tostring(tbl)
-    end
-end
 
 -- trying to identify possible dupes
 local last_chunk_buffer;
@@ -84,7 +44,6 @@ function check_duplicates(e)
 end
 
 packethandlers.HandleIncoming0x00A = function(e)
-
     local id = struct.unpack('L', e.data, 0x04 + 1);
     local name = struct.unpack('c16', e.data, 0x84 + 1);
     local i,j = string.find(name, '\0');
@@ -120,25 +79,19 @@ packethandlers.DelayedSelfAssign = function ()
 end
 
 packethandlers.HandleIncoming0x28 = function(e)
-
 	local act_org = gActionHandlers.StringToAct(e.data)
 	act_org.size = e.data:byte(5)
 	local act_mod = gActionHandlers.StringToAct(e.data_modified)
 	act_mod.size = e.data_modified:byte(5)
 
-    local packet = gActionHandlers.ActToString(e.data, gActionHandlers.parse_action_packet(act_org, act_mod))
-
-	return packet
+	return gActionHandlers.ActToString(e.data, gActionHandlers.parse_action_packet(act_org, act_mod))
 end
 
 packethandlers.HandleIncomingPacket = function(e)
-    
-    if check_duplicates(e) then return end
-
 	if (e.id == 0x00A) then
 		gPacketHandlers.HandleIncoming0x00A(e);
-
     elseif (e.id == 0x28) then
+        if check_duplicates(e) then return end
         e.data_modified = gPacketHandlers.HandleIncoming0x28(e);
     end
 
@@ -178,6 +131,8 @@ packethandlers.HandleIncomingPacket = function(e)
 
 ------- ACTION MESSAGE -------
     elseif e.id == 0x29 then
+        if check_duplicates(e) then return end
+
         local am = {}
         am.actor_id = struct.unpack('I', e.data, 0x05)
         am.target_id = struct.unpack('I', e.data, 0x09)
